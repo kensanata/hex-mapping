@@ -77,6 +77,7 @@ my $example = q{
 0201 mountain
 0202 hill
 0203 coast
+0204 empty
 0301 mountain
 0302 mountain
 0303 plain
