@@ -16,6 +16,7 @@
 # This code started out as a fork of old-school-hex.pl.
 
 use CGI qw/:standard/;
+use CGI::Carp 'fatalsToBrowser';
 use strict;
 
 package Hex;
@@ -41,15 +42,17 @@ sub svg {
   my $self = shift;
   my $x = $self->x;
   my $y = $self->y;
-  my $type = $self->type;
-  my $data = sprintf(qq{  <use x="%.1f" y="%.1f" xlink:href="#%s" />\n}
-		     . qq{  <text text-anchor="middle" x="%.1f" y="%.1f" %s>}
-		     . qq{%d, %d}
-		     . qq{</text>\n},
-		     $x * $dx * 3/2, $y * $dy - $x%2 * $dy/2, $type,
-		     $x * $dx * 3/2, $y * $dy - $x%2 * $dy/2 - $dy * 0.4,
-		     $self->map->text_attributes,
-		     $x, $y);
+  my $data = '';
+  for my $type (@{$self->type}) {
+    $data .= sprintf(qq{  <use x="%.1f" y="%.1f" xlink:href="#%s" />\n},
+		     $x * $dx * 3/2, $y * $dy - $x%2 * $dy/2, $type);
+  }
+  $data .= sprintf(qq{  <text text-anchor="middle" x="%.1f" y="%.1f" %s>}
+		   . qq{%02d.%02d}
+		   . qq{</text>\n},
+		   $x * $dx * 3/2, $y * $dy - $x%2 * $dy/2 - $dy * 0.4,
+		   $self->map->text_attributes,
+		   $x, $y);
   return $data;
 }
 
@@ -80,7 +83,7 @@ my $example = q{
 0303 plain
 0304 sea
 0401 hill
-0402 sand
+0402 sand house
 0403 forest
 
 # attributes
@@ -103,6 +106,10 @@ plain path M -18,-13 C -13,-6 -13,4 -8,12 C -11,14 -15,21 -18,26 C -20,17 -22,4 
 
 mountain path M 30,-30 c -5,3 -19,18 -28,28 -4,-5 -7,-10 -9,-16 -7,4 -40,43 -43,53 2,2 4,2 6,2 7,-8 26,-40 34,-46 10,14 26,31 35,49 2,-1 4,-3 5,-3 C 30,33 16,18 3,0 11,-8 21,-19 29,-25 39,-9 49,-3 58,13 60,12 60,11 61,10 61,5 42,-7 29,-30 z
 
+house path M 0,4 C -6,7 -7,22 -6,26 -3,26 4,25 7,26 8,24 6,5 0,4 z M 7,-7 C 10,3 19,14 15,29 8,28 -5,30 -14,29 -13,9 -9,1 7,-7 z M 6,-38 c 7,12 34,23 48,27 -1,6 0,12 1,14 -9,-5 -11,-7 -18,-9 -3,14 0,24 2,33 -9,0 -7,3 -14,3 1,-13 4,-32 5,-39 -9,-4 -17,-11 -26,-17 -8,7 -20,13 -29,20 1,12 0,21 2,33 -7,1 -8,2 -14,4 0,-9 2,-22 1,-31 -7,4 -14,6 -21,8 2,-11 45,-22 64,-46 z
+
+house path attributes fill="#664"
+
 text font-size="20pt" dy="15px"
 };
 
@@ -116,8 +123,10 @@ my $dy = 100*sqrt(3);
 sub initialize {
   my ($self, $map) = @_;
   foreach (split(/\r?\n/, $map)) {
-    if (/^(\d\d)(\d\d)\s+(\S+)/) {
-      my $hex = Hex->new(x => $1, y => $2, type => $3, map => $self);
+    if (/^(\d\d)(\d\d)\s+(.+)?/) {
+      my $hex = Hex->new(x => $1, y => $2, map => $self);
+      my @types = split(' ', $3);
+      $hex->type(\@types);
       $self->add($hex);
     } elsif (/^(\S+)\s+attributes\s+(.*)/) {
       $self->attributes($1, $2);
@@ -180,15 +189,18 @@ sub svg {
 	$x4, $y4, $x5, $y5, $x6, $y6) =
 	  (-$dx, 0, -$dx/2, $dy/2, $dx/2, $dy/2,
 	   $dx, 0, $dx/2, -$dy/2, -$dx/2, -$dy/2);
-    if ($path) {
+    if ($path && $attributes) {
       $doc .= qq{
     <g id='$type'>
       <polygon $attributes points='$x1,$y1 $x2,$y2 $x3,$y3 $x4,$y4 $x5,$y5 $x6,$y6' />
       <path $path_attributes d='$path' />
     </g>};
+    } elsif ($path) {
+      $doc .= qq{
+    <path id='$type' $path_attributes d='$path' />};
     } else {
       $doc .= qq{
-      <polygon id='$type' $attributes points='$x1,$y1 $x2,$y2 $x3,$y3 $x4,$y4 $x5,$y5 $x6,$y6' />}
+    <polygon id='$type' $attributes points='$x1,$y1 $x2,$y2 $x3,$y3 $x4,$y4 $x5,$y5 $x6,$y6' />}
     }
   }
   $doc .= q{
