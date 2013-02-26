@@ -29,18 +29,13 @@ struct Hex => {
 	       map => 'Mapper',
 	      };
 
-sub at {
-  my ($self, $x, $y) = @_;
-  return $self->x == $x && $self->y == $y;
-}
-
 sub str {
   my $self = shift;
   return '(' . $self->x . ',' . $self->y . ')';
 }
 
-my $dx = 100*sqrt(3);
-my $dy = 100;
+my $dx = 100;
+my $dy = 100*sqrt(3);
 
 sub svg {
   my $self = shift;
@@ -51,8 +46,8 @@ sub svg {
 		     . qq{  <text text-anchor="middle" x="%.1f" y="%.1f" %s>}
 		     . qq{%d, %d}
 		     . qq{</text>\n},
-		     $x * $dx + $y * $dx / 2, $y * 3 / 2 * $dy, $type,
-		     $x * $dx + $y * $dx / 2, $y * 3 / 2 * $dy - $dy * 2 / 3,
+		     $x * $dx * 3/2, $y * $dy - $x%2 * $dy/2, $type,
+		     $x * $dx * 3/2, $y * $dy - $x%2 * $dy/2 - $dy * 0.4,
 		     $self->map->text_attributes,
 		     $x, $y);
   return $data;
@@ -112,8 +107,8 @@ sub example {
   return $example;
 }
 
-my $dx = 100*sqrt(3);
-my $dy = 100;
+my $dx = 100;
+my $dy = 100*sqrt(3);
 
 sub initialize {
   my ($self, $map) = @_;
@@ -138,25 +133,29 @@ sub add {
   push(@{$self->hexes}, $hex);
 }
 
-# This implementation is *very* slow.
-sub get {
-  my ($self, $x, $y) = @_;
-  foreach my $hex (@{$self->hexes}) {
-    if ($hex->at($x, $y)) {
-      return $hex;
-    }
-  }
-  # warn "did not find ($x,$y)\n";
-  return undef;
-}
-
 sub svg {
   my ($self) = @_;
+
+  my ($minx, $miny, $maxx, $maxy);
+  foreach my $hex (@{$self->hexes}) {
+    $minx = $hex->x if not defined($minx);
+    $maxx = $hex->x if not defined($maxx);
+    $miny = $hex->y if not defined($miny);
+    $maxy = $hex->x if not defined($maxy);
+    $minx = $hex->x if $minx > $hex->x;
+    $maxx = $hex->x if $maxx < $hex->x;
+    $miny = $hex->y if $miny > $hex->y;
+    $maxy = $hex->x if $maxy < $hex->y;
+  }
+  ($minx, $miny, $maxx, $maxy) =
+    (($minx -0.5) * $dx, ($miny - 1) * $dy,
+     ($maxx) * 1.5 * $dx + $dx, ($maxy + 1.5) * $dy);
+
   my $doc = qq{<?xml version="1.0" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
   "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg xmlns="http://www.w3.org/2000/svg" version="1.1"
-     viewBox="-$dx -$dy 1000 1000"
+     viewBox="$minx $miny $maxx $maxy"
      xmlns:xlink="http://www.w3.org/1999/xlink">
   <defs>};
 
@@ -169,15 +168,15 @@ sub svg {
     $type{$type} = 1;
   }
 
-  # no go through them all
+  # now go through them all
   foreach my $type (keys %type) {
     my $attributes = $self->attributes($type);
     my $path = $self->path($type);
     my $path_attributes = $self->path_attributes($type);
     my ($x1, $y1, $x2, $y2, $x3, $y3,
 	$x4, $y4, $x5, $y5, $x6, $y6) =
-	  (-$dx/2, -$dy/2, -$dx/2, $dy/2, 0, $dy,
-	   $dx/2, $dy/2, $dx/2, -$dy/2, 0, -$dy);
+	  (-$dx, 0, -$dx/2, $dy/2, $dx/2, $dy/2,
+	   $dx, 0, $dx/2, -$dy/2, -$dx/2, -$dy/2);
     if ($path) {
       $doc .= qq{
     <g id='$type'>
@@ -197,7 +196,13 @@ sub svg {
     $doc .= $hex->svg();
   }
 
-  $doc .= q{
+  # my ($width, $height) = ($maxx - $minx, $maxy - $miny);
+  # $doc .= qq{
+  # <rect x="$minx" y="$miny" width="$width" height="$height"
+  #       stroke="red" stroke-width="3px" fill="white" fill-opacity="0.2" />
+  # <text x="$minx" y="$maxy">$minx, $miny, $maxx, $maxy</text>};
+
+  $doc .= qq{
 </svg>};
 
   return $doc;
