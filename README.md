@@ -50,3 +50,8 @@ particular terrain:
 You can provide attributes for this path as well:
 
     hill path attributes fill="#b8860b"
+
+And finally, you can add attributes to the text element used for the
+coordinates:
+
+    text font-size="20pt" dy="15px"
