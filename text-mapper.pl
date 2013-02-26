@@ -230,7 +230,9 @@ sub print_html {
 	 hr(),
 	 p(a({-href=>'http://www.alexschroeder.ch/wiki/About'},
 	     'Alex Schröder'),
-	   a({-href=>url() . '/source'}, 'Source')),
+	   a({-href=>url() . '/source'}, 'Source'),
+	   a({-href=>'https://github.com/kensanata/hex-mapping'},
+	     'GitHub')),
 	 end_html());
 }
 
