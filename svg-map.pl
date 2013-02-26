@@ -804,8 +804,10 @@ sub print_html {
 	   'followed by trade codes (see below), and optionally a',
 	   i('travel code'), '(A or R).'),
 	 hr(),
-	 address(a({ -href=>'http://emacswiki.org/alex/About'}, 'Alex Schröder'),
-		 a({ -href=>url().'/source'}, 'Source')),
+	 p(a({ -href=>'http://emacswiki.org/alex/About'}, 'Alex Schröder'),
+	   a({ -href=>url().'/source'}, 'Source'),
+	   a({-href=>'https://github.com/kensanata/hex-mapping'},
+	     'GitHub')),
 	 end_html());
 }
 
