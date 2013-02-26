@@ -91,6 +91,7 @@ forest attributes fill="#228b22" stroke="black" stroke-width="3"
 hill attributes fill="#daa520" stroke="black" stroke-width="3"
 hill path attributes fill="#b8860b"
 mountain attributes fill="#708090" stroke="black" stroke-width="3"
+mountain path attributes fill="#666666"
 sand attributes fill="#eedd82" stroke="black" stroke-width="3"
 coast attributes fill="#7fffd4" stroke="black" stroke-width="3"
 sea attributes fill="#4169e1" stroke="black" stroke-width="3"
@@ -99,6 +100,8 @@ sea attributes fill="#4169e1" stroke="black" stroke-width="3"
 hill path M -42,11 C -38,5 -34,0 -28,-3 C -20,-6 -11,-5 -5,-0 C -2,2 1,6 3,9 C 4,12 2,13 0,14 C -3,9 -7,5 -13,2 C -21,-1 -30,0 -36,6 C -38,9 -40,11 -43,14 C -43,15 -44,14 -44,13 C -43,12 -43,12 -42,11 z M -5,-0 C 0,-6 7,-12 15,-16 C 21,-18 28,-17 33,-14 C 39,-11 41,-5 43,-0 C 42,2 41,5 39,2 C 37,-2 33,-8 27,-10 C 20,-13 12,-12 6,-7 C 2,-4 -1,-1 -4,1 C -7,4 -6,0 -5,-0 z
 
 plain path M -18,-13 C -13,-6 -13,4 -8,12 C -11,14 -15,21 -18,26 C -20,17 -22,4 -28,0 C -26,-4 -21,-9 -18,-13 z M 5,-31 C 4,-19 3,-6 6,5 C 1,10 -0,14 -3,19 C -2,6 -3,-4 -4,-16 C -4,-21 2,-26 5,-31 z M 26,-1 C 16,6 19,5 9,18 C 12,3 21,-8 34,-17 C 32,-12 29,-6 27,-1 z
+
+mountain path M 30,-30 c -5,3 -19,18 -28,28 -4,-5 -7,-10 -9,-16 -7,4 -40,43 -43,53 2,2 4,2 6,2 7,-8 26,-40 34,-46 10,14 26,31 35,49 2,-1 4,-3 5,-3 C 30,33 16,18 3,0 11,-8 21,-19 29,-25 39,-9 49,-3 58,13 60,12 60,11 61,10 61,5 42,-7 29,-30 z
 
 text font-size="20pt" dy="15px"
 };
