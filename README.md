@@ -55,3 +55,17 @@ And finally, you can add attributes to the text element used for the
 coordinates:
 
     text font-size="20pt" dy="15px"
+
+uwp-generator
+-------------
+
+This application generates a random UWP list suitable for
+Traveller-style Science Fiction games.
+
+svg-map
+-------
+
+This application takes the UWP of a subsector and generates a map for
+you. If possible, it also adds communication and trade routes based on
+some heuristics. You should install the `uwp-generator` in the same
+directory such that the "Random Map" button works as advertized.

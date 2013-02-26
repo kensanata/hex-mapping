@@ -148,8 +148,8 @@ sub svg {
     $maxy = $hex->x if $maxy < $hex->y;
   }
   ($minx, $miny, $maxx, $maxy) =
-    (($minx -0.5) * $dx, ($miny - 1) * $dy,
-     ($maxx) * 1.5 * $dx + $dx, ($maxy + 1.5) * $dy);
+    (($minx -0.5) * $dx - 10, ($miny - 1) * $dy - 10,
+     ($maxx) * 1.5 * $dx + $dx + 10, ($maxy + 1.5) * $dy + 10);
 
   my $doc = qq{<?xml version="1.0" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
