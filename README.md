@@ -62,6 +62,14 @@ uwp-generator
 This application generates a random UWP list suitable for
 Traveller-style Science Fiction games.
 
+It generates output like the following:
+
+    Tavomazupa       0103  D85D000-0           Ba Wa
+    Xeqqtite         0107  C858651-6       S   Ag Ga NI
+    Baziezoti        0108  C467100-7           Lo A
+    Zuzinba          0109  D350697-3       S   De Lt NI Po
+    Titutelu         0202  C75B988-6           Hi Wa
+
 svg-map
 -------
 

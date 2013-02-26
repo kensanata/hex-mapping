@@ -363,6 +363,12 @@ package main;
 
 use CGI qw/:standard/;
 
+sub script {
+  my $uri = url();
+  $uri =~ s/\/\d+$//;
+  return $uri;
+}
+
 sub print_html {
   my $id = shift;
   print (header(-type=>'text/html; charset=UTF-8'),
@@ -383,7 +389,7 @@ IC Ice-Capped          +- Starport          Va Vacuum
 
 Bases: Naval – Scout – Research – TAS – Consulate – Pirate
 EOT
-	 start_form(-action=>url()),
+	 start_form(-action=>script()),
 	 hidden('seed', $id),
 	 submit('generate', 'Generate UWP'), ' ',
 	 submit('map', 'Generate Map'),
@@ -404,9 +410,9 @@ sub main {
     srand($1);
     print_html($1);
   } elsif (param('seed') and not param('generate')) {
-    my $uri = url();
-    my $self = url(-relative=>1);
-    $uri =~ s/$self/svg-map/;
+    my $seed = param('seed');
+    my $uri = script();
+    $uri =~ s/uwp-generator/svg-map/;
     print redirect(-uri=>"$uri/" . param('seed'));
   } else {
     print redirect(-uri=>url() . '/' . int(rand(INT_MAX)));

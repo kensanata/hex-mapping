@@ -821,8 +821,8 @@ sub main {
     my $seed = $1 || param('seed');
     my $wiki = param('wiki');
     my $uri = url();
-    my $self = url(-relative=>1);
-    $uri =~ s/$self/uwp-generator/;
+    $uri =~ s/\/$seed$//;
+    $uri =~ s/svg-map/uwp-generator/;
     $uri .= "/$seed" if $seed;
     my $ua = LWP::UserAgent->new;
     my $response = $ua->get($uri);
