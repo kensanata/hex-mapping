@@ -48,11 +48,12 @@ sub svg {
   my $y = $self->y;
   my $type = $self->type;
   my $data = sprintf(qq{  <use x="%.1f" y="%.1f" xlink:href="#%s" />\n}
-		     . qq{  <text text-anchor="middle" x="%.1f" y="%.1f">}
+		     . qq{  <text text-anchor="middle" x="%.1f" y="%.1f" %s>}
 		     . qq{%d, %d}
 		     . qq{</text>\n},
 		     $x * $dx + $y * $dx / 2, $y * 3 / 2 * $dy, $type,
 		     $x * $dx + $y * $dx / 2, $y * 3 / 2 * $dy - $dy * 2 / 3,
+		     $self->map->text_attributes,
 		     $x, $y);
   return $data;
 }
@@ -66,6 +67,7 @@ struct Mapper => {
 		  attributes => '%',
 		  path => '%',
 		  path_attributes => '%',
+		  text_attributes => '$',
 		 };
 
 my $example = q{
@@ -87,21 +89,23 @@ my $example = q{
 0403 forest
 
 # attributes
-empty attributes fill="#ffffff" stroke="#b3b3ff"
-plain attributes fill="#7cfc00"
-plain path attributes fill="#7fff00"
-forest attributes fill="#228b22"
-hill attributes fill="#daa520"
+empty attributes fill="#ffffff" stroke="black" stroke-width="3"
+plain attributes fill="#7cfc00" stroke="black" stroke-width="3"
+plain path attributes fill="#76ee00"
+forest attributes fill="#228b22" stroke="black" stroke-width="3"
+hill attributes fill="#daa520" stroke="black" stroke-width="3"
 hill path attributes fill="#b8860b"
-mountain attributes fill="#708090"
-sand attributes fill="#eedd82"
-coast attributes fill="#7fffd4"
-sea attributes fill="#4169e1"
+mountain attributes fill="#708090" stroke="black" stroke-width="3"
+sand attributes fill="#eedd82" stroke="black" stroke-width="3"
+coast attributes fill="#7fffd4" stroke="black" stroke-width="3"
+sea attributes fill="#4169e1" stroke="black" stroke-width="3"
 
 # add shapes
-hill path M -42.887901,11.051062 C -38.8,5.5935948 -34.0,0.5 -28.174309,-3.0 C -20.987476,-6.5505102 -11.857161,-5.1811592 -5.7871072,-0.050580244 C -2.0,2.6706698 1.1683798,6.1 3.8585628,9.8783938 C 4.1,12.295981 2.5,13.9 0.57117882,14.454662 C -3.0696782,9.3 -7.8,5.1646538 -13.4,2.1 C -21.686794,-1.7 -30.0,0.79168476 -36.5,6.6730178 C -38.8,9.0 -40.9,11.5 -43.086547,14.0 C -43.088939,15.072012 -44.8,14.756431 -44.053241,13.8 C -43.7,12.8 -43.0,12.057 -42.887901,11.051062 z M -5.0,-0.75883624 C 0.9,-6.9553992 7.6,-12.7 15.5,-16.171056 C 21.5,-18.6 28.5,-17.6 33.9,-14.2 C 39.15207,-11.0 41.67227,-5.5846132 43.7,-0.072156244 C 42.456295,2.4 41.252332,5.7995568 39.0,2.9 C 37.295351,-2.9527612 33.1,-8.2775842 27.4,-10.7 C 20.5,-13.551561 12.2,-12.061567 6.4,-7.4 C 2.4597998,-4.7 -1.0845122,-1.4893282 -4.5,1.8 C -7.2715222,4.0 -6.0866092,0.89928976 -5.0,-0.75883624 z
+hill path M -42,11 C -38,5 -34,0 -28,-3 C -20,-6 -11,-5 -5,-0 C -2,2 1,6 3,9 C 4,12 2,13 0,14 C -3,9 -7,5 -13,2 C -21,-1 -30,0 -36,6 C -38,9 -40,11 -43,14 C -43,15 -44,14 -44,13 C -43,12 -43,12 -42,11 z M -5,-0 C 0,-6 7,-12 15,-16 C 21,-18 28,-17 33,-14 C 39,-11 41,-5 43,-0 C 42,2 41,5 39,2 C 37,-2 33,-8 27,-10 C 20,-13 12,-12 6,-7 C 2,-4 -1,-1 -4,1 C -7,4 -6,0 -5,-0 z
 
-plain path M -18.4,-13.8 C -13.773555,-6.4 -13.5,4.8 -8.5597061,12.2 C -11.8,14.870577 -15.069019,21.666847 -18.3,26.4 C -20.361758,17.3 -22.6,4.6520873 -28.6,0.77998732 C -26.199022,-4.0 -21.798258,-9.2 -18.4,-13.8 z M 5.6,-31.658907 C 4.3,-19.899253 3.8,-6.1 6.266188,5.9733973 C 1.5,10.168437 -0.26595005,14.952917 -3.5,19.4 C -2.899459,6.8 -3.177218,-4.7 -4.689108,-16.686835 C -4.2,-21.8 2.474668,-26.0 5.6,-31.658907 z M 26.968846,-1.1996857 C 16.0,6.5525273 19.067496,5.3 9.571268,18.1 C 12.890808,3.4845973 21.898666,-8.9 34.1,-17.3 C 32.1,-12.1 29.4,-6.5 27.0,-1.2 z
+plain path M -18,-13 C -13,-6 -13,4 -8,12 C -11,14 -15,21 -18,26 C -20,17 -22,4 -28,0 C -26,-4 -21,-9 -18,-13 z M 5,-31 C 4,-19 3,-6 6,5 C 1,10 -0,14 -3,19 C -2,6 -3,-4 -4,-16 C -4,-21 2,-26 5,-31 z M 26,-1 C 16,6 19,5 9,18 C 12,3 21,-8 34,-17 C 32,-12 29,-6 27,-1 z
+
+text font-size="20pt" dy="15px"
 };
 
 sub example {
@@ -123,6 +127,8 @@ sub initialize {
       $self->path_attributes($1, $2);
     } elsif (/^(\S+)\s+path\s+(.*)/) {
       $self->path($1, $2);
+    } elsif (/^text\s+(.*)/) {
+      $self->text_attributes($1);
     }
   }
 }
@@ -198,18 +204,6 @@ sub svg {
 }
 
 package main;
-
-=head2 The Coordinate System
-
-The coordinates of the hex map use a slanted Y axis:
-
-      0,-1       1,-1     2,-1
- -1,0      0,0       1,0      2,0
-      -1,1       0,1      1,1
-          -1,2       0,2      1,2
-                -1,3      0,3
-
-=cut
 
 sub print_map {
   print header(-type=>'image/svg+xml');
