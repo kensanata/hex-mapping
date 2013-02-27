@@ -84,13 +84,15 @@ my $example = q{
 0304 sea
 0401 hill
 0402 sand house
-0403 forest
+0403 jungle
 
 # attributes
 empty attributes fill="#ffffff" stroke="black" stroke-width="3"
 plain attributes fill="#7cfc00" stroke="black" stroke-width="3"
 plain path attributes fill="#76ee00"
 forest attributes fill="#228b22" stroke="black" stroke-width="3"
+jungle attributes fill="#9acd32" stroke="black" stroke-width="3"
+jungle path attributes fill="#228b22"
 hill attributes fill="#daa520" stroke="black" stroke-width="3"
 hill path attributes fill="#b8860b"
 mountain attributes fill="#708090" stroke="black" stroke-width="3"
@@ -109,6 +111,8 @@ mountain path M 30,-30 c -5,3 -19,18 -28,28 -4,-5 -7,-10 -9,-16 -7,4 -40,43 -43,
 house path M 0,4 C -6,7 -7,22 -6,26 -3,26 4,25 7,26 8,24 6,5 0,4 z M 7,-7 C 10,3 19,14 15,29 8,28 -5,30 -14,29 -13,9 -9,1 7,-7 z M 6,-38 c 7,12 34,23 48,27 -1,6 0,12 1,14 -9,-5 -11,-7 -18,-9 -3,14 0,24 2,33 -9,0 -7,3 -14,3 1,-13 4,-32 5,-39 -9,-4 -17,-11 -26,-17 -8,7 -20,13 -29,20 1,12 0,21 2,33 -7,1 -8,2 -14,4 0,-9 2,-22 1,-31 -7,4 -14,6 -21,8 2,-11 45,-22 64,-46 z
 
 house path attributes fill="#664"
+
+jungle path m 8,-20 c -6,-12 -36,-5 -44,7 9,-6 35,-12 37,-5 -18,0 -29,6 -33,24 C -22,-13 -8,-14 2,-13 -8,6 -20,13 -16,50 c 4,3 9,-5 5,-8 -1,-7 -1,-13 0,-20 C -10,10 1,-7 9,-12 27,-8 36,0 34,15 44,4 30,-12 14,-15 28,-16 41,-7 45,1 47,-8 29,-19 17,-20 c 11,-7 25,-3 30,3 -5,-14 -36,-11 -39,-3 z
 
 text font-size="20pt" dy="15px"
 };
