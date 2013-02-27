@@ -27,6 +27,7 @@ struct Hex => {
 	       x => '$',
 	       y => '$',
 	       type => '$',
+	       label => '$',
 	       map => 'Mapper',
 	      };
 
@@ -56,6 +57,25 @@ sub svg {
   return $data;
 }
 
+sub svg_label {
+  my $self = shift;
+  my $x = $self->x;
+  my $y = $self->y;
+  my $data = sprintf(qq{  <text text-anchor="middle" x="%.1f" y="%.1f" %s %s }
+		     . qq{filter="url(#label-glow)">}
+		   . $self->label
+		   . qq{</text>\n},
+		   $x * $dx * 3/2, $y * $dy - $x%2 * $dy/2 + $dy * 0.4,
+		   $self->map->label_attributes,
+		   $self->map->glow_attributes) if $self->label;
+  $data .= sprintf(qq{  <text text-anchor="middle" x="%.1f" y="%.1f" %s>}
+		   . $self->label
+		   . qq{</text>\n},
+		   $x * $dx * 3/2, $y * $dy - $x%2 * $dy/2 + $dy * 0.4,
+		   $self->map->label_attributes) if $self->label;
+  return $data;
+}
+
 package Mapper;
 
 use Class::Struct;
@@ -63,9 +83,12 @@ use Class::Struct;
 struct Mapper => {
 		  hexes => '@',
 		  attributes => '%',
+		  map => '$',
 		  path => '%',
 		  path_attributes => '%',
 		  text_attributes => '$',
+		  glow_attributes => '$',
+		  label_attributes => '$',
 		 };
 
 my $example = q{
@@ -84,7 +107,7 @@ my $example = q{
 0304 sea
 0401 hill
 0402 sand house
-0403 jungle
+0403 jungle "Harald's Repose"
 
 # attributes
 empty attributes fill="#ffffff" stroke="black" stroke-width="3"
@@ -115,6 +138,8 @@ house path attributes fill="#664"
 jungle path m 8,-20 c -6,-12 -36,-5 -44,7 9,-6 35,-12 37,-5 -18,0 -29,6 -33,24 C -22,-13 -8,-14 2,-13 -8,6 -20,13 -16,50 c 4,3 9,-5 5,-8 -1,-7 -1,-13 0,-20 C -10,10 1,-7 9,-12 27,-8 36,0 34,15 44,4 30,-12 14,-15 28,-16 41,-7 45,1 47,-8 29,-19 17,-20 c 11,-7 25,-3 30,3 -5,-14 -36,-11 -39,-3 z
 
 text font-size="20pt" dy="15px"
+label font-size="20pt" dy="5px"
+glow stroke="white" stroke-width="5"
 };
 
 sub example {
@@ -126,9 +151,11 @@ my $dy = 100*sqrt(3);
 
 sub initialize {
   my ($self, $map) = @_;
+  $self->map($map);
   foreach (split(/\r?\n/, $map)) {
-    if (/^(\d\d)(\d\d)\s+(.+)?/) {
+    if (/^(\d\d)(\d\d)\s+([^"\r\n]+)?\s*(?:"(.+)")?/) {
       my $hex = Hex->new(x => $1, y => $2, map => $self);
+      $hex->label($4);
       my @types = split(' ', $3);
       $hex->type(\@types);
       $self->add($hex);
@@ -140,6 +167,10 @@ sub initialize {
       $self->path($1, $2);
     } elsif (/^text\s+(.*)/) {
       $self->text_attributes($1);
+    } elsif (/^glow\s+(.*)/) {
+      $self->glow_attributes($1);
+    } elsif (/^label\s+(.*)/) {
+      $self->label_attributes($1);
     }
   }
 }
@@ -171,7 +202,11 @@ sub svg {
 <svg xmlns="http://www.w3.org/2000/svg" version="1.1"
      viewBox="$minx $miny $maxx $maxy"
      xmlns:xlink="http://www.w3.org/1999/xlink">
-  <defs>};
+  <defs>
+    <filter id="label-glow">
+      <feGaussianBlur stdDeviation="1" />
+    </filter>
+};
 
   # collect hex types from attributess and paths in case the sets don't overlap
   my %type = ();
@@ -212,12 +247,11 @@ sub svg {
   foreach my $hex (@{$self->hexes}) {
     $doc .= $hex->svg();
   }
+  foreach my $hex (@{$self->hexes}) {
+    $doc .= $hex->svg_label();
+  }
 
-  # my ($width, $height) = ($maxx - $minx, $maxy - $miny);
-  # $doc .= qq{
-  # <rect x="$minx" y="$miny" width="$width" height="$height"
-  #       stroke="red" stroke-width="3px" fill="white" fill-opacity="0.2" />
-  # <text x="$minx" y="$maxy">$minx, $miny, $maxx, $maxy</text>};
+  $doc .= "<!-- Source\n" . $self->map() . "\n-->";
 
   $doc .= qq{
 </svg>};
