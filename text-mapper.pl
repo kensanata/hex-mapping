@@ -61,18 +61,11 @@ sub svg_label {
   my $self = shift;
   my $x = $self->x;
   my $y = $self->y;
-  my $data = sprintf(qq{  <text text-anchor="middle" x="%.1f" y="%.1f" %s %s }
-		     . qq{filter="url(#label-glow)">}
-		   . $self->label
-		   . qq{</text>\n},
-		   $x * $dx * 3/2, $y * $dy - $x%2 * $dy/2 + $dy * 0.4,
-		   $self->map->label_attributes,
-		   $self->map->glow_attributes) if $self->label;
-  $data .= sprintf(qq{  <text text-anchor="middle" x="%.1f" y="%.1f" %s>}
-		   . $self->label
-		   . qq{</text>\n},
-		   $x * $dx * 3/2, $y * $dy - $x%2 * $dy/2 + $dy * 0.4,
-		   $self->map->label_attributes) if $self->label;
+  my $filter = $self->map->glow ? qq{filter="url(#label-glow)"} : '';
+  my $data = sprintf(qq{  <text text-anchor="middle" x="%.1f" y="%.1f" %s %s>%s</text>\n},
+		     $x * $dx * 3/2, $y * $dy - $x%2 * $dy/2 + $dy * 0.4,
+		     $self->map->label_attributes, $filter,
+		     $self->label) if $self->label;
   return $data;
 }
 
@@ -87,8 +80,8 @@ struct Mapper => {
 		  path => '%',
 		  path_attributes => '%',
 		  text_attributes => '$',
-		  glow_attributes => '$',
 		  label_attributes => '$',
+		  glow => '$',
 		 };
 
 my $example = q{
@@ -139,7 +132,7 @@ jungle path m 8,-20 c -6,-12 -36,-5 -44,7 9,-6 35,-12 37,-5 -18,0 -29,6 -33,24 C
 
 text font-size="20pt" dy="15px"
 label font-size="20pt" dy="5px"
-glow stroke="white" stroke-width="5"
+glow
 };
 
 sub example {
@@ -167,8 +160,8 @@ sub initialize {
       $self->path($1, $2);
     } elsif (/^text\s+(.*)/) {
       $self->text_attributes($1);
-    } elsif (/^glow\s+(.*)/) {
-      $self->glow_attributes($1);
+    } elsif (/^glow/) {
+      $self->glow(1);
     } elsif (/^label\s+(.*)/) {
       $self->label_attributes($1);
     }
@@ -204,7 +197,14 @@ sub svg {
      xmlns:xlink="http://www.w3.org/1999/xlink">
   <defs>
     <filter id="label-glow">
-      <feGaussianBlur stdDeviation="1" />
+      <feFlood flood-color="white"/>
+      <feComposite in2="SourceGraphic" operator="in"/>
+      <feGaussianBlur stdDeviation="3"/>
+      <feComposite operator="over"/>
+      <feComposite operator="over"/>
+      <feComposite operator="over"/>
+      <feComposite operator="over"/>
+      <feComposite in="SourceGraphic"/>
     </filter>
 };
 
