@@ -199,11 +199,10 @@ sub svg {
     <filter id="label-glow">
       <feFlood flood-color="white"/>
       <feComposite in2="SourceGraphic" operator="in"/>
-      <feGaussianBlur stdDeviation="3"/>
-      <feComposite operator="over"/>
-      <feComposite operator="over"/>
-      <feComposite operator="over"/>
-      <feComposite operator="over"/>
+      <feGaussianBlur stdDeviation="2.5 1.5"/>
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="4" intercept="0.0"/>
+      </feComponentTransfer>
       <feComposite in="SourceGraphic"/>
     </filter>
 };
