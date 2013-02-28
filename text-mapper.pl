@@ -89,6 +89,7 @@ struct Mapper => {
 		  text_attributes => '$',
 		  glow_attributes => '$',
 		  label_attributes => '$',
+		  messages => '@',
 		 };
 
 my $example = q{
@@ -122,10 +123,11 @@ my $dy = 100*sqrt(3);
 sub initialize {
   my ($self, $map) = @_;
   $self->map($map);
-  process(split(/\r?\n/, $map));
+  $self->process(split(/\r?\n/, $map));
 }
 
 sub process {
+  my $self = shift;
   foreach (@_) {
     if (/^(\d\d)(\d\d)\s+([^"\r\n]+)?\s*(?:"(.+)")?/) {
       my $hex = Hex->new(x => $1, y => $2, map => $self);
@@ -147,9 +149,12 @@ sub process {
       $self->label_attributes($1);
     } elsif (/^include\s+(\S*)/) {
       my $ua = LWP::UserAgent->new;
-      my $response = $ua->get($uri);
-      process($response->decoded_content)
-	if $response->is_success;
+      my $response = $ua->get($1);
+      if ($response->is_success) {
+	$self->process(split(/\n/, $response->decoded_content));
+      } else {
+	push(@{$self->messages}, $response->status_line);
+      }
     }
   }
 }
@@ -225,6 +230,11 @@ sub svg {
   }
   foreach my $hex (@{$self->hexes}) {
     $doc .= $hex->svg_label();
+  }
+  my $y = 10;
+  foreach my $msg (@{$self->messages}) {
+    $doc .= "  <text x='0' y='$y'>$msg</text>\n";
+    $y += 10;
   }
 
   $doc .= "<!-- Source\n" . $self->map() . "\n-->";
