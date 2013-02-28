@@ -61,8 +61,7 @@ sub svg_label {
   my $self = shift;
   my $x = $self->x;
   my $y = $self->y;
-  my $data = sprintf(qq{  <text text-anchor="middle" x="%.1f" y="%.1f" %s %s }
-		     . qq{filter="url(#label-glow)">}
+  my $data = sprintf(qq{  <text text-anchor="middle" x="%.1f" y="%.1f" %s %s>}
 		   . $self->label
 		   . qq{</text>\n},
 		   $x * $dx * 3/2, $y * $dy - $x%2 * $dy/2 + $dy * 0.4,
@@ -139,7 +138,7 @@ jungle path m 8,-20 c -6,-12 -36,-5 -44,7 9,-6 35,-12 37,-5 -18,0 -29,6 -33,24 C
 
 text font-size="20pt" dy="15px"
 label font-size="20pt" dy="5px"
-glow stroke="white" stroke-width="5"
+glow stroke="white" stroke-width="5pt"
 };
 
 sub example {
@@ -203,9 +202,6 @@ sub svg {
      viewBox="$minx $miny $maxx $maxy"
      xmlns:xlink="http://www.w3.org/1999/xlink">
   <defs>
-    <filter id="label-glow">
-      <feGaussianBlur stdDeviation="1" />
-    </filter>
 };
 
   # collect hex types from attributess and paths in case the sets don't overlap
