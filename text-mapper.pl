@@ -123,6 +123,7 @@ my $dy = 100*sqrt(3);
 sub initialize {
   my ($self, $map) = @_;
   $self->map($map);
+  local %seen;
   $self->process(split(/\r?\n/, $map));
 }
 
@@ -148,12 +149,18 @@ sub process {
     } elsif (/^label\s+(.*)/) {
       $self->label_attributes($1);
     } elsif (/^include\s+(\S*)/) {
-      my $ua = LWP::UserAgent->new;
-      my $response = $ua->get($1);
-      if ($response->is_success) {
-	$self->process(split(/\n/, $response->decoded_content));
+      if (scalar keys %seen > 5) {
+	push(@{$self->messages}, "Includes are limited to five to prevent loops");
+      } elsif ($seen{$1}) {
+	push(@{$self->messages}, "$1 was included twice");
       } else {
-	push(@{$self->messages}, $response->status_line);
+	my $ua = LWP::UserAgent->new;
+	my $response = $ua->get($1);
+	if ($response->is_success) {
+	  $self->process(split(/\n/, $response->decoded_content));
+	} else {
+	  push(@{$self->messages}, $response->status_line);
+	}
       }
     }
   }
