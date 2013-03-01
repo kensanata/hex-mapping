@@ -186,8 +186,7 @@ sub svg {
 <svg xmlns="http://www.w3.org/2000/svg" version="1.1"
      viewBox="$minx $miny $maxx $maxy"
      xmlns:xlink="http://www.w3.org/1999/xlink">
-  <defs>
-};
+  <defs>};
 
   # collect hex types from attributess and paths in case the sets don't overlap
   my %type = ();
