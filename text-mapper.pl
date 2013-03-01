@@ -190,7 +190,7 @@ sub svg {
     (($minx -0.5) * $dx - 10, ($miny - 1) * $dy - 10,
      ($maxx) * 1.5 * $dx + $dx + 10, ($maxy + 1.5) * $dy + 10);
 
-  my $doc = qq{<?xml version="1.0" standalone="no"?>
+  my $doc = qq{<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <svg xmlns="http://www.w3.org/2000/svg" version="1.1"
      viewBox="$minx $miny $maxx $maxy"
      xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -255,7 +255,7 @@ sub svg {
 package main;
 
 sub print_map {
-  print header(-type=>'image/svg+xml');
+  print header(-type=>'image/svg+xml', -charset=>'utf-8');
   my $map = new Mapper;
   $map->initialize(shift);
   print $map->svg;
@@ -281,6 +281,7 @@ sub print_html {
 }
 
 sub main {
+  binmode(STDOUT, ':utf8');
   if (param('map')) {
     print_map(param('map'));
   } elsif (path_info() eq '/source') {
