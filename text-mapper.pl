@@ -90,6 +90,7 @@ struct Mapper => {
 		  glow_attributes => '$',
 		  label_attributes => '$',
 		  messages => '@',
+		  seen => '%',
 		 };
 
 my $example = q{
@@ -123,7 +124,6 @@ my $dy = 100*sqrt(3);
 sub initialize {
   my ($self, $map) = @_;
   $self->map($map);
-  local %seen;
   $self->process(split(/\r?\n/, $map));
 }
 
@@ -149,11 +149,12 @@ sub process {
     } elsif (/^label\s+(.*)/) {
       $self->label_attributes($1);
     } elsif (/^include\s+(\S*)/) {
-      if (scalar keys %seen > 5) {
+      if (scalar keys %{$self->seen} > 5) {
 	push(@{$self->messages}, "Includes are limited to five to prevent loops");
-      } elsif ($seen{$1}) {
+      } elsif ($self->seen($1)) {
 	push(@{$self->messages}, "$1 was included twice");
       } else {
+	$self->seen($1, 1);
 	my $ua = LWP::UserAgent->new;
 	my $response = $ua->get($1);
 	if ($response->is_success) {
