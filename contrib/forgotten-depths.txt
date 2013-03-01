@@ -7,80 +7,80 @@
 0103 mountain
 0104 mountain cave
 0105 jungle
-0106 jungle
+0106 jungle "aircar"
 0107 hill
-0108 volcano
+0108 volcano "minotaur villa"
 0201 mountain
-0202 mountain
+0202 mountain "pterosaurs"
 0203 coast
-0204 coast
-0205 jungle
-0206 hill
+0204 coast "snakemen"
+0205 jungle "demontree"
+0206 hill "skull pyramid"
 0207 mountain
 0208 mountain
-0301 mountain
-0302 mountain
-0303 tundra
-0304 jungle
-0305 coast
+0301 mountain "abandoned city"
+0302 mountain "high passage"
+0303 tundra "bandit toll"
+0304 jungle "termites"
+0305 coast rapids"
 0306 coast
 0307 hill
-0308 mountain
-0401 mountain ruin
-0402 city
-0403 jungle
-0404 wetland
-0405 coast
+0308 mountain "devilgoat"
+0401 mountain
+0402 city "rust ruins"
+0403 jungle "andrewsarchus"
+0404 wetland "vampire grass"
+0405 coast "snakemen"
 0406 coast
-0407 hill
-0408 mountain
-0501 tower
-0502 tundra
+0407 hill "stone heads"
+0408 mountain "snow storm"
+0501 tower "Tower of the Changer"
+0502 tundra "long stair"
 0503 jungle
-0504 wetland
-0505 coast
-0506 island ruin
+0504 wetland "mecha"
+0505 coast "submarines"
+0506 island ruin "The Island"
 0507 jungle
 0508 mountain cave
-0601 jungle
-0602 jungle
-0603 wetland
-0604 wetland
-0605 coast
+0601 jungle "beastkin"
+0602 jungle "sasquatch"
+0603 wetland "abandoned factory"
+0604 wetland skull pyramid"
+0605 coast "mudbugs"
 0606 jungle
 0607 jungle
 0608 mountain
-0701 tundra
-0702 jungle
-0703 jungle ruin
+0701 tundra "construct"
+0702 jungle "snakemen"
+0703 jungle ruin "fang tower"
 0704 fin
-0705 wetland
-0706 jungle
-0707 jungle
-0708 jungle
-0801 forest
-0802 fin keep
+0705 wetland house "humans"
+0706 jungle "battlefield"
+0707 jungle "glowing eggs"
+0708 jungle "cyborg zombies"
+0801 forest "blood cloud"
+0802 fin keep "Kastan-ür"
 0803 fin
 0804 jungle
-0805 jungle
+0805 jungle "giant apes"
 0806 jungle
-0807 jungle
-0808 mountain cave
-0901 forest
+0807 jungle "frogmen"
+0808 mountain cave "cave apes"
+0901 forest "Sila's trading post"
 0902 fin
-0903 mountain cav
-0904 mountain
+0903 mountain cave
+0904 mountain "summoning circle"
 0905 mountain
-0906 jungle
-0907 jungle
-0908 jungle
-1001 mountain cave
+0906 jungle "gas"
+0907 jungle "Lost City of the Sharkmen"
+0908 jungle "Sky Priests"
+1001 mountain cave "Temple of the Cave Apes"
 1002 mountain
-1003 mountain
-1004 mountain cave
+1003 mountain "rockworm"
+1004 mountain cave "abandoned mine"
 1005 mountain
-1006 jungle
-1007 jungle
-1008 mountain
+1006 jungle "crashed rocketship"
+1007 jungle "boilers"
+1008 mountain "moonwraiths"
 
 include http://alexschroeder.ch/contrib/default.txt
