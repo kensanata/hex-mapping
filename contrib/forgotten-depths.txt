@@ -12,7 +12,7 @@
 0108 volcano "minotaur villa"
 0201 mountain
 0202 mountain "pterosaurs"
-0203 coast
+0203 tundra
 0204 coast "snakemen"
 0205 jungle "demontree"
 0206 hill "skull pyramid"
@@ -22,8 +22,8 @@
 0302 mountain "high passage"
 0303 tundra "bandit toll"
 0304 jungle "termites"
-0305 coast rapids"
-0306 coast
+0305 jungle "rapids"
+0306 mountain
 0307 hill
 0308 mountain "devilgoat"
 0401 mountain
