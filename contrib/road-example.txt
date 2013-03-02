@@ -22,7 +22,7 @@
 0002-0403 road
 
 empty attributes fill-opacity="0" stroke="#008b8b" stroke-width="3"
-road path attributes stroke="black" stroke-width="3px"
+road path attributes stroke="black" stroke-width="3px" fill-opacity="0"
 text font-family="monospaced" fill="#008b8b" font-size="20pt" dy="15px"
 label font-size="20pt" dy="5px"
 glow stroke="white" stroke-width="5px"

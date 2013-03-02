@@ -40,7 +40,7 @@ struct Line => {
 sub pixels {
   my ($self, $x, $y) = @_;
   my ($x1, $y1) = ($x * $dx * 3/2, $y * $dy - $x % 2 * $dy/2);
-  if (defined wantarray) {
+  if (wantarray) {
     return ($x1, $y1);
   } else {
     sprintf("%.1f,%.1f", $x1, $y1);
@@ -88,29 +88,21 @@ sub next {
 	  $y + $delta->[$x % 2]->[$min]->[1]);
 }
 
-# assuming pixel input
-sub halfway {
-  my ($self, $x1, $y1, $x2, $y2) = @_;
-  return ($x1 + $x2) / 2, ($y1 + $y2) / 2;
+sub partway {
+  my ($self, $x1, $y1, $q) = @_;
+  my ($x2, $y2) = $self->pixels($self->next($x1, $y1));
+  ($x1, $y1) = $self->pixels($x1, $y1);
+  $q ||= 1;
+  if (wantarray) {
+    return $x1 + ($x2 - $x1) * $q, $y1 + ($y2 - $y1) * $q;
+  } else {
+    return ($x1 + ($x2 - $x1) * $q) . "," . ($y1 + ($y2 - $y1) * $q);
+  }
 }
 
 sub svg {
   my $self = shift;
-  my $type = $self->type;
-  my $attributes = $self->map->path_attributes($type);
-  my $data = qq{  <path $attributes d="};
-
-  # a new sub-path at the given (x,y)
-  my ($x, $y) = ($self->x1, $self->y1);
-  $data .= 'M' . $self->pixels($x, $y) . ' T';
-  while (not $self->done($x, $y)) {
-    # a quadratic Bézier curve from the current point to (x,y)
-    ($x, $y) = $self->next($x, $y);
-    $data .= ' ' . $self->pixels($x, $y);
-  }
-  $data .= qq{"/>\n};
-  $data .= $self->debug();
-  return $data;
+  return $self->debug();
 }
 
 sub circle {
@@ -126,16 +118,42 @@ sub debug {
   my $self = shift;
   # a new sub-path at the given (x,y)
   my ($x, $y) = ($self->x1, $self->y1);
+  my $path;
   my $data = '';
   my $i = 1;
   while (not $self->done($x, $y)) {
+    # help me see some of the points available
     $data .= circle($self->pixels($x, $y), 15, $i++);
+    $data .= circle($self->partway($x, $y, 0.3), 3, 'a');
+    $data .= circle($self->partway($x, $y, 0.5), 5, 'b');
+    $data .= circle($self->partway($x, $y, 0.7), 3, 'c');
 
-    my ($nx, $ny) = $self->next($x, $y);
-    $data .= circle($self->halfway($self->pixels($x, $y), $self->pixels($nx, $ny)), 5);
-    ($x, $y) = ($nx, $ny)
+    if (!$path) {
+      # line to the first halfway point
+      $path = "M " . $self->pixels($x,$y) . " L " . $self->partway($x, $y, 0.5);
+    } else {
+      # end the previous curve with control point at the end
+      $path .= " " . $self->partway($x, $y, 0.3);
+      # and the end point
+      $path .= " " . $self->partway($x, $y, 0.5);
+    }
+
+    # control point at the beginning
+    $path .= " C " . $self->partway($x, $y, 0.7);
+
+    ($x, $y) = $self->next($x, $y);
   }
   $data .= circle($self->pixels($x, $y), 15, $i++);
+
+  # end the last segment with a control point at the end
+  $path .= " " . $self->pixels($x, $y);
+  # and the end point, identical
+  $path .= " " . $self->pixels($x, $y);
+
+  my $type = $self->type;
+  my $attributes = $self->map->path_attributes($type);
+  $data .= "<path $attributes d='$path'/>\n";
+
   return $data;
 }
 
