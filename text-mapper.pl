@@ -19,6 +19,125 @@ use CGI qw/:standard/;
 use CGI::Carp 'fatalsToBrowser';
 use LWP::UserAgent;
 use strict;
+use utf8;
+
+my $dx = 100;
+my $dy = 100*sqrt(3);
+
+package Line;
+
+use Class::Struct;
+
+struct Line => {
+		x1 => '$',
+		y1 => '$',
+		x2 => '$',
+		y2 => '$',
+		type => '$',
+		map => 'Mapper',
+	       };
+
+sub pixels {
+  my ($self, $x, $y) = @_;
+  my ($x1, $y1) = ($x * $dx * 3/2, $y * $dy - $x % 2 * $dy/2);
+  if (defined wantarray) {
+    return ($x1, $y1);
+  } else {
+    sprintf("%.1f,%.1f", $x1, $y1);
+  }
+}
+
+sub done {
+  my ($self, $x, $y) = @_;
+  return $x == $self->x2 && $y == $self->y2;
+}
+
+
+# Brute forcing the "next" step by trying all the neighbors. The
+# connection data to connect to neighbouring hexes.
+#
+# Example Map             Index for the array
+#
+#      0201                      2
+#  0102    0302               1     3
+#      0202    0402
+#  0103    0303               6     4
+#      0203    0403              5
+#  0104    0404
+#
+#  Note that the arithmetic changes when x is odd.
+
+sub next {
+  my ($self, $x, $y) = @_;
+
+  my $delta = [[[-1,  0], [ 0, -1], [+1,  0], [+1, +1], [ 0, +1], [-1, +1]],
+	       [[-1, -1], [ 0, -1], [+1, -1], [+1,  0], [+1, +1], [-1,  0]]];
+
+  my ($min, $mind);
+  for my $i (0 .. 5) {
+    my ($x1, $y1) = ($x + $delta->[$x % 2]->[$i]->[0],
+		     $y + $delta->[$x % 2]->[$i]->[1]);
+    my $d = abs($self->x2 - $x1) + abs($self->y2 - $y1);
+    if (!defined($mind) || $d < $mind) {
+      $mind = $d;
+      $min = $i;
+    }
+  }
+
+  return ($x + $delta->[$x % 2]->[$min]->[0],
+	  $y + $delta->[$x % 2]->[$min]->[1]);
+}
+
+# assuming pixel input
+sub halfway {
+  my ($self, $x1, $y1, $x2, $y2) = @_;
+  return ($x1 + $x2) / 2, ($y1 + $y2) / 2;
+}
+
+sub svg {
+  my $self = shift;
+  my $type = $self->type;
+  my $attributes = $self->map->path_attributes($type);
+  my $data = qq{  <path $attributes d="};
+
+  # a new sub-path at the given (x,y)
+  my ($x, $y) = ($self->x1, $self->y1);
+  $data .= 'M' . $self->pixels($x, $y) . ' T';
+  while (not $self->done($x, $y)) {
+    # a quadratic Bézier curve from the current point to (x,y)
+    ($x, $y) = $self->next($x, $y);
+    $data .= ' ' . $self->pixels($x, $y);
+  }
+  $data .= qq{"/>\n};
+  $data .= $self->debug();
+  return $data;
+}
+
+sub circle {
+  my ($x, $y, $r, $i) = @_;
+  my $data = "<circle fill='#666' cx='$x' cy='$y' r='$r'/>";
+  $data .= "<text fill='#000' font-size='20pt' "
+    . "text-anchor='middle' dominant-baseline='central' "
+    . "x='$x' y='$y'>$i</text>" if $i;
+  return "$data\n";
+}
+
+sub debug {
+  my $self = shift;
+  # a new sub-path at the given (x,y)
+  my ($x, $y) = ($self->x1, $self->y1);
+  my $data = '';
+  my $i = 1;
+  while (not $self->done($x, $y)) {
+    $data .= circle($self->pixels($x, $y), 15, $i++);
+
+    my ($nx, $ny) = $self->next($x, $y);
+    $data .= circle($self->halfway($self->pixels($x, $y), $self->pixels($nx, $ny)), 5);
+    ($x, $y) = ($nx, $ny)
+  }
+  $data .= circle($self->pixels($x, $y), 15, $i++);
+  return $data;
+}
 
 package Hex;
 
@@ -36,9 +155,6 @@ sub str {
   my $self = shift;
   return '(' . $self->x . ',' . $self->y . ')';
 }
-
-my $dx = 100;
-my $dy = 100*sqrt(3);
 
 sub svg {
   my $self = shift;
@@ -85,6 +201,7 @@ struct Mapper => {
 		  attributes => '%',
 		  map => '$',
 		  path => '%',
+		  lines => '@',
 		  path_attributes => '%',
 		  text_attributes => '$',
 		  glow_attributes => '$',
@@ -118,9 +235,6 @@ sub example {
   return $example;
 }
 
-my $dx = 100;
-my $dy = 100*sqrt(3);
-
 sub initialize {
   my ($self, $map) = @_;
   $self->map($map);
@@ -136,6 +250,11 @@ sub process {
       my @types = split(' ', $3);
       $hex->type(\@types);
       $self->add($hex);
+    } elsif (/^(\d\d)(\d\d)-(\d\d)(\d\d)\s+(\S+)/) {
+      my $line = Line->new(x1 => $1, y1 => $2,
+			   x2 => $3, y2 => $4, map => $self);
+      $line->type($5);
+      push(@{$self->lines}, $line);
     } elsif (/^(\S+)\s+attributes\s+(.*)/) {
       $self->attributes($1, $2);
     } elsif (/^(\S+)\s+path\s+attributes\s+(.*)/) {
@@ -238,6 +357,9 @@ sub svg {
   foreach my $hex (@{$self->hexes}) {
     $doc .= $hex->svg_label();
   }
+  foreach my $line (@{$self->lines}) {
+    $doc .= $line->svg();
+  }
   my $y = 10;
   foreach my $msg (@{$self->messages}) {
     $doc .= "  <text x='0' y='$y'>$msg</text>\n";
@@ -268,7 +390,11 @@ sub print_html {
 	 h1('Text Mapper'),
 	 p('Submit your text desciption of the map.'),
 	 start_form(-method=>'GET'),
-	 p(textarea('map', Mapper::example(), 15, 60)),
+	 p(textarea(-style => 'width:100%',
+		    -name => 'map',
+		    -default => Mapper::example(),
+		    -rows => 15,
+		    -columns => 60, )),
 	 p(submit()),
 	 end_form(),
 	 hr(),

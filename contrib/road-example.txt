@@ -1,0 +1,28 @@
+0001 empty
+0002 empty
+0003 empty
+0004 empty
+0101 empty
+0102 empty
+0103 empty
+0104 empty
+0201 empty
+0202 empty
+0203 empty
+0204 empty
+0303 empty
+0302 empty
+0303 empty
+0304 empty
+0401 empty
+0402 empty
+0403 empty
+0404 empty
+
+0002-0403 road
+
+empty attributes fill-opacity="0" stroke="#008b8b" stroke-width="3"
+road path attributes stroke="black" stroke-width="3px"
+text font-family="monospaced" fill="#008b8b" font-size="20pt" dy="15px"
+label font-size="20pt" dy="5px"
+glow stroke="white" stroke-width="5px"
