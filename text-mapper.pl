@@ -63,29 +63,29 @@ sub done {
 #      0202    0402
 #  0103    0303               6     4
 #      0203    0403              5
-#  0104    0404
+#  0104    0304
 #
 #  Note that the arithmetic changes when x is odd.
 
 sub next {
   my ($self, $x, $y) = @_;
+  my ($x2, $y2) = $self->pixels($self->x2, $self->y2);
+  my $delta = [[[-1,  0], [ 0, -1], [+1,  0], [+1, +1], [ 0, +1], [-1, +1]],  # x is even
+	       [[-1, -1], [ 0, -1], [+1, -1], [+1,  0], [ 0, +1], [-1,  0]]]; # x is odd
 
-  my $delta = [[[-1,  0], [ 0, -1], [+1,  0], [+1, +1], [ 0, +1], [-1, +1]],
-	       [[-1, -1], [ 0, -1], [+1, -1], [+1,  0], [+1, +1], [-1,  0]]];
-
-  my ($min, $mind);
+  my ($mind, $best_x, $best_y);
   for my $i (0 .. 5) {
+    # make a new guess
     my ($x1, $y1) = ($x + $delta->[$x % 2]->[$i]->[0],
 		     $y + $delta->[$x % 2]->[$i]->[1]);
-    my $d = abs($self->x2 - $x1) + abs($self->y2 - $y1);
+    my $d = ($self->x2 - $x1) * ($self->x2 - $x1)
+      + abs($self->y2 - $y1) * abs($self->y2 - $y1);
     if (!defined($mind) || $d < $mind) {
       $mind = $d;
-      $min = $i;
+      ($best_x, $best_y) = ($x1, $y1);
     }
   }
-
-  return ($x + $delta->[$x % 2]->[$min]->[0],
-	  $y + $delta->[$x % 2]->[$min]->[1]);
+  return ($best_x, $best_y);
 }
 
 sub partway {
@@ -96,13 +96,52 @@ sub partway {
   if (wantarray) {
     return $x1 + ($x2 - $x1) * $q, $y1 + ($y2 - $y1) * $q;
   } else {
-    return ($x1 + ($x2 - $x1) * $q) . "," . ($y1 + ($y2 - $y1) * $q);
+    return sprintf("%.1f,%.1f", $x1 + ($x2 - $x1) * $q, $y1 + ($y2 - $y1) * $q);
   }
 }
 
 sub svg {
   my $self = shift;
-  return $self->debug();
+  my ($x, $y) = ($self->x1, $self->y1);
+  my ($last_x, $last_y);
+  my $path;
+  while (not $self->done($x, $y)) {
+    if (!$path) {
+      # bézier curve A B A B
+      my $a = $self->partway($x, $y, 0.3);
+      my $b = $self->partway($x, $y, 0.5);
+      $path = "M$a C$b $a $b";
+    } else {
+      $path .= " S" . $self->partway($x, $y, 0.3) . " " . $self->partway($x, $y, 0.5);
+    }
+    ($last_x, $last_y) = ($x, $y);
+    ($x, $y) = $self->next($x, $y);
+  }
+  # end with a little stub
+  $path .= " L " . $self->partway($last_x, $last_y, 0.7);
+
+  my $type = $self->type;
+  my $attributes = $self->map->path_attributes($type);
+  my $data = "<path $attributes d='$path'/>\n";
+  $data .= $self->debug() if main::param('debug');
+  return $data;
+}
+
+sub debug {
+  my $self = shift;
+  my ($x, $y) = ($self->x1, $self->y1);
+  my $path;
+  my $data = '';
+  my $i = 1;
+  while (not $self->done($x, $y)) {
+    $data .= circle($self->pixels($x, $y), 15, $i++);
+    $data .= circle($self->partway($x, $y, 0.3), 3, 'a');
+    $data .= circle($self->partway($x, $y, 0.5), 5, 'b');
+    $data .= circle($self->partway($x, $y, 0.7), 3, 'c');
+    ($x, $y) = $self->next($x, $y);
+  }
+  $data .= circle($self->pixels($x, $y), 15, $i++);
+  return $data;
 }
 
 sub circle {
@@ -112,49 +151,6 @@ sub circle {
     . "text-anchor='middle' dominant-baseline='central' "
     . "x='$x' y='$y'>$i</text>" if $i;
   return "$data\n";
-}
-
-sub debug {
-  my $self = shift;
-  # a new sub-path at the given (x,y)
-  my ($x, $y) = ($self->x1, $self->y1);
-  my $path;
-  my $data = '';
-  my $i = 1;
-  while (not $self->done($x, $y)) {
-    # help me see some of the points available
-    $data .= circle($self->pixels($x, $y), 15, $i++);
-    $data .= circle($self->partway($x, $y, 0.3), 3, 'a');
-    $data .= circle($self->partway($x, $y, 0.5), 5, 'b');
-    $data .= circle($self->partway($x, $y, 0.7), 3, 'c');
-
-    if (!$path) {
-      # line to the first halfway point
-      $path = "M " . $self->pixels($x,$y) . " L " . $self->partway($x, $y, 0.5);
-    } else {
-      # end the previous curve with control point at the end
-      $path .= " " . $self->partway($x, $y, 0.3);
-      # and the end point
-      $path .= " " . $self->partway($x, $y, 0.5);
-    }
-
-    # control point at the beginning
-    $path .= " C " . $self->partway($x, $y, 0.7);
-
-    ($x, $y) = $self->next($x, $y);
-  }
-  $data .= circle($self->pixels($x, $y), 15, $i++);
-
-  # end the last segment with a control point at the end
-  $path .= " " . $self->pixels($x, $y);
-  # and the end point, identical
-  $path .= " " . $self->pixels($x, $y);
-
-  my $type = $self->type;
-  my $attributes = $self->map->path_attributes($type);
-  $data .= "<path $attributes d='$path'/>\n";
-
-  return $data;
 }
 
 package Hex;
