@@ -1,0 +1,82 @@
+# (dotimes (x 7) (dotimes (y 7) (insert (format "%02d%02d empty\n" x y))))
+0000 empty
+0001 empty
+0002 empty
+0003 empty
+0004 empty
+0005 empty
+0006 empty
+0100 empty
+0101 empty
+0102 empty
+0103 empty
+0104 empty
+0105 empty
+0106 empty
+0200 empty
+0201 empty
+0202 empty
+0203 empty
+0204 empty
+0205 empty
+0206 empty
+0300 empty
+0301 empty
+0302 empty
+0303 empty
+0304 empty
+0305 empty
+0306 empty
+0400 empty
+0401 empty
+0402 empty
+0403 empty
+0404 empty
+0405 empty
+0406 empty
+0500 empty
+0501 empty
+0502 empty
+0503 empty
+0504 empty
+0505 empty
+0506 empty
+0600 empty
+0601 empty
+0602 empty
+0603 empty
+0604 empty
+0605 empty
+0606 empty
+
+# (dotimes (x 7) (dotimes (y 7) (when (or (= x 0) (= x 6) (= y 0) (= y 6)) (insert (format "%02d%02d-0303 road\n" x y)))))
+0000-0303 road
+0001-0303 road
+0002-0303 road
+0003-0303 road
+0004-0303 road
+0005-0303 road
+0006-0303 road
+0100-0303 road
+0106-0303 road
+0200-0303 road
+0206-0303 road
+0300-0303 road
+0306-0303 road
+0400-0303 road
+0406-0303 road
+0500-0303 road
+0506-0303 road
+0600-0303 road
+0601-0303 road
+0602-0303 road
+0603-0303 road
+0604-0303 road
+0605-0303 road
+0606-0303 road
+
+empty attributes fill-opacity="0" stroke="#008b8b" stroke-width="3"
+road path attributes stroke="black" stroke-width="3px" fill-opacity="0"
+text font-family="monospaced" fill="#008b8b" font-size="20pt" dy="15px"
+label font-size="20pt" dy="5px"
+glow stroke="white" stroke-width="5px"

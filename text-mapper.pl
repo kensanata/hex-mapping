@@ -19,6 +19,139 @@ use CGI qw/:standard/;
 use CGI::Carp 'fatalsToBrowser';
 use LWP::UserAgent;
 use strict;
+use utf8;
+
+my $dx = 100;
+my $dy = 100*sqrt(3);
+
+package Line;
+
+use Class::Struct;
+
+struct Line => {
+		x1 => '$',
+		y1 => '$',
+		x2 => '$',
+		y2 => '$',
+		type => '$',
+		map => 'Mapper',
+	       };
+
+sub pixels {
+  my ($self, $x, $y) = @_;
+  my ($x1, $y1) = ($x * $dx * 3/2, $y * $dy - $x % 2 * $dy/2);
+  if (wantarray) {
+    return ($x1, $y1);
+  } else {
+    sprintf("%.1f,%.1f", $x1, $y1);
+  }
+}
+
+sub done {
+  my ($self, $x, $y) = @_;
+  return $x == $self->x2 && $y == $self->y2;
+}
+
+
+# Brute forcing the "next" step by trying all the neighbors. The
+# connection data to connect to neighbouring hexes.
+#
+# Example Map             Index for the array
+#
+#      0201                      2
+#  0102    0302               1     3
+#      0202    0402
+#  0103    0303               6     4
+#      0203    0403              5
+#  0104    0304
+#
+#  Note that the arithmetic changes when x is odd.
+
+sub next {
+  my ($self, $x, $y) = @_;
+  my ($x2, $y2) = $self->pixels($self->x2, $self->y2);
+  my $delta = [[[-1,  0], [ 0, -1], [+1,  0], [+1, +1], [ 0, +1], [-1, +1]],  # x is even
+	       [[-1, -1], [ 0, -1], [+1, -1], [+1,  0], [ 0, +1], [-1,  0]]]; # x is odd
+
+  my ($mind, $best_x, $best_y);
+  for my $i (0 .. 5) {
+    # make a new guess
+    my ($x1, $y1) = ($x + $delta->[$x % 2]->[$i]->[0],
+		     $y + $delta->[$x % 2]->[$i]->[1]);
+    my $d = ($self->x2 - $x1) * ($self->x2 - $x1)
+      + abs($self->y2 - $y1) * abs($self->y2 - $y1);
+    if (!defined($mind) || $d < $mind) {
+      $mind = $d;
+      ($best_x, $best_y) = ($x1, $y1);
+    }
+  }
+  return ($best_x, $best_y);
+}
+
+sub partway {
+  my ($self, $x1, $y1, $q) = @_;
+  my ($x2, $y2) = $self->pixels($self->next($x1, $y1));
+  ($x1, $y1) = $self->pixels($x1, $y1);
+  $q ||= 1;
+  if (wantarray) {
+    return $x1 + ($x2 - $x1) * $q, $y1 + ($y2 - $y1) * $q;
+  } else {
+    return sprintf("%.1f,%.1f", $x1 + ($x2 - $x1) * $q, $y1 + ($y2 - $y1) * $q);
+  }
+}
+
+sub svg {
+  my $self = shift;
+  my ($x, $y) = ($self->x1, $self->y1);
+  my ($last_x, $last_y);
+  my $path;
+  while (not $self->done($x, $y)) {
+    if (!$path) {
+      # bézier curve A B A B
+      my $a = $self->partway($x, $y, 0.3);
+      my $b = $self->partway($x, $y, 0.5);
+      $path = "M$a C$b $a $b";
+    } else {
+      $path .= " S" . $self->partway($x, $y, 0.3) . " " . $self->partway($x, $y, 0.5);
+    }
+    ($last_x, $last_y) = ($x, $y);
+    ($x, $y) = $self->next($x, $y);
+  }
+  # end with a little stub
+  $path .= " L " . $self->partway($last_x, $last_y, 0.7);
+
+  my $type = $self->type;
+  my $attributes = $self->map->path_attributes($type);
+  my $data = "<path $attributes d='$path'/>\n";
+  $data .= $self->debug() if main::param('debug');
+  return $data;
+}
+
+sub debug {
+  my $self = shift;
+  my ($x, $y) = ($self->x1, $self->y1);
+  my $path;
+  my $data = '';
+  my $i = 1;
+  while (not $self->done($x, $y)) {
+    $data .= circle($self->pixels($x, $y), 15, $i++);
+    $data .= circle($self->partway($x, $y, 0.3), 3, 'a');
+    $data .= circle($self->partway($x, $y, 0.5), 5, 'b');
+    $data .= circle($self->partway($x, $y, 0.7), 3, 'c');
+    ($x, $y) = $self->next($x, $y);
+  }
+  $data .= circle($self->pixels($x, $y), 15, $i++);
+  return $data;
+}
+
+sub circle {
+  my ($x, $y, $r, $i) = @_;
+  my $data = "<circle fill='#666' cx='$x' cy='$y' r='$r'/>";
+  $data .= "<text fill='#000' font-size='20pt' "
+    . "text-anchor='middle' dominant-baseline='central' "
+    . "x='$x' y='$y'>$i</text>" if $i;
+  return "$data\n";
+}
 
 package Hex;
 
@@ -36,9 +169,6 @@ sub str {
   my $self = shift;
   return '(' . $self->x . ',' . $self->y . ')';
 }
-
-my $dx = 100;
-my $dy = 100*sqrt(3);
 
 sub svg {
   my $self = shift;
@@ -85,6 +215,7 @@ struct Mapper => {
 		  attributes => '%',
 		  map => '$',
 		  path => '%',
+		  lines => '@',
 		  path_attributes => '%',
 		  text_attributes => '$',
 		  glow_attributes => '$',
@@ -118,9 +249,6 @@ sub example {
   return $example;
 }
 
-my $dx = 100;
-my $dy = 100*sqrt(3);
-
 sub initialize {
   my ($self, $map) = @_;
   $self->map($map);
@@ -136,6 +264,11 @@ sub process {
       my @types = split(' ', $3);
       $hex->type(\@types);
       $self->add($hex);
+    } elsif (/^(\d\d)(\d\d)-(\d\d)(\d\d)\s+(\S+)/) {
+      my $line = Line->new(x1 => $1, y1 => $2,
+			   x2 => $3, y2 => $4, map => $self);
+      $line->type($5);
+      push(@{$self->lines}, $line);
     } elsif (/^(\S+)\s+attributes\s+(.*)/) {
       $self->attributes($1, $2);
     } elsif (/^(\S+)\s+path\s+attributes\s+(.*)/) {
@@ -238,6 +371,9 @@ sub svg {
   foreach my $hex (@{$self->hexes}) {
     $doc .= $hex->svg_label();
   }
+  foreach my $line (@{$self->lines}) {
+    $doc .= $line->svg();
+  }
   my $y = 10;
   foreach my $msg (@{$self->messages}) {
     $doc .= "  <text x='0' y='$y'>$msg</text>\n";
@@ -268,7 +404,11 @@ sub print_html {
 	 h1('Text Mapper'),
 	 p('Submit your text desciption of the map.'),
 	 start_form(-method=>'GET'),
-	 p(textarea('map', Mapper::example(), 15, 60)),
+	 p(textarea(-style => 'width:100%',
+		    -name => 'map',
+		    -default => Mapper::example(),
+		    -rows => 15,
+		    -columns => 60, )),
 	 p(submit()),
 	 end_form(),
 	 hr(),
