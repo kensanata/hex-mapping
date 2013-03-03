@@ -313,20 +313,22 @@ sub svg {
     $minx = $hex->x if not defined($minx);
     $maxx = $hex->x if not defined($maxx);
     $miny = $hex->y if not defined($miny);
-    $maxy = $hex->x if not defined($maxy);
+    $maxy = $hex->y if not defined($maxy);
     $minx = $hex->x if $minx > $hex->x;
     $maxx = $hex->x if $maxx < $hex->x;
     $miny = $hex->y if $miny > $hex->y;
-    $maxy = $hex->x if $maxy < $hex->y;
+    $maxy = $hex->y if $maxy < $hex->y;
   }
-  ($minx, $miny, $maxx, $maxy) =
-    (($minx -0.5) * $dx - 10, ($miny - 1) * $dy - 10,
-     ($maxx) * 1.5 * $dx + $dx + 10, ($maxy + 1.5) * $dy + 10);
+
+  my ($vx1, $vy1, $vx2, $vy2) =
+    map { int($_) } (($minx - 0.5) * $dx * 3/2 - 10, ($miny - 0.5) * $dy - 10,
+		     ($maxx + 1.0) * $dx * 3/2 + 10, ($maxy + 0.5) * $dy + 10);
 
   my $doc = qq{<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <svg xmlns="http://www.w3.org/2000/svg" version="1.1"
-     viewBox="$minx $miny $maxx $maxy"
+     viewBox="$vx1 $vy1 $vx2 $vy2"
      xmlns:xlink="http://www.w3.org/1999/xlink">
+  <!-- ($minx, $miny) ($maxx, $maxy) -->
   <defs>};
 
   # collect hex types from attributess and paths in case the sets don't overlap
