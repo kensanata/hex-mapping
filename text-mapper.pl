@@ -16,7 +16,6 @@
 # This code started out as a fork of old-school-hex.pl.
 
 use CGI qw/:standard/;
-use CGI::Carp 'fatalsToBrowser';
 use LWP::UserAgent;
 use strict;
 use utf8;
@@ -24,34 +23,36 @@ use utf8;
 my $dx = 100;
 my $dy = 100*sqrt(3);
 
-package Line;
+package Point;
 
 use Class::Struct;
 
-struct Line => {
-		x1 => '$',
-		y1 => '$',
-		x2 => '$',
-		y2 => '$',
-		type => '$',
-		map => 'Mapper',
-	       };
+struct Point => { x => '$', y => '$', };
 
-sub pixels {
-  my ($self, $x, $y) = @_;
-  my ($x1, $y1) = ($x * $dx * 3/2, $y * $dy - $x % 2 * $dy/2);
+sub equal {
+  my ($self, $other) = @_;
+  return $self->x == $other->x
+      && $self->y == $other->y;
+}
+
+sub coordinates {
+  my ($self, $precision) = @_;
   if (wantarray) {
-    return ($x1, $y1);
+    return $self->x, $self->y;
   } else {
-    sprintf("%.1f,%.1f", $x1, $y1);
+    return $self->x . "," . $self->y;
   }
 }
 
-sub done {
-  my ($self, $x, $y) = @_;
-  return $x == $self->x2 && $y == $self->y2;
+sub pixels {
+  my ($self) = @_;
+  my ($x, $y) = ($self->x * $dx * 3/2, $self->y * $dy - $self->x % 2 * $dy/2);
+  if (wantarray) {
+    return ($x, $y);
+  } else {
+    return sprintf("%.1f,%.1f", $x, $y);
+  }
 }
-
 
 # Brute forcing the "next" step by trying all the neighbors. The
 # connection data to connect to neighbouring hexes.
@@ -67,31 +68,29 @@ sub done {
 #
 #  Note that the arithmetic changes when x is odd.
 
-sub next {
-  my ($self, $x, $y) = @_;
-  my ($x2, $y2) = $self->pixels($self->x2, $self->y2);
+sub one_step_to {
+  my ($self, $other) = @_;
   my $delta = [[[-1,  0], [ 0, -1], [+1,  0], [+1, +1], [ 0, +1], [-1, +1]],  # x is even
 	       [[-1, -1], [ 0, -1], [+1, -1], [+1,  0], [ 0, +1], [-1,  0]]]; # x is odd
-
-  my ($mind, $best_x, $best_y);
+  my ($min, $best);
   for my $i (0 .. 5) {
     # make a new guess
-    my ($x1, $y1) = ($x + $delta->[$x % 2]->[$i]->[0],
-		     $y + $delta->[$x % 2]->[$i]->[1]);
-    my $d = ($self->x2 - $x1) * ($self->x2 - $x1)
-      + abs($self->y2 - $y1) * abs($self->y2 - $y1);
-    if (!defined($mind) || $d < $mind) {
-      $mind = $d;
-      ($best_x, $best_y) = ($x1, $y1);
+    my ($x, $y) = ($self->x + $delta->[$self->x % 2]->[$i]->[0],
+		   $self->y + $delta->[$self->x % 2]->[$i]->[1]);
+    my $d = ($other->x - $x) * ($other->x - $x)
+          + ($other->y - $y) * ($other->y - $y);
+    if (!defined($min) || $d < $min) {
+      $min = $d;
+      $best = Point->new(x => $x, y => $y);
     }
   }
-  return ($best_x, $best_y);
+  return $best;
 }
 
 sub partway {
-  my ($self, $x1, $y1, $q) = @_;
-  my ($x2, $y2) = $self->pixels($self->next($x1, $y1));
-  ($x1, $y1) = $self->pixels($x1, $y1);
+  my ($self, $other, $q) = @_;
+  my ($x1, $y1) = $self->pixels;
+  my ($x2, $y2) = $other->pixels;
   $q ||= 1;
   if (wantarray) {
     return $x1 + ($x2 - $x1) * $q, $y1 + ($y2 - $y1) * $q;
@@ -100,25 +99,50 @@ sub partway {
   }
 }
 
+package Line;
+
+use Class::Struct;
+
+struct Line => {
+		points => '@',
+		type => '$',
+		map => 'Mapper',
+	       };
+
+sub compute_missing_points {
+  my $self = shift;
+  my $i = 0;
+  my $current = $self->points($i++);
+  my @result = ($current);
+  while ($self->points($i)) {
+    $current = $current->one_step_to($self->points($i));
+    push(@result, $current);
+    $i++ if $current->equal($self->points($i));
+  }
+
+  return @result;
+}
+
 sub svg {
   my $self = shift;
-  my ($x, $y) = ($self->x1, $self->y1);
-  my ($last_x, $last_y);
-  my $path;
-  while (not $self->done($x, $y)) {
+  my ($path, $current, $next);
+  my @points = $self->compute_missing_points();
+  for my $i (0 .. $#points - 1) {
+    $current = $points[$i];
+    $next = $points[$i+1];
     if (!$path) {
       # bézier curve A B A B
-      my $a = $self->partway($x, $y, 0.3);
-      my $b = $self->partway($x, $y, 0.5);
+      my $a = $current->partway($next, 0.3);
+      my $b = $current->partway($next, 0.5);
       $path = "M$a C$b $a $b";
     } else {
-      $path .= " S" . $self->partway($x, $y, 0.3) . " " . $self->partway($x, $y, 0.5);
+      # continue curve
+      $path .= " S" . $current->partway($next, 0.3)
+	      . " " . $current->partway($next, 0.5);
     }
-    ($last_x, $last_y) = ($x, $y);
-    ($x, $y) = $self->next($x, $y);
   }
   # end with a little stub
-  $path .= " L " . $self->partway($last_x, $last_y, 0.7);
+  $path .= " L" . $current->partway($next, 0.7);
 
   my $type = $self->type;
   my $attributes = $self->map->path_attributes($type);
@@ -264,10 +288,13 @@ sub process {
       my @types = split(' ', $3);
       $hex->type(\@types);
       $self->add($hex);
-    } elsif (/^(\d\d)(\d\d)-(\d\d)(\d\d)\s+(\S+)/) {
-      my $line = Line->new(x1 => $1, y1 => $2,
-			   x2 => $3, y2 => $4, map => $self);
-      $line->type($5);
+    } elsif (/^(\d\d\d\d(?:-\d\d\d\d)+)\s+(\S+)/) {
+      my $line = Line->new(map => $self);
+      $line->type($2);
+      my @points = map { my $point = Point->new(x => substr($_, 0, 2),
+						y => substr($_, 2, 2));
+		       } split(/-/, $1);
+      $line->points(\@points);
       push(@{$self->lines}, $line);
     } elsif (/^(\S+)\s+attributes\s+(.*)/) {
       $self->attributes($1, $2);
@@ -323,6 +350,7 @@ sub svg {
   my ($vx1, $vy1, $vx2, $vy2) =
     map { int($_) } ($minx * $dx * 3/2 - $dx - 10, ($miny - 0.5) * $dy - 10,
 		     $maxx * $dx * 3/2 + $dx + 10, ($maxy + 0.5) * $dy + 10);
+  my ($width, $height) = ($vx2 - $vx1, $vy2 - $vy1);
 
   my $doc = qq{<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <svg xmlns="http://www.w3.org/2000/svg" version="1.1"
@@ -367,6 +395,9 @@ sub svg {
   </defs>
 };
 
+  $doc .= " <rect x='$vx1' y='$vy1' width='$width' height='$height' stroke='black' fill-opacity='0' stroke-width='1' />\n"
+    if main::param('debug');
+
   foreach my $hex (@{$self->hexes}) {
     $doc .= $hex->svg();
   }
@@ -400,26 +431,26 @@ sub print_map {
 }
 
 sub print_html {
-  print (header(-type=>'text/html; charset=UTF-8'),
-	 start_html(-encoding=>'UTF-8', -title=>'Text Mapper',
+  print header(-type=>'text/html; charset=UTF-8'),
+	start_html(-encoding=>'UTF-8', -title=>'Text Mapper',
 		    -author=>'kensanata@gmail.com'),
-	 h1('Text Mapper'),
-	 p('Submit your text desciption of the map.'),
-	 start_form(-method=>'GET'),
-	 p(textarea(-style => 'width:100%',
+	h1('Text Mapper'),
+	p('Submit your text desciption of the map.'),
+	start_form(-method=>'GET'),
+	p(textarea(-style => 'width:100%',
 		    -name => 'map',
 		    -default => Mapper::example(),
 		    -rows => 15,
 		    -columns => 60, )),
-	 p(submit()),
-	 end_form(),
-	 hr(),
-	 p(a({-href=>'http://www.alexschroeder.ch/wiki/About'},
-	     'Alex Schröder'),
-	   a({-href=>url() . '/source'}, 'Source'),
-	   a({-href=>'https://github.com/kensanata/hex-mapping'},
-	     'GitHub')),
-	 end_html());
+	p(submit()),
+	end_form(),
+	hr(),
+	p(a({-href=>'http://www.alexschroeder.ch/wiki/About'},
+	    'Alex Schröder'),
+	  a({-href=>url() . '/source'}, 'Source'),
+	  a({-href=>'https://github.com/kensanata/hex-mapping'},
+	    'GitHub')),
+	end_html();
 }
 
 sub main {
