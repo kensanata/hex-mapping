@@ -321,8 +321,8 @@ sub svg {
   }
 
   my ($vx1, $vy1, $vx2, $vy2) =
-    map { int($_) } (($minx - 0.5) * $dx * 3/2 - 10, ($miny - 0.5) * $dy - 10,
-		     ($maxx + 1.0) * $dx * 3/2 + 10, ($maxy + 0.5) * $dy + 10);
+    map { int($_) } ($minx * $dx * 3/2 - $dx - 10, ($miny - 0.5) * $dy - 10,
+		     $maxx * $dx * 3/2 + $dx + 10, ($maxy + 0.5) * $dy + 10);
 
   my $doc = qq{<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <svg xmlns="http://www.w3.org/2000/svg" version="1.1"
