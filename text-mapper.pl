@@ -266,7 +266,7 @@ my $example = q{
 0403 jungle "Harald's Repose"
 0205-0103-0202-0303-0402 road
 0101-0203 river
-0301-0303-0504 border
+0401-0303-0403 border
 include http://alexschroeder.ch/contrib/default.txt
 };
 
