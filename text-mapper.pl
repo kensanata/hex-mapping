@@ -153,18 +153,17 @@ sub svg {
 
 sub debug {
   my $self = shift;
-  my ($x, $y) = ($self->x1, $self->y1);
-  my $path;
-  my $data = '';
-  my $i = 1;
-  while (not $self->done($x, $y)) {
-    $data .= circle($self->pixels($x, $y), 15, $i++);
-    $data .= circle($self->partway($x, $y, 0.3), 3, 'a');
-    $data .= circle($self->partway($x, $y, 0.5), 5, 'b');
-    $data .= circle($self->partway($x, $y, 0.7), 3, 'c');
-    ($x, $y) = $self->next($x, $y);
+  my ($data, $current, $next);
+  my @points = $self->compute_missing_points();
+  for my $i (0 .. $#points - 1) {
+    $current = $points[$i];
+    $next = $points[$i+1];
+    $data .= circle($current->pixels, 15, $i++);
+    $data .= circle($current->partway($next, 0.3), 3, 'a');
+    $data .= circle($current->partway($next, 0.5), 5, 'b');
+    $data .= circle($current->partway($next, 0.7), 3, 'c');
   }
-  $data .= circle($self->pixels($x, $y), 15, $i++);
+  $data .= circle($next->pixels, 15, $#points);
   return $data;
 }
 
@@ -349,7 +348,7 @@ sub svg {
   }
 
   my ($vx1, $vy1, $vx2, $vy2) =
-    map { int($_) } ($minx * $dx * 3/2 - $dx - 10, ($miny - 0.5) * $dy - 10,
+    map { int($_) } ($minx * $dx * 3/2 - $dx - 10, ($miny - 1.0) * $dy - 10,
 		     $maxx * $dx * 3/2 + $dx + 10, ($maxy + 0.5) * $dy + 10);
   my ($width, $height) = ($vx2 - $vx1, $vy2 - $vy1);
 
@@ -459,6 +458,7 @@ sub main {
   if (param('map')) {
     print_map(param('map'));
   } elsif (path_info() eq '/source') {
+    print header(-type=>'text/plain; charset=UTF-8');
     seek(DATA,0,0);
     undef $/;
     print <DATA>;
