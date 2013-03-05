@@ -257,7 +257,7 @@ my $example = q{
 0201 mountain
 0202 hill
 0203 coast
-0204 empty
+0204 empty house
 0301 mountain
 0302 mountain
 0303 plain
@@ -265,7 +265,8 @@ my $example = q{
 0401 hill
 0402 sand house
 0403 jungle "Harald's Repose"
-
+0205-0103-0202-0303-0402 road
+0101-0203 river
 include http://alexschroeder.ch/contrib/default.txt
 };
 
