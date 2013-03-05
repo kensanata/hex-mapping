@@ -46,7 +46,6 @@ house path M 0,4 C -6,7 -7,22 -6,26 -3,26 4,25 7,26 8,24 6,5 0,4 z M 7,-7 C 10,3
 road path attributes stroke="black" stroke-width="3" fill-opacity="0" stroke-dasharray="10 10"
 river path attributes stroke="#7fffd4" stroke-width="10" fill-opacity="0" stroke-linecap="round"
 border path attributes stroke="red" stroke-width="15" stroke-opacity="0.5" fill-opacity="0"
-include http://alexschroeder.ch/contrib/default.txt
 
 text font-size="20pt" dy="15px"
 label font-size="20pt" dy="5px"
