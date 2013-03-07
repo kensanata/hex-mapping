@@ -248,22 +248,21 @@ struct Mapper => {
 		 };
 
 my $example = q{
-# map definition
-0101 mountain
-0102 mountain
-0103 hill
-0104 forest
-0201 empty pyramid
-0202 hill
-0203 coast
-0204 empty house
-0301 woodland
-0302 wetland
-0303 plain
-0304 sea
+0101 mountain "mountain"
+0102 swamp "swamp"
+0103 hill "hill"
+0104 forest "horest"
+0201 empty pyramid "pyramid"
+0202 tundra "tundra"
+0203 coast "coast"
+0204 empty house "house"
+0301 woodland "woodland"
+0302 wetland "wetland"
+0303 plain "plain"
+0304 sea "sea"
 0401 hill
 0402 sand house
-0403 jungle "Harald's Repose"
+0403 jungle "jungle"
 0205-0103-0202-0303-0402 road
 0101-0203 river
 0401-0303-0403 border
