@@ -401,11 +401,11 @@ sub svg {
   foreach my $hex (@{$self->hexes}) {
     $doc .= $hex->svg();
   }
-  foreach my $hex (@{$self->hexes}) {
-    $doc .= $hex->svg_label();
-  }
   foreach my $line (@{$self->lines}) {
     $doc .= $line->svg();
+  }
+  foreach my $hex (@{$self->hexes}) {
+    $doc .= $hex->svg_label();
   }
   my $y = 10;
   foreach my $msg (@{$self->messages}) {
