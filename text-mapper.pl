@@ -213,6 +213,7 @@ sub svg {
 
 sub svg_label {
   my $self = shift;
+  return unless $self->label;
   my $x = $self->x;
   my $y = $self->y;
   my $data = sprintf(qq{  <text text-anchor="middle" x="%.1f" y="%.1f" %s %s>}
@@ -220,12 +221,12 @@ sub svg_label {
 		   . qq{</text>\n},
 		   $x * $dx * 3/2, $y * $dy - $x%2 * $dy/2 + $dy * 0.4,
 		   $self->map->label_attributes,
-		   $self->map->glow_attributes) if $self->label;
+		   $self->map->glow_attributes);
   $data .= sprintf(qq{  <text text-anchor="middle" x="%.1f" y="%.1f" %s>}
 		   . $self->label
 		   . qq{</text>\n},
 		   $x * $dx * 3/2, $y * $dy - $x%2 * $dy/2 + $dy * 0.4,
-		   $self->map->label_attributes) if $self->label;
+		   $self->map->label_attributes);
   return $data;
 }
 
@@ -372,21 +373,28 @@ sub svg {
   foreach my $type (keys %type) {
     my $attributes = $self->attributes($type);
     my $path = $self->path($type);
+    my $glow_attributes = $self->glow_attributes;
     my $path_attributes = $self->path_attributes($type);
     my ($x1, $y1, $x2, $y2, $x3, $y3,
 	$x4, $y4, $x5, $y5, $x6, $y6) =
 	  (-$dx, 0, -$dx/2, $dy/2, $dx/2, $dy/2,
 	   $dx, 0, $dx/2, -$dy/2, -$dx/2, -$dy/2);
     if ($path && $attributes) {
+      # hex with shapes, eg. plains and grass
       $doc .= qq{
     <g id='$type'>
       <polygon $attributes points='$x1,$y1 $x2,$y2 $x3,$y3 $x4,$y4 $x5,$y5 $x6,$y6' />
       <path $path_attributes d='$path' />
     </g>};
     } elsif ($path) {
+      # just shapes, eg. a house
       $doc .= qq{
-    <path id='$type' $path_attributes d='$path' />};
+    <g id='$type'>
+      <path $glow_attributes d='$path' />
+      <path $path_attributes d='$path' />
+    </g>};
     } else {
+      # just a hex
       $doc .= qq{
     <polygon id='$type' $attributes points='$x1,$y1 $x2,$y2 $x3,$y3 $x4,$y4 $x5,$y5 $x6,$y6' />}
     }
