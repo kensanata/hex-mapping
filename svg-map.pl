@@ -1,5 +1,5 @@
 #!/usr/bin/perl
-# Copyright (C) 2007, 2009, 2010, 2012  Alex Schroeder <alex@gnu.org>
+# Copyright (C) 2007-2013  Alex Schroeder <alex@gnu.org>
 #
 # This program is free software: you can redistribute it and/or modify it under
 # the terms of the GNU General Public License as published by the Free Software
@@ -12,8 +12,6 @@
 #
 # You should have received a copy of the GNU General Public License along with
 # this program. If not, see <http://www.gnu.org/licenses/>.
-#
-# $Id: svg-map.pl,v 1.36 2011/01/08 00:30:39 alex Exp $
 
 use CGI qw/:standard/;
 use strict;
@@ -138,37 +136,49 @@ sub system_svg {
   my $scale = 100;
   # code red painted first, so it appears at the bottom
   $data .= sprintf(qq{$lead    <circle class="code red" cx="%.3f" cy="%.3f" r="%.3f" />\n},
-		   (1 + ($x-1) * 1.5) * $scale, ($y - $x%2/2) * sqrt(3) * $scale, 0.52 * $scale)
+		   (1 + ($x-1) * 1.5) * $scale,
+		   ($y - $x%2/2) * sqrt(3) * $scale, 0.52 * $scale)
     if $self->code eq 'R';
   $data .= sprintf(qq{$lead    <circle cx="%.3f" cy="%.3f" r="%.3f" />\n},
-		   (1 + ($x-1) * 1.5) * $scale, ($y - $x%2/2) * sqrt(3) * $scale, 11 + $size);
+		   (1 + ($x-1) * 1.5) * $scale,
+		   ($y - $x%2/2) * sqrt(3) * $scale, 11 + $size);
   $data .= sprintf(qq{$lead    <circle class="code amber" cx="%.3f" cy="%.3f" r="%.3f" />\n},
-		   (1 + ($x-1) * 1.5) * $scale, ($y - $x%2/2) * sqrt(3) * $scale, 0.52 * $scale)
+		   (1 + ($x-1) * 1.5) * $scale,
+		   ($y - $x%2/2) * sqrt(3) * $scale, 0.52 * $scale)
     if $self->code eq 'A';
   $data .= sprintf(qq{$lead    <text class="starport" x="%.3f" y="%.3f">$starport</text>\n},
-		   (1 + ($x-1) * 1.5) * $scale, ($y - $x%2/2 - 0.17) * sqrt(3) * $scale);
+		   (1 + ($x-1) * 1.5) * $scale,
+		   ($y - $x%2/2 - 0.17) * sqrt(3) * $scale);
   $data .= sprintf(qq{$lead    <text class="name" x="%.3f" y="%.3f">$display</text>\n},
-		   (1 + ($x-1) * 1.5) * $scale, ($y - $x%2/2 + 0.4) * sqrt(3) * $scale);
+		   (1 + ($x-1) * 1.5) * $scale,
+		   ($y - $x%2/2 + 0.4) * sqrt(3) * $scale);
   $data .= sprintf(qq{$lead    <text class="consulate base" x="%.3f" y="%.3f">■</text>\n},
-		   (0.6 + ($x-1) * 1.5) * $scale, ($y - $x%2/2 + 0.25) * sqrt(3) * $scale)
+		   (0.6 + ($x-1) * 1.5) * $scale,
+		   ($y - $x%2/2 + 0.25) * sqrt(3) * $scale)
     if $self->consulate;
   $data .= sprintf(qq{$lead    <text class="TAS base" x="%.3f" y="%.3f">☼</text>\n},
-  		   (0.4 + ($x-1) * 1.5) * $scale, ($y - $x%2/2 + 0.1) * sqrt(3) * $scale)
+  		   (0.4 + ($x-1) * 1.5) * $scale,
+		   ($y - $x%2/2 + 0.1) * sqrt(3) * $scale)
     if $self->TAS;
   $data .= sprintf(qq{$lead    <text class="pirate base" x="%.3f" y="%.3f">▲</text>\n},
-  		   (0.4 + ($x-1) * 1.5) * $scale, ($y - $x%2/2 - 0.1) * sqrt(3) * $scale)
+  		   (0.4 + ($x-1) * 1.5) * $scale,
+		   ($y - $x%2/2 - 0.1) * sqrt(3) * $scale)
     if $self->scout;
   $data .= sprintf(qq{$lead    <text class="naval base" x="%.3f" y="%.3f">★</text>\n},
-  		   (0.6 + ($x-1) * 1.5) * $scale, ($y - $x%2/2 - 0.25) * sqrt(3) * $scale)
+  		   (0.6 + ($x-1) * 1.5) * $scale,
+		   ($y - $x%2/2 - 0.25) * sqrt(3) * $scale)
     if $self->naval;
   $data .= sprintf(qq{$lead    <text class="gasgiant base" x="%.3f" y="%.3f">◉</text>\n},
-   		   (1.4 + ($x-1) * 1.5) * $scale, ($y - $x%2/2 - 0.25) * sqrt(3) * $scale)
+   		   (1.4 + ($x-1) * 1.5) * $scale,
+		   ($y - $x%2/2 - 0.25) * sqrt(3) * $scale)
     if $self->gasgiant;
   $data .= sprintf(qq{$lead    <text class="research base" x="%.3f" y="%.3f">π</text>\n},
-   		   (1.6 + ($x-1) * 1.5) * $scale, ($y - $x%2/2 - 0.1) * sqrt(3) * $scale)
+   		   (1.6 + ($x-1) * 1.5) * $scale,
+		   ($y - $x%2/2 - 0.1) * sqrt(3) * $scale)
     if $self->research;
   $data .= sprintf(qq{$lead    <text class="pirate base" x="%.3f" y="%.3f">☠</text>\n},
-   		   (1.6 + ($x-1) * 1.5) * $scale, ($y - $x%2/2 + 0.1) * sqrt(3) * $scale)
+   		   (1.6 + ($x-1) * 1.5) * $scale,
+		   ($y - $x%2/2 + 0.1) * sqrt(3) * $scale)
     if $self->pirate;
   # last slot unused
   $data .= qq{$lead  </g>\n};
@@ -316,7 +326,7 @@ sub header {
     <polygon id="hex"
              points="%s,%s %s,%s %s,%s %s,%s %s,%s %s,%s" />
   </defs>
-  <rect fill="none" stroke="black" stroke-width="10" id="frame"
+  <rect fill="white" stroke="black" stroke-width="10" id="frame"
         x="%s" y="%s" width="%s" height="%s" />
 
 EOT
@@ -536,7 +546,8 @@ sub edges {
 
 sub minimal_spanning_tree {
   # http://en.wikipedia.org/wiki/Kruskal%27s_algorithm
-  # Initialize a priority queue Q to contain all edges in G, using the weights as keys.
+  # Initialize a priority queue Q to contain all edges in G, using the
+  # weights as keys.
   my @Q = sort { @{$a}[2] <=> @{$b}[2] } @_;
   # Define a forest T ← Ø; T will ultimately contain the edges of the MST
   my @T;
