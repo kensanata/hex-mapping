@@ -252,7 +252,7 @@ my $example = q{
 0101 mountain "mountain"
 0102 swamp "swamp"
 0103 hill "hill"
-0104 forest "forest"
+0104 forest "horest"
 0201 empty pyramid "pyramid"
 0202 tundra "tundra"
 0203 coast "coast"
@@ -261,9 +261,10 @@ my $example = q{
 0302 wetland "wetland"
 0303 plain "plain"
 0304 sea "sea"
-0401 hill
-0402 sand house
+0401 hill tower "tower"
+0402 sand house "house"
 0403 jungle "jungle"
+0502 sand "sand"
 0205-0103-0202-0303-0402 road
 0101-0203 river
 0401-0303-0403 border
