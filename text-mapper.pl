@@ -312,7 +312,8 @@ sub process {
       $self->label_attributes($1);
     } elsif (/^include\s+(\S*)/) {
       if (scalar keys %{$self->seen} > 5) {
-	push(@{$self->messages}, "Includes are limited to five to prevent loops");
+	push(@{$self->messages},
+	     "Includes are limited to five to prevent loops");
       } elsif ($self->seen($1)) {
 	push(@{$self->messages}, "$1 was included twice");
       } else {
@@ -332,6 +333,16 @@ sub process {
 sub add {
   my ($self, $hex) = @_;
   push(@{$self->hexes}, $hex);
+}
+
+sub merge_attributes {
+  my %attr = ();
+  for my $attr (@_) {
+    while ($attr =~ /(\S+)=((["']).*?\3)/g) {
+      $attr{$1} = $2;
+    }
+  }
+  return join(' ', map { $_ . '=' . $attr{$_} } sort keys %attr);
 }
 
 sub svg {
@@ -362,20 +373,24 @@ sub svg {
   <defs>};
 
   # collect hex types from attributess and paths in case the sets don't overlap
-  my %type = ();
-  foreach my $type (keys %{$self->attributes}) {
-    $type{$type} = 1;
+  my %types = ();
+  foreach my $hex (@{$self->hexes}) {
+    foreach my $type (@{$hex->type}) {
+      $types{$type} = 1;
+    }
   }
-  foreach my $type (keys %{$self->path}) {
-    $type{$type} = 1;
+  foreach my $line (@{$self->lines}) {
+    $types{$line->type} = 1;
   }
 
   # now go through them all
-  foreach my $type (keys %type) {
-    my $attributes = $self->attributes($type);
+  foreach my $type (keys %types) {
     my $path = $self->path($type);
+    my $attributes = merge_attributes($self->attributes('default'),
+				      $self->attributes($type));
+    my $path_attributes = merge_attributes($self->path_attributes('default'),
+					   $self->path_attributes($type));
     my $glow_attributes = $self->glow_attributes;
-    my $path_attributes = $self->path_attributes($type);
     my ($x1, $y1, $x2, $y2, $x3, $y3,
 	$x4, $y4, $x5, $y5, $x6, $y6) =
 	  (-$dx, 0, -$dx/2, $dy/2, $dx/2, $dy/2,
