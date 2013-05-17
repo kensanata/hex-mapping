@@ -460,7 +460,7 @@ sub print_html {
 		    -author=>'kensanata@gmail.com'),
 	h1('Text Mapper'),
 	p('Submit your text desciption of the map.'),
-	start_form(-method=>'GET'),
+	start_form(-method=>'POST'),
 	p(textarea(-style => 'width:100%',
 		    -name => 'map',
 		    -default => Mapper::example(),
