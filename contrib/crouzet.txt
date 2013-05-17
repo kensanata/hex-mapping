@@ -1,0 +1,22 @@
+# Thanks to Dominique Crouzet, there is a nice black and white hex map
+# icon set that he released to the public domain.
+
+text font-size="20pt" dy="15px" fill="#999"
+label font-size="20pt" dy="5px"
+glow stroke="white" stroke-width="5pt"
+
+empty attributes fill="#ffffff" stroke="red" stroke-width="3"
+
+default attributes fill="#ffffff" stroke="#008b8b" stroke-width="3"
+default path attributes fill="black"
+
+road path attributes stroke="black" stroke-width="3" fill-opacity="0" stroke-dasharray="10 10"
+river path attributes stroke="#7fffd4" stroke-width="10" fill-opacity="0" stroke-linecap="round"
+border path attributes stroke="red" stroke-width="15" stroke-opacity="0.5" fill-opacity="0"
+
+chasm path attributes fill="none" stroke="black" stroke-width="4"
+chasm path m -51,42 0,17 m 13,-26 0,26 m 16,-35 0,34 m 14,-33 0,33 M 6,23 7,55 M 20,17 20,49 M 32,7 32,40 m -30,-76 0,25 m 12,-31 -1,26 m 11,-29 0,21 m 12,-24 0,16 m 14,-20 0,12 0,0 m 16,5 c 0,0 -24,5 -25,13 -1,9 33,18 31,31 C 66,45 29,43 9,74 M 57,-54 C -6,-41 -33,-23 13,-7 62,9 5,24 -16,25 -38,23 -45,46 -65,46
+
+# Example section -- you should strip this!
+
+0101 chasm "chasm"
