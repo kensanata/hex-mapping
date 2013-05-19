@@ -237,6 +237,7 @@ use Class::Struct;
 struct Mapper => {
 		  hexes => '@',
 		  attributes => '%',
+		  file => '%',
 		  map => '$',
 		  path => '%',
 		  lines => '@',
@@ -300,6 +301,8 @@ sub process {
       push(@{$self->lines}, $line);
     } elsif (/^(\S+)\s+attributes\s+(.*)/) {
       $self->attributes($1, $2);
+    } elsif (/^(\S+)\s+file\s+(.*)/) {
+      $self->file($1, $2);
     } elsif (/^(\S+)\s+path\s+attributes\s+(.*)/) {
       $self->path_attributes($1, $2);
     } elsif (/^(\S+)\s+path\s+(.*)/) {
@@ -390,27 +393,40 @@ sub svg {
 				      $self->attributes($type));
     my $path_attributes = merge_attributes($self->path_attributes('default'),
 					   $self->path_attributes($type));
+    my $file = $self->file($type);
     my $glow_attributes = $self->glow_attributes;
     my ($x1, $y1, $x2, $y2, $x3, $y3,
 	$x4, $y4, $x5, $y5, $x6, $y6) =
 	  (-$dx, 0, -$dx/2, $dy/2, $dx/2, $dy/2,
 	   $dx, 0, $dx/2, -$dy/2, -$dx/2, -$dy/2);
-    if ($path && $attributes) {
-      # hex with shapes, eg. plains and grass
+    if ($path || $attributes || $file) {
       $doc .= qq{
-    <g id='$type'>
-      <polygon $attributes points='$x1,$y1 $x2,$y2 $x3,$y3 $x4,$y4 $x5,$y5 $x6,$y6' />
-      <path $path_attributes d='$path' />
-    </g>};
-    } elsif ($path) {
-      # just shapes, eg. a house
+    <g id='$type'>};
+      # just shapes get an outline such as a house (must come first)
       $doc .= qq{
-    <g id='$type'>
-      <path $glow_attributes d='$path' />
-      <path $path_attributes d='$path' />
+      <path $glow_attributes d='$path' />}
+	if $path && !$attributes;
+      # hex with shapes get a hex around them, eg. plains and grass
+      $doc .= qq{
+      <polygon $attributes points='$x1,$y1 $x2,$y2 $x3,$y3 $x4,$y4 $x5,$y5 $x6,$y6' />}
+	if $attributes;
+      # the shape
+      $doc .= qq{
+      <path $path_attributes d='$path' />}
+	if $path;
+      # or the file with viewBox="0 0 512 512" => scale to 0 0 200 200
+      $doc .= qq{
+      <rect x="-50" y="-50" width="100" height="100" opacity="0.2"/>
+      <g transform='scale(0.391) translate(-133,-133)'>
+        $file
+      </g>
+      }
+	if $file;
+      # close
+      $doc .= qq{
     </g>};
     } else {
-      # just a hex
+      # just a hex without grouping
       $doc .= qq{
     <polygon id='$type' $attributes points='$x1,$y1 $x2,$y2 $x3,$y3 $x4,$y4 $x5,$y5 $x6,$y6' />}
     }
