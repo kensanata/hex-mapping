@@ -656,5 +656,20 @@ As you can see, you can have multiple types per coordinate, but
 obviously only one of them should have the "fill" property (or they
 must all be somewhat transparent).
 
-=cut
+Since these definitions get unwieldy, require a lot of work (the path
+elements), and to encourage reuse, you can use the B<include>
+statement with an URL.
 
+    include http://alexschroeder.ch/contrib/default.txt
+    0102 sand
+    0103 sand
+    0201 sand
+    0202 jungle "oasis"
+    0203 sand
+    0302 sand
+    0303 sand
+
+You can find more files to include in the C<contrib> directory:
+L<https://github.com/kensanata/hex-mapping/tree/master/contrib>.
+
+=cut
