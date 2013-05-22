@@ -373,7 +373,15 @@ sub svg {
      viewBox="$vx1 $vy1 $vx2 $vy2"
      xmlns:xlink="http://www.w3.org/1999/xlink">
   <!-- ($minx, $miny) ($maxx, $maxy) -->
-  <defs>};
+  <defs>
+    <filter id="invert" filterRes="512">
+	    <feComponentTransfer>
+		    <feFuncR type="table" tableValues="1 0" />
+		    <feFuncG type="table" tableValues="1 0" />
+		    <feFuncB type="table" tableValues="1 0" />
+	    </feComponentTransfer>
+    </filter>
+};
 
   # collect hex types from attributess and paths in case the sets don't overlap
   my %types = ();
@@ -416,8 +424,7 @@ sub svg {
 	if $path;
       # or the file with viewBox="0 0 512 512" => scale to 0 0 200 200
       $doc .= qq{
-      <rect x="-50" y="-50" width="100" height="100" opacity="0.2"/>
-      <g transform='scale(0.391) translate(-133,-133)'>
+      <g transform='translate(-50,-50) scale(0.088)' filter='url(#invert)'>
         $file
       </g>
       }
@@ -671,5 +678,18 @@ statement with an URL.
 
 You can find more files to include in the C<contrib> directory:
 L<https://github.com/kensanata/hex-mapping/tree/master/contrib>.
+
+=head2 Game Icons
+
+As the icons from L<http://game-icons.net/> look very interesting,
+there is some support for them. You can define shapes using the
+B<file> keyword:
+
+   some-type file <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">...</svg>
+
+The viewBox is important. The icons from Game-icons.net are all sized
+512×512 and they're all I<inverted>. Thus, there's scaling,
+translating and filtering involved to "get it right". Thus, this
+approach will most likely not work for other icon sources.
 
 =cut
