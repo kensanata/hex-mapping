@@ -506,11 +506,8 @@ sub print_html {
 }
 
 sub help {
-  if (not eval { require POD::Simple::HTML; }) {
-    print header(-type=>'text/plain; charset=UTF-8');
-    undef $/;
-    print <DATA>;
-  } else {
+  eval {
+    require Pod::Simple::HTML;
     print header(-type=>'text/html; charset=UTF-8');
     $Pod::Simple::HTML::Doctype_decl =
       q{<!DOCTYPE html>};
@@ -523,6 +520,12 @@ sub help {
     undef $/;
     $parser->parse_string_document(<DATA>);
     print $html;
+  };
+  if ($@) {
+    print header(-type=>'text/plain; charset=UTF-8');
+    print "$@\n";
+    undef $/;
+    print <DATA>;
   }
 }
 
