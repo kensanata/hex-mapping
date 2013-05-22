@@ -470,6 +470,17 @@ sub print_map {
   print $map->svg;
 }
 
+sub footer {
+  return hr()
+    . p(a({-href=>'http://www.alexschroeder.ch/wiki/About'},
+	  'Alex Schröder'),
+	a({-href=>url() . '/help'}, 'Help'),
+	a({-href=>url() . '/source'}, 'Source'),
+	a({-href=>'https://github.com/kensanata/hex-mapping'},
+	  'GitHub'))
+    . end_html();
+}
+
 sub print_html {
   print header(-type=>'text/html; charset=UTF-8'),
 	start_html(-encoding=>'UTF-8', -title=>'Text Mapper',
@@ -484,13 +495,28 @@ sub print_html {
 		    -columns => 60, )),
 	p(submit()),
 	end_form(),
-	hr(),
-	p(a({-href=>'http://www.alexschroeder.ch/wiki/About'},
-	    'Alex Schröder'),
-	  a({-href=>url() . '/source'}, 'Source'),
-	  a({-href=>'https://github.com/kensanata/hex-mapping'},
-	    'GitHub')),
-	end_html();
+        footer();
+}
+
+sub help {
+  if (not eval { require POD::Simple::HTML; }) {
+    print header(-type=>'text/plain; charset=UTF-8');
+    undef $/;
+    print <DATA>;
+  } else {
+    print header(-type=>'text/html; charset=UTF-8');
+    $Pod::Simple::HTML::Doctype_decl =
+      q{<!DOCTYPE html>};
+    $Pod::Simple::HTML::Content_decl =
+      q{<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" >};
+    my $parser = Pod::Simple::HTML->new;
+    $parser->output_string(\my $html);
+    $parser->html_footer(footer());
+    seek(DATA,0,0);
+    undef $/;
+    $parser->parse_string_document(<DATA>);
+    print $html;
+  }
 }
 
 sub main {
@@ -502,6 +528,8 @@ sub main {
     seek(DATA,0,0);
     undef $/;
     print <DATA>;
+  } elsif (path_info() eq '/help') {
+    help();
   } else {
     print_html();
   }
@@ -510,3 +538,123 @@ sub main {
 main ();
 
 __DATA__
+
+=head1 Text Mapper
+
+The script parses a text description of a hex map and produces SVG
+output.
+
+Here's a small example:
+
+    grass attributes fill="green"
+    0101 grass
+
+First, we defined the SVG attributes of a hex B<type> and then we
+listed the hexes using their coordinates and their type. Adding more
+types and extending the map is easy:
+
+    grass attributes fill="green"
+    sea attributes fill="blue"
+    0101 grass
+    0102 sea
+    0201 grass
+    0202 sea
+
+You might want to define more SVG attributes such as a border around
+each hex:
+
+    grass attributes fill="green" stroke="black" stroke-width="1px"
+    0101 grass
+
+The attributes for the special type B<default> will be used as well.
+Thus, the border is best defined for the default.
+
+    default attributes stroke="black" stroke-width="1px"
+    grass attributes fill="green"
+    sea attributes fill="blue"
+    0101 grass
+    0102 sea
+    0201 grass
+    0202 sea
+
+You can define the SVG attributes for the B<text> in coordinates as
+well.
+
+    text font-family="monospace" font-size="10pt" dy="-4pt"
+    default attributes stroke="black" stroke-width="1px"
+    grass attributes fill="green"
+    sea attributes fill="blue"
+    0101 grass
+    0102 sea
+    0201 grass
+    0202 sea
+
+You can provide a text B<label> to use for each hex:
+
+    text font-family="monospace" font-size="10pt" dy="-4pt"
+    default attributes stroke="black" stroke-width="1px"
+    grass attributes fill="green"
+    sea attributes fill="blue"
+    0101 grass
+    0102 sea
+    0201 grass
+    0202 sea "deep blue sea"
+
+To improve legibility, the SVG output gives you the ability to define
+an "outer glow" for your labels by printing them twice and using the
+B<glow> attributes for the one in the back. In addition to that, you
+can use B<label> to control the text attributes used for these labels.
+
+    text font-family="monospace" font-size="10pt" dy="-4pt"
+    label font-family="sans-serif" font-size="12pt"
+    glow stroke="white" stroke-width="3pt"
+    default attributes stroke="black" stroke-width="1px"
+    grass attributes fill="green"
+    sea attributes fill="blue"
+    0101 grass
+    0102 sea
+    0201 grass
+    0202 sea "deep blue sea"
+
+You can define SVG B<path> elements to use for your map. These can be
+independent of a type (such as an icon for a settlement) or they can
+be part of a type (such as a bit of grass).
+
+Here, we add a bit of grass to the appropriate hex type:
+
+    text font-family="monospace" font-size="10pt" dy="-4pt"
+    label font-family="sans-serif" font-size="12pt"
+    glow stroke="white" stroke-width="3pt"
+    default attributes stroke="black" stroke-width="1px"
+    grass attributes fill="green"
+    grass path attributes stroke="#458b00" stroke-width="5px"
+    grass path M -20,-20 l 10,40 M 0,-20 v 40 M 20,-20 l -10,40
+    sea attributes fill="blue"
+    0101 grass
+    0102 sea
+    0201 grass
+    0202 sea "deep blue sea"
+
+Here, we add a settlement:
+
+    text font-family="monospace" font-size="10pt" dy="-4pt"
+    label font-family="sans-serif" font-size="12pt"
+    glow stroke="white" stroke-width="3pt"
+    default attributes fill="none" stroke="black" stroke-width="1px"
+    grass attributes fill="green"
+    grass path attributes stroke="#458b00" stroke-width="5px"
+    grass path M -20,-20 l 10,40 M 0,-20 v 40 M 20,-20 l -10,40
+    village path attributes fill="none" stroke="black" stroke-width="5px"
+    village path M -40,-40 v 80 h 80 v -80 z
+    sea attributes fill="blue"
+    0101 grass
+    0102 sea
+    0201 grass village "Beachton"
+    0202 sea "deep blue sea"
+
+As you can see, you can have multiple types per coordinate, but
+obviously only one of them should have the "fill" property (or they
+must all be somewhat transparent).
+
+=cut
+
