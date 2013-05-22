@@ -1,3 +1,20 @@
+# Game-icons.net is an online repository providing heaps of cool game
+# related graphics. They are provided provided under the terms of the
+# Creative Commons 3.0 BY license. It means that can use them freely
+# as long as you credit the original author in your creation (see
+# below). A mention like "Icons made by {author}. Available on
+# http://game-icons.net" is fine.
+
+# Icons made by Lorc and Delapouite. Available on http://game-icons.net
+
+# Lorc, http://lorcblog.blogspot.com
+# Delapouite, http://delapouite.com
+
+# Icons selected by Harald Wagener.
+
+# This file is for use with text-mapper.
+# https://github.com/kensanata/hex-mapping
+
 default attributes fill="#ffffff" stroke="black" stroke-width="3"
 
 text font-size="20pt" dy="15px"
@@ -41,44 +58,39 @@ volcano file <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path
 spiral-shell﻿ file <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="m0,0h512v512h-512z"/><g transform="matrix(18.68858,0,0,18.68858,4524.48518,-5414.08387)"><path d="m520.4091,300.0417c0,1.9971-1.132,3.6161-2.5284,3.6161s-2.5285-1.619-2.5285-3.6161 1.132-3.6161 2.5285-3.6161 2.5284,1.619 2.5284,3.6161z" fill="#fff" transform="matrix(1.05051,-.77487,.93902,.92943,-1051.1902,422.75328)"/><path d="m-240.3216,315.6572c.1457-6.9054 5.5392-8.7655 5.7709-13.6631 .3869-8.1779 16.2549,1.4754 10.6258,5.6275-.9096.671-1.4051.9215-2.4739.3353-.4769,6.1714-7.7434,1.8826-13.9228,7.7003z" fill="#fff" fill-rule="evenodd"/><path d="m-240.4515,315.8183c3.7078-5.6764 13.7891-15.2559 12.9517-7.5395-.4667,4.3006-5.7413.8389-12.9517,7.5395z" fill-rule="evenodd"/><path d="m520.4091,300.0417c0,1.9971-1.132,3.6161-2.5284,3.6161s-2.5285-1.619-2.5285-3.6161 1.132-3.6161 2.5285-3.6161 2.5284,1.619 2.5284,3.6161z" fill="#fff" transform="matrix(.7348,-.542,.65681,.65011,-800.21747,383.54383)"/><path d="m520.4091,300.0417c0,1.9971-1.132,3.6161-2.5284,3.6161s-2.5285-1.619-2.5285-3.6161 1.132-3.6161 2.5285-3.6161 2.5284,1.619 2.5284,3.6161z" fill="#fff" transform="matrix(.58105,-.4286,.51939,.51409,-677.3226,363.79427)"/><path d="m-218.4008,293.9946c1.9989,1.8115 2.1881-1.7163 2.2587-2.2051-.4927.0259-4.1423.4981-2.2587,2.2051z" fill="#fff" fill-rule="evenodd"/><path d="m520.4091,300.0417c0,1.9971-1.132,3.6161-2.5284,3.6161s-2.5285-1.619-2.5285-3.6161 1.132-3.6161 2.5285-3.6161 2.5284,1.619 2.5284,3.6161z" fill="#fff" transform="matrix(.49328,-.33802,.3719,.37744,-586.06811,356.36002)"/></g></svg>
 mountain-cave file <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="m0,0h512v512h-512z"/><path d="m35.4376,407.9129c195.4568-414.6692 118.4953-411.6505 287.2538-122.2058" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="19"/><path d="m307.5912,325.74c79.8979-185.1574 55.9511-211.7815 169.9643,82.1728" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="19"/><path d="m128.0479,417.4129c1e-05-48.1595 32.3821-87.2005 72.3274-87.2005s72.3274,39.041 72.3274,87.2005h-72.3274z" fill="#fff"/></svg>
 
-wetland attributes fill="#2e8b57" stroke="black" stroke-width="3"
-wetland path attributes fill="#254"
-wetland path M -18,-13 C -13,-6 -13,4 -8,12 C -11,14 -15,21 -18,26 C -20,17 -22,4 -28,0 C -26,-4 -21,-9 -18,-13 z M 5,-31 C 4,-19 3,-6 6,5 C 1,10 -0,14 -3,19 C -2,6 -3,-4 -4,-16 C -4,-21 2,-26 5,-31 z M 26,-1 C 16,6 19,5 9,18 C 12,3 21,-8 34,-17 C 32,-12 29,-6 27,-1 z
-
-0102 wetland
-0103 totem-head	 
-0104 hospital-cross	 
-0105 ifrit		 
-0106 fruiting	 
-0201 spartan		 
-0202 carrion		 
-0203 broken-skull	 
-0204 mushroom-gills	 
-0205 curling-vines	 
-0206 spill		 
-0301 fountain	 
-0302 bridge		 
-0303 caldera		 
-0304 burning-meteor	 
-0305 pirate-grave	 
-0306 stone-throne	 
-0401 anchor		 
-0402 sea-dragon	 
-0403 galleon		 
-0404 squid-head	 
-0405 alien-skull	 
-0406 dinosaur-bones	 
-0501 spectre		 
-0502 wyvern		 
-0503 capitol		 
-0504 locked-fortress	 
-0505 magic-gate	 
-0506 tower-fall	 
-0601 dead-wood	 
-0602 evil-tree	 
-0603 pine-tree	 
-0604 oak		 
-0605 crystal-growth	 
-0606 volcano		 
-0701 spiral-shell﻿	 
-0702 mountain-cave
+0101 totem-head "totem-head"
+0102 hospital-cross "hospital-cross"
+0103 ifrit "ifrit"
+0104 fruiting "fruiting"
+0105 spartan "spartan"
+0106 carrion "carrion"
+0201 broken-skull "broken-skull"
+0202 mushroom-gills "mushroom-gills"
+0203 curling-vines "curling-vines"
+0204 spill "spill"
+0205 fountain "fountain"
+0206 bridge "bridge"
+0301 caldera "caldera"
+0302 burning-meteor "burning-meteor"
+0303 pirate-grave "pirate-grave"
+0304 stone-throne "stone-throne"
+0305 anchor "anchor"
+0306 sea-dragon "sea-dragon"
+0401 galleon "galleon"
+0402 squid-head "squid-head"
+0403 alien-skull "alien-skull"
+0404 dinosaur-bones "dinosaur-bones"
+0405 spectre "spectre"
+0406 wyvern "wyvern"
+0501 capitol "capitol"
+0502 locked-fortress "locked-fortress"
+0503 magic-gate "magic-gate"
+0504 tower-fall "tower-fall"
+0505 dead-wood "dead-wood"
+0506 evil-tree "evil-tree"
+0601 pine-tree "pine-tree"
+0602 oak "oak"
+0603 crystal-growth "crystal-growth"
+0604 volcano "volcano"
+0605 spiral-shell﻿ "spiral-shell﻿"
+0606 mountain-cave "mountain-cave"
