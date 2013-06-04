@@ -1,0 +1,27 @@
+# Gnomeyland Map Icons Copyright Gregory B. MacKenzie 2012.
+# This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 Unported License.
+# To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.
+
+# This file is for use with text-mapper.
+# https://github.com/kensanata/hex-mapping
+
+default attributes fill="#ffffff" stroke="black" stroke-width="3"
+
+text font-size="20pt" dy="15px"
+label font-size="20pt" dy="5px"
+glow stroke="white" stroke-width="5pt"
+
+tree lib <path d="m 28,-2 c 0,20 -12,31 -27,31 -15,0 -27,-11 -27,-31 0,-20 12,-43 27,-43 15,0 27,22 27,43 z" fill="white"/><path d="m 6,-43 c 0,0 0,16 -4,19 -3,4 -4,15 -1,18 2,3 8,8 5,11 -3,3 -6,5 -5,9 0,4 8,6 -4,8 -11,2 -11,2 -11,2 0,0 13,9 26,2 14,-6 16,-29 16,-29 0,0 4,-21 -22,-41 z" fill="#39b54a"/><path d="m 28,-2 c 0,20 -12,31 -27,31 -15,0 -27,-11 -27,-31 0,-20 12,-43 27,-43 15,0 27,22 27,43 z" stroke="black" fill="none" stroke-width="6"/><rect x="-4" y="30" width="11" height="20" fill="#39b54a" stroke="black" stroke-width="6"/><line x1="-4" y1="50" x2="29" y2="50" fill="#39b54a" stroke="black" stroke-width="6"/>
+
+light_forest xml <use xlink:href="#tree" transform="scale(0.6)"/>
+
+forest xml <use xlink:href="#tree" transform="scale(0.6) translate(-40,-10)"/><use xlink:href="#tree" transform="scale(0.7) translate(30,-15)"/><use xlink:href="#tree" transform="scale(0.55) translate(0,10)"/>
+
+heavy_forest xml <use xlink:href="#tree" transform="scale(0.5) translate(-20,-40)"/><use xlink:href="#tree" transform="scale(0.5) translate(-60,-20)"/><use xlink:href="#tree" transform="scale(0.5) translate(40,-40)"/><use xlink:href="#tree" transform="scale(0.5) translate(80,-30)"/><use xlink:href="#tree" transform="scale(0.5) translate(-40,10)"/><use xlink:href="#tree" transform="scale(0.5) translate(-80,0)"/><use xlink:href="#tree" transform="scale(0.5) translate(5,-15)"/><use xlink:href="#tree" transform="scale(0.5) translate(50,-10)"/><use xlink:href="#tree" transform="scale(0.5) translate(-60,30)"/><use xlink:href="#tree" transform="scale(0.5) translate(30,20)"/><use xlink:href="#tree" transform="scale(0.5) translate(-20,35)"/><use xlink:href="#tree" transform="scale(0.5) translate(80,40)"/>
+
+0101 light_forest "light forest"
+0102 forest "forest"
+0103 heavy_forest "heavy forest"
+0201 light_bushes "light bushes"
+0202 bushes "bushes"
+0203 heavy_bushes "heavy bushes"

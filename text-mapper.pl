@@ -237,7 +237,8 @@ use Class::Struct;
 struct Mapper => {
 		  hexes => '@',
 		  attributes => '%',
-		  file => '%',
+		  xml => '%',
+		  lib => '%',
 		  map => '$',
 		  path => '%',
 		  lines => '@',
@@ -301,8 +302,10 @@ sub process {
       push(@{$self->lines}, $line);
     } elsif (/^(\S+)\s+attributes\s+(.*)/) {
       $self->attributes($1, $2);
-    } elsif (/^(\S+)\s+file\s+(.*)/) {
-      $self->file($1, $2);
+    } elsif (/^(\S+)\s+lib\s+(.*)/) {
+      $self->lib($1, $2);
+    } elsif (/^(\S+)\s+xml\s+(.*)/) {
+      $self->xml($1, $2);
     } elsif (/^(\S+)\s+path\s+attributes\s+(.*)/) {
       $self->path_attributes($1, $2);
     } elsif (/^(\S+)\s+path\s+(.*)/) {
@@ -374,13 +377,6 @@ sub svg {
      xmlns:xlink="http://www.w3.org/1999/xlink">
   <!-- ($minx, $miny) ($maxx, $maxy) -->
   <defs>
-    <filter id="invert" filterRes="512">
-	    <feComponentTransfer>
-		    <feFuncR type="table" tableValues="1 0" />
-		    <feFuncG type="table" tableValues="1 0" />
-		    <feFuncB type="table" tableValues="1 0" />
-	    </feComponentTransfer>
-    </filter>
 };
 
   # collect hex types from attributess and paths in case the sets don't overlap
@@ -393,6 +389,10 @@ sub svg {
   foreach my $line (@{$self->lines}) {
     $types{$line->type} = 1;
   }
+  # also collect all the types with XML definition as these may be referenced
+  foreach my $type (keys %{$self->lib}) {
+    $types{$type} = 1;
+  }
 
   # now go through them all
   foreach my $type (keys %types) {
@@ -401,13 +401,14 @@ sub svg {
 				      $self->attributes($type));
     my $path_attributes = merge_attributes($self->path_attributes('default'),
 					   $self->path_attributes($type));
-    my $file = $self->file($type);
+    my $lib = $self->lib($type);
+    my $xml = $self->xml($type);
     my $glow_attributes = $self->glow_attributes;
     my ($x1, $y1, $x2, $y2, $x3, $y3,
 	$x4, $y4, $x5, $y5, $x6, $y6) =
 	  (-$dx, 0, -$dx/2, $dy/2, $dx/2, $dy/2,
 	   $dx, 0, $dx/2, -$dy/2, -$dx/2, -$dy/2);
-    if ($path || $attributes || $file) {
+    if ($path || $attributes || $lib || $xml) {
       $doc .= qq{
     <g id='$type'>};
       # just shapes get an outline such as a house (must come first)
@@ -417,22 +418,15 @@ sub svg {
       # hex with shapes get a hex around them, eg. plains and grass
       $doc .= qq{
       <polygon $attributes points='$x1,$y1 $x2,$y2 $x3,$y3 $x4,$y4 $x5,$y5 $x6,$y6' />}
-	if $attributes;
+	if $attributes && !$lib;
       # the shape
       $doc .= qq{
       <path $path_attributes d='$path' />}
 	if $path;
-      # or the file with viewBox="0 0 512 512" => scale to 0 0 200 200
-      # filter='url(#invert)'
-      # <rect opacity="0.1" x="$d" y="$d" width="$dx" height="$dx"/>
-      my $scale = 0.1;
-      my $d = -$dx/2;
       $doc .= qq{
-      <g transform='scale($scale) translate(-256,-256)'>
-        $file
-      </g>
-      }
-	if $file;
+        $lib} if $lib;
+      $doc .= qq{
+        $xml} if $xml;
       # close
       $doc .= qq{
     </g>};
@@ -688,15 +682,14 @@ L<https://github.com/kensanata/hex-mapping/tree/master/contrib>.
 
 =head2 Game Icons
 
-As the icons from L<http://game-icons.net/> look very interesting,
-there is some support for them. You can define shapes using the
-B<file> keyword:
+You can define shapes using arbitrary SVG using the B<lib> and B<xml>
+keywords.
 
-   some-type file <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">...</svg>
+   some-type lib <svg>...</svg>
+   some-type xml <svg>...</svg>
 
-The viewBox is important. The icons from Game-icons.net are all sized
-512×512 and they're all I<inverted>. Thus, there's scaling,
-translating and filtering involved to "get it right". Thus, this
-approach will most likely not work for other icon sources.
+The B<lib> keyword causes the item to be included in the resulting
+definitions. It acts can be referenced in the B<xml> elements, for
+example.
 
 =cut
