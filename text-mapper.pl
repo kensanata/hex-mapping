@@ -423,8 +423,12 @@ sub svg {
       <path $path_attributes d='$path' />}
 	if $path;
       # or the file with viewBox="0 0 512 512" => scale to 0 0 200 200
+      # filter='url(#invert)'
+      # <rect opacity="0.1" x="$d" y="$d" width="$dx" height="$dx"/>
+      my $scale = 0.1;
+      my $d = -$dx/2;
       $doc .= qq{
-      <g transform='translate(-50,-50) scale(0.088)' filter='url(#invert)'>
+      <g transform='scale($scale) translate(-256,-256)'>
         $file
       </g>
       }
