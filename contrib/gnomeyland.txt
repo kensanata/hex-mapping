@@ -11,17 +11,57 @@ text font-size="20pt" dy="15px"
 label font-size="20pt" dy="5px"
 glow stroke="white" stroke-width="5pt"
 
-tree lib <path d="m 28,-2 c 0,20 -12,31 -27,31 -15,0 -27,-11 -27,-31 0,-20 12,-43 27,-43 15,0 27,22 27,43 z" fill="white"/><path d="m 6,-43 c 0,0 0,16 -4,19 -3,4 -4,15 -1,18 2,3 8,8 5,11 -3,3 -6,5 -5,9 0,4 8,6 -4,8 -11,2 -11,2 -11,2 0,0 13,9 26,2 14,-6 16,-29 16,-29 0,0 4,-21 -22,-41 z" fill="#39b54a"/><path d="m 28,-2 c 0,20 -12,31 -27,31 -15,0 -27,-11 -27,-31 0,-20 12,-43 27,-43 15,0 27,22 27,43 z" stroke="black" fill="none" stroke-width="6"/><rect x="-4" y="30" width="11" height="20" fill="#39b54a" stroke="black" stroke-width="6"/><line x1="-4" y1="50" x2="29" y2="50" fill="#39b54a" stroke="black" stroke-width="6"/>
+# Deciduous Tree
 
-light_forest xml <use xlink:href="#tree" transform="scale(0.6)"/>
+Tree lib <path d="m 28,-2 c 0,20 -12,31 -27,31 -15,0 -27,-11 -27,-31 0,-20 12,-43 27,-43 15,0 27,22 27,43 z" fill="white"/><path d="m 6,-43 c 0,0 0,16 -4,19 -3,4 -4,15 -1,18 2,3 8,8 5,11 -3,3 -6,5 -5,9 0,4 8,6 -4,8 -11,2 -11,2 -11,2 0,0 13,9 26,2 14,-6 16,-29 16,-29 0,0 4,-21 -22,-41 z" fill="#39b54a"/><path d="m 28,-2 c 0,20 -12,31 -27,31 -15,0 -27,-11 -27,-31 0,-20 12,-43 27,-43 15,0 27,22 27,43 z" stroke="black" fill="none" stroke-width="6"/><rect x="-4" y="30" width="11" height="20" fill="#39b54a" stroke="black" stroke-width="6"/><line x1="-4" y1="50" x2="29" y2="50" fill="#39b54a" stroke="black" stroke-width="6"/>
 
-forest xml <use xlink:href="#tree" transform="scale(0.6) translate(-40,-10)"/><use xlink:href="#tree" transform="scale(0.7) translate(30,-15)"/><use xlink:href="#tree" transform="scale(0.55) translate(0,10)"/>
+tree xml <use xlink:href="#Tree" transform="scale(0.6)"/>
 
-heavy_forest xml <use xlink:href="#tree" transform="scale(0.5) translate(-20,-40)"/><use xlink:href="#tree" transform="scale(0.5) translate(-60,-20)"/><use xlink:href="#tree" transform="scale(0.5) translate(40,-40)"/><use xlink:href="#tree" transform="scale(0.5) translate(80,-30)"/><use xlink:href="#tree" transform="scale(0.5) translate(-40,10)"/><use xlink:href="#tree" transform="scale(0.5) translate(-80,0)"/><use xlink:href="#tree" transform="scale(0.5) translate(5,-15)"/><use xlink:href="#tree" transform="scale(0.5) translate(50,-10)"/><use xlink:href="#tree" transform="scale(0.5) translate(-60,30)"/><use xlink:href="#tree" transform="scale(0.5) translate(30,20)"/><use xlink:href="#tree" transform="scale(0.5) translate(-20,35)"/><use xlink:href="#tree" transform="scale(0.5) translate(80,40)"/>
+trees xml <use xlink:href="#Tree" transform="scale(0.6) translate(-40,-10)"/><use xlink:href="#Tree" transform="scale(0.7) translate(30,-15)"/><use xlink:href="#Tree" transform="scale(0.55) translate(0,10)"/>
 
-0101 light_forest "light forest"
-0102 forest "forest"
-0103 heavy_forest "heavy forest"
-0201 light_bushes "light bushes"
+forest xml <use xlink:href="#Tree" transform="scale(0.5) translate(-20,-40)"/><use xlink:href="#Tree" transform="scale(0.5) translate(-60,-20)"/><use xlink:href="#Tree" transform="scale(0.5) translate(40,-40)"/><use xlink:href="#Tree" transform="scale(0.5) translate(80,-30)"/><use xlink:href="#Tree" transform="scale(0.5) translate(-40,10)"/><use xlink:href="#Tree" transform="scale(0.5) translate(-100,0)"/><use xlink:href="#Tree" transform="scale(0.5) translate(5,-15)"/><use xlink:href="#Tree" transform="scale(0.5) translate(50,-10)"/><use xlink:href="#Tree" transform="scale(0.5) translate(-60,30)"/><use xlink:href="#Tree" transform="scale(0.5) translate(30,20)"/><use xlink:href="#Tree" transform="scale(0.5) translate(-20,35)"/><use xlink:href="#Tree" transform="scale(0.5) translate(95,25)"/>
+
+# Bush
+
+Bush lib <path fill="white" d="m 15,-13 c 1,-2 2,-4 2,-7 0,-9 -8,-17 -18,-17 -10,0 -18,8 -18,17 0,2 1,4 1,6 -8,4 -13,11 -13,20 0,13 13,24 29,24 16,0 29,-11 29,-24 0,-8 -5,-15 -12,-19 z"/><path fill="#39b54a" d="m -16,26 c 0,0 16,-5 12,-21 -4,-17 -2,-17 0,-17 3,0 12,-8 12,-12 0,-5 -4,-2 -5,-5 0,-4 5,-5 9,3 4,8 5,6 1,16 7,4 8,-5 13,19 C 32,30 -8,38 -16,26 z"/><path fill="none" stroke="black" stroke-width="6" d="m 15,-13 c 1,-2 2,-4 2,-7 0,-9 -8,-17 -18,-17 -10,0 -18,8 -18,17 0,2 1,4 1,6 -8,4 -13,11 -13,20 0,13 13,24 29,24 16,0 29,-11 29,-24 0,-8 -5,-15 -12,-19 z"/><path d="m 41,34 c -16,0 -31,0 -47,0 0,-1 0,-2 0,-4" fill="none" stroke="black" stroke-width="6"/>
+
+bush xml <use xlink:href="#Bush" transform="scale(0.6)"/>
+
+bushes xml <use xlink:href="#Bush" transform="scale(0.5) translate(-30,0)"/><use xlink:href="#Bush" transform="scale(0.5) translate(60,-10)"/><use xlink:href="#Bush" transform="scale(0.5) translate(0,30)"/>
+
+brushland xml <use xlink:href="#Bush" transform="scale(0.45) translate(0,-70)"/><use xlink:href="#Bush" transform="scale(0.5) translate(-50,-50)"/><use xlink:href="#Bush" transform="scale(0.5) translate(50,-50)"/><use xlink:href="#Bush" transform="scale(0.5) translate(-20,-20)"/><use xlink:href="#Bush" transform="scale(0.5) translate(-90,-40)"/><use xlink:href="#Bush" transform="scale(0.55) translate(90,-20)"/><use xlink:href="#Bush" transform="scale(0.55) translate(20,0)"/><use xlink:href="#Bush" transform="scale(0.5) translate(-65,0)"/><use xlink:href="#Bush" transform="scale(0.5) translate(80,0)"/><use xlink:href="#Bush" transform="scale(0.45) translate(-120,35)"/><use xlink:href="#Bush" transform="scale(0.5) translate(-30,40)"/><use xlink:href="#Bush" transform="scale(0.5) translate(50,40)"/><use xlink:href="#Bush" transform="scale(0.45) translate(110,40)"/><use xlink:href="#Bush" transform="scale(0.45) translate(20,70)"/>
+
+# Hills & Mountains
+
+Hill lib <path fill="white" d="M 49,17 C -3,-103 -46,16 -46,16"/><path fill="#fecb86" d="m -8,19 c 0,0 50,11 55,-2 C 52,6 8,-46 8,-33 8,10 -8,19 -8,19 z"/><path fill="none" stroke="black" stroke-width="4" d="M 49,17 C -3,-103 -46,16 -46,16"/>
+
+hill xml <use xlink:href="#Hill"/>
+
+Mountain lib <path fill="white" d="m -48,16 c 0,0 32,-18 44,-42 C 7,-51 49,15 49,15"/> <path style="fill:#fecb86" d="m -1,-32 c 0,0 14,43 -4,47 -18,5 54,0 54,0 0,0 -35,-56 -49,-47 z"/> <path fill="none" stroke="black" stroke-width="3" d="m -48,16 c 0,0 32,-18 44,-42 C 7,-51 49,15 49,15"/>
+
+forest-hill xml <use xlink:href="#Hill"/><use xlink:href="#Tree" transform="scale(0.4) translate(65,-60)"/>
+
+mountain xml <use xlink:href="#Mountain"/>
+
+forest-mountain xml <use xlink:href="#Mountain"/><use xlink:href="#Tree" transform="scale(0.4) translate(60,-60)"/>
+
+Peak lib <path fill="white" d="m 37,30 c 0,0 -37,-130 -47,-82 -10,48 -39,83 -39,83"/><path fill="#fecb86" d="m -8,-62 c 0,0 12,83 -4,93 -16,10 48,0 48,0 0,0 -31,-110 -44,-93 z"/><path fill="none" stroke="black" stroke-width="4" d="m 37,30 c 0,0 -37,-130 -47,-82 -10,48 -39,83 -39,83"/>
+
+mountains xml <use xlink:href="#Mountain" transform="scale(0.7) translate(-45,0)"/><use xlink:href="#Peak" transform="scale(0.7)"/><use xlink:href="#Mountain" transform="scale(0.7) translate(40,25)"/>
+
+forest-mountains xml <use xlink:href="#Mountain" transform="scale(0.7) translate(-45,0)"/><use xlink:href="#Peak" transform="scale(0.7)"/><use xlink:href="#Mountain" transform="scale(0.7) translate(40,25)"/><use xlink:href="#Tree" transform="scale(0.3) translate(-120,-40)"/><use xlink:href="#Tree" transform="scale(0.3) translate(10,-20)"/><use xlink:href="#Tree" transform="scale(0.3) translate(150,10)"/>
+
+# Example
+
+0101 tree "tree"
+0102 trees "trees"
+0103 forest "forest"
+0201 bush "bush"
 0202 bushes "bushes"
-0203 heavy_bushes "heavy bushes"
+0203 brushland "brushland"
+0301 hill "hill"
+0302 mountain "mountain"
+0303 mountains "mountains"
+0401 forest-hill "forest-hill"
+0402 forest-mountain "forest-mountain"
+0403 forest-mountains "forest-mountains"
