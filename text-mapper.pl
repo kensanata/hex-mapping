@@ -472,6 +472,7 @@ sub print_map {
   print header(-type=>'image/svg+xml', -charset=>'utf-8');
   my $map = new Mapper;
   $map->initialize(shift);
+  binmode(STDOUT, ':raw'); # strangely enough, ":utf8" doesn't work
   print $map->svg;
 }
 
@@ -528,7 +529,7 @@ sub help {
 }
 
 sub main {
-  binmode(STDOUT, ':raw'); # strangely enough, ":utf8" doesn't work
+  binmode(STDOUT, ':ut8'); # strangely enough, ":utf8" doesn't work
   my $map = param('map');
   if ($map) {
     print_map($map);
