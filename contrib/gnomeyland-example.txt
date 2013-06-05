@@ -1,0 +1,51 @@
+0101 tree "tree"
+0102 trees "trees"
+0103 forest "forest"
+0201 bush "bush"
+0202 bushes "bushes"
+0203 brushland "brushland"
+0301 fir "fir"
+0302 firs "firs"
+0303 fir-forest "fir-forest"
+0401 hill "hill"			
+0402 mountain "mountain"		
+0403 mountains "mountains"		
+0501 forest-hill "forest-hill"		
+0502 forest-mountain "forest-mountain"	
+0503 forest-mountains "forest-mountains"
+0601 grass "grass"			
+0602 marsh "marsh"			
+0603 swamp "swamp"
+0701 keep "keep"
+0702 tower "tower"
+0703 castle "castle"
+0801 light-soil "light-soil"
+0802 soil "soil"
+0803 dark-soil "dark-soil"
+0804 sand "sand"
+0901 light-green "light-green"
+0902 green "green"
+0903 dark-green "dark-green"
+0904 water "water"
+1001 light-grey "light-grey"
+1002 grey "grey"
+1003 dark-grey "dark-grey"
+
+0005-0806 trail
+
+0105 dark-green fir-forest "← caves"
+0106 dark-green fir-forest
+0205 green fir-forest
+0206 green fir-forest
+0305 green firs
+0306 soil keep "The Keep"
+0405 light-soil
+0406 light-soil
+0505 light-grey mountains
+0506 light-green forest-hill
+0605 grey grass
+0606 grey marsh
+0706 dark-grey swamp
+0806 dark-grey castle "Dolorous Garde"
+
+include http://alexschroeder.ch/contrib/gnomeyland.txt

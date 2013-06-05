@@ -528,9 +528,10 @@ sub help {
 }
 
 sub main {
-  binmode(STDOUT, ':utf8');
-  if (param('map')) {
-    print_map(param('map'));
+  binmode(STDOUT, ':raw'); # strangely enough, ":utf8" doesn't work
+  my $map = param('map');
+  if ($map) {
+    print_map($map);
   } elsif (path_info() eq '/source') {
     print header(-type=>'text/plain; charset=UTF-8');
     seek(DATA,0,0);
@@ -663,6 +664,30 @@ Here, we add a settlement:
 As you can see, you can have multiple types per coordinate, but
 obviously only one of them should have the "fill" property (or they
 must all be somewhat transparent).
+
+You can also have lines connecting hexes. In order to better control
+the flow of these lines, you can provide multiple hexes through which
+these lines must pass. These lines can be used for borders, rivers or
+roads, for example.
+
+    text font-family="monospace" font-size="10pt" dy="-4pt"
+    label font-family="sans-serif" font-size="12pt"
+    glow stroke="white" stroke-width="3pt"
+    default attributes fill="none" stroke="black" stroke-width="1px"
+    grass attributes fill="green"
+    grass path attributes stroke="#458b00" stroke-width="5px"
+    grass path M -20,-20 l 10,40 M 0,-20 v 40 M 20,-20 l -10,40
+    village path attributes fill="none" stroke="black" stroke-width="5px"
+    village path M -40,-40 v 80 h 80 v -80 z
+    sea attributes fill="blue"
+    0101 grass
+    0102 sea
+    0201 grass village "Beachton"
+    0202 sea "deep blue sea"
+    border path attributes stroke="red" stroke-width="15" stroke-opacity="0.5" fill-opacity="0"
+    0002-0200 border
+    road path attributes stroke="black" stroke-width="3" fill-opacity="0" stroke-dasharray="10 10"
+    0000-0301 road
 
 Since these definitions get unwieldy, require a lot of work (the path
 elements), and to encourage reuse, you can use the B<include>
