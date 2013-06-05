@@ -18,7 +18,6 @@
 use CGI qw/:standard/;
 use LWP::UserAgent;
 use strict;
-use utf8;
 
 my $dx = 100;
 my $dy = 100*sqrt(3);
@@ -472,14 +471,13 @@ sub print_map {
   print header(-type=>'image/svg+xml', -charset=>'utf-8');
   my $map = new Mapper;
   $map->initialize(shift);
-  binmode(STDOUT, ':raw'); # strangely enough, ":utf8" doesn't work
   print $map->svg;
 }
 
 sub footer {
   return hr()
     . p(a({-href=>'http://www.alexschroeder.ch/wiki/About'},
-	  'Alex Schröder'),
+	  'Alex Schroeder'),
 	a({-href=>url() . '/help'}, 'Help'),
 	a({-href=>url() . '/source'}, 'Source'),
 	a({-href=>'https://github.com/kensanata/hex-mapping'},
@@ -529,7 +527,7 @@ sub help {
 }
 
 sub main {
-  binmode(STDOUT, ':ut8'); # strangely enough, ":utf8" doesn't work
+  binmode(STDOUT, ':ut8');
   my $map = param('map');
   if ($map) {
     print_map($map);

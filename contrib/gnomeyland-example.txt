@@ -33,7 +33,7 @@
 
 0005-0806 trail
 
-0105 dark-green fir-forest "← caves"
+0105 dark-green fir-forest "to the caves"
 0106 dark-green fir-forest
 0205 green fir-forest
 0206 green fir-forest
