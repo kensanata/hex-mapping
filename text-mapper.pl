@@ -408,15 +408,6 @@ sub svg_header {
 };
 }
 
-sub svg_hexes {
-  my ($self) = @_;
-  my $doc = qq{  <g id="hexes">\n};
-  foreach my $hex (@{$self->hexes}) {
-    $doc .= $hex->svg_hex($self->attributes('default'));
-  }
-  $doc .= qq{  </g>\n};
-}
-
 sub svg_defs {
   my ($self) = @_;
   my $doc = "  <defs>\n";
@@ -496,6 +487,16 @@ sub svg_lines {
   }
   $doc .= qq{  </g>\n};
   return $doc;
+}
+
+sub svg_hexes {
+  my ($self) = @_;
+  my $doc = qq{  <g id="hexes">\n};
+  my $attributes = $self->attributes('default') || qq{fill="none"};
+  foreach my $hex (@{$self->hexes}) {
+    $doc .= $hex->svg_hex($attributes);
+  }
+  $doc .= qq{  </g>\n};
 }
 
 sub svg_labels {
