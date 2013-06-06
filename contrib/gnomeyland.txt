@@ -18,7 +18,7 @@ glow stroke="white" stroke-width="5pt"
 
 # object shadow: #fecb86
 
-trail path attributes stroke="#e3bea3" stroke-width="6" fill="none"
+trail path attributes stroke="#e3bea3" stroke-width="6" fill="none" opacity="0.6"
 
 dust attributes fill="#ede787"
 
