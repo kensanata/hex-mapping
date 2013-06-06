@@ -145,7 +145,7 @@ sub svg {
 
   my $type = $self->type;
   my $attributes = $self->map->path_attributes($type);
-  my $data = "<path $attributes d='$path'/>\n";
+  my $data = "    <path $attributes d='$path'/>\n";
   $data .= $self->debug() if main::param('debug');
   return $data;
 }
@@ -192,21 +192,47 @@ sub str {
   return '(' . $self->x . ',' . $self->y . ')';
 }
 
-sub svg {
+my @hex = ([-$dx, 0], [-$dx/2, $dy/2], [$dx/2, $dy/2],
+	   [$dx, 0], [$dx/2, -$dy/2], [-$dx/2, -$dy/2]);
+
+sub corners {
+  return @hex;
+}
+
+sub svg_hex {
+  my ($self, $attributes) = @_;
+  my $x = $self->x * $dx * 3/2;
+  my $y = $self->y * $dy - $self->x % 2 * $dy/2;
+  my $id = "hex" . $self->x . $self->y;
+  my $points = join(" ", map {
+    sprintf("%.1f,%.1f", $x + $_->[0], $y + $_->[1]) } $self->corners());
+  return qq{    <polygon id="$id" $attributes points="$points" />\n}
+}
+
+sub svg_type {
   my $self = shift;
   my $x = $self->x;
   my $y = $self->y;
   my $data = '';
   for my $type (@{$self->type}) {
-    $data .= sprintf(qq{  <use x="%.1f" y="%.1f" xlink:href="#%s" />\n},
+    $data .= sprintf(qq{    <use x="%.1f" y="%.1f" xlink:href="#%s" />\n},
 		     $x * $dx * 3/2, $y * $dy - $x%2 * $dy/2, $type);
   }
-  $data .= sprintf(qq{  <text text-anchor="middle" x="%.1f" y="%.1f" %s>}
-		   . qq{%02d.%02d}
-		   . qq{</text>\n},
-		   $x * $dx * 3/2, $y * $dy - $x%2 * $dy/2 - $dy * 0.4,
-		   $self->map->text_attributes,
-		   $x, $y);
+  return $data;
+}
+
+sub svg_coordinates {
+  my $self = shift;
+  my $x = $self->x;
+  my $y = $self->y;
+  my $data = '';
+  $data .= qq{    <text text-anchor="middle"};
+  $data .= sprintf(qq{ x="%.1f" y="%.1f"},
+		   $x * $dx * 3/2,
+		   $y * $dy - $x%2 * $dy/2 - $dy * 0.4);
+  $data .= ' ' . $self->map->text_attributes . '>';
+  $data .= sprintf(qq{%02d.%02d}, $x, $y);
+  $data .= qq{</text>\n};
   return $data;
 }
 
@@ -215,15 +241,15 @@ sub svg_label {
   return unless $self->label;
   my $x = $self->x;
   my $y = $self->y;
-  my $data = sprintf(qq{  <text text-anchor="middle" x="%.1f" y="%.1f" %s %s>}
+  my $data = sprintf(qq{    <g><text text-anchor="middle" x="%.1f" y="%.1f" %s %s>}
 		   . $self->label
-		   . qq{</text>\n},
+		   . qq{</text>},
 		   $x * $dx * 3/2, $y * $dy - $x%2 * $dy/2 + $dy * 0.4,
 		   $self->map->label_attributes,
 		   $self->map->glow_attributes);
-  $data .= sprintf(qq{  <text text-anchor="middle" x="%.1f" y="%.1f" %s>}
+  $data .= sprintf(qq{<text text-anchor="middle" x="%.1f" y="%.1f" %s>}
 		   . $self->label
-		   . qq{</text>\n},
+		   . qq{</text></g>\n},
 		   $x * $dx * 3/2, $y * $dy - $x%2 * $dy/2 + $dy * 0.4,
 		   $self->map->label_attributes);
   return $data;
@@ -354,7 +380,7 @@ sub merge_attributes {
   return join(' ', map { $_ . '=' . $attr{$_} } sort keys %attr);
 }
 
-sub svg {
+sub svg_header {
   my ($self) = @_;
 
   my ($minx, $miny, $maxx, $maxy);
@@ -374,14 +400,26 @@ sub svg {
 		     $maxx * $dx * 3/2 + $dx + 60, ($maxy + 0.5) * $dy + 100);
   my ($width, $height) = ($vx2 - $vx1, $vy2 - $vy1);
 
-  my $doc = qq{<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+  return qq{<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <svg xmlns="http://www.w3.org/2000/svg" version="1.1"
-     viewBox="$vx1 $vy1 $vx2 $vy2"
-     xmlns:xlink="http://www.w3.org/1999/xlink">
-  <!-- ($minx, $miny) ($maxx, $maxy) -->
-  <defs>
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     viewBox="$vx1 $vy1 $vx2 $vy2">
+  <!-- min ($minx, $miny), max ($maxx, $maxy) -->
 };
+}
 
+sub svg_hexes {
+  my ($self) = @_;
+  my $doc = qq{  <g id="hexes">\n};
+  foreach my $hex (@{$self->hexes}) {
+    $doc .= $hex->svg_hex($self->attributes('default'));
+  }
+  $doc .= qq{  </g>\n};
+}
+
+sub svg_defs {
+  my ($self) = @_;
+  my $doc = "  <defs>\n";
   # collect hex types from attributess and paths in case the sets don't overlap
   my %types = ();
   foreach my $hex (@{$self->hexes}) {
@@ -396,78 +434,102 @@ sub svg {
   foreach my $type (keys %{$self->lib}) {
     $types{$type} = 1;
   }
-
   # now go through them all
   foreach my $type (keys %types) {
     my $path = $self->path($type);
-    my $attributes = merge_attributes($self->attributes('default'),
-				      $self->attributes($type));
+    my $attributes = merge_attributes($self->attributes($type));
     my $path_attributes = merge_attributes($self->path_attributes('default'),
 					   $self->path_attributes($type));
     my $lib = $self->lib($type);
     my $xml = $self->xml($type);
     my $glow_attributes = $self->glow_attributes;
-    my ($x1, $y1, $x2, $y2, $x3, $y3,
-	$x4, $y4, $x5, $y5, $x6, $y6) =
-	  (-$dx, 0, -$dx/2, $dy/2, $dx/2, $dy/2,
-	   $dx, 0, $dx/2, -$dy/2, -$dx/2, -$dy/2);
     if ($path || $attributes || $lib || $xml) {
-      $doc .= qq{
-    <g id='$type'>};
+      $doc .= qq{    <g id='$type'>\n};
       # just shapes get an outline such as a house (must come first)
-      $doc .= qq{
-      <path $glow_attributes d='$path' />}
+      $doc .= qq{      <path $glow_attributes d='$path' />\n}
 	if $path && !$attributes;
       # hex with shapes get a hex around them, eg. plains and grass
-      $doc .= qq{
-      <polygon $attributes points='$x1,$y1 $x2,$y2 $x3,$y3 $x4,$y4 $x5,$y5 $x6,$y6' />}
-	if $attributes && !$lib;
+      if ($attributes && !$lib) {
+	my $points = join(" ", map {
+	  sprintf("%.1f,%.1f", $_->[0], $_->[1]) } Hex::corners());
+	$doc .= qq{      <polygon $attributes points='$points' />\n}
+      };
       # the shape
-      $doc .= qq{
-      <path $path_attributes d='$path' />}
+      $doc .= qq{      <path $path_attributes d='$path' />\n}
 	if $path;
-      $doc .= qq{
-        $lib} if $lib;
-      $doc .= qq{
-        $xml} if $xml;
+      $doc .= qq{      $lib\n} if $lib;
+      $doc .= qq{      $xml\n} if $xml;
       # close
-      $doc .= qq{
-    </g>};
+      $doc .= qq{    </g>\n};
     } else {
-      # just a hex without grouping
-      $doc .= qq{
-    <polygon id='$type' $attributes points='$x1,$y1 $x2,$y2 $x3,$y3 $x4,$y4 $x5,$y5 $x6,$y6' />}
+      # nothing
     }
   }
-  $doc .= q{
-  </defs>
-};
+  $doc .= qq{  </defs>\n};
+}
 
-  $doc .= " <rect x='$vx1' y='$vy1' width='$width' height='$height' stroke='black' fill-opacity='0' stroke-width='1' />\n"
-    if main::param('debug');
-
+sub svg_types {
+  my $self = shift;
+  my $doc = qq{  <g id="types">\n};
   foreach my $hex (@{$self->hexes}) {
-    $doc .= $hex->svg();
+    $doc .= $hex->svg_type();
   }
+  $doc .= qq{  </g>\n};
+  return $doc;
+}
+
+sub svg_coordinates {
+  my $self = shift;
+  my $doc = qq{  <g id="coordinates">\n};
+  foreach my $hex (@{$self->hexes}) {
+    $doc .= $hex->svg_coordinates();
+  }
+  $doc .= qq{  </g>\n};
+  return $doc;
+}
+
+sub svg_lines {
+  my $self = shift;
+  my $doc = qq{  <g id="lines">\n};
   foreach my $line (@{$self->lines}) {
     $doc .= $line->svg();
   }
+  $doc .= qq{  </g>\n};
+  return $doc;
+}
+
+sub svg_labels {
+  my $self = shift;
+  my $doc = qq{  <g id="labels">\n};
   foreach my $hex (@{$self->hexes}) {
     $doc .= $hex->svg_label();
   }
+  $doc .= qq{  </g>\n};
+  return $doc;
+}
+
+sub svg {
+  my ($self) = @_;
+
+  my $doc = $self->svg_header();
+  $doc .= $self->svg_defs();
+  $doc .= $self->svg_types(); # opaque backgrounds and icons
+  $doc .= $self->svg_coordinates();
+  $doc .= $self->svg_lines();
+  $doc .= $self->svg_hexes();
+  $doc .= $self->svg_labels();
+  $doc .= $self->license();
+
+  # error messages
   my $y = 10;
   foreach my $msg (@{$self->messages}) {
     $doc .= "  <text x='0' y='$y'>$msg</text>\n";
     $y += 10;
   }
 
-  $doc .= $self->license();
-
-  $doc .= "<!-- Source\n" . $self->map() . "\n-->";
-
-  $doc .= qq{
-</svg>
-};
+  # source code
+  $doc .= "<!-- Source\n" . $self->map() . "\n-->\n";
+  $doc .= qq{</svg>\n};
 
   return $doc;
 }
@@ -581,8 +643,9 @@ each hex:
     grass attributes fill="green" stroke="black" stroke-width="1px"
     0101 grass
 
-The attributes for the special type B<default> will be used as well.
-Thus, the border is best defined for the default.
+The attributes for the special type B<default> will be used for the
+hex layer that is drawn on top of it all. This is where you define the
+I<border>.
 
     default attributes stroke="black" stroke-width="1px"
     grass attributes fill="green"
