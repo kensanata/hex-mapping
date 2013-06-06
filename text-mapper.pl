@@ -247,6 +247,7 @@ struct Mapper => {
 		  label_attributes => '$',
 		  messages => '@',
 		  seen => '%',
+		  license => '$',
 		 };
 
 my $example = q{
@@ -270,6 +271,7 @@ my $example = q{
 0101-0203 river
 0401-0303-0403 border
 include http://alexschroeder.ch/contrib/default.txt
+license <text>Public Domain</text>
 };
 
 sub example {
@@ -315,6 +317,8 @@ sub process {
       $self->glow_attributes($1);
     } elsif (/^label\s+(.*)/) {
       $self->label_attributes($1);
+    } elsif (/^license\s+(.*)/) {
+      $self->license($1);
     } elsif (/^include\s+(\S*)/) {
       if (scalar keys %{$self->seen} > 5) {
 	push(@{$self->messages},
@@ -366,8 +370,8 @@ sub svg {
   }
 
   my ($vx1, $vy1, $vx2, $vy2) =
-    map { int($_) } ($minx * $dx * 3/2 - $dx - 10, ($miny - 1.0) * $dy - 10,
-		     $maxx * $dx * 3/2 + $dx + 10, ($maxy + 0.5) * $dy + 10);
+    map { int($_) } ($minx * $dx * 3/2 - $dx - 60, ($miny - 1.0) * $dy - 50,
+		     $maxx * $dx * 3/2 + $dx + 60, ($maxy + 0.5) * $dy + 100);
   my ($width, $height) = ($vx2 - $vx1, $vy2 - $vy1);
 
   my $doc = qq{<?xml version="1.0" encoding="UTF-8" standalone="no"?>
@@ -456,6 +460,8 @@ sub svg {
     $doc .= "  <text x='0' y='$y'>$msg</text>\n";
     $y += 10;
   }
+
+  $doc .= $self->license();
 
   $doc .= "<!-- Source\n" . $self->map() . "\n-->";
 
@@ -704,16 +710,38 @@ statement with an URL.
 You can find more files to include in the C<contrib> directory:
 L<https://github.com/kensanata/hex-mapping/tree/master/contrib>.
 
-=head2 Game Icons
+=head2 SVG
 
 You can define shapes using arbitrary SVG using the B<lib> and B<xml>
 keywords.
 
-   some-type lib <svg>...</svg>
-   some-type xml <svg>...</svg>
+    some-type lib <svg>...</svg>
+    some-type xml <svg>...</svg>
 
 The B<lib> keyword causes the item to be included in the resulting
 definitions. It acts can be referenced in the B<xml> elements, for
 example.
+
+=head2 License
+
+You can add arbitrary SVG using the B<license> keyword (without a
+tile).
+
+    license <text>Public Domain</text>
+
+There's a 50 pixel margin around the map, here's a simple alternative:
+
+    license <text x="50" y="-15" font-size="15pt" fill="#999999">Copyright 2013  Alex Schroeder <alex@gnu.org>. This work is licensed under the <a style="fill:#8888ff" xlink:href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.</text>
+
+=head2 Command Line
+
+You can call the script from the command line. Most likely you'll want
+to strip the HTTP headers:
+
+    perl text-mapper.pl map="grass ates fill='green'\n0101 grass" | tail -n +3
+
+Or if you have a file somewhere:
+
+    perl text-mapper.pl map="$(cat contrib/forgotten-depths.txt)" | tail -n +3
 
 =cut

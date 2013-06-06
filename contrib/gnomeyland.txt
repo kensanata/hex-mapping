@@ -3,6 +3,8 @@
 # Attribution-ShareAlike 3.0 Unported License. To view a copy of this
 # license, visit http://creativecommons.org/licenses/by-sa/3.0/.
 
+license <text x="50" y="-15" font-size="15pt" fill="#999999">Gnomeyland Map Icons Copyright Gregory B. MacKenzie 2012. This work is licensed under the <a style="fill:#8888ff" xlink:href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.</text>
+
 # This file is for use with text-mapper.
 # https://github.com/kensanata/hex-mapping
 
