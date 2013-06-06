@@ -466,7 +466,8 @@ sub svg {
   $doc .= "<!-- Source\n" . $self->map() . "\n-->";
 
   $doc .= qq{
-</svg>};
+</svg>
+};
 
   return $doc;
 }
@@ -736,11 +737,18 @@ There's a 50 pixel margin around the map, here's a simple alternative:
 =head2 Command Line
 
 You can call the script from the command line. Most likely you'll want
-to strip the HTTP headers:
+to strip the HTTP headers.
 
-    perl text-mapper.pl map="grass ates fill='green'\n0101 grass" | tail -n +3
+If you specify the map directly, you'll need to replace the newlines
+with the URL-escaped variant, %0a. This also means that your map
+shouldn't contain any percentage characters. You also need to make
+sure you surround the entire map with a whatever quote character you
+I<didn't> use in your map.
 
-Or if you have a file somewhere:
+    perl text-mapper.pl map="grass all='green' stroke='black' stroke-width='1px'%0a0101 grass" | tail -n +3
+
+This quickly gets tedious. Here's how to use the map from a file,
+assuming you are using the C<bash> shell.
 
     perl text-mapper.pl map="$(cat contrib/forgotten-depths.txt)" | tail -n +3
 
