@@ -537,6 +537,141 @@ sub svg {
 
 package main;
 
+# Random generator based on the algorithm developed by Erin D. Smale.
+# http://www.welshpiper.com/hex-based-campaign-design-part-1/
+# Differences:
+# - less sub-hexes
+# - no special handling of half hexes
+# - terrain based on what the Gnomeyland icons by Gregory B. MacKenzie
+# - adjacent regions currently random
+
+my %world = ();
+
+my @seed_terrain = ("water",
+		    "grey swamp",
+		    "sand",
+		    "light-grey grass",
+		    "green forest", "green forest", "green forest",
+		    "light-grey hill", "light-grey mountain");
+
+my %primary = ("water" => ["water"],
+	       "grey swamp" => ["grey swamp"],
+	       "sand" => ["sand"],
+	       "light-grey grass" => ["light-grey grass"],
+	       "green forest" => ["green forest", "green forest",
+				  "dark-green forest"],
+	       "light-grey hill" => ["light-grey hill"], # canyon?
+	       "light-grey mountain" => ["light-grey mountain"]);
+
+my %secondary = ("water" => ["soil", "soil bushes"], # coastal?
+		 "grey swamp" => ["light-grey grass", "grey grass"],
+		 "sand" => ["light-grey hill", "light-grey hill", "sand hill"],
+		 "light-grey grass" => ["green forest"],
+		 "green forest" => ["light-grey grass", "light-green tree"],
+		 "light-grey hill" => ["light-grey mountain",
+				       "light-grey mountains"],
+		 "light-grey mountain" => ["light-grey hill"]);
+
+my %tertiary = ("water" => ["green forest",
+			    "light-green tree", "light-green tree"],
+		"grey swamp" => ["green forest"],
+		"sand" => ["light-grey grass"],
+		"light-grey grass" => ["light-grey hill"],
+		"green forest" => ["light-green forest-hill",
+				   "light-grey forest-hill",
+				   "light-grey hill"],
+		"light-grey hill" => ["light-grey grass"],
+		"light-grey mountain" => ["green forest", "green trees",
+					  "light-green forest-mountains"]);
+
+my %wildcard = ("water" => ["grey swamp", "sand", "light-grey hill"],
+		"grey swamp" => ["water"],
+		"sand" => ["water", "light-grey mountain"],
+		"light-grey grass" => ["water", "grey swamp", "sand"],
+		"green forest" => ["water", "grey swamp",
+				   "water", "grey swamp",
+				   "water", "grey swamp",
+				   "light-grey mountains",
+				   "light-grey mountains",
+				   "light-green forest-mountains"],
+		"light-grey hill" => ["water", "sand",
+				      "water", "sand",
+				      "water", "sand",
+				      "green forest",
+				      "green forest",
+				      "light-grey forest-hill"],
+		"light-grey mountain" => ["sand"]);
+
+my @region = (
+          [-1, -2], [0, -2], [1, -2],
+[-2, -1], [-1, -1], [0, -1], [1, -1], [2, -1],
+[-2,  0], [-1,  0], [0,  0], [1,  0], [2,  0],
+[-2,  1], [-1,  1], [0,  1], [1,  1], [2,  1],
+                    [0,  2]);
+
+sub pick_terrain {
+  my $arrayref = shift;
+  return $arrayref->[rand @$arrayref];
+}
+
+sub pick_unassigned {
+  my ($x, $y) = @_;
+  my $hex = $region[rand @region];
+  my $coordinates = sprintf("%02d%02d", $x + $hex->[0], $y + $hex->[1]);
+  while ($world{$coordinates}) {
+    $hex = $region[rand @region];
+    $coordinates = sprintf("%02d%02d", $x + $hex->[0], $y + $hex->[1]);
+  }
+  return $coordinates;
+}
+
+sub pick_remaining {
+  my ($x, $y) = @_;
+  my @coordinates = ();
+  for my $hex (@region) {
+    my $coordinates = sprintf("%02d%02d", $x + $hex->[0], $y + $hex->[1]);
+    push(@coordinates, $coordinates) unless $world{$coordinates};
+  }
+  return @coordinates;
+}
+
+sub generate_region {
+  my ($x, $y, $primary) = @_;
+  my $secondary = 
+  $world{sprintf("%02d%02d", $x, $y)} = pick_terrain($primary{$primary});
+  for (1..6) {
+    $world{pick_unassigned($x, $y)} = pick_terrain($primary{$primary});
+  }
+  for (1..4) {
+    $world{pick_unassigned($x, $y)} = pick_terrain($secondary{$primary});
+  }
+  for (1..2) {
+    $world{pick_unassigned($x, $y)} = pick_terrain($tertiary{$primary});
+  }
+  for my $coordinates (pick_remaining($x, $y)) {
+    $world{$coordinates} = pick_terrain($wildcard{$primary});;
+  }
+}
+
+
+sub generate_map {
+  for my $x (0..4) {
+    for my $y (0..3) {
+      generate_region($x * 4 - 1, $y * 4 + 1 - $x % 2 * 2,
+		      $seed_terrain[rand @seed_terrain]);
+    }
+  }
+
+  # delete extras
+  for my $coordinates (keys %world) {
+    $coordinates =~ /(..)(..)/;
+    delete $world{$coordinates} if  $1 < 1 or $1 > 16 or $2 < 1 or $2 > 12;
+  }
+
+  return join("\n", map { $_ . " " . $world{$_} } sort keys %world) . "\n"
+    . "include http://alexschroeder.ch/contrib/gnomeyland.txt\n";
+}
+
 sub print_map {
   print header(-type=>'image/svg+xml', -charset=>'utf-8');
   my $map = new Mapper;
@@ -563,11 +698,12 @@ sub print_html {
 	p('Submit your text desciption of the map.'),
 	start_form(-method=>'POST'),
 	p(textarea(-style => 'width:100%',
-		    -name => 'map',
-		    -default => Mapper::example(),
-		    -rows => 15,
-		    -columns => 60, )),
-	p(submit()),
+		   -name => 'map',
+		   -default => Mapper::example(),
+		   -rows => 15,
+		   -columns => 60, )),
+	p(submit(-name => 'submit', -label => 'Submit'),
+	  submit(-name => 'generate', -label => 'Random')),
 	end_form(),
         footer();
 }
@@ -599,7 +735,10 @@ sub help {
 sub main {
   binmode(STDOUT, ':ut8');
   my $map = param('map');
-  if ($map) {
+  if (param('generate')) {
+    param('map', generate_map());
+    print_html();
+  } elsif ($map) {
     print_map($map);
   } elsif (path_info() eq '/source') {
     print header(-type=>'text/plain; charset=UTF-8');
