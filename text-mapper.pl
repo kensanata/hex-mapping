@@ -662,7 +662,7 @@ sub generate_map {
     }
   }
 
-  # delete extras
+  # delete extra hexes we generated to fill the gaps
   for my $coordinates (keys %world) {
     $coordinates =~ /(..)(..)/;
     delete $world{$coordinates} if  $1 < 1 or $1 > 16 or $2 < 1 or $2 > 12;
