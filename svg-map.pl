@@ -160,7 +160,7 @@ sub system_svg {
   		   (0.4 + ($x-1) * 1.5) * $scale,
 		   ($y - $x%2/2 + 0.1) * sqrt(3) * $scale)
     if $self->TAS;
-  $data .= sprintf(qq{$lead    <text class="pirate base" x="%.3f" y="%.3f">▲</text>\n},
+  $data .= sprintf(qq{$lead    <text class="scout base" x="%.3f" y="%.3f">▲</text>\n},
   		   (0.4 + ($x-1) * 1.5) * $scale,
 		   ($y - $x%2/2 - 0.1) * sqrt(3) * $scale)
     if $self->scout;
