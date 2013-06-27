@@ -263,6 +263,7 @@ struct Mapper => {
 		  messages => '@',
 		  seen => '%',
 		  license => '$',
+		  other => '@',
 		 };
 
 my $example = q{
@@ -302,7 +303,7 @@ sub initialize {
 sub process {
   my $self = shift;
   foreach (@_) {
-    if (/^(\d\d)(\d\d)\s+([^"\r\n]+)?\s*(?:"(.+)")?/) {
+    if (/^(\d\d)(\d\d)(?:\s+([^"\r\n]+)?\s*(?:"(.+)")?|$)/) {
       my $hex = Hex->new(x => $1, y => $2, map => $self);
       $hex->label($4);
       my @types = split(' ', $3);
@@ -334,6 +335,8 @@ sub process {
       $self->label_attributes($1);
     } elsif (/^license\s+(.*)/) {
       $self->license($1);
+    } elsif (/^other\s+(.*)/) {
+      push(@{$self->other()}, $1);
     } elsif (/^include\s+(\S*)/) {
       if (scalar keys %{$self->seen} > 5) {
 	push(@{$self->messages},
@@ -509,6 +512,7 @@ sub svg {
   $doc .= $self->svg_hexes();
   $doc .= $self->svg_labels();
   $doc .= $self->license();
+  $doc .= join("\n", @{$self->other()}) . "\n";
 
   # error messages
   my $y = 10;
@@ -1059,6 +1063,17 @@ keywords.
 The B<lib> keyword causes the item to be included in the resulting
 definitions. It acts can be referenced in the B<xml> elements, for
 example.
+
+=head2 Other
+
+You can add even more arbitrary SVG using the B<other> keyword. This
+keyword can be used multiple times.
+
+    other <svg>...</svg>
+
+The B<other> keyword causes the item to be added to the end of the
+document. It can be used for frames and labels that are not connected
+to a single hex.
 
 =head2 License
 
