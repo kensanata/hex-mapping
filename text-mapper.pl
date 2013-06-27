@@ -1,17 +1,4 @@
 #!/usr/bin/perl
-# Copyright (C) 2007-2013  Alex Schroeder <alex@gnu.org>
-#
-# This program is free software: you can redistribute it and/or modify it under
-# the terms of the GNU General Public License as published by the Free Software
-# Foundation, either version 3 of the License, or (at your option) any later
-# version.
-#
-# This program is distributed in the hope that it will be useful, but WITHOUT
-# ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
-# FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License along with
-# this program. If not, see <http://www.gnu.org/licenses/>.
 
 # This code started out as a fork of old-school-hex.pl.
 
@@ -539,10 +526,6 @@ sub svg {
 
 package main;
 
-# Random generator based on the algorithm developed by Erin D. Smale.
-# http://www.welshpiper.com/hex-based-campaign-design-part-1/
-# - terrain based on what the Gnomeyland icons by Gregory B. MacKenzie
-
 my %world = ();
 
 my %primary = ("water" => ["water"],
@@ -847,8 +830,16 @@ sub help {
     $Pod::Simple::HTML::Content_decl =
       q{<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" >};
     my $parser = Pod::Simple::HTML->new;
-    $parser->output_string(\my $html);
+    my $html;
+    $parser->output_string(\$html);
     $parser->html_footer(footer());
+    $parser->html_header_after_title(
+      q{</title>
+<style type="text/css">
+pre {white-space: pre-wrap}
+</style>
+</head>
+<body>});
     seek(DATA,0,0);
     undef $/;
     $parser->parse_string_document(<DATA>);
@@ -1041,8 +1032,19 @@ statement with an URL.
     0302 sand
     0303 sand
 
-You can find more files to include in the C<contrib> directory:
+You can find more files ("libraries") to include in the C<contrib>
+directory:
 L<https://github.com/kensanata/hex-mapping/tree/master/contrib>.
+
+=head2 Random
+
+There's a button to generate a random landscape based on the algorithm
+developed by Erin D. Smale. See
+L<http://www.welshpiper.com/hex-based-campaign-design-part-1/> for
+more information. The output uses the I<Gnomeyland> icons by Gregory
+B. MacKenzie. These are licensed under the Creative Commons
+Attribution-ShareAlike 3.0 Unported License. To view a copy of this
+license, visit L<http://creativecommons.org/licenses/by-sa/3.0/>.
 
 =head2 SVG
 
@@ -1058,14 +1060,45 @@ example.
 
 =head2 License
 
+This program is copyright (C) 2007-2013 Alex Schroeder <alex@gnu.org>.
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or (at
+your option) any later version.
+
+This program is distributed in the hope that it will be useful, but
+WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program. If not, see L<http://www.gnu.org/licenses/>.
+
+The maps produced by the program are obviously copyrighted by I<you>,
+the author. If you're using SVG icons, these I<may> have a separate
+license. Thus, if you produce a map using the I<Gnomeyland> icons by
+Gregory B. MacKenzie, the map is automatically licensed under the
+Creative Commons Attribution-ShareAlike 3.0 Unported License. To view
+a copy of this license, visit
+L<http://creativecommons.org/licenses/by-sa/3.0/>.
+
 You can add arbitrary SVG using the B<license> keyword (without a
-tile).
+tile). This is what the Gnomeyland library does, for example.
 
     license <text>Public Domain</text>
 
-There's a 50 pixel margin around the map, here's a simple alternative:
+There can only be I<one> license keyword. If you use multiple
+libraries or want to add your own name, you will have to write your
+own.
 
-    license <text x="50" y="-15" font-size="15pt" fill="#999999">Copyright 2013  Alex Schroeder <alex@gnu.org>. This work is licensed under the <a style="fill:#8888ff" xlink:href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.</text>
+There's a 50 pixel margin around the map, here's how you might
+conceivably use it for your own map that uses the I<Gnomeyland> icons
+by Gregory B. MacKenzie:
+
+    <license <text x="50" y="-33" font-size="15pt" fill="#999999">Copyright Alex Schroeder 2013. <a style="fill:#8888ff" xlink:href="http://www.busygamemaster.com/art02.html">Gnomeyland Map Icons</a> Copyright Gregory B. MacKenzie 2012.</text><text x="50" y="-15" font-size="15pt" fill="#999999">This work is licensed under the <a style="fill:#8888ff" xlink:href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.</text>
+
+Unfortunately, it all has to go on a single line.
 
 =head2 Command Line
 
