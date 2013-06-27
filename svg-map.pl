@@ -715,16 +715,24 @@ sub svg {
 
 sub text {
   my ($self) = @_;
-  my $data;
+  my $data = "Trade Routes";
   foreach my $edge (@{$self->routes}) {
     my $u = @{$edge}[0];
     my $v = @{$edge}[1];
-    $data .= "Main route: " . $u->name . " - " . $v->name . "\n";
+    $data .= $u->name . " - " . $v->name . "\n";
   }
   $data .= "\n";
+  $data .= "Raw Data:\n";
   foreach my $hex (@{$self->hexes}) {
     foreach my $routeref (@{$hex->routes}) {
       $data .= join(' - ', map {$_->name} reverse @{$routeref}) . "\n";
+    }
+  }
+  $data .= "\n";
+  $data .= "Communications:\n";
+  foreach my $hex (@{$self->hexes}) {
+    foreach my $comm (@{$hex->comm}) {
+      $data .= $hex->name . " - " . $comm->name . "\n";;
     }
   }
   return $data;
@@ -745,6 +753,7 @@ sub print_trade {
   print header(-type=>'text/plain');
   my $map = new Mapper;
   $map->initialize(@_);
+  $map->communications();
   $map->trade();
   print $map->text;
 }
