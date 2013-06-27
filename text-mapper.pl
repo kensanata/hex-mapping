@@ -1046,6 +1046,8 @@ B. MacKenzie. These are licensed under the Creative Commons
 Attribution-ShareAlike 3.0 Unported License. To view a copy of this
 license, visit L<http://creativecommons.org/licenses/by-sa/3.0/>.
 
+If you're curious: (11,11) is the starting hex.
+
 =head2 SVG
 
 You can define shapes using arbitrary SVG using the B<lib> and B<xml>
