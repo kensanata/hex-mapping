@@ -19,6 +19,8 @@ use CGI qw/:standard/;
 use LWP::UserAgent;
 use strict;
 
+my $verbose = 0;
+
 my $dx = 100;
 my $dy = 100*sqrt(3);
 
@@ -547,13 +549,6 @@ package main;
 
 my %world = ();
 
-my @seed_terrain = ("water",
-		    "grey swamp",
-		    "sand",
-		    "light-grey grass",
-		    "green forest", "green forest", "green forest",
-		    "light-grey hill", "light-grey mountain");
-
 my %primary = ("water" => ["water"],
 	       "grey swamp" => ["grey swamp"],
 	       "sand" => ["sand"],
@@ -567,13 +562,13 @@ my %secondary = ("water" => ["soil", "soil bushes"], # coastal?
 		 "grey swamp" => ["light-grey grass", "grey grass"],
 		 "sand" => ["light-grey hill", "light-grey hill", "sand hill"],
 		 "light-grey grass" => ["green forest"],
-		 "green forest" => ["light-grey grass", "light-green tree"],
+		 "green forest" => ["light-green grass", "light-green bush"],
 		 "light-grey hill" => ["light-grey mountain",
 				       "light-grey mountains"],
 		 "light-grey mountain" => ["light-grey hill"]);
 
 my %tertiary = ("water" => ["green forest",
-			    "light-green tree", "light-green tree"],
+			    "light-green trees", "light-green trees"],
 		"grey swamp" => ["green forest"],
 		"sand" => ["light-grey grass"],
 		"light-grey grass" => ["light-grey hill"],
@@ -593,7 +588,7 @@ my %wildcard = ("water" => ["grey swamp", "sand", "light-grey hill"],
 				   "water", "grey swamp",
 				   "light-grey mountains",
 				   "light-grey mountains",
-				   "light-green forest-mountains"],
+				   "light-grey forest-mountains"],
 		"light-grey hill" => ["water", "sand",
 				      "water", "sand",
 				      "water", "sand",
@@ -602,20 +597,40 @@ my %wildcard = ("water" => ["grey swamp", "sand", "light-grey hill"],
 				      "light-grey forest-hill"],
 		"light-grey mountain" => ["sand"]);
 
-my @region = (
-          [-1, -2], [0, -2], [1, -2],
-[-2, -1], [-1, -1], [0, -1], [1, -1], [2, -1],
-[-2,  0], [-1,  0], [0,  0], [1,  0], [2,  0],
-[-2,  1], [-1,  1], [0,  1], [1,  1], [2,  1],
-                    [0,  2]);
+my %reverse_lookup = ("water" => "water",
+		      "grey swamp" => "grey swamp",
+		      "sand" => "sand",
+		      "light-grey grass" => "light-grey grass",
+		      "grey grass" => "light-grey grass",
+		      "soil" => "light-grey grass",
+		      "soil bushes" => "light-grey grass",
+		      "light-green bush" => "light-grey grass",
+		      "light-green grass" => "light-grey grass",
+		      "green forest" => "green forest",
+		      "dark-green forest" => "green forest",
+		      "light-green trees" => "green forest",
+		      "green trees" => "green forest",
+		      "light-green forest-mountains" => "green forest",
+		      "light-grey forest-hill" => "green forest",
+		      "light-grey hill" => "light-grey hill",
+		      "sand hill" => "light-grey hill",
+		      "light-green forest-hill" => "light-grey hill",
+		      "light-grey mountain" => "light-grey mountain",
+		      "light-grey mountains" => "light-grey mountain",
+		      "light-grey forest-mountains" => "light-grey mountain");
 
 sub pick_terrain {
   my $arrayref = shift;
   return $arrayref->[rand @$arrayref];
 }
 
+# Precomputed for speed
+
+# Brute forcing by picking random sub hexes until we found an
+# unassigned one.
+
 sub pick_unassigned {
-  my ($x, $y) = @_;
+  my ($x, $y, @region) = @_;
   my $hex = $region[rand @region];
   my $coordinates = sprintf("%02d%02d", $x + $hex->[0], $y + $hex->[1]);
   while ($world{$coordinates}) {
@@ -626,7 +641,7 @@ sub pick_unassigned {
 }
 
 sub pick_remaining {
-  my ($x, $y) = @_;
+  my ($x, $y, @region) = @_;
   my @coordinates = ();
   for my $hex (@region) {
     my $coordinates = sprintf("%02d%02d", $x + $hex->[0], $y + $hex->[1]);
@@ -635,41 +650,160 @@ sub pick_remaining {
   return @coordinates;
 }
 
-sub generate_region {
-  my ($x, $y, $primary) = @_;
-  my $secondary = 
-  $world{sprintf("%02d%02d", $x, $y)} = pick_terrain($primary{$primary});
-  for (1..6) {
-    $world{pick_unassigned($x, $y)} = pick_terrain($primary{$primary});
-  }
-  for (1..4) {
-    $world{pick_unassigned($x, $y)} = pick_terrain($secondary{$primary});
-  }
-  for (1..2) {
-    $world{pick_unassigned($x, $y)} = pick_terrain($tertiary{$primary});
-  }
-  for my $coordinates (pick_remaining($x, $y)) {
-    $world{$coordinates} = pick_terrain($wildcard{$primary});;
+sub full_hexes {
+  my ($x, $y) = @_;
+  if ($x % 2) {
+    return ([0, -2],
+	    [-2, -1], [-1, -1], [0, -1], [1, -1], [2, -1],
+	    [-2,  0], [-1,  0], [0,  0], [1,  0], [2,  0],
+	    [-2,  1], [-1,  1], [0,  1], [1,  1], [2,  1],
+	    [-1,  2], [0,  2], [1,  2]);
+  } else {
+    return ([-1, -2], [0, -2], [1, -2],
+	    [-2, -1], [-1, -1], [0, -1], [1, -1], [2, -1],
+	    [-2,  0], [-1,  0], [0,  0], [1,  0], [2,  0],
+            [-2,  1], [-1,  1], [0,  1], [1,  1], [2,  1],
+	    [0,  2]);
   }
 }
 
+sub half_hexes {
+  my ($x, $y) = @_;
+  if ($x % 2) {
+    return ([-2, -2], [-1, -2], [1, -2], [2, -2],
+	    [-3,  0], [3,  0],
+	    [-3,  1], [3,  1],
+	    [-2,  2], [2,  2],
+	    [-1,  3], [1,  3]);
+  } else {
+    return ([-1, -3], [1, -3],
+	    [-2, -2], [2, -2],
+	    [-3, -1], [3, -1],
+	    [-3,  0], [3,  0],
+	    [-2,  2], [-1,  2], [1,  2], [2,  2]);
+  }
+}
+
+sub generate_region {
+  my ($x, $y, $primary) = @_;
+  $world{sprintf("%02d%02d", $x, $y)} = pick_terrain($primary{$primary});
+
+  my @region = full_hexes($x, $y);
+  my $terrain;
+
+  for (1..9) {
+    my $coordinates = pick_unassigned($x, $y, @region);
+    $terrain = pick_terrain($primary{$primary});
+    warn " primary   $coordinates => $terrain\n" if $verbose;
+    $world{$coordinates} = $terrain;
+  }
+
+  for (1..6) {
+    my $coordinates = pick_unassigned($x, $y, @region);
+    $terrain =  pick_terrain($secondary{$primary});
+    warn " secondary $coordinates => $terrain\n" if $verbose;
+    $world{$coordinates} = $terrain;
+  }
+
+  for my $coordinates (pick_remaining($x, $y, @region)) {
+    if (rand > 0.1) {
+      $terrain = pick_terrain($tertiary{$primary});
+      warn " tertiary  $coordinates => $terrain\n" if $verbose;
+    } else {
+      $terrain = pick_terrain($wildcard{$primary});
+      warn " wildcard  $coordinates => $terrain\n" if $verbose;
+    }
+    $world{$coordinates} = $terrain;
+  }
+
+  for my $coordinates (pick_remaining($x, $y, half_hexes($x, $y))) {
+    my $random = rand 6;
+    if ($random < 3) {
+      $terrain = pick_terrain($primary{$primary});
+      warn "  halfhex primary   $coordinates => $terrain\n" if $verbose;
+    } elsif ($random < 5) {
+      $terrain = pick_terrain($secondary{$primary});
+      warn "  halfhex secondary $coordinates => $terrain\n" if $verbose;
+    } else {
+      $terrain = pick_terrain($tertiary{$primary});
+      warn "  halfhex tertiary  $coordinates => $terrain\n" if $verbose;
+    }
+    $world{$coordinates} = $terrain;
+  }
+}
+
+sub seed_region {
+  my ($seeds, $primary) = @_;
+  my $hex = shift @$seeds;
+  warn "seed_region [" . $hex->[0] . "," . $hex->[1] . "] with $primary\n" if $verbose;
+  generate_region($hex->[0], $hex->[1], $primary);
+  for my $seed (@$seeds) {
+    my $terrain;
+    my $random = rand 12;
+    if ($random < 6) {
+      $terrain = pick_terrain($primary{$primary});
+      warn " picked primary $terrain\n" if $verbose;
+    } elsif ($random < 9) {
+      $terrain = pick_terrain($secondary{$primary});
+      warn " picked seconary $terrain\n" if $verbose;
+    } elsif ($random < 11) {
+      $terrain = pick_terrain($tertiary{$primary});
+      warn " picked tertiary $terrain\n" if $verbose;
+    } else {
+      $terrain = pick_terrain($wildcard{$primary});
+      warn " picked wildcard $terrain\n" if $verbose;
+    }
+    die "Terrain lacks reverse_lookup: $terrain\n" unless $reverse_lookup{$terrain};
+    seed_region($seed, $reverse_lookup{$terrain});
+  }
+}
 
 sub generate_map {
-  for my $x (0..4) {
-    for my $y (0..3) {
-      generate_region($x * 4 - 1, $y * 4 + 1 - $x % 2 * 2,
-		      $seed_terrain[rand @seed_terrain]);
-    }
-  }
+  # random seeds
+
+  # for my $x (0..4) {
+  #   for my $y (0..3) {
+  #     generate_region($x * 5 + 1, $y * 5 + 1 + $x % 2 * 2,
+  # 		      $seed_terrain[rand @seed_terrain]);
+  #   }
+  # }
+
+  # use a spread from the center at [11, 11]
+  my $seeds = [[11, 11],
+	       [[6, 8],
+	        [[1, 6]],
+		[[6, 3],
+		 [[1,1]]]],
+	       [[11, 6],
+		[[11, 1]],
+		[[16, 3],
+		 [[21, 1]]]],
+	       [[16, 8],
+		[[21, 6]],
+		[[21, 11]]],
+	       [[16, 13],
+		[[21, 16]],
+		[[16, 18]]],
+	       [[11, 16],
+		[[6, 18]]],
+	       [[6, 13],
+		[[1, 16]],
+		[[1, 11]]]];
+
+  my @seed_terrain = keys %primary;
+  seed_region($seeds, $seed_terrain[rand @seed_terrain]);
 
   # delete extra hexes we generated to fill the gaps
   for my $coordinates (keys %world) {
     $coordinates =~ /(..)(..)/;
-    delete $world{$coordinates} if  $1 < 1 or $1 > 16 or $2 < 1 or $2 > 12;
+    delete $world{$coordinates} if $1 < 1 or $2 < 1;
+    delete $world{$coordinates} if $1 > 23 or $2 > 18;
   }
 
   return join("\n", map { $_ . " " . $world{$_} } sort keys %world) . "\n"
-    . "include http://alexschroeder.ch/contrib/gnomeyland.txt\n";
+    . (url(-base=>1) =~ /localhost/
+       ? "include file:///Users/alex/Source/hex-mapping/contrib/gnomeyland.txt\n"
+       : "include http://alexschroeder.ch/contrib/gnomeyland.txt\n");
 }
 
 sub print_map {
