@@ -1,5 +1,5 @@
 #!/usr/bin/perl
-# Copyright (C) 2009, 2010  Alex Schroeder <alex@gnu.org>
+# Copyright (C) 2009-2013  Alex Schroeder <alex@gnu.org>
 #
 # This program is free software: you can redistribute it and/or modify it under
 # the terms of the GNU General Public License as published by the Free Software
@@ -14,8 +14,6 @@
 # this program. If not, see <http://www.gnu.org/licenses/>.
 #
 # Algorithms based on Traveller ©2008 Mongoose Publishing.
-#
-# $Id: uwp-generator.pl,v 1.7 2010/05/31 23:30:14 alex Exp $
 
 use strict;
 use POSIX qw(INT_MAX);
@@ -372,7 +370,9 @@ sub script {
 sub print_html {
   my $id = shift;
   print (header(-type=>'text/html; charset=UTF-8'),
-	 start_html(-encoding=>'UTF-8', -title=>'Traveller Subsector UWP List Generator',
+	 start_html(-encoding=>'UTF-8',
+		    -title=>'Traveller Subsector UWP List Generator',
+		    -meta=>{robots => "NOINDEX,NOFOLLOW"},
 		    -author=>'kensanata@gmail.com'),
 	 h1("Traveller Subsector UWP List Generator ($id)"),
 	 pre(new Subsector()->init->str, <<EOT),
