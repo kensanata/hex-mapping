@@ -541,11 +541,7 @@ package main;
 
 # Random generator based on the algorithm developed by Erin D. Smale.
 # http://www.welshpiper.com/hex-based-campaign-design-part-1/
-# Differences:
-# - less sub-hexes
-# - no special handling of half hexes
 # - terrain based on what the Gnomeyland icons by Gregory B. MacKenzie
-# - adjacent regions currently random
 
 my %world = ();
 
