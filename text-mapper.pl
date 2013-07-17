@@ -793,6 +793,7 @@ sub print_map {
   print header(-type=>'image/svg+xml', -charset=>'utf-8');
   my $map = new Mapper;
   $map->initialize(shift);
+  binmode(STDOUT, ':utf8');
   print $map->svg;
 }
 
