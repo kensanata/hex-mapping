@@ -1055,6 +1055,8 @@ roads, for example.
     road path attributes stroke="black" stroke-width="3" fill-opacity="0" stroke-dasharray="10 10"
     0000-0301 road
 
+=head3 Include a Library
+
 Since these definitions get unwieldy, require a lot of work (the path
 elements), and to encourage reuse, you can use the B<include>
 statement with an URL.
@@ -1071,6 +1073,32 @@ statement with an URL.
 You can find more files ("libraries") to include in the C<contrib>
 directory:
 L<https://github.com/kensanata/hex-mapping/tree/master/contrib>.
+
+=head3 Large Areas
+
+If you want to surround a piece of land with a round shore line, a
+forest with a large green shadow, you can achieve this using a line
+that connects to itself. These "closed" lines can have C<fill> in
+their path attributes. In the following example, the oasis is
+surrounded by a larger green area.
+
+    include http://alexschroeder.ch/contrib/default.txt
+    0102 sand
+    0103 sand
+    0201 sand
+    0203 sand
+    0302 sand
+    0303 sand
+    0102-0201-0302-0303-0203-0103-0102 green
+    green path attributes fill="#9acd32"
+    0202 jungle "oasis"
+
+Confusingly, the "jungle path attributes" are used to draw the palm
+tree, so we cannot use it do define the area around the oasis. We need
+to define the green path attributes in order to do that.
+
+I<Order is important>: First we draw the sand, then the green area,
+then we drop a jungle on top of the green area.
 
 =head2 Random
 
