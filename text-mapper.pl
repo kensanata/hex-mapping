@@ -7,6 +7,7 @@ use LWP::UserAgent;
 use strict;
 
 my $verbose = 0;
+my $debug = 0;
 
 my $dx = 100;
 my $dy = 100*sqrt(3);
@@ -113,34 +114,59 @@ sub compute_missing_points {
 
 sub svg {
   my $self = shift;
-  my ($path, $current, $next);
+  my ($path, $current, $next, $closed);
+
   my @points = $self->compute_missing_points();
-  for my $i (0 .. $#points - 1) {
-    $current = $points[$i];
-    $next = $points[$i+1];
-    if (!$path) {
-      # bézier curve A B A B
-      my $a = $current->partway($next, 0.3);
-      my $b = $current->partway($next, 0.5);
-      $path = "M$a C$b $a $b";
-    } else {
-      # continue curve
-      $path .= " S" . $current->partway($next, 0.3)
-	      . " " . $current->partway($next, 0.5);
-    }
+  if ($points[0]->equal($points[$#points])) {
+    $closed = 1;
   }
-  # end with a little stub
-  $path .= " L" . $current->partway($next, 0.7);
+
+  if ($closed) {
+    for my $i (0 .. $#points - 1) {
+      $current = $points[$i];
+      $next = $points[$i+1];
+      if (!$path) {
+	my $a = $current->partway($next, 0.3);
+	my $b = $current->partway($next, 0.5);
+	my $c = $points[$#points-1]->partway($current, 0.7);
+	my $d = $points[$#points-1]->partway($current, 0.5);
+	$path = "M$d C$c $a $b";
+      } else {
+	# continue curve
+	my $a = $current->partway($next, 0.3);
+	my $b = $current->partway($next, 0.5);
+	$path .= " S$a $b";
+      }
+    }
+  } else {
+    for my $i (0 .. $#points - 1) {
+      $current = $points[$i];
+      $next = $points[$i+1];
+      if (!$path) {
+	# line from a to b; control point a required for following S commands
+	my $a = $current->partway($next, 0.3);
+	my $b = $current->partway($next, 0.5);
+	$path = "M$a C$b $a $b";
+      } else {
+	# continue curve
+	my $a = $current->partway($next, 0.3);
+	my $b = $current->partway($next, 0.5);
+	$path .= " S$a $b";
+      }
+    }
+    # end with a little stub
+    $path .= " L" . $current->partway($next, 0.7);
+  }
 
   my $type = $self->type;
   my $attributes = $self->map->path_attributes($type);
   my $data = "    <path $attributes d='$path'/>\n";
-  $data .= $self->debug() if main::param('debug');
+  $data .= $self->debug($closed) if $debug;
   return $data;
 }
 
 sub debug {
-  my $self = shift;
+  my ($self, $closed) = @_;
   my ($data, $current, $next);
   my @points = $self->compute_missing_points();
   for my $i (0 .. $#points - 1) {
@@ -152,6 +178,13 @@ sub debug {
     $data .= circle($current->partway($next, 0.7), 3, 'c');
   }
   $data .= circle($next->pixels, 15, $#points);
+
+  my ($x, $y) = $points[0]->pixels; $y += 30;
+  $data .= "<text fill='#000' font-size='20pt' "
+    . "text-anchor='middle' dominant-baseline='central' "
+    . "x='$x' y='$y'>closed</text>"
+      if $closed;
+
   return $data;
 }
 
@@ -198,7 +231,7 @@ sub svg_hex {
   return qq{    <polygon id="$id" $attributes points="$points" />\n}
 }
 
-sub svg_type {
+sub svg {
   my $self = shift;
   my $x = $self->x;
   my $y = $self->y;
@@ -256,6 +289,7 @@ struct Mapper => {
 		  map => '$',
 		  path => '%',
 		  lines => '@',
+		  things => '@',
 		  path_attributes => '%',
 		  text_attributes => '$',
 		  glow_attributes => '$',
@@ -308,7 +342,8 @@ sub process {
       $hex->label($4);
       my @types = split(' ', $3);
       $hex->type(\@types);
-      $self->add($hex);
+      push(@{$self->hexes}, $hex);
+      push(@{$self->things}, $hex);
     } elsif (/^(\d\d\d\d(?:-\d\d\d\d)+)\s+(\S+)/) {
       my $line = Line->new(map => $self);
       $line->type($2);
@@ -317,6 +352,7 @@ sub process {
 		       } split(/-/, $1);
       $line->points(\@points);
       push(@{$self->lines}, $line);
+      push(@{$self->things}, $line);
     } elsif (/^(\S+)\s+attributes\s+(.*)/) {
       $self->attributes($1, $2);
     } elsif (/^(\S+)\s+lib\s+(.*)/) {
@@ -355,11 +391,6 @@ sub process {
       }
     }
   }
-}
-
-sub add {
-  my ($self, $hex) = @_;
-  push(@{$self->hexes}, $hex);
 }
 
 sub merge_attributes {
@@ -451,11 +482,11 @@ sub svg_defs {
   $doc .= qq{  </defs>\n};
 }
 
-sub svg_types {
+sub svg_things {
   my $self = shift;
-  my $doc = qq{  <g id="types">\n};
-  foreach my $hex (@{$self->hexes}) {
-    $doc .= $hex->svg_type();
+  my $doc = qq{  <g id="things">\n};
+  foreach my $thing (@{$self->things}) {
+    $doc .= $thing->svg();
   }
   $doc .= qq{  </g>\n};
   return $doc;
@@ -506,9 +537,9 @@ sub svg {
 
   my $doc = $self->svg_header();
   $doc .= $self->svg_defs();
-  $doc .= $self->svg_types(); # opaque backgrounds and icons
-  $doc .= $self->svg_coordinates();
   $doc .= $self->svg_lines();
+  $doc .= $self->svg_things(); # opaque backgrounds, icons, lines
+  $doc .= $self->svg_coordinates();
   $doc .= $self->svg_hexes();
   $doc .= $self->svg_labels();
   $doc .= $self->license();
