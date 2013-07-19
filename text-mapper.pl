@@ -1117,6 +1117,44 @@ by Gregory B. MacKenzie:
 
 Unfortunately, it all has to go on a single line.
 
+=head2 Examples
+
+=head3 Default
+
+Source of the map:
+L<http://themetalearth.blogspot.ch/2011/03/opd-entry.html>
+
+Example data:
+L<http://alexschroeder.ch/contrib/forgotten-depths.txt>
+
+Library:
+L<http://alexschroeder.ch/contrib/default.txt>
+
+Result:
+L<http://alexschroeder.ch/text-mapper?map=include+http://alexschroeder.ch/contrib/forgotten-depths.txt>
+
+=head3 Gnomeyland
+
+Example data:
+L<http://alexschroeder.ch/contrib/gnomeyland-example.txt>
+
+Library:
+L<http://alexschroeder.ch/contrib/gnomeyland.txt>
+
+Result:
+L<http://alexschroeder.ch/text-mapper?map=include+http://alexschroeder.ch/contrib/gnomeyland-example.txt>
+
+=head3 Traveller
+
+Example:
+L<http://alexschroeder.ch/contrib/traveller-example.txt>
+
+Library:
+L<http://alexschroeder.ch/contrib/traveller.txt>
+
+Result:
+L<http://alexschroeder.ch/text-mapper?map=include+http://alexschroeder.ch/contrib/traveller-example.txt>
+
 =head2 Command Line
 
 You can call the script from the command line. Most likely you'll want
