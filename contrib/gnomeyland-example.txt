@@ -31,8 +31,6 @@
 1002 grey "grey"
 1003 dark-grey "dark-grey"
 
-0005-0806 trail
-
 0105 dark-green fir-forest "to the caves"
 0106 dark-green fir-forest
 0205 green fir-forest
@@ -47,5 +45,7 @@
 0606 grey marsh
 0706 dark-grey swamp
 0806 dark-grey castle "Dolorous Garde"
+
+0005-0806 trail
 
 include http://alexschroeder.ch/contrib/gnomeyland.txt
