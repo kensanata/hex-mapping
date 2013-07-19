@@ -82,7 +82,7 @@
 0809
 0810 red 3 D pirate scout "Solacexe"
 
-# communication must come first
+# communication must come before trade routes
 0107-0208 communication
 0208-0409 communication
 0302-0502 communication
