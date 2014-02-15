@@ -304,7 +304,7 @@ my $example = q{
 0101 mountain "mountain"
 0102 swamp "swamp"
 0103 hill "hill"
-0104 forest "horest"
+0104 forest "forest"
 0201 empty pyramid "pyramid"
 0202 tundra "tundra"
 0203 coast "coast"
