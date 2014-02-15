@@ -426,7 +426,7 @@ sub svg_header {
   return qq{<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <svg xmlns="http://www.w3.org/2000/svg" version="1.1"
      xmlns:xlink="http://www.w3.org/1999/xlink"
-     viewBox="$vx1 $vy1 $vx2 $vy2">
+     viewBox="$vx1 $vy1 $width $height">
   <!-- min ($minx, $miny), max ($maxx, $maxy) -->
 };
 }
