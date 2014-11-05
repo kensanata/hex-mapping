@@ -2,7 +2,7 @@
 
 # This code started out as a fork of old-school-hex.pl.
 
-use CGI qw/:standard/;
+use CGI qw/:standard -utf8/;
 use LWP::UserAgent;
 use strict;
 
