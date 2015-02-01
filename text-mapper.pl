@@ -258,9 +258,22 @@ sub svg_coordinates {
   return $data;
 }
 
+sub url_encode {
+  my $str = shift;
+  return '' unless $str;
+  utf8::encode($str); # turn to byte string
+  my @letters = split(//, $str);
+  my %safe = map {$_ => 1} ('a' .. 'z', 'A' .. 'Z', '0' .. '9', '-', '_', '.', '!', '~', '*', "'", '(', ')', '#');
+  foreach my $letter (@letters) {
+    $letter = sprintf("%%%02x", ord($letter)) unless $safe{$letter};
+  }
+  return join('', @letters);
+}
+
 sub svg_label {
-  my $self = shift;
+  my ($self, $url) = @_;
   return unless $self->label;
+  $url =~ s/\%s/url_encode($self->label)/e or $url .= url_encode($self->label) if $url;
   my $x = $self->x;
   my $y = $self->y;
   my $data = sprintf(qq{    <g><text text-anchor="middle" x="%.1f" y="%.1f" %s %s>}
@@ -268,12 +281,15 @@ sub svg_label {
 		   . qq{</text>},
 		   $x * $dx * 3/2, $y * $dy - $x%2 * $dy/2 + $dy * 0.4,
 		   $self->map->label_attributes,
-		   $self->map->glow_attributes);
+		     $self->map->glow_attributes);
+  $data .= qq{<a xlink:href="$url">} if $url;
   $data .= sprintf(qq{<text text-anchor="middle" x="%.1f" y="%.1f" %s>}
 		   . $self->label
-		   . qq{</text></g>\n},
+		   . qq{</text>},
 		   $x * $dx * 3/2, $y * $dy - $x%2 * $dy/2 + $dy * 0.4,
 		   $self->map->label_attributes);
+  $data .= qq{</a>} if $url;
+  $data .= qq{</g>\n};
   return $data;
 }
 
@@ -298,6 +314,7 @@ struct Mapper => {
 		  seen => '%',
 		  license => '$',
 		  other => '@',
+		  url => '$',
 		 };
 
 my $example = q{
@@ -373,6 +390,8 @@ sub process {
       $self->license($1);
     } elsif (/^other\s+(.*)/) {
       push(@{$self->other()}, $1);
+    } elsif (/^url\s+(\S+)/) {
+      $self->url($1);
     } elsif (/^include\s+(\S*)/) {
       if (scalar keys %{$self->seen} > 5) {
 	push(@{$self->messages},
@@ -526,7 +545,7 @@ sub svg_labels {
   my $self = shift;
   my $doc = qq{  <g id="labels">\n};
   foreach my $hex (@{$self->hexes}) {
-    $doc .= $hex->svg_label();
+    $doc .= $hex->svg_label($self->url);
   }
   $doc .= qq{  </g>\n};
   return $doc;
@@ -1135,9 +1154,18 @@ The B<other> keyword causes the item to be added to the end of the
 document. It can be used for frames and labels that are not connected
 to a single hex.
 
+You can make labels link to web pages using the B<url> keyword.
+
+    url https://campaignwiki.org/wiki/NameOfYourWiki/
+
+This will make the label X link to
+C<https://campaignwiki.org/wiki/NameOfYourWiki/X>. You can also use
+C<%s> in the URL and then this placeholder will be replaced with the
+(URL encoded) label.
+
 =head2 License
 
-This program is copyright (C) 2007-2013 Alex Schroeder <alex@gnu.org>.
+This program is copyright (C) 2007-2015 Alex Schroeder <alex@gnu.org>.
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
