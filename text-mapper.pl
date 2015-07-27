@@ -854,7 +854,7 @@ sub generate_map {
 }
 
 sub print_map {
-  print header(-type=>'image/svg+xml', -charset=>'utf-8');
+  print header(-type=>'image/svg+xml', -charset=>'utf-8') if IS_CGI;
   my $map = new Mapper;
   $map->initialize(shift);
   binmode(STDOUT, ':utf8');
@@ -873,8 +873,8 @@ sub footer {
 }
 
 sub print_html {
-  print header(-type=>'text/html; charset=UTF-8'),
-	start_html(-encoding=>'UTF-8', -title=>'Text Mapper',
+  print header(-type=>'text/html; charset=UTF-8') if IS_CGI;
+  print start_html(-encoding=>'UTF-8', -title=>'Text Mapper',
 		    -author=>'kensanata@gmail.com'),
 	h1('Text Mapper'),
 	p('Submit your text desciption of the map.'),
@@ -922,15 +922,18 @@ pre {white-space: pre-wrap}
 
 sub main {
   binmode(STDOUT, ':utf8');
+  my $arg = $ARGV[0] ||'';
   if (path_info() eq '/help'
-      or $ARGV[0] and ($ARGV[0] eq '-h' or $ARGV[0] eq '--help')) {
+      or $arg eq '--help') {
     help();
-  } elsif (path_info() eq '/source') {
-    print header(-type=>'text/plain', -charset=>'utf-8');
+  } elsif (path_info() eq '/source'
+           or $arg eq '--source') {
+    print header(-type=>'text/plain', -charset=>'utf-8') if IS_CGI;
     seek(DATA,0,0);
     undef $/;
     print <DATA>;
-  } elsif (param('generate')) {
+  } elsif (param('generate')
+           or $arg eq '--generate') {
     param('map', generate_map());
     print_html();
   } else {
@@ -1265,5 +1268,7 @@ L<http://alexschroeder.ch/text-mapper?map=include+http://alexschroeder.ch/contri
 You can call the script from the command line. It accepts the map on STDIN.
 
     perl text-mapper.pl < contrib/forgotten-depths.txt
+
+The script also supports the arguments --help, --source and --generate.
 
 =cut
