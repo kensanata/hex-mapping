@@ -2,9 +2,13 @@
 
 # This code started out as a fork of old-school-hex.pl.
 
+use strict;
+use warnings;
 use CGI qw/:standard -utf8/;
 use LWP::UserAgent;
-use strict;
+use Pod::Simple::HTML;
+use Pod::Simple::Text;
+use constant IS_CGI => exists $ENV{'GATEWAY_INTERFACE'};
 
 my $verbose = 0;
 my $debug = 0;
@@ -252,7 +256,9 @@ sub svg_coordinates {
   $data .= sprintf(qq{ x="%.1f" y="%.1f"},
 		   $x * $dx * 3/2,
 		   $y * $dy - $x%2 * $dy/2 - $dy * 0.4);
-  $data .= ' ' . $self->map->text_attributes . '>';
+  $data .= ' ';
+  $data .= $self->map->text_attributes || '';
+  $data .= '>';
   $data .= sprintf(qq{%02d.%02d}, $x, $y);
   $data .= qq{</text>\n};
   return $data;
@@ -272,22 +278,22 @@ sub url_encode {
 
 sub svg_label {
   my ($self, $url) = @_;
-  return unless $self->label;
+  return '' unless $self->label;
   $url =~ s/\%s/url_encode($self->label)/e or $url .= url_encode($self->label) if $url;
   my $x = $self->x;
   my $y = $self->y;
   my $data = sprintf(qq{    <g><text text-anchor="middle" x="%.1f" y="%.1f" %s %s>}
-		   . $self->label
-		   . qq{</text>},
-		   $x * $dx * 3/2, $y * $dy - $x%2 * $dy/2 + $dy * 0.4,
-		   $self->map->label_attributes,
-		     $self->map->glow_attributes);
+                     . $self->label
+                     . qq{</text>},
+                     $x * $dx * 3/2, $y * $dy - $x%2 * $dy/2 + $dy * 0.4,
+                     $self->map->label_attributes ||'',
+		     $self->map->glow_attributes  ||'');
   $data .= qq{<a xlink:href="$url">} if $url;
   $data .= sprintf(qq{<text text-anchor="middle" x="%.1f" y="%.1f" %s>}
 		   . $self->label
 		   . qq{</text>},
 		   $x * $dx * 3/2, $y * $dy - $x%2 * $dy/2 + $dy * 0.4,
-		   $self->map->label_attributes);
+		   $self->map->label_attributes   ||'');
   $data .= qq{</a>} if $url;
   $data .= qq{</g>\n};
   return $data;
@@ -415,8 +421,10 @@ sub process {
 sub merge_attributes {
   my %attr = ();
   for my $attr (@_) {
-    while ($attr =~ /(\S+)=((["']).*?\3)/g) {
-      $attr{$1} = $2;
+    if ($attr) {
+      while ($attr =~ /(\S+)=((["']).*?\3)/g) {
+        $attr{$1} = $2;
+      }
     }
   }
   return join(' ', map { $_ . '=' . $attr{$_} } sort keys %attr);
@@ -424,6 +432,11 @@ sub merge_attributes {
 
 sub svg_header {
   my ($self) = @_;
+
+  my $header = qq{<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+};
 
   my ($minx, $miny, $maxx, $maxy);
   foreach my $hex (@{$self->hexes}) {
@@ -437,17 +450,18 @@ sub svg_header {
     $maxy = $hex->y if $maxy < $hex->y;
   }
 
-  my ($vx1, $vy1, $vx2, $vy2) =
-    map { int($_) } ($minx * $dx * 3/2 - $dx - 60, ($miny - 1.0) * $dy - 50,
-		     $maxx * $dx * 3/2 + $dx + 60, ($maxy + 0.5) * $dy + 100);
-  my ($width, $height) = ($vx2 - $vx1, $vy2 - $vy1);
+  if (defined($minx) and defined($maxx) and defined($miny) and defined($maxy)) {
+  
+    my ($vx1, $vy1, $vx2, $vy2) =
+        map { int($_) } ($minx * $dx * 3/2 - $dx - 60, ($miny - 1.0) * $dy - 50,
+                         $maxx * $dx * 3/2 + $dx + 60, ($maxy + 0.5) * $dy + 100);
+    my ($width, $height) = ($vx2 - $vx1, $vy2 - $vy1);
 
-  return qq{<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg xmlns="http://www.w3.org/2000/svg" version="1.1"
-     xmlns:xlink="http://www.w3.org/1999/xlink"
-     viewBox="$vx1 $vy1 $width $height">
-  <!-- min ($minx, $miny), max ($maxx, $maxy) -->
-};
+    $header .= qq{     viewBox="$vx1 $vy1 $width $height">\n};
+    $header .= qq{     <!-- min ($minx, $miny), max ($maxx, $maxy) -->\n};
+  }
+  
+  return $header;
 }
 
 sub svg_defs {
@@ -561,7 +575,7 @@ sub svg {
   $doc .= $self->svg_coordinates();
   $doc .= $self->svg_hexes();
   $doc .= $self->svg_labels();
-  $doc .= $self->license();
+  $doc .= $self->license() ||'';
   $doc .= join("\n", @{$self->other()}) . "\n";
 
   # error messages
@@ -877,54 +891,57 @@ sub print_html {
 }
 
 sub help {
-  eval {
-    require Pod::Simple::HTML;
-    print header(-type=>'text/html; charset=UTF-8');
-    $Pod::Simple::HTML::Doctype_decl =
-      q{<!DOCTYPE html>};
-    $Pod::Simple::HTML::Content_decl =
-      q{<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" >};
-    my $parser = Pod::Simple::HTML->new;
-    my $html;
-    $parser->output_string(\$html);
-    $parser->html_footer(footer());
-    $parser->html_header_after_title(
-      q{</title>
+  seek(DATA,0,0);
+  undef $/; # slurp
+  my $pod = <DATA>;
+  if (IS_CGI) {
+      print header(-type=>'text/html; charset=UTF-8');
+      $Pod::Simple::HTML::Doctype_decl =
+          q{<!DOCTYPE html>};
+      $Pod::Simple::HTML::Content_decl =
+          q{<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" >};
+      my $parser = Pod::Simple::HTML->new;
+      my $html;
+      $parser->output_string(\$html);
+      $parser->html_footer(footer());
+      $parser->html_header_after_title(
+        q{</title>
 <style type="text/css">
 pre {white-space: pre-wrap}
 </style>
 </head>
 <body>});
-    seek(DATA,0,0);
-    undef $/;
-    $parser->parse_string_document(<DATA>);
-    print $html;
-  };
-  if ($@) {
-    print header(-type=>'text/plain; charset=UTF-8');
-    print "$@\n";
-    undef $/;
-    print <DATA>;
+      $parser->parse_string_document($pod);
+      print $html;
+  } else {
+    my $parser = Pod::Simple::Text->new;
+    $parser->output_fh(*STDOUT);
+    $parser->parse_string_document($pod);
   }
 }
 
 sub main {
-  binmode(STDOUT, ':ut8');
-  my $map = param('map');
-  if (param('generate')) {
-    param('map', generate_map());
-    print_html();
-  } elsif ($map) {
-    print_map($map);
+  binmode(STDOUT, ':utf8');
+  if (path_info() eq '/help'
+      or $ARGV[0] and ($ARGV[0] eq '-h' or $ARGV[0] eq '--help')) {
+    help();
   } elsif (path_info() eq '/source') {
-    print header(-type=>'text/plain; charset=UTF-8');
+    print header(-type=>'text/plain', -charset=>'utf-8');
     seek(DATA,0,0);
     undef $/;
     print <DATA>;
-  } elsif (path_info() eq '/help') {
-    help();
-  } else {
+  } elsif (param('generate')) {
+    param('map', generate_map());
     print_html();
+  } else {
+    undef $/; # slurp
+    binmode(STDIN, ':utf8');
+    my $map = param('map') || <STDIN>;
+    if ($map) {
+      print_map($map);
+    } else {
+      print_html();
+    }
   }
 }
 
@@ -1245,20 +1262,8 @@ L<http://alexschroeder.ch/text-mapper?map=include+http://alexschroeder.ch/contri
 
 =head2 Command Line
 
-You can call the script from the command line. Most likely you'll want
-to strip the HTTP headers.
+You can call the script from the command line. It accepts the map on STDIN.
 
-If you specify the map directly, you'll need to replace the newlines
-with the URL-escaped variant, %0a. This also means that your map
-shouldn't contain any percentage characters. You also need to make
-sure you surround the entire map with a whatever quote character you
-I<didn't> use in your map.
-
-    perl text-mapper.pl map="grass all='green' stroke='black' stroke-width='1px'%0a0101 grass" | tail -n +3
-
-This quickly gets tedious. Here's how to use the map from a file,
-assuming you are using the C<bash> shell.
-
-    perl text-mapper.pl map="$(cat contrib/forgotten-depths.txt)" | tail -n +3
+    perl text-mapper.pl < contrib/forgotten-depths.txt
 
 =cut
