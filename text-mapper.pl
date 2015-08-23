@@ -343,7 +343,7 @@ my $example = q{
 0205-0103-0202-0303-0402 road
 0101-0203 river
 0401-0303-0403 border
-include http://alexschroeder.ch/contrib/default.txt
+include https://alexschroeder.ch/contrib/default.txt
 license <text>Public Domain</text>
 };
 
@@ -848,9 +848,9 @@ sub generate_map {
   }
 
   return join("\n", map { $_ . " " . $world{$_} } sort keys %world) . "\n"
-    . (url(-base=>1) =~ /localhost/
+    . (url(-base=>1) =~ /megabombus\.local/
        ? "include file:///Users/alex/Source/hex-mapping/contrib/gnomeyland.txt\n"
-       : "include http://alexschroeder.ch/contrib/gnomeyland.txt\n");
+       : "include https://alexschroeder.ch/contrib/gnomeyland.txt\n");
 }
 
 sub print_map {
@@ -863,9 +863,12 @@ sub print_map {
 
 sub footer {
   return hr()
-    . p(a({-href=>'http://www.alexschroeder.ch/wiki/About'},
+    . p(a({-href=>'https://www.alexschroeder.ch/wiki/About'},
 	  'Alex Schroeder'),
 	a({-href=>url() . '/help'}, 'Help'),
+	a({-href=>url() . '/random',
+	   -title=>'The source of the generated map is embedded in the SVG.'},
+	  'Random'),
 	a({-href=>url() . '/source'}, 'Source'),
 	a({-href=>'https://github.com/kensanata/hex-mapping'},
 	  'GitHub'))
@@ -932,6 +935,8 @@ sub main {
     seek(DATA,0,0);
     undef $/;
     print <DATA>;
+  } elsif (path_info() eq '/random') {
+    print_map(generate_map());
   } elsif (param('generate')
            or $arg eq '--generate') {
     param('map', generate_map());
@@ -1100,7 +1105,7 @@ Since these definitions get unwieldy, require a lot of work (the path
 elements), and to encourage reuse, you can use the B<include>
 statement with an URL.
 
-    include http://alexschroeder.ch/contrib/default.txt
+    include https://alexschroeder.ch/contrib/default.txt
     0102 sand
     0103 sand
     0201 sand
@@ -1121,7 +1126,7 @@ that connects to itself. These "closed" lines can have C<fill> in
 their path attributes. In the following example, the oasis is
 surrounded by a larger green area.
 
-    include http://alexschroeder.ch/contrib/default.txt
+    include https://alexschroeder.ch/contrib/default.txt
     0102 sand
     0103 sand
     0201 sand
@@ -1233,35 +1238,35 @@ Source of the map:
 L<http://themetalearth.blogspot.ch/2011/03/opd-entry.html>
 
 Example data:
-L<http://alexschroeder.ch/contrib/forgotten-depths.txt>
+L<https://alexschroeder.ch/contrib/forgotten-depths.txt>
 
 Library:
-L<http://alexschroeder.ch/contrib/default.txt>
+L<https://alexschroeder.ch/contrib/default.txt>
 
 Result:
-L<http://alexschroeder.ch/text-mapper?map=include+http://alexschroeder.ch/contrib/forgotten-depths.txt>
+L<https://alexschroeder.ch/text-mapper?map=include+https://alexschroeder.ch/contrib/forgotten-depths.txt>
 
 =head3 Gnomeyland
 
 Example data:
-L<http://alexschroeder.ch/contrib/gnomeyland-example.txt>
+L<https://alexschroeder.ch/contrib/gnomeyland-example.txt>
 
 Library:
-L<http://alexschroeder.ch/contrib/gnomeyland.txt>
+L<https://alexschroeder.ch/contrib/gnomeyland.txt>
 
 Result:
-L<http://alexschroeder.ch/text-mapper?map=include+http://alexschroeder.ch/contrib/gnomeyland-example.txt>
+L<https://alexschroeder.ch/text-mapper?map=include+https://alexschroeder.ch/contrib/gnomeyland-example.txt>
 
 =head3 Traveller
 
 Example:
-L<http://alexschroeder.ch/contrib/traveller-example.txt>
+L<https://alexschroeder.ch/contrib/traveller-example.txt>
 
 Library:
-L<http://alexschroeder.ch/contrib/traveller.txt>
+L<https://alexschroeder.ch/contrib/traveller.txt>
 
 Result:
-L<http://alexschroeder.ch/text-mapper?map=include+http://alexschroeder.ch/contrib/traveller-example.txt>
+L<https://alexschroeder.ch/text-mapper?map=include+https://alexschroeder.ch/contrib/traveller-example.txt>
 
 =head2 Command Line
 
