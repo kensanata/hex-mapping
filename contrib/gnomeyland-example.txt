@@ -19,17 +19,22 @@
 0701 keep "keep"
 0702 tower "tower"
 0703 castle "castle"
-0801 light-soil "light-soil"
-0802 soil "soil"
-0803 dark-soil "dark-soil"
-0804 sand "sand"
-0901 light-green "light-green"
-0902 green "green"
-0903 dark-green "dark-green"
-0904 water "water"
-1001 light-grey "light-grey"
-1002 grey "grey"
-1003 dark-grey "dark-grey"
+0801 thorp "thorp"
+0802 village "village"
+0803 town "town"
+0804 large-town "large-town"
+0805 city "city"
+0901 light-soil "light-soil"
+0902 soil "soil"
+0903 dark-soil "dark-soil"
+0904 sand "sand"
+1001 light-green "light-green"
+1002 green "green"
+1003 dark-green "dark-green"
+1004 water "water"
+1101 light-grey "light-grey"
+1102 grey "grey"
+1103 dark-grey "dark-grey"
 
 0105 dark-green fir-forest "to the caves"
 0106 dark-green fir-forest
@@ -37,7 +42,7 @@
 0206 green fir-forest
 0305 green firs
 0306 soil keep "The Keep"
-0405 light-soil
+0405 light-soil town "Safe Town"
 0406 light-soil
 0505 light-grey mountains
 0506 light-green forest-hill
