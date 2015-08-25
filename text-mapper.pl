@@ -10,11 +10,24 @@ use Pod::Simple::HTML;
 use Pod::Simple::Text;
 use constant IS_CGI => exists $ENV{'GATEWAY_INTERFACE'};
 
-my $verbose = 0;
-my $debug = 0;
+my $verbose = $ENV{VERBOSE};
+my $debug = $ENV{DEBUG};
 
 my $dx = 100;
 my $dy = 100*sqrt(3);
+
+sub one {
+  my @arr = @_;
+  @arr = @{$arr[0]} if @arr == 1 and ref $arr[0] eq 'ARRAY';
+  return $arr[int(rand(scalar @arr))];
+}
+
+sub member {
+  my $element = shift;
+  foreach (@_) {
+    return 1 if $element eq $_;
+  }
+}
 
 package Point;
 
@@ -666,10 +679,14 @@ my %reverse_lookup = ("water" => "water",
 		      "light-grey mountains" => "light-grey mountain",
 		      "light-grey forest-mountains" => "light-grey mountain");
 
-sub pick_terrain {
-  my $arrayref = shift;
-  return $arrayref->[rand @$arrayref];
-}
+my %encounters = ("settlement" => ["thorp", "thorp", "thorp", "thorp",
+				   "village", "town", "town", "town",
+				   "large-town"],
+		  "fortress" => ["keep", "tower", "castle"],
+		  "religious" => [],
+		  "ruin" => [],
+		  "monster" => [],
+		  "natural" => []);
 
 # Precomputed for speed
 
@@ -733,31 +750,31 @@ sub half_hexes {
 
 sub generate_region {
   my ($x, $y, $primary) = @_;
-  $world{sprintf("%02d%02d", $x, $y)} = pick_terrain($primary{$primary});
+  $world{sprintf("%02d%02d", $x, $y)} = one($primary{$primary});
 
   my @region = full_hexes($x, $y);
   my $terrain;
 
   for (1..9) {
     my $coordinates = pick_unassigned($x, $y, @region);
-    $terrain = pick_terrain($primary{$primary});
+    $terrain = one($primary{$primary});
     warn " primary   $coordinates => $terrain\n" if $verbose;
     $world{$coordinates} = $terrain;
   }
 
   for (1..6) {
     my $coordinates = pick_unassigned($x, $y, @region);
-    $terrain =  pick_terrain($secondary{$primary});
+    $terrain =  one($secondary{$primary});
     warn " secondary $coordinates => $terrain\n" if $verbose;
     $world{$coordinates} = $terrain;
   }
 
   for my $coordinates (pick_remaining($x, $y, @region)) {
     if (rand > 0.1) {
-      $terrain = pick_terrain($tertiary{$primary});
+      $terrain = one($tertiary{$primary});
       warn " tertiary  $coordinates => $terrain\n" if $verbose;
     } else {
-      $terrain = pick_terrain($wildcard{$primary});
+      $terrain = one($wildcard{$primary});
       warn " wildcard  $coordinates => $terrain\n" if $verbose;
     }
     $world{$coordinates} = $terrain;
@@ -766,17 +783,46 @@ sub generate_region {
   for my $coordinates (pick_remaining($x, $y, half_hexes($x, $y))) {
     my $random = rand 6;
     if ($random < 3) {
-      $terrain = pick_terrain($primary{$primary});
+      $terrain = one($primary{$primary});
       warn "  halfhex primary   $coordinates => $terrain\n" if $verbose;
     } elsif ($random < 5) {
-      $terrain = pick_terrain($secondary{$primary});
+      $terrain = one($secondary{$primary});
       warn "  halfhex secondary $coordinates => $terrain\n" if $verbose;
     } else {
-      $terrain = pick_terrain($tertiary{$primary});
+      $terrain = one($tertiary{$primary});
       warn "  halfhex tertiary  $coordinates => $terrain\n" if $verbose;
     }
     $world{$coordinates} = $terrain;
   }
+}
+
+sub place_major {
+  my ($x, $y, $thing) = @_;
+  my @region = full_hexes($x, $y);
+  my $hex = $region[rand @region];
+  my $coordinates = sprintf("%02d%02d", $x + $hex->[0], $y + $hex->[1]);
+  while (not exists $reverse_lookup{$world{$coordinates}}) {
+    # As long as we can take the value on the world map and do a reverse lookup,
+    # no encounter has been placed here.
+    $hex = $region[rand @region];
+    $coordinates = sprintf("%02d%02d", $x + $hex->[0], $y + $hex->[1]);
+  }
+  $world{$coordinates} .= ' ' . $thing
+}
+
+sub populate_region {
+  my ($hex, $primary) = shift;
+  # my $random = rand 100;
+  place_major($hex->[0], $hex->[1], one($encounters{one(keys %encounters)}));
+  # if ($primary eq 'water' and $random < 10
+  #     or $primary eq 'grey swamp' and $random < 20
+  #     or $primary eq 'sand' and $random < 20
+  #     or $primary eq 'light-grey grass' and $random < 60
+  #     or $primary eq 'green forest' and $random < 40
+  #     or $primary eq 'light-grey hill' and $random < 40
+  #     or $primary eq 'light-grey mountain' and $random < 20) {
+  #   place_major($hex->x, $hex->y, one(keys %encounters));
+  # }
 }
 
 sub seed_region {
@@ -788,21 +834,22 @@ sub seed_region {
     my $terrain;
     my $random = rand 12;
     if ($random < 6) {
-      $terrain = pick_terrain($primary{$primary});
+      $terrain = one($primary{$primary});
       warn " picked primary $terrain\n" if $verbose;
     } elsif ($random < 9) {
-      $terrain = pick_terrain($secondary{$primary});
+      $terrain = one($secondary{$primary});
       warn " picked seconary $terrain\n" if $verbose;
     } elsif ($random < 11) {
-      $terrain = pick_terrain($tertiary{$primary});
+      $terrain = one($tertiary{$primary});
       warn " picked tertiary $terrain\n" if $verbose;
     } else {
-      $terrain = pick_terrain($wildcard{$primary});
+      $terrain = one($wildcard{$primary});
       warn " picked wildcard $terrain\n" if $verbose;
     }
     die "Terrain lacks reverse_lookup: $terrain\n" unless $reverse_lookup{$terrain};
     seed_region($seed, $reverse_lookup{$terrain});
   }
+  populate_region($hex, $primary);
 }
 
 sub generate_map {
@@ -1148,7 +1195,8 @@ then we drop a jungle on top of the green area.
 
 There's a button to generate a random landscape based on the algorithm
 developed by Erin D. Smale. See
-L<http://www.welshpiper.com/hex-based-campaign-design-part-1/> for
+L<http://www.welshpiper.com/hex-based-campaign-design-part-1/> and
+L<http://www.welshpiper.com/hex-based-campaign-design-part-2/> for
 more information. The output uses the I<Gnomeyland> icons by Gregory
 B. MacKenzie. These are licensed under the Creative Commons
 Attribution-ShareAlike 3.0 Unported License. To view a copy of this
