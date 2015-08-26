@@ -610,74 +610,75 @@ package main;
 my %world = ();
 
 my %primary = ("water" => ["water"],
-	       "grey swamp" => ["grey swamp"],
+	       "swamp" => ["grey swamp", "dark-grey swamp"],
 	       "sand" => ["sand"],
-	       "light-grey grass" => ["light-grey grass"],
-	       "green forest" => ["green forest", "green forest",
-				  "dark-green forest"],
-	       "light-grey hill" => ["light-grey hill"], # canyon?
-	       "light-grey mountain" => ["light-grey mountain"]);
+	       "grass" => ["light-grey grass"],
+	       "forest" => ["green forest", "green forest",
+			    "dark-green forest"],
+	       "hill" => ["light-grey hill"], # canyon?
+	       "mountain" => ["light-grey mountain"]);
 
 my %secondary = ("water" => ["soil", "soil bushes"], # coastal?
-		 "grey swamp" => ["light-grey grass", "grey grass"],
+		 "swamp" => ["light-grey grass", "grey grass"],
 		 "sand" => ["light-grey hill", "light-grey hill", "sand hill"],
-		 "light-grey grass" => ["green forest"],
-		 "green forest" => ["light-green grass", "light-green bush"],
-		 "light-grey hill" => ["light-grey mountain",
-				       "light-grey mountains"],
-		 "light-grey mountain" => ["light-grey hill"]);
+		 "grass" => ["green forest"],
+		 "forest" => ["light-green grass", "light-green bush"],
+		 "hill" => ["light-grey mountain",
+			    "light-grey mountains"],
+		 "mountain" => ["light-grey hill"]);
 
 my %tertiary = ("water" => ["green forest",
 			    "light-green trees", "light-green trees"],
-		"grey swamp" => ["green forest"],
+		"swamp" => ["green forest"],
 		"sand" => ["light-grey grass"],
-		"light-grey grass" => ["light-grey hill"],
-		"green forest" => ["light-green forest-hill",
-				   "light-grey forest-hill",
-				   "light-grey hill"],
-		"light-grey hill" => ["light-grey grass"],
-		"light-grey mountain" => ["green forest", "green trees",
-					  "light-green forest-mountains"]);
+		"grass" => ["light-grey hill"],
+		"forest" => ["light-green forest-hill",
+			     "light-grey forest-hill",
+			     "light-grey hill"],
+		"hill" => ["light-grey grass", "light-green grass"],
+		"mountain" => ["green forest", "green trees",
+			       "light-green forest-mountains"]);
 
 my %wildcard = ("water" => ["grey swamp", "sand", "light-grey hill"],
-		"grey swamp" => ["water"],
+		"swamp" => ["water"],
 		"sand" => ["water", "light-grey mountain"],
-		"light-grey grass" => ["water", "grey swamp", "sand"],
-		"green forest" => ["water", "grey swamp",
-				   "water", "grey swamp",
-				   "water", "grey swamp",
-				   "light-grey mountains",
-				   "light-grey mountains",
-				   "light-grey forest-mountains"],
-		"light-grey hill" => ["water", "sand",
-				      "water", "sand",
-				      "water", "sand",
-				      "green forest",
-				      "green forest",
-				      "light-grey forest-hill"],
-		"light-grey mountain" => ["sand"]);
+		"grass" => ["water", "grey swamp", "sand"],
+		"forest" => ["water", "grey swamp",
+			     "water", "grey swamp",
+			     "water", "dark-grey swamp",
+			     "light-grey mountains",
+			     "light-grey mountains",
+			     "light-grey forest-mountains"],
+		"hill" => ["water", "sand",
+			   "water", "sand",
+			   "water", "sand",
+			   "green forest",
+			   "green forest",
+			   "light-grey forest-hill"],
+		"mountain" => ["sand"]);
 
 my %reverse_lookup = ("water" => "water",
-		      "grey swamp" => "grey swamp",
+		      "grey swamp" => "swamp",
+		      "dark-grey swamp" => "swamp",
 		      "sand" => "sand",
-		      "light-grey grass" => "light-grey grass",
-		      "grey grass" => "light-grey grass",
-		      "soil" => "light-grey grass",
-		      "soil bushes" => "light-grey grass",
-		      "light-green bush" => "light-grey grass",
-		      "light-green grass" => "light-grey grass",
-		      "green forest" => "green forest",
-		      "dark-green forest" => "green forest",
-		      "light-green trees" => "green forest",
-		      "green trees" => "green forest",
-		      "light-green forest-mountains" => "green forest",
-		      "light-grey forest-hill" => "green forest",
-		      "light-grey hill" => "light-grey hill",
-		      "sand hill" => "light-grey hill",
-		      "light-green forest-hill" => "light-grey hill",
-		      "light-grey mountain" => "light-grey mountain",
-		      "light-grey mountains" => "light-grey mountain",
-		      "light-grey forest-mountains" => "light-grey mountain");
+		      "light-grey grass" => "grass",
+		      "grey grass" => "grass",
+		      "soil" => "grass",
+		      "soil bushes" => "grass",
+		      "light-green bush" => "grass",
+		      "light-green grass" => "grass",
+		      "green forest" => "forest",
+		      "dark-green forest" => "forest",
+		      "light-green trees" => "forest",
+		      "green trees" => "forest",
+		      "light-green forest-mountains" => "forest",
+		      "light-grey forest-hill" => "forest",
+		      "light-grey hill" => "hill",
+		      "sand hill" => "hill",
+		      "light-green forest-hill" => "hill",
+		      "light-grey mountain" => "mountain",
+		      "light-grey mountains" => "mountain",
+		      "light-grey forest-mountains" => "mountain");
 
 my %encounters = ("settlement" => ["thorp", "thorp", "thorp", "thorp",
 				   "village", "town", "town", "town",
@@ -798,31 +799,28 @@ sub generate_region {
 
 sub place_major {
   my ($x, $y, $thing) = @_;
+  return unless $thing;
   my @region = full_hexes($x, $y);
   my $hex = $region[rand @region];
   my $coordinates = sprintf("%02d%02d", $x + $hex->[0], $y + $hex->[1]);
-  while (not exists $reverse_lookup{$world{$coordinates}}) {
-    # As long as we can take the value on the world map and do a reverse lookup,
-    # no encounter has been placed here.
-    $hex = $region[rand @region];
-    $coordinates = sprintf("%02d%02d", $x + $hex->[0], $y + $hex->[1]);
-  }
-  $world{$coordinates} .= ' ' . $thing
+  my ($color, $terrain) = split(' ', $world{$coordinates}, 2);
+  # ignore $terrain for the moment
+  $world{$coordinates} = "$color $thing";
 }
 
 sub populate_region {
   my ($hex, $primary) = shift;
-  # my $random = rand 100;
+  my $random = rand 100;
   place_major($hex->[0], $hex->[1], one($encounters{one(keys %encounters)}));
-  # if ($primary eq 'water' and $random < 10
-  #     or $primary eq 'grey swamp' and $random < 20
-  #     or $primary eq 'sand' and $random < 20
-  #     or $primary eq 'light-grey grass' and $random < 60
-  #     or $primary eq 'green forest' and $random < 40
-  #     or $primary eq 'light-grey hill' and $random < 40
-  #     or $primary eq 'light-grey mountain' and $random < 20) {
-  #   place_major($hex->x, $hex->y, one(keys %encounters));
-  # }
+  if ($primary eq 'water' and $random < 10
+      or $primary eq 'swamp' and $random < 20
+      or $primary eq 'sand' and $random < 20
+      or $primary eq 'grass' and $random < 60
+      or $primary eq 'forest' and $random < 40
+      or $primary eq 'hill' and $random < 40
+      or $primary eq 'mountain' and $random < 20) {
+    place_major($hex->x, $hex->y, one(keys %encounters));
+  }
 }
 
 sub seed_region {
