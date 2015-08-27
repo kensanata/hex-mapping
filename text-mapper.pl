@@ -1001,6 +1001,8 @@ main ();
 
 __DATA__
 
+=encoding utf8
+
 =head1 Text Mapper
 
 The script parses a text description of a hex map and produces SVG
