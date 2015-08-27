@@ -13,6 +13,7 @@
 0501 forest-hill "forest-hill"		
 0502 forest-mountain "forest-mountain"	
 0503 forest-mountains "forest-mountains"
+0504 fields
 0601 grass "grass"			
 0602 marsh "marsh"			
 0603 swamp "swamp"
