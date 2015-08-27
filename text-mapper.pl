@@ -319,8 +319,7 @@ use Class::Struct;
 struct Mapper => {
 		  hexes => '@',
 		  attributes => '%',
-		  xml => '%',
-		  lib => '%',
+		  defs => '@',
 		  map => '$',
 		  path => '%',
 		  lines => '@',
@@ -392,9 +391,11 @@ sub process {
     } elsif (/^(\S+)\s+attributes\s+(.*)/) {
       $self->attributes($1, $2);
     } elsif (/^(\S+)\s+lib\s+(.*)/) {
-      $self->lib($1, $2);
+      $self->def(qq{<g id="$1">$2</g>});
     } elsif (/^(\S+)\s+xml\s+(.*)/) {
-      $self->xml($1, $2);
+      $self->def(qq{<g id="$1">$2</g>});
+    } elsif (/^((<[^>]+>\s*)+)/) {
+      $self->def($1);
     } elsif (/^(\S+)\s+path\s+attributes\s+(.*)/) {
       $self->path_attributes($1, $2);
     } elsif (/^(\S+)\s+path\s+(.*)/) {
@@ -431,6 +432,12 @@ sub process {
   }
 }
 
+sub def {
+  my ($self, $svg) = @_;
+  $svg =~ s/>\s+</></g;
+  push($self->defs, $svg);
+}
+
 sub merge_attributes {
   my %attr = ();
   for my $attr (@_) {
@@ -464,7 +471,7 @@ sub svg_header {
   }
 
   if (defined($minx) and defined($maxx) and defined($miny) and defined($maxy)) {
-  
+
     my ($vx1, $vy1, $vx2, $vy2) =
         map { int($_) } ($minx * $dx * 3/2 - $dx - 60, ($miny - 1.0) * $dy - 50,
                          $maxx * $dx * 3/2 + $dx + 60, ($maxy + 0.5) * $dy + 100);
@@ -473,13 +480,14 @@ sub svg_header {
     $header .= qq{     viewBox="$vx1 $vy1 $width $height">\n};
     $header .= qq{     <!-- min ($minx, $miny), max ($maxx, $maxy) -->\n};
   }
-  
+
   return $header;
 }
 
 sub svg_defs {
   my ($self) = @_;
-  my $doc = "  <defs>\n";
+  # All the definitions are included by default.
+  my $doc = join("\n    ", "  <defs>", @{$self->defs});
   # collect hex types from attributess and paths in case the sets don't overlap
   my %types = ();
   foreach my $hex (@{$self->hexes}) {
@@ -490,26 +498,20 @@ sub svg_defs {
   foreach my $line (@{$self->lines}) {
     $types{$line->type} = 1;
   }
-  # also collect all the types with XML definition as these may be referenced
-  foreach my $type (keys %{$self->lib}) {
-    $types{$type} = 1;
-  }
   # now go through them all
   foreach my $type (keys %types) {
     my $path = $self->path($type);
     my $attributes = merge_attributes($self->attributes($type));
     my $path_attributes = merge_attributes($self->path_attributes('default'),
 					   $self->path_attributes($type));
-    my $lib = $self->lib($type);
-    my $xml = $self->xml($type);
     my $glow_attributes = $self->glow_attributes;
-    if ($path || $attributes || $lib || $xml) {
+    if ($path || $attributes) {
       $doc .= qq{    <g id='$type'>\n};
       # just shapes get an outline such as a house (must come first)
       $doc .= qq{      <path $glow_attributes d='$path' />\n}
 	if $path && !$attributes;
       # hex with shapes get a hex around them, eg. plains and grass
-      if ($attributes && !$lib) {
+      if ($attributes) {
 	my $points = join(" ", map {
 	  sprintf("%.1f,%.1f", $_->[0], $_->[1]) } Hex::corners());
 	$doc .= qq{      <polygon $attributes points='$points' />\n}
@@ -517,8 +519,6 @@ sub svg_defs {
       # the shape
       $doc .= qq{      <path $path_attributes d='$path' />\n}
 	if $path;
-      $doc .= qq{      $lib\n} if $lib;
-      $doc .= qq{      $xml\n} if $xml;
       # close
       $doc .= qq{    </g>\n};
     } else {
@@ -1203,15 +1203,27 @@ If you're curious: (11,11) is the starting hex.
 
 =head2 SVG
 
-You can define shapes using arbitrary SVG using the B<lib> and B<xml>
-keywords.
+You can define shapes using arbitrary SVG. Your SVG will end up in the
+B<defs> section of the SVG output. You can then refer to the B<id>
+attribute in your map definition. For the moment, all your SVG needs to
+fit on a single line.
 
-    some-type lib <svg>...</svg>
-    some-type xml <svg>...</svg>
+    <circle id="thorp" fill="#ffd700" stroke="black" stroke-width="7" cx="0" cy="0" r="15"/>
+    0101 thorp
 
-The B<lib> keyword causes the item to be included in the resulting
-definitions. It acts can be referenced in the B<xml> elements, for
-example.
+Shapes can include each other:
+
+    <circle id="settlement" fill="#ffd700" stroke="black" stroke-width="7" cx="0" cy="0" r="15"/>
+    <path id="house" stroke="black" stroke-width="7" d="M-15,0 v-50 m-15,0 h60 m-15,0 v50 M0,0 v-37"/>
+    <use id="thorp" xlink:href="#settlement" transform="scale(0.6)"/>
+    <g id="village" transform="scale(0.6), translate(0,40)"><use xlink:href="#house"/><use xlink:href="#settlement"/></g>
+    0101 thorp
+    0102 village
+
+When creating new shapes, remember the dimensions of the hex. You shapes
+must be centered around (0,0). The width of the hex is 200px, the height
+of the hex is 100 √3 = 173.2px. A good starting point would be to keep
+it within (-50,-50) and (50,50).
 
 =head2 Other
 
