@@ -16,9 +16,12 @@
 0601 grass "grass"			
 0602 marsh "marsh"			
 0603 swamp "swamp"
+0604 shrine "shrine"
 0701 keep "keep"
 0702 tower "tower"
 0703 castle "castle"
+0704 law "law"
+0705 chaos "chaos"
 0801 thorp "thorp"
 0802 village "village"
 0803 town "town"
@@ -28,6 +31,8 @@
 0902 soil "soil"
 0903 dark-soil "dark-soil"
 0904 sand "sand"
+0905 dust "dust"
+
 1001 light-green "light-green"
 1002 green "green"
 1003 dark-green "dark-green"
@@ -36,21 +41,11 @@
 1102 grey "grey"
 1103 dark-grey "dark-grey"
 
-0105 dark-green fir-forest "to the caves"
+# trail example
 0106 dark-green fir-forest
-0205 green fir-forest
-0206 green fir-forest
-0305 green firs
+0206 green bushes
 0306 soil keep "The Keep"
-0405 light-soil town "Safe Town"
-0406 light-soil
-0505 light-grey mountains
-0506 light-green forest-hill
-0605 grey grass
-0606 grey marsh
-0706 dark-grey swamp
-0806 dark-grey castle "Dolorous Garde"
-
-0005-0806 trail
+0406 light-soil town "Safe Town"
+0005-0506 trail
 
 include http://alexschroeder.ch/contrib/gnomeyland.txt
