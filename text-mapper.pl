@@ -1033,7 +1033,7 @@ The attributes for the special type B<default> will be used for the
 hex layer that is drawn on top of it all. This is where you define the
 I<border>.
 
-    default attributes stroke="black" stroke-width="1px"
+    default attributes fill="none" stroke="black" stroke-width="1px"
     grass attributes fill="green"
     sea attributes fill="blue"
     0101 grass
@@ -1045,7 +1045,7 @@ You can define the SVG attributes for the B<text> in coordinates as
 well.
 
     text font-family="monospace" font-size="10pt" dy="-4pt"
-    default attributes stroke="black" stroke-width="1px"
+    default attributes fill="none" stroke="black" stroke-width="1px"
     grass attributes fill="green"
     sea attributes fill="blue"
     0101 grass
@@ -1056,7 +1056,7 @@ well.
 You can provide a text B<label> to use for each hex:
 
     text font-family="monospace" font-size="10pt" dy="-4pt"
-    default attributes stroke="black" stroke-width="1px"
+    default attributes fill="none" stroke="black" stroke-width="1px"
     grass attributes fill="green"
     sea attributes fill="blue"
     0101 grass
@@ -1072,7 +1072,7 @@ can use B<label> to control the text attributes used for these labels.
     text font-family="monospace" font-size="10pt" dy="-4pt"
     label font-family="sans-serif" font-size="12pt"
     glow stroke="white" stroke-width="3pt"
-    default attributes stroke="black" stroke-width="1px"
+    default attributes fill="none" stroke="black" stroke-width="1px"
     grass attributes fill="green"
     sea attributes fill="blue"
     0101 grass
@@ -1089,7 +1089,7 @@ Here, we add a bit of grass to the appropriate hex type:
     text font-family="monospace" font-size="10pt" dy="-4pt"
     label font-family="sans-serif" font-size="12pt"
     glow stroke="white" stroke-width="3pt"
-    default attributes stroke="black" stroke-width="1px"
+    default attributes fill="none" stroke="black" stroke-width="1px"
     grass attributes fill="green"
     grass path attributes stroke="#458b00" stroke-width="5px"
     grass path M -20,-20 l 10,40 M 0,-20 v 40 M 20,-20 l -10,40
