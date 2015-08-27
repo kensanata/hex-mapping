@@ -684,7 +684,7 @@ my %encounters = ("settlement" => ["thorp", "thorp", "thorp", "thorp",
 				   "village", "town", "town", "town",
 				   "large-town"],
 		  "fortress" => ["keep", "tower", "castle"],
-		  "religious" => [],
+		  "religious" => ["shrine", "law", "chaos"],
 		  "ruin" => [],
 		  "monster" => [],
 		  "natural" => []);
