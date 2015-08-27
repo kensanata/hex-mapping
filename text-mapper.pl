@@ -658,7 +658,7 @@ my %world = ();
 
 my %primary = ("water" =>  ["water"],
 	       "swamp" =>  ["dark-grey swamp"],
-	       "desert" => ["dust"],
+	       "desert" => ["dust desert"],
 	       "plains" => ["light-green grass"],
 	       "forest" => ["green forest",
 			    "green forest",
@@ -699,8 +699,8 @@ my %tertiary = ("water" => ["green forest",
 
 my %wildcard = ("water" => ["dark-grey swamp",
 			    "dark-grey marsh",
-			    "sand",
-			    "dust",
+			    "sand desert",
+			    "dust desert",
 			    "light-grey hill",
 			    "light-grey forest-hill"],
 		"swamp" => ["water"],
@@ -708,7 +708,7 @@ my %wildcard = ("water" => ["dark-grey swamp",
 			     "grey mountain"],
 		"plains" => ["water",
 			     "dark-grey swamp",
-			     "dust"],
+			     "dust desert"],
 		"forest" => ["water",
 			     "water",
 			     "water",
@@ -721,21 +721,21 @@ my %wildcard = ("water" => ["dark-grey swamp",
 		"hill" => ["water",
 			   "water",
 			   "water",
-			   "sand",
-			   "sand",
-			   "dust",
+			   "sand desert",
+			   "sand desert",
+			   "dust desert",
 			   "green forest",
 			   "green forest",
 			   "green forest-hill"],
-		"mountain" => ["sand",
-			       "dust"]);
+		"mountain" => ["sand desert",
+			       "dust desert"]);
 
 
 my %reverse_lookup = (
   # primary
   "water" => "water",
   "dark-grey swamp" => "swamp",
-  "dust" => "desert",
+  "dust desert" => "desert",
   "light-green grass" => "plains",
   "green forest" => "forest",
   "dark-green fir-forest" => "forest",
@@ -753,7 +753,7 @@ my %reverse_lookup = (
   "green forest-mountains" => "forest",
   # wildcard
   "dark-grey marsh" => "swamp",
-  "sand" => "desert",
+  "sand desert" => "desert",
   "grey forest-mountain" => "mountain",
   "grey forest-mountains" => "mountain",
   "green forest-hill" => "forest",
@@ -958,11 +958,13 @@ sub agriculture {
       my ($x, $y) = ($hex->[0] + $delta->[$hex->[0] % 2]->[$i]->[0],
 		     $hex->[1] + $delta->[$hex->[0] % 2]->[$i]->[1]);
       my $coordinates = sprintf("%02d%02d", $x, $y);
-      my ($color, $terrain) = split(' ', $world{$coordinates}, 2);
-      verbose("  $coordinates is " . $world{$coordinates} . " ie. " . $reverse_lookup{$world{$coordinates}} . "\n");
-      if ($reverse_lookup{$world{$coordinates}} eq 'plains') {
-	verbose("   $coordinates is a candidate\n");
-	push(@plains, $coordinates);
+      if ($world{$coordinates}) {
+	my ($color, $terrain) = split(' ', $world{$coordinates}, 2);
+	verbose("  $coordinates is " . $world{$coordinates} . " ie. " . $reverse_lookup{$world{$coordinates}} . "\n");
+	if ($reverse_lookup{$world{$coordinates}} eq 'plains') {
+	  verbose("   $coordinates is a candidate\n");
+	  push(@plains, $coordinates);
+	}
       }
     }
     next unless @plains;
@@ -1015,6 +1017,17 @@ sub generate_map {
     delete $world{$coordinates} if $1 > 23 or $2 > 18;
   }
 
+  if (param('bw')) {
+    for my $coordinates (keys %world) {
+      my ($color, $rest) = split(' ', $world{$coordinates}, 2);
+      if ($rest) {
+	$world{$coordinates} = $rest;
+      } else {
+	delete $world{$coordinates};
+      }
+    }
+  }
+  
   return join("\n", map { $_ . " " . $world{$_} } sort keys %world) . "\n"
     . (url(-base=>1) =~ /megabombus\.local/
        ? "include file:///Users/alex/Source/hex-mapping/contrib/gnomeyland.txt\n"
@@ -1056,7 +1069,8 @@ sub print_html {
 		   -rows => 15,
 		   -columns => 60, )),
 	p(submit(-name => 'submit', -label => 'Submit'),
-	  submit(-name => 'generate', -label => 'Random')),
+	  submit(-name => 'generate', -label => 'Random'),
+	  checkbox(-name => 'bw', -label => 'No Background Colors')),
 	end_form(),
         footer();
 }
