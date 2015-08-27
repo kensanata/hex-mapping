@@ -10,9 +10,9 @@ use Pod::Simple::HTML;
 use Pod::Simple::Text;
 use constant IS_CGI => exists $ENV{'GATEWAY_INTERFACE'};
 
-my $verbose = $ENV{VERBOSE};
+my $verbose = $ENV{VERBOSE} || param('verbose');
 my $debug = $ENV{DEBUG};
-
+my $output;
 my $dx = 100;
 my $dy = 100*sqrt(3);
 
@@ -26,6 +26,16 @@ sub member {
   my $element = shift;
   foreach (@_) {
     return 1 if $element eq $_;
+  }
+}
+
+sub verbose {
+  return unless $verbose;
+  my $str = shift;
+  if (IS_CGI) {
+    $output .= $str;
+  } else {
+    warn $str;
   }
 }
 
@@ -600,6 +610,7 @@ sub svg {
 
   # source code
   $doc .= "<!-- Source\n" . $self->map() . "\n-->\n";
+  $doc .= "<!-- Output\n" . $output . "\n-->\n" if $output;
   $doc .= qq{</svg>\n};
 
   return $doc;
@@ -609,97 +620,208 @@ package main;
 
 my %world = ();
 
-my %primary = ("water" => ["water"],
-	       "swamp" => ["grey swamp", "dark-grey swamp"],
-	       "sand" => ["sand"],
-	       "grass" => ["light-grey grass"],
-	       "forest" => ["green forest", "green forest",
-			    "dark-green forest"],
-	       "hill" => ["light-grey hill"], # canyon?
-	       "mountain" => ["light-grey mountain"]);
+#         ATLAS HEX PRIMARY TERRAIN TYPE
+#         Water   Swamp   Desert  Plains  Forest  Hills   Mountains
+# Water   P       W       W       W       W       W       -
+# Swamp   W       P       -       W       W       -       -
+# Desert  W       -       P       W       -       W       W
+# Plains  S [1]   S       T       P [4]   S       T       -
+# Forest  T [2]   T       -       S       P [5]   W [8]   T [11]
+# Hills   W       -       S [3]   T       T [6]   P [9]   S
+# Mountns -       -       W       -       W [7]   S [10]  P [12]
+#
+#  1. Treat as coastal (beach or scrub) if adjacent to water
+#  2. 66% light forest
+#  3. 33% rocky desert or high sand dunes
+#  4. Treat as farmland in settled hexes
+#  5. 33% heavy forest
+#  6. 66% forested hills
+#  7. 66% forested mountains
+#  8. 33% forested hills
+#  9. 20% canyon or fissure (not implemented)
+# 10. 40% chance of a pass (not implemented)
+# 11. 33% forested mountains
+# 12. 20% chance of a dominating peak; 10% chance of a mountain pass (not
+#     implemented); 5% volcano (not implemented)
+#
+# Notes
+# water:    water
+# sand:     sand or dust
+# swamp:    dark-grey swamp (near trees) or dark-grey marshes (no trees)
+# plains:   light-green grass, bush or bushes near water or forest
+# forest:   green trees (light), green forest, dark-green forest (heavy);
+#           use firs and fir-forest near hills or mountains
+# hill:     light-grey hill, dust hill if sand dunes
+# mountain: grey mountain, grey mountains (peak)
 
-my %secondary = ("water" => ["soil", "soil bushes"], # coastal?
-		 "swamp" => ["light-grey grass", "grey grass"],
-		 "sand" => ["light-grey hill", "light-grey hill", "sand hill"],
-		 "grass" => ["green forest"],
-		 "forest" => ["light-green grass", "light-green bush"],
-		 "hill" => ["light-grey mountain",
-			    "light-grey mountains"],
+# later, grass land near a settlement might get the colors soil or dark-soil!
+
+my %primary = ("water" =>  ["water"],
+	       "swamp" =>  ["dark-grey swamp"],
+	       "desert" => ["dust"],
+	       "plains" => ["light-green grass"],
+	       "forest" => ["green forest",
+			    "green forest",
+			    "dark-green fir-forest"],
+	       "hill" =>   ["light-grey hill"],
+	       "mountain" => ["grey mountain",
+			      "grey mountain",
+			      "grey mountain",
+			      "grey mountain",
+			      "grey mountains"]);
+
+my %secondary = ("water" =>  ["light-green grass",
+			      "light-green bush",
+			      "light-green bushes"],
+		 "swamp" =>  ["light-green grass"],
+		 "desert" =>   ["light-grey hill",
+				"light-grey hill",
+				"dust hill"],
+		 "plains" =>  ["green forest"],
+		 "forest" => ["light-green grass",
+			      "light-green bush"],
+		 "hill" =>   ["grey mountain"],
 		 "mountain" => ["light-grey hill"]);
 
 my %tertiary = ("water" => ["green forest",
-			    "light-green trees", "light-green trees"],
+			    "green trees",
+			    "green trees"],
 		"swamp" => ["green forest"],
-		"sand" => ["light-grey grass"],
-		"grass" => ["light-grey hill"],
-		"forest" => ["light-green forest-hill",
+		"desert" => ["light-green grass"],
+		"plains" => ["light-grey hill"],
+		"forest" => ["light-grey forest-hill",
 			     "light-grey forest-hill",
 			     "light-grey hill"],
-		"hill" => ["light-grey grass", "light-green grass"],
-		"mountain" => ["green forest", "green trees",
-			       "light-green forest-mountains"]);
+		"hill" => ["light-green grass"],
+		"mountain" => ["green fir-forest",
+			       "green forest",
+			       "green forest-mountains"]);
 
-my %wildcard = ("water" => ["grey swamp", "sand", "light-grey hill"],
+my %wildcard = ("water" => ["dark-grey swamp",
+			    "dark-grey marsh",
+			    "sand",
+			    "dust",
+			    "light-grey hill",
+			    "light-grey forest-hill"],
 		"swamp" => ["water"],
-		"sand" => ["water", "light-grey mountain"],
-		"grass" => ["water", "grey swamp", "sand"],
-		"forest" => ["water", "grey swamp",
-			     "water", "grey swamp",
-			     "water", "dark-grey swamp",
-			     "light-grey mountains",
-			     "light-grey mountains",
-			     "light-grey forest-mountains"],
-		"hill" => ["water", "sand",
-			   "water", "sand",
-			   "water", "sand",
+		"desert" => ["water",
+			     "grey mountain"],
+		"plains" => ["water",
+			     "dark-grey swamp",
+			     "dust"],
+		"forest" => ["water",
+			     "water",
+			     "water",
+			     "dark-grey swamp",
+			     "dark-grey swamp",
+			     "dark-grey marsh",
+			     "grey mountain",
+			     "grey forest-mountain",
+			     "grey forest-mountains"],
+		"hill" => ["water",
+			   "water",
+			   "water",
+			   "sand",
+			   "sand",
+			   "dust",
 			   "green forest",
 			   "green forest",
-			   "light-grey forest-hill"],
-		"mountain" => ["sand"]);
+			   "green forest-hill"],
+		"mountain" => ["sand",
+			       "dust"]);
 
-my %reverse_lookup = ("water" => "water",
-		      "grey swamp" => "swamp",
-		      "dark-grey swamp" => "swamp",
-		      "sand" => "sand",
-		      "light-grey grass" => "grass",
-		      "grey grass" => "grass",
-		      "soil" => "grass",
-		      "soil bushes" => "grass",
-		      "light-green bush" => "grass",
-		      "light-green grass" => "grass",
-		      "green forest" => "forest",
-		      "dark-green forest" => "forest",
-		      "light-green trees" => "forest",
-		      "green trees" => "forest",
-		      "light-green forest-mountains" => "forest",
-		      "light-grey forest-hill" => "forest",
-		      "light-grey hill" => "hill",
-		      "sand hill" => "hill",
-		      "light-green forest-hill" => "hill",
-		      "light-grey mountain" => "mountain",
-		      "light-grey mountains" => "mountain",
-		      "light-grey forest-mountains" => "mountain");
+
+my %reverse_lookup = (
+  # primary
+  "water" => "water",
+  "dark-grey swamp" => "swamp",
+  "dust" => "desert",
+  "light-green grass" => "plains",
+  "green forest" => "forest",
+  "dark-green fir-forest" => "forest",
+  "light-grey hill" => "hill",
+  "grey mountain" => "mountain",
+  "grey mountains" => "mountain",
+  # secondary
+  "light-green bush" => "plains",
+  "light-green bushes" => "plains",
+  "dust hill" => "hill",
+  # tertiary
+  "green trees" => "forest",
+  "light-grey forest-hill" => "hill",
+  "green fir-forest" => "forest",
+  "green forest-mountains" => "forest",
+  # wildcard
+  "dark-grey marsh" => "swamp",
+  "sand" => "desert",
+  "grey forest-mountain" => "mountain",
+  "grey forest-mountains" => "mountain",
+  "green forest-hill" => "forest",
+  # code
+  "light-soil fields" => "plains",
+  "soil fields" => "plains",
+    );
 
 my %encounters = ("settlement" => ["thorp", "thorp", "thorp", "thorp",
-				   "village", "town", "town", "town",
-				   "large-town"],
+				   "village",
+				   "town", "town",
+				   "large-town",
+				   "city"],
 		  "fortress" => ["keep", "tower", "castle"],
 		  "religious" => ["shrine", "law", "chaos"],
 		  "ruin" => [],
 		  "monster" => [],
 		  "natural" => []);
 
-# Precomputed for speed
+my @needs_fields;
+
+sub place_major {
+  my ($x, $y, $encounter) = @_;
+  my $thing = one(@{$encounters{$encounter}});
+  return unless $thing;
+  verbose("placing $thing ($encounter) at ($x,$y)\n");
+  my $hex = one(full_hexes($x, $y));
+  $x += $hex->[0];
+  $y += $hex->[1];
+  my $coordinates = sprintf("%02d%02d", $x, $y);
+  my $primary = $reverse_lookup{$world{$coordinates}};
+  my ($color, $terrain) = split(' ', $world{$coordinates}, 2);
+  if ($encounter eq 'settlement') {
+    if ($primary eq 'plains') {
+      $color = one('light-soil', 'soil');
+      verbose(" " . $world{$coordinates} . " is $primary and was changed to $color\n");
+    }
+    if ($primary ne 'plains' or member($thing, 'large-town', 'city')) {
+      push(@needs_fields, [$x, $y]);
+    }
+  }
+  # ignore $terrain for the moment and replace it with $thing
+  $world{$coordinates} = "$color $thing";
+}
+
+sub populate_region {
+  my ($hex, $primary) = @_;
+  my $random = rand 100;
+  if ($primary eq 'water' and $random < 10
+      or $primary eq 'swamp' and $random < 20
+      or $primary eq 'sand' and $random < 20
+      or $primary eq 'grass' and $random < 60
+      or $primary eq 'forest' and $random < 40
+      or $primary eq 'hill' and $random < 40
+      or $primary eq 'mountain' and $random < 20) {
+    place_major($hex->[0], $hex->[1], one(keys %encounters));
+  }
+}
 
 # Brute forcing by picking random sub hexes until we found an
 # unassigned one.
 
 sub pick_unassigned {
   my ($x, $y, @region) = @_;
-  my $hex = $region[rand @region];
+  my $hex = one(@region);
   my $coordinates = sprintf("%02d%02d", $x + $hex->[0], $y + $hex->[1]);
   while ($world{$coordinates}) {
-    $hex = $region[rand @region];
+    $hex = one(@region);
     $coordinates = sprintf("%02d%02d", $x + $hex->[0], $y + $hex->[1]);
   }
   return $coordinates;
@@ -714,6 +836,8 @@ sub pick_remaining {
   }
   return @coordinates;
 }
+
+# Precomputed for speed
 
 sub full_hexes {
   my ($x, $y) = @_;
@@ -759,24 +883,24 @@ sub generate_region {
   for (1..9) {
     my $coordinates = pick_unassigned($x, $y, @region);
     $terrain = one($primary{$primary});
-    warn " primary   $coordinates => $terrain\n" if $verbose;
+    verbose(" primary   $coordinates => $terrain\n");
     $world{$coordinates} = $terrain;
   }
 
   for (1..6) {
     my $coordinates = pick_unassigned($x, $y, @region);
     $terrain =  one($secondary{$primary});
-    warn " secondary $coordinates => $terrain\n" if $verbose;
+    verbose(" secondary $coordinates => $terrain\n");
     $world{$coordinates} = $terrain;
   }
 
   for my $coordinates (pick_remaining($x, $y, @region)) {
     if (rand > 0.1) {
       $terrain = one($tertiary{$primary});
-      warn " tertiary  $coordinates => $terrain\n" if $verbose;
+      verbose(" tertiary  $coordinates => $terrain\n");
     } else {
       $terrain = one($wildcard{$primary});
-      warn " wildcard  $coordinates => $terrain\n" if $verbose;
+      verbose(" wildcard  $coordinates => $terrain\n");
     }
     $world{$coordinates} = $terrain;
   }
@@ -785,68 +909,67 @@ sub generate_region {
     my $random = rand 6;
     if ($random < 3) {
       $terrain = one($primary{$primary});
-      warn "  halfhex primary   $coordinates => $terrain\n" if $verbose;
+      verbose("  halfhex primary   $coordinates => $terrain\n");
     } elsif ($random < 5) {
       $terrain = one($secondary{$primary});
-      warn "  halfhex secondary $coordinates => $terrain\n" if $verbose;
+      verbose("  halfhex secondary $coordinates => $terrain\n");
     } else {
       $terrain = one($tertiary{$primary});
-      warn "  halfhex tertiary  $coordinates => $terrain\n" if $verbose;
+      verbose("  halfhex tertiary  $coordinates => $terrain\n");
     }
     $world{$coordinates} = $terrain;
-  }
-}
-
-sub place_major {
-  my ($x, $y, $thing) = @_;
-  return unless $thing;
-  my @region = full_hexes($x, $y);
-  my $hex = $region[rand @region];
-  my $coordinates = sprintf("%02d%02d", $x + $hex->[0], $y + $hex->[1]);
-  my ($color, $terrain) = split(' ', $world{$coordinates}, 2);
-  # ignore $terrain for the moment
-  $world{$coordinates} = "$color $thing";
-}
-
-sub populate_region {
-  my ($hex, $primary) = @_;
-  my $random = rand 100;
-  if ($primary eq 'water' and $random < 10
-      or $primary eq 'swamp' and $random < 20
-      or $primary eq 'sand' and $random < 20
-      or $primary eq 'grass' and $random < 60
-      or $primary eq 'forest' and $random < 40
-      or $primary eq 'hill' and $random < 40
-      or $primary eq 'mountain' and $random < 20) {
-    place_major($hex->[0], $hex->[1], one($encounters{one(keys %encounters)}));
   }
 }
 
 sub seed_region {
   my ($seeds, $primary) = @_;
   my $hex = shift @$seeds;
-  warn "seed_region [" . $hex->[0] . "," . $hex->[1] . "] with $primary\n" if $verbose;
+  verbose("seed_region (" . $hex->[0] . "," . $hex->[1] . ") with $primary\n");
   generate_region($hex->[0], $hex->[1], $primary);
   for my $seed (@$seeds) {
     my $terrain;
     my $random = rand 12;
     if ($random < 6) {
       $terrain = one($primary{$primary});
-      warn " picked primary $terrain\n" if $verbose;
+      verbose("picked primary $terrain\n");
     } elsif ($random < 9) {
       $terrain = one($secondary{$primary});
-      warn " picked seconary $terrain\n" if $verbose;
+      verbose("picked secondary $terrain\n");
     } elsif ($random < 11) {
       $terrain = one($tertiary{$primary});
-      warn " picked tertiary $terrain\n" if $verbose;
+      verbose("picked tertiary $terrain\n");
     } else {
       $terrain = one($wildcard{$primary});
-      warn " picked wildcard $terrain\n" if $verbose;
+      verbose("picked wildcard $terrain\n");
     }
     die "Terrain lacks reverse_lookup: $terrain\n" unless $reverse_lookup{$terrain};
     seed_region($seed, $reverse_lookup{$terrain});
   }
   populate_region($hex, $primary);
+}
+
+sub agriculture {
+  for my $hex (@needs_fields) {
+    verbose("looking to plant fields near " . sprintf("%02d%02d", $hex->[0], $hex->[1]) . "\n");
+    my $delta = [[[-1,  0], [ 0, -1], [+1,  0], [+1, +1], [ 0, +1], [-1, +1]],  # x is even
+		 [[-1, -1], [ 0, -1], [+1, -1], [+1,  0], [ 0, +1], [-1,  0]]]; # x is odd
+    my @plains;
+    for my $i (0 .. 5) {
+      my ($x, $y) = ($hex->[0] + $delta->[$hex->[0] % 2]->[$i]->[0],
+		     $hex->[1] + $delta->[$hex->[0] % 2]->[$i]->[1]);
+      my $coordinates = sprintf("%02d%02d", $x, $y);
+      my ($color, $terrain) = split(' ', $world{$coordinates}, 2);
+      verbose("  $coordinates is " . $world{$coordinates} . " ie. " . $reverse_lookup{$world{$coordinates}} . "\n");
+      if ($reverse_lookup{$world{$coordinates}} eq 'plains') {
+	verbose("   $coordinates is a candidate\n");
+	push(@plains, $coordinates);
+      }
+    }
+    next unless @plains;
+    my $target = one(@plains);
+    $world{$target} = one('light-soil fields', 'soil fields');
+    verbose(" $target planted with " . $world{$target} . "\n");
+  }
 }
 
 sub generate_map {
@@ -882,8 +1005,9 @@ sub generate_map {
 		[[1, 11]]]];
 
   my @seed_terrain = keys %primary;
-  seed_region($seeds, $seed_terrain[rand @seed_terrain]);
-
+  seed_region($seeds, one(@seed_terrain));
+  agriculture();
+  
   # delete extra hexes we generated to fill the gaps
   for my $coordinates (keys %world) {
     $coordinates =~ /(..)(..)/;
