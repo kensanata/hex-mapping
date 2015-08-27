@@ -809,9 +809,8 @@ sub place_major {
 }
 
 sub populate_region {
-  my ($hex, $primary) = shift;
+  my ($hex, $primary) = @_;
   my $random = rand 100;
-  place_major($hex->[0], $hex->[1], one($encounters{one(keys %encounters)}));
   if ($primary eq 'water' and $random < 10
       or $primary eq 'swamp' and $random < 20
       or $primary eq 'sand' and $random < 20
@@ -819,7 +818,7 @@ sub populate_region {
       or $primary eq 'forest' and $random < 40
       or $primary eq 'hill' and $random < 40
       or $primary eq 'mountain' and $random < 20) {
-    place_major($hex->x, $hex->y, one(keys %encounters));
+    place_major($hex->[0], $hex->[1], one($encounters{one(keys %encounters)}));
   }
 }
 
