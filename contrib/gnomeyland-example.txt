@@ -50,4 +50,7 @@
 0406 light-soil town "Safe Town"
 0005-0506 trail
 
+# larger label example
+other <g id="walkingforest"><text x="200" y="1110" font-size="30pt" stroke="white" stroke-width="5pt">Walking Forest</text><text x="200" y="1110" font-size="30pt">Walking Forest</text></g>
+
 include http://alexschroeder.ch/contrib/gnomeyland.txt
