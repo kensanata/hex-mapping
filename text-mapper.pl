@@ -506,7 +506,7 @@ sub svg_defs {
   my ($self) = @_;
   # All the definitions are included by default.
   my $doc = "  <defs>\n";
-  $doc .= map { "    $_\n" } @{$self->defs} if @{$self->defs};
+  $doc .= "    " . join("\n    ", @{$self->defs}) if @{$self->defs};
   # collect hex types from attributess and paths in case the sets don't overlap
   my %types = ();
   foreach my $hex (@{$self->hexes}) {
