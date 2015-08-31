@@ -404,7 +404,7 @@ sub process {
       $self->def(qq{<g id="$1">$2</g>});
     } elsif (/^(\S+)\s+xml\s+(.*)/) {
       $self->def(qq{<g id="$1">$2</g>});
-    } elsif (/^((<[^>]+>\s*)+)/) {
+    } elsif (/^(<.*>)/) {
       $self->def($1);
     } elsif (/^(\S+)\s+path\s+attributes\s+(.*)/) {
       $self->path_attributes($1, $2);
@@ -1360,10 +1360,10 @@ Shapes can include each other:
     0101 thorp
     0102 village
 
-When creating new shapes, remember the dimensions of the hex. You shapes
-must be centered around (0,0). The width of the hex is 200px, the height
-of the hex is 100 √3 = 173.2px. A good starting point would be to keep
-it within (-50,-50) and (50,50).
+When creating new shapes, remember the dimensions of the hex. Your shapes must
+be centered around (0,0). The width of the hex is 200px, the height of the hex
+is 100 √3 = 173.2px. A good starting point would be to keep it within (-50,-50)
+and (50,50).
 
 =head2 Other
 
