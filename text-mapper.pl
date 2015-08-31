@@ -233,6 +233,7 @@ struct Hex => {
 	       y => '$',
 	       type => '$',
 	       label => '$',
+	       size => '$',
 	       map => 'Mapper',
 	      };
 
@@ -302,6 +303,12 @@ sub url_encode {
 sub svg_label {
   my ($self, $url) = @_;
   return '' unless $self->label;
+  my $attributes = $self->map->label_attributes;
+  if ($self->size) {
+    if (not $attributes =~ s/\bfont-size="\d+pt"/'font-size="' . $self->size . 'pt"'/e) {
+      $attributes .= ' font-size="' . $self->size . '"';
+    }
+  }
   $url =~ s/\%s/url_encode($self->label)/e or $url .= url_encode($self->label) if $url;
   my $x = $self->x;
   my $y = $self->y;
@@ -309,14 +316,14 @@ sub svg_label {
                      . $self->label
                      . qq{</text>},
                      $x * $dx * 3/2, $y * $dy - $x%2 * $dy/2 + $dy * 0.4,
-                     $self->map->label_attributes ||'',
-		     $self->map->glow_attributes  ||'');
+                     $attributes ||'',
+		     $self->map->glow_attributes ||'');
   $data .= qq{<a xlink:href="$url">} if $url;
   $data .= sprintf(qq{<text text-anchor="middle" x="%.1f" y="%.1f" %s>}
 		   . $self->label
 		   . qq{</text>},
 		   $x * $dx * 3/2, $y * $dy - $x%2 * $dy/2 + $dy * 0.4,
-		   $self->map->label_attributes   ||'');
+		   $attributes ||'');
   $data .= qq{</a>} if $url;
   $data .= qq{</g>\n};
   return $data;
@@ -382,9 +389,10 @@ sub initialize {
 sub process {
   my $self = shift;
   foreach (@_) {
-    if (/^(\d\d)(\d\d)(?:\s+([^"\r\n]+)?\s*(?:"(.+)")?|$)/) {
+    if (/^(\d\d)(\d\d)(?:\s+([^"\r\n]+)?\s*(?:"(.+)"(?:\s+(\d+))?)?|$)/) {
       my $hex = Hex->new(x => $1, y => $2, map => $self);
       $hex->label($4);
+      $hex->size($5);
       my @types = split(' ', $3);
       $hex->type(\@types);
       push(@{$self->hexes}, $hex);
@@ -497,7 +505,8 @@ sub svg_header {
 sub svg_defs {
   my ($self) = @_;
   # All the definitions are included by default.
-  my $doc = join("\n    ", "  <defs>", @{$self->defs});
+  my $doc = "  <defs>\n";
+  $doc .= map { "    $_\n" } @{$self->defs} if @{$self->defs};
   # collect hex types from attributess and paths in case the sets don't overlap
   my %types = ();
   foreach my $hex (@{$self->hexes}) {
@@ -509,7 +518,7 @@ sub svg_defs {
     $types{$line->type} = 1;
   }
   # now go through them all
-  foreach my $type (keys %types) {
+  foreach my $type (sort keys %types) {
     my $path = $self->path($type);
     my $attributes = merge_attributes($self->attributes($type));
     my $path_attributes = merge_attributes($self->path_attributes('default'),
@@ -517,9 +526,10 @@ sub svg_defs {
     my $glow_attributes = $self->glow_attributes;
     if ($path || $attributes) {
       $doc .= qq{    <g id='$type'>\n};
-      # just shapes get an outline such as a house (must come first)
-      $doc .= qq{      <path $glow_attributes d='$path' />\n}
-	if $path && !$attributes;
+      # just shapes get a glow such, eg. a house (must come first)
+      if ($path && !$attributes) {
+	$doc .= qq{      <path $glow_attributes d='$path' />\n}
+      }
       # hex with shapes get a hex around them, eg. plains and grass
       if ($attributes) {
 	my $points = join(" ", map {
@@ -1151,12 +1161,17 @@ Here's a small example:
     grass attributes fill="green"
     0101 grass
 
+We probably want lighter colors.
+
+    grass attributes fill="#90ee90"
+    0101 grass
+
 First, we defined the SVG attributes of a hex B<type> and then we
 listed the hexes using their coordinates and their type. Adding more
 types and extending the map is easy:
 
-    grass attributes fill="green"
-    sea attributes fill="blue"
+    grass attributes fill="#90ee90"
+    sea attributes fill="#afeeee"
     0101 grass
     0102 sea
     0201 grass
@@ -1165,7 +1180,7 @@ types and extending the map is easy:
 You might want to define more SVG attributes such as a border around
 each hex:
 
-    grass attributes fill="green" stroke="black" stroke-width="1px"
+    grass attributes fill="#90ee90" stroke="black" stroke-width="1px"
     0101 grass
 
 The attributes for the special type B<default> will be used for the
@@ -1173,8 +1188,8 @@ hex layer that is drawn on top of it all. This is where you define the
 I<border>.
 
     default attributes fill="none" stroke="black" stroke-width="1px"
-    grass attributes fill="green"
-    sea attributes fill="blue"
+    grass attributes fill="#90ee90"
+    sea attributes fill="#afeeee"
     0101 grass
     0102 sea
     0201 grass
@@ -1185,8 +1200,8 @@ well.
 
     text font-family="monospace" font-size="10pt" dy="-4pt"
     default attributes fill="none" stroke="black" stroke-width="1px"
-    grass attributes fill="green"
-    sea attributes fill="blue"
+    grass attributes fill="#90ee90"
+    sea attributes fill="#afeeee"
     0101 grass
     0102 sea
     0201 grass
@@ -1196,28 +1211,29 @@ You can provide a text B<label> to use for each hex:
 
     text font-family="monospace" font-size="10pt" dy="-4pt"
     default attributes fill="none" stroke="black" stroke-width="1px"
-    grass attributes fill="green"
-    sea attributes fill="blue"
+    grass attributes fill="#90ee90"
+    sea attributes fill="#afeeee"
     0101 grass
     0102 sea
-    0201 grass
-    0202 sea "deep blue sea"
+    0201 grass "promised land"
+    0202 sea
 
-To improve legibility, the SVG output gives you the ability to define
-an "outer glow" for your labels by printing them twice and using the
-B<glow> attributes for the one in the back. In addition to that, you
-can use B<label> to control the text attributes used for these labels.
+To improve legibility, the SVG output gives you the ability to define an "outer
+glow" for your labels by printing them twice and using the B<glow> attributes
+for the one in the back. In addition to that, you can use B<label> to control
+the text attributes used for these labels. If you append a number to the label,
+it will be used as the new font-size.
 
     text font-family="monospace" font-size="10pt" dy="-4pt"
     label font-family="sans-serif" font-size="12pt"
-    glow stroke="white" stroke-width="3pt"
+    glow fill="none" stroke="white" stroke-width="3pt"
     default attributes fill="none" stroke="black" stroke-width="1px"
-    grass attributes fill="green"
-    sea attributes fill="blue"
+    grass attributes fill="#90ee90"
+    sea attributes fill="#afeeee"
     0101 grass
     0102 sea
-    0201 grass
-    0202 sea "deep blue sea"
+    0201 grass "promised land"
+    0202 sea "deep blue sea" 20
 
 You can define SVG B<path> elements to use for your map. These can be
 independent of a type (such as an icon for a settlement) or they can
@@ -1227,37 +1243,59 @@ Here, we add a bit of grass to the appropriate hex type:
 
     text font-family="monospace" font-size="10pt" dy="-4pt"
     label font-family="sans-serif" font-size="12pt"
-    glow stroke="white" stroke-width="3pt"
+    glow fill="none" stroke="white" stroke-width="3pt"
     default attributes fill="none" stroke="black" stroke-width="1px"
-    grass attributes fill="green"
+    grass attributes fill="#90ee90"
     grass path attributes stroke="#458b00" stroke-width="5px"
     grass path M -20,-20 l 10,40 M 0,-20 v 40 M 20,-20 l -10,40
-    sea attributes fill="blue"
+    sea attributes fill="#afeeee"
     0101 grass
     0102 sea
-    0201 grass
-    0202 sea "deep blue sea"
+    0201 grass "promised land"
+    0202 sea "deep blue sea" 20
 
-Here, we add a settlement:
+Here, we add a settlement. The village doesn't have type attributes (it never
+says C<village attributes>) and therefore it's not a hex type.
 
     text font-family="monospace" font-size="10pt" dy="-4pt"
     label font-family="sans-serif" font-size="12pt"
-    glow stroke="white" stroke-width="3pt"
+    glow fill="none" stroke="white" stroke-width="3pt"
     default attributes fill="none" stroke="black" stroke-width="1px"
-    grass attributes fill="green"
+    grass attributes fill="#90ee90"
     grass path attributes stroke="#458b00" stroke-width="5px"
     grass path M -20,-20 l 10,40 M 0,-20 v 40 M 20,-20 l -10,40
     village path attributes fill="none" stroke="black" stroke-width="5px"
     village path M -40,-40 v 80 h 80 v -80 z
-    sea attributes fill="blue"
+    sea attributes fill="#afeeee"
     0101 grass
     0102 sea
     0201 grass village "Beachton"
-    0202 sea "deep blue sea"
+    0202 sea "deep blue sea" 20
 
 As you can see, you can have multiple types per coordinate, but
 obviously only one of them should have the "fill" property (or they
 must all be somewhat transparent).
+
+As we said above, the village is an independent shape. As such, it also gets the
+glow we defined for text. In our example, the glow has a stroke-width of 3pt and
+the village path has a stroke-width of 5px which is why we can't see it. If had
+used a thinner stroke, we would have seen a white outer glow. Here's the same
+example with a 1pt stroke-width for the village.
+
+    text font-family="monospace" font-size="10pt" dy="-4pt"
+    label font-family="sans-serif" font-size="12pt"
+    glow fill="none" stroke="white" stroke-width="3pt"
+    default attributes fill="none" stroke="black" stroke-width="1px"
+    grass attributes fill="#90ee90"
+    grass path attributes stroke="#458b00" stroke-width="5px"
+    grass path M -20,-20 l 10,40 M 0,-20 v 40 M 20,-20 l -10,40
+    village path attributes fill="none" stroke="black" stroke-width="1pt"
+    village path M -40,-40 v 80 h 80 v -80 z
+    sea attributes fill="#afeeee"
+    0101 grass
+    0102 sea
+    0201 grass village "Beachton"
+    0202 sea "deep blue sea" 20
 
 You can also have lines connecting hexes. In order to better control
 the flow of these lines, you can provide multiple hexes through which
@@ -1266,18 +1304,18 @@ roads, for example.
 
     text font-family="monospace" font-size="10pt" dy="-4pt"
     label font-family="sans-serif" font-size="12pt"
-    glow stroke="white" stroke-width="3pt"
+    glow fill="none" stroke="white" stroke-width="3pt"
     default attributes fill="none" stroke="black" stroke-width="1px"
-    grass attributes fill="green"
+    grass attributes fill="#90ee90"
     grass path attributes stroke="#458b00" stroke-width="5px"
     grass path M -20,-20 l 10,40 M 0,-20 v 40 M 20,-20 l -10,40
     village path attributes fill="none" stroke="black" stroke-width="5px"
     village path M -40,-40 v 80 h 80 v -80 z
-    sea attributes fill="blue"
+    sea attributes fill="#afeeee"
     0101 grass
     0102 sea
     0201 grass village "Beachton"
-    0202 sea "deep blue sea"
+    0202 sea "deep blue sea" 20
     border path attributes stroke="red" stroke-width="15" stroke-opacity="0.5" fill-opacity="0"
     0002-0200 border
     road path attributes stroke="black" stroke-width="3" fill-opacity="0" stroke-dasharray="10 10"

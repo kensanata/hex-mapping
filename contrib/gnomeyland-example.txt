@@ -43,14 +43,14 @@
 1102 grey "grey"
 1103 dark-grey "dark-grey"
 
-# trail example
-0106 dark-green fir-forest
+# trail example and larger label example
+0106 dark-green fir-forest "Deep Forest" 30
 0206 green bushes
 0306 soil keep "The Keep"
 0406 light-soil town "Safe Town"
 0005-0506 trail
 
 # larger label example
-other <g id="walkingforest"><text x="200" y="1110" font-size="30pt" stroke="white" stroke-width="5pt">Walking Forest</text><text x="200" y="1110" font-size="30pt">Walking Forest</text></g>
+other <text x="100" y="1170" font-size="40pt">Small Example</text>
 
 include http://alexschroeder.ch/contrib/gnomeyland.txt
