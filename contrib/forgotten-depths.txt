@@ -89,4 +89,4 @@ river path attributes fill-opacity="0" stroke="#7fffd4" stroke-width="50"
 0004-0800 cliff
 cliff path attributes fill-opacity="0" stroke="black" stroke-opacity="0.5" stroke-width="40" stroke-dasharray="5 10"
 
-include http://alexschroeder.ch/contrib/default.txt
+include http://campaignwiki.org/contrib/default.txt

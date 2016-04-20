@@ -53,5 +53,5 @@
 # larger label example
 other <text x="100" y="1170" font-size="40pt">Small Example</text>
 
-include http://alexschroeder.ch/contrib/gnomeyland.txt
+include http://campaignwiki.org/contrib/gnomeyland.txt
 # include file:///Users/alex/Source/hex-mapping/contrib/gnomeyland.txt

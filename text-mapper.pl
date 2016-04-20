@@ -372,7 +372,7 @@ my $example = q{
 0205-0103-0202-0303-0402 road
 0101-0203 river
 0401-0303-0403 border
-include https://alexschroeder.ch/contrib/default.txt
+include https://campaignwiki.org/contrib/default.txt
 license <text>Public Domain</text>
 };
 
@@ -1041,7 +1041,7 @@ sub generate_map {
   return join("\n", map { $_ . " " . $world{$_} } sort keys %world) . "\n"
     . (url(-base=>1) =~ /megabombus\.local/
        ? "include file:///Users/alex/Source/hex-mapping/contrib/gnomeyland.txt\n"
-       : "include https://alexschroeder.ch/contrib/gnomeyland.txt\n");
+       : "include https://campaignwiki.org/contrib/gnomeyland.txt\n");
 }
 
 sub print_map {
@@ -1327,7 +1327,7 @@ Since these definitions get unwieldy, require a lot of work (the path
 elements), and to encourage reuse, you can use the B<include>
 statement with an URL.
 
-    include https://alexschroeder.ch/contrib/default.txt
+    include https://campaignwiki.org/contrib/default.txt
     0102 sand
     0103 sand
     0201 sand
@@ -1348,7 +1348,7 @@ that connects to itself. These "closed" lines can have C<fill> in
 their path attributes. In the following example, the oasis is
 surrounded by a larger green area.
 
-    include https://alexschroeder.ch/contrib/default.txt
+    include https://campaignwiki.org/contrib/default.txt
     0102 sand
     0103 sand
     0201 sand
@@ -1473,35 +1473,35 @@ Source of the map:
 L<http://themetalearth.blogspot.ch/2011/03/opd-entry.html>
 
 Example data:
-L<https://alexschroeder.ch/contrib/forgotten-depths.txt>
+L<https://campaignwiki.org/contrib/forgotten-depths.txt>
 
 Library:
-L<https://alexschroeder.ch/contrib/default.txt>
+L<https://campaignwiki.org/contrib/default.txt>
 
 Result:
-L<https://alexschroeder.ch/text-mapper?map=include+https://alexschroeder.ch/contrib/forgotten-depths.txt>
+L<https://campaignwiki.org/text-mapper?map=include+https://campaignwiki.org/contrib/forgotten-depths.txt>
 
 =head3 Gnomeyland
 
 Example data:
-L<https://alexschroeder.ch/contrib/gnomeyland-example.txt>
+L<https://campaignwiki.org/contrib/gnomeyland-example.txt>
 
 Library:
-L<https://alexschroeder.ch/contrib/gnomeyland.txt>
+L<https://campaignwiki.org/contrib/gnomeyland.txt>
 
 Result:
-L<https://alexschroeder.ch/text-mapper?map=include+https://alexschroeder.ch/contrib/gnomeyland-example.txt>
+L<https://campaignwiki.org/text-mapper?map=include+https://campaignwiki.org/contrib/gnomeyland-example.txt>
 
 =head3 Traveller
 
 Example:
-L<https://alexschroeder.ch/contrib/traveller-example.txt>
+L<https://campaignwiki.org/contrib/traveller-example.txt>
 
 Library:
-L<https://alexschroeder.ch/contrib/traveller.txt>
+L<https://campaignwiki.org/contrib/traveller.txt>
 
 Result:
-L<https://alexschroeder.ch/text-mapper?map=include+https://alexschroeder.ch/contrib/traveller-example.txt>
+L<https://campaignwiki.org/text-mapper?map=include+https://campaignwiki.org/contrib/traveller-example.txt>
 
 =head2 Command Line
 
