@@ -1090,11 +1090,17 @@ use Pod::Simple::Text;
 
 get '/' => sub {
   my $c = shift;
-  my $map = $c->param('map') || Mapper::example();
-  $c->render(template => 'generate', map => $map);
-} => 'main'; 
+  my $param = $c->param('map');
+  if ($param) {
+    my $map = new Mapper;
+    $map->initialize($param);
+    $c->render(text => $map->svg, format => 'svg');
+  } else {
+    $c->render(template => 'edit', map => Mapper::example());
+  }
+}; 
 
-any '/generate' => sub {
+any '/edit' => sub {
   my $c = shift;
   my $map = $c->param('map') || Mapper::example();
   $c->render(map => $map);
@@ -1110,7 +1116,7 @@ any '/render' => sub {
 get '/random' => sub {
   my $c = shift;
   my $bw = $c->param('bw');
-  $c->render(template => 'generate', map => Generator::generate_map($bw));
+  $c->render(template => 'edit', map => Generator::generate_map($bw));
 };
 
 get '/source' => sub {
@@ -1539,21 +1545,15 @@ Thus, you can pipe the random map in order to render it:
 =cut
 
 
-@@ index.html.ep
-% layout 'default';
-% title 'Text Mapper';
-<h1>Text Mapper</h1>
-
-
 @@ help.html.ep
 % layout 'default';
 % title 'Text Mapper: Help';
 <%== $html %>
 
 
-@@ generate.html.ep
+@@ edit.html.ep
 % layout 'default';
-% title 'Text Mapper: Generate';
+% title 'Text Mapper';
 <h1>Text Mapper</h1>
 <p>Submit your text desciption of the map.</p>
 %= form_for render => (method => 'POST') => begin
