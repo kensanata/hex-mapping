@@ -1163,8 +1163,7 @@ __DATA__
 =head1 Text Mapper
 
 The script parses a text description of a hex map and produces SVG output. Use
-your browser to view SVG files and use
-<a href="https://inkscape.org/">Inkscape</a> to edit them.
+your browser to view SVG files and use Inkscape to edit them.
 
 Here's a small example:
 
