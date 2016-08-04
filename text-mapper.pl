@@ -1,43 +1,10 @@
-#!/usr/bin/perl
+#!/usr/bin/env perl
 
-# This code started out as a fork of old-school-hex.pl.
-
-use strict;
-use warnings;
-use CGI qw/:standard -utf8/;
-use LWP::UserAgent;
-use Pod::Simple::HTML;
-use Pod::Simple::Text;
-use constant IS_CGI => exists $ENV{'GATEWAY_INTERFACE'};
-
-my $verbose = $ENV{VERBOSE} || param('verbose');
+my $verbose = $ENV{VERBOSE};
 my $debug = $ENV{DEBUG};
 my $output;
 my $dx = 100;
 my $dy = 100*sqrt(3);
-
-sub one {
-  my @arr = @_;
-  @arr = @{$arr[0]} if @arr == 1 and ref $arr[0] eq 'ARRAY';
-  return $arr[int(rand(scalar @arr))];
-}
-
-sub member {
-  my $element = shift;
-  foreach (@_) {
-    return 1 if $element eq $_;
-  }
-}
-
-sub verbose {
-  return unless $verbose;
-  my $str = shift;
-  if (IS_CGI) {
-    $output .= $str;
-  } else {
-    warn $str;
-  }
-}
 
 package Point;
 
@@ -332,6 +299,7 @@ sub svg_label {
 package Mapper;
 
 use Class::Struct;
+use LWP::UserAgent;
 
 struct Mapper => {
 		  hexes => '@',
@@ -352,7 +320,7 @@ struct Mapper => {
 		  url => '$',
 		 };
 
-my $example = q{
+my $example = <<'EOT';
 0101 mountain "mountain"
 0102 swamp "swamp"
 0103 hill "hill"
@@ -374,7 +342,7 @@ my $example = q{
 0401-0303-0403 border
 include https://campaignwiki.org/contrib/default.txt
 license <text>Public Domain</text>
-};
+EOT
 
 sub example {
   return $example;
@@ -438,7 +406,7 @@ sub process {
 	push(@{$self->messages}, "$1 was included twice");
       } else {
 	$self->seen($1, 1);
-	my $ua = LWP::UserAgent->new;
+	my $ua = LWP::UserAgent->new(ssl_opts => { verify_hostname => 1 });
 	my $response = $ua->get($1);
 	if ($response->is_success) {
 	  $self->process(split(/\n/, $response->decoded_content));
@@ -453,7 +421,7 @@ sub process {
 sub def {
   my ($self, $svg) = @_;
   $svg =~ s/>\s+</></g;
-  push($self->defs, $svg);
+  push(@{$self->defs}, $svg);
 }
 
 sub merge_attributes {
@@ -626,8 +594,8 @@ sub svg {
   return $doc;
 }
 
-package main;
-
+package Generator;
+    
 my %world = ();
 
 #         ATLAS HEX PRIMARY TERRAIN TYPE
@@ -784,6 +752,29 @@ my %encounters = ("settlement" => ["thorp", "thorp", "thorp", "thorp",
 		  "natural" => []);
 
 my @needs_fields;
+
+sub one {
+  my @arr = @_;
+  @arr = @{$arr[0]} if @arr == 1 and ref $arr[0] eq 'ARRAY';
+  return $arr[int(rand(scalar @arr))];
+}
+
+sub member {
+  my $element = shift;
+  foreach (@_) {
+    return 1 if $element eq $_;
+  }
+}
+
+sub verbose {
+  return unless $verbose;
+  my $str = shift;
+  if ($IS_CGI) {
+    $output .= $str;
+  } else {
+    warn $str;
+  }
+}
 
 sub place_major {
   my ($x, $y, $encounter) = @_;
@@ -985,6 +976,8 @@ sub agriculture {
 }
 
 sub generate_map {
+  my $bw = shift;
+
   # random seeds
 
   # for my $x (0..4) {
@@ -1016,6 +1009,8 @@ sub generate_map {
 		[[1, 16]],
 		[[1, 11]]]];
 
+  %world = (); # reinitialize!
+
   my @seed_terrain = keys %primary;
   seed_region($seeds, one(@seed_terrain));
   agriculture();
@@ -1027,7 +1022,7 @@ sub generate_map {
     delete $world{$coordinates} if $1 > 23 or $2 > 18;
   }
 
-  if (param('bw')) {
+  if ($bw) {
     for my $coordinates (keys %world) {
       my ($color, $rest) = split(' ', $world{$coordinates}, 2);
       if ($rest) {
@@ -1039,113 +1034,121 @@ sub generate_map {
   }
   
   return join("\n", map { $_ . " " . $world{$_} } sort keys %world) . "\n"
-    . (url(-base=>1) =~ /megabombus\.local/
-       ? "include file:///Users/alex/Source/hex-mapping/contrib/gnomeyland.txt\n"
-       : "include https://campaignwiki.org/contrib/gnomeyland.txt\n");
+    . "include https://campaignwiki.org/contrib/gnomeyland.txt\n";
 }
 
-sub print_map {
-  print header(-type=>'image/svg+xml', -charset=>'utf-8') if IS_CGI;
+package Mojolicious::Command::render;
+use Mojo::Base 'Mojolicious::Command';
+
+has description => 'Render map from STDIN';
+
+has usage => <<EOF;
+Usage example:
+perl text-mapper.pl render < contrib/forgotten-depths.txt > forgotten-depths.svg
+
+This reads a map description from STDIN and prints the resulting SVG map to
+STDOUT.
+EOF
+
+sub run {
+  my ($self, @args) = @_;
+  local $/ = undef;
   my $map = new Mapper;
-  $map->initialize(shift);
-  binmode(STDOUT, ':utf8');
+  $map->initialize(<STDIN>);
   print $map->svg;
 }
 
-sub footer {
-  return hr()
-    . p(a({-href=>'https://www.alexschroeder.ch/wiki/About'},
-	  'Alex Schroeder'),
-	a({-href=>url() . '/help'}, 'Help'),
-	a({-href=>url() . '/random',
-	   -title=>'The source of the generated map is embedded in the SVG.'},
-	  'Random'),
-	a({-href=>url() . '/source'}, 'Source'),
-	a({-href=>'https://github.com/kensanata/hex-mapping'},
-	  'GitHub'))
-    . end_html();
+package Mojolicious::Command::random;
+use Mojo::Base 'Mojolicious::Command';
+
+has description => 'Print a random map to STDOUT';
+
+has usage => <<EOF;
+Usage example:
+perl text-mapper.pl random > map.txt
+
+This prints a random map description to STDOUT.
+
+You can also pipe this:
+
+perl text-mapper.pl random | perl text-mapper.pl render > map.svg
+
+EOF
+
+sub run {
+  my ($self, @args) = @_;
+  print Generator::generate_map();
 }
 
-sub print_html {
-  print header(-type=>'text/html; charset=UTF-8') if IS_CGI;
-  print start_html(-encoding=>'UTF-8', -title=>'Text Mapper',
-		    -author=>'kensanata@gmail.com'),
-	h1('Text Mapper'),
-	p('Submit your text desciption of the map.'),
-	start_form(-method=>'POST'),
-	p(textarea(-style => 'width:100%',
-		   -name => 'map',
-		   -default => Mapper::example(),
-		   -rows => 15,
-		   -columns => 60, )),
-	p(submit(-name => 'submit', -label => 'Submit'),
-	  submit(-name => 'generate', -label => 'Random'),
-	  checkbox(-name => 'bw', -label => 'No Background Colors')),
-	end_form(),
-        footer();
-}
+package main;
 
-sub help {
+use Mojolicious::Lite;
+use Mojo::DOM;
+use Mojo::Util qw(xml_escape);
+use Pod::Simple::HTML;
+use Pod::Simple::Text;
+
+get '/' => sub {
+  my $c = shift;
+  my $map = $c->param('map') || Mapper::example();
+  $c->render(template => 'generate', map => $map);
+} => 'main'; 
+
+any '/generate' => sub {
+  my $c = shift;
+  my $map = $c->param('map') || Mapper::example();
+  $c->render(map => $map);
+};
+
+any '/render' => sub {
+  my $c = shift;
+  my $map = new Mapper;
+  $map->initialize($c->param('map'));
+  $c->render(text => $map->svg, format => 'svg');
+};
+
+get '/random' => sub {
+  my $c = shift;
+  my $bw = $c->param('bw');
+  $c->render(template => 'generate', map => Generator::generate_map($bw));
+};
+
+get '/source' => sub {
+  my $c = shift;
   seek(DATA,0,0);
-  undef $/; # slurp
+  local $/ = undef;
+  $c->render(text => <DATA>, format => 'txt');
+};
+
+get '/help' => sub {
+  my $c = shift;
+
+  seek(DATA,0,0);
+  local $/ = undef;
   my $pod = <DATA>;
-  if (IS_CGI) {
-      print header(-type=>'text/html; charset=UTF-8');
-      $Pod::Simple::HTML::Doctype_decl =
-          q{<!DOCTYPE html>};
-      $Pod::Simple::HTML::Content_decl =
-          q{<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" >};
-      my $parser = Pod::Simple::HTML->new;
-      my $html;
-      $parser->output_string(\$html);
-      $parser->html_footer(footer());
-      $parser->html_header_after_title(
-        q{</title>
-<style type="text/css">
-pre {white-space: pre-wrap}
-</style>
-</head>
-<body>});
-      $parser->parse_string_document($pod);
-      print $html;
-  } else {
-    my $parser = Pod::Simple::Text->new;
-    $parser->output_fh(*STDOUT);
-    $parser->parse_string_document($pod);
-  }
-}
+  my $parser = Pod::Simple::HTML->new;
+  $parser->html_header_after_title('');
+  $parser->html_header_before_title('');
+  $parser->title_prefix('<!--');
+  $parser->title_postfix('-->');
+  my $html;
+  $parser->output_string(\$html);
+  $parser->parse_string_document($pod);
 
-sub main {
-  binmode(STDOUT, ':utf8');
-  my $arg = $ARGV[0] ||'';
-  if (path_info() eq '/help'
-      or $arg eq '--help') {
-    help();
-  } elsif (path_info() eq '/source'
-           or $arg eq '--source') {
-    print header(-type=>'text/plain', -charset=>'utf-8') if IS_CGI;
-    seek(DATA,0,0);
-    undef $/;
-    print <DATA>;
-  } elsif (path_info() eq '/random') {
-    print_map(generate_map());
-  } elsif (param('generate')
-           or $arg eq '--generate') {
-    param('map', generate_map());
-    print_html();
-  } else {
-    undef $/; # slurp
-    binmode(STDIN, ':utf8');
-    my $map = param('map') || <STDIN>;
-    if ($map) {
-      print_map($map);
-    } else {
-      print_html();
-    }
+  my $dom = Mojo::DOM->new($html);
+  for my $pre ($dom->find('pre')->each) {
+    my $map = $pre->text;
+    $map =~ s/^    //mg;
+    next if $map =~ /^perl/; # how to call it
+    my $url = $c->url_for('render')->query(map => $map);
+    $pre->replace("<pre>" . xml_escape($map) . "</pre>\n"
+		  . qq{<p class="example"><a href="$url">Render this example</a></p>});
   }
-}
 
-main ();
+  $c->render(html => $dom);
+};
+
+app->start;
 
 __DATA__
 
@@ -1153,8 +1156,9 @@ __DATA__
 
 =head1 Text Mapper
 
-The script parses a text description of a hex map and produces SVG
-output.
+The script parses a text description of a hex map and produces SVG output. Use
+your browser to view SVG files and use
+<a href="https://inkscape.org/">Inkscape</a> to edit them.
 
 Here's a small example:
 
@@ -1198,7 +1202,7 @@ I<border>.
 You can define the SVG attributes for the B<text> in coordinates as
 well.
 
-    text font-family="monospace" font-size="10pt" dy="-4pt"
+    text font-family="monospace" font-size="10pt"
     default attributes fill="none" stroke="black" stroke-width="1px"
     grass attributes fill="#90ee90"
     sea attributes fill="#afeeee"
@@ -1209,7 +1213,7 @@ well.
 
 You can provide a text B<label> to use for each hex:
 
-    text font-family="monospace" font-size="10pt" dy="-4pt"
+    text font-family="monospace" font-size="10pt"
     default attributes fill="none" stroke="black" stroke-width="1px"
     grass attributes fill="#90ee90"
     sea attributes fill="#afeeee"
@@ -1224,7 +1228,7 @@ for the one in the back. In addition to that, you can use B<label> to control
 the text attributes used for these labels. If you append a number to the label,
 it will be used as the new font-size.
 
-    text font-family="monospace" font-size="10pt" dy="-4pt"
+    text font-family="monospace" font-size="10pt"
     label font-family="sans-serif" font-size="12pt"
     glow fill="none" stroke="white" stroke-width="3pt"
     default attributes fill="none" stroke="black" stroke-width="1px"
@@ -1241,7 +1245,7 @@ be part of a type (such as a bit of grass).
 
 Here, we add a bit of grass to the appropriate hex type:
 
-    text font-family="monospace" font-size="10pt" dy="-4pt"
+    text font-family="monospace" font-size="10pt"
     label font-family="sans-serif" font-size="12pt"
     glow fill="none" stroke="white" stroke-width="3pt"
     default attributes fill="none" stroke="black" stroke-width="1px"
@@ -1257,7 +1261,7 @@ Here, we add a bit of grass to the appropriate hex type:
 Here, we add a settlement. The village doesn't have type attributes (it never
 says C<village attributes>) and therefore it's not a hex type.
 
-    text font-family="monospace" font-size="10pt" dy="-4pt"
+    text font-family="monospace" font-size="10pt"
     label font-family="sans-serif" font-size="12pt"
     glow fill="none" stroke="white" stroke-width="3pt"
     default attributes fill="none" stroke="black" stroke-width="1px"
@@ -1282,7 +1286,7 @@ the village path has a stroke-width of 5px which is why we can't see it. If had
 used a thinner stroke, we would have seen a white outer glow. Here's the same
 example with a 1pt stroke-width for the village.
 
-    text font-family="monospace" font-size="10pt" dy="-4pt"
+    text font-family="monospace" font-size="10pt"
     label font-family="sans-serif" font-size="12pt"
     glow fill="none" stroke="white" stroke-width="3pt"
     default attributes fill="none" stroke="black" stroke-width="1px"
@@ -1302,7 +1306,7 @@ the flow of these lines, you can provide multiple hexes through which
 these lines must pass. These lines can be used for borders, rivers or
 roads, for example.
 
-    text font-family="monospace" font-size="10pt" dy="-4pt"
+    text font-family="monospace" font-size="10pt"
     label font-family="sans-serif" font-size="12pt"
     glow fill="none" stroke="white" stroke-width="3pt"
     default attributes fill="none" stroke="black" stroke-width="1px"
@@ -1408,7 +1412,11 @@ and (50,50).
 You can add even more arbitrary SVG using the B<other> keyword. This
 keyword can be used multiple times.
 
-    other <svg>...</svg>
+    grass attributes fill="#90ee90"
+    0101 grass
+    0201 grass
+    0302 grass
+    other <text x="150" y="20" font-size="40pt" transform="rotate(30)">Tundra of Sorrow</text>
 
 The B<other> keyword causes the item to be added to the end of the
 document. It can be used for frames and labels that are not connected
@@ -1416,6 +1424,8 @@ to a single hex.
 
 You can make labels link to web pages using the B<url> keyword.
 
+    grass attributes fill="#90ee90"
+    0101 grass "Home"
     url https://campaignwiki.org/wiki/NameOfYourWiki/
 
 This will make the label X link to
@@ -1451,6 +1461,8 @@ L<http://creativecommons.org/licenses/by-sa/3.0/>.
 You can add arbitrary SVG using the B<license> keyword (without a
 tile). This is what the Gnomeyland library does, for example.
 
+    grass attributes fill="#90ee90"
+    0101 grass
     license <text>Public Domain</text>
 
 There can only be I<one> license keyword. If you use multiple
@@ -1461,7 +1473,13 @@ There's a 50 pixel margin around the map, here's how you might
 conceivably use it for your own map that uses the I<Gnomeyland> icons
 by Gregory B. MacKenzie:
 
-    <license <text x="50" y="-33" font-size="15pt" fill="#999999">Copyright Alex Schroeder 2013. <a style="fill:#8888ff" xlink:href="http://www.busygamemaster.com/art02.html">Gnomeyland Map Icons</a> Copyright Gregory B. MacKenzie 2012.</text><text x="50" y="-15" font-size="15pt" fill="#999999">This work is licensed under the <a style="fill:#8888ff" xlink:href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.</text>
+    grass attributes fill="#90ee90"
+    0101 grass
+    0201 grass
+    0301 grass
+    0401 grass
+    0501 grass
+    license <text x="50" y="-33" font-size="15pt" fill="#999999">Copyright Alex Schroeder 2013. <a style="fill:#8888ff" xlink:href="http://www.busygamemaster.com/art02.html">Gnomeyland Map Icons</a> Copyright Gregory B. MacKenzie 2012.</text><text x="50" y="-15" font-size="15pt" fill="#999999">This work is licensed under the <a style="fill:#8888ff" xlink:href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.</text>
 
 Unfortunately, it all has to go on a single line.
 
@@ -1505,10 +1523,90 @@ L<https://campaignwiki.org/text-mapper?map=include+https://campaignwiki.org/cont
 
 =head2 Command Line
 
-You can call the script from the command line. It accepts the map on STDIN.
+You can call the script from the command line. The B<render> command reads a map
+description from STDIN and prints it to STDOUT.
 
-    perl text-mapper.pl < contrib/forgotten-depths.txt
+    perl text-mapper.pl render < contrib/forgotten-depths.txt > forgotten-depths.svg
 
-The script also supports the arguments --help, --source and --generate.
+The B<random> command prints a random map description to STDOUT.
+
+    perl text-mapper.pl random > map.txt
+
+Thus, you can pipe the random map in order to render it:
+
+    perl text-mapper.pl random | perl text-mapper.pl render > map.svg
 
 =cut
+
+
+@@ index.html.ep
+% layout 'default';
+% title 'Text Mapper';
+<h1>Text Mapper</h1>
+
+
+@@ help.html.ep
+% layout 'default';
+% title 'Text Mapper: Help';
+<%== $html %>
+
+
+@@ generate.html.ep
+% layout 'default';
+% title 'Text Mapper: Generate';
+<h1>Text Mapper</h1>
+<p>Submit your text desciption of the map.</p>
+%= form_for render => (method => 'POST') => begin
+%= text_area map => (cols => 60, rows => 15) => begin
+<%= $map =%>
+% end
+
+<p>
+%= submit_button 'Submit', name => 'submit'
+%= end
+</p>
+
+<p>
+<%= link_to random => begin %>Random<% end %>
+will generate a map based on Erin D. Smale's <em>Hex-Based Campaign Design</em>
+(<a href="http://www.welshpiper.com/hex-based-campaign-design-part-1/">Part 1</a>,
+<a href="http://www.welshpiper.com/hex-based-campaign-design-part-2/">Part 2</a>).
+You can also generate a random map
+<%= link_to link_to url_for('random')->query(bw => 1)->to_abs => begin %>with no background colors<% end %>.
+</p>
+
+
+@@ render.svg.ep
+
+
+@@ layouts/default.html.ep
+<!DOCTYPE html>
+<html>
+<head>
+<title><%= title %></title>
+%= stylesheet '/text-mapper.css'
+%= stylesheet begin
+body {
+  padding: 1em;
+  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+}
+textarea {
+  width: 100%;
+}
+.example {
+  font-size: smaller;
+}
+% end
+<meta name="viewport" content="width=device-width">
+</head>
+<body>
+<%= content %>
+<hr>
+<p>
+<a href="https://campaignwiki.org/text-mapper">Text Mapper</a>&#x2003;
+<%= link_to 'Help' => 'help' %>&#x2003;
+<%= link_to 'Source' => 'source' %>&#x2003;
+<a href="https://github.com/kensanata/hex-mapping/blob/master/text-mapper.pl">GitHub</a>&#x2003;
+<a href="https://alexschroeder.ch/wiki/Contact">Alex Schroeder</a>
+</body>
+</html>
