@@ -1542,6 +1542,14 @@ Thus, you can pipe the random map in order to render it:
 
     perl text-mapper.pl random | perl text-mapper.pl render > map.svg
 
+You can read this documentation in a text terminal, too:
+
+    pod2text text-mapper.pl
+
+Alternatively:
+
+    perl text-mapper.pl get /help | w3m -T text/html
+
 =cut
 
 
