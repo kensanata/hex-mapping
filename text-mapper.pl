@@ -1069,7 +1069,7 @@ sub height {
   my ($world, $altitude) = @_;
   my $current_altitude = 10;
   my @batch;
-  for my $peak (1 .. int($width * $height / 20)) {
+  for (1 .. int($width * $height / 20)) {
     # try to find an empty hex
     for (1 .. 6) {
       my $x = int(rand($width)) + 1;
@@ -1078,7 +1078,7 @@ sub height {
       next if $altitude->{$coordinates};
       $altitude->{$coordinates} = $current_altitude;
       push(@batch, [$x, $y]);
-      $world->{$coordinates} = qq{height$current_altitude "Peak $peak"};
+      $world->{$coordinates} = qq{height$current_altitude "$current_altitude"};
       # warn "Peak $coordinates\n";
       last;
     }
@@ -1142,41 +1142,20 @@ sub lakes {
 }
 
 sub swamps {
-  # local minima larger than 1 are swamps
+  # swamps form whenever there is no immediate neighbor that is lower
   my ($world, $altitude) = @_;
-  my %drained;
-  my $drained;
-  do {
-    $drained = 0;
-    for my $coordinates (sort keys %$altitude) {
-      next if $drained{$coordinates};
-      if ($world->{$coordinates} =~ /^lake/) {
-	$drained = $drained{$coordinates} = 1;
-	next;
-      } elsif ($altitude->{$coordinates} <= 2) {
-	# lowlands are always swampy
-	$drained = $drained{$coordinates} = 1;
-	$world->{$coordinates} = qq{swamp$altitude->{$coordinates} "swamp $altitude->{$coordinates}"};
-	next;
-      }
-      # check the neighbors
-      for my $i (0 .. 5) {
-	my ($x, $y) = neighbor($coordinates, $i);
-	# ignore neighbors beyond the edge of the map
-	next if $x <= 0 or $x > $width or $y <= 0 or $y > $height;
-	my $other = sprintf("%02d%02d", $x, $y);
-	if ($altitude->{$other} < $altitude->{$coordinates}
-	    or $drained{$other} and $altitude->{$other} == $altitude->{$coordinates}) {
-	  warn "$coordinates drains to $other\n";
-	  $drained = $drained{$coordinates} = 1;
-	  last;
-	}
-      }
+ HEX:
+  for my $coordinates (sort keys %$altitude) {
+    next if $world->{$coordinates} =~ /^lake/;
+    # check the neighbors
+    for my $i (0 .. 5) {
+      my ($x, $y) = neighbor($coordinates, $i);
+      # ignore neighbors beyond the edge of the map
+      next if $x <= 0 or $x > $width or $y <= 0 or $y > $height;
+      my $other = sprintf("%02d%02d", $x, $y);
+      next HEX if $altitude->{$other} < $altitude->{$coordinates};
     }
-    warn "Drained $drained\n";
-  } while $drained;
-  for my $coordinates (keys %$altitude) {
-    next if $drained{$coordinates};
+    # if there was no lower neighbor, this is a swamp
     $world->{$coordinates} = qq{swamp$altitude->{$coordinates} "swamp $altitude->{$coordinates}"};
   }
 }
