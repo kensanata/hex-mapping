@@ -594,7 +594,7 @@ sub svg {
   return $doc;
 }
 
-package Generator;
+package Smale;
     
 my %world = ();
 
@@ -1077,7 +1077,7 @@ EOF
 
 sub run {
   my ($self, @args) = @_;
-  print Generator::generate_map();
+  print Smale::generate_map();
 }
 
 package main;
@@ -1116,7 +1116,7 @@ any '/render' => sub {
 get '/random' => sub {
   my $c = shift;
   my $bw = $c->param('bw');
-  $c->render(template => 'edit', map => Generator::generate_map($bw));
+  $c->render(template => 'edit', map => Smale::generate_map($bw));
 };
 
 get '/source' => sub {
