@@ -769,11 +769,7 @@ sub member {
 sub verbose {
   return unless $verbose;
   my $str = shift;
-  if ($IS_CGI) {
-    $output .= $str;
-  } else {
-    warn $str;
-  }
+  warn $str;
 }
 
 sub place_major {
@@ -1037,6 +1033,163 @@ sub generate_map {
     . "include https://campaignwiki.org/contrib/gnomeyland.txt\n";
 }
 
+package Schroeder;
+use Modern::Perl;
+
+# The world is a reference to a hash where the key are the coordinates in the
+# form "0105" and the value is whatever is the map description, so it can be a
+# number of types, plus a label, plus maybe a font size, etc.
+
+my $width = 20;
+my $height = 10;
+
+my $delta = [[[-1,  0], [ 0, -1], [+1,  0], [+1, +1], [ 0, +1], [-1, +1]],  # x is even
+	     [[-1, -1], [ 0, -1], [+1, -1], [+1,  0], [ 0, +1], [-1,  0]]]; # x is odd
+
+sub neighbor {
+  # $hex is [x,y] or "0x0y" and $i is a number 0 .. 5
+  my ($hex, $i) = @_;
+  $hex = [substr($hex, 0, 2), substr($hex, 2)] unless ref $hex;
+  return ($hex->[0] + $delta->[$hex->[0] % 2]->[$i]->[0],
+	  $hex->[1] + $delta->[$hex->[0] % 2]->[$i]->[1]);
+}
+
+sub flat {
+  my ($world, $altitude) = @_;
+  for my $y (1 .. $height) {
+    for my $x (1 .. $width) {
+      my $coordinates = sprintf("%02d%02d", $x, $y);
+      $world->{$coordinates} = 'height0 "flat"';
+      $altitude->{$coordinates} = 0;
+    }
+  }
+}
+
+sub height {
+  my ($world, $altitude) = @_;
+  my $current_altitude = 10;
+  my @batch;
+  for my $peak (1 .. int($width * $height / 20)) {
+    # try to find an empty hex
+    for (1 .. 6) {
+      my $x = int(rand($width)) + 1;
+      my $y = int(rand($height)) + 1;
+      my $coordinates = sprintf("%02d%02d", $x, $y);
+      next if $altitude->{$coordinates};
+      $altitude->{$coordinates} = $current_altitude;
+      push(@batch, [$x, $y]);
+      $world->{$coordinates} = qq{height$current_altitude "Peak $peak"};
+      # warn "Peak $coordinates\n";
+      last;
+    }
+  }
+  while (--$current_altitude >= 0) {
+    # warn "Altitude $current_altitude\n";
+    my @next;
+    for my $hex (@batch) {
+      my @plains;
+      # pick some random neighbors
+      for (1 .. 2) {
+	# try to find an empty neighbor
+	for (1 .. 6) {
+	  my ($x, $y) = neighbor($hex, int(rand(6)));
+	  next if $x <= 0 or $x > $width or $y <= 0 or $y > $height;
+	  my $coordinates = sprintf("%02d%02d", $x, $y);
+	  next if $altitude->{$coordinates};
+	  $altitude->{$coordinates} = $current_altitude;
+	  # if we found an empty neighbor, set its height
+	  # warn "picked $coordinates near $hex->[0]$hex->[1]\n";
+	  push(@next, [$x, $y]);
+	  $world->{$coordinates} = qq{height$current_altitude "$current_altitude"};
+	  last;
+	}
+      }
+    }
+    last unless @next;
+    @batch = @next;
+  }
+  # warn "Down to: $current_altitude\n";
+  for my $coordinates (keys %$altitude) {
+    if (not $altitude->{$coordinates}) {
+      # warn "identified a hex that was skipped: $coordinates\n";
+      while (1) {
+	my ($x, $y) = neighbor($coordinates, int(rand(6)));
+	next if $x <= 0 or $x > $width or $y <= 0 or $y > $height;
+	my $other = sprintf("%02d%02d", $x, $y);
+	next unless $altitude->{$other};
+	$altitude->{$coordinates} = $altitude->{$other};
+	$world->{$coordinates} = qq{height$altitude->{$other} "backfilled"};
+	last;
+      }
+    }
+  }
+}
+
+sub lakes {
+  # local minima of exactly size 1 are lakes
+  my ($world, $altitude) = @_;
+ HEX:
+  for my $coordinates (keys %$altitude) {
+    for my $i (0 .. 5) {
+      my ($x, $y) = neighbor($coordinates, $i);
+      # there are no lakes at the edge of the map
+      next HEX if $x <= 0 or $x > $width or $y <= 0 or $y > $height;
+      my $other = sprintf("%02d%02d", $x, $y);
+      next HEX if $altitude->{$other} <= $altitude->{$coordinates};
+    }
+    $world->{$coordinates} = qq{lake$altitude->{$coordinates} "lake $altitude->{$coordinates}"};
+  }  
+}
+
+sub swamps {
+  # local minima larger than 1 are swamps
+  my ($world, $altitude) = @_;
+  for my $current_altitude (0 .. 10) {
+  HEX:
+    for my $coordinates (keys %$altitude) {
+      # found a hex at the right altitude
+      if ($altitude->{$coordinates} == $current_altitude) {
+	# check the neighbors
+	for my $i (0 .. 5) {
+	  my ($x, $y) = neighbor($coordinates, $i);
+	  # ignore neighbors beyond the edge of the map
+	  next if $x <= 0 or $x > $width or $y <= 0 or $y > $height;
+	  my $other = sprintf("%02d%02d", $x, $y);
+	  # if the neighbor is at a lower altitude, skip it
+	  next HEX if $altitude->{$other} < $current_altitude;
+	}
+	# if no neighbor worth skipping was found, then this is a swamp
+	warn "$coordinates is a swamp\n";
+	$world->{$coordinates} = qq{swamp$altitude->{$coordinates} "swamp $altitude->{$coordinates}"};
+      }
+    }
+  }
+}
+
+sub generate_map {
+  my (%world, %altitude);
+  flat(\%world, \%altitude);
+  height(\%world, \%altitude);
+  lakes(\%world, \%altitude);
+  swamps(\%world, \%altitude);
+  return join("\n",
+	      (map {
+		my $n = int(25.5 * $_);
+		qq{height$_ attributes fill="rgb($n,$n,$n)"};
+	       } (0 .. 10)),
+	      (map {
+		my $n = int(25.5 * $_);
+		qq{lake$_ attributes fill="rgb($n,$n,255)"};
+	       } (0 .. 10)),
+	      (map {
+		my $n = int(20 * $_);
+		my $g = $n + 50;
+		qq{swamp$_ attributes fill="rgb($n,$g,$n)"};
+	       } (0 .. 10)),
+	      (map { $_ . " " . $world{$_} } sort keys %world),
+	      "include https://campaignwiki.org/contrib/gnomeyland.txt\n");
+}
+
 package Mojolicious::Command::render;
 use Mojo::Base 'Mojolicious::Command';
 
@@ -1117,6 +1270,13 @@ get '/random' => sub {
   my $c = shift;
   my $bw = $c->param('bw');
   $c->render(template => 'edit', map => Smale::generate_map($bw));
+};
+
+get '/alpine' => sub {
+  my $c = shift;
+  my $map = new Mapper;
+  $map->initialize(Schroeder::generate_map());
+  $c->render(text => $map->svg, format => 'svg');
 };
 
 get '/source' => sub {
