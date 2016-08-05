@@ -1040,8 +1040,8 @@ use Modern::Perl;
 # form "0105" and the value is whatever is the map description, so it can be a
 # number of types, plus a label, plus maybe a font size, etc.
 
-my $width = 10;
-my $height = 5;
+my $width = 30;
+my $height = 15;
 
 my $delta = [[[-1,  0], [ 0, -1], [+1,  0], [+1, +1], [ 0, +1], [-1, +1]],  # x is even
 	     [[-1, -1], [ 0, -1], [+1, -1], [+1,  0], [ 0, +1], [-1,  0]]]; # x is odd
@@ -1150,12 +1150,14 @@ sub swamps {
     $drained = 0;
     for my $coordinates (sort keys %$altitude) {
       next if $drained{$coordinates};
-      warn "$coordinates:\n";
       if ($world->{$coordinates} =~ /^lake/) {
-	$drained{$coordinates} = 1;
+	$drained = $drained{$coordinates} = 1;
+	next;
       } elsif ($altitude->{$coordinates} <= 2) {
-	$drained{$coordinates} = 1;
+	# lowlands are always swampy
+	$drained = $drained{$coordinates} = 1;
 	$world->{$coordinates} = qq{swamp$altitude->{$coordinates} "swamp $altitude->{$coordinates}"};
+	next;
       }
       # check the neighbors
       for my $i (0 .. 5) {
@@ -1163,23 +1165,11 @@ sub swamps {
 	# ignore neighbors beyond the edge of the map
 	next if $x <= 0 or $x > $width or $y <= 0 or $y > $height;
 	my $other = sprintf("%02d%02d", $x, $y);
-	# if the neighbor is at a lower altitude, we are drained
-	if ($drained{$coordinates} and $altitude->{$other} >= $altitude->{$coordinates}) {
-	  warn "$other drains to $coordinates because $coordinates is drained\n";
-	  $drained = 1 unless $drained{$other};
-	  $drained{$other} = 1;
-	} elsif ($drained{$other} and $altitude->{$other} <= $altitude->{$coordinates}) {
-	  warn "$coordinates drains to $other because $other is drained\n";
-	  $drained = 1 unless $drained{$coordinates};
-	  $drained{$coordinates} = 1;
-	} elsif ($altitude->{$other} < $altitude->{$coordinates}) {
-	  warn "$coordinates drains to $other because $other is lower\n";
-	  $drained = 1 unless $drained{$coordinates};
-	  $drained{$coordinates} = 1;
-	} elsif ($altitude->{$other} > $altitude->{$coordinates}) {
-	  warn "$other drains to $coordinates because $coordinates is lower\n";
-	  $drained = 1 unless $drained{$other};
-	  $drained{$other} = 1;
+	if ($altitude->{$other} < $altitude->{$coordinates}
+	    or $drained{$other} and $altitude->{$other} == $altitude->{$coordinates}) {
+	  warn "$coordinates drains to $other\n";
+	  $drained = $drained{$coordinates} = 1;
+	  last;
 	}
       }
     }
