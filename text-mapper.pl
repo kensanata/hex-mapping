@@ -1084,7 +1084,7 @@ sub height {
       next if $altitude->{$coordinates};
       $altitude->{$coordinates} = $current_altitude;
       push(@batch, [$x, $y]);
-      $world->{$coordinates} = qq{height$current_altitude mountains "$current_altitude"};
+      $world->{$coordinates} = qq{mountains "$current_altitude"};
       # warn "Peak $coordinates\n";
       last;
     }
@@ -1107,7 +1107,7 @@ sub height {
 	  # warn "picked $coordinates near $hex->[0]$hex->[1]\n";
 	  push(@next, [$x, $y]);
 	  $world->{$coordinates} = qq{height$current_altitude "$current_altitude"};
-	  $world->{$coordinates} =~ s/ / mountain / if $current_altitude >= 8;
+	  $world->{$coordinates} =~ s/height\d+ /light-grey mountain / if $current_altitude >= 8;
 	  last;
 	}
       }
@@ -1144,7 +1144,7 @@ sub lakes {
       my $other = sprintf("%02d%02d", $x, $y);
       next HEX if $altitude->{$other} <= $altitude->{$coordinates};
     }
-    $world->{$coordinates} = qq{lake$altitude->{$coordinates} "lake $altitude->{$coordinates}"};
+    $world->{$coordinates} = qq{water "$altitude->{$coordinates}"};
   }  
 }
 
@@ -1153,7 +1153,7 @@ sub swamps {
   my ($world, $altitude) = @_;
  HEX:
   for my $coordinates (keys %$altitude) {
-    next if $world->{$coordinates} =~ /^lake/;
+    next if $world->{$coordinates} =~ /^water/;
     # check the neighbors
     for my $i (0 .. 5) {
       my ($x, $y) = neighbor($coordinates, $i);
@@ -1163,7 +1163,11 @@ sub swamps {
       next HEX if $altitude->{$other} < $altitude->{$coordinates};
     }
     # if there was no lower neighbor, this is a swamp
-    $world->{$coordinates} = qq{swamp$altitude->{$coordinates} swamp "swamp $altitude->{$coordinates}"};
+    if ($altitude->{$coordinates} >= 6) {
+      $world->{$coordinates} = qq{grey swamp "$altitude->{$coordinates}"};
+    } else {
+      $world->{$coordinates} = qq{dark-grey swamp "$altitude->{$coordinates}"};
+    }
   }
 }
 
@@ -1218,7 +1222,7 @@ sub flow {
     # collect candidates
     if (not defined $altitude->{$coordinates} # possibly outside the map!
 	or $altitude->{$other} >= $altitude->{$coordinates}
-	or $world->{$other} =~ /lake/) {
+	or $world->{$other} =~ /water/) {
       push(@up, [$i, $other]);
     }
   }
@@ -1247,9 +1251,9 @@ sub flow {
     # and place a mountain
     if ($world->{$coordinates} !~ /mountain|swamp/) {
       if ($altitude->{$coordinates} >= 6) {
-	$world->{$coordinates} =~ s/ / fir-hill /;
+	$world->{$coordinates} =~ s/height\d+ /light-grey fir-hill /;
       } else {
-	$world->{$coordinates} =~ s/ / forest-hill /;
+	$world->{$coordinates} =~ s/height\d+ /grey forest-hill /;
       }
     }
   }
@@ -1274,12 +1278,29 @@ sub rivers {
 sub forests {
   my ($world, $altitude, $water) = @_;
   for my $coordinates (keys %$world) {
-    if ($world->{$coordinates} !~ /lake|hill|mountain|swamp/
+    if ($world->{$coordinates} !~ /water|hill|mountain|swamp/
 	and defined $water->{$coordinates}) {
       if ($altitude->{$coordinates} >= 6) {
-	$world->{$coordinates} =~ s/ / fir-forest /;
+	$world->{$coordinates} =~ s/height\d+ /light-green fir-forest /;
+      } elsif ($altitude->{$coordinates} >= 4) {
+	$world->{$coordinates} =~ s/height\d+ /green forest /;
       } else {
-	$world->{$coordinates} =~ s/ / forest /;
+	$world->{$coordinates} =~ s/height\d+ /dark-green forest /;
+      }
+    }
+  }
+}
+
+sub cities {
+  my ($world) = @_;
+  for my $coordinates (keys %$world) {
+    if (rand() < .4) {
+      if ($world->{$coordinates} =~ /^light-green fir-forest /) {
+	$world->{$coordinates} =~ s/fir-forest/firs thorp/;
+      } elsif ($world->{$coordinates} =~ /^green forest /) {
+	$world->{$coordinates} =~ s/forest/trees village/;
+      } elsif ($world->{$coordinates} =~ /^dark-green forest /) {
+	$world->{$coordinates} =~ s/forest/trees town/;
       }
     }
   }
@@ -1288,8 +1309,12 @@ sub forests {
 sub plains {
   my ($world, $altitude, $water) = @_;
   for my $coordinates (keys %$world) {
-    if ($world->{$coordinates} !~ /lake|hill|mountain|swamp|forest/) {
-      $world->{$coordinates} =~ s/ / grass /;
+    if ($world->{$coordinates} !~ /water|hill|mountain|swamp|forest/) {
+      if ($altitude->{$coordinates} >= 7) {
+	$world->{$coordinates} =~ s/height\d+ /dust grass /;
+      } else {
+	$world->{$coordinates} =~ s/height\d+ /light-green grass /;
+      }
     }
   }
 }
@@ -1302,6 +1327,7 @@ sub generate_map {
   swamps(\%world, \%altitude);
   rivers(\%world, \%altitude, \%water, \@rivers);
   forests(\%world, \%altitude, \%water);
+  cities(\%world);
   plains(\%world, \%altitude, \%water);
   return join("\n",
 	      # qq{<marker id="arrow" markerWidth="6" markerHeight="6" refX="6" refY="3" orient="auto"><path d="M6,0 V6 L0,3 Z" style="fill: black;" /></marker>},
@@ -1315,17 +1341,17 @@ sub generate_map {
 		my $n = int(25.5 * $_);
 		qq{height$_ attributes fill="rgb($n,$n,$n)"};
 	       } (0 .. 10)),
-	      (map {
-		my $n = int(25.5 * $_);
-		qq{lake$_ attributes fill="rgb($n,$n,255)"};
-	       } (0 .. 10)),
-	      (map {
-		my $n = int(20 * $_);
-		my $g = $n + 50;
-		qq{swamp$_ attributes fill="rgb($n,$g,$n)"};
-	       } (0 .. 10)),
+	      # (map {
+	      # 	my $n = int(25.5 * $_);
+	      # 	qq{lake$_ attributes fill="rgb($n,$n,255)"};
+	      #  } (0 .. 10)),
+	      # (map {
+	      # 	my $n = int(20 * $_);
+	      # 	my $g = $n + 50;
+	      # 	qq{swamp$_ attributes fill="rgb($n,$g,$n)"};
+	      #  } (0 .. 10)),
 	      (map { $_ . " " . $world{$_} } sort keys %world),
-	      qq{river path attributes stroke="#6ebae7" stroke-width="8" fill="none" opacity="0.7"},
+	      qq{river path attributes transform="translate(20,10)" stroke="#6ebae7" stroke-width="8" fill="none" opacity="0.7"},
 	      (map { join('-', @$_) . " river" } @rivers),
 	      "include https://campaignwiki.org/contrib/gnomeyland.txt\n");
 }
