@@ -1044,6 +1044,8 @@ use List::Util 'shuffle';
 # form "0105" and the value is whatever is the map description, so it can be a
 # number of types, plus a label, plus maybe a font size, etc.
 
+# We're assuming that $width and $height have two digits (10 <= n <= 99).
+
 my $width = 20;
 my $height = 10;
 
@@ -1170,7 +1172,6 @@ sub mouths {
   my @hexes = shuffle(grep /^01|^$width|01$|$height$/, keys %$altitude);
   # sort by altitude
   @hexes = sort { $altitude->{$a} <=> $altitude->{$b} } @hexes;
-  # warn "Hexes: @hexes\n";
   # remove close locations
   my @filtered;
  HEX:
@@ -1185,8 +1186,17 @@ sub mouths {
     }
     push(@filtered, $hex);
   }
-  # warn "Filtered: @filtered\n";
-  return @filtered[0 .. (2*$height + 2*$width)/30];
+  # limit to a smaller number
+  @hexes = @filtered[0 .. (2*$height + 2*$width)/30];
+  # warn "Hexes  inside: @hexes\n";
+  # move to the outside of the map!
+  for my $hex (@hexes) {
+    $hex =~ s/^01/00/ or $hex =~ s/01$/00/
+	or $hex =~s/^$width/$width+1/e
+	or $hex =~s/$height$/$height+1/e;
+  }
+  # warn "Hexes outside: @hexes\n";
+  return @hexes;
 }
 
 sub flow {
@@ -1205,7 +1215,10 @@ sub flow {
     # ignore neighbors are great height
     next if $altitude->{$other} >= 9;
     # collect candidates
-    push(@up, [$i, $other]) if $altitude->{$other} > $altitude->{$coordinates};
+    if (not defined $altitude->{$coordinates} # possibly outside the map!
+	or $altitude->{$other} > $altitude->{$coordinates}) {
+      push(@up, [$i, $other]);
+    }
   }
   # add one of the candidates to the head of the list
   if (@up) {
@@ -1232,7 +1245,7 @@ sub rivers {
       $flow = 1 if flow($world, $altitude, \%water, $rivers, $n);
     }
   }
-  for my $coordinates (keys %water) {
+  for my $coordinates (keys %$world) {
     my $i = $water{$coordinates};
     $world->{$coordinates} =~ s/ / arrow$i / if defined $i;
   }
