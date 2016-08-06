@@ -1107,6 +1107,7 @@ sub height {
 	  # warn "picked $coordinates near $hex->[0]$hex->[1]\n";
 	  push(@next, [$x, $y]);
 	  $world->{$coordinates} = qq{height$current_altitude "$current_altitude"};
+	  $world->{$coordinates} =~ s/ / mountain / if $current_altitude >= 8;
 	  last;
 	}
       }
@@ -1200,9 +1201,9 @@ sub mouths {
 }
 
 sub flow {
-  my ($world, $altitude, $water, $rivers, $n) = @_;
+  my ($world, $altitude, $water, $rivers, $growing, $n) = @_;
   # $n is the current river, the head of the river is the current position
-  my $coordinates = $rivers->[$n]->[0];
+  my $coordinates = $growing->[$n]->[0];
   my @up;
   # check the neighbors
   for my $i (0 .. 5) {
@@ -1211,61 +1212,106 @@ sub flow {
     next if $x <= 0 or $x > $width or $y <= 0 or $y > $height;
     # ignore neighbors with water
     my $other = sprintf("%02d%02d", $x, $y);
-    next if $water->{$other};
+    next if defined $water->{$other};
     # ignore neighbors are great height
     next if $altitude->{$other} >= 9;
     # collect candidates
     if (not defined $altitude->{$coordinates} # possibly outside the map!
-	or $altitude->{$other} > $altitude->{$coordinates}) {
+	or $altitude->{$other} >= $altitude->{$coordinates}
+	or $world->{$other} =~ /lake/) {
       push(@up, [$i, $other]);
     }
   }
+  warn "up from $coordinates: " . join(', ', map { $_->[1] } @up) . "\n";
   # add one of the candidates to the head of the list
-  if (@up) {
-    my $decision = $up[int(rand(scalar(@up)))];
-    my $i = $decision->[0];
-    my $other = $decision->[1];
-    $water->{$coordinates} = $i;
-    unshift(@{$rivers->[$n]}, $other);
-    return 1;
+  my $first = shift(@up);
+  # add a copy of the river for the rest
+  for my $next (@up) {
+    my $i = $next->[0];
+    my $other = $next->[1];
+    $water->{$other} = $i;
+    warn "adding a new river: " . join('-', $other, @{$growing->[$n]}) . "\n";
+    push(@$growing, [$other, @{$growing->[$n]}]);
+  }
+  if ($first) {
+    my $i = $first->[0];
+    my $other = $first->[1];
+    $water->{$other} = $i;
+    unshift(@{$growing->[$n]}, $other);
+    warn "extending river $n: @{$growing->[$n]}\n";
+  } else {
+    # if we're no longer growing so remove it from the growing list and add it
+    # to the done rivers
+    my @done = splice(@$growing, $n, 1);
+    push(@$rivers, @done);
+    # and place a mountain
+    if ($world->{$coordinates} !~ /mountain|swamp/) {
+      if ($altitude->{$coordinates} >= 6) {
+	$world->{$coordinates} =~ s/ / fir-hill /;
+      } else {
+	$world->{$coordinates} =~ s/ / forest-hill /;
+      }
+    }
   }
 }
 
 sub rivers {
-  my ($world, $altitude, $rivers) = @_;
-  my %water;
+  my ($world, $altitude, $water, $rivers) = @_;
   my @mouths = mouths($altitude);
   warn "River mouths: @mouths\n";
-  push(@$rivers, map { [$_] } @mouths);
-  my $flow = 1;
-  while ($flow) {
-    $flow = 0;
-    for (my $n = 0; $n < scalar(@$rivers); $n++) {
-      warn "looking to extend river $n, currently @{$rivers->[$n]}\n";
-      $flow = 1 if flow($world, $altitude, \%water, $rivers, $n);
+  my @growing = map { [$_] } @mouths;
+  while (@growing) {
+    my $n = int(rand(scalar @growing));
+    warn "looking to extend river $n\n";
+    warn "currently @{$growing[$n]}\n";
+    flow($world, $altitude, $water, $rivers, \@growing, $n);
+  }
+  # for my $coordinates (keys %$world) {
+  #   my $i = $water->{$coordinates};
+  #   $world->{$coordinates} =~ s/ / arrow$i / if defined $i;
+  # }
+}
+
+sub forests {
+  my ($world, $altitude, $water) = @_;
+  for my $coordinates (keys %$world) {
+    if ($world->{$coordinates} !~ /lake|hill|mountain|swamp/
+	and defined $water->{$coordinates}) {
+      if ($altitude->{$coordinates} >= 6) {
+	$world->{$coordinates} =~ s/ / fir-forest /;
+      } else {
+	$world->{$coordinates} =~ s/ / forest /;
+      }
     }
   }
+}
+
+sub plains {
+  my ($world, $altitude, $water) = @_;
   for my $coordinates (keys %$world) {
-    my $i = $water{$coordinates};
-    $world->{$coordinates} =~ s/ / arrow$i / if defined $i;
+    if ($world->{$coordinates} !~ /lake|hill|mountain|swamp|forest/) {
+      $world->{$coordinates} =~ s/ / grass /;
+    }
   }
 }
 
 sub generate_map {
-  my (%world, %altitude, @rivers);
+  my (%world, %altitude, %water, @rivers);
   flat(\%world, \%altitude);
   height(\%world, \%altitude);
   lakes(\%world, \%altitude);
   swamps(\%world, \%altitude);
-  rivers(\%world, \%altitude, \@rivers);
+  rivers(\%world, \%altitude, \%water, \@rivers);
+  forests(\%world, \%altitude, \%water);
+  plains(\%world, \%altitude, \%water);
   return join("\n",
-	      qq{<marker id="arrow" markerWidth="6" markerHeight="6" refX="0" refY="3" orient="auto"><path d="M0,0 V6 L6,3 Z" style="fill: black;" /></marker>},
-	      qq{<path id="arrow0" d="M11.5,5.8 L-11.5,-5.8" style="stroke: black; stroke-width: 3px; fill: none; marker-end: url(#arrow);"/>},
-	      qq{<path id="arrow1" d="M0,10 V-20" style="stroke: black; stroke-width: 3px; fill: none; marker-end: url(#arrow);"/>},
-	      qq{<path id="arrow2" d="M-11.5,5.8 L11.5,-5.8" style="stroke: black; stroke-width: 3px; fill: none; marker-end: url(#arrow);"/>},
-	      qq{<path id="arrow3" d="M-11.5,-5.8 L11.5,5.8" style="stroke: black; stroke-width: 3px; fill: none; marker-end: url(#arrow);"/>},
-	      qq{<path id="arrow4" d="M0,-10 V20" style="stroke: black; stroke-width: 3px; fill: none; marker-end: url(#arrow);"/>},
-	      qq{<path id="arrow5" d="M11.5,-5.8 L-11.5,5.8" style="stroke: black; stroke-width: 3px; fill: none; marker-end: url(#arrow);"/>},
+	      # qq{<marker id="arrow" markerWidth="6" markerHeight="6" refX="6" refY="3" orient="auto"><path d="M6,0 V6 L0,3 Z" style="fill: black;" /></marker>},
+	      # qq{<path id="arrow0" d="M11.5,5.8 L-11.5,-5.8" style="stroke: black; stroke-width: 3px; fill: none; marker-start: url(#arrow);"/>},
+	      # qq{<path id="arrow1" d="M0,10 V-20" style="stroke: black; stroke-width: 3px; fill: none; marker-start: url(#arrow);"/>},
+	      # qq{<path id="arrow2" d="M-11.5,5.8 L11.5,-5.8" style="stroke: black; stroke-width: 3px; fill: none; marker-start: url(#arrow);"/>},
+	      # qq{<path id="arrow3" d="M-11.5,-5.8 L11.5,5.8" style="stroke: black; stroke-width: 3px; fill: none; marker-start: url(#arrow);"/>},
+	      # qq{<path id="arrow4" d="M0,-10 V20" style="stroke: black; stroke-width: 3px; fill: none; marker-start: url(#arrow);"/>},
+	      # qq{<path id="arrow5" d="M11.5,-5.8 L-11.5,5.8" style="stroke: black; stroke-width: 3px; fill: none; marker-start: url(#arrow);"/>},
 	      (map {
 		my $n = int(25.5 * $_);
 		qq{height$_ attributes fill="rgb($n,$n,$n)"};
