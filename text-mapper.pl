@@ -1766,7 +1766,7 @@ C<%s> in the URL and then this placeholder will be replaced with the
 
 =head2 License
 
-This program is copyright (C) 2007-2015 Alex Schroeder <alex@gnu.org>.
+This program is copyright (C) 2007-2016 Alex Schroeder <alex@gnu.org>.
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
