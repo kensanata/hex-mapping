@@ -1222,7 +1222,7 @@ sub flow {
       push(@up, [$i, $other]);
     }
   }
-  warn "up from $coordinates: " . join(', ', map { $_->[1] } @up) . "\n";
+  # warn "up from $coordinates: " . join(', ', map { $_->[1] } @up) . "\n";
   # add one of the candidates to the head of the list
   my $first = shift(@up);
   # add a copy of the river for the rest
@@ -1230,7 +1230,7 @@ sub flow {
     my $i = $next->[0];
     my $other = $next->[1];
     $water->{$other} = $i;
-    warn "adding a new river: " . join('-', $other, @{$growing->[$n]}) . "\n";
+    # warn "adding a new river: " . join('-', $other, @{$growing->[$n]}) . "\n";
     push(@$growing, [$other, @{$growing->[$n]}]);
   }
   if ($first) {
@@ -1238,7 +1238,7 @@ sub flow {
     my $other = $first->[1];
     $water->{$other} = $i;
     unshift(@{$growing->[$n]}, $other);
-    warn "extending river $n: @{$growing->[$n]}\n";
+    # warn "extending river $n: @{$growing->[$n]}\n";
   } else {
     # if we're no longer growing so remove it from the growing list and add it
     # to the done rivers
@@ -1258,12 +1258,11 @@ sub flow {
 sub rivers {
   my ($world, $altitude, $water, $rivers) = @_;
   my @mouths = mouths($altitude);
-  warn "River mouths: @mouths\n";
+  # warn "River mouths: @mouths\n";
   my @growing = map { [$_] } @mouths;
   while (@growing) {
     my $n = int(rand(scalar @growing));
-    warn "looking to extend river $n\n";
-    warn "currently @{$growing[$n]}\n";
+    # warn "looking to extend river $n, currently @{$growing[$n]}\n";
     flow($world, $altitude, $water, $rivers, \@growing, $n);
   }
   # for my $coordinates (keys %$world) {
