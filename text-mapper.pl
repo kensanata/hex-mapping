@@ -1035,13 +1035,14 @@ sub generate_map {
 
 package Schroeder;
 use Modern::Perl;
+use List::Util 'shuffle';
 
 # The world is a reference to a hash where the key are the coordinates in the
 # form "0105" and the value is whatever is the map description, so it can be a
 # number of types, plus a label, plus maybe a font size, etc.
 
-my $width = 30;
-my $height = 15;
+my $width = 20;
+my $height = 10;
 
 my $delta = [[[-1,  0], [ 0, -1], [+1,  0], [+1, +1], [ 0, +1], [-1, +1]],  # x is even
 	     [[-1, -1], [ 0, -1], [+1, -1], [+1,  0], [ 0, +1], [-1,  0]]]; # x is odd
@@ -1059,7 +1060,7 @@ sub flat {
   for my $y (1 .. $height) {
     for my $x (1 .. $width) {
       my $coordinates = sprintf("%02d%02d", $x, $y);
-      $world->{$coordinates} = 'height0 "flat"';
+      $world->{$coordinates} = 'empty';
       $altitude->{$coordinates} = 0;
     }
   }
@@ -1145,7 +1146,7 @@ sub swamps {
   # swamps form whenever there is no immediate neighbor that is lower
   my ($world, $altitude) = @_;
  HEX:
-  for my $coordinates (sort keys %$altitude) {
+  for my $coordinates (keys %$altitude) {
     next if $world->{$coordinates} =~ /^lake/;
     # check the neighbors
     for my $i (0 .. 5) {
@@ -1160,13 +1161,41 @@ sub swamps {
   }
 }
 
+sub rivers {
+  my ($world, $altitude) = @_;
+  my $i = 0;
+ HEX:
+  for my $coordinates (sort keys %$altitude) {
+    # check the neighbors
+    my @candidates;
+    for my $i (shuffle(0 .. 5)) {
+      next if $altitude->{$coordinates} >= 9;
+      my ($x, $y) = neighbor($coordinates, $i);
+      # ignore neighbors beyond the edge of the map
+      next if $x <= 0 or $x > $width or $y <= 0 or $y > $height;
+      my $other = sprintf("%02d%02d", $x, $y);
+      next if $altitude->{$other} >= $altitude->{$coordinates};
+      $world->{$coordinates} =~ s/ / arrow$i /;
+      next HEX;
+    }
+  }
+}
+
 sub generate_map {
   my (%world, %altitude);
   flat(\%world, \%altitude);
   height(\%world, \%altitude);
   lakes(\%world, \%altitude);
   swamps(\%world, \%altitude);
+  rivers(\%world, \%altitude);
   return join("\n",
+	      qq{<marker id="arrow" markerWidth="6" markerHeight="6" refX="0" refY="3" orient="auto"><path d="M0,0 V6 L6,3 Z" style="fill: black;" /></marker>},
+	      qq{<path id="arrow0" d="M11.5,5.8 L-11.5,-5.8" style="stroke: black; stroke-width: 3px; fill: none; marker-end: url(#arrow);"/>},
+	      qq{<path id="arrow1" d="M0,10 V-20" style="stroke: black; stroke-width: 3px; fill: none; marker-end: url(#arrow);"/>},
+	      qq{<path id="arrow2" d="M-11.5,5.8 L11.5,-5.8" style="stroke: black; stroke-width: 3px; fill: none; marker-end: url(#arrow);"/>},
+	      qq{<path id="arrow3" d="M-11.5,-5.8 L11.5,5.8" style="stroke: black; stroke-width: 3px; fill: none; marker-end: url(#arrow);"/>},
+	      qq{<path id="arrow4" d="M0,-10 V20" style="stroke: black; stroke-width: 3px; fill: none; marker-end: url(#arrow);"/>},
+	      qq{<path id="arrow5" d="M11.5,-5.8 L-11.5,5.8" style="stroke: black; stroke-width: 3px; fill: none; marker-end: url(#arrow);"/>},
 	      (map {
 		my $n = int(25.5 * $_);
 		qq{height$_ attributes fill="rgb($n,$n,$n)"};
