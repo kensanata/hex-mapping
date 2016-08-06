@@ -1060,7 +1060,49 @@ sub neighbor {
 	  $hex->[1] + $delta->[$hex->[0] % 2]->[$i]->[1]);
 }
 
+sub distance {
+  my ($x1, $y1, $x2, $y2) = @_;
+  # transform the coordinate system into a decent system with one axis tilted by
+  # 60°
+  $y1 = $y1 - POSIX::ceil($x1/2);
+  $y2 = $y2 - POSIX::ceil($x2/2);
+  if ($x1 > $x2) {
+    # only consider moves from left to right and transpose start and
+    # end point to make it so
+    my ($t1, $t2) = ($x1, $y1);
+    ($x1, $y1) = ($x2, $y2);
+    ($x2, $y2) = ($t1, $t2);
+  }
+  if ($y2>=$y1) {
+    # if it the move has a downwards component add Δx and Δy
+    return $x2-$x1 + $y2-$y1;
+  } else {
+    # else just take the larger of Δx and Δy
+    return $x2-$x1 > $y1-$y2 ? $x2-$x1 : $y1-$y2;
+  }
+}
+
+sub remove_closer_than {
+  my ($limit, @hexes) = @_;
+  my @filtered;
+ HEX:
+  for my $hex (@hexes) {
+    my ($x1, $y1) = (substr($hex, 0, 2), substr($hex, 2));
+    # check distances with all the hexes already in the list
+    for my $existing (@filtered) {
+      my ($x2, $y2) = (substr($existing, 0, 2), substr($existing, 2));
+      my $distance = distance($x1, $y1, $x2, $y2);
+      # warn "Distance between $x1$y1 and $x2$y2 is $distance\n";
+      next HEX if $distance < $limit;
+    }
+    # if this hex wasn't skipped, it goes on to the list
+    push(@filtered, $hex);
+  }
+  return @filtered;
+}
+
 sub flat {
+  # initialize the altitude map
   my ($world, $altitude) = @_;
   for my $y (1 .. $height) {
     for my $x (1 .. $width) {
@@ -1075,6 +1117,7 @@ sub height {
   my ($world, $altitude) = @_;
   my $current_altitude = 10;
   my @batch;
+  # place some peaks and put them in a batch
   for (1 .. int($width * $height / 20)) {
     # try to find an empty hex
     for (1 .. 6) {
@@ -1089,6 +1132,8 @@ sub height {
       last;
     }
   }
+  # go through the batch and add adjacent lower altitude hexes, if possible; the
+  # hexes added are the next batch to look at
   while (--$current_altitude >= 0) {
     # warn "Altitude $current_altitude\n";
     my @next;
@@ -1096,18 +1141,21 @@ sub height {
       my @plains;
       # pick some random neighbors
       for (1 .. 2) {
-	# try to find an empty neighbor
+	# try to find an empty neighbor; abort after six attempts
 	for (1 .. 6) {
 	  my ($x, $y) = neighbor($hex, int(rand(6)));
 	  next if $x <= 0 or $x > $width or $y <= 0 or $y > $height;
 	  my $coordinates = sprintf("%02d%02d", $x, $y);
 	  next if $altitude->{$coordinates};
+	  # if we found an empty neighbor, set its altitude
 	  $altitude->{$coordinates} = $current_altitude;
-	  # if we found an empty neighbor, set its height
 	  # warn "picked $coordinates near $hex->[0]$hex->[1]\n";
 	  push(@next, [$x, $y]);
-	  $world->{$coordinates} = qq{height$current_altitude "$current_altitude"};
-	  $world->{$coordinates} =~ s/height\d+ /light-grey mountain / if $current_altitude >= 8;
+	  if ($current_altitude >= 8) {
+	    $world->{$coordinates} =~ qq{light-grey mountain "$current_altitude"};
+	  } else {
+	    $world->{$coordinates} = qq{empty "$current_altitude"}; # must be overwritten!
+	  }
 	  last;
 	}
       }
@@ -1115,17 +1163,18 @@ sub height {
     last unless @next;
     @batch = @next;
   }
-  # warn "Down to: $current_altitude\n";
+  # find hexes that we missed and give them the height of a random neighbor
   for my $coordinates (keys %$altitude) {
     if (not $altitude->{$coordinates}) {
       # warn "identified a hex that was skipped: $coordinates\n";
+      # keep trying until we find one
       while (1) {
 	my ($x, $y) = neighbor($coordinates, int(rand(6)));
 	next if $x <= 0 or $x > $width or $y <= 0 or $y > $height;
 	my $other = sprintf("%02d%02d", $x, $y);
 	next unless $altitude->{$other};
 	$altitude->{$coordinates} = $altitude->{$other};
-	$world->{$coordinates} = qq{height$altitude->{$other} "backfilled"};
+	$world->{$coordinates} = qq{empty "height$altitude->{$other}"};
 	last;
       }
     }
@@ -1144,6 +1193,7 @@ sub lakes {
       my $other = sprintf("%02d%02d", $x, $y);
       next HEX if $altitude->{$other} <= $altitude->{$coordinates};
     }
+    # if no lower neighbor was found, this is a lake
     $world->{$coordinates} = qq{water "$altitude->{$coordinates}"};
   }  
 }
@@ -1171,30 +1221,19 @@ sub swamps {
   }
 }
 
-sub mouths {
+sub river_mouths {
   my ($altitude) = @_;
   # hexes along the edge of the map in a random order
   my @hexes = shuffle(grep /^01|^$width|01$|$height$/, keys %$altitude);
-  # sort by altitude
+  # sort by altitude since we want low lying edge hexes
   @hexes = sort { $altitude->{$a} <=> $altitude->{$b} } @hexes;
-  # remove close locations
-  my @filtered;
- HEX:
-  for my $hex (@hexes) {
-    my ($x1, $y1) = (substr($hex, 0, 2), substr($hex, 2));
-    for my $existing (@filtered) {
-      my ($x2, $y2) = (substr($existing, 0, 2), substr($existing, 2));
-      # this works because we're using hexes along the edge of the map
-      my $distance = abs($x2 - $x1) + abs($y2 - $y1);
-      # warn "Distance between $x1$y1 and $x2$y2 is $distance\n";
-      next HEX if $distance < ($width + $height) / 3;
-    }
-    push(@filtered, $hex);
-  }
-  # limit to a smaller number
-  @hexes = @filtered[0 .. (2*$height + 2*$width)/30];
-  # warn "Hexes  inside: @hexes\n";
-  # move to the outside of the map!
+  # remove hexes that are too close to each other
+  @hexes = remove_closer_than(10, @hexes);
+  # limit to a smaller number proportional to the map circumference
+  warn "Hexes unlimited: @hexes\n";
+  @hexes = @hexes[0 .. $height * $width / 100 - 1] if @hexes > $height * $width / 100;
+  warn "River mouths: @hexes\n";
+  # rivers look better if we start them outside of the map
   for my $hex (@hexes) {
     $hex =~ s/^01/00/ or $hex =~ s/01$/00/
 	or $hex =~s/^$width/$width+1/e
@@ -1206,7 +1245,10 @@ sub mouths {
 
 sub flow {
   my ($world, $altitude, $water, $rivers, $growing, $n) = @_;
-  # $n is the current river, the head of the river is the current position
+  # $rivers lists the rivers that have finished growing; $growing lists the
+  # rivers actively growing; $n is the current river in this list, the head of
+  # the river is the current position; $water shows if there is a river in that
+  # hex
   my $coordinates = $growing->[$n]->[0];
   my @up;
   # check the neighbors
@@ -1214,10 +1256,10 @@ sub flow {
     my ($x, $y) = neighbor($coordinates, $i);
     # ignore neighbors beyond the edge of the map
     next if $x <= 0 or $x > $width or $y <= 0 or $y > $height;
-    # ignore neighbors with water
+    # ignore neighbors that already have a river in them
     my $other = sprintf("%02d%02d", $x, $y);
     next if defined $water->{$other};
-    # ignore neighbors are great height
+    # ignore neighbors that are high up
     next if $altitude->{$other} >= 9;
     # collect candidates
     if (not defined $altitude->{$coordinates} # possibly outside the map!
@@ -1244,16 +1286,16 @@ sub flow {
     unshift(@{$growing->[$n]}, $other);
     # warn "extending river $n: @{$growing->[$n]}\n";
   } else {
-    # if we're no longer growing so remove it from the growing list and add it
-    # to the done rivers
+    # if we're no longer growing, remove this river from the growing list and
+    # add it to the done rivers
     my @done = splice(@$growing, $n, 1);
     push(@$rivers, @done);
-    # and place a mountain
+    # and place a hill at the source
     if ($world->{$coordinates} !~ /mountain|swamp/) {
       if ($altitude->{$coordinates} >= 6) {
-	$world->{$coordinates} =~ s/height\d+ /light-grey fir-hill /;
+	$world->{$coordinates} = qq{light-grey fir-hill "$altitude->{$coordinates}"};
       } else {
-	$world->{$coordinates} =~ s/height\d+ /grey forest-hill /;
+	$world->{$coordinates} = qq{grey forest-hill "$altitude->{$coordinates}"};
       }
     }
   }
@@ -1261,14 +1303,16 @@ sub flow {
 
 sub rivers {
   my ($world, $altitude, $water, $rivers) = @_;
-  my @mouths = mouths($altitude);
+  my @mouths = river_mouths($altitude);
   # warn "River mouths: @mouths\n";
   my @growing = map { [$_] } @mouths;
+  # don't just grow one river until you're done or it will take up all the map
   while (@growing) {
     my $n = int(rand(scalar @growing));
     # warn "looking to extend river $n, currently @{$growing[$n]}\n";
     flow($world, $altitude, $water, $rivers, \@growing, $n);
   }
+  # add arrows to the map to visualize in which direction water wants to flow
   # for my $coordinates (keys %$world) {
   #   my $i = $water->{$coordinates};
   #   $world->{$coordinates} =~ s/ / arrow$i / if defined $i;
@@ -1277,15 +1321,15 @@ sub rivers {
 
 sub forests {
   my ($world, $altitude, $water) = @_;
+  # empty hexes with a river flowing through them are forest filled valleys
   for my $coordinates (keys %$world) {
-    if ($world->{$coordinates} !~ /water|hill|mountain|swamp/
-	and defined $water->{$coordinates}) {
+    if ($world->{$coordinates} =~ /empty/ and defined $water->{$coordinates}) {
       if ($altitude->{$coordinates} >= 6) {
-	$world->{$coordinates} =~ s/height\d+ /light-green fir-forest /;
+	$world->{$coordinates} = qq{light-green fir-forest "$altitude->{$coordinates}"};
       } elsif ($altitude->{$coordinates} >= 4) {
-	$world->{$coordinates} =~ s/height\d+ /green forest /;
+	$world->{$coordinates} = qq{green forest "$altitude->{$coordinates}"};
       } else {
-	$world->{$coordinates} =~ s/height\d+ /dark-green forest /;
+	$world->{$coordinates} = qq{dark-green forest "$altitude->{$coordinates}"};
       }
     }
   }
@@ -1293,27 +1337,38 @@ sub forests {
 
 sub cities {
   my ($world) = @_;
-  for my $coordinates (keys %$world) {
-    if (rand() < .4) {
-      if ($world->{$coordinates} =~ /^light-green fir-forest /) {
-	$world->{$coordinates} =~ s/fir-forest/firs thorp/;
-      } elsif ($world->{$coordinates} =~ /^green forest /) {
-	$world->{$coordinates} =~ s/forest/trees village/;
-      } elsif ($world->{$coordinates} =~ /^dark-green forest /) {
-	$world->{$coordinates} =~ s/forest/trees town/;
-      }
-    }
+  my $max = $height * $width;
+  my @candidates = grep { $world->{$_} =~ /^light-green fir-forest / } keys %$world;
+  @candidates = remove_closer_than(2, @candidates);
+  @candidates = @candidates[0 .. int($max/10 - 1)] if @candidates > $max/10;
+  warn "thorps: @candidates\n";
+  for my $coordinates (@candidates) {
+    $world->{$coordinates} =~ s/fir-forest/firs thorp/;
+  }
+  @candidates = grep { $world->{$_} =~ /^green forest / } keys %$world;
+  @candidates = remove_closer_than(5, @candidates);
+  @candidates = @candidates[0 .. int($max/20 - 1)] if @candidates > $max/20;
+  warn "villages: @candidates\n";
+  for my $coordinates (@candidates) {
+    $world->{$coordinates} =~ s/forest/trees village/;
+  }
+  @candidates = grep { $world->{$_} =~ /^dark-green forest / } keys %$world;
+  @candidates = remove_closer_than(10, @candidates);
+  @candidates = @candidates[0 .. int($max/40 - 1)] if @candidates > $max/40;
+  warn "towns: @candidates\n";
+  for my $coordinates (@candidates) {
+    $world->{$coordinates} =~ s/forest/trees town/;
   }
 }
 
 sub plains {
   my ($world, $altitude, $water) = @_;
   for my $coordinates (keys %$world) {
-    if ($world->{$coordinates} !~ /water|hill|mountain|swamp|forest/) {
+    if ($world->{$coordinates} =~ /empty/) {
       if ($altitude->{$coordinates} >= 7) {
-	$world->{$coordinates} =~ s/height\d+ /dust grass /;
+	$world->{$coordinates} = qq{light-grey grass "$altitude->{$coordinates}"};
       } else {
-	$world->{$coordinates} =~ s/height\d+ /light-green grass /;
+	$world->{$coordinates} = qq{light-green grass "$altitude->{$coordinates}"};
       }
     }
   }
