@@ -364,7 +364,7 @@ sub process {
       my $hex = Hex->new(x => $1, y => $2, map => $self);
       $hex->label($4);
       $hex->size($5);
-      my @types = split(' ', $3);
+      my @types = split(' ', $3); # at this point we don't know what they refer to
       $hex->type(\@types);
       push(@{$self->hexes}, $hex);
       push(@{$self->things}, $hex);
@@ -376,7 +376,6 @@ sub process {
 		       } split(/-/, $1);
       $line->points(\@points);
       push(@{$self->lines}, $line);
-      push(@{$self->things}, $line);
     } elsif (/^(\S+)\s+attributes\s+(.*)/) {
       $self->attributes($1, $2);
     } elsif (/^(\S+)\s+lib\s+(.*)/) {
@@ -519,10 +518,28 @@ sub svg_defs {
   $doc .= qq{  </defs>\n};
 }
 
+sub svg_backgrounds {
+  my $self = shift;
+  my $doc = qq{  <g id="backgrounds">\n};
+  foreach my $thing (@{$self->things}) {
+    # make a copy
+    my @types = @{$thing->type};
+    # keep attributes
+    $thing->type([grep { $self->attributes($_) } @{$thing->type}]);
+    $doc .= $thing->svg();
+    # reset copy
+    $thing->type(\@types);
+  }
+  $doc .= qq{  </g>\n};
+  return $doc;
+}
+
 sub svg_things {
   my $self = shift;
   my $doc = qq{  <g id="things">\n};
   foreach my $thing (@{$self->things}) {
+    # drop attributes
+    $thing->type([grep { not $self->attributes($_) } @{$thing->type}]);
     $doc .= $thing->svg();
   }
   $doc .= qq{  </g>\n};
@@ -574,8 +591,9 @@ sub svg {
 
   my $doc = $self->svg_header();
   $doc .= $self->svg_defs();
+  $doc .= $self->svg_backgrounds(); # opaque backgrounds
   $doc .= $self->svg_lines();
-  $doc .= $self->svg_things(); # opaque backgrounds, icons, lines
+  $doc .= $self->svg_things(); # icons, lines
   $doc .= $self->svg_coordinates();
   $doc .= $self->svg_hexes();
   $doc .= $self->svg_labels();
