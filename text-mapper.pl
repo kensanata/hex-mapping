@@ -1,5 +1,8 @@
 #!/usr/bin/env perl
 
+package main;
+use Modern::Perl;
+
 my $verbose = $ENV{VERBOSE};
 my $debug = $ENV{DEBUG};
 my $output;
@@ -1036,7 +1039,7 @@ sub generate_map {
 package Schroeder;
 use Modern::Perl;
 use List::Util 'shuffle';
-
+    
 # The world is a reference to a hash where the key are the coordinates in the
 # form "0105" and the value is whatever is the map description, so it can be a
 # number of types, plus a label, plus maybe a font size, etc.
@@ -1079,7 +1082,7 @@ sub height {
       next if $altitude->{$coordinates};
       $altitude->{$coordinates} = $current_altitude;
       push(@batch, [$x, $y]);
-      $world->{$coordinates} = qq{height$current_altitude "$current_altitude"};
+      $world->{$coordinates} = qq{height$current_altitude mountains "$current_altitude"};
       # warn "Peak $coordinates\n";
       last;
     }
@@ -1157,37 +1160,91 @@ sub swamps {
       next HEX if $altitude->{$other} < $altitude->{$coordinates};
     }
     # if there was no lower neighbor, this is a swamp
-    $world->{$coordinates} = qq{swamp$altitude->{$coordinates} "swamp $altitude->{$coordinates}"};
+    $world->{$coordinates} = qq{swamp$altitude->{$coordinates} swamp "swamp $altitude->{$coordinates}"};
+  }
+}
+
+sub mouths {
+  my ($altitude) = @_;
+  # hexes along the edge of the map in a random order
+  my @hexes = shuffle(grep /^01|^$width|01$|$height$/, keys %$altitude);
+  # sort by altitude
+  @hexes = sort { $altitude->{$a} <=> $altitude->{$b} } @hexes;
+  # warn "Hexes: @hexes\n";
+  # remove close locations
+  my @filtered;
+ HEX:
+  for my $hex (@hexes) {
+    my ($x1, $y1) = (substr($hex, 0, 2), substr($hex, 2));
+    for my $existing (@filtered) {
+      my ($x2, $y2) = (substr($existing, 0, 2), substr($existing, 2));
+      # this works because we're using hexes along the edge of the map
+      my $distance = abs($x2 - $x1) + abs($y2 - $y1);
+      # warn "Distance between $x1$y1 and $x2$y2 is $distance\n";
+      next HEX if $distance < ($width + $height) / 3;
+    }
+    push(@filtered, $hex);
+  }
+  # warn "Filtered: @filtered\n";
+  return @filtered[0 .. (2*$height + 2*$width)/30];
+}
+
+sub flow {
+  my ($world, $altitude, $water, $rivers, $n) = @_;
+  # $n is the current river, the head of the river is the current position
+  my $coordinates = $rivers->[$n]->[0];
+  my @up;
+  # check the neighbors
+  for my $i (0 .. 5) {
+    my ($x, $y) = neighbor($coordinates, $i);
+    # ignore neighbors beyond the edge of the map
+    next if $x <= 0 or $x > $width or $y <= 0 or $y > $height;
+    # ignore neighbors with water
+    my $other = sprintf("%02d%02d", $x, $y);
+    next if $water->{$other};
+    # ignore neighbors are great height
+    next if $altitude->{$other} >= 9;
+    # collect candidates
+    push(@up, [$i, $other]) if $altitude->{$other} > $altitude->{$coordinates};
+  }
+  # add one of the candidates to the head of the list
+  if (@up) {
+    my $decision = $up[int(rand(scalar(@up)))];
+    my $i = $decision->[0];
+    my $other = $decision->[1];
+    $water->{$coordinates} = $i;
+    unshift(@{$rivers->[$n]}, $other);
+    return 1;
   }
 }
 
 sub rivers {
-  my ($world, $altitude) = @_;
-  my $i = 0;
- HEX:
-  for my $coordinates (sort keys %$altitude) {
-    # check the neighbors
-    my @candidates;
-    for my $i (shuffle(0 .. 5)) {
-      next if $altitude->{$coordinates} >= 9;
-      my ($x, $y) = neighbor($coordinates, $i);
-      # ignore neighbors beyond the edge of the map
-      next if $x <= 0 or $x > $width or $y <= 0 or $y > $height;
-      my $other = sprintf("%02d%02d", $x, $y);
-      next if $altitude->{$other} >= $altitude->{$coordinates};
-      $world->{$coordinates} =~ s/ / arrow$i /;
-      next HEX;
+  my ($world, $altitude, $rivers) = @_;
+  my %water;
+  my @mouths = mouths($altitude);
+  warn "River mouths: @mouths\n";
+  push(@$rivers, map { [$_] } @mouths);
+  my $flow = 1;
+  while ($flow) {
+    $flow = 0;
+    for (my $n = 0; $n < scalar(@$rivers); $n++) {
+      warn "looking to extend river $n, currently @{$rivers->[$n]}\n";
+      $flow = 1 if flow($world, $altitude, \%water, $rivers, $n);
     }
+  }
+  for my $coordinates (keys %water) {
+    my $i = $water{$coordinates};
+    $world->{$coordinates} =~ s/ / arrow$i / if defined $i;
   }
 }
 
 sub generate_map {
-  my (%world, %altitude);
+  my (%world, %altitude, @rivers);
   flat(\%world, \%altitude);
   height(\%world, \%altitude);
   lakes(\%world, \%altitude);
   swamps(\%world, \%altitude);
-  rivers(\%world, \%altitude);
+  rivers(\%world, \%altitude, \@rivers);
   return join("\n",
 	      qq{<marker id="arrow" markerWidth="6" markerHeight="6" refX="0" refY="3" orient="auto"><path d="M0,0 V6 L6,3 Z" style="fill: black;" /></marker>},
 	      qq{<path id="arrow0" d="M11.5,5.8 L-11.5,-5.8" style="stroke: black; stroke-width: 3px; fill: none; marker-end: url(#arrow);"/>},
@@ -1210,6 +1267,8 @@ sub generate_map {
 		qq{swamp$_ attributes fill="rgb($n,$g,$n)"};
 	       } (0 .. 10)),
 	      (map { $_ . " " . $world{$_} } sort keys %world),
+	      qq{river path attributes stroke="#6ebae7" stroke-width="8" fill="none" opacity="0.7"},
+	      (map { join('-', @$_) . " river" } @rivers),
 	      "include https://campaignwiki.org/contrib/gnomeyland.txt\n");
 }
 
