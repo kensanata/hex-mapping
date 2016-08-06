@@ -1151,8 +1151,10 @@ sub height {
 	  $altitude->{$coordinates} = $current_altitude;
 	  # warn "picked $coordinates near $hex->[0]$hex->[1]\n";
 	  push(@next, [$x, $y]);
-	  if ($current_altitude >= 8) {
-	    $world->{$coordinates} =~ qq{light-grey mountain "$current_altitude"};
+	  if ($current_altitude >= 9) {
+	    $world->{$coordinates} = qq{mountain "$current_altitude"};
+	  } elsif ($current_altitude >= 8) {
+	    $world->{$coordinates} = qq{light-grey mountain "$current_altitude"};
 	  } else {
 	    $world->{$coordinates} = qq{empty "$current_altitude"}; # must be overwritten!
 	  }
@@ -1392,10 +1394,10 @@ sub generate_map {
 	      # qq{<path id="arrow3" d="M-11.5,-5.8 L11.5,5.8" style="stroke: black; stroke-width: 3px; fill: none; marker-start: url(#arrow);"/>},
 	      # qq{<path id="arrow4" d="M0,-10 V20" style="stroke: black; stroke-width: 3px; fill: none; marker-start: url(#arrow);"/>},
 	      # qq{<path id="arrow5" d="M11.5,-5.8 L-11.5,5.8" style="stroke: black; stroke-width: 3px; fill: none; marker-start: url(#arrow);"/>},
-	      (map {
-		my $n = int(25.5 * $_);
-		qq{height$_ attributes fill="rgb($n,$n,$n)"};
-	       } (0 .. 10)),
+	      # (map {
+	      # 	my $n = int(25.5 * $_);
+	      # 	qq{height$_ attributes fill="rgb($n,$n,$n)"};
+	      # } (0 .. 10)),
 	      # (map {
 	      # 	my $n = int(25.5 * $_);
 	      # 	qq{lake$_ attributes fill="rgb($n,$n,255)"};
@@ -1495,9 +1497,7 @@ get '/random' => sub {
 
 get '/alpine' => sub {
   my $c = shift;
-  my $map = new Mapper;
-  $map->initialize(Schroeder::generate_map());
-  $c->render(text => $map->svg, format => 'svg');
+  $c->render(template => 'edit', map => Schroeder::generate_map());
 };
 
 get '/source' => sub {
@@ -1956,13 +1956,17 @@ Alternatively:
 
 <p>
 <%= link_to random => begin %>Random<% end %>
-will generate a map based on Erin D. Smale's <em>Hex-Based Campaign Design</em>
+will generate map data based on Erin D. Smale's <em>Hex-Based Campaign Design</em>
 (<a href="http://www.welshpiper.com/hex-based-campaign-design-part-1/">Part 1</a>,
 <a href="http://www.welshpiper.com/hex-based-campaign-design-part-2/">Part 2</a>).
 You can also generate a random map
-<%= link_to link_to url_for('random')->query(bw => 1)->to_abs => begin %>with no background colors<% end %>.
+<%= link_to link_to url_for('random')->query(bw => 1)->to_abs => begin %>with no background colors<% end %>. Click the submit button to generate the map itself.
 </p>
-
+<p>
+<%= link_to alpine => begin %>Alpine<% end %> will generate map data based on Alex
+Schroeder's algorithm that's trying to recreate a medieval Swiss landscape, with
+no info to back it up, whatsoever. Click the submit button to generate the map itself.
+</p>
 
 @@ render.svg.ep
 
