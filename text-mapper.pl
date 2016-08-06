@@ -1230,9 +1230,9 @@ sub river_mouths {
   # remove hexes that are too close to each other
   @hexes = remove_closer_than(10, @hexes);
   # limit to a smaller number proportional to the map circumference
-  warn "Hexes unlimited: @hexes\n";
+  # warn "Hexes unlimited: @hexes\n";
   @hexes = @hexes[0 .. $height * $width / 100 - 1] if @hexes > $height * $width / 100;
-  warn "River mouths: @hexes\n";
+  # warn "River mouths: @hexes\n";
   # rivers look better if we start them outside of the map
   for my $hex (@hexes) {
     $hex =~ s/^01/00/ or $hex =~ s/01$/00/
@@ -1341,21 +1341,21 @@ sub cities {
   my @candidates = grep { $world->{$_} =~ /^light-green fir-forest / } keys %$world;
   @candidates = remove_closer_than(2, @candidates);
   @candidates = @candidates[0 .. int($max/10 - 1)] if @candidates > $max/10;
-  warn "thorps: @candidates\n";
+  # warn "thorps: @candidates\n";
   for my $coordinates (@candidates) {
     $world->{$coordinates} =~ s/fir-forest/firs thorp/;
   }
   @candidates = grep { $world->{$_} =~ /^green forest / } keys %$world;
   @candidates = remove_closer_than(5, @candidates);
   @candidates = @candidates[0 .. int($max/20 - 1)] if @candidates > $max/20;
-  warn "villages: @candidates\n";
+  # warn "villages: @candidates\n";
   for my $coordinates (@candidates) {
     $world->{$coordinates} =~ s/forest/trees village/;
   }
   @candidates = grep { $world->{$_} =~ /^dark-green forest / } keys %$world;
   @candidates = remove_closer_than(10, @candidates);
   @candidates = @candidates[0 .. int($max/40 - 1)] if @candidates > $max/40;
-  warn "towns: @candidates\n";
+  # warn "towns: @candidates\n";
   for my $coordinates (@candidates) {
     $world->{$coordinates} =~ s/forest/trees town/;
   }
