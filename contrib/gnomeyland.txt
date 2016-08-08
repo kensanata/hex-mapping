@@ -20,6 +20,9 @@ glow stroke="white" stroke-width="5pt"
 
 trail path attributes stroke="#e3bea3" stroke-width="6" fill="none"
 
+# paper white
+white attributes fill="#f7f7f7"
+
 # agriculture
 light-soil attributes fill="#e5de47"
 soil attributes fill="#b0b446"
@@ -103,9 +106,23 @@ dark-green attributes fill="#2d501a"
 <g id="swamp"><path d="m -24,12 c 0,0 7,3 7,7" stroke="black" stroke-width="5"/><path d="m -14,8 c 0,0 4,7 4,9" stroke="black" stroke-width="5"/><path d="m 0,7 c 0,0 -4,5 -3,9" stroke="black" stroke-width="5"/><path d="m 9,11 c 0,0 -6,6 -6,8" stroke="black" stroke-width="5"/><path stroke="black" stroke-width="5" d="m 12,38 c 0,0 -7,-3 -7,-7"/><path stroke="black" stroke-width="5" d="m 3,43 c 0,0 -4,-7 -4,-9"/><path stroke="black" stroke-width="5" d="m -11,44 c 0,0 4,-6 3,-10"/><path stroke="black" stroke-width="5" d="m -20,40 c 0,0 6,-6 6,-8"/><line x1="-17" y1="25" x2="4" y2="25" stroke="black" stroke-width="5"/><path d="m -4,-34 c 0,0 7,3 7,7" stroke="black" stroke-width="5"/><path d="m 6,-39 c 0,0 4,7 4,9" stroke="black" stroke-width="5"/><path d="m 19,-40 c 0,0 -3,5 -2,9" stroke="black" stroke-width="5"/><path d="m 28,-36 c 0,0 -6,6 -6,8" stroke="black" stroke-width="5"/><path stroke="black" stroke-width="5" d="m 32,-9 c 0,0 -7,-3 -7,-7"/><path stroke="black" stroke-width="5" d="m 22,-4 c 0,0 -4,-7 -4,-9"/><path stroke="black" stroke-width="5" d="m 8,-3 c 0,0 5,-5 3,-10"/><path stroke="black" stroke-width="5" d="m -1,-7 c 0,0 6,-6 6,-8"/><line x1="2" y1="-22" x2="24" y2="-22" stroke="black" stroke-width="5"/></g>
 
 # cliffs
-<path id="cliff0" transform="rotate(0)" d="M-90,-17.3 l8.7,5 M-80,-34.6 l8.7,5 M-70,-52 l8.7,5 M-60,-69.3 l8.7,5" stroke="black" stroke-width="5px" fill="none"/>
-<path id="cliff1" transform="rotate(60)" d="M-90,-17.3 l8.7,5 M-80,-34.6 l8.7,5 M-70,-52 l8.7,5 M-60,-69.3 l8.7,5" stroke="black" stroke-width="5px" fill="none"/>
+<path id="cliff0" transform="rotate(  0)" d="M-90,-17.3 l8.7,5 M-80,-34.6 l8.7,5 M-70,-52 l8.7,5 M-60,-69.3 l8.7,5" stroke="black" stroke-width="5px" fill="none"/>
+<path id="cliff1" transform="rotate( 60)" d="M-90,-17.3 l8.7,5 M-80,-34.6 l8.7,5 M-70,-52 l8.7,5 M-60,-69.3 l8.7,5" stroke="black" stroke-width="5px" fill="none"/>
 <path id="cliff2" transform="rotate(120)" d="M-90,-17.3 l8.7,5 M-80,-34.6 l8.7,5 M-70,-52 l8.7,5 M-60,-69.3 l8.7,5" stroke="black" stroke-width="5px" fill="none"/>
 <path id="cliff3" transform="rotate(180)" d="M-90,-17.3 l8.7,5 M-80,-34.6 l8.7,5 M-70,-52 l8.7,5 M-60,-69.3 l8.7,5" stroke="black" stroke-width="5px" fill="none"/>
 <path id="cliff4" transform="rotate(240)" d="M-90,-17.3 l8.7,5 M-80,-34.6 l8.7,5 M-70,-52 l8.7,5 M-60,-69.3 l8.7,5" stroke="black" stroke-width="5px" fill="none"/>
 <path id="cliff5" transform="rotate(300)" d="M-90,-17.3 l8.7,5 M-80,-34.6 l8.7,5 M-70,-52 l8.7,5 M-60,-69.3 l8.7,5" stroke="black" stroke-width="5px" fill="none"/>
+
+# light and shadow
+<path id="shadow0" opacity="0.1" transform="rotate(  0)" d="M-75,0 h-25 L-50,-86.6 l12.5,21.6 Z" stroke="none" fill="black"/>
+<path id="shadow1" opacity="0.1" transform="rotate( 60)" d="M-75,0 h-25 L-50,-86.6 l12.5,21.6 Z" stroke="none" fill="black"/>
+<path id="shadow2" opacity="0.1" transform="rotate(120)" d="M-75,0 h-25 L-50,-86.6 l12.5,21.6 Z" stroke="none" fill="black"/>
+<path id="shadow3" opacity="0.1" transform="rotate(180)" d="M-75,0 h-25 L-50,-86.6 l12.5,21.6 Z" stroke="none" fill="black"/>
+<path id="shadow4" opacity="0.1" transform="rotate(240)" d="M-75,0 h-25 L-50,-86.6 l12.5,21.6 Z" stroke="none" fill="black"/>
+<path id="shadow5" opacity="0.1" transform="rotate(300)" d="M-75,0 h-25 L-50,-86.6 l12.5,21.6 Z" stroke="none" fill="black"/>
+<path id="light0"  opacity="0.1" transform="rotate(  0)" d="M-75,0 h-25 L-50,-86.6 l12.5,21.6 Z" stroke="none" fill="white"/>
+<path id="light1"  opacity="0.1" transform="rotate( 60)" d="M-75,0 h-25 L-50,-86.6 l12.5,21.6 Z" stroke="none" fill="white"/>
+<path id="light2"  opacity="0.1" transform="rotate(120)" d="M-75,0 h-25 L-50,-86.6 l12.5,21.6 Z" stroke="none" fill="white"/>
+<path id="light3"  opacity="0.1" transform="rotate(180)" d="M-75,0 h-25 L-50,-86.6 l12.5,21.6 Z" stroke="none" fill="white"/>
+<path id="light4"  opacity="0.1" transform="rotate(240)" d="M-75,0 h-25 L-50,-86.6 l12.5,21.6 Z" stroke="none" fill="white"/>
+<path id="light5"  opacity="0.1" transform="rotate(300)" d="M-75,0 h-25 L-50,-86.6 l12.5,21.6 Z" stroke="none" fill="white"/>
