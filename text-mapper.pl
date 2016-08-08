@@ -1403,18 +1403,9 @@ sub trails {
   my @to = @$settlements;
   for my $from (@from) {
     shift(@to);
-    my $connected;
     for my $to (@to) {
       if (distance($from, $to) <= 2) {
 	push(@trails, [$from, $to]);
-	$connected = 1;
-      }
-    }
-    if (not $connected) {
-      for my $to (@to) {
-	if (distance($from, $to) <= 3) {
-	  push(@trails, [$from, $to]);
-	}
       }
     }
   }
@@ -1469,8 +1460,7 @@ sub generate_map {
 	      (map { $_ . " " . $world{$_} } sort keys %world),
 	      qq{river path attributes transform="translate(20,10)" stroke="#6ebae7" stroke-width="8" fill="none" opacity="0.7"},
 	      (map { join('-', @$_) . " river" } @rivers),
-	      qq{road path attributes stroke="#e3bea3" stroke-width="6" fill="none"},
-	      (map { join('-', @$_) . " road" } @trails),
+	      (map { join('-', @$_) . " trail" } @trails),
 	      "include https://campaignwiki.org/contrib/gnomeyland.txt\n");
 }
 
