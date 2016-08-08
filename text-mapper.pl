@@ -418,6 +418,7 @@ sub process {
       }
     }
   }
+  return $self;
 }
 
 sub def {
@@ -1075,12 +1076,22 @@ sub xy {
   return (substr($coordinates, 0, 2), substr($coordinates, 2));
 }
 
+sub coordinates {
+  my ($x, $y) = @_;
+  return sprintf("%02d%02d", $x, $y);
+}
+
 sub neighbor {
   # $hex is [x,y] or "0x0y" and $i is a number 0 .. 5
   my ($hex, $i) = @_;
   $hex = [xy($hex)] unless ref $hex;
   return ($hex->[0] + $delta->[$hex->[0] % 2]->[$i]->[0],
 	  $hex->[1] + $delta->[$hex->[0] % 2]->[$i]->[1]);
+}
+
+sub legal {
+  my ($x, $y) = @_;
+  return @_ if $x > 0 and $x <= $width and $y > 0 and $y <= $height;
 }
 
 sub distance {
@@ -1132,7 +1143,7 @@ sub flat {
   my ($world, $altitude) = @_;
   for my $y (1 .. $height) {
     for my $x (1 .. $width) {
-      my $coordinates = sprintf("%02d%02d", $x, $y);
+      my $coordinates = coordinates($x, $y);
       $world->{$coordinates} = 'empty';
       $altitude->{$coordinates} = 0;
     }
@@ -1149,7 +1160,7 @@ sub height {
     for (1 .. 6) {
       my $x = int(rand($width)) + 1;
       my $y = int(rand($height)) + 1;
-      my $coordinates = sprintf("%02d%02d", $x, $y);
+      my $coordinates = coordinates($x, $y);
       next if $altitude->{$coordinates};
       $altitude->{$coordinates} = $current_altitude;
       push(@batch, [$x, $y]);
@@ -1160,7 +1171,7 @@ sub height {
   }
   # go through the batch and add adjacent lower altitude hexes, if possible; the
   # hexes added are the next batch to look at
-  while (--$current_altitude >= 0) {
+  while (--$current_altitude > 0) {
     # warn "Altitude $current_altitude\n";
     my @next;
     for my $hex (@batch) {
@@ -1170,8 +1181,8 @@ sub height {
 	# try to find an empty neighbor; abort after six attempts
 	for (1 .. 6) {
 	  my ($x, $y) = neighbor($hex, int(rand(6)));
-	  next if $x <= 0 or $x > $width or $y <= 0 or $y > $height;
-	  my $coordinates = sprintf("%02d%02d", $x, $y);
+	  next unless legal($x, $y);
+	  my $coordinates = coordinates($x, $y);
 	  next if $altitude->{$coordinates};
 	  # if we found an empty neighbor, set its altitude
 	  $altitude->{$coordinates} = $current_altitude;
@@ -1198,8 +1209,8 @@ sub height {
       # keep trying until we find one
       while (1) {
 	my ($x, $y) = neighbor($coordinates, int(rand(6)));
-	next if $x <= 0 or $x > $width or $y <= 0 or $y > $height;
-	my $other = sprintf("%02d%02d", $x, $y);
+	next unless legal($x, $y);
+	my $other = coordinates($x, $y);
 	next unless $altitude->{$other};
 	$altitude->{$coordinates} = $altitude->{$other};
 	$world->{$coordinates} = qq{empty "height$altitude->{$other}"};
@@ -1217,8 +1228,8 @@ sub lakes {
     for my $i (0 .. 5) {
       my ($x, $y) = neighbor($coordinates, $i);
       # there are no lakes at the edge of the map
-      next HEX if $x <= 0 or $x > $width or $y <= 0 or $y > $height;
-      my $other = sprintf("%02d%02d", $x, $y);
+      next HEX unless legal($x, $y);
+      my $other = coordinates($x, $y);
       next HEX if $altitude->{$other} <= $altitude->{$coordinates};
     }
     # if no lower neighbor was found, this is a lake
@@ -1236,8 +1247,8 @@ sub swamps {
     for my $i (0 .. 5) {
       my ($x, $y) = neighbor($coordinates, $i);
       # ignore neighbors beyond the edge of the map
-      next if $x <= 0 or $x > $width or $y <= 0 or $y > $height;
-      my $other = sprintf("%02d%02d", $x, $y);
+      next unless legal($x, $y);
+      my $other = coordinates($x, $y);
       next HEX if $altitude->{$other} < $altitude->{$coordinates};
     }
     # if there was no lower neighbor, this is a swamp
@@ -1283,9 +1294,9 @@ sub flow {
   for my $i (0 .. 5) {
     my ($x, $y) = neighbor($coordinates, $i);
     # ignore neighbors beyond the edge of the map
-    next if $x <= 0 or $x > $width or $y <= 0 or $y > $height;
+    next unless legal($x, $y);
     # ignore neighbors that already have a river in them
-    my $other = sprintf("%02d%02d", $x, $y);
+    my $other = coordinates($x, $y);
     next if defined $water->{$other};
     # ignore neighbors that are high up
     next if $altitude->{$other} >= 9;
@@ -1434,6 +1445,21 @@ sub plains {
   }
 }
 
+sub cliffs {
+  my ($world, $altitude) = @_;
+  # hexes with altitude difference bigger than 1 have cliffs
+  for my $coordinates (keys %$world) {
+    for my $i (0 .. 5) {
+      my ($x, $y) = neighbor($coordinates, $i);
+      next unless legal($x, $y);
+      my $other = coordinates($x, $y);
+      if ($altitude->{$coordinates} - $altitude->{$other} >= 2) {
+	$world->{$coordinates} =~ s/ / cliff$i /;
+      }
+    }
+  }
+}
+
 sub generate_map {
   my (%world, %altitude, %water);
   flat(\%world, \%altitude);
@@ -1445,6 +1471,7 @@ sub generate_map {
   my @settlements = cities(\%world);
   my @trails = trails(\%world, \@settlements);
   plains(\%world, \%altitude, \%water);
+  cliffs(\%world, \%altitude);
   return join("\n",
 	      # qq{<marker id="arrow" markerWidth="6" markerHeight="6" refX="6" refY="3" orient="auto"><path d="M6,0 V6 L0,3 Z" style="fill: black;" /></marker>},
 	      # qq{<path id="arrow0" d="M11.5,5.8 L-11.5,-5.8" style="stroke: black; stroke-width: 3px; fill: none; marker-start: url(#arrow);"/>},
@@ -1466,6 +1493,12 @@ sub generate_map {
 	      # 	my $g = $n + 50;
 	      # 	qq{swamp$_ attributes fill="rgb($n,$g,$n)"};
 	      #  } (0 .. 10)),
+	      (map {
+		my $i = $_;
+		my $angle = $i * 60;
+		# qq{<circle id="cliff$i" cx="-90" cy="-17.3" r="20" stroke="red" stroke-width="5px" fill="none"/>}
+	      	qq{<path id="cliff$i" transform="rotate($angle)" d="M-90,-17.3 l8.7,5 M-80,-34.6 l8.7,5 M-70,-52 l8.7,5 M-60,-69.3 l8.7,5" stroke="black" stroke-width="5px" fill="none"/>};
+	       } (0 .. 5)),
 	      (map { $_ . " " . $world{$_} } sort keys %world),
 	      qq{river path attributes transform="translate(20,10)" stroke="#6ebae7" stroke-width="8" fill="none" opacity="0.7"},
 	      (map { join('-', @$_) . " river" } @rivers),
@@ -1558,6 +1591,12 @@ get '/random' => sub {
 get '/alpine' => sub {
   my $c = shift;
   $c->render(template => 'edit', map => Schroeder::generate_map());
+};
+
+get '/alpine/random' => sub {
+  my $c = shift;
+  my $svg = Mapper->new()->initialize(Schroeder::generate_map())->svg();
+  $c->render(text => $svg, format => 'svg');
 };
 
 get '/source' => sub {
