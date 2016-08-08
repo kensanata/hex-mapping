@@ -1493,12 +1493,12 @@ sub generate_map {
 	      # 	my $g = $n + 50;
 	      # 	qq{swamp$_ attributes fill="rgb($n,$g,$n)"};
 	      #  } (0 .. 10)),
-	      (map {
-		my $i = $_;
-		my $angle = $i * 60;
-		# qq{<circle id="cliff$i" cx="-90" cy="-17.3" r="20" stroke="red" stroke-width="5px" fill="none"/>}
-	      	qq{<path id="cliff$i" transform="rotate($angle)" d="M-90,-17.3 l8.7,5 M-80,-34.6 l8.7,5 M-70,-52 l8.7,5 M-60,-69.3 l8.7,5" stroke="black" stroke-width="5px" fill="none"/>};
-	       } (0 .. 5)),
+	      # (map {
+	      # 	my $i = $_;
+	      # 	my $angle = $i * 60;
+	      # 	# qq{<circle id="cliff$i" cx="-90" cy="-17.3" r="20" stroke="red" stroke-width="5px" fill="none"/>}
+	      # 	qq{<path id="cliff$i" transform="rotate($angle)" d="M-90,-17.3 l8.7,5 M-80,-34.6 l8.7,5 M-70,-52 l8.7,5 M-60,-69.3 l8.7,5" stroke="black" stroke-width="5px" fill="none"/>};
+	      #  } (0 .. 5)),
 	      (map { $_ . " " . $world{$_} } sort keys %world),
 	      qq{river path attributes transform="translate(20,10)" stroke="#6ebae7" stroke-width="8" fill="none" opacity="0.7"},
 	      (map { join('-', @$_) . " river" } @rivers),
