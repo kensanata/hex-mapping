@@ -1403,9 +1403,18 @@ sub trails {
   my @to = @$settlements;
   for my $from (@from) {
     shift(@to);
+    my $connected;
     for my $to (@to) {
       if (distance($from, $to) <= 2) {
 	push(@trails, [$from, $to]);
+	$connected = 1;
+      }
+    }
+    if (not $connected) {
+      for my $to (@to) {
+	if (distance($from, $to) <= 3) {
+	  push(@trails, [$from, $to]);
+	}
       }
     }
   }
