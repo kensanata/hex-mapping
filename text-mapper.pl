@@ -1070,16 +1070,24 @@ my $height = 10;
 my $delta = [[[-1,  0], [ 0, -1], [+1,  0], [+1, +1], [ 0, +1], [-1, +1]],  # x is even
 	     [[-1, -1], [ 0, -1], [+1, -1], [+1,  0], [ 0, +1], [-1,  0]]]; # x is odd
 
+sub xy {
+  my $coordinates = shift;
+  return (substr($coordinates, 0, 2), substr($coordinates, 2));
+}
+
 sub neighbor {
   # $hex is [x,y] or "0x0y" and $i is a number 0 .. 5
   my ($hex, $i) = @_;
-  $hex = [substr($hex, 0, 2), substr($hex, 2)] unless ref $hex;
+  $hex = [xy($hex)] unless ref $hex;
   return ($hex->[0] + $delta->[$hex->[0] % 2]->[$i]->[0],
 	  $hex->[1] + $delta->[$hex->[0] % 2]->[$i]->[1]);
 }
 
 sub distance {
   my ($x1, $y1, $x2, $y2) = @_;
+  if (@_ == 2) {
+    ($x1, $y1, $x2, $y2) = map { xy($_) } @_;
+  }
   # transform the coordinate system into a decent system with one axis tilted by
   # 60°
   $y1 = $y1 - POSIX::ceil($x1/2);
@@ -1105,10 +1113,10 @@ sub remove_closer_than {
   my @filtered;
  HEX:
   for my $hex (@hexes) {
-    my ($x1, $y1) = (substr($hex, 0, 2), substr($hex, 2));
+    my ($x1, $y1) = xy($hex);
     # check distances with all the hexes already in the list
     for my $existing (@filtered) {
-      my ($x2, $y2) = (substr($existing, 0, 2), substr($existing, 2));
+      my ($x2, $y2) = xy($existing);
       my $distance = distance($x1, $y1, $x2, $y2);
       # warn "Distance between $x1$y1 and $x2$y2 is $distance\n";
       next HEX if $distance < $limit;
@@ -1322,21 +1330,23 @@ sub flow {
 }
 
 sub rivers {
-  my ($world, $altitude, $water, $rivers) = @_;
+  my ($world, $altitude, $water) = @_;
   my @mouths = river_mouths($altitude);
   # warn "River mouths: @mouths\n";
+  my @rivers;
   my @growing = map { [$_] } @mouths;
   # don't just grow one river until you're done or it will take up all the map
   while (@growing) {
     my $n = int(rand(scalar @growing));
     # warn "looking to extend river $n, currently @{$growing[$n]}\n";
-    flow($world, $altitude, $water, $rivers, \@growing, $n);
+    flow($world, $altitude, $water, \@rivers, \@growing, $n);
   }
   # add arrows to the map to visualize in which direction water wants to flow
   # for my $coordinates (keys %$world) {
   #   my $i = $water->{$coordinates};
   #   $world->{$coordinates} =~ s/ / arrow$i / if defined $i;
   # }
+  return @rivers;
 }
 
 sub forests {
@@ -1357,10 +1367,12 @@ sub forests {
 
 sub cities {
   my ($world) = @_;
+  my @settlements;
   my $max = $height * $width;
   my @candidates = grep { $world->{$_} =~ /^light-green fir-forest / } keys %$world;
   @candidates = remove_closer_than(2, @candidates);
   @candidates = @candidates[0 .. int($max/10 - 1)] if @candidates > $max/10;
+  push(@settlements, @candidates);
   # warn "thorps: @candidates\n";
   for my $coordinates (@candidates) {
     $world->{$coordinates} =~ s/fir-forest/firs thorp/;
@@ -1368,6 +1380,7 @@ sub cities {
   @candidates = grep { $world->{$_} =~ /^green forest / } keys %$world;
   @candidates = remove_closer_than(5, @candidates);
   @candidates = @candidates[0 .. int($max/20 - 1)] if @candidates > $max/20;
+  push(@settlements, @candidates);
   # warn "villages: @candidates\n";
   for my $coordinates (@candidates) {
     $world->{$coordinates} =~ s/forest/trees village/;
@@ -1375,10 +1388,37 @@ sub cities {
   @candidates = grep { $world->{$_} =~ /^dark-green forest / } keys %$world;
   @candidates = remove_closer_than(10, @candidates);
   @candidates = @candidates[0 .. int($max/40 - 1)] if @candidates > $max/40;
+  push(@settlements, @candidates);
   # warn "towns: @candidates\n";
   for my $coordinates (@candidates) {
     $world->{$coordinates} =~ s/forest/trees town/;
   }
+  return @settlements;
+}
+
+sub trails {
+  my ($world, $settlements) = @_;
+  my @trails;
+  my @from = @$settlements;
+  my @to = @$settlements;
+  for my $from (@from) {
+    shift(@to);
+    my $connected;
+    for my $to (@to) {
+      if (distance($from, $to) <= 2) {
+	push(@trails, [$from, $to]);
+	$connected = 1;
+      }
+    }
+    if (not $connected) {
+      for my $to (@to) {
+	if (distance($from, $to) <= 3) {
+	  push(@trails, [$from, $to]);
+	}
+      }
+    }
+  }
+  return @trails;
 }
 
 sub plains {
@@ -1395,14 +1435,15 @@ sub plains {
 }
 
 sub generate_map {
-  my (%world, %altitude, %water, @rivers);
+  my (%world, %altitude, %water);
   flat(\%world, \%altitude);
   height(\%world, \%altitude);
   lakes(\%world, \%altitude);
   swamps(\%world, \%altitude);
-  rivers(\%world, \%altitude, \%water, \@rivers);
+  my @rivers = rivers(\%world, \%altitude, \%water);
   forests(\%world, \%altitude, \%water);
-  cities(\%world);
+  my @settlements = cities(\%world);
+  my @trails = trails(\%world, \@settlements);
   plains(\%world, \%altitude, \%water);
   return join("\n",
 	      # qq{<marker id="arrow" markerWidth="6" markerHeight="6" refX="6" refY="3" orient="auto"><path d="M6,0 V6 L0,3 Z" style="fill: black;" /></marker>},
@@ -1428,6 +1469,8 @@ sub generate_map {
 	      (map { $_ . " " . $world{$_} } sort keys %world),
 	      qq{river path attributes transform="translate(20,10)" stroke="#6ebae7" stroke-width="8" fill="none" opacity="0.7"},
 	      (map { join('-', @$_) . " river" } @rivers),
+	      qq{road path attributes stroke="#e3bea3" stroke-width="6" fill="none"},
+	      (map { join('-', @$_) . " road" } @trails),
 	      "include https://campaignwiki.org/contrib/gnomeyland.txt\n");
 }
 
