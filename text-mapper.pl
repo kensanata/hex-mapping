@@ -1460,19 +1460,6 @@ sub cliffs {
   }
 }
 
-sub light {
-  my ($world, $altitude) = @_;
-  # cast shadows to the south-west (from direction 2)
-  for my $coordinates (keys %$world) {
-    my $i = 2;
-    my ($x, $y) = neighbor($coordinates, $i);
-    next unless legal($x, $y);
-    my $other = coordinates($x, $y);
-    next if $altitude->{$coordinates} >= $altitude->{$other};
-    $world->{$coordinates} =~ s/ / shadow /;
-  }
-}
-
 sub generate_map {
   my (%world, %altitude, %water);
   flat(\%world, \%altitude);
@@ -1485,7 +1472,6 @@ sub generate_map {
   my @trails = trails(\%world, \@settlements);
   plains(\%world, \%altitude, \%water);
   cliffs(\%world, \%altitude);
-  light(\%world, \%altitude);
   return join("\n",
 	      # qq{<marker id="arrow" markerWidth="6" markerHeight="6" refX="6" refY="3" orient="auto"><path d="M6,0 V6 L0,3 Z" style="fill: black;" /></marker>},
 	      # qq{<path id="arrow0" d="M11.5,5.8 L-11.5,-5.8" style="stroke: black; stroke-width: 3px; fill: none; marker-start: url(#arrow);"/>},
@@ -1517,7 +1503,7 @@ sub generate_map {
 	      qq{river path attributes transform="translate(20,10)" stroke="#6ebae7" stroke-width="8" fill="none" opacity="0.7"},
 	      (map { join('-', @$_) . " river" } @rivers),
 	      (map { join('-', @$_) . " trail" } @trails),
-	      "include https://campaignwiki.org/contrib/gnomeyland.txt\n",
+	      # "include https://campaignwiki.org/contrib/gnomeyland.txt\n",
 	      "include file:///Users/alex/Source/hex-mapping/contrib/gnomeyland.txt\n");
 }
 
