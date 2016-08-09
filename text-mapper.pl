@@ -1067,6 +1067,7 @@ use List::Util 'shuffle';
 
 my $width = 20;
 my $height = 10;
+my $number_of_rivers = 2;
 
 my $delta = [[[-1,  0], [ 0, -1], [+1,  0], [+1, +1], [ 0, +1], [-1, +1]],  # x is even
 	     [[-1, -1], [ 0, -1], [+1, -1], [+1,  0], [ 0, +1], [-1,  0]]]; # x is odd
@@ -1267,10 +1268,10 @@ sub river_mouths {
   # sort by altitude since we want low lying edge hexes
   @hexes = sort { $altitude->{$a} <=> $altitude->{$b} } @hexes;
   # remove hexes that are too close to each other
-  @hexes = remove_closer_than(10, @hexes);
-  # limit to a smaller number proportional to the map circumference
+  @hexes = remove_closer_than(5, @hexes);
+  # limit to a smaller number
   # warn "Hexes unlimited: @hexes\n";
-  @hexes = @hexes[0 .. $height * $width / 100 - 1] if @hexes > $height * $width / 100;
+  @hexes = @hexes[0 .. $number_of_rivers - 1] if @hexes > $number_of_rivers;
   # warn "River mouths: @hexes\n";
   # rivers look better if we start them outside of the map
   for my $hex (@hexes) {
@@ -1461,6 +1462,9 @@ sub cliffs {
 }
 
 sub generate_map {
+  $width = shift||$width;
+  $height = shift||$height;
+  $number_of_rivers = shift||$number_of_rivers;
   my (%world, %altitude, %water);
   flat(\%world, \%altitude);
   height(\%world, \%altitude);
@@ -1591,12 +1595,12 @@ get '/random' => sub {
 
 get '/alpine' => sub {
   my $c = shift;
-  $c->render(template => 'edit', map => Schroeder::generate_map());
+  $c->render(template => 'edit', map => Schroeder::generate_map($c->param('width'), $c->param('height'), $c->param('rivers')));
 };
 
 get '/alpine/random' => sub {
   my $c = shift;
-  my $svg = Mapper->new()->initialize(Schroeder::generate_map())->svg();
+  my $svg = Mapper->new()->initialize(Schroeder::generate_map($c->param('width'), $c->param('height'), $c->param('rivers')))->svg();
   $c->render(text => $svg, format => 'svg');
 };
 
