@@ -1164,7 +1164,7 @@ sub height {
       next if $altitude->{$coordinates};
       $altitude->{$coordinates} = $current_altitude;
       push(@batch, [$x, $y]);
-      $world->{$coordinates} = qq{mountains "$current_altitude"};
+      $world->{$coordinates} = qq{white mountains "$current_altitude"};
       # warn "Peak $coordinates\n";
       last;
     }
@@ -1189,7 +1189,7 @@ sub height {
 	  # warn "picked $coordinates near $hex->[0]$hex->[1]\n";
 	  push(@next, [$x, $y]);
 	  if ($current_altitude >= 9) {
-	    $world->{$coordinates} = qq{mountain "$current_altitude"};
+	    $world->{$coordinates} = qq{white mountain "$current_altitude"};
 	  } elsif ($current_altitude >= 8) {
 	    $world->{$coordinates} = qq{light-grey mountain "$current_altitude"};
 	  } else {
@@ -1460,6 +1460,25 @@ sub cliffs {
   }
 }
 
+sub light {
+  my ($world, $altitude) = @_;
+  # cast shadows to the right (0, 5, 6)
+  for my $coordinates (keys %$world) {
+    for my $i (0 .. 5) {
+      my ($x, $y) = neighbor($coordinates, $i);
+      next unless legal($x, $y);
+      my $other = coordinates($x, $y);
+      next if $altitude->{$coordinates} == $altitude->{$other};
+      if ($altitude->{$coordinates} > $altitude->{$other} and $i >= 1 and $i <=3
+	  or $altitude->{$coordinates} < $altitude->{$other} and ($i == 0 or $i > 3)) {
+	$world->{$coordinates} =~ s/ / light$i /;
+      } elsif (1) {
+	$world->{$coordinates} =~ s/ / shadow$i /;
+      }
+    }
+  }
+}
+
 sub generate_map {
   my (%world, %altitude, %water);
   flat(\%world, \%altitude);
@@ -1472,6 +1491,7 @@ sub generate_map {
   my @trails = trails(\%world, \@settlements);
   plains(\%world, \%altitude, \%water);
   cliffs(\%world, \%altitude);
+  light(\%world, \%altitude);
   return join("\n",
 	      # qq{<marker id="arrow" markerWidth="6" markerHeight="6" refX="6" refY="3" orient="auto"><path d="M6,0 V6 L0,3 Z" style="fill: black;" /></marker>},
 	      # qq{<path id="arrow0" d="M11.5,5.8 L-11.5,-5.8" style="stroke: black; stroke-width: 3px; fill: none; marker-start: url(#arrow);"/>},
