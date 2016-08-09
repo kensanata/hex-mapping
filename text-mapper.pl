@@ -1462,20 +1462,14 @@ sub cliffs {
 
 sub light {
   my ($world, $altitude) = @_;
-  # cast shadows to the right (0, 5, 6)
+  # cast shadows to the south-west (from direction 2)
   for my $coordinates (keys %$world) {
-    for my $i (0 .. 5) {
-      my ($x, $y) = neighbor($coordinates, $i);
-      next unless legal($x, $y);
-      my $other = coordinates($x, $y);
-      next if $altitude->{$coordinates} == $altitude->{$other};
-      if ($altitude->{$coordinates} > $altitude->{$other} and $i >= 1 and $i <=3
-	  or $altitude->{$coordinates} < $altitude->{$other} and ($i == 0 or $i > 3)) {
-	$world->{$coordinates} =~ s/ / light$i /;
-      } elsif (1) {
-	$world->{$coordinates} =~ s/ / shadow$i /;
-      }
-    }
+    my $i = 2;
+    my ($x, $y) = neighbor($coordinates, $i);
+    next unless legal($x, $y);
+    my $other = coordinates($x, $y);
+    next if $altitude->{$coordinates} >= $altitude->{$other};
+    $world->{$coordinates} =~ s/ / shadow /;
   }
 }
 
@@ -1523,7 +1517,8 @@ sub generate_map {
 	      qq{river path attributes transform="translate(20,10)" stroke="#6ebae7" stroke-width="8" fill="none" opacity="0.7"},
 	      (map { join('-', @$_) . " river" } @rivers),
 	      (map { join('-', @$_) . " trail" } @trails),
-	      "include https://campaignwiki.org/contrib/gnomeyland.txt\n");
+	      "include https://campaignwiki.org/contrib/gnomeyland.txt\n",
+	      "include file:///Users/alex/Source/hex-mapping/contrib/gnomeyland.txt\n");
 }
 
 package Mojolicious::Command::render;
