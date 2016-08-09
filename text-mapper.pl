@@ -1460,6 +1460,21 @@ sub cliffs {
   }
 }
 
+sub shadows {
+  my ($world, $altitude) = @_;
+  # hexes with altitude difference cast an outwards shadow
+  for my $coordinates (keys %$world) {
+    for my $i (0 .. 5) {
+      my ($x, $y) = neighbor($coordinates, $i);
+      next unless legal($x, $y);
+      my $other = coordinates($x, $y);
+      if ($altitude->{$coordinates} > $altitude->{$other}) {
+	$world->{$coordinates} =~ s/ / shadow$i /;
+      }
+    }
+  }
+}
+
 sub generate_map {
   my (%world, %altitude, %water);
   flat(\%world, \%altitude);
@@ -1472,6 +1487,7 @@ sub generate_map {
   my @trails = trails(\%world, \@settlements);
   plains(\%world, \%altitude, \%water);
   cliffs(\%world, \%altitude);
+  shadows(\%world, \%altitude);
   return join("\n",
 	      # qq{<marker id="arrow" markerWidth="6" markerHeight="6" refX="6" refY="3" orient="auto"><path d="M6,0 V6 L0,3 Z" style="fill: black;" /></marker>},
 	      # qq{<path id="arrow0" d="M11.5,5.8 L-11.5,-5.8" style="stroke: black; stroke-width: 3px; fill: none; marker-start: url(#arrow);"/>},
