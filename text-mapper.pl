@@ -1164,7 +1164,7 @@ sub height {
       next if $altitude->{$coordinates};
       $altitude->{$coordinates} = $current_altitude;
       push(@batch, [$x, $y]);
-      $world->{$coordinates} = qq{white mountains "$current_altitude"};
+      $world->{$coordinates} = qq{white mountains height$current_altitude};
       # warn "Peak $coordinates\n";
       last;
     }
@@ -1189,11 +1189,11 @@ sub height {
 	  # warn "picked $coordinates near $hex->[0]$hex->[1]\n";
 	  push(@next, [$x, $y]);
 	  if ($current_altitude >= 9) {
-	    $world->{$coordinates} = qq{white mountain "$current_altitude"};
+	    $world->{$coordinates} = qq{white mountain height$current_altitude};
 	  } elsif ($current_altitude >= 8) {
-	    $world->{$coordinates} = qq{light-grey mountain "$current_altitude"};
+	    $world->{$coordinates} = qq{light-grey mountain height$current_altitude};
 	  } else {
-	    $world->{$coordinates} = qq{empty "$current_altitude"}; # must be overwritten!
+	    $world->{$coordinates} = qq{empty height"$current_altitude"}; # must be overwritten!
 	  }
 	  last;
 	}
@@ -1213,7 +1213,7 @@ sub height {
 	my $other = coordinates($x, $y);
 	next unless $altitude->{$other};
 	$altitude->{$coordinates} = $altitude->{$other};
-	$world->{$coordinates} = qq{empty "height$altitude->{$other}"};
+	$world->{$coordinates} = qq{empty height$altitude->{$other}};
 	last;
       }
     }
@@ -1233,7 +1233,7 @@ sub lakes {
       next HEX if $altitude->{$other} <= $altitude->{$coordinates};
     }
     # if no lower neighbor was found, this is a lake
-    $world->{$coordinates} = qq{water "$altitude->{$coordinates}"};
+    $world->{$coordinates} = qq{water height$altitude->{$coordinates}};
   }  
 }
 
@@ -1253,9 +1253,9 @@ sub swamps {
     }
     # if there was no lower neighbor, this is a swamp
     if ($altitude->{$coordinates} >= 6) {
-      $world->{$coordinates} = qq{grey swamp "$altitude->{$coordinates}"};
+      $world->{$coordinates} = qq{grey swamp height$altitude->{$coordinates}};
     } else {
-      $world->{$coordinates} = qq{dark-grey swamp "$altitude->{$coordinates}"};
+      $world->{$coordinates} = qq{dark-grey swamp height$altitude->{$coordinates}};
     }
   }
 }
@@ -1332,9 +1332,9 @@ sub flow {
     # and place a hill at the source
     if ($world->{$coordinates} !~ /mountain|swamp/) {
       if ($altitude->{$coordinates} >= 6) {
-	$world->{$coordinates} = qq{light-grey fir-hill "$altitude->{$coordinates}"};
+	$world->{$coordinates} = qq{light-grey fir-hill height$altitude->{$coordinates}};
       } else {
-	$world->{$coordinates} = qq{grey forest-hill "$altitude->{$coordinates}"};
+	$world->{$coordinates} = qq{grey forest-hill height$altitude->{$coordinates}};
       }
     }
   }
@@ -1366,11 +1366,11 @@ sub forests {
   for my $coordinates (keys %$world) {
     if ($world->{$coordinates} =~ /empty/ and defined $water->{$coordinates}) {
       if ($altitude->{$coordinates} >= 6) {
-	$world->{$coordinates} = qq{light-green fir-forest "$altitude->{$coordinates}"};
+	$world->{$coordinates} = qq{light-green fir-forest height$altitude->{$coordinates}};
       } elsif ($altitude->{$coordinates} >= 4) {
-	$world->{$coordinates} = qq{green forest "$altitude->{$coordinates}"};
+	$world->{$coordinates} = qq{green forest height$altitude->{$coordinates}};
       } else {
-	$world->{$coordinates} = qq{dark-green forest "$altitude->{$coordinates}"};
+	$world->{$coordinates} = qq{dark-green forest height$altitude->{$coordinates}};
       }
     }
   }
@@ -1437,9 +1437,9 @@ sub plains {
   for my $coordinates (keys %$world) {
     if ($world->{$coordinates} =~ /empty/) {
       if ($altitude->{$coordinates} >= 7) {
-	$world->{$coordinates} = qq{light-grey grass "$altitude->{$coordinates}"};
+	$world->{$coordinates} = qq{light-grey grass height$altitude->{$coordinates}};
       } else {
-	$world->{$coordinates} = qq{light-green grass "$altitude->{$coordinates}"};
+	$world->{$coordinates} = qq{light-green grass height$altitude->{$coordinates}};
       }
     }
   }
