@@ -113,11 +113,3 @@ dark-green attributes fill="#2d501a"
 <path id="cliff3" transform="rotate(180)" d="M-90,-17.3 l8.7,5 M-80,-34.6 l8.7,5 M-70,-52 l8.7,5 M-60,-69.3 l8.7,5" stroke="black" stroke-width="5px" fill="none"/>
 <path id="cliff4" transform="rotate(240)" d="M-90,-17.3 l8.7,5 M-80,-34.6 l8.7,5 M-70,-52 l8.7,5 M-60,-69.3 l8.7,5" stroke="black" stroke-width="5px" fill="none"/>
 <path id="cliff5" transform="rotate(300)" d="M-90,-17.3 l8.7,5 M-80,-34.6 l8.7,5 M-70,-52 l8.7,5 M-60,-69.3 l8.7,5" stroke="black" stroke-width="5px" fill="none"/>
-
-# shadow
-<g id="shadow0"><path opacity="0.1" transform="rotate(  0)" d="M-50,-86.6 h-50 L-125,-43.3 L-100,0 Z" stroke="none" fill="black"/><path opacity="0.05" transform="rotate(  0)" d="M-50,-86.6 h-25 L-112.5,-21.6 L-100,0 Z" stroke="none" fill="black"/></g>
-<g id="shadow1"><path opacity="0.1" transform="rotate( 60)" d="M-50,-86.6 h-50 L-125,-43.3 L-100,0 Z" stroke="none" fill="black"/><path opacity="0.05" transform="rotate( 60)" d="M-50,-86.6 h-25 L-112.5,-21.6 L-100,0 Z" stroke="none" fill="black"/></g>
-<g id="shadow2"><path opacity="0.1" transform="rotate(120)" d="M-50,-86.6 h-50 L-125,-43.3 L-100,0 Z" stroke="none" fill="black"/><path opacity="0.05" transform="rotate(120)" d="M-50,-86.6 h-25 L-112.5,-21.6 L-100,0 Z" stroke="none" fill="black"/></g>
-<g id="shadow3"><path opacity="0.1" transform="rotate(180)" d="M-50,-86.6 h-50 L-125,-43.3 L-100,0 Z" stroke="none" fill="black"/><path opacity="0.05" transform="rotate(180)" d="M-50,-86.6 h-25 L-112.5,-21.6 L-100,0 Z" stroke="none" fill="black"/></g>
-<g id="shadow4"><path opacity="0.1" transform="rotate(240)" d="M-50,-86.6 h-50 L-125,-43.3 L-100,0 Z" stroke="none" fill="black"/><path opacity="0.05" transform="rotate(240)" d="M-50,-86.6 h-25 L-112.5,-21.6 L-100,0 Z" stroke="none" fill="black"/></g>
-<g id="shadow5"><path opacity="0.1" transform="rotate(300)" d="M-50,-86.6 h-50 L-125,-43.3 L-100,0 Z" stroke="none" fill="black"/><path opacity="0.05" transform="rotate(300)" d="M-50,-86.6 h-25 L-112.5,-21.6 L-100,0 Z" stroke="none" fill="black"/></g>
