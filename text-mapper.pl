@@ -2075,7 +2075,21 @@ You can also generate a random map
 <%= link_to alpine => begin %>Alpine<% end %> will generate map data based on Alex
 Schroeder's algorithm that's trying to recreate a medieval Swiss landscape, with
 no info to back it up, whatsoever. Click the submit button to generate the map itself.
+Or just keep reloading
+<%= link_to link_to url_for('alpinerandom')->to_abs => begin %>this link<% end %>.
+You'll find the map description in a comment within the SVG file.
 </p>
+%= form_for alpine => begin
+<table>
+<tr><td>Width:</td><td>
+%= number_field width => 20
+</td></tr><tr><td>Height:</td><td>
+%= number_field height => 10
+</td></tr><tr><td>Rivers:</td><td>
+%= number_field rivers => 2
+</td></tr></table>
+%= submit_button
+% end
 
 @@ render.svg.ep
 
