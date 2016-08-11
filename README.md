@@ -55,3 +55,12 @@ This application takes the UWP of a subsector and generates a map for
 you. If possible, it also adds communication and trade routes based on
 some heuristics. You should install the `uwp-generator` in the same
 directory such that the "Random Map" button works as advertized.
+
+monones
+-------
+
+This application generates an island using a
+[Voronoi diagram](https://en.wikipedia.org/wiki/Voronoi_diagram). It's
+based on Amit Patel's post
+[Polygonal Map Generation for Games](http://www-cs-students.stanford.edu/~amitp/game-programming/polygon-map-generation/)
+(2010).
