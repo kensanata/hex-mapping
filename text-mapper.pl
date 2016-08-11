@@ -1205,17 +1205,21 @@ sub height {
   }
   # find hexes that we missed and give them the height of a random neighbor
   for my $coordinates (keys %$altitude) {
-    if (not $altitude->{$coordinates}) {
+    if (not defined $altitude->{$coordinates}) {
       # warn "identified a hex that was skipped: $coordinates\n";
-      # keep trying until we find one
-      while (1) {
+      # try to find a suitable neighbor
+      for (1 .. 6) {
 	my ($x, $y) = neighbor($coordinates, int(rand(6)));
 	next unless legal($x, $y);
 	my $other = coordinates($x, $y);
-	next unless $altitude->{$other};
+	next unless defined $altitude->{$other};
 	$altitude->{$coordinates} = $altitude->{$other};
 	$world->{$coordinates} = qq{empty height$altitude->{$other}};
 	last;
+      }
+      # if we didn't find one in the last six attempts, just make it hole in the ground
+      if (not defined $altitude->{$coordinates}) {
+	$altitude->{$coordinates} = 0;
       }
     }
   }
