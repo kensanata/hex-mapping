@@ -1507,8 +1507,9 @@ sub generate_map {
 	      qq{river path attributes transform="translate(20,10)" stroke="#6ebae7" stroke-width="8" fill="none" opacity="0.7"},
 	      (map { join('-', @$_) . " river" } @rivers),
 	      (map { join('-', @$_) . " trail" } @trails),
-	      # "include https://campaignwiki.org/contrib/gnomeyland.txt\n",
-	      "include file:///Users/alex/Source/hex-mapping/contrib/gnomeyland.txt\n");
+	      "include https://campaignwiki.org/contrib/gnomeyland.txt\n",
+	      # "include file:///Users/alex/Source/hex-mapping/contrib/gnomeyland.txt\n"
+      );
 }
 
 package Mojolicious::Command::render;
