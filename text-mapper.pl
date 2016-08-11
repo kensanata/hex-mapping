@@ -1268,7 +1268,7 @@ sub river_mouths {
   # sort by altitude since we want low lying edge hexes
   @hexes = sort { $altitude->{$a} <=> $altitude->{$b} } @hexes;
   # remove hexes that are too close to each other
-  @hexes = remove_closer_than(5, @hexes);
+  @hexes = remove_closer_than(10, @hexes);
   # limit to a smaller number
   # warn "Hexes unlimited: @hexes\n";
   @hexes = @hexes[0 .. $number_of_rivers - 1] if @hexes > $number_of_rivers;
