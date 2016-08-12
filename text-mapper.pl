@@ -2216,8 +2216,9 @@ neighbors are candidates if their altitude is the same or higher up than the
 current hex or if it's a lake (we're assuming a gorge in these cases). If there
 are multiple candidates, there is a fork in the river. When there are no more
 candidates, we've found a source for the river. We add a forested hill at the
-source of every river. If the altitude of the source is six or higher, then it
-will be a light-grey fir hill instead of a grey forest-hill.</p>
+source of every river unless there's already a mountain, a swamp, or a lake. If
+the altitude of the source is six or higher, then it will be a light-grey fir
+hill instead of a grey forest-hill.</p>
 
 %== $river_map
 
