@@ -1501,8 +1501,8 @@ sub generate_map {
   $width = shift||$width;
   $height = shift||$height;
   $number_of_rivers = shift||$number_of_rivers;
+  my $seed = shift||time;
   my $step = shift||0;
-  my $seed = shift||rand;
 
   # For documentation purposes, I want to be able to set the pseudo-random
   # number seed using srand and rely on rand to reproduce the same sequence of
@@ -1524,7 +1524,8 @@ sub generate_map {
 	      (map { $_ . " " . $world{$_} } sort keys %world),
 	      (map { join('-', @$_) . " river" } @rivers),
 	      (map { join('-', @$_) . " trail" } @trails),
-	      "include https://campaignwiki.org/contrib/gnomeyland.txt\n");
+	      "include https://campaignwiki.org/contrib/gnomeyland.txt",
+	      "# Seed: $seed");
 }
 
 package Mojolicious::Command::render;
@@ -1622,7 +1623,8 @@ get '/alpine/random' => sub {
   my $svg = Mapper->new()
       ->initialize(Schroeder::generate_map($c->param('width'),
 					   $c->param('height'),
-					   $c->param('rivers')))
+					   $c->param('rivers'),
+					   $c->param('seed')))
       ->svg();
   $c->render(text => $svg, format => 'svg');
 };
@@ -1648,7 +1650,7 @@ get '/alpine/document' => sub {
 	   } (0 .. 10));
 
   my @map = map {
-    my $map = "$attributes\n" . Schroeder::generate_map(@params, $_, $seed);
+    my $map = "$attributes\n" . Schroeder::generate_map(@params, $seed, $_);
     Mapper->new()->initialize($map)->svg;
   } (0 .. 10);
 
