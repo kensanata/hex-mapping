@@ -1174,7 +1174,7 @@ sub altitude {
     for my $hex (@batch) {
       my @plains;
       # pick some random neighbors
-      for (1 .. 2) {
+      for (1 .. 3) {
 	# try to find an empty neighbor; abort after six attempts
 	for (1 .. 6) {
 	  my ($x, $y) = neighbor($hex, int(rand(6)));
@@ -1373,6 +1373,29 @@ sub rivers {
   return @rivers;
 }
 
+sub erosion {
+  my ($world, $altitude, $rivers) = @_;
+  # warn "Rivers: " . @$rivers . "\n";
+  my @long_rivers = sort { scalar @$b <=> scalar @$a } @$rivers;
+  @long_rivers = @long_rivers[0 .. int(@long_rivers / 10)];
+  for my $river (@long_rivers) {
+    if (@$river >= 5) {
+      # warn join("-", @$river) . " is long\n";
+      # the river is at least five hexes long, so skip the first three elements
+      # (index 3 is the fourth element) and ignore the last one (index -1, it's
+      # not a legal hex)
+      for my $coordinates (@$river[3 .. @$river - 2]) {
+	my $alt = $altitude->{$coordinates};
+	if ($alt > 0) {
+	  $altitude->{$coordinates} = $alt - 1;
+	  $world->{$coordinates} =~ s/height$alt/height$altitude->{$coordinates}/;
+	  # warn "$world->{$coordinates} altitude decreased from $alt to $altitude->{$coordinates}\n";
+	}
+      }
+    }
+  }
+}
+
 sub forests {
   my ($world, $altitude, $water) = @_;
   # empty hexes with a river flowing through them are forest filled valleys
@@ -1484,16 +1507,23 @@ sub generate {
   return if $step == 3;
   lakes($world, $altitude);
   return if $step == 4;
-  swamps($world, $altitude);
-  return if $step == 5;
   push(@$rivers, rivers($world, $altitude, $water));
+  return if $step == 5;
+  erosion($world, $altitude, $rivers);
   return if $step == 6;
-  forests($world, $altitude, $water);
+  # let new rivers flow!
+  %$water = ();
+  @$rivers = ();
+  push(@$rivers, rivers($world, $altitude, $water));
   return if $step == 7;
-  plains($world, $altitude, $water);
+  swamps($world, $altitude);
   return if $step == 8;
-  push(@$settlements, settlements($world));
+  forests($world, $altitude, $water);
   return if $step == 9;
+  plains($world, $altitude, $water);
+  return if $step == 10;
+  push(@$settlements, settlements($world));
+  return if $step == 11;
   push(@$trails, trails($world, $settlements));
 }
 
@@ -1630,13 +1660,6 @@ get '/alpine/random' => sub {
   $c->render(text => $svg, format => 'svg');
 };
 
-sub prefix_ids {
-  my ($str, $prefix) = @_;
-  $str =~ s/id="/id="x$prefix-/g;
-  $str =~ s/xlink:href="#/xlink:href="#x$prefix-/g;
-  return $str;
-}
-
 get '/alpine/document' => sub {
   my $c = shift;
   my @params = ($c->param('width'),
@@ -1652,8 +1675,10 @@ get '/alpine/document' => sub {
 
   my @map = map {
     my $map = "$attributes\n" . Schroeder::generate_map(@params, $seed, $_);
-    Mapper->new()->initialize($map)->svg;
-  } (0 .. 10);
+    my $svg = Mapper->new()->initialize($map)->svg;
+    $svg =~ s/<\?xml version="1.0" encoding="UTF-8" standalone="no"\?>\n//g;
+    $svg;
+  } (0 .. 11);
 
   $c->render(template => 'alpinedocument',
 	     seed => $seed,
@@ -1662,12 +1687,14 @@ get '/alpine/document' => sub {
 	     mountain_map => $map[2],
 	     cliff_map => $map[3],
 	     lake_map => $map[4],
-	     swamp_map => $map[5],
-	     river_map => $map[6],
-	     forest_map => $map[7],
-	     plain_map => $map[8],
-	     settlement_map => $map[9],
-	     trail_map => $map[10]);
+	     river_map => $map[5],
+	     erosion_map => $map[6],
+	     new_river_map => $map[7],
+	     swamp_map => $map[8],
+	     forest_map => $map[9],
+	     plain_map => $map[10],
+	     settlement_map => $map[11],
+	     trail_map => $map[12]);
 };
 
 	      # qq{<marker id="arrow" markerWidth="6" markerHeight="6" refX="6" refY="3" orient="auto"><path d="M6,0 V6 L0,3 Z" style="fill: black;" /></marker>},
@@ -2187,11 +2214,11 @@ You'll find the map description in a comment within the SVG file.
 <h1>Alpine Map: How does it get created?</h1>
 
 <p>How do we get to the following map?
-<%= link_to link_to url_for('alpinedocument')->query(height => 5) => begin %>Reload<% end %>
+<%= link_to url_for('alpinedocument')->query(height => 5) => begin %>Reload<% end %>
 to get a different one. If you like this particular map, bookmark
-<%= link_to link_to url_for('alpinerandom')->query(height => 5, seed => $seed) => begin %>this link<% end %>,
+<%= link_to url_for('alpinerandom')->query(height => 5, seed => $seed) => begin %>this link<% end %>,
 and edit it using
-<%= link_to link_to url_for('alpine')->query(height => 5, seed => $seed) => begin %>this link<% end %>,
+<%= link_to url_for('alpine')->query(height => 5, seed => $seed) => begin %>this link<% end %>,
 </p>
 
 %== $final_map
@@ -2216,14 +2243,6 @@ altitude.</p>
 
 %== $lake_map
 
-<p>Swamps form whenever there is no immediate neighbor that is lower. The water
-just doesn't drain fast enough. The higher up these swamps form, the lighter the
-color. Swamps that replace mountains (altitude eight) are light-grey, other
-swamps are just grey (altitudes six or seven) or dark-grey (altitude five or
-lower).</p>
-
-%== $swamp_map
-
 <p>River mouths are picked at random by looking at all the hexes at the edges,
 sorting them by height, and removing the ones that are less than ten hexes
 appart. From there, rivers grow upwards, if possible. We consider all the
@@ -2238,6 +2257,26 @@ the altitude of the source is six or higher, then it will be a light-grey fir
 hill instead of a grey forest-hill.</p>
 
 %== $river_map
+
+<p>Assuming that the longest valleys were once filled with glaciers, let's add
+some erosion. Basically, the longest rivers dig deeper: from the fourth hex
+along the river until the mouth of the river, decrease altitude if it is
+positive.</p>
+
+%== $erosion_map
+
+<p>After some erosion, the rivers might flow differently, so rerun the river
+flow.</p>
+
+%== $new_river_map
+
+<p>Swamps form whenever there is no immediate neighbor that is lower. The water
+just doesn't drain fast enough. The higher up these swamps form, the lighter the
+color. Swamps that replace mountains (altitude eight) are light-grey, other
+swamps are just grey (altitudes six or seven) or dark-grey (altitude five or
+lower).</p>
+
+%== $swamp_map
 
 <p>Wherever there is water and no swamp, forests will form. Forests that are
 higher up (altitude six and more) will be fir forests. Forests that lie very low
