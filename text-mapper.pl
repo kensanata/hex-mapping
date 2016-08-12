@@ -2184,7 +2184,7 @@ You'll find the map description in a comment within the SVG file.
 @@ alpinedocument.html.ep
 % layout 'default';
 % title 'Alpine Documentation';
-<h1>Alpine Map: Hows does it get created?</h1>
+<h1>Alpine Map: How does it get created?</h1>
 
 <p>How do we get to the following map?
 <%= link_to link_to url_for('alpinedocument')->query(height => 5) => begin %>Reload<% end %>
