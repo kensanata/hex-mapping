@@ -272,7 +272,7 @@ sub url_encode {
 
 sub svg_label {
   my ($self, $url) = @_;
-  return '' unless $self->label;
+  return '' unless defined $self->label;
   my $attributes = $self->map->label_attributes;
   if ($self->size) {
     if (not $attributes =~ s/\bfont-size="\d+pt"/'font-size="' . $self->size . 'pt"'/e) {
@@ -404,9 +404,7 @@ sub process {
       if (scalar keys %{$self->seen} > 5) {
 	push(@{$self->messages},
 	     "Includes are limited to five to prevent loops");
-      } elsif ($self->seen($1)) {
-	push(@{$self->messages}, "$1 was included twice");
-      } else {
+      } elsif (not $self->seen($1)) {
 	$self->seen($1, 1);
 	my $ua = LWP::UserAgent->new(ssl_opts => { verify_hostname => 1 });
 	my $response = $ua->get($1);
@@ -496,7 +494,7 @@ sub svg_defs {
 					   $self->path_attributes($type));
     my $glow_attributes = $self->glow_attributes;
     if ($path || $attributes) {
-      $doc .= qq{    <g id='$type'>\n};
+      $doc .= qq{    <g id="$type">\n};
       # just shapes get a glow such, eg. a house (must come first)
       if ($path && !$attributes) {
 	$doc .= qq{      <path $glow_attributes d='$path' />\n}
@@ -1140,18 +1138,18 @@ sub remove_closer_than {
 }
 
 sub flat {
-  # initialize the altitude map
-  my ($world, $altitude) = @_;
+  # initialize the altitude map; this is required so that we have a list of
+  # legal hex coordinates somewhere
+  my ($altitude) = @_;
   for my $y (1 .. $height) {
     for my $x (1 .. $width) {
       my $coordinates = coordinates($x, $y);
-      $world->{$coordinates} = 'empty';
       $altitude->{$coordinates} = 0;
     }
   }
 }
 
-sub height {
+sub altitude {
   my ($world, $altitude) = @_;
   my $current_altitude = 10;
   my @batch;
@@ -1165,8 +1163,6 @@ sub height {
       next if $altitude->{$coordinates};
       $altitude->{$coordinates} = $current_altitude;
       push(@batch, [$x, $y]);
-      $world->{$coordinates} = qq{white mountains height$current_altitude};
-      # warn "Peak $coordinates\n";
       last;
     }
   }
@@ -1189,13 +1185,6 @@ sub height {
 	  $altitude->{$coordinates} = $current_altitude;
 	  # warn "picked $coordinates near $hex->[0]$hex->[1]\n";
 	  push(@next, [$x, $y]);
-	  if ($current_altitude >= 9) {
-	    $world->{$coordinates} = qq{white mountain height$current_altitude};
-	  } elsif ($current_altitude >= 8) {
-	    $world->{$coordinates} = qq{light-grey mountain height$current_altitude};
-	  } else {
-	    $world->{$coordinates} = qq{empty height"$current_altitude"}; # must be overwritten!
-	  }
 	  last;
 	}
       }
@@ -1214,13 +1203,28 @@ sub height {
 	my $other = coordinates($x, $y);
 	next unless defined $altitude->{$other};
 	$altitude->{$coordinates} = $altitude->{$other};
-	$world->{$coordinates} = qq{empty height$altitude->{$other}};
 	last;
       }
       # if we didn't find one in the last six attempts, just make it hole in the ground
       if (not defined $altitude->{$coordinates}) {
 	$altitude->{$coordinates} = 0;
       }
+    }
+    # for debugging purposes
+    $world->{$coordinates} = "height$altitude->{$coordinates}";
+  }
+}
+
+sub mountains {
+  my ($world, $altitude) = @_;
+  # place the types
+  for my $coordinates (keys %$altitude) {
+    if ($altitude->{$coordinates} >= 10) {
+      $world->{$coordinates} = "white mountains";
+    } elsif ($altitude->{$coordinates} >= 9) {
+      $world->{$coordinates} = "white mountain";
+    } elsif ($altitude->{$coordinates} >= 8) {
+      $world->{$coordinates} = "light-grey mountain";
     }
   }
 }
@@ -1238,7 +1242,8 @@ sub lakes {
       next HEX if $altitude->{$other} <= $altitude->{$coordinates};
     }
     # if no lower neighbor was found, this is a lake
-    $world->{$coordinates} = qq{water height$altitude->{$coordinates}};
+    $world->{$coordinates} = "water";
+    # warn "lake at $coordinates\n";
   }  
 }
 
@@ -1247,7 +1252,8 @@ sub swamps {
   my ($world, $altitude) = @_;
  HEX:
   for my $coordinates (keys %$altitude) {
-    next if $world->{$coordinates} =~ /^water/;
+    # don't turn lakes into swamps
+    next if $world->{$coordinates} =~ /water/;
     # check the neighbors
     for my $i (0 .. 5) {
       my ($x, $y) = neighbor($coordinates, $i);
@@ -1257,10 +1263,12 @@ sub swamps {
       next HEX if $altitude->{$other} < $altitude->{$coordinates};
     }
     # if there was no lower neighbor, this is a swamp
-    if ($altitude->{$coordinates} >= 6) {
-      $world->{$coordinates} = qq{grey swamp height$altitude->{$coordinates}};
+    if ($altitude->{$coordinates} >= 8) {
+      $world->{$coordinates} = "light-grey swamp";
+    } elsif ($altitude->{$coordinates} >= 6) {
+      $world->{$coordinates} = "grey swamp";
     } else {
-      $world->{$coordinates} = qq{dark-grey swamp height$altitude->{$coordinates}};
+      $world->{$coordinates} = "dark-grey swamp";
     }
   }
 }
@@ -1268,7 +1276,7 @@ sub swamps {
 sub river_mouths {
   my ($altitude) = @_;
   # hexes along the edge of the map in a random order
-  my @hexes = shuffle(grep /^01|^$width|01$|$height$/, keys %$altitude);
+  my @hexes = shuffle grep /^01|^$width|01$|$height$/, keys %$altitude;
   # sort by altitude since we want low lying edge hexes
   @hexes = sort { $altitude->{$a} <=> $altitude->{$b} } @hexes;
   # remove hexes that are too close to each other
@@ -1335,11 +1343,11 @@ sub flow {
     my @done = splice(@$growing, $n, 1);
     push(@$rivers, @done);
     # and place a hill at the source
-    if ($world->{$coordinates} !~ /mountain|swamp/) {
+    if ($world->{$coordinates} !~ /mountain|swamp|water/) {
       if ($altitude->{$coordinates} >= 6) {
-	$world->{$coordinates} = qq{light-grey fir-hill height$altitude->{$coordinates}};
+	$world->{$coordinates} = "light-grey fir-hill";
       } else {
-	$world->{$coordinates} = qq{grey forest-hill height$altitude->{$coordinates}};
+	$world->{$coordinates} = "grey forest-hill";
       }
     }
   }
@@ -1369,23 +1377,36 @@ sub forests {
   my ($world, $altitude, $water) = @_;
   # empty hexes with a river flowing through them are forest filled valleys
   for my $coordinates (keys %$world) {
-    if ($world->{$coordinates} =~ /empty/ and defined $water->{$coordinates}) {
+    if ($world->{$coordinates} !~ /mountain|hill|water|swamp/ and defined $water->{$coordinates}) {
       if ($altitude->{$coordinates} >= 6) {
-	$world->{$coordinates} = qq{light-green fir-forest height$altitude->{$coordinates}};
+	$world->{$coordinates} = "light-green fir-forest";
       } elsif ($altitude->{$coordinates} >= 4) {
-	$world->{$coordinates} = qq{green forest height$altitude->{$coordinates}};
+	$world->{$coordinates} = "green forest";
       } else {
-	$world->{$coordinates} = qq{dark-green forest height$altitude->{$coordinates}};
+	$world->{$coordinates} = "dark-green forest";
       }
     }
   }
 }
 
-sub cities {
+sub plains {
+  my ($world, $altitude, $water) = @_;
+  for my $coordinates (keys %$world) {
+    if ($world->{$coordinates} !~ /mountain|hill|water|swamp|forest|firs|trees/) {
+      if ($altitude->{$coordinates} >= 7) {
+	$world->{$coordinates} = "light-grey grass";
+      } else {
+	$world->{$coordinates} = "light-green grass";
+      }
+    }
+  }
+}
+
+sub settlements {
   my ($world) = @_;
   my @settlements;
   my $max = $height * $width;
-  my @candidates = grep { $world->{$_} =~ /^light-green fir-forest / } keys %$world;
+  my @candidates = grep { $world->{$_} =~ /light-green fir-forest/ } keys %$world;
   @candidates = remove_closer_than(2, @candidates);
   @candidates = @candidates[0 .. int($max/10 - 1)] if @candidates > $max/10;
   push(@settlements, @candidates);
@@ -1393,7 +1414,7 @@ sub cities {
   for my $coordinates (@candidates) {
     $world->{$coordinates} =~ s/fir-forest/firs thorp/;
   }
-  @candidates = grep { $world->{$_} =~ /^green forest / } keys %$world;
+  @candidates = grep { $world->{$_} =~ /green forest/ } keys %$world;
   @candidates = remove_closer_than(5, @candidates);
   @candidates = @candidates[0 .. int($max/20 - 1)] if @candidates > $max/20;
   push(@settlements, @candidates);
@@ -1401,7 +1422,7 @@ sub cities {
   for my $coordinates (@candidates) {
     $world->{$coordinates} =~ s/forest/trees village/;
   }
-  @candidates = grep { $world->{$_} =~ /^dark-green forest / } keys %$world;
+  @candidates = grep { $world->{$_} =~ /dark-green forest/ } keys %$world;
   @candidates = remove_closer_than(10, @candidates);
   @candidates = @candidates[0 .. int($max/40 - 1)] if @candidates > $max/40;
   push(@settlements, @candidates);
@@ -1437,19 +1458,6 @@ sub trails {
   return @trails;
 }
 
-sub plains {
-  my ($world, $altitude, $water) = @_;
-  for my $coordinates (keys %$world) {
-    if ($world->{$coordinates} =~ /empty/) {
-      if ($altitude->{$coordinates} >= 7) {
-	$world->{$coordinates} = qq{light-grey grass height$altitude->{$coordinates}};
-      } else {
-	$world->{$coordinates} = qq{light-green grass height$altitude->{$coordinates}};
-      }
-    }
-  }
-}
-
 sub cliffs {
   my ($world, $altitude) = @_;
   # hexes with altitude difference bigger than 1 have cliffs
@@ -1459,61 +1467,53 @@ sub cliffs {
       next unless legal($x, $y);
       my $other = coordinates($x, $y);
       if ($altitude->{$coordinates} - $altitude->{$other} >= 2) {
-	$world->{$coordinates} =~ s/ / cliff$i /;
+	$world->{$coordinates} .= " cliff$i";
       }
     }
   }
+}
+
+sub generate {
+  my ($world, $altitude, $water, $rivers, $settlements, $trails, $step) = @_;
+  flat($altitude);
+  altitude($world, $altitude);
+  return if $step == 1;
+  mountains($world, $altitude);
+  return if $step == 2;
+  cliffs($world, $altitude);
+  return if $step == 3;
+  lakes($world, $altitude);
+  return if $step == 4;
+  swamps($world, $altitude);
+  return if $step == 5;
+  push(@$rivers, rivers($world, $altitude, $water));
+  return if $step == 6;
+  forests($world, $altitude, $water);
+  return if $step == 7;
+  plains($world, $altitude, $water);
+  return if $step == 8;
+  push(@$settlements, settlements($world));
+  return if $step == 9;
+  push(@$trails, trails($world, $settlements));
 }
 
 sub generate_map {
   $width = shift||$width;
   $height = shift||$height;
   $number_of_rivers = shift||$number_of_rivers;
-  my (%world, %altitude, %water);
-  flat(\%world, \%altitude);
-  height(\%world, \%altitude);
-  lakes(\%world, \%altitude);
-  swamps(\%world, \%altitude);
-  my @rivers = rivers(\%world, \%altitude, \%water);
-  forests(\%world, \%altitude, \%water);
-  my @settlements = cities(\%world);
-  my @trails = trails(\%world, \@settlements);
-  plains(\%world, \%altitude, \%water);
-  cliffs(\%world, \%altitude);
+  my $step = shift||0;
+  my (%world, %altitude, %water, @rivers, @settlements, @trails);
+  generate(\%world, \%altitude, \%water, \@rivers, \@settlements, \@trails, $step);
+  if ($step) {
+    for my $coordinates (keys %world) {
+      $world{$coordinates} .= qq{ "$altitude{$coordinates}"};
+    }
+  }
   return join("\n",
-	      # qq{<marker id="arrow" markerWidth="6" markerHeight="6" refX="6" refY="3" orient="auto"><path d="M6,0 V6 L0,3 Z" style="fill: black;" /></marker>},
-	      # qq{<path id="arrow0" d="M11.5,5.8 L-11.5,-5.8" style="stroke: black; stroke-width: 3px; fill: none; marker-start: url(#arrow);"/>},
-	      # qq{<path id="arrow1" d="M0,10 V-20" style="stroke: black; stroke-width: 3px; fill: none; marker-start: url(#arrow);"/>},
-	      # qq{<path id="arrow2" d="M-11.5,5.8 L11.5,-5.8" style="stroke: black; stroke-width: 3px; fill: none; marker-start: url(#arrow);"/>},
-	      # qq{<path id="arrow3" d="M-11.5,-5.8 L11.5,5.8" style="stroke: black; stroke-width: 3px; fill: none; marker-start: url(#arrow);"/>},
-	      # qq{<path id="arrow4" d="M0,-10 V20" style="stroke: black; stroke-width: 3px; fill: none; marker-start: url(#arrow);"/>},
-	      # qq{<path id="arrow5" d="M11.5,-5.8 L-11.5,5.8" style="stroke: black; stroke-width: 3px; fill: none; marker-start: url(#arrow);"/>},
-	      # (map {
-	      # 	my $n = int(25.5 * $_);
-	      # 	qq{height$_ attributes fill="rgb($n,$n,$n)"};
-	      # } (0 .. 10)),
-	      # (map {
-	      # 	my $n = int(25.5 * $_);
-	      # 	qq{lake$_ attributes fill="rgb($n,$n,255)"};
-	      #  } (0 .. 10)),
-	      # (map {
-	      # 	my $n = int(20 * $_);
-	      # 	my $g = $n + 50;
-	      # 	qq{swamp$_ attributes fill="rgb($n,$g,$n)"};
-	      #  } (0 .. 10)),
-	      # (map {
-	      # 	my $i = $_;
-	      # 	my $angle = $i * 60;
-	      # 	# qq{<circle id="cliff$i" cx="-90" cy="-17.3" r="20" stroke="red" stroke-width="5px" fill="none"/>}
-	      # 	qq{<path id="cliff$i" transform="rotate($angle)" d="M-90,-17.3 l8.7,5 M-80,-34.6 l8.7,5 M-70,-52 l8.7,5 M-60,-69.3 l8.7,5" stroke="black" stroke-width="5px" fill="none"/>};
-	      #  } (0 .. 5)),
 	      (map { $_ . " " . $world{$_} } sort keys %world),
-	      qq{river path attributes transform="translate(20,10)" stroke="#6ebae7" stroke-width="8" fill="none" opacity="0.7"},
 	      (map { join('-', @$_) . " river" } @rivers),
 	      (map { join('-', @$_) . " trail" } @trails),
-	      "include https://campaignwiki.org/contrib/gnomeyland.txt\n",
-	      # "include file:///Users/alex/Source/hex-mapping/contrib/gnomeyland.txt\n"
-      );
+	      "include https://campaignwiki.org/contrib/gnomeyland.txt\n");
 }
 
 package Mojolicious::Command::render;
@@ -1600,14 +1600,84 @@ get '/random' => sub {
 
 get '/alpine' => sub {
   my $c = shift;
-  $c->render(template => 'edit', map => Schroeder::generate_map($c->param('width'), $c->param('height'), $c->param('rivers')));
+  $c->render(template => 'edit',
+	     map => Schroeder::generate_map($c->param('width'),
+					    $c->param('height'),
+					    $c->param('rivers')));
 };
 
 get '/alpine/random' => sub {
   my $c = shift;
-  my $svg = Mapper->new()->initialize(Schroeder::generate_map($c->param('width'), $c->param('height'), $c->param('rivers')))->svg();
+  my $svg = Mapper->new()
+      ->initialize(Schroeder::generate_map($c->param('width'),
+					   $c->param('height'),
+					   $c->param('rivers')))
+      ->svg();
   $c->render(text => $svg, format => 'svg');
 };
+
+sub prefix_ids {
+  my ($str, $prefix) = @_;
+  $str =~ s/id="/id="x$prefix-/g;
+  $str =~ s/xlink:href="#/xlink:href="#x$prefix-/g;
+  return $str;
+}
+
+get '/alpine/document' => sub {
+  my $c = shift;
+  my @params = ($c->param('width'),
+		$c->param('height'),
+		$c->param('rivers'));
+  my $seed = $c->param('seed')||rand;
+  my $attributes =
+      join("\n",
+	   map {
+	     my $n = int(25.5 * $_);
+	     qq{height$_ attributes fill="rgb($n,$n,$n)"};
+	   } (0 .. 10));
+  
+  my @map = map {
+    srand $seed;
+    my $map = "$attributes\n" . Schroeder::generate_map(@params, $_);
+    Mapper->new()->initialize($map)->svg;
+  } (0 .. 10);
+
+  $c->render(template => 'alpinedocument',
+	     final_map => $map[0],
+	     height_map => $map[1],
+	     mountain_map => $map[2],
+	     cliff_map => $map[3],
+	     lake_map => $map[4],
+	     swamp_map => $map[5],
+	     river_map => $map[6],
+	     forest_map => $map[7],
+	     plain_map => $map[8],
+	     settlement_map => $map[9],
+	     trail_map => $map[10]);
+};
+
+	      # qq{<marker id="arrow" markerWidth="6" markerHeight="6" refX="6" refY="3" orient="auto"><path d="M6,0 V6 L0,3 Z" style="fill: black;" /></marker>},
+	      # qq{<path id="arrow0" d="M11.5,5.8 L-11.5,-5.8" style="stroke: black; stroke-width: 3px; fill: none; marker-start: url(#arrow);"/>},
+	      # qq{<path id="arrow1" d="M0,10 V-20" style="stroke: black; stroke-width: 3px; fill: none; marker-start: url(#arrow);"/>},
+	      # qq{<path id="arrow2" d="M-11.5,5.8 L11.5,-5.8" style="stroke: black; stroke-width: 3px; fill: none; marker-start: url(#arrow);"/>},
+	      # qq{<path id="arrow3" d="M-11.5,-5.8 L11.5,5.8" style="stroke: black; stroke-width: 3px; fill: none; marker-start: url(#arrow);"/>},
+	      # qq{<path id="arrow4" d="M0,-10 V20" style="stroke: black; stroke-width: 3px; fill: none; marker-start: url(#arrow);"/>},
+	      # qq{<path id="arrow5" d="M11.5,-5.8 L-11.5,5.8" style="stroke: black; stroke-width: 3px; fill: none; marker-start: url(#arrow);"/>},
+	      # (map {
+	      # 	my $n = int(25.5 * $_);
+	      # 	qq{lake$_ attributes fill="rgb($n,$n,255)"};
+	      #  } (0 .. 10)),
+	      # (map {
+	      # 	my $n = int(20 * $_);
+	      # 	my $g = $n + 50;
+	      # 	qq{swamp$_ attributes fill="rgb($n,$g,$n)"};
+	      #  } (0 .. 10)),
+	      # (map {
+	      # 	my $i = $_;
+	      # 	my $angle = $i * 60;
+	      # 	# qq{<circle id="cliff$i" cx="-90" cy="-17.3" r="20" stroke="red" stroke-width="5px" fill="none"/>}
+	      # 	qq{<path id="cliff$i" transform="rotate($angle)" d="M-90,-17.3 l8.7,5 M-80,-34.6 l8.7,5 M-70,-52 l8.7,5 M-60,-69.3 l8.7,5" stroke="black" stroke-width="5px" fill="none"/>};
+	      #  } (0 .. 5)),
 
 get '/source' => sub {
   my $c = shift;
@@ -2074,8 +2144,9 @@ You can also generate a random map
 <p>
 <%= link_to alpine => begin %>Alpine<% end %> will generate map data based on Alex
 Schroeder's algorithm that's trying to recreate a medieval Swiss landscape, with
-no info to back it up, whatsoever. Click the submit button to generate the map itself.
-Or just keep reloading
+no info to back it up, whatsoever. See it
+<%= link_to link_to url_for('alpinedocument')->to_abs => begin %>documented<% end %>.
+Click the submit button to generate the map itself. Or just keep reloading
 <%= link_to link_to url_for('alpinerandom')->to_abs => begin %>this link<% end %>.
 You'll find the map description in a comment within the SVG file.
 </p>
@@ -2091,7 +2162,90 @@ You'll find the map description in a comment within the SVG file.
 %= submit_button
 % end
 
+
 @@ render.svg.ep
+
+
+@@ alpinedocument.html.ep
+% layout 'default';
+% title 'Alpine Documentation';
+<h1>Alpine Map: Hows does it get created?</h1>
+
+<p>How do we get to the following map?</p>
+
+%== $final_map
+
+<p>First, we pick a number of peaks and set their altitude to 10. Then we loop
+through all the altitudes from 10 down to 1 and for every hex we added in the
+previous run, we add two neighbors at a lower altitude, if possible. If our
+random growth missed any hexes, we just copy the height of a neighbor.</p>
+
+%== $height_map
+
+<p>Mountains are the hexes at high altitudes.</p>
+
+%== $mountain_map
+
+<p>Cliffs form wherever the drop is more than just one level of altitude.</p>
+
+%== $cliff_map
+
+<p>We identify lakes by finding any hex that is surrounded by higher
+altitude.</p>
+
+%== $lake_map
+
+<p>Swamps form whenever there is no immediate neighbor that is lower. The water
+just doesn't drain fast enough. The higher up these swamps form, the lighter the
+color. Swamps that replace mountains (altitude eight) are light-grey, other
+swamps are just grey (altitudes six or seven) or dark-grey (altitude five or
+lower).</p>
+
+%== $swamp_map
+
+<p>River mouths are picked at random by looking at all the hexes at the edges,
+sorting them by height, and removing the ones that are less than ten hexes
+appart. From there, rivers grow upwards, if possible. We consider all the
+neighbor hexes and ignore the ones outside the map, the ones that already have a
+river flowing through them, and high altitudes (nine or more). The remaining
+neighbors are candidates if their altitude is the same or higher up than the
+current hex or if it's a lake (we're assuming a gorge in these cases). If there
+are multiple candidates, there is a fork in the river. When there are no more
+candidates, we've found a source for the river. We add a forested hill at the
+source of every river. If the altitude of the source is six or higher, then it
+will be a light-grey fir hill instead of a grey forest-hill.</p>
+
+%== $river_map
+
+<p>Wherever there is water and no swamp, forests will form. Forests that are
+higher up (altitude six and more) will be fir forests. Forests that lie very low
+(altitude 3 and less) will be dark-green forests.</p>
+
+%== $forest_map
+
+<p>Any hex that's left is going to be plains. At high altitudes (seven or more),
+the color changes from light-green to light-grey.</p>
+
+%== $plain_map
+
+<p>Wherenver there is forest, settlements will be built. These reduce the
+density of the forest. There are three levels of settlements: thorps, villages
+and towns.</p>
+
+<table>
+<tr><th>Settlement</th><th>Forest</th><th>Altitudes</th><th>Number</th><th>Minimum Distance</th></tr>
+<tr><td>Thorp</td><td>fir-forest</td><td>6–7</td><td>10%</td><td>2</td></tr>
+<tr><td>Village</td><td>green forest</td><td>4–5</td><td>5%</td><td>5</td></tr>
+<tr><td>Thorp</td><td>dark-green forest</td><td>0–3</td><td>2.5%</td><td>10</td></tr>
+</table>
+
+%== $settlement_map
+
+<p>Trails connect every settlement to any neighbor that is one or two hexes
+away. If no such neighbor can be found, we try to find neighbors that are three
+hexes away.</p>
+
+%== $trail_map
 
 
 @@ layouts/default.html.ep
@@ -2107,6 +2261,12 @@ body {
 }
 textarea {
   width: 100%;
+}
+table {
+  padding-bottom: 1em;
+}
+td, th {
+  padding-right: 0.5em;
 }
 .example {
   font-size: smaller;
