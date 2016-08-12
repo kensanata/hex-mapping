@@ -19,6 +19,7 @@ glow stroke="white" stroke-width="5pt"
 # object shadow: #fecb86
 
 trail path attributes stroke="#e3bea3" stroke-width="6" fill="none"
+river path attributes transform="translate(20,10)" stroke="#6ebae7" stroke-width="8" fill="none" opacity="0.7"
 
 # paper white
 white attributes fill="#f7f7f7"
