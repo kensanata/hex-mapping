@@ -615,7 +615,7 @@ sub svg {
 }
 
 package Smale;
-    
+
 my %world = ();
 
 #         ATLAS HEX PRIMARY TERRAIN TYPE
@@ -1030,7 +1030,7 @@ sub generate_map {
   my @seed_terrain = keys %primary;
   seed_region($seeds, one(@seed_terrain));
   agriculture();
-  
+
   # delete extra hexes we generated to fill the gaps
   for my $coordinates (keys %world) {
     $coordinates =~ /(..)(..)/;
@@ -1048,7 +1048,7 @@ sub generate_map {
       }
     }
   }
-  
+
   return join("\n", map { $_ . " " . $world{$_} } sort keys %world) . "\n"
     . "include https://campaignwiki.org/contrib/gnomeyland.txt\n";
 }
@@ -1056,7 +1056,7 @@ sub generate_map {
 package Schroeder;
 use Modern::Perl;
 use List::Util 'shuffle';
-    
+
 # The world is a reference to a hash where the key are the coordinates in the
 # form "0105" and the value is whatever is the map description, so it can be a
 # number of types, plus a label, plus maybe a font size, etc.
@@ -1244,7 +1244,7 @@ sub lakes {
     # if no lower neighbor was found, this is a lake
     $world->{$coordinates} = "water";
     # warn "lake at $coordinates\n";
-  }  
+  }
 }
 
 sub swamps {
@@ -1577,7 +1577,7 @@ get '/' => sub {
   } else {
     $c->render(template => 'edit', map => Mapper::example());
   }
-}; 
+};
 
 any '/edit' => sub {
   my $c = shift;
@@ -1635,7 +1635,7 @@ get '/alpine/document' => sub {
 	     my $n = int(25.5 * $_);
 	     qq{height$_ attributes fill="rgb($n,$n,$n)"};
 	   } (0 .. 10));
-  
+
   my @map = map {
     srand $seed;
     my $map = "$attributes\n" . Schroeder::generate_map(@params, $_);
