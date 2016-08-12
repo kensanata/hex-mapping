@@ -2146,7 +2146,7 @@ Click the submit button to generate the map itself.
 <%= link_to alpine => begin %>Alpine<% end %> will generate map data based on Alex
 Schroeder's algorithm that's trying to recreate a medieval Swiss landscape, with
 no info to back it up, whatsoever. See it
-<%= link_to alpinedocument => begin %>documented<% end %>.
+<%= link_to link_to url_for('alpinedocument')->query(height => 5) => begin %>documented<% end %>.
 Click the submit button to generate the map itself. Or just keep reloading
 <%= link_to alpinerandom => begin %>this link<% end %>.
 You'll find the map description in a comment within the SVG file.
@@ -2172,7 +2172,10 @@ You'll find the map description in a comment within the SVG file.
 % title 'Alpine Documentation';
 <h1>Alpine Map: Hows does it get created?</h1>
 
-<p>How do we get to the following map?</p>
+<p>How do we get to the following map?
+<%= link_to link_to url_for('alpinedocument')->query(height => 5) => begin %>Reload<% end %>
+to get a different one.
+</p>
 
 %== $final_map
 
