@@ -1055,8 +1055,7 @@ sub generate_map {
 
 package Schroeder;
 use Modern::Perl;
-# use List::Util 'shuffle';
-use Math::Random::MT;
+use List::Util 'shuffle';
 
 # The world is a reference to a hash where the key are the coordinates in the
 # form "0105" and the value is whatever is the map description, so it can be a
@@ -1067,10 +1066,6 @@ use Math::Random::MT;
 my $width = 20;
 my $height = 10;
 my $number_of_rivers = 2;
-
-# I need my own random number generator because core rand and srand don't work:
-# somewhere within rivers, the results start to diverge.
-my $gen;
 
 my $delta = [[[-1,  0], [ 0, -1], [+1,  0], [+1, +1], [ 0, +1], [-1, +1]],  # x is even
 	     [[-1, -1], [ 0, -1], [+1, -1], [+1,  0], [ 0, +1], [-1,  0]]]; # x is odd
@@ -1162,8 +1157,8 @@ sub altitude {
   for (1 .. int($width * $height / 20)) {
     # try to find an empty hex
     for (1 .. 6) {
-      my $x = int($gen->rand($width)) + 1;
-      my $y = int($gen->rand($height)) + 1;
+      my $x = int(rand($width)) + 1;
+      my $y = int(rand($height)) + 1;
       my $coordinates = coordinates($x, $y);
       next if $altitude->{$coordinates};
       $altitude->{$coordinates} = $current_altitude;
@@ -1182,7 +1177,7 @@ sub altitude {
       for (1 .. 2) {
 	# try to find an empty neighbor; abort after six attempts
 	for (1 .. 6) {
-	  my ($x, $y) = neighbor($hex, int($gen->rand(6)));
+	  my ($x, $y) = neighbor($hex, int(rand(6)));
 	  next unless legal($x, $y);
 	  my $coordinates = coordinates($x, $y);
 	  next if $altitude->{$coordinates};
@@ -1203,7 +1198,7 @@ sub altitude {
       # warn "identified a hex that was skipped: $coordinates\n";
       # try to find a suitable neighbor
       for (1 .. 6) {
-	my ($x, $y) = neighbor($coordinates, int($gen->rand(6)));
+	my ($x, $y) = neighbor($coordinates, int(rand(6)));
 	next unless legal($x, $y);
 	my $other = coordinates($x, $y);
 	next unless defined $altitude->{$other};
@@ -1281,7 +1276,7 @@ sub swamps {
 sub river_mouths {
   my ($altitude) = @_;
   # hexes along the edge of the map in a random order
-  my @hexes = sort grep /^01|^$width|01$|$height$/, keys %$altitude;
+  my @hexes = shuffle sort grep /^01|^$width|01$|$height$/, keys %$altitude;
   # sort by altitude since we want low lying edge hexes
   @hexes = sort { $altitude->{$a} <=> $altitude->{$b} } @hexes;
   # remove hexes that are too close to each other
@@ -1366,7 +1361,7 @@ sub rivers {
   my @growing = map { [$_] } @mouths;
   # don't just grow one river until you're done or it will take up all the map
   while (@growing) {
-    my $n = int($gen->rand(scalar @growing));
+    my $n = int(rand(scalar @growing));
     # warn "looking to extend river $n, currently @{$growing[$n]}\n";
     flow($world, $altitude, $water, \@rivers, \@growing, $n);
   }
@@ -1411,7 +1406,7 @@ sub settlements {
   my ($world) = @_;
   my @settlements;
   my $max = $height * $width;
-  my @candidates = sort grep { $world->{$_} =~ /light-green fir-forest/ } keys %$world;
+  my @candidates = shuffle sort grep { $world->{$_} =~ /light-green fir-forest/ } keys %$world;
   @candidates = remove_closer_than(2, @candidates);
   @candidates = @candidates[0 .. int($max/10 - 1)] if @candidates > $max/10;
   push(@settlements, @candidates);
@@ -1419,7 +1414,7 @@ sub settlements {
   for my $coordinates (@candidates) {
     $world->{$coordinates} =~ s/fir-forest/firs thorp/;
   }
-  @candidates = sort grep { $world->{$_} =~ /green forest/ } keys %$world;
+  @candidates = shuffle sort grep { $world->{$_} =~ /green forest/ } keys %$world;
   @candidates = remove_closer_than(5, @candidates);
   @candidates = @candidates[0 .. int($max/20 - 1)] if @candidates > $max/20;
   push(@settlements, @candidates);
@@ -1427,7 +1422,7 @@ sub settlements {
   for my $coordinates (@candidates) {
     $world->{$coordinates} =~ s/forest/trees village/;
   }
-  @candidates = sort grep { $world->{$_} =~ /dark-green forest/ } keys %$world;
+  @candidates = shuffle sort grep { $world->{$_} =~ /dark-green forest/ } keys %$world;
   @candidates = remove_closer_than(10, @candidates);
   @candidates = @candidates[0 .. int($max/40 - 1)] if @candidates > $max/40;
   push(@settlements, @candidates);
@@ -1507,9 +1502,16 @@ sub generate_map {
   $height = shift||$height;
   $number_of_rivers = shift||$number_of_rivers;
   my $step = shift||0;
-  my $seed = shift;
+  my $seed = shift||rand;
 
-  $gen = Math::Random::MT->new($seed);
+  # For documentation purposes, I want to be able to set the pseudo-random
+  # number seed using srand and rely on rand to reproduce the same sequence of
+  # pseudo-random numbers for the same seed. The key point to remember is that
+  # the keys function will return keys in random order. So if we look over the
+  # result of keys, we need to look at the code in the loop: If order is
+  # important, that wont do. We need to sort the keys. If we want the keys to be
+  # pseudo-shuffled, use shuffle sort keys.
+  srand($seed);
   
   my (%world, %altitude, %water, @rivers, @settlements, @trails);
   generate(\%world, \%altitude, \%water, \@rivers, \@settlements, \@trails, $step);
