@@ -2139,15 +2139,16 @@ will generate map data based on Erin D. Smale's <em>Hex-Based Campaign Design</e
 (<a href="http://www.welshpiper.com/hex-based-campaign-design-part-1/">Part 1</a>,
 <a href="http://www.welshpiper.com/hex-based-campaign-design-part-2/">Part 2</a>).
 You can also generate a random map
-<%= link_to link_to url_for('random')->query(bw => 1)->to_abs => begin %>with no background colors<% end %>. Click the submit button to generate the map itself.
+<%= link_to link_to url_for('random')->query(bw => 1) => begin %>with no background colors<% end %>.
+Click the submit button to generate the map itself.
 </p>
 <p>
 <%= link_to alpine => begin %>Alpine<% end %> will generate map data based on Alex
 Schroeder's algorithm that's trying to recreate a medieval Swiss landscape, with
 no info to back it up, whatsoever. See it
-<%= link_to link_to url_for('alpinedocument')->to_abs => begin %>documented<% end %>.
+<%= link_to alpinedocument => begin %>documented<% end %>.
 Click the submit button to generate the map itself. Or just keep reloading
-<%= link_to link_to url_for('alpinerandom')->to_abs => begin %>this link<% end %>.
+<%= link_to alpinerandom => begin %>this link<% end %>.
 You'll find the map description in a comment within the SVG file.
 </p>
 %= form_for alpine => begin
