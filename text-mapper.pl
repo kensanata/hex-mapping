@@ -1615,7 +1615,8 @@ get '/alpine' => sub {
   $c->render(template => 'edit',
 	     map => Schroeder::generate_map($c->param('width'),
 					    $c->param('height'),
-					    $c->param('rivers')));
+					    $c->param('rivers'),
+					    $c->param('seed')));
 };
 
 get '/alpine/random' => sub {
@@ -1655,6 +1656,7 @@ get '/alpine/document' => sub {
   } (0 .. 10);
 
   $c->render(template => 'alpinedocument',
+	     seed => $seed,
 	     final_map => $map[0],
 	     height_map => $map[1],
 	     mountain_map => $map[2],
@@ -2186,7 +2188,10 @@ You'll find the map description in a comment within the SVG file.
 
 <p>How do we get to the following map?
 <%= link_to link_to url_for('alpinedocument')->query(height => 5) => begin %>Reload<% end %>
-to get a different one.
+to get a different one. If you like this particular map, bookmark
+<%= link_to link_to url_for('alpinerandom')->query(height => 5, seed => $seed) => begin %>this link<% end %>,
+and edit it using
+<%= link_to link_to url_for('alpine')->query(height => 5, seed => $seed) => begin %>this link<% end %>,
 </p>
 
 %== $final_map
