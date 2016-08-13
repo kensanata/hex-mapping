@@ -1419,19 +1419,7 @@ sub rivers {
 	push(@$river, $other);
       } 
     } else {
-      # extend the river past the edge of the map
-      my ($x, $y) = xy($coordinates);
-      if ($x == 1) {
-	push(@$river, coordinates(0, $y));
-      } elsif ($x == $width) {
-	push(@$river, coordinates($width + 1, $y));
-      } elsif ($y == 1) {
-	push(@$river, coordinates($x, 0));
-      } elsif ($y == $height) {
-	push(@$river, coordinates($x, $height + 1));
-      } else {
-	# warn "Surprise river ending!\n";
-      }
+      # stop growing this river
       # warn "River: @$river\n";
       push(@rivers, splice(@growing, $n, 1));
     }
@@ -1602,7 +1590,13 @@ sub generate_map {
 	$world{$coordinates} .= qq{ "$altitude{$coordinates}"};
       }
     }
-  }
+  } else {
+    # remove arrows – these should not be rendered but they are because #arrow0
+    # is present in other SVG files in the same document
+    for my $coordinates (keys %world) {
+      $world{$coordinates} =~ s/ arrow\d//;
+    }
+  }    
 
   my @lines;
   push(@lines, map { $_ . " " . $world{$_} } sort keys %world);
