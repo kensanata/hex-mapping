@@ -1057,8 +1057,6 @@ package Schroeder;
 use Modern::Perl;
 use List::Util 'shuffle';
 
-$" = "-"; # list interpolation for trails
-
 # We're assuming that $width and $height have two digits (10 <= n <= 99).
 
 my $width = 20;
