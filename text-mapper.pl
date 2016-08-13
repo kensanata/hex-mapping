@@ -1057,9 +1057,7 @@ package Schroeder;
 use Modern::Perl;
 use List::Util 'shuffle';
 
-# The world is a reference to a hash where the key are the coordinates in the
-# form "0105" and the value is whatever is the map description, so it can be a
-# number of types, plus a label, plus maybe a font size, etc.
+$" = "-"; # list interpolation for trails
 
 # We're assuming that $width and $height have two digits (10 <= n <= 99).
 
@@ -1275,7 +1273,6 @@ sub water {
 	  # warn "$other has drainage: $coordinates → $other\n" if $coordinates eq "0606";
 	  $water->{$coordinates} = $i;
 	  $world->{$coordinates} = to_swamp($altitude->{$coordinates});
-	  $world->{$coordinates} .= " arrow$i";
 	  $found = 1;
 	  last;
 	}
@@ -1291,10 +1288,6 @@ sub water {
       $world->{$coordinates} = to_swamp($altitude->{$coordinates});
     } else {
       $world->{$coordinates} = "water";
-      warn "FIXME: where should this lake drain?";
-      # http://localhost:3000/alpine/document?height=10&seed=1471046314
-      # http://localhost:3000/alpine/random?seed=1471046612
-      $altitude->{$coordinates} += 1;
     }
   }
 }
@@ -1318,7 +1311,7 @@ sub rivers {
       my $other = coordinates(neighbor($coordinates, $water->{$coordinates}));
       # if we flowed into a hex with a source
       if (ref $flow->{$other}) {
-	# warn "Prepending " . join("-", @$river) . " with " . join("-", @{$flow->{$other}});
+	# warn "Prepending @$river with @{$flow->{$other}}\n";
 	# prepend the current river to the other river
 	unshift(@{$flow->{$other}}, @$river);
 	# move the source marker
@@ -1344,7 +1337,7 @@ sub rivers {
       } else {
 	# warn "Surprise river ending!\n";
       }
-      # warn "River: " . join("-", @$river) . "\n";
+      # warn "River: @$river\n";
       push(@rivers, splice(@growing, $n, 1));
     }
   }
@@ -1408,7 +1401,6 @@ sub settlements {
   for my $coordinates (@candidates) {
     $world->{$coordinates} =~ s/forest/trees town/;
   }
-  warn $world->{"0701"} . "\n";
   return @settlements;
 }
 
@@ -1454,26 +1446,27 @@ sub cliffs {
 
 sub generate {
   my ($world, $altitude, $water, $rivers, $settlements, $trails, $step) = @_;
-  flat($altitude);
-  altitude($world, $altitude, $water);
-  return if $step == 1;
-  cliffs($world, $altitude);
-  return if $step == 2;
-  mountains($world, $altitude);
-  return if $step == 3;
-  water($world, $altitude, $water);
-  return if $step == 4;
+  # %flow indicates that there is actually a river in this hex
   my %flow;
-  push(@$rivers, rivers($world, $altitude, $water, \%flow, 8));
-  push(@$rivers, rivers($world, $altitude, $water, \%flow, 7));
-  return if $step == 5;
-  forests($world, $altitude, \%flow);
-  return if $step == 6;
-  bushes($world, $altitude, $water);
-  return if $step == 7;
-  push(@$settlements, settlements($world));
-  return if $step == 8;
-  push(@$trails, trails($world, $settlements));
+  my @code = (
+    sub { flat($altitude); 
+	  altitude($world, $altitude, $water); },
+    sub { cliffs($world, $altitude); },
+    sub { mountains($world, $altitude); },
+    sub { water($world, $altitude, $water); },
+    sub { push(@$rivers, rivers($world, $altitude, $water, \%flow, 8));
+	  push(@$rivers, rivers($world, $altitude, $water, \%flow, 7)); },
+    sub { forests($world, $altitude, \%flow); },
+    sub { bushes($world, $altitude, $water); },
+    sub { push(@$settlements, settlements($world)); },
+    sub { push(@$trails, trails($world, $settlements)); },
+      );
+  # $step 0 runs all the code
+  my $i = 1;
+  while (@code) {
+    shift(@code)->();
+    return if $step == $i++;
+  }
 }
 
 sub generate_map {
@@ -1491,6 +1484,15 @@ sub generate_map {
   # pseudo-shuffled, use shuffle sort keys.
   srand($seed);
   
+  # keys for all hashes are coordinates such as "0101".
+  # %world is the description with values such as "green forest".
+  # %altitude is the altitude with values such as 3.
+  # %water is the preferred direction water would take with values such as 0
+  # (north west); 0 means we need to use "if defined".
+  # @rivers are the rivers with values such as ["0102", "0202"]
+  # @settlements are are the locations of settlements such as "0101"
+  # @trails are the trails connecting these with values as ["0102", "0202"]
+  # $step is how far we want map generation to go where 0 means all the way
   my (%world, %altitude, %water, @rivers, @settlements, @trails);
   generate(\%world, \%altitude, \%water, \@rivers, \@settlements, \@trails, $step);
   
@@ -1506,8 +1508,8 @@ sub generate_map {
 
   my @lines;
   push(@lines, map { $_ . " " . $world{$_} } sort keys %world);
-  push(@lines, map { join('-', @$_) . " river" } @rivers);
-  push(@lines, map { join('-', @$_) . " trail" } @trails);
+  push(@lines, map { "@$_ river" } @rivers);
+  push(@lines, map { "@$_ trail" } @trails);
   push(@lines, "include https://campaignwiki.org/contrib/gnomeyland.txt");
   
   # when documenting or debugging, add some more lines at the end 
