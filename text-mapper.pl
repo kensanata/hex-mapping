@@ -1065,7 +1065,6 @@ use List::Util 'shuffle';
 
 my $width = 20;
 my $height = 10;
-my $number_of_rivers = 2;
 
 my $delta = [[[-1,  0], [ 0, -1], [+1,  0], [+1, +1], [ 0, +1], [-1, +1]],  # x is even
 	     [[-1, -1], [ 0, -1], [+1, -1], [+1,  0], [ 0, +1], [-1,  0]]]; # x is odd
@@ -1150,7 +1149,7 @@ sub flat {
 }
 
 sub altitude {
-  my ($world, $altitude) = @_;
+  my ($world, $altitude, $water) = @_;
   my $current_altitude = 10;
   my @batch;
   # place some peaks and put them in a batch
@@ -1162,7 +1161,7 @@ sub altitude {
       my $coordinates = coordinates($x, $y);
       next if $altitude->{$coordinates};
       $altitude->{$coordinates} = $current_altitude;
-      push(@batch, [$x, $y]);
+      push(@batch, $coordinates);
       last;
     }
   }
@@ -1171,20 +1170,19 @@ sub altitude {
   while (--$current_altitude > 0) {
     # warn "Altitude $current_altitude\n";
     my @next;
-    for my $hex (@batch) {
-      my @plains;
+    for my $coordinates (@batch) {
       # pick some random neighbors
       for (1 .. 3) {
 	# try to find an empty neighbor; abort after six attempts
 	for (1 .. 6) {
-	  my ($x, $y) = neighbor($hex, int(rand(6)));
+	  my $i = int(rand(6));
+	  my ($x, $y) = neighbor($coordinates, $i);
 	  next unless legal($x, $y);
-	  my $coordinates = coordinates($x, $y);
-	  next if $altitude->{$coordinates};
+	  my $other = coordinates($x, $y);
+	  next if $altitude->{$other};
 	  # if we found an empty neighbor, set its altitude
-	  $altitude->{$coordinates} = $current_altitude;
-	  # warn "picked $coordinates near $hex->[0]$hex->[1]\n";
-	  push(@next, [$x, $y]);
+	  $altitude->{$other} = $current_altitude;
+	  push(@next, $other);
 	  last;
 	}
       }
@@ -1192,8 +1190,9 @@ sub altitude {
     last unless @next;
     @batch = @next;
   }
-  # find hexes that we missed and give them the height of a random neighbor
+  # first pass through all the hexes
   for my $coordinates (sort keys %$altitude) {
+    # find hexes that we missed and give them the height of a random neighbor
     if (not defined $altitude->{$coordinates}) {
       # warn "identified a hex that was skipped: $coordinates\n";
       # try to find a suitable neighbor
@@ -1210,8 +1209,22 @@ sub altitude {
 	$altitude->{$coordinates} = 0;
       }
     }
-    # for debugging purposes
+    # note height for debugging purposes
     $world->{$coordinates} = "height$altitude->{$coordinates}";
+    # note preferred water flow by identifying lower lying neighbors
+    my @candidates;
+    for my $i (shuffle 0 .. 5) {
+      my ($x, $y) = neighbor($coordinates, $i);
+      next unless legal($x, $y);
+      my $other = coordinates($x, $y);
+      next unless $altitude->{$other} < $altitude->{$coordinates};
+      push(@candidates, [$i, $other]);
+    }
+    @candidates = sort {$altitude->{$a->[1]} <=> $altitude->{$b->[1]}} @candidates;
+    if (@candidates) {
+      $water->{$coordinates} = $candidates[0]->[0] if @candidates;
+      $world->{$coordinates} .= " arrow$water->{$coordinates}";
+    }
   }
 }
 
@@ -1229,178 +1242,120 @@ sub mountains {
   }
 }
 
-sub lakes {
-  # local minima of exactly size 1 are lakes
-  my ($world, $altitude) = @_;
- HEX:
-  for my $coordinates (keys %$altitude) {
-    for my $i (0 .. 5) {
-      my ($x, $y) = neighbor($coordinates, $i);
-      # there are no lakes at the edge of the map
-      next HEX unless legal($x, $y);
-      my $other = coordinates($x, $y);
-      next HEX if $altitude->{$other} <= $altitude->{$coordinates};
-    }
-    # if no lower neighbor was found, this is a lake
-    $world->{$coordinates} = "water";
-    # warn "lake at $coordinates\n";
-  }
-}
-
-sub swamps {
-  # swamps form whenever there is no immediate neighbor that is lower
-  my ($world, $altitude) = @_;
- HEX:
-  for my $coordinates (keys %$altitude) {
-    # don't turn lakes into swamps
-    next if $world->{$coordinates} =~ /water/;
-    # check the neighbors
-    for my $i (0 .. 5) {
-      my ($x, $y) = neighbor($coordinates, $i);
-      # ignore neighbors beyond the edge of the map
-      next unless legal($x, $y);
-      my $other = coordinates($x, $y);
-      next HEX if $altitude->{$other} < $altitude->{$coordinates};
-    }
-    # if there was no lower neighbor, this is a swamp
-    if ($altitude->{$coordinates} >= 8) {
-      $world->{$coordinates} = "light-grey swamp";
-    } elsif ($altitude->{$coordinates} >= 6) {
-      $world->{$coordinates} = "grey swamp";
-    } else {
-      $world->{$coordinates} = "dark-grey swamp";
-    }
-  }
-}
-
-sub river_mouths {
-  my ($altitude) = @_;
-  # hexes along the edge of the map in a random order
-  my @hexes = shuffle sort grep /^01|^$width|01$|$height$/, keys %$altitude;
-  # sort by altitude since we want low lying edge hexes
-  @hexes = sort { $altitude->{$a} <=> $altitude->{$b} } @hexes;
-  # remove hexes that are too close to each other
-  @hexes = remove_closer_than(10, @hexes);
-  # limit to a smaller number
-  # warn "Hexes unlimited: @hexes\n";
-  @hexes = @hexes[0 .. $number_of_rivers - 1] if @hexes > $number_of_rivers;
-  # warn "River mouths: @hexes\n";
-  # rivers look better if we start them outside of the map
-  for my $hex (@hexes) {
-    $hex =~ s/^01/00/ or $hex =~ s/01$/00/
-	or $hex =~s/^$width/$width+1/e
-	or $hex =~s/$height$/$height+1/e;
-  }
-  # warn "Hexes outside: @hexes\n";
-  return @hexes;
-}
-
-sub flow {
-  my ($world, $altitude, $water, $rivers, $growing, $n) = @_;
-  # $rivers lists the rivers that have finished growing; $growing lists the
-  # rivers actively growing; $n is the current river in this list, the head of
-  # the river is the current position; $water shows if there is a river in that
-  # hex
-  my $coordinates = $growing->[$n]->[0];
-  my @up;
-  # check the neighbors
-  for my $i (0 .. 5) {
-    my ($x, $y) = neighbor($coordinates, $i);
-    # ignore neighbors beyond the edge of the map
-    next unless legal($x, $y);
-    # ignore neighbors that already have a river in them
-    my $other = coordinates($x, $y);
-    next if defined $water->{$other};
-    # ignore neighbors that are high up
-    next if $altitude->{$other} >= 9;
-    # collect candidates
-    if (not defined $altitude->{$coordinates} # possibly outside the map!
-	or $altitude->{$other} >= $altitude->{$coordinates}
-	or $world->{$other} =~ /water/) {
-      push(@up, [$i, $other]);
-    }
-  }
-  # warn "up from $coordinates: " . join(', ', map { $_->[1] } @up) . "\n";
-  # add one of the candidates to the head of the list
-  my $first = shift(@up);
-  # add a copy of the river for the rest
-  for my $next (@up) {
-    my $i = $next->[0];
-    my $other = $next->[1];
-    $water->{$other} = $i;
-    # warn "adding a new river: " . join('-', $other, @{$growing->[$n]}) . "\n";
-    push(@$growing, [$other, @{$growing->[$n]}]);
-  }
-  if ($first) {
-    my $i = $first->[0];
-    my $other = $first->[1];
-    $water->{$other} = $i;
-    unshift(@{$growing->[$n]}, $other);
-    # warn "extending river $n: @{$growing->[$n]}\n";
+sub to_swamp {
+  my $altitude = shift;
+  if ($altitude >= 8) {
+    return "light-grey swamp";
+  } elsif ($altitude >= 6) {
+    return "grey swamp";
   } else {
-    # if we're no longer growing, remove this river from the growing list and
-    # add it to the done rivers
-    my @done = splice(@$growing, $n, 1);
-    push(@$rivers, @done);
-    # and place a hill at the source
-    if ($world->{$coordinates} !~ /mountain|swamp|water/) {
-      if ($altitude->{$coordinates} >= 6) {
-	$world->{$coordinates} = "light-grey fir-hill";
-      } else {
-	$world->{$coordinates} = "grey forest-hill";
+    return "dark-grey swamp";
+  }
+}
+
+sub water {
+  my ($world, $altitude, $water) = @_;
+  # now let's determine the water flow for swampy ground by looking at neighbors
+  # that have working draininage
+  my $found = 1;
+  while ($found) {
+    $found = 0;
+    for my $coordinates (sort keys %$altitude) {
+      next if defined $water->{$coordinates};
+      # warn "No drainage: $coordinates\n" if $coordinates eq "0606";
+      # we found a hex without drainage; see if a neighbor is drained
+      for my $i (shuffle 0 .. 5) {
+  	my ($x, $y) = neighbor($coordinates, $i);
+  	if (legal($x, $y)) {
+	  my $other = coordinates($x, $y);
+	  next if $altitude->{$other} > $altitude->{$coordinates};
+	  # at this point we know that their altitudes must be equal
+	  next unless defined $water->{$other};
+	  # the other hex has drainage!
+	  # warn "$other has drainage: $coordinates → $other\n" if $coordinates eq "0606";
+	  $water->{$coordinates} = $i;
+	  $world->{$coordinates} = to_swamp($altitude->{$coordinates});
+	  $world->{$coordinates} .= " arrow$i";
+	  $found = 1;
+	  last;
+	}
       }
+    }
+  }
+  # any remaining areas without water flow are lakes
+  for my $coordinates (keys %$altitude) {
+    next if defined $water->{$coordinates};
+    my ($x, $y) = xy($coordinates);
+    if ($x == 1 or $x == $width or $y == 1 or $y == $height) {
+      # no lakes at the edge of the map
+      $world->{$coordinates} = to_swamp($altitude->{$coordinates});
+    } else {
+      $world->{$coordinates} = "water";
+      warn "FIXME: where should this lake drain?";
+      # http://localhost:3000/alpine/document?height=10&seed=1471046314
+      # http://localhost:3000/alpine/random?seed=1471046612
+      $altitude->{$coordinates} += 1;
     }
   }
 }
 
 sub rivers {
-  my ($world, $altitude, $water) = @_;
-  my @mouths = river_mouths($altitude);
-  # warn "River mouths: @mouths\n";
+  my ($world, $altitude, $water, $flow, $level) = @_;
+  my @growing = map {
+    $world->{$_} = "light-green forest-hill" unless $world->{$_} =~ /mountain|swamp|water/;
+    $flow->{$_} = [$_]
+  } sort grep {
+    $altitude->{$_} == $level and not $flow->{$_}
+  } keys %$altitude;
   my @rivers;
-  my @growing = map { [$_] } @mouths;
-  # don't just grow one river until you're done or it will take up all the map
   while (@growing) {
+    # pick a random growing river and grow it
     my $n = int(rand(scalar @growing));
-    # warn "looking to extend river $n, currently @{$growing[$n]}\n";
-    flow($world, $altitude, $water, \@rivers, \@growing, $n);
+    my $river = $growing[$n];
+    my $coordinates = $river->[-1];
+    my $end = 1;
+    if (defined $water->{$coordinates}) {
+      my $other = coordinates(neighbor($coordinates, $water->{$coordinates}));
+      # if we flowed into a hex with a source
+      if (ref $flow->{$other}) {
+	# warn "Prepending " . join("-", @$river) . " with " . join("-", @{$flow->{$other}});
+	# prepend the current river to the other river
+	unshift(@{$flow->{$other}}, @$river);
+	# move the source marker
+	$flow->{$coordinates} = $flow->{$other};
+	$flow->{$other} = 1;
+	# and remove the current river from the growing list
+	splice(@growing, $n, 1);
+      } else {
+	$flow->{$coordinates} = 1;
+	push(@$river, $other);
+      } 
+    } else {
+      # extend the river past the edge of the map
+      my ($x, $y) = xy($coordinates);
+      if ($x == 1) {
+	push(@$river, coordinates(0, $y));
+      } elsif ($x == $width) {
+	push(@$river, coordinates($width + 1, $y));
+      } elsif ($y == 1) {
+	push(@$river, coordinates($x, 0));
+      } elsif ($y == $height) {
+	push(@$river, coordinates($x, $height + 1));
+      } else {
+	# warn "Surprise river ending!\n";
+      }
+      # warn "River: " . join("-", @$river) . "\n";
+      push(@rivers, splice(@growing, $n, 1));
+    }
   }
-  # add arrows to the map to visualize in which direction water wants to flow
-  # for my $coordinates (keys %$world) {
-  #   my $i = $water->{$coordinates};
-  #   $world->{$coordinates} =~ s/ / arrow$i / if defined $i;
-  # }
   return @rivers;
 }
 
-sub erosion {
-  my ($world, $altitude, $rivers) = @_;
-  # warn "Rivers: " . @$rivers . "\n";
-  my @long_rivers = sort { scalar @$b <=> scalar @$a } @$rivers;
-  @long_rivers = @long_rivers[0 .. int(@long_rivers / 10)];
-  for my $river (@long_rivers) {
-    if (@$river >= 5) {
-      # warn join("-", @$river) . " is long\n";
-      # the river is at least five hexes long, so skip the first three elements
-      # (index 3 is the fourth element) and ignore the last one (index -1, it's
-      # not a legal hex)
-      for my $coordinates (@$river[3 .. @$river - 2]) {
-	my $alt = $altitude->{$coordinates};
-	if ($alt > 0) {
-	  $altitude->{$coordinates} = $alt - 1;
-	  $world->{$coordinates} =~ s/height$alt/height$altitude->{$coordinates}/;
-	  # warn "$world->{$coordinates} altitude decreased from $alt to $altitude->{$coordinates}\n";
-	}
-      }
-    }
-  }
-}
-
 sub forests {
-  my ($world, $altitude, $water) = @_;
+  my ($world, $altitude, $flow) = @_;
   # empty hexes with a river flowing through them are forest filled valleys
-  for my $coordinates (keys %$world) {
-    if ($world->{$coordinates} !~ /mountain|hill|water|swamp/ and defined $water->{$coordinates}) {
+  for my $coordinates (keys %$flow) {
+    if ($world->{$coordinates} !~ /mountain|hill|water|swamp/) {
       if ($altitude->{$coordinates} >= 6) {
 	$world->{$coordinates} = "light-green fir-forest";
       } elsif ($altitude->{$coordinates} >= 4) {
@@ -1412,14 +1367,14 @@ sub forests {
   }
 }
 
-sub plains {
+sub bushes {
   my ($world, $altitude, $water) = @_;
   for my $coordinates (keys %$world) {
     if ($world->{$coordinates} !~ /mountain|hill|water|swamp|forest|firs|trees/) {
       if ($altitude->{$coordinates} >= 7) {
-	$world->{$coordinates} = "light-grey grass";
+	$world->{$coordinates} = "light-grey bushes";
       } else {
-	$world->{$coordinates} = "light-green grass";
+	$world->{$coordinates} = "light-green bushes";
       }
     }
   }
@@ -1437,7 +1392,7 @@ sub settlements {
   for my $coordinates (@candidates) {
     $world->{$coordinates} =~ s/fir-forest/firs thorp/;
   }
-  @candidates = shuffle sort grep { $world->{$_} =~ /green forest/ } keys %$world;
+  @candidates = shuffle sort grep { $world->{$_} =~ /green forest(?!-hill)/ } keys %$world;
   @candidates = remove_closer_than(5, @candidates);
   @candidates = @candidates[0 .. int($max/20 - 1)] if @candidates > $max/20;
   push(@settlements, @candidates);
@@ -1453,6 +1408,7 @@ sub settlements {
   for my $coordinates (@candidates) {
     $world->{$coordinates} =~ s/forest/trees town/;
   }
+  warn $world->{"0701"} . "\n";
   return @settlements;
 }
 
@@ -1499,38 +1455,30 @@ sub cliffs {
 sub generate {
   my ($world, $altitude, $water, $rivers, $settlements, $trails, $step) = @_;
   flat($altitude);
-  altitude($world, $altitude);
+  altitude($world, $altitude, $water);
   return if $step == 1;
-  mountains($world, $altitude);
-  return if $step == 2;
   cliffs($world, $altitude);
+  return if $step == 2;
+  mountains($world, $altitude);
   return if $step == 3;
-  lakes($world, $altitude);
+  water($world, $altitude, $water);
   return if $step == 4;
-  push(@$rivers, rivers($world, $altitude, $water));
+  my %flow;
+  push(@$rivers, rivers($world, $altitude, $water, \%flow, 8));
+  push(@$rivers, rivers($world, $altitude, $water, \%flow, 7));
   return if $step == 5;
-  erosion($world, $altitude, $rivers);
+  forests($world, $altitude, \%flow);
   return if $step == 6;
-  # let new rivers flow!
-  %$water = ();
-  @$rivers = ();
-  push(@$rivers, rivers($world, $altitude, $water));
+  bushes($world, $altitude, $water);
   return if $step == 7;
-  swamps($world, $altitude);
-  return if $step == 8;
-  forests($world, $altitude, $water);
-  return if $step == 9;
-  plains($world, $altitude, $water);
-  return if $step == 10;
   push(@$settlements, settlements($world));
-  return if $step == 11;
+  return if $step == 8;
   push(@$trails, trails($world, $settlements));
 }
 
 sub generate_map {
   $width = shift||$width;
   $height = shift||$height;
-  $number_of_rivers = shift||$number_of_rivers;
   my $seed = shift||time;
   my $step = shift||0;
 
@@ -1545,17 +1493,42 @@ sub generate_map {
   
   my (%world, %altitude, %water, @rivers, @settlements, @trails);
   generate(\%world, \%altitude, \%water, \@rivers, \@settlements, \@trails, $step);
-  if ($step) {
-    for my $coordinates (keys %world) {
-      $world{$coordinates} .= qq{ "$altitude{$coordinates}"};
+  
+  # when documenting or debugging, do this before collecting lines
+  if ($step > 0) {
+    # add a height label at the very end
+    if ($step) {
+      for my $coordinates (keys %world) {
+	$world{$coordinates} .= qq{ "$altitude{$coordinates}"};
+      }
     }
   }
-  return join("\n",
-	      (map { $_ . " " . $world{$_} } sort keys %world),
-	      (map { join('-', @$_) . " river" } @rivers),
-	      (map { join('-', @$_) . " trail" } @trails),
-	      "include https://campaignwiki.org/contrib/gnomeyland.txt",
-	      "# Seed: $seed");
+
+  my @lines;
+  push(@lines, map { $_ . " " . $world{$_} } sort keys %world);
+  push(@lines, map { join('-', @$_) . " river" } @rivers);
+  push(@lines, map { join('-', @$_) . " trail" } @trails);
+  push(@lines, "include https://campaignwiki.org/contrib/gnomeyland.txt");
+  
+  # when documenting or debugging, add some more lines at the end 
+  if ($step > 0) {
+    # visualize height
+    push(@lines,
+	 map {
+	   my $n = int(25.5 * $_);
+	   qq{height$_ attributes fill="rgb($n,$n,$n)"};
+	 } (0 .. 10));
+    # visualize water flow
+    push(@lines,
+	 qq{<marker id="arrow" markerWidth="6" markerHeight="6" refX="6" refY="3" orient="auto"><path d="M6,0 V6 L0,3 Z" style="fill: black;" /></marker>},
+	 map {
+	   my $angle = 60 * $_;
+	   qq{<path id="arrow$_" transform="rotate($angle)" d="M-11.5,-5.8 L11.5,5.8" style="stroke: black; stroke-width: 3px; fill: none; marker-start: url(#arrow);"/>},
+	 } (0 .. 5));
+  }
+
+  push(@lines, "# Seed: $seed");
+  return join("\n", @lines);
 }
 
 package Mojolicious::Command::render;
@@ -1645,7 +1618,6 @@ get '/alpine' => sub {
   $c->render(template => 'edit',
 	     map => Schroeder::generate_map($c->param('width'),
 					    $c->param('height'),
-					    $c->param('rivers'),
 					    $c->param('seed')));
 };
 
@@ -1654,8 +1626,8 @@ get '/alpine/random' => sub {
   my $svg = Mapper->new()
       ->initialize(Schroeder::generate_map($c->param('width'),
 					   $c->param('height'),
-					   $c->param('rivers'),
-					   $c->param('seed')))
+					   $c->param('seed'),
+					   $c->param('step')))
       ->svg();
   $c->render(text => $svg, format => 'svg');
 };
@@ -1663,47 +1635,22 @@ get '/alpine/random' => sub {
 get '/alpine/document' => sub {
   my $c = shift;
   my @params = ($c->param('width'),
-		$c->param('height'),
-		$c->param('rivers'));
+		$c->param('height'));
   my $seed = $c->param('seed')||rand;
-  my $attributes =
-      join("\n",
-	   map {
-	     my $n = int(25.5 * $_);
-	     qq{height$_ attributes fill="rgb($n,$n,$n)"};
-	   } (0 .. 10));
 
-  my @map = map {
-    my $map = "$attributes\n" . Schroeder::generate_map(@params, $seed, $_);
+  # prepare a map for every step
+  for my $step (0 .. 9) {
+    my $map = Schroeder::generate_map(@params, $seed, $step);
     my $svg = Mapper->new()->initialize($map)->svg;
     $svg =~ s/<\?xml version="1.0" encoding="UTF-8" standalone="no"\?>\n//g;
-    $svg;
-  } (0 .. 11);
+    # warn "Stashing map$step\n";
+    $c->stash("map$step" => $svg);
+  };
 
   $c->render(template => 'alpinedocument',
-	     seed => $seed,
-	     final_map => $map[0],
-	     height_map => $map[1],
-	     mountain_map => $map[2],
-	     cliff_map => $map[3],
-	     lake_map => $map[4],
-	     river_map => $map[5],
-	     erosion_map => $map[6],
-	     new_river_map => $map[7],
-	     swamp_map => $map[8],
-	     forest_map => $map[9],
-	     plain_map => $map[10],
-	     settlement_map => $map[11],
-	     trail_map => $map[12]);
+	     seed => $seed);
 };
 
-	      # qq{<marker id="arrow" markerWidth="6" markerHeight="6" refX="6" refY="3" orient="auto"><path d="M6,0 V6 L0,3 Z" style="fill: black;" /></marker>},
-	      # qq{<path id="arrow0" d="M11.5,5.8 L-11.5,-5.8" style="stroke: black; stroke-width: 3px; fill: none; marker-start: url(#arrow);"/>},
-	      # qq{<path id="arrow1" d="M0,10 V-20" style="stroke: black; stroke-width: 3px; fill: none; marker-start: url(#arrow);"/>},
-	      # qq{<path id="arrow2" d="M-11.5,5.8 L11.5,-5.8" style="stroke: black; stroke-width: 3px; fill: none; marker-start: url(#arrow);"/>},
-	      # qq{<path id="arrow3" d="M-11.5,-5.8 L11.5,5.8" style="stroke: black; stroke-width: 3px; fill: none; marker-start: url(#arrow);"/>},
-	      # qq{<path id="arrow4" d="M0,-10 V20" style="stroke: black; stroke-width: 3px; fill: none; marker-start: url(#arrow);"/>},
-	      # qq{<path id="arrow5" d="M11.5,-5.8 L-11.5,5.8" style="stroke: black; stroke-width: 3px; fill: none; marker-start: url(#arrow);"/>},
 	      # (map {
 	      # 	my $n = int(25.5 * $_);
 	      # 	qq{lake$_ attributes fill="rgb($n,$n,255)"};
@@ -2198,8 +2145,6 @@ You'll find the map description in a comment within the SVG file.
 %= number_field width => 20
 </td></tr><tr><td>Height:</td><td>
 %= number_field height => 10
-</td></tr><tr><td>Rivers:</td><td>
-%= number_field rivers => 2
 </td></tr></table>
 %= submit_button
 % end
@@ -2221,73 +2166,51 @@ and edit it using
 <%= link_to url_for('alpine')->query(height => 5, seed => $seed) => begin %>this link<% end %>,
 </p>
 
-%== $final_map
+%== $map0
 
 <p>First, we pick a number of peaks and set their altitude to 10. Then we loop
 through all the altitudes from 10 down to 1 and for every hex we added in the
-previous run, we add two neighbors at a lower altitude, if possible. If our
-random growth missed any hexes, we just copy the height of a neighbor.</p>
+previous run, we add three neighbors at a lower altitude, if possible. If our
+random growth missed any hexes, we just copy the height of a neighbor. If we
+can't find a suitable neighbor within a few tries, just make a hole in the
+ground (altitude 0). Also, determine where water would flow. Pick one of the
+neighbors with the greatest altitude difference.</p>
 
-%== $height_map
-
-<p>Mountains are the hexes at high altitudes.</p>
-
-%== $mountain_map
+%== $map1
 
 <p>Cliffs form wherever the drop is more than just one level of altitude.</p>
 
-%== $cliff_map
+%== $map2
 
-<p>We identify lakes by finding any hex that is surrounded by higher
-altitude.</p>
+<p>Mountains are the hexes at high altitudes: white mountains (altitude 10),
+white mountain (altitude 9), light-grey mountain (altitude 8).</p>
 
-%== $lake_map
+%== $map3
 
-<p>River mouths are picked at random by looking at all the hexes at the edges,
-sorting them by height, and removing the ones that are less than ten hexes
-appart. From there, rivers grow upwards, if possible. We consider all the
-neighbor hexes and ignore the ones outside the map, the ones that already have a
-river flowing through them, and high altitudes (nine or more). The remaining
-neighbors are candidates if their altitude is the same or higher up than the
-current hex or if it's a lake (we're assuming a gorge in these cases). If there
-are multiple candidates, there is a fork in the river. When there are no more
-candidates, we've found a source for the river. We add a forested hill at the
-source of every river unless there's already a mountain, a swamp, or a lake. If
-the altitude of the source is six or higher, then it will be a light-grey fir
-hill instead of a grey forest-hill.</p>
+<p>We identify swamps by finding hexes which connect to drained hex at the same
+altitude. The remaining hexes that still don't have a preferred water flow turn
+into lakes.</p>
 
-%== $river_map
+%== $map4
 
-<p>Assuming that the longest valleys were once filled with glaciers, let's add
-some erosion. Basically, the longest rivers dig deeper: from the fourth hex
-along the river until the mouth of the river, decrease altitude if it is
-positive.</p>
+<p>We add a river sources high up in the mountains (altitudes 7 and 8), merging
+them as appropriate. These rivers flow downwards as indicated by the arrows. If
+the river source is not a mountain (altitude 8) or a swamp, then we place a
+forested hill at the source (thus, they're all at altitude 7).</p>
 
-%== $erosion_map
-
-<p>After some erosion, the rivers might flow differently, so rerun the river
-flow.</p>
-
-%== $new_river_map
-
-<p>Swamps form whenever there is no immediate neighbor that is lower. The water
-just doesn't drain fast enough. The higher up these swamps form, the lighter the
-color. Swamps that replace mountains (altitude eight) are light-grey, other
-swamps are just grey (altitudes six or seven) or dark-grey (altitude five or
-lower).</p>
-
-%== $swamp_map
+%== $map5
 
 <p>Wherever there is water and no swamp, forests will form. Forests that are
 higher up (altitude six and more) will be fir forests. Forests that lie very low
 (altitude 3 and less) will be dark-green forests.</p>
 
-%== $forest_map
+%== $map6
 
-<p>Any hex that's left is going to be plains. At high altitudes (seven or more),
-the color changes from light-green to light-grey.</p>
+<p>Any remaining hexes have no river flowing through them and are considered to
+be little more arid. They get bushes. Higher up, these are light grey (altitude
+7), otherwise they are light green (altitude 6 and below).</p>.
 
-%== $plain_map
+%== $map7
 
 <p>Wherenver there is forest, settlements will be built. These reduce the
 density of the forest. There are three levels of settlements: thorps, villages
@@ -2300,13 +2223,14 @@ and towns.</p>
 <tr><td>Thorp</td><td>dark-green forest</td><td>0–3</td><td>2.5%</td><td>10</td></tr>
 </table>
 
-%== $settlement_map
+%== $map8
 
 <p>Trails connect every settlement to any neighbor that is one or two hexes
 away. If no such neighbor can be found, we try to find neighbors that are three
 hexes away.</p>
 
-%== $trail_map
+%== $map9
+
 
 
 @@ layouts/default.html.ep
