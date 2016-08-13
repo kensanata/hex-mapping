@@ -1256,7 +1256,7 @@ sub to_swamp {
 sub water {
   my ($world, $altitude, $water) = @_;
   # now let's determine the water flow for swampy ground by looking at neighbors
-  # that have working draininage
+  # that have working drainage
   my $found = 1;
   while ($found) {
     $found = 0;
