@@ -1222,6 +1222,7 @@ sub water {
     # note preferred water flow by identifying lower lying neighbors
     my @candidates;
     # look at neighbors in random order
+  NEIGHBOR:
     for my $i (shuffle 0 .. 5) {
       my ($x, $y) = neighbor($coordinates, $i);
       my $legal = legal($x, $y);
@@ -1229,6 +1230,20 @@ sub water {
       next if $legal and $altitude->{$other} > $altitude->{$coordinates};
       # don't point head on to another arrow
       next if $legal and $water->{$other} and $water->{$other} == ($i-3) % 6;
+      # don't point into loops
+      my %loop = ($coordinates => 1, $other => 1);
+      my $next = $other;
+      while ($next) {
+	# no water flow known is also good;
+	last unless $water->{$next};
+	($x, $y) = neighbor($next, $water->{$next});
+	# leaving the map is good
+	last unless legal($x, $y);
+	$next = coordinates($x, $y);
+	# skip this neighbor if this is a loop
+	next NEIGHBOR if $loop{$next};
+	$loop{$next} = 1;
+      }
       push(@candidates, [$i, $other]);
     }
     @candidates = sort {
@@ -1397,9 +1412,12 @@ sub rivers {
   } keys %$altitude;
   my @rivers;
   while (@growing) {
+    # warn "Rivers: " . @growing . "\n";
     # pick a random growing river and grow it
     my $n = int(rand(scalar @growing));
     my $river = $growing[$n];
+    # warn "Picking @$river\n";
+    die "infinite loop in river @$river\n" if @$river > 30;
     my $coordinates = $river->[-1];
     my $end = 1;
     if (defined $water->{$coordinates}) {
@@ -1420,7 +1438,7 @@ sub rivers {
       } 
     } else {
       # stop growing this river
-      # warn "River: @$river\n";
+      # warn "Stopped river: @$river\n";
       push(@rivers, splice(@growing, $n, 1));
     }
   }
@@ -1560,7 +1578,8 @@ sub generate_map {
   $height = shift||$height;
   my $seed = shift||time;
   my $step = shift||0;
-
+  warn "Seed: $seed";
+  
   # For documentation purposes, I want to be able to set the pseudo-random
   # number seed using srand and rely on rand to reproduce the same sequence of
   # pseudo-random numbers for the same seed. The key point to remember is that
