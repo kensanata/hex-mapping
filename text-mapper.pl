@@ -1366,6 +1366,10 @@ sub flood {
 	$lake{$other} = 1;
 	$lake{$target} = 1;
 	while (1) {
+	  if (not defined $water->{$target}) {
+	    # found another lake, so don't know how to continue
+	    last;
+	  }
 	  ($x, $y) = neighbor($target, $water->{$target});
 	  if (not legal($x, $y)) {
 	    # warn "We left the map via @river\n";
