@@ -1576,7 +1576,6 @@ sub generate_map {
   $height = shift||$height;
   my $seed = shift||time;
   my $step = shift||0;
-  warn "Seed: $seed";
   
   # For documentation purposes, I want to be able to set the pseudo-random
   # number seed using srand and rely on rand to reproduce the same sequence of
@@ -1615,6 +1614,7 @@ sub generate_map {
     }
   }    
 
+  local $" = "-"; # list items separated by -
   my @lines;
   push(@lines, map { $_ . " " . $world{$_} } sort keys %world);
   push(@lines, map { "@$_ river" } @rivers);
