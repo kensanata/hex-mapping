@@ -1453,6 +1453,48 @@ sub rivers {
   return @rivers;
 }
 
+sub canyons {
+  my ($altitude, $rivers) = @_;
+  # doing this as part of the flood algorithm would probably be quicker
+  my @canyons;
+  my @canyon;
+  my %seen;
+  for my $river (@$rivers) {
+    my $last;
+    my $coordinates = $river->[0]; # do not shift or rivers will shrink!
+    my $current_altitude = $altitude->{$coordinates};
+    # warn "Looking at river @$river\n";
+    for $coordinates (@$river[1 .. @$river - 1]) {
+      if ($seen{$coordinates}) {
+	warn "Stumbled into an existing canyon @canyon at $coordinates\n" if @canyon;
+	@canyon = ();
+	last;
+      }
+      if ($altitude->{$coordinates} and $current_altitude < $altitude->{$coordinates}) {
+	# river is digging a canyon; if this is the start of canyon, prepend the
+	# last step
+	push(@canyon, $last) unless @canyon;
+	push(@canyon, $coordinates);
+	$seen{$coordinates} = 1;
+      } else {
+	# if we just left a canyon, append the current step
+	if (@canyon) {
+	  push(@canyon, $coordinates);
+	  # push a new array reference so that we can reset the variable without
+	  # clearing its value
+	  push(@canyons, [@canyon]);
+	  # warn "Canyon @canyon\n";
+	  @canyon = ();
+	}
+	# not digging a canyon
+	$last = $coordinates;
+	$current_altitude = $altitude->{$coordinates};
+      }
+    }
+  }
+  return @canyons;
+}
+
 sub forests {
   my ($world, $altitude, $flow) = @_;
   # empty hexes with a river flowing through them are forest filled valleys
@@ -1554,7 +1596,7 @@ sub cliffs {
 }
 
 sub generate {
-  my ($world, $altitude, $water, $rivers, $settlements, $trails, $step) = @_;
+  my ($world, $altitude, $water, $rivers, $settlements, $trails, $canyons, $step) = @_;
   # %flow indicates that there is actually a river in this hex
   my %flow;
   my @code = (
@@ -1568,10 +1610,13 @@ sub generate {
     sub { flood($world, $altitude, $water); },
     sub { push(@$rivers, rivers($world, $altitude, $water, \%flow, 8));
 	  push(@$rivers, rivers($world, $altitude, $water, \%flow, 7)); },
+    sub { push(@$canyons, canyons($altitude, $rivers)); },
     sub { forests($world, $altitude, \%flow); },
     sub { bushes($world, $altitude, $water); },
     sub { push(@$settlements, settlements($world)); },
     sub { push(@$trails, trails($world, $settlements)); },
+    # make sure you look at "prepare a map for every step" below if you change
+    # this list
       );
   # $step 0 runs all the code
   my $i = 1;
@@ -1605,8 +1650,8 @@ sub generate_map {
   # @settlements are are the locations of settlements such as "0101"
   # @trails are the trails connecting these with values as ["0102", "0202"]
   # $step is how far we want map generation to go where 0 means all the way
-  my (%world, %altitude, %water, @rivers, @settlements, @trails);
-  generate(\%world, \%altitude, \%water, \@rivers, \@settlements, \@trails, $step);
+  my (%world, %altitude, %water, @rivers, @settlements, @trails, @canyons);
+  generate(\%world, \%altitude, \%water, \@rivers, \@settlements, \@trails, \@canyons, $step);
   
   # when documenting or debugging, do this before collecting lines
   if ($step > 0) {
@@ -1627,6 +1672,7 @@ sub generate_map {
   local $" = "-"; # list items separated by -
   my @lines;
   push(@lines, map { $_ . " " . $world{$_} } sort keys %world);
+  push(@lines, map { "@$_ canyon" } @canyons);
   push(@lines, map { "@$_ river" } @rivers);
   push(@lines, map { "@$_ trail" } @trails);
   push(@lines, "include https://campaignwiki.org/contrib/gnomeyland.txt");
@@ -1760,7 +1806,7 @@ get '/alpine/document' => sub {
   my $seed = $c->param('seed')||rand;
 
   # prepare a map for every step
-  for my $step (0 .. 12) {
+  for my $step (0 .. 13) {
     my $map = Schroeder::generate_map(@params, $seed, $step);
     my $svg = Mapper->new()->initialize($map)->svg;
     $svg =~ s/<\?xml version="1.0" encoding="UTF-8" standalone="no"\?>\n//g;
@@ -2326,17 +2372,23 @@ forested hill at the source (thus, they're all at altitude 7).</p>
 
 %== $map8
 
+<p>Remember how we had rivers that could "cut deep into the ground?" Well, we'll
+add a little shadow to those parts of rivers that flow through higher
+altitudes.</p>
+
+%== $map9
+
 <p>Wherever there is water and no swamp, forests will form. The exact type again
 depends on the altitude: light green fir-forest (altitude 6 and higher), green
 forest (altitude 4–5), dark-green forest (altitude 3 and lower).</p>
 
-%== $map9
+%== $map10
 
 <p>Any remaining hexes have no river flowing through them and are considered to
 be little more arid. They get bushes. Higher up, these are light grey (altitude
 7), otherwise they are light green (altitude 6 and below).</p>.
 
-%== $map10
+%== $map11
 
 <p>Wherenver there is forest, settlements will be built. These reduce the
 density of the forest. There are three levels of settlements: thorps, villages
@@ -2349,13 +2401,13 @@ and towns.</p>
 <tr><td>Thorp</td><td>dark-green forest</td><td>0–3</td><td>2.5%</td><td>10</td></tr>
 </table>
 
-%== $map11
+%== $map12
 
 <p>Trails connect every settlement to any neighbor that is one or two hexes
 away. If no such neighbor can be found, we try to find neighbors that are three
 hexes away.</p>
 
-%== $map12
+%== $map13
 
 
 
