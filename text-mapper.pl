@@ -1078,6 +1078,7 @@ sub coordinates {
 sub neighbor {
   # $hex is [x,y] or "0x0y" and $i is a number 0 .. 5
   my ($hex, $i) = @_;
+  die join(":", caller) . ": undefined direction for $hex\n" unless defined $i;
   $hex = [xy($hex)] unless ref $hex;
   return ($hex->[0] + $delta->[$hex->[0] % 2]->[$i]->[0],
 	  $hex->[1] + $delta->[$hex->[0] % 2]->[$i]->[1]);
