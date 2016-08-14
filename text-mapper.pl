@@ -1232,14 +1232,19 @@ sub water {
       # don't point into loops
       my %loop = ($coordinates => 1, $other => 1);
       my $next = $other;
+      # my $debug = $coordinates eq "1420" and $other eq "1520";
+      # warn "Loop detection starting with $coordinates and $other\n" if $debug;
       while ($next) {
 	# no water flow known is also good;
-	last unless $water->{$next};
+	# warn "water for $next: $water->{$next}\n";
+	last unless defined $water->{$next};
 	($x, $y) = neighbor($next, $water->{$next});
 	# leaving the map is good
+	# warn "legal for $next: " . legal($x, $y) . "\n" if $debug;
 	last unless legal($x, $y);
 	$next = coordinates($x, $y);
 	# skip this neighbor if this is a loop
+	# warn "is $next in a loop? $loop{$next}\n" if $debug;
 	next NEIGHBOR if $loop{$next};
 	$loop{$next} = 1;
       }
