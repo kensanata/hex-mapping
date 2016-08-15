@@ -1412,8 +1412,10 @@ sub flood {
 
 sub rivers {
   my ($world, $altitude, $water, $flow, $level) = @_;
+  # $flow are the sources points of rivers, or 1 if a river flows through them
   my @growing = map {
     $world->{$_} = "light-green forest-hill" unless $world->{$_} =~ /mountain|swamp|water/;
+    # warn "Started a river at $_ ($altitude->{$_} == $level)\n";
     $flow->{$_} = [$_]
   } sort grep {
     $altitude->{$_} == $level and not $flow->{$_}
@@ -1430,23 +1432,25 @@ sub rivers {
     my $end = 1;
     if (defined $water->{$coordinates}) {
       my $other = coordinates(neighbor($coordinates, $water->{$coordinates}));
-      # if we flowed into a hex with a source
+      # if we flowed into a hex with a river
       if (ref $flow->{$other}) {
-	# warn "Prepending @$river with @{$flow->{$other}}\n";
+	# warn "Prepending @$river to @{$flow->{$other}}\n";
 	# prepend the current river to the other river
 	unshift(@{$flow->{$other}}, @$river);
 	# move the source marker
-	$flow->{$coordinates} = $flow->{$other};
+	$flow->{$river->[0]} = $flow->{$other};
 	$flow->{$other} = 1;
 	# and remove the current river from the growing list
 	splice(@growing, $n, 1);
+	# warn "Flow at $river->[0]: @{$flow->{$river->[0]}}\n";
+	# warn "Flow at $other: $flow->{$other}\n";
       } else {
 	$flow->{$coordinates} = 1;
 	push(@$river, $other);
       } 
     } else {
       # stop growing this river
-      # warn "Stopped river: @$river\n";
+      # warn "Stopped river: @$river\n" if grep(/0914/, @$river);
       push(@rivers, splice(@growing, $n, 1));
     }
   }
@@ -1463,7 +1467,6 @@ sub canyons {
     my $last;
     my $coordinates = $river->[0]; # do not shift or rivers will shrink!
     my $current_altitude = $altitude->{$coordinates};
-    # warn "Looking at river @$river\n";
     for $coordinates (@$river[1 .. @$river - 1]) {
       if ($seen{$coordinates}) {
 	warn "Stumbled into an existing canyon @canyon at $coordinates\n" if @canyon;
@@ -1483,6 +1486,7 @@ sub canyons {
 	  # push a new array reference so that we can reset the variable without
 	  # clearing its value
 	  push(@canyons, [@canyon]);
+	  # warn "Looking at river @$river\n";
 	  # warn "Canyon @canyon\n";
 	  @canyon = ();
 	}
