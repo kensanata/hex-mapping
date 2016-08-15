@@ -1560,28 +1560,34 @@ sub settlements {
 }
 
 sub trails {
-  my ($world, $settlements) = @_;
-  my @trails;
-  my @from = @$settlements;
-  my @to = @$settlements;
+  my ($world, $altitude, $settlements) = @_;
+  # look for a neighbor that is as close as possible and as low as possible
+  my %trails;
+  my @from = shuffle @$settlements;
+  my @to = shuffle @$settlements;
+  warn "From @from\n";
+  warn "  To @to\n";
   for my $from (@from) {
-    shift(@to);
-    my $connected;
-    for my $to (@to) {
-      if (distance($from, $to) <= 2) {
-	push(@trails, [$from, $to]);
-	$connected = 1;
-      }
-    }
-    if (not $connected) {
+    my $d = 1;
+    while ($d <= 3) {
+      my $best;
       for my $to (@to) {
-	if (distance($from, $to) <= 3) {
-	  push(@trails, [$from, $to]);
+	if (distance($from, $to) == $d
+	    and (not $best or $altitude->{$to} < $altitude->{$best})) {
+	  $best = $to;
 	}
       }
+      $d++;
+      # try again with longer distance if none was found
+      next if not $best;
+      # skip if it already exists in the other direction
+      last if $trails{"$best-$from"};
+      $trails{"$from-$best"} = 1;
+      warn "Trail $from-$best\n";
+      last;
     }
   }
-  return @trails;
+  return keys %trails;
 }
 
 sub cliffs {
@@ -1618,7 +1624,7 @@ sub generate {
     sub { forests($world, $altitude, \%flow); },
     sub { bushes($world, $altitude, $water); },
     sub { push(@$settlements, settlements($world)); },
-    sub { push(@$trails, trails($world, $settlements)); },
+    sub { push(@$trails, trails($world, $altitude, $settlements)); },
     # make sure you look at "prepare a map for every step" below if you change
     # this list
       );
@@ -1652,7 +1658,7 @@ sub generate_map {
   # (north west); 0 means we need to use "if defined".
   # @rivers are the rivers with values such as ["0102", "0202"]
   # @settlements are are the locations of settlements such as "0101"
-  # @trails are the trails connecting these with values as ["0102", "0202"]
+  # @trails are the trails connecting these with values as "0102-0202"
   # $step is how far we want map generation to go where 0 means all the way
   my (%world, %altitude, %water, @rivers, @settlements, @trails, @canyons);
   generate(\%world, \%altitude, \%water, \@rivers, \@settlements, \@trails, \@canyons, $step);
@@ -1678,7 +1684,7 @@ sub generate_map {
   push(@lines, map { $_ . " " . $world{$_} } sort keys %world);
   push(@lines, map { "@$_ canyon" } @canyons);
   push(@lines, map { "@$_ river" } @rivers);
-  push(@lines, map { "@$_ trail" } @trails);
+  push(@lines, map { "$_ trail" } @trails);
   push(@lines, "include https://campaignwiki.org/contrib/gnomeyland.txt");
   
   # when documenting or debugging, add some more lines at the end 
