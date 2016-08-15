@@ -1328,7 +1328,7 @@ sub flood {
  LAKE:
   for my $start (shuffle sort keys %starters) {
     # maybe we already handled it in the mean time
-    warn "Skipping $start because it was already added to a lake\n" if $water->{$start};
+    # warn "Skipping $start because it was already added to a lake\n" if $water->{$start};
     next if $water->{$start};
     # start a lake
     my %lake = ($start => 1);
@@ -1336,12 +1336,12 @@ sub flood {
     my $coordinates;
     my %rivers;
     my @river;
-    warn "Lake started with $start\n";
+    # warn "Lake started with $start\n";
     # try lowest lying candidates first
   CANDIDATE:
     while (@candidates) {
       @candidates = sort { $altitude->{$a} <=> $altitude->{$b} } @candidates;
-      warn "Candidates: @candidates\n";
+      # warn "Candidates: @candidates\n";
       # skip the ones we have seen
       do {
 	$coordinates = shift(@candidates);
@@ -1349,14 +1349,14 @@ sub flood {
       last unless $coordinates;
       # are we resuming a river?
       $seen{$coordinates} = 1;
-      warn "Looking at candidate $coordinates\n";
+      # warn "Looking at candidate $coordinates\n";
       if ($rivers{$coordinates}) {
 	@river = @{$rivers{$coordinates}};
       } else {
 	@river = $coordinates;
 	$rivers{$coordinates} = [@river];
       }
-      warn "River now: @river\n" if @river;
+      # warn "River now: @river\n" if @river;
       # look at the neighbors, prefer lower neighbors
     NEIGHBOR:
       for my $i (sort { ($altitude->{coordinates(neighbor($coordinates, $a))} || 99)
