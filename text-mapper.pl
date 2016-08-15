@@ -1459,36 +1459,56 @@ sub rivers {
 
 sub canyons {
   my ($altitude, $rivers) = @_;
-  # doing this as part of the flood algorithm would probably be quicker
   my @canyons;
-  my @canyon;
+  # using a reference to an array so that we can leave pointers in the %seen hash
+  my $canyon = [];
+  # remember which canyon flows through which hex
   my %seen;
   for my $river (@$rivers) {
-    my $last;
-    my $coordinates = $river->[0]; # do not shift or rivers will shrink!
-    my $current_altitude = $altitude->{$coordinates};
-    for $coordinates (@$river[1 .. @$river - 1]) {
+    my $last = $river->[0];
+    my $current_altitude = $altitude->{$last};
+    # warn "Looking at @$river ($current_altitude)\n";
+    for my $coordinates (@$river) {
       if ($seen{$coordinates}) {
-	warn "Stumbled into an existing canyon @canyon at $coordinates\n" if @canyon;
-	@canyon = ();
+	# the rest of this river was already looked at, so there is no need to
+	# do the rest of this river; if we're in a canyon, prepend it to the one
+	# we just found before ending
+	if (@$canyon) {
+	  my @other = @{$seen{$coordinates}};
+	  if ($other[0] eq $canyon->[-1]) {
+	    # warn "Canyon @$canyon of river @$river merging with @other at $coordinates\n";
+	    unshift(@{$seen{$coordinates}}, @$canyon[0 .. @$canyon - 2]);
+	  } else {
+	    # warn "Canyon @$canyon of river @$river stumbled upon existing canyon @other at $coordinates\n";
+	    while (@other) {
+	      my $other = shift(@other);
+	      next if $other ne $coordinates;
+	      push(@$canyon, $other, @other);
+	      last;
+	    }
+	    # warn "Canyon @$canyon\n";
+	    push(@canyons, $canyon);
+	  }
+	  $canyon = [];
+	}
 	last;
       }
       if ($altitude->{$coordinates} and $current_altitude < $altitude->{$coordinates}) {
-	# river is digging a canyon; if this is the start of canyon, prepend the
-	# last step
-	push(@canyon, $last) unless @canyon;
-	push(@canyon, $coordinates);
-	$seen{$coordinates} = 1;
+	# river is digging a canyon; if this not the start of the river and it
+	# is the start of a canyon, prepend the last step
+	push(@$canyon, $last) unless @$canyon;
+	push(@$canyon, $coordinates);
+	# warn "Growing canyon @$canyon\n";
+	$seen{$coordinates} = $canyon;
       } else {
 	# if we just left a canyon, append the current step
-	if (@canyon) {
-	  push(@canyon, $coordinates);
-	  # push a new array reference so that we can reset the variable without
-	  # clearing its value
-	  push(@canyons, [@canyon]);
+	if (@$canyon) {
+	  push(@$canyon, $coordinates);
+	  push(@canyons, $canyon);
 	  # warn "Looking at river @$river\n";
-	  # warn "Canyon @canyon\n";
-	  @canyon = ();
+	  # warn "Canyon @$canyon\n";
+	  $canyon = [];
+	  last;
 	}
 	# not digging a canyon
 	$last = $coordinates;
