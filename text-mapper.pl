@@ -1561,31 +1561,24 @@ sub settlements {
 
 sub trails {
   my ($world, $altitude, $settlements) = @_;
-  # look for a neighbor that is as close as possible and as low as possible
+  # look for a neighbor that is as low as possible and nearby
   my %trails;
   my @from = shuffle @$settlements;
   my @to = shuffle @$settlements;
-  warn "From @from\n";
-  warn "  To @to\n";
   for my $from (@from) {
-    my $d = 1;
-    while ($d <= 3) {
-      my $best;
-      for my $to (@to) {
-	if (distance($from, $to) == $d
-	    and (not $best or $altitude->{$to} < $altitude->{$best})) {
-	  $best = $to;
-	}
+    my $best;
+    for my $to (@to) {
+      next if $from eq $to;
+      if (distance($from, $to) <= 3
+	  and (not $best or $altitude->{$to} < $altitude->{$best})) {
+	$best = $to;
       }
-      $d++;
-      # try again with longer distance if none was found
-      next if not $best;
-      # skip if it already exists in the other direction
-      last if $trails{"$best-$from"};
-      $trails{"$from-$best"} = 1;
-      warn "Trail $from-$best\n";
-      last;
     }
+    next if not $best;
+    # skip if it already exists in the other direction
+    next if $trails{"$best-$from"};
+    $trails{"$from-$best"} = 1;
+    # warn "Trail $from-$best\n";
   }
   return keys %trails;
 }
