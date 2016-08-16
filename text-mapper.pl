@@ -1316,6 +1316,22 @@ sub direction {
   }
 }
 
+sub lowest_neighbor {
+  my ($altitude, $lake, $coordinates) = @_;
+  my $lowest;
+  my @candidates;
+  for my $i (shuffle 0 .. 5) {
+    my ($x, $y) = neighbor($coordinates, $i);
+    next unless legal($x, $y);
+    my $other = coordinates($x, $y);
+    next if $lake->{$other};
+    next if defined $lowest and $altitude->{$lowest} < $altitude->{$other};
+    $lowest = $other;
+  }
+  # warn "lowest neighbor of $coordinates is $lowest\n" if $coordinates eq "1703";
+  return $lowest;
+}
+
 sub flood {
   my ($world, $altitude, $water) = @_;
   # when we find candidate lakes and postpone our search, we need to know the
@@ -1340,7 +1356,16 @@ sub flood {
     # try lowest lying candidates first
   CANDIDATE:
     while (@candidates) {
-      @candidates = sort { $altitude->{$a} <=> $altitude->{$b} } @candidates;
+      # we want to sort neighbors based on potential: low neighbors are good,
+      # but within those, neighbors with lower neighbors are better
+      @candidates = sort {
+	my $sort = $altitude->{$a} <=> $altitude->{$b};
+	if ($sort == 0) {
+	  $sort = $altitude->{lowest_neighbor($altitude, \%lake, $a)}
+	  <=> $altitude->{lowest_neighbor($altitude, \%lake, $b)};
+	}
+	$sort;
+      } @candidates;
       # warn "Candidates: @candidates\n";
       # skip the ones we have seen
       do {
@@ -1357,7 +1382,8 @@ sub flood {
 	$rivers{$coordinates} = [@river];
       }
       # warn "River now: @river\n" if @river;
-      # look at the neighbors, prefer lower neighbors
+      # look at the neighbors, prefer lower neighbors; use 99 for coordinates
+      # outside the map
     NEIGHBOR:
       for my $i (sort { ($altitude->{coordinates(neighbor($coordinates, $a))} || 99)
 			<=> ($altitude->{coordinates(neighbor($coordinates, $b))} || 99)
