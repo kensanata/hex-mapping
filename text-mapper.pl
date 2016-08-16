@@ -1708,17 +1708,17 @@ sub generate {
   my @code = (
     sub { flat($altitude); 
 	  altitude($world, $altitude); }, # 1
-    sub { cliffs($world, $altitude); }, # 2
-    sub { mountains($world, $altitude); }, # 3
-    sub { water($world, $altitude, $water); }, # 4
-    sub { lakes($world, $altitude, $water); }, # 5
-    sub { swamps($world, $altitude, $water); }, # 6
-    sub { flood($world, $altitude, $water); }, # 7
+    sub { mountains($world, $altitude); }, # 2
+    sub { water($world, $altitude, $water); }, # 3
+    sub { lakes($world, $altitude, $water); }, # 4
+    sub { swamps($world, $altitude, $water); }, # 5
+    sub { flood($world, $altitude, $water); }, # 6
     sub { push(@$rivers, rivers($world, $altitude, $water, \%flow, 8));
-	  push(@$rivers, rivers($world, $altitude, $water, \%flow, 7)); }, # 8
-    sub { push(@$canyons, canyons($altitude, $rivers)); }, # 9
-    sub { forests($world, $altitude, \%flow); }, # 10
-    sub { bushes($world, $altitude, $water); }, # 11
+	  push(@$rivers, rivers($world, $altitude, $water, \%flow, 7)); }, # 7
+    sub { push(@$canyons, canyons($altitude, $rivers)); }, # 8
+    sub { forests($world, $altitude, \%flow); }, # 9
+    sub { bushes($world, $altitude, $water); }, # 10
+    sub { cliffs($world, $altitude); }, # 11
     sub { push(@$settlements, settlements($world)); }, # 12
     sub { push(@$trails, trails($world, $altitude, $settlements)); }, # 13
     # make sure you look at "prepare a map for every step" below if you change
@@ -2434,31 +2434,27 @@ ground (altitude 0).</p>
 
 %== $map1
 
-<p>Cliffs form wherever the drop is more than just one level of altitude.</p>
-
-%== $map2
-
 <p>Mountains are the hexes at high altitudes: white mountains (altitude 10),
 white mountain (altitude 9), light-grey mountain (altitude 8).</p>
 
-%== $map3
+%== $map2
 
 <p>We determine the flow of water by having water flow to one of the lowest
 neighbors if possible. Water doesn't flow upward, and if there is already water
 coming our way, then it won't flow back. It has reached a dead end.</p>
 
-%== $map4
+%== $map3
 
 <p>Any of the dead ends we found in the previous step are marked as lakes.</p>
 
-%== $map5
+%== $map4
 
 <p>Any hex that flows towards a neighbor at the same altitude is insufficiently
 drained. These are marked as swamps. The background color of the swamp depends
 on the altitude: light-grey (altitude 8 and higher), grey (altitude 6–7),
 dark-grey (altitude 5 and lower).</p>
 
-%== $map6
+%== $map5
 
 <p>We still need to figure out how to drain lakes. In order to do that, we start
 "flooding" the lake. We look at neighbors and follow their arrows. If they lead
@@ -2469,30 +2465,34 @@ reverse all the arrows where necessary. The lake will now drain through higher
 neighbors. I guess we must assume that the river has cut deep into the
 ground.</p>
 
-%== $map7
+%== $map6
 
 <p>We add a river sources high up in the mountains (altitudes 7 and 8), merging
 them as appropriate. These rivers flow downwards as indicated by the arrows. If
 the river source is not a mountain (altitude 8) or a swamp, then we place a
 forested hill at the source (thus, they're all at altitude 7).</p>
 
-%== $map8
+%== $map7
 
 <p>Remember how we had rivers that could "cut deep into the ground?" Well, we'll
 add a little shadow to those parts of rivers that flow through higher
 altitudes.</p>
 
-%== $map9
+%== $map8
 
 <p>Wherever there is water and no swamp, forests will form. The exact type again
 depends on the altitude: light green fir-forest (altitude 6 and higher), green
 forest (altitude 4–5), dark-green forest (altitude 3 and lower).</p>
 
-%== $map10
+%== $map9
 
 <p>Any remaining hexes have no river flowing through them and are considered to
 be little more arid. They get bushes. Higher up, these are light grey (altitude
 7), otherwise they are light green (altitude 6 and below).</p>.
+
+%== $map10
+
+<p>Cliffs form wherever the drop is more than just one level of altitude.</p>
 
 %== $map11
 
