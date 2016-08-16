@@ -1398,27 +1398,27 @@ sub flood {
 	  push(@candidates, $other);
 	  $lake{$other} = 1;
 	  $rivers{$other} = [@river] if @river;
-	  warn "Adding lake $other to our candidates: @candidates\n";
+	  # warn "Adding lake $other to our candidates: @candidates\n";
 	  next NEIGHBOR;
 	}
 	# if the neighbor points towards one of ours, it belongs to our lake
 	my $target = coordinates(neighbor($other, $water->{$other}));
-	warn "A neighbor of $coordinates is $other with target $target\n";
+	# warn "A neighbor of $coordinates is $other with target $target\n";
 	if ($lake{$target}) {
 	  push(@candidates, $other);
 	  $lake{$other} = 1;
 	  $rivers{$other} = [@river, $other] if @river;
-	  warn "Adding $other to our lake because it empties into our lake; the river leading here: @{$rivers{$other}}\n";
+	  # warn "Adding $other to our lake because it empties into our lake; the river leading here: @{$rivers{$other}}\n";
 	  next NEIGHBOR;
 	}
 	# if the neighbor points off map, we are done
 	if (not legal($target)) {
-	  warn "We left the map via $coordinates-$other-$target\n";
+	  # warn "We left the map via $coordinates-$other-$target\n";
 	  push(@river, $coordinates, $other, $target);
 	  last CANDIDATE;
 	}
 	# maybe it's an outlet: follow this river
-	warn "Adding $other and $target to our lake, but need to explore\n";
+	# warn "Adding $other and $target to our lake, but need to explore\n";
 	push(@river, $other, $target);
 	$lake{$other} = 1;
 	$lake{$target} = 1;
@@ -1427,39 +1427,39 @@ sub flood {
 	  if (not defined $water->{$target}) {
 	    push(@candidates, $target);
 	    $lake{$target} = 1;
-	    warn "We found another lake at $target, so adding that to our candidates: @candidates\n";
+	    # warn "We found another lake at $target, so adding that to our candidates: @candidates\n";
 	    while (@river) {
 	      my $hex = pop(@river);
 	      last if $seen{$hex};
 	      push(@candidates, $hex);
 	      $rivers{$hex} = [@river, $hex];
-	      warn "... $hex is a new candidate with river: @{$rivers{$hex}}\n";
+	      # warn "... $hex is a new candidate with river: @{$rivers{$hex}}\n";
 	    }
 	    @river = @{$rivers{$coordinates}};
-	    warn "Back at $coordinates with river @river\n";
+	    # warn "Back at $coordinates with river @river\n";
 	    next NEIGHBOR;
 	  }
 	  ($x, $y) = neighbor($target, $water->{$target});
 	  if (not legal($x, $y)) {
-	    warn "We left the map via @river\n";
+	    # warn "We left the map via @river\n";
 	    last CANDIDATE;
 	  }
 	  $target = coordinates($x, $y);
 	  if ($lake{$target}) {
-	    warn "We flowed back into the lake via @river $target\n";
+	    # warn "We flowed back into the lake via @river $target\n";
 	    while (@river) {
 	      my $hex = pop(@river);
 	      last if $seen{$hex};
 	      push(@candidates, $hex);
 	      $rivers{$hex} = [@river, $hex];
-	      warn "... $hex is a new candidate with river: @{$rivers{$hex}}\n";
+	      # warn "... $hex is a new candidate with river: @{$rivers{$hex}}\n";
 	    }
 	    @river = @{$rivers{$coordinates}};
-	    warn "Back at $coordinates with river @river\n";
+	    # warn "Back at $coordinates with river @river\n";
 	    next NEIGHBOR;
 	  }
 	  # keep extending the lake
-	  warn "Adding $target to our lake and keep exploring\n";
+	  # warn "Adding $target to our lake and keep exploring\n";
 	  $lake{$target} = 1;
 	  push(@river, $target);
 	}
@@ -1479,7 +1479,7 @@ sub flood {
 	my $i = direction($coordinates, $next);
 	if (not defined $water->{$coordinates}
 	    or $water->{$coordinates} != $i) {
-	  warn "Arrows for $coordinates should now point to $next\n";
+	  # warn "Arrows for $coordinates should now point to $next\n";
 	  $water->{$coordinates} = $i;
 	  $world->{$coordinates} =~ s/arrow\d/arrow$i/
 	      or $world->{$coordinates} .= " arrow$i";
