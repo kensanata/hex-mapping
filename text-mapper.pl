@@ -1219,7 +1219,7 @@ sub water {
   # go through all the hexes
   for my $coordinates (sort keys %$altitude) {
     # note preferred water flow by identifying lower lying neighbors
-    my @candidates;
+    my ($lowest, $direction);
     # look at neighbors in random order
   NEIGHBOR:
     for my $i (shuffle 0 .. 5) {
@@ -1248,14 +1248,15 @@ sub water {
 	next NEIGHBOR if $loop{$next};
 	$loop{$next} = 1;
       }
-      push(@candidates, [$i, $other]);
+      if (not $direction
+	  or not $legal and $altitude->{$coordinates} < $lowest
+	  or $legal and $altitude->{$other} < $lowest) {
+	$lowest = $legal ? $altitude->{$other} : $altitude->{$coordinates};
+	$direction = $i;
+      }
     }
-    @candidates = sort {
-      my $outside = $altitude->{$coordinates};
-      ($altitude->{$a->[1]}||$outside) <=> ($altitude->{$b->[1]}||$outside)
-    } @candidates;
-    if (@candidates) {
-      $water->{$coordinates} = $candidates[0]->[0] if @candidates;
+    if ($direction) {
+      $water->{$coordinates} = $direction;
       $world->{$coordinates} =~ s/arrow\d/arrow$water->{$coordinates}/
 	  or $world->{$coordinates} .= " arrow$water->{$coordinates}";
     }
