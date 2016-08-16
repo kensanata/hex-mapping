@@ -1362,8 +1362,9 @@ sub flood {
       @candidates = sort {
 	my $sort = $altitude->{$a} <=> $altitude->{$b};
 	if ($sort == 0) {
-	  $sort = $altitude->{lowest_neighbor($altitude, \%lake, $a)}
-	  <=> $altitude->{lowest_neighbor($altitude, \%lake, $b)};
+	  no warnings; # sometimes no neighbor can be found
+	  $sort = ($altitude->{lowest_neighbor($altitude, \%lake, $a)})
+	  <=> ($altitude->{lowest_neighbor($altitude, \%lake, $b)});
 	}
 	$sort;
       } @candidates;
