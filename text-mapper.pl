@@ -1226,17 +1226,17 @@ sub water {
       my ($x, $y) = neighbor($coordinates, $i);
       my $legal = legal($x, $y);
       my $other = coordinates($x, $y);
+      # my $debug = $coordinates eq "1004" && $other eq "0904";
       next if $legal and $altitude->{$other} > $altitude->{$coordinates};
       # don't point head on to another arrow
       next if $legal and $water->{$other} and $water->{$other} == ($i-3) % 6;
       # don't point into loops
       my %loop = ($coordinates => 1, $other => 1);
       my $next = $other;
-      # my $debug = $coordinates eq "1420" and $other eq "1520";
       # warn "Loop detection starting with $coordinates and $other\n" if $debug;
       while ($next) {
 	# no water flow known is also good;
-	# warn "water for $next: $water->{$next}\n";
+	# warn "water for $next: $water->{$next}\n" if $debug;
 	last unless defined $water->{$next};
 	($x, $y) = neighbor($next, $water->{$next});
 	# leaving the map is good
@@ -1248,14 +1248,15 @@ sub water {
 	next NEIGHBOR if $loop{$next};
 	$loop{$next} = 1;
       }
-      if (not $direction
+      if (not defined $direction
 	  or not $legal and $altitude->{$coordinates} < $lowest
 	  or $legal and $altitude->{$other} < $lowest) {
 	$lowest = $legal ? $altitude->{$other} : $altitude->{$coordinates};
 	$direction = $i;
+	# warn "Set lowest to $lowest ($direction)\n" if $debug;
       }
     }
-    if ($direction) {
+    if (defined $direction) {
       $water->{$coordinates} = $direction;
       $world->{$coordinates} =~ s/arrow\d/arrow$water->{$coordinates}/
 	  or $world->{$coordinates} .= " arrow$water->{$coordinates}";
