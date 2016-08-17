@@ -2372,26 +2372,28 @@ dark-grey (altitude 5 and lower).</p>
 %== $map5
 
 <p>We still need to figure out how to drain lakes. In order to do that, we start
-"flooding" the lake. We look at neighbors and follow their arrows. If they lead
-back to the lake, they are virtually added to the lake. I guess they were part
-of a glacier in ancient times or something. If they lead to the edge of the map
-instead, we have found our exit. We go back towards our starting lake and
-reverse all the arrows where necessary. The lake will now drain through higher
-neighbors. I guess we must assume that the river has cut deep into the
-ground.</p>
+"flooding" lakes, looking for a way to the edge of the map. If we're lucky, our
+search will soon hit upon a sequence of arrows that leads to ever lower
+altitudes and to the edge of the map. An outlet! We start with all the hexes
+that don't have an arrow. For each one of those, we look its neighbors. These
+are our initial candidates. We keep expanding our list of candidates as we add
+at neighbors of neighbors. At every step we prefer the lowest of these
+candidates. Once we have reached the edge of the map, we backtrack and change
+any arrows pointing the wrong way.</p>
 
 %== $map6
 
 <p>We add a river sources high up in the mountains (altitudes 7 and 8), merging
-them as appropriate. These rivers flow downwards as indicated by the arrows. If
-the river source is not a mountain (altitude 8) or a swamp, then we place a
-forested hill at the source (thus, they're all at altitude 7).</p>
+them as appropriate. These rivers flow as indicated by the arrows. If the river
+source is not a mountain (altitude 8) or a swamp, then we place a forested hill
+at the source (thus, they're all at altitude 7).</p>
 
 %== $map7
 
-<p>Remember how we had rivers that could "cut deep into the ground?" Well, we'll
-add a little shadow to those parts of rivers that flow through higher
-altitudes.</p>
+<p>Remember how the arrows were changed at some points such that rivers don't
+always flow downwards. We're going to assume that in these situations, the
+rivers have cut canyons into the higher lying ground and we'll add a little
+shadow.</p>
 
 %== $map8
 
