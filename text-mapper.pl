@@ -1215,7 +1215,7 @@ sub altitude {
 sub water {
   my ($world, $altitude, $water) = @_;
   # reset in case we run this twice
-  %$water = ();
+  my $debug = 0;
   # go through all the hexes
   for my $coordinates (sort keys %$altitude) {
     # note preferred water flow by identifying lower lying neighbors
@@ -1233,18 +1233,18 @@ sub water {
       # don't point into loops
       my %loop = ($coordinates => 1, $other => 1);
       my $next = $other;
-      # warn "Loop detection starting with $coordinates and $other\n" if $debug;
+      warn "Loop detection starting with $coordinates and $other\n" if $debug;
       while ($next) {
 	# no water flow known is also good;
-	# warn "water for $next: $water->{$next}\n" if $debug;
+	warn "water for $next: $water->{$next}\n" if $debug;
 	last unless defined $water->{$next};
 	($x, $y) = neighbor($next, $water->{$next});
 	# leaving the map is good
-	# warn "legal for $next: " . legal($x, $y) . "\n" if $debug;
+	warn "legal for $next: " . legal($x, $y) . "\n" if $debug;
 	last unless legal($x, $y);
 	$next = coordinates($x, $y);
 	# skip this neighbor if this is a loop
-	# warn "is $next in a loop? $loop{$next}\n" if $debug;
+	warn "is $next in a loop? $loop{$next}\n" if $debug;
 	next NEIGHBOR if $loop{$next};
 	$loop{$next} = 1;
       }
@@ -1253,7 +1253,7 @@ sub water {
 	  or $legal and $altitude->{$other} < $lowest) {
 	$lowest = $legal ? $altitude->{$other} : $altitude->{$coordinates};
 	$direction = $i;
-	# warn "Set lowest to $lowest ($direction)\n" if $debug;
+	warn "Set lowest to $lowest ($direction)\n" if $debug;
       }
     }
     if (defined $direction) {
@@ -1336,161 +1336,70 @@ sub lowest_neighbor {
 
 sub flood {
   my ($world, $altitude, $water) = @_;
-  # when we find candidate lakes and postpone our search, we need to know the
-  # river that took use there
-  # we also need a way to remember which candidates we have already seen
-  my %seen;
   my $debug = 0;
-  # start with a list of lake hexes
-  my %starters = map { $_ => 1 } grep { $world->{$_} =~ /water/ } keys %$world;
- LAKE:
-  for my $start (shuffle sort keys %starters) {
-    # maybe we already handled it in the mean time
-    # warn "Skipping $start because it was already added to a lake\n" if $water->{$start};
-    next if $water->{$start};
-    # start a lake
-    my %lake = ($start => 1);
-    my @candidates = ($start);
+  # backtracking information: $from = $flow{$to}
+  my %flow;
+  # allow easy skipping
+  my %seen;
+  # start with a list of hexes to look at; as always, keys is a source of
+  # randomness that's independent of srand which is why we shuffle sort
+  my @lakes =  shuffle sort grep { not defined $water->{$_} } keys %$world;
+  my $start = shift(@lakes);
+  my @candidates = ($start);
+  while (@candidates) {
+    # Prefer candidates outside the map with altitude 0; reshuffle because
+    # candidates at the same height are all equal and early or late discoveries
+    # should not matter (not shuffling means it matters whether candidates are
+    # pushed or unshifted because this is a stable sort)
+    @candidates = sort {
+      ($altitude->{$a}||0) <=> ($altitude->{$b}||0)
+    } shuffle @candidates;
+    warn "Candidates @candidates\n" if $debug;
     my $coordinates;
-    my %rivers;
-    my @river;
-    # warn "Lake started with $start\n";
-    # try lowest lying candidates first
-  CANDIDATE:
-    while (@candidates) {
-      # we want to sort neighbors based on potential: low neighbors are good,
-      # but within those, neighbors with lower neighbors are better
-      @candidates = sort {
-	my $sort = $altitude->{$a} <=> $altitude->{$b};
-	if ($sort == 0) {
-	  no warnings; # sometimes no neighbor can be found
-	  $sort = ($altitude->{lowest_neighbor($altitude, \%lake, $a)})
-	  <=> ($altitude->{lowest_neighbor($altitude, \%lake, $b)});
-	}
-	$sort;
-      } @candidates;
-      # warn "Candidates: @candidates\n";
-      # skip the ones we have seen
-      do {
-	$coordinates = shift(@candidates);
-      } while @candidates and $coordinates and $seen{$coordinates};
-      last unless $coordinates;
-      # are we resuming a river?
-      $seen{$coordinates} = 1;
-      # warn "Looking at candidate $coordinates\n";
-      if ($rivers{$coordinates}) {
-	@river = @{$rivers{$coordinates}};
+    do {
+      $coordinates = shift(@candidates);
+    } until not $seen{$coordinates};
+    $seen{$coordinates} = 1;
+    warn "Looking at $coordinates\n" if $debug;
+    my ($x, $y) = xy($coordinates);
+    if (legal($x, $y)) {
+      # if we're still on the map, check all the unknown neighbors
+      my $from = $coordinates;
+      for my $i (0 .. 5) {
+	my $to = coordinates(neighbor($from, $i));
+	next if $seen{$to};
+	warn "Adding $to to our candidates\n" if $debug;
+	$flow{$to} = $from;
+	# adding to the front as we keep pushing forward (I hope)
+	push(@candidates, $to);
+      }
+      next;
+    }
+    warn "We left the map at $coordinates\n" if $debug;
+    my $to = $coordinates;
+    my $from = $flow{$to};
+    while ($from) {
+      my $i = direction($from, $to);
+      if (not defined $water->{$from}
+	  or $water->{$from} != $i) {
+	warn "Arrow for $from now points to $to\n" if $debug;
+	$water->{$from} = $i;
+	$world->{$from} =~ s/arrow\d/arrow$i/
+	    or $world->{$from} .= " arrow$i";
       } else {
-	@river = $coordinates;
-	$rivers{$coordinates} = [@river];
+	warn "Arrow for $from already points $to\n" if $debug;
       }
-      # warn "River now: @river\n" if @river;
-      # look at the neighbors, prefer lower neighbors; use 99 for coordinates
-      # outside the map
-    NEIGHBOR:
-      for my $i (sort { ($altitude->{coordinates(neighbor($coordinates, $a))} || 99)
-			<=> ($altitude->{coordinates(neighbor($coordinates, $b))} || 99)
-		 } shuffle 0 .. 5) {
-	my ($x, $y) = neighbor($coordinates, $i);
-	next unless legal($x, $y);
-	my $other = coordinates($x, $y);
-	# skip if it already belongs to our lake
-	next if $lake{$other};
-	# if the neighbor is known lake, it belongs to our lake
-	if ($starters{$other}) {
-	  push(@candidates, $other);
-	  $lake{$other} = 1;
-	  $rivers{$other} = [@river] if @river;
-	  # warn "Adding lake $other to our candidates: @candidates\n";
-	  next NEIGHBOR;
-	}
-	# if the neighbor points towards one of ours, it belongs to our lake
-	my $target = coordinates(neighbor($other, $water->{$other}));
-	# warn "A neighbor of $coordinates is $other with target $target\n";
-	if ($lake{$target}) {
-	  push(@candidates, $other);
-	  $lake{$other} = 1;
-	  $rivers{$other} = [@river, $other] if @river;
-	  # warn "Adding $other to our lake because it empties into our lake; the river leading here: @{$rivers{$other}}\n";
-	  next NEIGHBOR;
-	}
-	# if the neighbor points off map, we are done
-	if (not legal($target)) {
-	  # warn "We left the map via $coordinates-$other-$target\n";
-	  push(@river, $coordinates, $other, $target);
-	  last CANDIDATE;
-	}
-	# maybe it's an outlet: follow this river
-	# warn "Adding $other and $target to our lake, but need to explore\n";
-	push(@river, $other, $target);
-	$lake{$other} = 1;
-	$lake{$target} = 1;
-      RIVER:
-	while (1) {
-	  if (not defined $water->{$target}) {
-	    push(@candidates, $target);
-	    $lake{$target} = 1;
-	    # warn "We found another lake at $target, so adding that to our candidates: @candidates\n";
-	    while (@river) {
-	      my $hex = pop(@river);
-	      last if $seen{$hex};
-	      push(@candidates, $hex);
-	      $rivers{$hex} = [@river, $hex];
-	      # warn "... $hex is a new candidate with river: @{$rivers{$hex}}\n";
-	    }
-	    @river = @{$rivers{$coordinates}};
-	    # warn "Back at $coordinates with river @river\n";
-	    next NEIGHBOR;
-	  }
-	  ($x, $y) = neighbor($target, $water->{$target});
-	  if (not legal($x, $y)) {
-	    # warn "We left the map via @river\n";
-	    last CANDIDATE;
-	  }
-	  $target = coordinates($x, $y);
-	  if ($lake{$target}) {
-	    # warn "We flowed back into the lake via @river $target\n";
-	    while (@river) {
-	      my $hex = pop(@river);
-	      last if $seen{$hex};
-	      push(@candidates, $hex);
-	      $rivers{$hex} = [@river, $hex];
-	      # warn "... $hex is a new candidate with river: @{$rivers{$hex}}\n";
-	    }
-	    @river = @{$rivers{$coordinates}};
-	    # warn "Back at $coordinates with river @river\n";
-	    next NEIGHBOR;
-	  }
-	  # keep extending the lake
-	  # warn "Adding $target to our lake and keep exploring\n";
-	  $lake{$target} = 1;
-	  push(@river, $target);
-	}
-      }
+      $to = $from;
+      $from = $flow{$to};
     }
-    # if ($lake{'1110'}) {
-    #   for my $coordinates (keys %lake) {
-    # 	$world->{$coordinates} .= ' soil';
-    #   }
-    # }
-    if (@river) {
-      # reverse the arrows that lead from the source of this river we just found
-      # such that the lake empties into this river
-      $coordinates = shift(@river);
-      while (@river) {
-	my $next = shift(@river);
-	my $i = direction($coordinates, $next);
-	if (not defined $water->{$coordinates}
-	    or $water->{$coordinates} != $i) {
-	  # warn "Arrows for $coordinates should now point to $next\n";
-	  $water->{$coordinates} = $i;
-	  $world->{$coordinates} =~ s/arrow\d/arrow$i/
-	      or $world->{$coordinates} .= " arrow$i";
-	}
-	$coordinates = $next;
-      }
-    }
-    # die if $debug++ > 4;
+    # pick the next lake
+    do {
+      $start = shift(@lakes);
+      warn "Next lake is $start\n" if $debug and $start;
+    } until not $start or not defined $water->{$start};
+    last unless $start;
+    %seen = %flow = ();
+    @candidates = ($start);
   }
 }
 
@@ -1542,17 +1451,19 @@ sub rivers {
 }
 
 sub canyons {
-  my ($altitude, $rivers) = @_;
+  my ($world, $altitude, $rivers) = @_;
   my @canyons;
   # using a reference to an array so that we can leave pointers in the %seen hash
   my $canyon = [];
   # remember which canyon flows through which hex
   my %seen;
+  my $debug = 0;
   for my $river (@$rivers) {
     my $last = $river->[0];
     my $current_altitude = $altitude->{$last};
-    # warn "Looking at @$river ($current_altitude)\n";
+    warn "Looking at @$river ($current_altitude)\n" if $debug;
     for my $coordinates (@$river) {
+      warn "Looking at $coordinates\n" if $debug;
       if ($seen{$coordinates}) {
 	# the rest of this river was already looked at, so there is no need to
 	# do the rest of this river; if we're in a canyon, prepend it to the one
@@ -1560,37 +1471,40 @@ sub canyons {
 	if (@$canyon) {
 	  my @other = @{$seen{$coordinates}};
 	  if ($other[0] eq $canyon->[-1]) {
-	    # warn "Canyon @$canyon of river @$river merging with @other at $coordinates\n";
+	    warn "Canyon @$canyon of river @$river merging with @other at $coordinates\n" if $debug;
 	    unshift(@{$seen{$coordinates}}, @$canyon[0 .. @$canyon - 2]);
 	  } else {
-	    # warn "Canyon @$canyon of river @$river stumbled upon existing canyon @other at $coordinates\n";
+	    warn "Canyon @$canyon of river @$river stumbled upon existing canyon @other at $coordinates\n" if $debug;
 	    while (@other) {
 	      my $other = shift(@other);
 	      next if $other ne $coordinates;
 	      push(@$canyon, $other, @other);
 	      last;
 	    }
-	    # warn "Canyon @$canyon\n";
+	    warn "Canyon @$canyon\n" if $debug;
 	    push(@canyons, $canyon);
 	  }
 	  $canyon = [];
 	}
+	warn "We've seen the rest: @{$seen{$coordinates}}\n" if $debug;
 	last;
       }
-      if ($altitude->{$coordinates} and $current_altitude < $altitude->{$coordinates}) {
+      # no canyons through water!
+      if ($altitude->{$coordinates} and $current_altitude < $altitude->{$coordinates}
+	  and $world->{$coordinates} !~ /water/) {
 	# river is digging a canyon; if this not the start of the river and it
 	# is the start of a canyon, prepend the last step
 	push(@$canyon, $last) unless @$canyon;
 	push(@$canyon, $coordinates);
-	# warn "Growing canyon @$canyon\n";
+	warn "Growing canyon @$canyon\n" if $debug;
 	$seen{$coordinates} = $canyon;
       } else {
 	# if we just left a canyon, append the current step
 	if (@$canyon) {
 	  push(@$canyon, $coordinates);
 	  push(@canyons, $canyon);
-	  # warn "Looking at river @$river\n";
-	  # warn "Canyon @$canyon\n";
+	  warn "Looking at river @$river\n" if $debug;
+	  warn "Canyon @$canyon\n" if $debug;
 	  $canyon = [];
 	  last;
 	}
@@ -1716,7 +1630,7 @@ sub generate {
     sub { flood($world, $altitude, $water); }, # 6
     sub { push(@$rivers, rivers($world, $altitude, $water, \%flow, 8));
 	  push(@$rivers, rivers($world, $altitude, $water, \%flow, 7)); }, # 7
-    sub { push(@$canyons, canyons($altitude, $rivers)); }, # 8
+    sub { push(@$canyons, canyons($world, $altitude, $rivers)); }, # 8
     sub { forests($world, $altitude, \%flow); }, # 9
     sub { bushes($world, $altitude, $water); }, # 10
     sub { cliffs($world, $altitude); }, # 11
