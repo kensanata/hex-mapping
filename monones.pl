@@ -1,4 +1,5 @@
-#! /home/alex/perl5/perlbrew/perls/perl-5.24.0/bin/perl
+#! /usr/bin/env perl
+
 # Copyright (C) 2011–2016  Alex Schroeder <alex@gnu.org>
 #
 # This program is free software: you can redistribute it and/or modify it under
@@ -13,7 +14,8 @@
 # You should have received a copy of the GNU General Public License along with
 # this program. If not, see <http://www.gnu.org/licenses/>.
 
-package World;
+use Mojolicious::Lite;
+use POSIX qw(INT_MAX);
 use Modern::Perl;
 use Class::Struct;
 use List::Util qw(min max);
@@ -186,7 +188,7 @@ sub add_ocean {
   }
   while (@queue) {
     my $p = shift(@queue);
-    foreach my $i (@{$world->neighbours($p)}) {
+    foreach my $i (neighbours($world, $p)) {
       if ($world->water->[$i] and $world->terrain->[$i] ne 'ocean') {
   	$world->terrain($i, 'ocean');
   	push(@queue, $i);
@@ -200,7 +202,7 @@ sub add_downslopes {
   for my $i (0 .. $#{$world->points}) {
     next if $world->terrain->[$i] eq 'ocean';
     my $lowest;
-    foreach my $neighbour (@{$world->neighbours($i)}) {
+    foreach my $neighbour (neighbours($world, $i)) {
       if (not $lowest or $world->height->[$neighbour] < $world->height->[$i]) {
 	$lowest = $neighbour;
       }
@@ -226,7 +228,7 @@ sub fill_lake {
   my %lake = map { $_ => 1 } @lake;
   my $lowest;
   foreach my $i (@lake) {
-    foreach my $neighbour (@{$world->neighbours($i)}) {
+    foreach my $neighbour (neighbours($world, $i)) {
       if (not $lake{$neighbour}
 	  and (not $lowest or $world->height->[$neighbour] < $world->height->[$lowest])) {
 	$lowest = $neighbour;
@@ -271,7 +273,7 @@ sub add_beach {
   foreach my $i (0 .. $#{$world->points}) {
     # next if $world->terrain->[$i] eq 'ocean';
     next if $world->terrain->[$i] ne 'grass';
-    foreach my $neighbour (@{$world->neighbours($i)}) {
+    foreach my $neighbour (neighbours($world, $i)) {
       if ($world->terrain->[$neighbour] eq 'coast') {
 	$world->terrain($i, 'beach');
 	last;
@@ -284,7 +286,7 @@ sub add_coast {
   my $world = shift;
   foreach my $i (0 .. $#{$world->points}) {
     next if $world->terrain->[$i] ne 'ocean';
-    foreach my $neighbour (@{$world->neighbours($i)}) {
+    foreach my $neighbour (neighbours($world, $i)) {
       if (not $world->water->[$neighbour]) {
 	$world->terrain($i, 'coast');
 	last;
@@ -311,13 +313,6 @@ sub svg {
   return $svg->xmlify();
 }
 
-package main;
-use Mojolicious::Lite;
-use POSIX qw(INT_MAX);
-
-sub svg {
-}
-
 get '/' => 'main';
 
 get '/help';
@@ -340,27 +335,27 @@ get '/:seed' => [seed => qr/\d+/] => sub {
   # initialize srand
   srand $c->param('seed');
   # generate voronoi
-  my $world = new World;
-  $world->add_random_points($points);
-  $world->add_voronoi();
+  my $world = World->new;
+  add_random_points($world, $points);
+  add_voronoi($world);
   for (my $i = 2; $i--; ) {
     # Lloyd Relaxation
-    $world->add_centroids();
+    add_centroids($world);
     $world->points($world->centroids);
-    $world->add_voronoi();
+    add_voronoi($world);
   }
   # create island
-  $world->add_border();
-  $world->add_height();
-  $world->raise_point($center_x, $center_y, $radius);
-  $world->scale_height();
-  $world->add_ocean();
-  $world->add_coast();
-  $world->add_downslopes();
-  $world->add_lakes();
-  $world->add_terrain();
-  $world->add_beach();
-  $c->render(text => $world->svg, format => 'svg');
+  add_border($world);
+  add_height($world);
+  raise_point($world, $center_x, $center_y, $radius);
+  scale_height($world);
+  add_ocean($world);
+  add_coast($world);
+  add_downslopes($world);
+  add_lakes($world);
+  add_terrain($world);
+  add_beach($world);
+  $c->render(text => svg($world), format => 'svg');
 };
 
 app->start;
