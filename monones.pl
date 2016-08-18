@@ -1,5 +1,5 @@
-#! /home/alex/perl5/perlbrew/perls/perl-5.25.1/bin/perl
-# Copyright (C) 2011  Alex Schroeder <alex@gnu.org>
+#! /home/alex/perl5/perlbrew/perls/perl-5.24.0/bin/perl
+# Copyright (C) 2011–2016  Alex Schroeder <alex@gnu.org>
 #
 # This program is free software: you can redistribute it and/or modify it under
 # the terms of the GNU General Public License as published by the Free Software
@@ -13,9 +13,11 @@
 # You should have received a copy of the GNU General Public License along with
 # this program. If not, see <http://www.gnu.org/licenses/>.
 
+package World;
 use Modern::Perl;
-use POSIX qw(INT_MAX);
-use CGI qw(:standard);
+use Class::Struct;
+use List::Util qw(min max);
+use Memoize;
 use SVG;
 use Math::Geometry::Voronoi;
 use Math::Fractal::Noisemaker;
@@ -39,11 +41,6 @@ my %color = (beach => '#a09077',
 	     coast => '#55559a',
 	     lake => '#336699',
 	     swamp => '#337755', );
-
-package World;
-use Class::Struct;
-use List::Util qw(min max);
-use Memoize;
 
 struct World => { points  => '@',
 		  centroids => '@', # matches points
@@ -143,7 +140,7 @@ sub add_height {
     my $y = int($point->[1]*255/$scale);
     my $h = 0; # we must not skip any points!
     $h = $grid->[$x]->get($y) / 255
-      unless $x < 0 or $y < 0 or $x > 255 or $y > 255;
+	unless $x < 0 or $y < 0 or $x > 255 or $y > 255;
     push(@{$world->height}, $h);
   }
 }
@@ -315,13 +312,34 @@ sub svg {
 }
 
 package main;
+use Mojolicious::Lite;
+use POSIX qw(INT_MAX);
 
-sub response {
-  print header(-type=>'image/svg+xml');
-  print shift;
+sub svg {
 }
 
-sub create_world {
+get '/' => 'main';
+
+get '/help';
+
+get '/source' => sub {
+  my $c = shift;
+  seek(DATA,0,0);
+  local $/ = undef;
+  $c->render(text => <DATA>, format => 'txt');
+};
+
+get '/random' => sub {
+  my $c = shift;
+  my $seed = int(rand(INT_MAX));
+  return $c->redirect_to("/$seed");
+};
+
+get '/:seed' => [seed => qr/\d+/] => sub {
+  my $c = shift;
+  # initialize srand
+  srand $c->param('seed');
+  # generate voronoi
   my $world = new World;
   $world->add_random_points($points);
   $world->add_voronoi();
@@ -339,45 +357,73 @@ sub create_world {
   $world->add_ocean();
   $world->add_coast();
   $world->add_downslopes();
-  $world->add_lakes() unless param('lakes');
+  $world->add_lakes();
   $world->add_terrain();
   $world->add_beach();
-  # draw
-  response($world->svg);
-}
+  $c->render(text => $world->svg, format => 'svg');
+};
 
-sub print_html {
-  print (header(-type=>'text/html; charset=UTF-8'),
-	 start_html(-encoding=>'UTF-8', -title=>'Monones Island Generator',
-		    -author=>'kensanata@gmail.com'),
-	 h1("Monones Island Generator"),
-	 p("This script generates a new random map."),
-	 start_form(-action=>url() . '/random'),
-	 submit('map', 'Generate Map'),
-	 end_form(),
-	 hr(),
-	 p(address(a({ -href=>'http://emacswiki.org/alex/About'},
-		     'Alex Schröder')),
-	   a({ -href=>url() . '/source'}, 'Source')),
-	 end_html());
-}
-
-sub main {
-  if (path_info eq '/source') {
-    seek DATA, 0, 0;
-    print "Content-type: text/plain; charset=UTF-8\r\n\r\n", <DATA>;
-  } elsif (path_info =~ '/(\d+)') {
-    srand($1);
-    create_world();
-  } elsif (path_info eq '/random') {
-    print redirect(-uri=>url() . '/' . int(rand(INT_MAX)));
-  } elsif (param('seed')) {
-    print redirect(-uri=>url() . '/' . param('seed'));
-  } else {
-    print_html();
-  }
-}
-
-main ();
+app->start;
 
 __DATA__
+
+@@ main.html.ep
+% layout 'default';
+% title 'Monones';
+<h1>Monones Island Generator</h1>
+<p>This web application generates an island.</p>
+%= form_for random => (method => 'GET') => begin
+%= submit_button 'Submit', name => 'submit'
+%= end
+</p>
+
+
+@@ help.html.ep
+% layout 'default';
+% title 'Monones Help';
+<h1>Monones Island Generator Help</h1>
+<p>Currently, everything is in flux.</p>
+
+
+
+@@ render.svg.ep
+
+
+
+@@ layouts/default.html.ep
+<!DOCTYPE html>
+<html>
+<head>
+<title><%= title %></title>
+%= stylesheet '/monones.css'
+%= stylesheet begin
+body {
+  padding: 1em;
+  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+}
+textarea {
+  width: 100%;
+}
+table {
+  padding-bottom: 1em;
+}
+td, th {
+  padding-right: 0.5em;
+}
+.example {
+  font-size: smaller;
+}
+% end
+<meta name="viewport" content="width=device-width">
+</head>
+<body>
+<%= content %>
+<hr>
+<p>
+<a href="https://campaignwiki.org/monones">Monones</a>&#x2003;
+<%= link_to 'Help' => 'help' %>&#x2003;
+<%= link_to 'Source' => 'source' %>&#x2003;
+<a href="https://github.com/kensanata/hex-mapping/blob/master/monones.pl">GitHub</a>&#x2003;
+<a href="https://alexschroeder.ch/wiki/Contact">Alex Schroeder</a>
+</body>
+</html>
