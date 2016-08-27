@@ -1795,10 +1795,27 @@ any '/render' => sub {
   $c->render(text => $map->svg, format => 'svg');
 };
 
+# alias for /smale
 get '/random' => sub {
   my $c = shift;
   my $bw = $c->param('bw');
   $c->render(template => 'edit', map => Smale::generate_map($bw));
+};
+
+get '/smale' => sub {
+  my $c = shift;
+  my $bw = $c->param('bw');
+  $c->render(template => 'edit',
+	     map => Smale::generate_map($bw));
+};
+
+get '/smale/random' => sub {
+  my $c = shift;
+  my $bw = $c->param('bw');
+  my $svg = Mapper->new()
+      ->initialize(Smale::generate_map($bw))
+      ->svg();
+  $c->render(text => $svg, format => 'svg');
 };
 
 get '/alpine' => sub {
@@ -2294,13 +2311,15 @@ Alternatively:
 </p>
 
 <p>
-<%= link_to random => begin %>Random<% end %>
+<%= link_to smale => begin %>Random<% end %>
 will generate map data based on Erin D. Smale's <em>Hex-Based Campaign Design</em>
 (<a href="http://www.welshpiper.com/hex-based-campaign-design-part-1/">Part 1</a>,
 <a href="http://www.welshpiper.com/hex-based-campaign-design-part-2/">Part 2</a>).
 You can also generate a random map
-<%= link_to link_to url_for('random')->query(bw => 1) => begin %>with no background colors<% end %>.
-Click the submit button to generate the map itself.
+<%= link_to link_to url_for('smale')->query(bw => 1) => begin %>with no background colors<% end %>.
+Click the submit button to generate the map itself. Or just keep reloading
+<%= link_to smalerandom => begin %>this link<% end %>.
+You'll find the map description in a comment within the SVG file.
 </p>
 <p>
 <%= link_to alpine => begin %>Alpine<% end %> will generate map data based on Alex
