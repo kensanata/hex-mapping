@@ -1325,7 +1325,7 @@ td, th {
 <p>
 <a href="https://campaignwiki.org/traveller">Subsector Generator</a>&#x2003;
 <%= link_to 'Source' => 'source' %>&#x2003;
-<a href="https://github.com/kensanata/hex-mapping/blob/master/uwp-generator.pl">GitHub</a>&#x2003;
+<a href="https://github.com/kensanata/hex-mapping/blob/master/traveller.pl">GitHub</a>&#x2003;
 <a href="https://alexschroeder.ch/wiki/Contact">Alex Schroeder</a>
 </body>
 </html>
