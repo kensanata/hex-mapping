@@ -1087,7 +1087,7 @@ sub text {
 
 ################################################################################
 
-package main;
+package Traveller;
 
 use Mojolicious::Lite;
 use POSIX qw(INT_MAX);
