@@ -22,32 +22,32 @@ my $debug;
 
 ################################################################################
 
-package System;
+package Traveller::System;
 use Class::Struct;
 
-struct System => {
-		  name => '$',
-		  x => '$',
-		  y => '$',
-		  starport => '$',
-		  size => '$',
-		  atmosphere => '$',
-		  temperature => '$',
-		  hydro => '$',
-		  population => '$',
-		  government => '$',
-		  law => '$',
-		  tech => '$',
-		  consulate => '$',
-		  pirate => '$',
-		  TAS => '$',
-		  research => '$',
-		  naval => '$',
-		  scout => '$',
-		  gasgiant => '$',
-		  tradecodes => '$',
-		  travelcode => '$',
-		 };
+struct 'Traveller::System' => {
+  name => '$',
+  x => '$',
+  y => '$',
+  starport => '$',
+  size => '$',
+  atmosphere => '$',
+  temperature => '$',
+  hydro => '$',
+  population => '$',
+  government => '$',
+  law => '$',
+  tech => '$',
+  consulate => '$',
+  pirate => '$',
+  TAS => '$',
+  research => '$',
+  naval => '$',
+  scout => '$',
+  gasgiant => '$',
+  tradecodes => '$',
+  travelcode => '$',
+};
 
 my $digraphs = "fafemalunabararerixevivoine.n.q.pazizozutatetitotu..";
 my $max = length($digraphs);
@@ -326,10 +326,10 @@ sub str {
 
 ################################################################################
 
-package Subsector;
+package Traveller::Subsector;
 use Class::Struct;
 
-struct Subsector => { systems => '@' };
+struct 'Traveller::Subsector' => { systems => '@' };
 
 sub add {
   my ($self, $system) = @_;
@@ -341,7 +341,7 @@ sub init {
   for my $x (1..8) {
     for my $y (1..10) {
       if (int(rand(2))) {
-	$self->add(new System()->init($x, $y));
+	$self->add(new Traveller::System()->init($x, $y));
       }
     }
   }
@@ -359,31 +359,30 @@ sub str {
 
 ################################################################################
 
-package Hex;
-
+package Traveller::Hex;
 use Class::Struct;
 
-struct Hex => {
-	       name => '$',
-	       x => '$',
-	       y => '$',
-	       starport => '$',
-	       size => '$',
-	       population => '$',
-	       consulate => '$',
-	       pirate => '$',
-	       TAS => '$',
-	       research => '$',
-	       naval => '$',
-	       scout => '$',
-	       gasgiant => '$',
-	       code => '$',
-	       url => '$',
-	       map => 'Mapper',
-	       comm => '@',
-	       trade => '%',
-	       routes => '@',
-	      };
+struct 'Traveller::Hex' => {
+  name => '$',
+  x => '$',
+  y => '$',
+  starport => '$',
+  size => '$',
+  population => '$',
+  consulate => '$',
+  pirate => '$',
+  TAS => '$',
+  research => '$',
+  naval => '$',
+  scout => '$',
+  gasgiant => '$',
+  code => '$',
+  url => '$',
+  map => 'Traveller::Mapper',
+  comm => '@',
+  trade => '%',
+  routes => '@',
+};
 
 sub base {
   my ($self, $key) = @_;
@@ -520,16 +519,15 @@ sub system_svg {
 
 ################################################################################
 
-package Mapper;
-
+package Traveller::Mapper;
 use Class::Struct;
 use Memoize;
 
-struct Mapper => {
-		  hexes => '@',
-		  routes => '@',
-		  source => "\$",
-		 };
+struct 'Traveller::Mapper' => {
+  hexes => '@',
+  routes => '@',
+  source => "\$",
+};
 
 my $example = q!
 Inedgeus     0101 D7A5579-8        G  Fl NI          A
@@ -776,7 +774,7 @@ sub initialize {
 		       \$population,
 		       \$government,
 		       \$law);
-    my $hex = Hex->new(name=>$name,
+    my $hex = Traveller::Hex->new(name=>$name,
 		       x=>$x,
 		       y=>$y,
 		       starport=>$starport,
@@ -1112,7 +1110,7 @@ get '/uwp/:id' => [id => qr/\d+/] => sub {
   my $c = shift;
   my $id = $c->param('id');
   srand($id);
-  my $uwp = new Subsector()->init->str;
+  my $uwp = new Traveller::Subsector()->init->str;
   $c->render(template => 'uwp', id => $id, uwp => $uwp);
 } => 'uwp';
 
@@ -1133,8 +1131,8 @@ get '/map/:id' => [id => qr/\d+/] => sub {
   my $wiki = $c->param('wiki');
   my $id = $c->param('id');
   srand($id);
-  my $uwp = new Subsector()->init->str;
-  my $map = new Mapper;
+  my $uwp = new Traveller::Subsector()->init->str;
+  my $map = new Traveller::Mapper;
   $map->initialize($uwp, $wiki, $c->url_for('uwp', id => $id));
   $map->communications();
   $map->trade();
@@ -1146,8 +1144,8 @@ get '/trade/:id' => [id => qr/\d+/] => sub {
   my $wiki = $c->param('wiki');
   my $id = $c->param('id');
   srand($id);
-  my $uwp = new Subsector()->init->str;
-  my $map = new Mapper;
+  my $uwp = new Traveller::Subsector()->init->str;
+  my $map = new Traveller::Mapper;
   $map->initialize($uwp, $wiki, $c->url_for('uwp', id => $id));
   $map->communications();
   $map->trade();
