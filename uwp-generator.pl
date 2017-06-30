@@ -1,5 +1,5 @@
 #!/usr/bin/perl
-# Copyright (C) 2009-2013  Alex Schroeder <alex@gnu.org>
+# Copyright (C) 2009-2017  Alex Schroeder <alex@gnu.org>
 #
 # This program is free software: you can redistribute it and/or modify it under
 # the terms of the GNU General Public License as published by the Free Software
@@ -359,7 +359,25 @@ sub str {
 
 package main;
 
-use CGI qw/:standard/;
+use Mojolicious::Lite;
+
+get '/' => sub {
+  my $c = shift;
+  my $param = $c->param('map');
+  if ($param) {
+    my $map = new Mapper;
+    $map->initialize($param);
+    $c->render(text => $map->svg, format => 'svg');
+  } else {
+    $c->render(template => 'edit', map => Mapper::example());
+  }
+};
+
+get '/source' => sub {
+  my $c = shift;
+  seek DATA, 0, 0;
+  $c->render(text => <DATA>, format => 'text');
+};
 
 sub script {
   my $uri = url();
@@ -422,3 +440,57 @@ sub main {
 main ();
 
 __DATA__
+
+=encoding utf8
+
+@@ edit.html.ep
+% layout 'default';
+% title 'Text Mapper';
+<h1>Text Mapper</h1>
+<p>Submit your text desciption of the map.</p>
+%= form_for render => (method => 'POST') => begin
+%= text_area map => (cols => 60, rows => 15) => begin
+<%= $map =%>
+% end
+
+<p>
+%= submit_button 'Submit', name => 'submit'
+%= end
+</p>
+
+@@ layouts/default.html.ep
+<!DOCTYPE html>
+<html>
+<head>
+<title><%= title %></title>
+%= stylesheet '/uwp-generator.css'
+%= stylesheet begin
+body {
+  padding: 1em;
+  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+}
+textarea {
+  width: 100%;
+}
+table {
+  padding-bottom: 1em;
+}
+td, th {
+  padding-right: 0.5em;
+}
+.example {
+  font-size: smaller;
+}
+% end
+<meta name="viewport" content="width=device-width">
+</head>
+<body>
+<%= content %>
+<hr>
+<p>
+<a href="https://campaignwiki.org/uwp-generator">UWP Generator</a>&#x2003;
+<%= link_to 'Source' => 'source' %>&#x2003;
+<a href="https://github.com/kensanata/hex-mapping/blob/master/uwp-generator.pl">GitHub</a>&#x2003;
+<a href="https://alexschroeder.ch/wiki/Contact">Alex Schroeder</a>
+</body>
+</html>
