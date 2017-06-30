@@ -822,7 +822,7 @@ sub print_html {
 	   'followed by trade codes (see below), and optionally a',
 	   i('travel code'), '(A or R).'),
 	 hr(),
-	 p(a({ -href=>'http://emacswiki.org/alex/About'}, 'Alex Schröder'),
+	 p(a({ -href=>'https://alexschroeder.ch/wiki/About'}, 'Alex Schröder'),
 	   a({ -href=>url().'/source'}, 'Source'),
 	   a({-href=>'https://github.com/kensanata/hex-mapping'},
 	     'GitHub')),
