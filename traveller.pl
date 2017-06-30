@@ -529,8 +529,7 @@ struct 'Traveller::Mapper' => {
   source => "\$",
 };
 
-my $example = q!
-Inedgeus     0101 D7A5579-8        G  Fl NI          A
+my $example = q!Inedgeus     0101 D7A5579-8        G  Fl NI          A
 Geaan        0102 E66A999-7        G  Hi Wa          A
 Orgemaso     0103 C555875-5       SG  Ga Lt
 Veesso       0105 C5A0369-8        G  De Lo          A
@@ -1060,7 +1059,7 @@ sub svg {
 
 sub text {
   my ($self) = @_;
-  my $data = "Trade Routes";
+  my $data = "Trade Routes:\n";
   foreach my $edge (@{$self->routes}) {
     my $u = @{$edge}[0];
     my $v = @{$edge}[1];
@@ -1123,8 +1122,16 @@ get '/source' => sub {
 
 get '/edit' => sub {
   my $c = shift;
-  $c->render(template => 'edit');
-};
+  $c->render(template => 'edit', uwp => Traveller::Mapper::example());
+} => 'main';
+
+get '/edit/:id' => sub {
+  my $c = shift;
+  my $id = $c->param('id');
+  srand($id);
+  my $uwp = new Traveller::Subsector()->init->str;
+  $c->render(template => 'edit', uwp => $uwp);
+} => 'edit';
 
 get '/map/:id' => [id => qr/\d+/] => sub {
   my $c = shift;
@@ -1150,7 +1157,30 @@ get '/trade/:id' => [id => qr/\d+/] => sub {
   $map->communications();
   $map->trade();
   $c->render(text => $map->text, format => 'txt');
-} => 'map';
+} => 'trade';
+
+any '/map' => sub {
+  my $c = shift;
+  my $wiki = $c->param('wiki');
+  my $trade = $c->param('trade');
+  my $uwp = $c->param('map');
+  my $source;
+  if (!$uwp) {
+    my $id = int(rand(INT_MAX));
+    srand($id);
+    $uwp = new Traveller::Subsector()->init->str;
+    $source = $c->url_for('uwp', id => $id);
+  }
+  my $map = new Traveller::Mapper;
+  $map->initialize($uwp, $wiki, $source);
+  $map->communications();
+  $map->trade();
+  if ($trade) {
+    $c->render(text => $map->text, format => 'txt');
+  } else {
+    $c->render(text => $map->svg, format => 'svg');
+  }
+} => 'map-upw';
 
 app->start;
 
@@ -1180,13 +1210,79 @@ Bases: Naval – Scout – Research – TAS – Consulate – Pirate
 <p>
 <%= link_to 'Generate UWP' => 'random' %>
 <%= link_to 'Generate Map' => 'map' %>
+<%= link_to 'Edit Map' => 'edit' %>
 </p>
 
 @@ edit.html.ep
 % layout 'default';
 % title 'Traveller Subsector Mapper';
+<h1>Traveller Subsector Mapper</h1>
+<p>Submit your UWP list of the subsector.</p>
+%= form_for 'map-upw' => (method => 'POST') => begin
 <p>
-TODO
+%= text_area 'map' => (cols => 60, rows => 20) => begin
+<%= $uwp =%>
+% end
+</p>
+<p>URL (optional):
+%= text_field 'wiki' => 'http://campaignwiki.org/wiki/NameOfYourWiki/' => (id => 'wiki')
+</p>
+<%= submit_button 'Generate Map' %>
+<%= submit_button 'Communication and Trade Routes', name => 'trade' %>
+%= end
+
+%= form_for 'map-upw' => (method => 'POST') => begin
+<%= submit_button 'Random Map' %>
+%= end
+
+<p>
+<b>Format</b>:
+<i>name</i>, some whitespace,
+<i>coordinates</i> (four digits between 0101 and 0810),
+some whitespace,
+<i>starport</i> (A-E or X)
+<i>size</i> (0-9 or A)
+<i>atmosphere</i> (0-9 or A-F)
+<i>hydrographic</i> (0-9 or A)
+<i>population</i> (0-9 or A-C)
+<i>government</i> (0-9 or A-F)
+<i>law level</i> (0-9 or A-L) a dash,
+<i>tech level</i> (0-99) optionally a non-standard group of bases and a gas giant indicator, optionally separated by whitespace:
+<i>pirate base</i> (P)
+<i>imperial consulate</i> (C)
+<i>TAS base</i> (T)
+<i>research base</i> (R)
+<i>naval base</i> (N)
+<i>scout base</i> (S)
+<i>gas giant</i> (G), followed by trade codes (see below), and optionally a
+<i>travel code</i> (A or R).
+Whitespace can be one or more spaces and tabs.
+</p>
+<p>Trade codes:</p>
+<pre>
+    Ag Agricultural     Hi High Population    Na Non-Agricultural
+    As Asteroid         Ht High Technology    NI Non-Industrial
+    Ba Barren           IC Ice-Capped         Po Poor
+    De Desert           In Industrial         Ri Rich
+    Fl Fluid Oceans     Lo Low Population     Wa Water World
+    Ga Garden           Lt Low Technology     Va Vacuum
+</pre>
+<p>
+<b>Alternative format for quick maps</b>:
+<i>name</i>, some whitespace,
+<i>coordinates</i> (four digits between 0101 and 0810), some whitespace,
+<i>size</i> (0-9)
+optionally a non-standard group of bases and a gas giant indicator,
+optionally separated by whitespace:
+<i>pirate base</i> (P)
+<i>imperial consulate</i> (C)
+<i>TAS base</i> (T)
+<i>research base</i> (R)
+<i>naval base</i> (N)
+<i>scout base</i> (S)
+<i>gas giant</i> (G),
+followed by trade codes (see below),
+and optionally a <i>travel code</i> (A or R).
 </p>
 
 @@ layouts/default.html.ep
@@ -1194,7 +1290,7 @@ TODO
 <html>
 <head>
 <title><%= title %></title>
-%= stylesheet '/uwp-generator.css'
+%= stylesheet '/traveller.css'
 %= stylesheet begin
 body {
   padding: 1em;
@@ -1205,6 +1301,11 @@ form {
 }
 textarea {
   width: 100%;
+  font-family: "Andale Mono", Monaco, "Courier New", Courier, monospace, "Symbola";
+  font-size: 100%;
+}
+#wiki {
+  width: 40em;
 }
 table {
   padding-bottom: 1em;
