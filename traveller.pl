@@ -1208,7 +1208,7 @@ IC Ice-Capped          +- Starport          Va Vacuum
 Bases: Naval – Scout – Research – TAS – Consulate – Pirate
 </pre>
 <p>
-<%= link_to 'Generate UWP' => 'random' %>
+<%= link_to 'Random UWP' => 'random' %>
 <%= link_to 'Generate Map' => 'map' %>
 <%= link_to 'Edit Map' => 'edit' %>
 </p>
@@ -1293,6 +1293,7 @@ and optionally a <i>travel code</i> (A or R).
 %= stylesheet '/traveller.css'
 %= stylesheet begin
 body {
+  width: 80ex;
   padding: 1em;
   font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
 }
