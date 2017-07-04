@@ -337,9 +337,11 @@ sub add {
 }
 
 sub init {
-  my $self = shift;
-  for my $x (1..8) {
-    for my $y (1..10) {
+  my ($self, $width, $height) = @_;
+  $width //= 8;
+  $height //= 10;
+  for my $x (1..$width) {
+    for my $y (1..$height) {
       if (int(rand(2))) {
 	$self->add(new Traveller::System()->init($x, $y));
       }
@@ -526,7 +528,9 @@ use Memoize;
 struct 'Traveller::Mapper' => {
   hexes => '@',
   routes => '@',
-  source => "\$",
+  source => '$',
+  width => '$',
+  height => '$',
 };
 
 my $example = q!Inedgeus     0101 D7A5579-8        G  Fl NI          A
@@ -582,6 +586,7 @@ my @hex = (  -1,          0,
 	   -0.5, -sqrt(3)/2);
 
 sub header {
+  my $self = shift;
   my $template = <<EOT;
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <svg xmlns="http://www.w3.org/2000/svg" version="1.1"
@@ -664,25 +669,23 @@ EOT
   my $scale = 100;
   return sprintf($template,
 		 map { sprintf("%.3f", $_ * $scale) }
-		 # total width and height based on 8x10 hexes
-		 # 0, 0, 2+7*1.5, 10.5*sqrt(3) -- but with some whitespace
 		 # viewport
-		 -0.5, -0.5, 3+7*1.5, 11.5*sqrt(3),
+		 -0.5, -0.5, 3 + ($self->width - 1) * 1.5, ($self->height + 1.5) * sqrt(3),
 		 # empty hex
 		 @hex,
 		 # framing rectangle
-		 -0.5, -0.5, 3+7*1.5, 11.5*sqrt(3));
+		 -0.5, -0.5, 3 + ($self->width - 1) * 1.5, ($self->height + 1.5) * sqrt(3));
 }
 
 sub grid {
+  my $self = shift;
   my $scale = 100;
   my $doc;
-  # the 8x10 hex grid
   $doc .= join("\n",
 	       map {
 		 my $n = shift;
-		 my $x = int($_/10+1);
-		 my $y = $_%10 + 1;
+		 my $x = int($_/$self->height+1);
+		 my $y = $_ % $self->height + 1;
 		 my $svg = sprintf(qq{    <use xlink:href="#hex" x="%.3f" y="%.3f" />\n},
 				   (1 + ($x-1) * 1.5) * $scale,
 				   ($y - $x%2/2) * sqrt(3) * $scale);
@@ -691,7 +694,7 @@ sub grid {
 				   (1 + ($x-1) * 1.5) * $scale,
 				   ($y - $x%2/2) * sqrt(3) * $scale - 0.6 * $scale,
 				   $x, $y);
-	       } (0..79));
+	       } (0 .. $self->width * $self->height - 1));
   return $doc;
 }
 
@@ -708,21 +711,22 @@ sub legend {
 		  . qq{ – ★ navy base – π research base – ☠ pirate base}
 		  . qq{ – <tspan class="comm">▮</tspan> communication}
 		  . qq{ – <tspan class="trade">▮</tspan> trade$uwp</text>\n},
-		  -10, 11 * sqrt(3) * $scale);
+		  -10, ($self->height + 1) * sqrt(3) * $scale);
   $doc .= sprintf(qq{    <text class="direction" x="%.3f" y="%.3f">coreward</text>\n},
-		  6 * $scale, -0.13 * $scale);
+		  $self->width/2 * 1.5 * $scale, -0.13 * $scale);
   $doc .= sprintf(qq{    <text transform="translate(%.3f,%.3f) rotate(90)"}
 		  . qq{ class="direction">trailing</text>\n},
-		  12.6 * $scale, 5 * sqrt(3) * $scale);
+		  ($self->width + 0.4) * 1.5 * $scale, $self->height/2 * sqrt(3) * $scale);
   $doc .= sprintf(qq{    <text class="direction" x="%.3f" y="%.3f">rimward</text>\n},
-		  6 * $scale, 10.7 * sqrt(3) * $scale);
+		  $self->width/2 * 1.5 * $scale, ($self->height + 0.7) * sqrt(3) * $scale);
   $doc .= sprintf(qq{    <text transform="translate(%.3f,%.3f) rotate(-90)"}
 		  . qq{ class="direction">spinward</text>\n},
-		  -0.1 * $scale, 5 * sqrt(3) * $scale);
+		  -0.1 * $scale, $self->height/2 * sqrt(3) * $scale);
   return $doc;
 }
 
 sub footer {
+  my $self = shift;
   my $doc;
   my $y = 10;
   my $debug = ''; # for developers
@@ -738,17 +742,21 @@ sub footer {
 sub initialize {
   my ($self, $map, $wiki, $source) = @_;
   $self->source($source);
+  $self->width(0);
+  $self->height(0);
   foreach (split(/\n/, $map)) {
     # parse Traveller UWP
     my ($name, $x, $y,
 	$starport, $size, $atmosphere, $hydrographic, $population,
 	$government, $law, $tech, $bases, $rest) =
-	  /([^>\r\n\t]*?)\s+(0?[1-8])(0[1-9]|10)\s+([A-EX])([0-9A])([0-9A-F])([0-9A])([0-9A-C])([0-9A-F])([0-9A-L])-(\d?\d|[A-Z])(?:\s+([PCTRNSG ]+)\b)?(.*)/;
+	  /([^>\r\n\t]*?)\s+(\d\d)(\d\d)\s+([A-EX])([0-9A])([0-9A-F])([0-9A])([0-9A-C])([0-9A-F])([0-9A-L])-(\d?\d|[A-Z])(?:\s+([PCTRNSG ]+)\b)?(.*)/;
     # alternative super simple name, coordinates, optional size (0-9), optional bases (PCTRNSG), optional warning codes (AR)
     ($name, $x, $y, $size, $bases, $rest) =
-      /([^>\r\n\t]*?)\s+(0?[1-8])(0[1-9]|10)(?:\s+([0-9])\b)?(?:\s+([PCTRNSG ]+)\b)?(.*)/
+      /([^>\r\n\t]*?)\s+(\d\d)(\d\d)(?:\s+([0-9])\b)?(?:\s+([PCTRNSG ]+)\b)?(.*)/
 	unless $name;
     next unless $name;
+    $self->width($x) if $x > $self->width;
+    $self->height($y) if $y > $self->height;
     my ($code) = /([AR])\s*$/;
     $rest =~ s/([AR])\s*$// if $code; # strip base (if any) from the rest
     my %trade = map { $_ => 1 }
@@ -1028,7 +1036,7 @@ sub trade_svg {
 
 sub svg {
   my ($self) = @_;
-  my $data = header();
+  my $data = $self->header;
   $data .= qq{  <g id='comm'>\n};
   foreach my $hex (@{$self->hexes}) {
     $data .= $hex->comm_svg();
@@ -1043,7 +1051,7 @@ sub svg {
   $data .= $self->trade_svg();
   $data .= qq{  </g>\n\n};
   $data .= qq{  <g id='grid'>\n};
-  $data .= grid();
+  $data .= $self->grid;
   $data .= qq{  </g>\n\n};
   $data .= qq{  <g id='legend'>\n};
   $data .= $self->legend();
@@ -1053,7 +1061,7 @@ sub svg {
     $data .= $hex->system_svg();
   }
   $data .= qq{  </g>\n};
-  $data .= footer();
+  $data .= $self->footer();
   return $data;
 }
 
@@ -1097,7 +1105,13 @@ get '/' => sub {
 get '/random' => sub {
   my $c = shift;
   $c->redirect_to('uwp', id => int(rand(INT_MAX)));
-};
+} => 'random';
+
+get '/random/sector' => sub {
+  my $c = shift;
+  my $sector = $c->param('sector');
+  $c->redirect_to('uwp-sector', id => int(rand(INT_MAX)));
+} => 'random-sector';
 
 get '/:id' => [id => qr/\d+/] => sub {
   my $c = shift;
@@ -1112,6 +1126,14 @@ get '/uwp/:id' => [id => qr/\d+/] => sub {
   my $uwp = new Traveller::Subsector()->init->str;
   $c->render(template => 'uwp', id => $id, uwp => $uwp);
 } => 'uwp';
+
+get '/uwp/sector/:id' => [id => qr/\d+/] => sub {
+  my $c = shift;
+  my $id = $c->param('id');
+  srand($id);
+  my $uwp = new Traveller::Subsector()->init(32,40)->str;
+  $c->render(template => 'uwp-sector', id => $id, uwp => $uwp, sector => 1);
+} => 'uwp-sector';
 
 get '/source' => sub {
   my $c = shift;
@@ -1133,6 +1155,14 @@ get '/edit/:id' => sub {
   $c->render(template => 'edit', uwp => $uwp);
 } => 'edit';
 
+get '/edit/sector/:id' => sub {
+  my $c = shift;
+  my $id = $c->param('id');
+  srand($id);
+  my $uwp = new Traveller::Subsector()->init(32,40)->str;
+  $c->render(template => 'edit-sector', uwp => $uwp);
+} => 'edit-sector';
+
 get '/map/:id' => [id => qr/\d+/] => sub {
   my $c = shift;
   my $wiki = $c->param('wiki');
@@ -1145,6 +1175,19 @@ get '/map/:id' => [id => qr/\d+/] => sub {
   $map->trade();
   $c->render(text => $map->svg, format => 'svg');
 } => 'map';
+
+get '/map/sector/:id' => [id => qr/\d+/] => sub {
+  my $c = shift;
+  my $wiki = $c->param('wiki');
+  my $id = $c->param('id');
+  srand($id);
+  my $uwp = new Traveller::Subsector()->init(32,40)->str;
+  my $map = new Traveller::Mapper;
+  $map->initialize($uwp, $wiki, $c->url_for('uwp-sector', id => $id));
+  $map->communications();
+  $map->trade();
+  $c->render(text => $map->svg, format => 'svg');
+} => 'map-sector';
 
 get '/trade/:id' => [id => qr/\d+/] => sub {
   my $c = shift;
@@ -1180,7 +1223,30 @@ any '/map' => sub {
   } else {
     $c->render(text => $map->svg, format => 'svg');
   }
-} => 'map-upw';
+} => 'random-map';
+
+any '/map-sector' => sub {
+  my $c = shift;
+  my $wiki = $c->param('wiki');
+  my $trade = $c->param('trade');
+  my $uwp = $c->param('map');
+  my $source;
+  if (!$uwp) {
+    my $id = int(rand(INT_MAX));
+    srand($id);
+    $uwp = new Traveller::Subsector()->init(32,40)->str;
+    $source = $c->url_for('uwp', id => $id);
+  }
+  my $map = new Traveller::Mapper;
+  $map->initialize($uwp, $wiki, $source);
+  $map->communications();
+  $map->trade();
+  if ($trade) {
+    $c->render(text => $map->text, format => 'txt');
+  } else {
+    $c->render(text => $map->svg, format => 'svg');
+  }
+} => 'random-map-sector';
 
 app->start;
 
@@ -1188,12 +1254,7 @@ __DATA__
 
 =encoding utf8
 
-@@ uwp.html.ep
-% layout 'default';
-% title 'Traveller Subsector UWP List Generator';
-<h1>Traveller Subsector UWP List Generator (<%= $id =%>)</h1>
-<pre>
-<%= $uwp =%>
+@@ uwp-footer.html.ep
                        ||||||| |
 Ag Agricultural        ||||||| |            In Industrial
 As Asteroid            ||||||| +- Tech      Lo Low Population
@@ -1206,6 +1267,14 @@ Ht High Technology     |+- Size             Wa Water World
 IC Ice-Capped          +- Starport          Va Vacuum
 
 Bases: Naval – Scout – Research – TAS – Consulate – Pirate
+
+@@ uwp.html.ep
+% layout 'default';
+% title 'Traveller Subsector UWP List Generator';
+<h1>Traveller Subsector UWP List Generator (<%= $id =%>)</h1>
+<pre>
+<%= $uwp =%>
+<%= include 'uwp-footer' =%>
 </pre>
 <p>
 <%= link_to 'Random UWP' => 'random' %>
@@ -1213,28 +1282,21 @@ Bases: Naval – Scout – Research – TAS – Consulate – Pirate
 <%= link_to 'Edit Map' => 'edit' %>
 </p>
 
-@@ edit.html.ep
+@@ uwp-sector.html.ep
 % layout 'default';
-% title 'Traveller Subsector Mapper';
-<h1>Traveller Subsector Mapper</h1>
-<p>Submit your UWP list of the subsector.</p>
-%= form_for 'map-upw' => (method => 'POST') => begin
-<p>
-%= text_area 'map' => (cols => 60, rows => 20) => begin
+% title 'Traveller Sector UWP List Generator';
+<h1>Traveller Sector UWP List Generator (<%= $id =%>)</h1>
+<pre>
 <%= $uwp =%>
-% end
+<%= include 'uwp-footer' =%>
+</pre>
+<p>
+<%= link_to 'Random UWP' => 'random-sector' %>
+<%= link_to 'Generate Map' => 'map-sector' %>
+<%= link_to 'Edit Map' => 'edit-sector' %>
 </p>
-<p>URL (optional):
-%= text_field 'wiki' => 'http://campaignwiki.org/wiki/NameOfYourWiki/' => (id => 'wiki')
-</p>
-<%= submit_button 'Generate Map' %>
-<%= submit_button 'Communication and Trade Routes', name => 'trade' %>
-%= end
 
-%= form_for 'map-upw' => (method => 'POST') => begin
-<%= submit_button 'Random Map' %>
-%= end
-
+@@ edit-footer.html.ep
 <p>
 <b>Format</b>:
 <i>name</i>, some whitespace,
@@ -1284,6 +1346,50 @@ optionally separated by whitespace:
 followed by trade codes (see below),
 and optionally a <i>travel code</i> (A or R).
 </p>
+
+@@ edit.html.ep
+% layout 'default';
+% title 'Traveller Subsector Mapper';
+<h1>Traveller Subsector Mapper</h1>
+<p>Submit your UWP list of the subsector.</p>
+%= form_for 'random-map' => (method => 'POST') => begin
+<p>
+%= text_area 'map' => (cols => 60, rows => 20) => begin
+<%= $uwp =%>
+% end
+</p>
+<p>URL (optional):
+%= text_field 'wiki' => 'http://campaignwiki.org/wiki/NameOfYourWiki/' => (id => 'wiki')
+</p>
+%= submit_button 'Generate Map'
+%= submit_button 'Communication and Trade Routes', name => 'trade'
+%= end
+%= form_for 'random-map' => (method => 'POST') => begin
+%= submit_button 'Random Subsector'
+%= end
+%= include 'edit-footer'
+
+@@ edit-sector.html.ep
+% layout 'default';
+% title 'Traveller Subsector Mapper';
+<h1>Traveller Subsector Mapper</h1>
+<p>Submit your UWP list of the subsector.</p>
+%= form_for 'random-map-sector' => (method => 'POST') => begin
+<p>
+%= text_area 'map' => (cols => 60, rows => 20) => begin
+<%= $uwp =%>
+% end
+</p>
+<p>URL (optional):
+%= text_field 'wiki' => 'http://campaignwiki.org/wiki/NameOfYourWiki/' => (id => 'wiki')
+</p>
+%= submit_button 'Generate Map'
+%= submit_button 'Communication and Trade Routes', name => 'trade'
+%= end
+%= form_for 'random-map-sector' => (method => 'POST') => begin
+%= submit_button 'Random Sector'
+%= end
+%= include 'edit-footer'
 
 @@ layouts/default.html.ep
 <!DOCTYPE html>
