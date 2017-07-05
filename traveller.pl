@@ -1277,9 +1277,10 @@ Bases: Naval – Scout – Research – TAS – Consulate – Pirate
 <%= include 'uwp-footer' =%>
 </pre>
 <p>
-<%= link_to 'Random UWP' => 'random' %>
 <%= link_to 'Generate Map' => 'map' %>
-<%= link_to 'Edit Map' => 'edit' %>
+<%= link_to 'Edit UWP' => 'edit' %>
+<%= link_to 'Random Subsector' => 'random' %>
+<%= link_to 'Random Sector' => 'random-sector' %>
 </p>
 
 @@ uwp-sector.html.ep
@@ -1291,9 +1292,10 @@ Bases: Naval – Scout – Research – TAS – Consulate – Pirate
 <%= include 'uwp-footer' =%>
 </pre>
 <p>
-<%= link_to 'Random UWP' => 'random-sector' %>
 <%= link_to 'Generate Map' => 'map-sector' %>
-<%= link_to 'Edit Map' => 'edit-sector' %>
+<%= link_to 'Edit UWP' => 'edit-sector' %>
+<%= link_to 'Random Subsector' => 'random' %>
+<%= link_to 'Random Sector' => 'random-sector' %>
 </p>
 
 @@ edit-footer.html.ep
@@ -1367,6 +1369,9 @@ and optionally a <i>travel code</i> (A or R).
 %= form_for 'random-map' => (method => 'POST') => begin
 %= submit_button 'Random Subsector'
 %= end
+%= form_for 'random-map-sector' => (method => 'POST') => begin
+%= submit_button 'Random Sector'
+%= end
 %= include 'edit-footer'
 
 @@ edit-sector.html.ep
@@ -1385,6 +1390,9 @@ and optionally a <i>travel code</i> (A or R).
 </p>
 %= submit_button 'Generate Map'
 %= submit_button 'Communication and Trade Routes', name => 'trade'
+%= end
+%= form_for 'random-map' => (method => 'POST') => begin
+%= submit_button 'Random Subsector'
 %= end
 %= form_for 'random-map-sector' => (method => 'POST') => begin
 %= submit_button 'Random Sector'
