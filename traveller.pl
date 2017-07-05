@@ -1300,6 +1300,16 @@ Bases: Naval – Scout – Research – TAS – Consulate – Pirate
 
 @@ edit-footer.html.ep
 <p>
+<b>URL</b>:
+If provided, every systems will be linked to an appropriate page.
+Feel free to create a <a href="https://campaignwiki.org/">campaign wiki</a> for your game.
+</p>
+<p>
+<b>Editing</b>:
+If you generate a random map, there will be a link to its UWP at the bottom.
+Click the link to print it, save it, or to make manual changes.
+</p>
+<p>
 <b>Format</b>:
 <i>name</i>, some whitespace,
 <i>coordinates</i> (four digits between 0101 and 0810),
