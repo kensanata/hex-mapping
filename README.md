@@ -12,15 +12,14 @@ and the maps are always SVG documents.
 **Table of Contents**
 
 - [Hex Mapping](#hex-mapping)
-    - [old-school-hex](#old-school-hex)
-    - [text-mapper](#text-mapper)
-    - [uwp-generator](#uwp-generator)
-    - [svg-map](#svg-map)
-    - [monones](#monones)
+- [Old School Hex](#old-school-hex)
+- [Text Mapper](#text-mapper)
+- [Traveller Subsector Generator](#traveller-subsector-generator)
+- [Monones](#monones)
 
 <!-- markdown-toc end -->
 
-# old-school-hex
+# Old School Hex
 
 This application takes an ASCII art representation of a map and turns
 it into a black-and-white hex map.
@@ -30,6 +29,8 @@ Example input:
      n " " .
     n-n O-. .
      n-"-" .
+
+Try it: https://alexschroeder.ch/old-school-hex
 
 # Text Mapper
 
@@ -42,6 +43,8 @@ Example input:
     0102 mountain
     0103 hill "bone hills"
     0104 forest
+
+Try it: https://campaignwiki.org/text-mapper
 
 # Traveller Subsector Generator
 
@@ -60,6 +63,8 @@ It also takes the UWP of a sector or subsector and generates a map for
 you. If possible, it also adds communication and trade routes based on
 some heuristics.
 
+Try it: https://campaignwiki.org/traveller
+
 # Monones
 
 This application generates an island using a
@@ -67,3 +72,5 @@ This application generates an island using a
 based on Amit Patel's post
 [Polygonal Map Generation for Games](http://www-cs-students.stanford.edu/~amitp/game-programming/polygon-map-generation/)
 (2010).
+
+https://campaignwiki.org/monones
