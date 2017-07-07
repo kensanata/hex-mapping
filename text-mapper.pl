@@ -2307,8 +2307,8 @@ Alternatively:
 
 <p>
 %= submit_button 'Submit', name => 'submit'
-%= end
 </p>
+%= end
 
 <p>
 <%= link_to smale => begin %>Random<% end %>
@@ -2316,7 +2316,7 @@ will generate map data based on Erin D. Smale's <em>Hex-Based Campaign Design</e
 (<a href="http://www.welshpiper.com/hex-based-campaign-design-part-1/">Part 1</a>,
 <a href="http://www.welshpiper.com/hex-based-campaign-design-part-2/">Part 2</a>).
 You can also generate a random map
-<%= link_to link_to url_for('smale')->query(bw => 1) => begin %>with no background colors<% end %>.
+<%= link_to url_for('smale')->query(bw => 1) => begin %>with no background colors<% end %>.
 Click the submit button to generate the map itself. Or just keep reloading
 <%= link_to smalerandom => begin %>this link<% end %>.
 You'll find the map description in a comment within the SVG file.
@@ -2325,7 +2325,7 @@ You'll find the map description in a comment within the SVG file.
 <%= link_to alpine => begin %>Alpine<% end %> will generate map data based on Alex
 Schroeder's algorithm that's trying to recreate a medieval Swiss landscape, with
 no info to back it up, whatsoever. See it
-<%= link_to link_to url_for('alpinedocument')->query(height => 5) => begin %>documented<% end %>.
+<%= link_to url_for('alpinedocument')->query(height => 5) => begin %>documented<% end %>.
 Click the submit button to generate the map itself. Or just keep reloading
 <%= link_to alpinerandom => begin %>this link<% end %>.
 You'll find the map description in a comment within the SVG file.
