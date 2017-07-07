@@ -1361,8 +1361,8 @@ and optionally a <i>travel code</i> (A or R).
 
 @@ edit.html.ep
 % layout 'default';
-% title 'Traveller Subsector Mapper';
-<h1>Traveller Subsector Mapper</h1>
+% title 'Traveller Subsector Generator';
+<h1>Traveller Subsector Generator</h1>
 <p>Submit your UWP list of the subsector.</p>
 %= form_for 'random-map' => (method => 'POST') => begin
 <p>
@@ -1386,8 +1386,8 @@ and optionally a <i>travel code</i> (A or R).
 
 @@ edit-sector.html.ep
 % layout 'default';
-% title 'Traveller Subsector Mapper';
-<h1>Traveller Subsector Mapper</h1>
+% title 'Traveller Subsector Generator';
+<h1>Traveller Subsector Generator</h1>
 <p>Submit your UWP list of the subsector.</p>
 %= form_for 'random-map-sector' => (method => 'POST') => begin
 <p>
