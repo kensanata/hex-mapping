@@ -71,55 +71,56 @@ sub roll1d6 {
 }
 
 sub roll2d6 {
-  return roll1d6() + roll1d6();
+  my $self = shift;
+  return $self->roll1d6() + $self->roll1d6();
 }
 
 sub compute_starport {
   my $self = shift;
   my %map = ( 2=>'X', 3=>'E', 4=>'E', 5=>'D', 6=>'D', 7=>'C',
 	      8=>'C', 9=>'B', 10=>'B', 11=>'A', 12=>'A' );
-  return $map{roll2d6()};
+  return $map{$self->roll2d6()};
 }
 
 sub compute_bases {
   my $self = shift;
   if ($self->starport eq 'A') {
-    $self->naval(roll2d6() >= 8);
-    $self->scout(roll2d6() >= 10);
-    $self->research(roll2d6() >= 8);
-    $self->TAS(roll2d6() >= 4);
-    $self->consulate(roll2d6() >= 6);
+    $self->naval($self->roll2d6() >= 8);
+    $self->scout($self->roll2d6() >= 10);
+    $self->research($self->roll2d6() >= 8);
+    $self->TAS($self->roll2d6() >= 4);
+    $self->consulate($self->roll2d6() >= 6);
   } elsif ($self->starport eq 'B') {
-    $self->naval(roll2d6() >= 8);
-    $self->scout(roll2d6() >= 8);
-    $self->research(roll2d6() >= 10);
-    $self->TAS(roll2d6() >= 6);
-    $self->consulate(roll2d6() >= 8);
-    $self->pirate(roll2d6() >= 12);
+    $self->naval($self->roll2d6() >= 8);
+    $self->scout($self->roll2d6() >= 8);
+    $self->research($self->roll2d6() >= 10);
+    $self->TAS($self->roll2d6() >= 6);
+    $self->consulate($self->roll2d6() >= 8);
+    $self->pirate($self->roll2d6() >= 12);
   } elsif ($self->starport eq 'C') {
-    $self->scout(roll2d6() >= 8);
-    $self->research(roll2d6() >= 10);
-    $self->TAS(roll2d6() >= 10);
-    $self->consulate(roll2d6() >= 10);
-    $self->pirate(roll2d6() >= 10);
+    $self->scout($self->roll2d6() >= 8);
+    $self->research($self->roll2d6() >= 10);
+    $self->TAS($self->roll2d6() >= 10);
+    $self->consulate($self->roll2d6() >= 10);
+    $self->pirate($self->roll2d6() >= 10);
   } elsif ($self->starport eq 'D') {
-    $self->scout(roll2d6() >= 7);
-    $self->pirate(roll2d6() >= 12);
+    $self->scout($self->roll2d6() >= 7);
+    $self->pirate($self->roll2d6() >= 12);
   } elsif ($self->starport eq 'E') {
-    $self->pirate(roll2d6() >= 12);
+    $self->pirate($self->roll2d6() >= 12);
   }
 }
 
 sub compute_atmosphere {
   my $self = shift;
-  my $atmosphere = roll2d6() -7 + $self->size;
+  my $atmosphere = $self->roll2d6() -7 + $self->size;
   $atmosphere = 0 if $atmosphere < 0;
   return $atmosphere;
 }
 
 sub compute_temperature {
   my $self = shift;
-  my $temperature = roll2d6();
+  my $temperature = $self->roll2d6();
   my $atmosphere = $self->atmosphere;
   $temperature -= 2
     if $atmosphere == 2
@@ -143,7 +144,7 @@ sub compute_temperature {
 
 sub compute_hydro {
   my $self = shift;
-  my $hydro = roll2d6() - 7 + $self->size;
+  my $hydro = $self->roll2d6() - 7 + $self->size;
   $hydro -= 4
     if $self->atmosphere == 0
     or $self->atmosphere == 1
@@ -160,12 +161,13 @@ sub compute_hydro {
   $hydro = 0
     if $self->size <= 1
     or $hydro < 0;
+  $hydro = 10 if $hydro > 10;
   return $hydro;
 }
 
 sub compute_government {
   my $self = shift;
-  my $government = roll2d6() - 7 + $self->population; # max 15
+  my $government = $self->roll2d6() - 7 + $self->population; # max 15
   $government = 0
     if $government < 0
     or $self->population == 0;
@@ -174,7 +176,7 @@ sub compute_government {
 
 sub compute_law {
   my $self = shift;
-  my $law = roll2d6()-7+$self->government; # max 20!
+  my $law = $self->roll2d6()-7+$self->government; # max 20!
   $law = 0
     if $law < 0
     or $self->population == 0;
@@ -183,7 +185,7 @@ sub compute_law {
 
 sub compute_tech {
   my $self = shift;
-  my $tech = roll1d6();
+  my $tech = $self->roll1d6();
   $tech += 6 if $self->starport eq 'A';
   $tech += 4 if $self->starport eq 'B';
   $tech += 2 if $self->starport eq 'C';
@@ -196,8 +198,8 @@ sub compute_tech {
   $tech += 1 if $self->population >= 1 and $self->population <= 5;
   $tech += 1 if $self->population == 9;
   $tech += 2 if $self->population == 10;
-  $tech += 3 if $self->population == 11;
-  $tech += 4 if $self->population == 12;
+  $tech += 3 if $self->population == 11; # impossible?
+  $tech += 4 if $self->population == 12; # impossible?
   $tech += 1 if $self->government == 0 or $self->government == 5;
   $tech += 2 if $self->government == 7;
   $tech -= 2 if $self->government == 13 or $self->government == 14;
@@ -278,11 +280,11 @@ sub init {
   $self->name($self->compute_name);
   $self->starport($self->compute_starport);
   $self->compute_bases;
-  $self->size(roll2d6()-2);
+  $self->size($self->roll2d6()-2);
   $self->atmosphere($self->compute_atmosphere);
   $self->temperature($self->compute_temperature);
   $self->hydro($self->compute_hydro);
-  $self->population(roll2d6()-2); # How to get to B and C in the table?
+  $self->population($self->roll2d6()-2); # How to get to B and C in the table?
   $self->government($self->compute_government);
   $self->law($self->compute_law);
   $self->tech($self->compute_tech);
@@ -326,6 +328,105 @@ sub str {
 
 ################################################################################
 
+package Traveller::System::Classic;
+use Moose;
+extends 'Traveller::System';
+
+sub compute_starport {
+  my $self = shift;
+  my %map = ( 2=>'A', 3=>'A', 4=>'A', 5=>'B', 6=>'B', 7=>'C',
+	      8=>'C', 9=>'D', 10=>'E', 11=>'E', 12=>'X' );
+  return $map{$self->roll2d6()};
+}
+
+sub compute_bases {
+  my $self = shift;
+  if ($self->starport eq 'A'
+      or $self->starport eq 'B') {
+    $self->naval($self->roll2d6() >= 8);
+  }
+  if ($self->starport eq 'A') {
+    $self->scout($self->roll2d6() >= 10);
+  } elsif ($self->starport eq 'B') {
+    $self->scout($self->roll2d6() >= 9);
+  } elsif ($self->starport eq 'C') {
+    $self->scout($self->roll2d6() >= 8);
+  } elsif ($self->starport eq 'D') {
+    $self->scout($self->roll2d6() >= 7);
+  }
+}
+
+sub compute_temperature {
+  # do nothing
+}
+
+sub compute_hydro {
+  my $self = shift;
+  my $hydro = $self->roll2d6() - 7 + $self->size;
+  $hydro -= 4
+    if $self->atmosphere == 0
+      or $self->atmosphere == 1
+      or $self->atmosphere >= 10;
+  $hydro = 0
+    if $self->size <= 1
+      or $hydro < 0;
+  $hydro = 10 if $hydro > 10;
+  return $hydro;
+}
+
+sub compute_tech {
+  my $self = shift;
+  my $tech = $self->roll1d6();
+  $tech += 6 if $self->starport eq 'A';
+  $tech += 4 if $self->starport eq 'B';
+  $tech += 2 if $self->starport eq 'C';
+  $tech -= 4 if $self->starport eq 'X';
+  $tech += 2 if $self->size <= 1;
+  $tech += 1 if $self->size >= 2 and $self->size <= 4;
+  $tech += 1 if $self->atmosphere <= 3 or $self->atmosphere >= 10;
+  $tech += 1 if $self->hydro == 9;
+  $tech += 2 if $self->hydro == 10;
+  $tech += 1 if $self->population >= 1 and $self->population <= 5;
+  $tech += 2 if $self->population == 9;
+  $tech += 4 if $self->population == 10;
+  $tech += 1 if $self->government == 0 or $self->government == 5;
+  $tech -= 2 if $self->government == 13;
+  $tech = 0 if $self->population == 0;
+  return $tech;
+}
+
+sub check_doom {
+  # do nothing
+}
+
+sub compute_tradecodes {
+  my $self = shift;
+  my $tradecodes = '';
+  $tradecodes .= " Ag" if $self->atmosphere >= 4 and $self->atmosphere <= 9
+      and $self->hydro >= 4 and $self->hydro <= 8
+      and $self->population >= 5 and $self->population <= 7;
+  $tradecodes .= " Na" if $self->atmosphere <= 3 and $self->hydro <= 3
+      and $self->population >= 6;
+  $tradecodes .= " In" if $self->atmosphere =~ /[012479]/ and $self->population >= 9;
+  $tradecodes .= " NI" if $self->population <= 6;
+  $tradecodes .= " Ri" if $self->atmosphere =~ /[68]/ and $self->population =~ /[678]/
+      and $self->government =~ /[456789]/;
+  $tradecodes .= " Po" if $self->atmosphere >= 2 and $self->atmosphere <= 5
+    and $self->hydro <= 3;
+  $tradecodes .= " Wa" if $self->hydro == 10;
+  $tradecodes .= " De" if $self->atmosphere >= 2 and $self->hydro == 0;
+  $tradecodes .= " Va" if $self->atmosphere == 0;
+  $tradecodes .= " As" if $self->size == 0;
+  $tradecodes .= " IC" if $self->atmosphere <= 1 and $self->hydro >= 1;
+  return $tradecodes;
+}
+
+sub compute_travelcode {
+  # do nothing
+}
+
+################################################################################
+
 package Traveller::Subsector;
 use Class::Struct;
 
@@ -337,13 +438,17 @@ sub add {
 }
 
 sub init {
-  my ($self, $width, $height) = @_;
+  my ($self, $width, $height, $classic) = @_;
   $width //= 8;
   $height //= 10;
   for my $x (1..$width) {
     for my $y (1..$height) {
       if (int(rand(2))) {
-	$self->add(new Traveller::System()->init($x, $y));
+	if ($classic) {
+	  $self->add(new Traveller::System::Classic()->init($x, $y));
+	} else {
+	  $self->add(new Traveller::System()->init($x, $y));
+	}
       }
     }
   }
@@ -1122,9 +1227,10 @@ get '/:id' => [id => qr/\d+/] => sub {
 get '/uwp/:id' => [id => qr/\d+/] => sub {
   my $c = shift;
   my $id = $c->param('id');
+  my $classic = $c->param('classic');
   srand($id);
-  my $uwp = new Traveller::Subsector()->init->str;
-  $c->render(template => 'uwp', id => $id, uwp => $uwp);
+  my $uwp = new Traveller::Subsector()->init(8,10,$classic)->str;
+  $c->render(template => 'uwp', id => $id, classic => $classic, uwp => $uwp);
 } => 'uwp';
 
 get '/uwp/sector/:id' => [id => qr/\d+/] => sub {
@@ -1167,10 +1273,11 @@ get '/map/:id' => [id => qr/\d+/] => sub {
   my $c = shift;
   my $wiki = $c->param('wiki');
   my $id = $c->param('id');
+  my $classic = $c->param('classic');
   srand($id);
-  my $uwp = new Traveller::Subsector()->init->str;
+  my $uwp = new Traveller::Subsector()->init(8,10,$classic)->str;
   my $map = new Traveller::Mapper;
-  $map->initialize($uwp, $wiki, $c->url_for('uwp', id => $id));
+  $map->initialize($uwp, $wiki, $c->url_for('uwp', id => $id)->query(classic => $classic));
   $map->communications();
   $map->trade();
   $c->render(text => $map->svg, format => 'svg');
@@ -1277,7 +1384,7 @@ Bases: Naval – Scout – Research – TAS – Consulate – Pirate
 <%= include 'uwp-footer' =%>
 </pre>
 <p>
-<%= link_to 'Generate Map' => 'map' %>
+<%= link_to url_for('map')->query(classic => $classic) => begin %>Generate Map<% end %>
 <%= link_to 'Edit UWP' => 'edit' %>
 <%= link_to 'Random Subsector' => 'random' %>
 <%= link_to 'Random Sector' => 'random-sector' %>
