@@ -399,6 +399,10 @@ sub check_doom {
   # do nothing
 }
 
+sub compute_travelcode {
+  # do nothing
+}
+
 sub compute_tradecodes {
   my $self = shift;
   my $tradecodes = '';
@@ -419,10 +423,6 @@ sub compute_tradecodes {
   $tradecodes .= " As" if $self->size == 0;
   $tradecodes .= " IC" if $self->atmosphere <= 1 and $self->hydro >= 1;
   return $tradecodes;
-}
-
-sub compute_travelcode {
-  # do nothing
 }
 
 ################################################################################
@@ -932,7 +932,7 @@ sub communications {
       if (not $best
 	  or $other->starport lt $best->starport
 	  or $other->starport eq $best->starport
-	  and distance($hex, $other) < distance($hex, $best)) {
+	  and $self->distance($hex, $other) < $self->distance($hex, $best)) {
 	$best = $other;
       }
     }
@@ -979,11 +979,12 @@ sub trade {
     }
     $hex->routes(\@routes);
   }
-  my @main_routes = minimal_spanning_tree(edges(@candidates));
+  my @main_routes = $self->minimal_spanning_tree($self->edges(@candidates));
   $self->routes(\@main_routes);
 }
 
 sub edges {
+  my $self = shift;
   my @edges;
   my %seen;
   foreach my $hex (@_) {
@@ -992,7 +993,7 @@ sub edges {
       foreach my $end (@route) {
 	# keep everything unidirectional
 	next if exists $seen{$start}{$end} or exists $seen{$end}{$start};
-	push(@edges, [$start, $end, distance($start,$end)]);
+	push(@edges, [$start, $end, $self->distance($start,$end)]);
 	$seen{$start}{$end} = 1;
 	$start = $end;
       }
@@ -1003,6 +1004,7 @@ sub edges {
 
 sub minimal_spanning_tree {
   # http://en.wikipedia.org/wiki/Kruskal%27s_algorithm
+  my $self = shift;
   # Initialize a priority queue Q to contain all edges in G, using the
   # weights as keys.
   my @Q = sort { @{$a}[2] <=> @{$b}[2] } @_;
@@ -1056,7 +1058,7 @@ sub route {
   }
   my @routes;
   foreach my $hex (@options) {
-    my @route = $self->route($hex, $to, $distance - distance($from, $hex),
+    my @route = $self->route($hex, $to, $distance - $self->distance($from, $hex),
 			     $candidatesref, @seen, $from);
     if (@route) {
       push(@routes, \@route);
@@ -1087,7 +1089,7 @@ sub nearby {
   my @result = ();
   foreach my $hex (@candidates) {
     next if $hex == $start;
-    if (distance($start, $hex) <= $distance) {
+    if ($self->distance($start, $hex) <= $distance) {
       push(@result, $hex);
     }
   }
@@ -1097,7 +1099,7 @@ sub nearby {
 memoize('nearby');
 
 sub distance {
-  my ($from, $to) = @_;
+  my ($self, $from, $to) = @_;
   my ($x1, $y1, $x2, $y2) = ($from->x, $from->y, $to->x, $to->y);
   # transform the stupid Traveller coordinate system into a decent
   # system with one axis tilted by 60°
@@ -1197,6 +1199,68 @@ sub text {
 
 ################################################################################
 
+package Traveller::Mapper::Classic;
+use Moose;
+extends 'Traveller::Mapper';
+
+sub communications {
+  # do nothing
+}
+
+sub trade {
+  # connect starports to each other based on a table
+  # see https://talestoastound.wordpress.com/2015/10/30/traveller-out-of-the-box-interlude-the-1977-edition-over-the-1981-edition/
+  my ($self) = @_;
+  my @candidates = grep { $_->starport =~ /[A-E]/ } @{$self->hexes};
+  # every system has a link to its partners
+  foreach my $hex (@candidates) {
+    my @routes;
+    foreach my $other ($self->nearby($hex, 4, \@candidates)) {
+      my $target;
+      if ($hex->starport eq 'A' and $other->starport eq 'A') {
+	$target = [1,2,4,5]->[$self->distance($hex, $other)];
+      } elsif ($hex->starport eq 'A' and $other->starport eq 'B') {
+	$target = [1,3,4,5]->[$self->distance($hex, $other)];
+      } elsif ($hex->starport eq 'A' and $other->starport eq 'C') {
+	$target = [1,4,6]->[$self->distance($hex, $other)];
+      } elsif ($hex->starport eq 'A' and $other->starport eq 'D') {
+	$target = [1,5]->[$self->distance($hex, $other)];
+      } elsif ($hex->starport eq 'A' and $other->starport eq 'E') {
+	$target = [2]->[$self->distance($hex, $other)];
+      } elsif ($hex->starport eq 'B' and $other->starport eq 'B') {
+	$target = [1,3,4,6]->[$self->distance($hex, $other)];
+      } elsif ($hex->starport eq 'B' and $other->starport eq 'C') {
+	$target = [2,4,6]->[$self->distance($hex, $other)];
+      } elsif ($hex->starport eq 'B' and $other->starport eq 'D') {
+	$target = [3,6]->[$self->distance($hex, $other)];
+      } elsif ($hex->starport eq 'B' and $other->starport eq 'E') {
+	$target = [4]->[$self->distance($hex, $other)];
+      } elsif ($hex->starport eq 'C' and $other->starport eq 'C') {
+	$target = [3,6]->[$self->distance($hex, $other)];
+      } elsif ($hex->starport eq 'C' and $other->starport eq 'D') {
+	$target = [4]->[$self->distance($hex, $other)];
+      } elsif ($hex->starport eq 'C' and $other->starport eq 'E') {
+	$target = [4]->[$self->distance($hex, $other)];
+      } elsif ($hex->starport eq 'D' and $other->starport eq 'D') {
+	$target = [4]->[$self->distance($hex, $other)];
+      } elsif ($hex->starport eq 'D' and $other->starport eq 'E') {
+	$target = [5]->[$self->distance($hex, $other)];
+      } elsif ($hex->starport eq 'E' and $other->starport eq 'E') {
+	$target = [6]->[$self->distance($hex, $other)];
+      }
+      if ($target and Traveller::System::roll1d6() >= $target) {
+	my @route = ($hex, $other);
+	push(@routes, \@route) if @route;
+      }
+    }
+    $hex->routes(\@routes);
+  }
+  my @main_routes = $self->minimal_spanning_tree($self->edges(@candidates));
+  $self->routes(\@main_routes);
+}
+
+################################################################################
+
 package Traveller;
 
 use Mojolicious::Lite;
@@ -1276,7 +1340,12 @@ get '/map/:id' => [id => qr/\d+/] => sub {
   my $classic = $c->param('classic');
   srand($id);
   my $uwp = new Traveller::Subsector()->init(8,10,$classic)->str;
-  my $map = new Traveller::Mapper;
+  my $map;
+  if ($classic) {
+    $map = new Traveller::Mapper::Classic;
+  } else {
+    $map = new Traveller::Mapper;
+  }
   $map->initialize($uwp, $wiki, $c->url_for('uwp', id => $id)->query(classic => $classic));
   $map->communications();
   $map->trade();
