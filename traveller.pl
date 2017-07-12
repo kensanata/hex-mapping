@@ -979,8 +979,7 @@ sub trade {
     }
     $hex->routes(\@routes);
   }
-  my @main_routes = $self->minimal_spanning_tree($self->edges(@candidates));
-  $self->routes(\@main_routes);
+  $self->routes($self->minimal_spanning_tree($self->edges(@candidates)));
 }
 
 sub edges {
@@ -1039,7 +1038,7 @@ sub minimal_spanning_tree {
       }
     }
   }
-  return @T;
+  return \@T;
 }
 
 sub route {
@@ -1184,7 +1183,7 @@ sub text {
   $data .= "Raw Data:\n";
   foreach my $hex (@{$self->hexes}) {
     foreach my $routeref (@{$hex->routes}) {
-      $data .= join(' - ', map {$_->name} reverse @{$routeref}) . "\n";
+      $data .= join(' - ', map {$_->name} @{$routeref}) . "\n";
     }
   }
   $data .= "\n";
@@ -1211,52 +1210,55 @@ sub trade {
   # connect starports to each other based on a table
   # see https://talestoastound.wordpress.com/2015/10/30/traveller-out-of-the-box-interlude-the-1977-edition-over-the-1981-edition/
   my ($self) = @_;
+  my @edges;
   my @candidates = grep { $_->starport =~ /[A-E]/ } @{$self->hexes};
+  my @others = @candidates;
   # every system has a link to its partners
   foreach my $hex (@candidates) {
-    my @routes;
-    foreach my $other ($self->nearby($hex, 4, \@candidates)) {
+    foreach my $other (@others) {
+      next if $hex == $other;
+      my $d = $self->distance($hex, $other);
+      next if $d > 4;
       my $target;
       if ($hex->starport eq 'A' and $other->starport eq 'A') {
-	$target = [1,2,4,5]->[$self->distance($hex, $other)];
+	$target = [1,2,4,5]->[$d];
       } elsif ($hex->starport eq 'A' and $other->starport eq 'B') {
-	$target = [1,3,4,5]->[$self->distance($hex, $other)];
+	$target = [1,3,4,5]->[$d];
       } elsif ($hex->starport eq 'A' and $other->starport eq 'C') {
-	$target = [1,4,6]->[$self->distance($hex, $other)];
+	$target = [1,4,6]->[$d];
       } elsif ($hex->starport eq 'A' and $other->starport eq 'D') {
-	$target = [1,5]->[$self->distance($hex, $other)];
+	$target = [1,5]->[$d];
       } elsif ($hex->starport eq 'A' and $other->starport eq 'E') {
-	$target = [2]->[$self->distance($hex, $other)];
+	$target = [2]->[$d];
       } elsif ($hex->starport eq 'B' and $other->starport eq 'B') {
-	$target = [1,3,4,6]->[$self->distance($hex, $other)];
+	$target = [1,3,4,6]->[$d];
       } elsif ($hex->starport eq 'B' and $other->starport eq 'C') {
-	$target = [2,4,6]->[$self->distance($hex, $other)];
+	$target = [2,4,6]->[$d];
       } elsif ($hex->starport eq 'B' and $other->starport eq 'D') {
-	$target = [3,6]->[$self->distance($hex, $other)];
+	$target = [3,6]->[$d];
       } elsif ($hex->starport eq 'B' and $other->starport eq 'E') {
-	$target = [4]->[$self->distance($hex, $other)];
+	$target = [4]->[$d];
       } elsif ($hex->starport eq 'C' and $other->starport eq 'C') {
-	$target = [3,6]->[$self->distance($hex, $other)];
+	$target = [3,6]->[$d];
       } elsif ($hex->starport eq 'C' and $other->starport eq 'D') {
-	$target = [4]->[$self->distance($hex, $other)];
+	$target = [4]->[$d];
       } elsif ($hex->starport eq 'C' and $other->starport eq 'E') {
-	$target = [4]->[$self->distance($hex, $other)];
+	$target = [4]->[$d];
       } elsif ($hex->starport eq 'D' and $other->starport eq 'D') {
-	$target = [4]->[$self->distance($hex, $other)];
+	$target = [4]->[$d];
       } elsif ($hex->starport eq 'D' and $other->starport eq 'E') {
-	$target = [5]->[$self->distance($hex, $other)];
+	$target = [5]->[$d];
       } elsif ($hex->starport eq 'E' and $other->starport eq 'E') {
-	$target = [6]->[$self->distance($hex, $other)];
+	$target = [6]->[$d];
       }
       if ($target and Traveller::System::roll1d6() >= $target) {
-	my @route = ($hex, $other);
-	push(@routes, \@route) if @route;
+	push(@edges, [$hex, $other, $d]);
       }
     }
-    $hex->routes(\@routes);
+    shift(@others);
   }
-  my @main_routes = $self->minimal_spanning_tree($self->edges(@candidates));
-  $self->routes(\@main_routes);
+  # $self->routes($self->minimal_spanning_tree(@edges));
+  $self->routes(\@edges);
 }
 
 ################################################################################
@@ -1369,9 +1371,15 @@ get '/trade/:id' => [id => qr/\d+/] => sub {
   my $c = shift;
   my $wiki = $c->param('wiki');
   my $id = $c->param('id');
+  my $classic = $c->param('classic');
   srand($id);
-  my $uwp = new Traveller::Subsector()->init->str;
-  my $map = new Traveller::Mapper;
+  my $uwp = new Traveller::Subsector()->init(8,10,$classic)->str;
+  my $map;
+  if ($classic) {
+    $map = new Traveller::Mapper::Classic;
+  } else {
+    $map = new Traveller::Mapper;
+  }
   $map->initialize($uwp, $wiki, $c->url_for('uwp', id => $id));
   $map->communications();
   $map->trade();
