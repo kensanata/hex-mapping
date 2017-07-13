@@ -1257,6 +1257,32 @@ sub trade_svg {
   return $data;
 }
 
+sub legend {
+  my $self = shift;
+  my $scale = 100;
+  my $doc;
+  my $uwp;
+  if ($self->source) {
+    $uwp = ' – <a xlink:href="' . $self->source . '">UWP</a>';
+  }
+  $doc .= sprintf(qq{    <text class="legend" x="%.3f" y="%.3f">◉ gas giant}
+		  . qq{ – ▲ scout base}
+		  . qq{ – ★ navy base}
+		  . qq{ – <tspan class="trade">▮</tspan> trade$uwp</text>\n},
+		  -10, ($self->height + 1) * sqrt(3) * $scale);
+  $doc .= sprintf(qq{    <text class="direction" x="%.3f" y="%.3f">coreward</text>\n},
+		  $self->width/2 * 1.5 * $scale, -0.13 * $scale);
+  $doc .= sprintf(qq{    <text transform="translate(%.3f,%.3f) rotate(90)"}
+		  . qq{ class="direction">trailing</text>\n},
+		  ($self->width + 0.4) * 1.5 * $scale, $self->height/2 * sqrt(3) * $scale);
+  $doc .= sprintf(qq{    <text class="direction" x="%.3f" y="%.3f">rimward</text>\n},
+		  $self->width/2 * 1.5 * $scale, ($self->height + 0.7) * sqrt(3) * $scale);
+  $doc .= sprintf(qq{    <text transform="translate(%.3f,%.3f) rotate(-90)"}
+		  . qq{ class="direction">spinward</text>\n},
+		  -0.1 * $scale, $self->height/2 * sqrt(3) * $scale);
+  return $doc;
+}
+
 ################################################################################
 
 package Traveller;
