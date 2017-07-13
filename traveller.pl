@@ -109,6 +109,7 @@ sub compute_bases {
   } elsif ($self->starport eq 'E') {
     $self->pirate($self->roll2d6() >= 12);
   }
+  $self->gasgiant($self->roll2d6() < 10);
 }
 
 sub compute_atmosphere {
@@ -320,6 +321,7 @@ sub str {
   $bases .= 'T' if $self->TAS;
   $bases .= 'C' if $self->consulate;
   $bases .= 'P' if $self->pirate;
+  $bases .= 'G' if $self->gasgiant;
   $uwp .= sprintf("%7s", $bases);
   $uwp .= '  ' . $self->tradecodes;
   $uwp .= ' ' . $self->travelcode if $self->travelcode;
@@ -354,6 +356,7 @@ sub compute_bases {
   } elsif ($self->starport eq 'D') {
     $self->scout($self->roll2d6() >= 7);
   }
+  $self->gasgiant($self->roll2d6() < 10);
 }
 
 sub compute_temperature {
@@ -1479,7 +1482,7 @@ Hi High Population     ||+- Atmosphere      Ri Rich
 Ht High Technology     |+- Size             Wa Water World
 IC Ice-Capped          +- Starport          Va Vacuum
 
-Bases: Naval – Scout – Research – TAS – Consulate – Pirate
+Bases: Naval – Scout – Research – TAS – Consulate – Pirate – Gas Giant
 
 @@ uwp.html.ep
 % layout 'default';
