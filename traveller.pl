@@ -1217,38 +1217,39 @@ sub trade {
   foreach my $hex (@candidates) {
     foreach my $other (@others) {
       next if $hex == $other;
-      my $d = $self->distance($hex, $other);
-      next if $d > 4;
+      my $d = $self->distance($hex, $other) - 1;
+      next if $d > 3; # 0-4!
+      my ($from, $to) = sort $hex->starport, $other->starport;
       my $target;
-      if ($hex->starport eq 'A' and $other->starport eq 'A') {
+      if ($from eq 'A' and $to eq 'A') {
 	$target = [1,2,4,5]->[$d];
-      } elsif ($hex->starport eq 'A' and $other->starport eq 'B') {
+      } elsif ($from eq 'A' and $to eq 'B') {
 	$target = [1,3,4,5]->[$d];
-      } elsif ($hex->starport eq 'A' and $other->starport eq 'C') {
+      } elsif ($from eq 'A' and $to eq 'C') {
 	$target = [1,4,6]->[$d];
-      } elsif ($hex->starport eq 'A' and $other->starport eq 'D') {
+      } elsif ($from eq 'A' and $to eq 'D') {
 	$target = [1,5]->[$d];
-      } elsif ($hex->starport eq 'A' and $other->starport eq 'E') {
+      } elsif ($from eq 'A' and $to eq 'E') {
 	$target = [2]->[$d];
-      } elsif ($hex->starport eq 'B' and $other->starport eq 'B') {
+      } elsif ($from eq 'B' and $to eq 'B') {
 	$target = [1,3,4,6]->[$d];
-      } elsif ($hex->starport eq 'B' and $other->starport eq 'C') {
+      } elsif ($from eq 'B' and $to eq 'C') {
 	$target = [2,4,6]->[$d];
-      } elsif ($hex->starport eq 'B' and $other->starport eq 'D') {
+      } elsif ($from eq 'B' and $to eq 'D') {
 	$target = [3,6]->[$d];
-      } elsif ($hex->starport eq 'B' and $other->starport eq 'E') {
+      } elsif ($from eq 'B' and $to eq 'E') {
 	$target = [4]->[$d];
-      } elsif ($hex->starport eq 'C' and $other->starport eq 'C') {
+      } elsif ($from eq 'C' and $to eq 'C') {
 	$target = [3,6]->[$d];
-      } elsif ($hex->starport eq 'C' and $other->starport eq 'D') {
+      } elsif ($from eq 'C' and $to eq 'D') {
 	$target = [4]->[$d];
-      } elsif ($hex->starport eq 'C' and $other->starport eq 'E') {
+      } elsif ($from eq 'C' and $to eq 'E') {
 	$target = [4]->[$d];
-      } elsif ($hex->starport eq 'D' and $other->starport eq 'D') {
+      } elsif ($from eq 'D' and $to eq 'D') {
 	$target = [4]->[$d];
-      } elsif ($hex->starport eq 'D' and $other->starport eq 'E') {
+      } elsif ($from eq 'D' and $to eq 'E') {
 	$target = [5]->[$d];
-      } elsif ($hex->starport eq 'E' and $other->starport eq 'E') {
+      } elsif ($from eq 'E' and $to eq 'E') {
 	$target = [6]->[$d];
       }
       if ($target and Traveller::System::roll1d6() >= $target) {
