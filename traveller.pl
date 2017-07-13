@@ -1116,7 +1116,7 @@ sub trade_svg {
     my $v = @{$edge}[1];
     my ($x1, $y1) = ($u->x, $u->y);
     my ($x2, $y2) = ($v->x, $v->y);
-    $data .= sprintf(qq{    <line class="main" x1="%.3f" y1="%.3f" x2="%.3f" y2="%.3f" />\n},
+    $data .= sprintf(qq{    <line class="trade" x1="%.3f" y1="%.3f" x2="%.3f" y2="%.3f" />\n},
 		     (1 + ($x1-1) * 1.5) * $scale, ($y1 - $x1%2/2) * sqrt(3) * $scale,
 		     (1 + ($x2-1) * 1.5) * $scale, ($y2 - $x2%2/2) * sqrt(3) * $scale);
   }
@@ -1231,13 +1231,30 @@ sub trade {
 	$target = [6]->[$d];
       }
       if ($target and Traveller::System::roll1d6() >= $target) {
-	push(@edges, [$hex, $other, $d]);
+	push(@edges, [$hex, $other, $d + 1]);
       }
     }
     shift(@others);
   }
   # $self->routes($self->minimal_spanning_tree(@edges));
   $self->routes(\@edges);
+}
+
+sub trade_svg {
+  my $self = shift;
+  my $data = '';
+  my $scale = 100;
+  foreach my $edge (sort { $b->[2] cmp $a->[2] } @{$self->routes}) {
+    my $u = @{$edge}[0];
+    my $v = @{$edge}[1];
+    my $d = @{$edge}[2];
+    my ($x1, $y1) = ($u->x, $u->y);
+    my ($x2, $y2) = ($v->x, $v->y);
+    $data .= sprintf(qq{    <line class="trade d$d" x1="%.3f" y1="%.3f" x2="%.3f" y2="%.3f" />\n},
+		     (1 + ($x1-1) * 1.5) * $scale, ($y1 - $x1%2/2) * sqrt(3) * $scale,
+		     (1 + ($x2-1) * 1.5) * $scale, ($y2 - $x2%2/2) * sqrt(3) * $scale);
+  }
+  return $data;
 }
 
 ################################################################################
