@@ -1324,9 +1324,10 @@ get '/uwp/:id' => [id => qr/\d+/] => sub {
 get '/uwp/sector/:id' => [id => qr/\d+/] => sub {
   my $c = shift;
   my $id = $c->param('id');
+  my $classic = $c->param('classic');
   srand($id);
-  my $uwp = new Traveller::Subsector()->init(32,40)->str;
-  $c->render(template => 'uwp-sector', id => $id, uwp => $uwp, sector => 1);
+  my $uwp = new Traveller::Subsector()->init(32,40,$classic)->str;
+  $c->render(template => 'uwp-sector', id => $id, classic => $classic, uwp => $uwp, sector => 1);
 } => 'uwp-sector';
 
 get '/source' => sub {
@@ -1380,10 +1381,16 @@ get '/map/sector/:id' => [id => qr/\d+/] => sub {
   my $c = shift;
   my $wiki = $c->param('wiki');
   my $id = $c->param('id');
+  my $classic = $c->param('classic');
   srand($id);
-  my $uwp = new Traveller::Subsector()->init(32,40)->str;
-  my $map = new Traveller::Mapper;
-  $map->initialize($uwp, $wiki, $c->url_for('uwp-sector', id => $id));
+  my $uwp = new Traveller::Subsector()->init(32,40,$classic)->str;
+  my $map;
+  if ($classic) {
+    $map = new Traveller::Mapper::Classic;
+  } else {
+    $map = new Traveller::Mapper;
+  }
+  $map->initialize($uwp, $wiki, $c->url_for('uwp-sector', id => $id)->query(classic => $classic));
   $map->communications();
   $map->trade();
   $c->render(text => $map->svg, format => 'svg');
@@ -1498,7 +1505,7 @@ Bases: Naval – Scout – Research – TAS – Consulate – Pirate
 <%= include 'uwp-footer' =%>
 </pre>
 <p>
-<%= link_to 'Generate Map' => 'map-sector' %>
+<%= link_to url_for('map-sector')->query(classic => $classic) => begin %>Generate Map<% end %>
 <%= link_to 'Edit UWP' => 'edit-sector' %>
 <%= link_to 'Random Subsector' => 'random' %>
 <%= link_to 'Random Sector' => 'random-sector' %>
