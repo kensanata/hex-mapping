@@ -1269,15 +1269,15 @@ sub legend {
   my $self = shift;
   my $scale = 100;
   my $doc;
-  my $uwp;
-  if ($self->source) {
-    $uwp = ' – <a xlink:href="' . $self->source . '">UWP</a>';
-  }
   $doc .= sprintf(qq{    <text class="legend" x="%.3f" y="%.3f">◉ gas giant}
 		  . qq{ – ▲ scout base}
 		  . qq{ – ★ navy base}
-		  . qq{ – <tspan class="trade">▮</tspan> trade$uwp</text>\n},
+		  . qq{ – <tspan class="trade">▮</tspan> trade},
 		  -10, ($self->height + 1) * sqrt(3) * $scale);
+  if ($self->source) {
+    $doc .= ' – <a xlink:href="' . $self->source . '">UWP</a>';
+  }
+  $doc .= qq{</text>\n};
   $doc .= sprintf(qq{    <text class="direction" x="%.3f" y="%.3f">coreward</text>\n},
 		  $self->width/2 * 1.5 * $scale, -0.13 * $scale);
   $doc .= sprintf(qq{    <text transform="translate(%.3f,%.3f) rotate(90)"}
@@ -1305,13 +1305,16 @@ get '/' => sub {
 
 get '/random' => sub {
   my $c = shift;
-  $c->redirect_to('uwp', id => int(rand(INT_MAX)));
+  my $id = int(rand(INT_MAX));
+  my $classic = $c->param('classic');
+  $c->redirect_to($c->url_for('uwp', id => $id)->query(classic => $classic));
 } => 'random';
 
 get '/random/sector' => sub {
   my $c = shift;
-  my $sector = $c->param('sector');
-  $c->redirect_to('uwp-sector', id => int(rand(INT_MAX)));
+  my $id = int(rand(INT_MAX));
+  my $classic = $c->param('classic');
+  $c->redirect_to($c->url_for('uwp-sector', id => $id)->query(classic => $classic));
 } => 'random-sector';
 
 get '/:id' => [id => qr/\d+/] => sub {
@@ -1338,6 +1341,12 @@ get '/uwp/sector/:id' => [id => qr/\d+/] => sub {
   $c->render(template => 'uwp-sector', id => $id, classic => $classic, uwp => $uwp, sector => 1);
 } => 'uwp-sector';
 
+get '/help' => sub {
+  my $c = shift;
+  my $classic = $c->param('classic');
+  $c->render(classic => $classic);
+};
+
 get '/source' => sub {
   my $c = shift;
   seek DATA, 0, 0;
@@ -1347,23 +1356,26 @@ get '/source' => sub {
 
 get '/edit' => sub {
   my $c = shift;
-  $c->render(template => 'edit', uwp => Traveller::Mapper::example());
+  my $classic = $c->param('classic');
+  $c->render(template => 'edit', uwp => Traveller::Mapper::example(), classic => $classic);
 } => 'main';
 
 get '/edit/:id' => sub {
   my $c = shift;
   my $id = $c->param('id');
+  my $classic = $c->param('classic');
   srand($id);
-  my $uwp = new Traveller::Subsector()->init->str;
-  $c->render(template => 'edit', uwp => $uwp);
+  my $uwp = new Traveller::Subsector()->init(8,10,$classic)->str;
+  $c->render(template => 'edit', uwp => $uwp, classic => $classic);
 } => 'edit';
 
 get '/edit/sector/:id' => sub {
   my $c = shift;
   my $id = $c->param('id');
+  my $classic = $c->param('classic');
   srand($id);
-  my $uwp = new Traveller::Subsector()->init(32,40)->str;
-  $c->render(template => 'edit-sector', uwp => $uwp);
+  my $uwp = new Traveller::Subsector()->init(32,40,$classic)->str;
+  $c->render(template => 'edit-sector', uwp => $uwp, classic => $classic);
 } => 'edit-sector';
 
 get '/map/:id' => [id => qr/\d+/] => sub {
@@ -1428,14 +1440,20 @@ any '/map' => sub {
   my $wiki = $c->param('wiki');
   my $trade = $c->param('trade');
   my $uwp = $c->param('map');
+  my $classic = $c->param('classic');
   my $source;
   if (!$uwp) {
     my $id = int(rand(INT_MAX));
     srand($id);
-    $uwp = new Traveller::Subsector()->init->str;
+    $uwp = new Traveller::Subsector()->init(8,10,$classic)->str;
     $source = $c->url_for('uwp', id => $id);
   }
-  my $map = new Traveller::Mapper;
+  my $map;
+  if ($classic) {
+    $map = new Traveller::Mapper::Classic;
+  } else {
+    $map = new Traveller::Mapper;
+  }
   $map->initialize($uwp, $wiki, $source);
   $map->communications();
   $map->trade();
@@ -1451,14 +1469,20 @@ any '/map-sector' => sub {
   my $wiki = $c->param('wiki');
   my $trade = $c->param('trade');
   my $uwp = $c->param('map');
+  my $classic = $c->param('classic');
   my $source;
   if (!$uwp) {
     my $id = int(rand(INT_MAX));
     srand($id);
-    $uwp = new Traveller::Subsector()->init(32,40)->str;
+    $uwp = new Traveller::Subsector()->init(32,40,$classic)->str;
     $source = $c->url_for('uwp', id => $id);
   }
-  my $map = new Traveller::Mapper;
+  my $map;
+  if ($classic) {
+    $map = new Traveller::Mapper::Classic;
+  } else {
+    $map = new Traveller::Mapper;
+  }
   $map->initialize($uwp, $wiki, $source);
   $map->communications();
   $map->trade();
@@ -1501,21 +1525,19 @@ IC Ice-Capped          +- Starport          Va Vacuum
 Bases: Naval – Scout – Research – TAS – Consulate – Pirate – Gas Giant
 % }
 
-Bases: Naval – Scout – Gas Giant
-
 @@ uwp.html.ep
 % layout 'default';
 % title 'Traveller Subsector UWP List Generator';
 <h1>Traveller Subsector UWP List Generator (<%= $id =%>)</h1>
 <pre>
-%= $uwp
-%= include 'uwp-footer'
+<%= $uwp =%>
+<%= include 'uwp-footer' =%>
 </pre>
 <p>
 <%= link_to url_for('map')->query(classic => $classic) => begin %>Generate Map<% end %>
-<%= link_to 'Edit UWP' => 'edit' %>
-<%= link_to 'Random Subsector' => 'random' %>
-<%= link_to 'Random Sector' => 'random-sector' %>
+<%= link_to url_for('edit')->query(classic => $classic) => begin %>Edit UWP List<% end %>
+<%= link_to url_for('random')->query(classic => $classic) => begin %>Random Subsector<% end %>
+<%= link_to url_for('random-sector')->query(classic => $classic) => begin %>Random Sector<% end %>
 </p>
 
 @@ uwp-sector.html.ep
@@ -1528,9 +1550,9 @@ Bases: Naval – Scout – Gas Giant
 </pre>
 <p>
 <%= link_to url_for('map-sector')->query(classic => $classic) => begin %>Generate Map<% end %>
-<%= link_to 'Edit UWP' => 'edit-sector' %>
-<%= link_to 'Random Subsector' => 'random' %>
-<%= link_to 'Random Sector' => 'random-sector' %>
+<%= link_to url_for('edit-sector')->query(classic => $classic) => begin %>Edit UWP List<% end %>
+<%= link_to url_for('random')->query(classic => $classic) => begin %>Random Subsector<% end %>
+<%= link_to url_for('random-sector')->query(classic => $classic) => begin %>Random Sector<% end %>
 </p>
 
 @@ edit-footer.html.ep
@@ -1598,51 +1620,75 @@ and optionally a <i>travel code</i> (A or R).
 % layout 'default';
 % title 'Traveller Subsector Generator';
 <h1>Traveller Subsector Generator</h1>
-<p>Submit your UWP list of the subsector.</p>
+<p>Submit your UWP list, or generate a
+<%= link_to url_for('random')->query(classic => $classic) => begin %>Random Subsector<% end %> or a
+<%= link_to url_for('random-sector')->query(classic => $classic) => begin %>Random Sector<% end %>.
+</p>
 %= form_for 'random-map' => (method => 'POST') => begin
 <p>
 %= text_area 'map' => (cols => 60, rows => 20) => begin
 <%= $uwp =%>
 % end
 </p>
-<p>URL (optional):
+<p>
+%= label_for 'wiki' => begin
+URL (optional):
+% end
 %= text_field 'wiki' => 'http://campaignwiki.org/wiki/NameOfYourWiki/' => (id => 'wiki')
 </p>
-%= submit_button 'Generate Map'
-%= submit_button 'Communication and Trade Routes', name => 'trade'
+%= hidden_field classic => $classic
+%= submit_button 'Submit'
 %= end
-%= form_for 'random-map' => (method => 'POST') => begin
-%= submit_button 'Random Subsector'
-%= end
-%= form_for 'random-map-sector' => (method => 'POST') => begin
-%= submit_button 'Random Sector'
-%= end
+
 %= include 'edit-footer'
 
 @@ edit-sector.html.ep
 % layout 'default';
-% title 'Traveller Subsector Generator';
-<h1>Traveller Subsector Generator</h1>
-<p>Submit your UWP list of the subsector.</p>
+% title 'Traveller Sector Generator';
+<h1>Traveller Sector Generator</h1>
+<p>Submit your UWP list, or generate a 
+<%= link_to url_for('random')->query(classic => $classic) => begin %>Random Subsector<% end %> or a
+<%= link_to url_for('random-sector')->query(classic => $classic) => begin %>Random Sector<% end %>.
+</p>
 %= form_for 'random-map-sector' => (method => 'POST') => begin
 <p>
 %= text_area 'map' => (cols => 60, rows => 20) => begin
 <%= $uwp =%>
 % end
 </p>
-<p>URL (optional):
+<p>
+%= label_for 'wiki' => begin
+URL (optional):
+% end
 %= text_field 'wiki' => 'http://campaignwiki.org/wiki/NameOfYourWiki/' => (id => 'wiki')
 </p>
-%= submit_button 'Generate Map'
-%= submit_button 'Communication and Trade Routes', name => 'trade'
+%= hidden_field classic => $classic
+%= submit_button 'Submit'
 %= end
-%= form_for 'random-map' => (method => 'POST') => begin
-%= submit_button 'Random Subsector'
-%= end
-%= form_for 'random-map-sector' => (method => 'POST') => begin
-%= submit_button 'Random Sector'
-%= end
+
 %= include 'edit-footer'
+
+@@ help.html.ep
+% layout 'default';
+% title 'Traveller Subsector Generator';
+<h1>Traveller Subsector Generator</h1>
+<p>This generator can generate
+<%= link_to url_for('random')->query(classic => $classic) => begin %>random subsectors<% end %> and
+<%= link_to url_for('random-sector')->query(classic => $classic) => begin %>random sector<% end %>
+for <em>Classic Traveller</em> (CT) and for <em>Mongoose Traveller</em> (MGT).
+You can switch between the two using the link at the bottom.</p>
+
+<p>If you generate a random map, it will have a link to it's UWP list at the
+bottom of the map.</p>
+
+<p>You can edit a random UWP list and generate a new map. In this case, however,
+there will be no link back to the UWP list. You need to keep it safe in a text
+file on your system somewhere.</p>
+
+<h2>Trade</h2>
+<p>For <em>Classic Traveller</em> I'm using the 1977 rules to generate trade
+routes, as discussed as discussed in the blog post <a href="https://talestoastound.wordpress.com/2015/10/30/traveller-out-of-the-box-interlude-the-1977-edition-over-the-1981-edition/">Two
+Points Where I Prefer the 1977 Edition Over the 1981 Edition</a> by C. Kubasik.
 
 @@ layouts/default.html.ep
 <!DOCTYPE html>
@@ -1652,20 +1698,17 @@ and optionally a <i>travel code</i> (A or R).
 %= stylesheet '/traveller.css'
 %= stylesheet begin
 body {
-  width: 80ex;
+  width: 600px;
   padding: 1em;
   font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
 }
 form {
   display: inline;
 }
-textarea {
+textarea, #wiki {
   width: 100%;
   font-family: "Andale Mono", Monaco, "Courier New", Courier, monospace, "Symbola";
   font-size: 100%;
-}
-#wiki {
-  width: 40em;
 }
 table {
   padding-bottom: 1em;
@@ -1684,6 +1727,13 @@ td, th {
 <hr>
 <p>
 <a href="https://campaignwiki.org/traveller">Subsector Generator</a>&#x2003;
+% if ($classic) {
+<%= link_to url_for()->query(classic => undef) => begin %>MGT<% end %>
+% } else {
+<%= link_to url_for()->query(classic => 1) => begin %>CT<% end %>
+% }
+&#x2003;
+<%= link_to 'Help' => 'help' %>&#x2003;
 <%= link_to 'Source' => 'source' %>&#x2003;
 <a href="https://github.com/kensanata/hex-mapping/blob/master/traveller.pl">GitHub</a>&#x2003;
 <a href="https://alexschroeder.ch/wiki/Contact">Alex Schroeder</a>
