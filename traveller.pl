@@ -730,7 +730,12 @@ sub header {
       }
       line.d1 {
         stroke-width: 6pt;
-        stroke: #FF4242; /* eucalyptus */
+        stroke: #ff6347; /* tomato */
+        fill: none;
+      }
+      line.d2 {
+        stroke-width: 6pt;
+        stroke: #1b998b; /* jungle green */
         fill: none;
       }
       .code {
