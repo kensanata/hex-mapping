@@ -540,20 +540,6 @@ sub comm_svg {
   return $data;
 }
 
-sub trade_svg {
-  my $self = shift;
-  my $data = '';
-  my $scale = 100;
-  foreach my $routeref (@{$self->routes}) {
-    my $points = join(' ', map {
-      sprintf("%.3f,%.3f",
-	      (1 + ($_->x-1) * 1.5) * $scale, ($_->y - $_->x%2/2) * sqrt(3) * $scale);
-    } $self, reverse @{$routeref});
-    $data .= qq{    <polyline class="trade" points="$points" />\n};
-  }
-  return $data;
-}
-
 # The empty hex is centered around 0,0 and has a side length of 1, a
 # maximum diameter of 2, and a minimum diameter of √3. The subsector
 # is 10 hexes high and eight hexes wide. The 0101 corner is at the top
@@ -731,20 +717,17 @@ sub header {
         stroke-width: 10pt;
         stroke: #ff6347; /* tomato */
       }
-      polyline.trade {
-        stroke-width: 1pt;
-        stroke-linecap: round;
-        stroke-linejoin: round;
-        stroke: grey;
-        fill: none;
-        display: none;
-      }
       tspan.trade {
         fill: #afeeee; /* pale turquoise */
       }
-      line.main {
+      line.trade {
         stroke-width: 6pt;
         stroke: #afeeee; /* pale turquoise */
+        fill: none;
+      }
+      line.d1 {
+        stroke-width: 6pt;
+        stroke: #FF4242; /* eucalyptus */
         fill: none;
       }
       .code {
@@ -1146,11 +1129,6 @@ sub svg {
   $data .= qq{  <g id='comm'>\n};
   foreach my $hex (@{$self->hexes}) {
     $data .= $hex->comm_svg();
-  }
-  $data .= qq{  </g>\n\n};
-  $data .= qq{  <g id='trade'>\n};
-  foreach my $hex (@{$self->hexes}) {
-    $data .= $hex->trade_svg();
   }
   $data .= qq{  </g>\n\n};
   $data .= qq{  <g id='routes'>\n};
