@@ -1476,6 +1476,17 @@ __DATA__
 =encoding utf8
 
 @@ uwp-footer.html.ep
+<% if ($classic) { =%>
+                       ||||||| |
+Ag Agricultural        ||||||| +- Tech      NI Non-Industrial
+As Asteroid            ||||||+- Law         Po Poor
+De Desert              |||||+- Government   Ri Rich
+IC Ice-Capped          ||||+- Population    Wa Water World
+In Industrial          |||+- Hydro	    Va Vacuum
+Na Non-Agricultural    ||+- Atmosphere
+                       |+- Size
+                       +- Starport
+<% } else { =%>
                        ||||||| |
 Ag Agricultural        ||||||| |            In Industrial
 As Asteroid            ||||||| +- Tech      Lo Low Population
@@ -1488,14 +1499,17 @@ Ht High Technology     |+- Size             Wa Water World
 IC Ice-Capped          +- Starport          Va Vacuum
 
 Bases: Naval – Scout – Research – TAS – Consulate – Pirate – Gas Giant
+% }
+
+Bases: Naval – Scout – Gas Giant
 
 @@ uwp.html.ep
 % layout 'default';
 % title 'Traveller Subsector UWP List Generator';
 <h1>Traveller Subsector UWP List Generator (<%= $id =%>)</h1>
 <pre>
-<%= $uwp =%>
-<%= include 'uwp-footer' =%>
+%= $uwp
+%= include 'uwp-footer'
 </pre>
 <p>
 <%= link_to url_for('map')->query(classic => $classic) => begin %>Generate Map<% end %>
