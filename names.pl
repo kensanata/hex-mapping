@@ -42,7 +42,6 @@ sub parse_digraphs {
   return unless $_;
   my @d;
   push(@d, $1||$2) while /\[([^]]+)\]|(.)/g;
-  warn join('/', @d) . "\n";
   return \@d;
 }
 
@@ -134,7 +133,7 @@ This is what it does:</p>
 <p>Thus, if you want to generate Japanese sounding names, take some
 <a href="https://en.wikipedia.org/wiki/Hiragana">Hiragana</a>
 syllables and concatenate them, using a dot if there is no second character in
-the syllable, ignoring trigraphs:</p>
+the syllable, and put real digraphs and trigraphs in square brackets:</p>
 
 <table>
 % my $s;
@@ -143,6 +142,17 @@ the syllable, ignoring trigraphs:</p>
 % for my $v (qw(a i u e o)) {
 % $s .= "$c$v";
 <td><%= "$c$v" =%></td>
+% }
+</tr>
+% }
+% for my $c (qw(ky sh ch ny hy my ry)) {
+<tr>
+% for my $v (qw(a u o)) {
+% $s .= "[$c]$v";
+<td><%= "$c$v" =%></td>
+% if ($v ne "o") {
+<td></td>
+% }
 % }
 </tr>
 % }
