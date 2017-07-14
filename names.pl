@@ -126,11 +126,16 @@ the syllable, ignoring trigraphs:</p>
 % }
 </tr>
 % }
-% $s .= "yayuyo";
+% $s .= "yayuyon.";
 <tr>
 <td>ya</td><td></td>
 <td>yu</td><td></td>
 <td>yo</td>
+</tr>
+<tr>
+<td>n.</td><td></td>
+<td></td><td></td>
+<td></td>
 </tr>
 </table>
 
