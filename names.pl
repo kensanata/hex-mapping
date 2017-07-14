@@ -149,7 +149,7 @@ the syllable, and put real digraphs and trigraphs in square brackets:</p>
 <tr>
 % for my $v (qw(a u o)) {
 % $s .= "[$c]$v";
-<td><%= "$c$v" =%></td>
+<td><%= "[$c]$v" =%></td>
 % if ($v ne "o") {
 <td></td>
 % }
@@ -224,6 +224,9 @@ body {
 .mono {
   width: 100%;
   font-family: "Andale Mono", Monaco, "Courier New", Courier, monospace, "Symbola";
+}
+td {
+  width: 3em;
 }
 % end
 <meta name="viewport" content="width=device-width">
