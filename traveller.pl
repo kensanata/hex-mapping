@@ -49,14 +49,10 @@ struct 'Traveller::System' => {
   travelcode => '$',
 };
 
-my $digraphs = "fafemalunabararerixevivoine.n.q.pazizozutatetitotu..";
-my $max = length($digraphs);
-
-# Original Elite:
-# "..lexegezacebisousesarmaindire.aeratenberalavetiedorquanteisrion";
-
 sub compute_name {
   my $self = shift;
+  my $digraphs = shift;
+  my $max = length($digraphs);
   my $length = 4 + rand(6); # 4-8
   my $name = '';
   while (length($name) < $length) {
@@ -278,7 +274,7 @@ sub init {
   my $self = shift;
   $self->x(shift);
   $self->y(shift);
-  $self->name($self->compute_name);
+  $self->name($self->compute_name(shift));
   $self->starport($self->compute_starport);
   $self->compute_bases;
   $self->size($self->roll2d6()-2);
@@ -435,6 +431,23 @@ use Class::Struct;
 
 struct 'Traveller::Subsector' => { systems => '@' };
 
+sub one {
+  my $i = int(rand(scalar @_));
+  return $_[$i];
+}
+
+sub compute_digraphs {
+  my @first = qw(b c d f g h j k l m n p q r s t v w x y z .);
+  my @second = qw(a e i o u .);
+  my $s;
+  # duplication just increases frequency, so we're not going to check
+  for (1 .. 10+rand(20)) {
+    $s .= one(@first);
+    $s .= one(@second);
+  }
+  return $s;
+}
+
 sub add {
   my ($self, $system) = @_;
   push(@{$self->systems}, $system);
@@ -442,15 +455,16 @@ sub add {
 
 sub init {
   my ($self, $width, $height, $classic) = @_;
+  my $digraphs = $self->compute_digraphs;
   $width //= 8;
   $height //= 10;
   for my $x (1..$width) {
     for my $y (1..$height) {
       if (int(rand(2))) {
 	if ($classic) {
-	  $self->add(new Traveller::System::Classic()->init($x, $y));
+	  $self->add(new Traveller::System::Classic()->init($x, $y, $digraphs));
 	} else {
-	  $self->add(new Traveller::System()->init($x, $y));
+	  $self->add(new Traveller::System()->init($x, $y, $digraphs));
 	}
       }
     }
