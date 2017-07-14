@@ -24,24 +24,44 @@ sub one {
 }
 
 sub compute_digraphs {
-  my @first = qw(b c d f g h j k l m n p q r s t v w x y z .);
-  my @second = qw(a e i o u .);
-  my $s;
+  my @first = qw(b c d f g h j k l m n p q r s t v w x y z .
+		 sc ng ch ck gh ph rh sh th wh zh wr qu);
+  # make missing vowel rare
+  my @second = qw(a e i o u a e i o u a e i o u .);
+  my @d;
   # duplication just increases frequency, so we're not going to check
   for (1 .. 10+rand(20)) {
-    $s .= one(@first);
-    $s .= one(@second);
+    push(@d, one(@first));
+    push(@d, one(@second));
   }
-  return $s;
+  return \@d;
+}
+
+sub parse_digraphs {
+  $_ = shift;
+  return unless $_;
+  my @d;
+  push(@d, $1||$2) while /\[([^]]+)\]|(.)/g;
+  warn join('/', @d) . "\n";
+  return \@d;
+}
+
+sub digraphs_string {
+  my $d = shift;
+  return join '', map {
+    length($_) > 1 ? "[$_]" : $_;
+  } @$d;
 }
 
 sub compute_name {
   my $digraphs = shift;
-  my $max = length($digraphs);
+  my $max = scalar(@$digraphs);
   my $length = 4 + rand(6); # 4-8
   my $name = '';
   while (length($name) < $length) {
-    $name .= substr($digraphs, 2*int(rand($max/2)), 2);
+    my $i = 2*int(rand($max/2));
+    $name .= $digraphs->[$i];
+    $name .= $digraphs->[$i+1];
   }
   $name =~ s/\.//g;
   return ucfirst($name);
@@ -49,10 +69,10 @@ sub compute_name {
 
 get '/' => sub {
   my $c = shift;
-  my $digraphs = $c->param('digraphs');
+  my $digraphs = parse_digraphs($c->param('digraphs'));
   $digraphs = compute_digraphs() unless $digraphs;
   my @names = map { compute_name($digraphs) } (1 .. 20);
-  $c->render('name', digraphs => $digraphs, names => \@names);
+  $c->render('name', digraphs => digraphs_string($digraphs), names => \@names);
 };
 
 get '/help' => sub {
