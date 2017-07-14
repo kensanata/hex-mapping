@@ -18,11 +18,21 @@
 use Mojolicious::Lite;
 use Modern::Perl;
 
+sub one {
+  my $i = int(rand(scalar @_));
+  return $_[$i];
+}
+
 sub compute_digraphs {
-  return "kakekikokusasesisosutatetitotunaneninonuhahehihohu"
-      . "mamemimomubabebibobusasesisosuzazezizozuyayuyoa.e.i.o.u.n.";
-  return "..lexegezacebisousesarmaindire.aeratenberalavetiedorquanteisrion";
-  return "fafemalunabararerixevivoine.n.q.pazizozutatetitotu..";
+  my @first = qw(b c d f g h j k l m n p q r s t v w x y z .);
+  my @second = qw(a e i o u .);
+  my $s;
+  # duplication just increases frequency, so we're not going to check
+  for (1 .. 10+rand(20)) {
+    $s .= one(@first);
+    $s .= one(@second);
+  }
+  return $s;
 }
 
 sub compute_name {
@@ -41,7 +51,7 @@ get '/' => sub {
   my $c = shift;
   my $digraphs = $c->param('digraphs');
   $digraphs = compute_digraphs() unless $digraphs;
-  my @names = map { compute_name($digraphs) } (1 .. 10);
+  my @names = map { compute_name($digraphs) } (1 .. 20);
   $c->render('name', digraphs => $digraphs, names => \@names);
 };
 
@@ -67,14 +77,12 @@ __DATA__
 <h1>Name Generator</h1>
 
 <p>This generator will first generate a string of digraphs and then generate a
-bunch of names based on it. This is how the old Elite game generated names for
-its systems.</p>
+bunch of names based on it. Feel free to add your own. See the <%= link_to Help => 'help' %>
+page for more information.</p>
 
 %= form_for '/' => begin
 <p>
-%= text_area digraphs => (class => "mono") => begin
-%= $digraphs
-%= end
+<%= text_area digraphs => (class => "mono") => begin %><%= $digraphs %><% end %>
 <br/>
 %= submit_button
 </p>
@@ -97,8 +105,8 @@ its systems.</p>
 This is what it does:</p>
 
 <ol>
-<li>pick the number of syllables (4-8)</li>
-<li>for each syllable, pick an odd starting point in the string of digraphs and take two characters
+<li>pick the length of the name (4-9)</li>
+<li>pick an odd starting point in the string of digraphs and take two characters to create a syllable
 <li>delete any dots
 <li>capitalize it
 </ol>
