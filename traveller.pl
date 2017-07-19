@@ -53,7 +53,7 @@ sub compute_name {
   my $self = shift;
   my $digraphs = shift;
   my $max = scalar(@$digraphs);
-  my $length = 4 + rand(6); # 4-8
+  my $length = 4 + rand(5); # 4-8
   my $name = '';
   while (length($name) < $length) {
     my $i = 2*int(rand($max/2));
@@ -440,7 +440,8 @@ sub one {
 
 sub compute_digraphs {
   my @first = qw(b c d f g h j k l m n p q r s t v w x y z .
-		 sc ng ch ck gh ph rh sh th wh zh wr qu);
+		 sc ng ch gh ph rh sh th wh zh wr qu
+		 st sp tr tw fl dr pr dr);
   # make missing vowel rare
   my @second = qw(a e i o u a e i o u a e i o u .);
   my @d;
