@@ -645,43 +645,43 @@ struct 'Traveller::Mapper' => {
   height => '$',
 };
 
-my $example = q!Inedgeus     0101 D7A5579-8        G  Fl NI          A
-Geaan        0102 E66A999-7        G  Hi Wa          A
-Orgemaso     0103 C555875-5       SG  Ga Lt
-Veesso       0105 C5A0369-8        G  De Lo          A
-Ticezale     0106 B769799-7    T  SG  Ri             A
-Maatonte     0107 C6B3544-8   C    G  Fl NI          A
-Diesra       0109 D510522-8       SG  NI
-Esarra       0204 E869100-8        G  Lo             A
-Rience       0205 C687267-8        G  Ga Lo
-Rearreso     0208 C655432-5   C    G  Ga Lt NI
-Laisbe       0210 E354663-3           Ag Lt NI
-Biveer       0302 C646576-9   C    G  Ag Ga NI
-Labeveri     0303 A796100-9   CT N G  Ga Lo          A
-Sotexe       0408 E544778-3        G  Ag Ga Lt       A
-Zamala       0409 A544658-13   T N G  Ag Ga Ht NI
-Sogeeran     0502 A200443-14  CT N G  Ht NI Va
-Aanbi        0503 E697102-7        G  Ga Lo          A
-Bemaat       0504 C643384-9   C R  G  Lo Po
-Diare        0505 A254430-11   TRN G  NI             A
-Esgeed       0507 A8B1579-11    RN G  Fl NI A        A
-Leonbi       0510 B365789-9    T  SG  Ag Ri          A
-Reisbeon     0604 C561526-8     R  G  NI
-Atcevein     0605 A231313-11  CT   G  Lo Po
-Usmabe       0607 A540A84-15   T   G  De Hi Ht In Po
-Onbebior     0608 B220530-10       G  De NI Po       A
-Raraxema     0609 B421768-8    T NSG  Na Po
-Xeerri       0610 C210862-9        G  Na
-Onreon       0702 D8838A9-2       S   Lt Ri          A
-Ismave       0703 E272654-4           Lt NI
-Lara         0704 C0008D9-5       SG  As Lt Na Va    A
-Lalala       0705 C140473-9     R  G  De NI Po
-Maxereis     0707 A55A747-12  CT NSG  Ht Wa
-Requbire     0802 C9B4200-10       G  Fl Lo          A
-Azaxe        0804 B6746B9-8   C    G  Ag Ga NI       A
-Rieddige     0805 B355578-7        G  Ag NI          A
-Usorce       0806 E736110-3        G  Lo Lt          A
-Solacexe     0810 D342635-4  P    S   Lt NI Po       R
+my $example = q!Inedgeus          0101 D7A5579-8        G  Fl NI          A
+Geaan             0102 E66A999-7        G  Hi Wa          A
+Orgemaso          0103 C555875-5       SG  Ga Lt
+Veesso            0105 C5A0369-8        G  De Lo          A
+Ticezale          0106 B769799-7    T  SG  Ri             A
+Maatonte          0107 C6B3544-8   C    G  Fl NI          A
+Diesra            0109 D510522-8       SG  NI
+Esarra            0204 E869100-8        G  Lo             A
+Rience            0205 C687267-8        G  Ga Lo
+Rearreso          0208 C655432-5   C    G  Ga Lt NI
+Laisbe            0210 E354663-3           Ag Lt NI
+Biveer            0302 C646576-9   C    G  Ag Ga NI
+Labeveri          0303 A796100-9   CT N G  Ga Lo          A
+Sotexe            0408 E544778-3        G  Ag Ga Lt       A
+Zamala            0409 A544658-13   T N G  Ag Ga Ht NI
+Sogeeran          0502 A200443-14  CT N G  Ht NI Va
+Aanbi             0503 E697102-7        G  Ga Lo          A
+Bemaat            0504 C643384-9   C R  G  Lo Po
+Diare             0505 A254430-11   TRN G  NI             A
+Esgeed            0507 A8B1579-11    RN G  Fl NI A        A
+Leonbi            0510 B365789-9    T  SG  Ag Ri          A
+Reisbeon          0604 C561526-8     R  G  NI
+Atcevein          0605 A231313-11  CT   G  Lo Po
+Usmabe            0607 A540A84-15   T   G  De Hi Ht In Po
+Onbebior          0608 B220530-10       G  De NI Po       A
+Raraxema          0609 B421768-8    T NSG  Na Po
+Xeerri            0610 C210862-9        G  Na
+Onreon            0702 D8838A9-2       S   Lt Ri          A
+Ismave            0703 E272654-4           Lt NI
+Lara              0704 C0008D9-5       SG  As Lt Na Va    A
+Lalala            0705 C140473-9     R  G  De NI Po
+Maxereis          0707 A55A747-12  CT NSG  Ht Wa
+Requbire          0802 C9B4200-10       G  Fl Lo          A
+Azaxe             0804 B6746B9-8   C    G  Ag Ga NI       A
+Rieddige          0805 B355578-7        G  Ag NI          A
+Usorce            0806 E736110-3        G  Lo Lt          A
+Solacexe          0810 D342635-4  P    S   Lt NI Po       R
 !;
 
 sub example {
@@ -824,8 +824,8 @@ sub legend {
 		  . qq{ – ■ imperial consulate – ☼ TAS – ▲ scout base}
 		  . qq{ – ★ navy base – π research base – ☠ pirate base}
 		  . qq{ – <tspan class="comm">▮</tspan> communication}
-		  . qq{ – <tspan class="trade">▮</tspan> trade$uwp</text>\n},
-		  -10, ($self->height + 1) * sqrt(3) * $scale);
+		  . qq{ – <tspan class="trade">▮</tspan> trade%s</text>\n},
+		  -10, ($self->height + 1) * sqrt(3) * $scale, $uwp);
   $doc .= sprintf(qq{    <text class="direction" x="%.3f" y="%.3f">coreward</text>\n},
 		  $self->width/2 * 1.5 * $scale, -0.13 * $scale);
   $doc .= sprintf(qq{    <text transform="translate(%.3f,%.3f) rotate(90)"}
@@ -1359,6 +1359,20 @@ get '/uwp/sector/:id' => [id => qr/\d+/] => sub {
   $c->render(template => 'uwp-sector', id => $id, classic => $classic, uwp => $uwp, sector => 1);
 } => 'uwp-sector';
 
+get '/uwp' => sub {
+  my $c = shift;
+  my $uwp = $c->param('map');
+  my $classic = $c->param('classic');
+  $c->render(template => 'uwp', id => '', classic => $classic, uwp => $uwp);
+} => 'uwp-no-id';
+
+get '/uwp/sector' => sub {
+  my $c = shift;
+  my $uwp = $c->param('map');
+  my $classic = $c->param('classic');
+  $c->render(template => 'uwp-sector', id => '', classic => $classic, uwp => $uwp, sector => 1);
+} => 'uwp-sector-no-id';
+
 get '/help' => sub {
   my $c = shift;
   my $classic = $c->param('classic');
@@ -1395,6 +1409,20 @@ get '/edit/sector/:id' => sub {
   my $uwp = new Traveller::Subsector()->init(32,40,$classic)->str;
   $c->render(template => 'edit-sector', uwp => $uwp, classic => $classic);
 } => 'edit-sector';
+
+get '/edit' => sub {
+  my $c = shift;
+  my $uwp = $c->param('map');
+  my $classic = $c->param('classic');
+  $c->render(template => 'edit', uwp => $uwp, classic => $classic);
+} => 'edit-no-id';
+
+get '/edit/sector' => sub {
+  my $c = shift;
+  my $uwp = $c->param('map');
+  my $classic = $c->param('classic');
+  $c->render(template => 'edit-sector', uwp => $uwp, classic => $classic);
+} => 'edit-sector-no-id';
 
 get '/map/:id' => [id => qr/\d+/] => sub {
   my $c = shift;
@@ -1434,6 +1462,42 @@ get '/map/sector/:id' => [id => qr/\d+/] => sub {
   $c->render(text => $map->svg, format => 'svg');
 } => 'map-sector';
 
+
+get '/map' => sub {
+  my $c = shift;
+  my $wiki = $c->param('wiki');
+  my $uwp = $c->param('map');
+  my $classic = $c->param('classic');
+  my $map;
+  if ($classic) {
+    $map = new Traveller::Mapper::Classic;
+  } else {
+    $map = new Traveller::Mapper;
+  }
+  $map->initialize($uwp, $wiki, $c->url_for('uwp-no-id')->query(classic => $classic, map => $uwp));
+  $map->communications();
+  $map->trade();
+  $c->render(text => $map->svg, format => 'svg');
+} => 'map-no-id';
+
+get '/map/sector' => sub {
+  my $c = shift;
+  my $wiki = $c->param('wiki');
+  my $uwp = $c->param('map');
+  my $classic = $c->param('classic');
+  my $uwp = new Traveller::Subsector()->init(32,40,$classic)->str;
+  my $map;
+  if ($classic) {
+    $map = new Traveller::Mapper::Classic;
+  } else {
+    $map = new Traveller::Mapper;
+  }
+  $map->initialize($uwp, $wiki, $c->url_for('uwp-sector-no-id')->query(classic => $classic, map => $uwp));
+  $map->communications();
+  $map->trade();
+  $c->render(text => $map->svg, format => 'svg');
+} => 'map-sector-no-id';
+
 get '/trade/:id' => [id => qr/\d+/] => sub {
   my $c = shift;
   my $wiki = $c->param('wiki');
@@ -1465,6 +1529,9 @@ any '/map' => sub {
     srand($id);
     $uwp = new Traveller::Subsector()->init(8,10,$classic)->str;
     $source = $c->url_for('uwp', id => $id);
+  } else {
+    use Mojo::Util qw(url_escape);
+    $source = $c->url_for('uwp-no-id')->query(map => $uwp);
   }
   my $map;
   if ($classic) {
@@ -1494,6 +1561,8 @@ any '/map-sector' => sub {
     srand($id);
     $uwp = new Traveller::Subsector()->init(32,40,$classic)->str;
     $source = $c->url_for('uwp', id => $id);
+  } else {
+    $source = $c->url_for('uwp-sector-no-id')->query(map => $uwp);
   }
   my $map;
   if ($classic) {
@@ -1546,14 +1615,23 @@ Bases: Naval – Scout – Research – TAS – Consulate – Pirate – Gas Gia
 @@ uwp.html.ep
 % layout 'default';
 % title 'Traveller Subsector UWP List Generator';
+% if ($id) {
 <h1>Traveller Subsector UWP List Generator (<%= $id =%>)</h1>
+% } else {
+<h1>Traveller Subsector UWP List Generator</h1>
+% }
 <pre>
 <%= $uwp =%>
 <%= include 'uwp-footer' =%>
 </pre>
 <p>
+% if ($id) {
 <%= link_to url_for('map')->query(classic => $classic) => begin %>Generate Map<% end %>
 <%= link_to url_for('edit')->query(classic => $classic) => begin %>Edit UWP List<% end %>
+% } else {
+<%= link_to url_for('map-no-id')->query(classic => $classic, map => $uwp) => begin %>Generate Map<% end %>
+<%= link_to url_for('edit-no-id')->query(classic => $classic, map => $uwp) => begin %>Edit UWP List<% end %>
+% }
 <%= link_to url_for('random')->query(classic => $classic) => begin %>Random Subsector<% end %>
 <%= link_to url_for('random-sector')->query(classic => $classic) => begin %>Random Sector<% end %>
 </p>
@@ -1561,14 +1639,23 @@ Bases: Naval – Scout – Research – TAS – Consulate – Pirate – Gas Gia
 @@ uwp-sector.html.ep
 % layout 'default';
 % title 'Traveller Sector UWP List Generator';
+% if ($id) {
 <h1>Traveller Sector UWP List Generator (<%= $id =%>)</h1>
+% } else {
+<h1>Traveller Sector UWP List Generator</h1>
+% }
 <pre>
 <%= $uwp =%>
 <%= include 'uwp-footer' =%>
 </pre>
 <p>
+% if ($id) {
 <%= link_to url_for('map-sector')->query(classic => $classic) => begin %>Generate Map<% end %>
 <%= link_to url_for('edit-sector')->query(classic => $classic) => begin %>Edit UWP List<% end %>
+% } else {
+<%= link_to url_for('map-sector-no-id')->query(classic => $classic, map => $uwp) => begin %>Generate Map<% end %>
+<%= link_to url_for('edit-sector-no-id')->query(classic => $classic, map => $uwp) => begin %>Edit UWP List<% end %>
+% }
 <%= link_to url_for('random')->query(classic => $classic) => begin %>Random Subsector<% end %>
 <%= link_to url_for('random-sector')->query(classic => $classic) => begin %>Random Sector<% end %>
 </p>
@@ -1745,10 +1832,18 @@ td, th {
 <hr>
 <p>
 <a href="https://campaignwiki.org/traveller">Subsector Generator</a>&#x2003;
-% if ($classic) {
+% if ($id) {
+%   if ($classic) {
 <%= link_to url_for()->query(classic => undef) => begin %>MGT<% end %>
-% } else {
+%   } else {
 <%= link_to url_for()->query(classic => 1) => begin %>CT<% end %>
+%   }
+% } else {
+%   if ($classic) {
+<%= link_to url_for()->query(classic => undef, map => $uwp) => begin %>MGT<% end %>
+%   } else {
+<%= link_to url_for()->query(classic => 1, map => $uwp) => begin %>CT<% end %>
+%   }
 % }
 &#x2003;
 <%= link_to 'Help' => 'help' %>&#x2003;
