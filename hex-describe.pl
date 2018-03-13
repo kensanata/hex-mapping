@@ -466,6 +466,16 @@ any '/describe' => sub {
 	     descriptions => describe_map($map, $data));
 };
 
+get '/default/map' => sub {
+  my $c = shift;
+  $c->render(text => $default_map, format => 'txt');
+};
+
+get '/default/table' => sub {
+  my $c = shift;
+  $c->render(text => $default_table, format => 'txt');
+};
+
 get '/source' => sub {
   my $c = shift;
   seek(DATA,0,0);
@@ -499,6 +509,11 @@ Table URL:
 %= submit_button 'Submit', name => 'submit'
 </p>
 %= end
+
+<p>
+<%= link_to 'Default Map' => 'defaultmap' %>&#x2003;
+<%= link_to 'Default Table' => 'defaulttable' %>&#x2003;
+</p>
 
 
 @@ description.html.ep
