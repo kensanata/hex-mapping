@@ -322,7 +322,7 @@ my $default_table = q{;light-grey mountain
 1,there is a cold pond up in this valley [maybe an undine]
 1,the upper valley is rocky [maybe a hill giant]
 1,steep cliffs make progress practically impossible without climbing gear
-1,nothing grows up here except for a few patches of lichen on gray rocks
+1,nothing but gray rocks
 
 ;human kid
 1,Al
@@ -338,7 +338,7 @@ my $default_table = q{;light-grey mountain
 1,Keg
 
 ;maybe an undine
-5,but it's ice cold and nothing lives here
+5,but it's cold and nothing lives here
 1,and in it lives a water spirit called [undine]
 
 ;undine
@@ -349,28 +349,32 @@ my $default_table = q{;light-grey mountain
 1,Sweet Sleep
 
 ;maybe a hill giant
-5,and progress is difficult in this broken terrain
+5,and empty
 1,and some of these boulders have been assembled into a crude stone tower with [2d4] hill giants led by one they call [hill giant]
 
 ;hill giant
-Flat Nose
-Thunder Voice
-Smash Fist
-Sheep Finder
-Ogon of the Valley, former soldier of Ugra the Great
+1,Flat Nose
+1,Thunder Voice
+1,Smash Fist
+1,Sheep Finder
+1,Ogon of the Valley, former soldier of Ugra the Great
 
 ;white mountain
 1,the air up here is cold
-1,snow fields make progress difficult
+1,snow fields make progress difficult without skis
 1,there is a hidden meadow up here, hidden from view from below
-1,steep cliffs make progress practically impossible without climbing gear
-1,nothing grows up here except for a few patches of lichen on gray rocks
+1,the glaciers need a local guide and ropes to cross
+1,the glacier ends at a small lake [maybe an ice cave]
+
+;maybe an ice cave
+1,bright blue and ice cold
+1,and there is an ice cave leading beneath the glacier
+1,and there is an ice cave inhabited by a cryohydra
 
 ;mountains
-1,the mountains here are rocky and bare
 1,these peaks are impossible to climb
-1,steep rocky ridges allow you to climb these mountains
-1,the air is thin up here; [mountain people]
+1,these passes need a local guide to cross
+1,[mountain people]
 1,ice covers these mountains and passage is dangerous
 1,a glacier fills the gap between these mountains
 1,the locals call these mountains the [dreadful] [peaks]
@@ -394,17 +398,35 @@ Ogon of the Valley, former soldier of Ugra the Great
 1,Graves
 
 ;mountain people
-1,[1d4 frost giants] live here
+1,[1d4 frost giants]
+1,[2d4] winter wolves
 
 ;1d4 frost giants
-1,an old frost giant lives here, last guardian of the ice
-1,a frost giant sorceror lives here, eager to dip his frost blade into a warm heart
-1,a pair of frost giant brothers live here, hating each other
-1,a pair of frost giant sisters live here, jealous of each other
-1,a group of three frost giants live their carefree lives up here
-1,the ice keep of three frost griants and their cryo hydra can be found up here
-1,four frost giants and their [2d4] winter wolves live in an ice castle up here
-1,four frost giant sorcerors live in a gargantuan palace of ice and darkness built when the ice realm was much easier to reach than it is today, and the snow fields outside but a thin cover over the smashed bones of ten thousand victims
+1,the frost giant [frost giant] lives here in a [frost giant lair] with [frost giant companions]
+3,[1d3+1] frost giants live here with [frost giant companions] in a [frost giant lair] led by [frost giant]
+
+;frost giant
+1,Winter's Bone
+1,Snow
+1,Ice
+1,Cold
+1,Glacier
+1,Storm
+1,Darkness
+1,Tooth
+
+;frost giant lair
+1,a glorious ice blue cave
+1,an old castle built of gray stones
+1,a castle built of ice and snow
+1,a gargantuan palace of ice and darkness
+1,a fortress guarding one of the passages to the realm of eternal ice
+
+;frost giant companions
+3,[1d4] white bears
+2,[2d4] winter wolves
+1,a cryohydra
+1,a spectre of their ancient ice king
 };
 
 sub get_data {
@@ -462,7 +484,7 @@ sub describe {
   my @words = @_;
   my @descriptions;
   for my $word (@words) {
-    if (my ($n, $d, $p) = $word =~ /^(\d+)d(\d+)(?:\+(\d+))$/) {
+    if (my ($n, $d, $p) = $word =~ /^(\d+)d(\d+)(?:\+(\d+))?$/) {
       my $r = $p||0;
       for(my $i = 0; $i < $n; $i++) {
 	$r += int(rand($d)) + 1;
@@ -523,14 +545,14 @@ get '/load/random/smale' => sub {
   my $c = shift;
   my $url = 'https://campaignwiki.org/text-mapper/smale/random/text';
   my $map = get_data($url);
-  $c->render(template => 'edit', map => $map, url => $url);
+  $c->render(template => 'edit', map => $map);
 };
 
 get '/load/random/alpine' => sub {
   my $c = shift;
   my $url = 'https://campaignwiki.org/text-mapper/alpine/random/text';
   my $map = get_data($url);
-  $c->render(template => 'edit', map => $map, url => $url);
+  $c->render(template => 'edit', map => $map);
 };
 
 any '/describe' => sub {
