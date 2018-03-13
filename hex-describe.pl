@@ -463,6 +463,7 @@ any '/describe' => sub {
   my $table = $url ? get_table($url) : $default_table;
   my $data = parse_table($table);
   $c->render(template => 'description',
+	     map => $map,
 	     descriptions => describe_map($map, $data));
 };
 
@@ -520,7 +521,11 @@ Table URL:
 % layout 'default';
 % title 'Hex Describe';
 <h1>Hex Descriptions</h1>
-<p>Here are the descriptions for <u>this map</u>.</p>
+%= form_for 'https://campaignwiki.org/text-mapper/render' => (method => 'POST') => begin
+%= hidden_field map => $map
+%= submit_button 'Show Map'
+%= end
+
 % for my $hex (sort keys %$descriptions) {
 <p><strong><%= $hex =%></strong>: <%= $descriptions->{$hex} %></p>
 % }
