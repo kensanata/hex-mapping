@@ -509,6 +509,20 @@ get '/' => sub {
   $c->render(template => 'edit', map => $map, url => $url);
 };
 
+get '/load/random/smale' => sub {
+  my $c = shift;
+  my $url = $c->param('https://campaignwiki.org/text-mapper/smale/random/text');
+  my $map = get_table($url);
+  $c->render(template => 'edit', map => $map, url => $url);
+};
+
+get '/load/random/schroeder' => sub {
+  my $c = shift;
+  my $url = $c->param('https://campaignwiki.org/text-mapper/schroeder/random/text');
+  my $map = get_table($url);
+  $c->render(template => 'edit', map => $map, url => $url);
+};
+
 any '/describe' => sub {
   my $c = shift;
   my $map = $c->param('map');
@@ -549,7 +563,13 @@ __DATA__
 % layout 'default';
 % title 'Hex Describe';
 <h1>Hex Describe</h1>
-<p>Describe a hex map using some random data.</p>
+<p>
+Describe a hex map using some random data.
+</p>
+<p>
+Load <%= link_to 'random Smale data' => 'loadrandomsmale' %>.
+Load <%= link_to 'random Schroeder data' => 'loadrandomschroeder' %>.
+</p>
 %= form_for describe => (method => 'POST') => begin
 %= text_area map => (cols => 60, rows => 15) => begin
 <%= $map =%>

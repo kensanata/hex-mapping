@@ -1831,6 +1831,13 @@ get '/smale/random' => sub {
   $c->render(text => $svg, format => 'svg');
 };
 
+get '/smale/random/text' => sub {
+  my $c = shift;
+  my $bw = $c->param('bw');
+  my $text = Smale::generate_map($bw);
+  $c->render(text => $text, format => 'txt');
+};
+
 get '/alpine' => sub {
   my $c = shift;
   $c->render(template => 'edit',
@@ -1848,6 +1855,15 @@ get '/alpine/random' => sub {
 					   $c->param('step')))
       ->svg();
   $c->render(text => $svg, format => 'svg');
+};
+
+get '/alpine/random/text' => sub {
+  my $c = shift;
+  my $text = Schroeder::generate_map($c->param('width'),
+				     $c->param('height'),
+				     $c->param('seed'),
+				     $c->param('step'));
+  $c->render(text => $text, format => 'txt');
 };
 
 get '/alpine/document' => sub {
