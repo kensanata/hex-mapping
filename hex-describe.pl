@@ -317,7 +317,49 @@ include https://campaignwiki.org/contrib/gnomeyland.txt
 # Seed: 1520694313
 };
 
-my $default_table = q{;mountain
+my $default_table = q{;light-grey mountain
+1,the green valley up here has some sheep and a kid called [human kid] guarding them
+1,there is a cold pond up in this valley [maybe an undine]
+1,the upper valley is rocky [maybe a hill giant]
+1,steep cliffs make progress practically impossible without climbing gear
+1,nothing grows up here except for a few patches of lichen on gray rocks
+
+;human kid
+1,Al
+1,Bert
+1,Cus
+1,Dirk
+1,Ed
+1,Fal
+1,Gil
+1,Hela
+1,Ila
+1,Jo
+1,Keg
+
+;maybe an undine
+5,but it's ice cold and nothing lives here
+1,and in it lives a water spirit called [undine]
+
+;undine
+1,Tears of Joy
+1,Tears of Sorrow
+1,Mountain Dew
+1,Eyes of Ice
+1,Sweet Sleep
+
+;maybe a hill giant
+5,and progress is difficult in this broken terrain
+1,and some of these boulders have been assembled into a crude stone tower with [2d4] hill giants led by one they call [hill giant]
+
+;hill giant
+Flat Nose
+Thunder Voice
+Smash Fist
+Sheep Finder
+Ogon of the Valley, former soldier of Ugra the Great
+
+;white mountain
 1,the air up here is cold
 1,snow fields make progress difficult
 1,there is a hidden meadow up here, hidden from view from below
@@ -363,15 +405,6 @@ my $default_table = q{;mountain
 1,the ice keep of three frost griants and their cryo hydra can be found up here
 1,four frost giants and their [2d4] winter wolves live in an ice castle up here
 1,four frost giant sorcerors live in a gargantuan palace of ice and darkness built when the ice realm was much easier to reach than it is today, and the snow fields outside but a thin cover over the smashed bones of ten thousand victims
-
-;2d4
-1,2
-2,3
-3,4
-4,5
-3,6
-2,7
-1,8
 };
 
 sub get_table {
@@ -419,16 +452,25 @@ sub describe {
   my @words = @_;
   my @descriptions;
   for my $word (@words) {
-    $log->info("looking for a $word table");
-    if ($data->{$word}) {
-      my $total = $data->{$word}->{total};
-      my $lines = $data->{$word}->{lines};
-      my $text = pick_description($total, $lines);
-      $log->info("picked $text from $total entries");
-      if ($text =~ s/\[(.*?)\]/describe($data,$1)/ge) {
-	$log->info("these changes resulted in $text");
+    if (my ($n, $d, $p) = $word =~ /^(\d+)d(\d+)(?:\+(\d+))$/) {
+      my $r = $p||0;
+      for(my $i = 0; $i < $n; $i++) {
+	$r += int(rand($d)) + 1;
       }
-      push(@descriptions, $text);
+      $log->info("rolling dice: $word = $r");
+      push(@descriptions, $r);
+    } else {
+      $log->info("looking for a $word table");
+      if ($data->{$word}) {
+	my $total = $data->{$word}->{total};
+	my $lines = $data->{$word}->{lines};
+	my $text = pick_description($total, $lines);
+	$log->info("picked $text from $total entries");
+	if ($text =~ s/\[(.*?)\]/describe($data,$1)/ge) {
+	  $log->info("these changes resulted in $text");
+	}
+	push(@descriptions, $text);
+      }
     }
   }
   return join(' ', @descriptions);
@@ -443,7 +485,18 @@ sub describe_map {
     if ($hex =~ /^(\d\d)(\d\d)(?:\s+([^"\r\n]+)?\s*(?:"(.+)"(?:\s+(\d+))?)?|$)/) {
       my ($x, $y, $types) = ($1, $2, $3);
       $log->info("describing $x$y");
-      $descriptions{"$x$y"} = describe($data, split(/ /, $types));
+      my @types = split(/ /, $types);
+      my @words;
+      for my $w1 (@types) {
+	for my $w2 (@types) {
+	  if ($w1 eq $w2) {
+	    push(@words, $w1);
+	  } else {
+	    push(@words, "$w1 $w2");
+	  }
+	}
+      }
+      $descriptions{"$x$y"} = describe($data, @words);
     }
   }
   return \%descriptions;
