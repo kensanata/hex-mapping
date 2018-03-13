@@ -407,13 +407,23 @@ Ogon of the Valley, former soldier of Ugra the Great
 1,four frost giant sorcerors live in a gargantuan palace of ice and darkness built when the ice realm was much easier to reach than it is today, and the snow fields outside but a thin cover over the smashed bones of ten thousand victims
 };
 
-sub get_table {
+sub get_data {
   my $url = shift;
-  $log->info("get_table: fetching $url");
+  $log->info("get_data: $url");
   my $ua = Mojo::UserAgent->new;
   my $res = $ua->get($url)->result;
   return $res->body if $res->is_success;
-  $log->error("get_table: " . $res->code . " " . $res->message);
+  $log->error("get_data: " . $res->code . " " . $res->message);
+}
+
+sub get_post_data {
+  my $url = shift;
+  my %data = @_;
+  $log->info("get_post_data: $url");
+  my $ua = Mojo::UserAgent->new;
+  my $res = $ua->post($url => form => \%data)->result;
+  return $res->body if $res->is_success;
+  $log->error("get_post_data: " . $res->code . " " . $res->message);
 }
 
 sub parse_table {
@@ -512,25 +522,26 @@ get '/' => sub {
 get '/load/random/smale' => sub {
   my $c = shift;
   my $url = 'https://campaignwiki.org/text-mapper/smale/random/text';
-  my $map = get_table($url);
+  my $map = get_data($url);
   $c->render(template => 'edit', map => $map, url => $url);
 };
 
 get '/load/random/alpine' => sub {
   my $c = shift;
   my $url = 'https://campaignwiki.org/text-mapper/alpine/random/text';
-  my $map = get_table($url);
+  my $map = get_data($url);
   $c->render(template => 'edit', map => $map, url => $url);
 };
 
 any '/describe' => sub {
   my $c = shift;
   my $map = $c->param('map');
+  my $svg = get_post_data('https://campaignwiki.org/text-mapper/render', map => $map);
   my $url = $c->param('table');
-  my $table = $url ? get_table($url) : $default_table;
+  my $table = $url ? get_data($url) : $default_table;
   my $data = parse_table($table);
   $c->render(template => 'description',
-	     map => $map,
+	     svg => $svg,
 	     descriptions => describe_map($map, $data));
 };
 
@@ -594,10 +605,7 @@ Table URL:
 % layout 'default';
 % title 'Hex Describe';
 <h1>Hex Descriptions</h1>
-%= form_for 'https://campaignwiki.org/text-mapper/render' => (method => 'POST') => begin
-%= hidden_field map => $map
-%= submit_button 'Show Map'
-%= end
+%== $svg
 
 % for my $hex (sort keys %$descriptions) {
 <p><strong><%= $hex =%></strong>: <%= $descriptions->{$hex} %></p>
