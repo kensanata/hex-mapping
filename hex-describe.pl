@@ -595,7 +595,7 @@ my $default_table = q{;light-grey mountain
 
 ;trees
 1,Tall trees cover this valley.
-1,There are traces of logging activity in this lifght forest.
+1,There are traces of logging activity in this light forest.
 1,[2d4] *harpies* sing in the tree tops, luring men into the depths of the forest and to their death.
 1,There is a cave in this forest housing the *ettin* called [ettin].
 
@@ -651,6 +651,87 @@ my $default_table = q{;light-grey mountain
 
 ;firs
 
+;thorp
+1,There is a thorp of [1d4x10] *humans* led by one they call [human leader]. The [human houses] are protected by [human companions].
+
+;village
+1,There is a village of [5d6x10] *humans* led by a [human class] (level 9) called [human leader] who lives in a small tower with their subordinate [human class] (level 7) called [human leader] and their two aides, the [human class] [human leader] and [human class] [human leader] (both level 5). The [human houses] are protected by [human companions] and a [human defense].
+
+;town
+1,There is a town of [1d6x100] *humans* led by a [human class] (level 9) called [human leader] who lives in a keep with their subordinate [human class] (level 7) called [human leader] and their two aides, the [human class] [human leader] and [human class] [human leader] (both level 5). The [human houses] are protected by a town wall and the river. There is [town feature].
+
+;town feature
+1,a market
+1,a ferry
+1,a toll bridge
+1,a huge gallows
+1,a fight pit
+1,a chained *troll*
+1,a temple of [power]
+
+;human houses
+1,thatched huts
+1,wooden houses
+1,grass covered longhouses
+1,log cabins
+1,small stone huts
+1,mud huts
+
+;human defense
+1,ditch
+1,palisade
+1,the river flowing around it
+
+;human companions
+1,some sharpened stakes
+1,a *war dog*
+6,[1d6+1] *war dogs*
+
+;human class
+1,sorceror
+1,magic user
+1,necromancer
+1,fighter
+1,warlord
+1,knight
+
+;human leader
+1,Aaron
+1,Berta
+1,Claudius
+1,Dagmar
+1,Elena
+1,Ferdinand
+1,Gertrude
+1,Hannibal
+1,Isolde
+1,Justinian
+1,Konrad
+1,Lamia
+1,Mondrian
+1,Nauma
+1,Orland
+1,Quen
+1,Rudolf
+1,Sereina
+1,Thorman
+1,Ulma
+1,Voron
+1,Wilma
+1,Xaver
+1,Ysolde
+1,Zoran
+
+;power
+1,Set
+1,Orcus
+1,Nergal
+1,Pazuzu
+1,Freya
+1,Odin
+1,Thor
+1,Mithra
+1,Hel
 };
 
 sub get_data {
