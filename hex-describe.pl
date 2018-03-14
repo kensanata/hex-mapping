@@ -318,11 +318,11 @@ include https://campaignwiki.org/contrib/gnomeyland.txt
 };
 
 my $default_table = q{;light-grey mountain
-1,the green valley up here has some sheep and a *kid* called [human kid] guarding them
-1,there is a cold pond up in this valley [cold lake]
-1,the upper valley is rocky [maybe a hill giant]
-1,steep cliffs make progress practically impossible without climbing gear
-1,nothing but gray rocks
+1,The green valley up here has some sheep and a *kid* called [human kid] guarding them.
+1,There is a cold pond up in this valley [cold lake].
+1,The upper valley is rocky [maybe a hill giant].
+1,Steep cliffs make progress practically impossible without climbing gear.
+1,Nothing but gray rocks.
 
 ;human kid
 1,Al
@@ -370,12 +370,12 @@ my $default_table = q{;light-grey mountain
 1,Ogon of the Valley, former soldier of Ugra the Great
 
 ;white mountain
-1,the air up here is cold
-1,snow fields make impossible difficult without skis
-1,there is a hidden meadow up here, hidden from view from below
-1,the glaciers need a local guide and ropes to cross
-1,the glacier ends at a small lake [maybe an ice cave]
-1,a *white dragon* lives in a ruined mountain fortress on the highest peak around here
+1,The air up here is cold.
+1,Snow fields make it impossible to cross without skis.
+1,There is a hidden meadow up here, hidden from view from below.
+1,The glaciers need a local guide and ropes to cross.
+1,The glacier ends at a small lake [maybe an ice cave].
+1,A *white dragon* lives in a ruined mountain fortress on the highest peak around here.
 
 ;maybe an ice cave
 1,bright blue and ice cold
@@ -383,12 +383,12 @@ my $default_table = q{;light-grey mountain
 1,and there is an ice cave inhabited by a *cryohydra*
 
 ;mountains
-1,these peaks are impossible to climb
-1,these passes need a local guide to cross
-1,[mountain people]
-1,ice covers these mountains and passage is dangerous
-1,a glacier fills the gap between these mountains
-1,the locals call these mountains the [dreadful] [peaks]
+1,These peaks are impossible to climb.
+1,These passes need a local guide to cross.
+1,[mountain people].
+1,Ice covers these mountains and passage is dangerous.
+1,A glacier fills the gap between these mountains.
+1,The locals call these mountains the [dreadful] [peaks].
 
 ;dreadful
 1,Dire
@@ -441,10 +441,34 @@ my $default_table = q{;light-grey mountain
 1,a *spectre* of their ancient ice king
 
 ;water
-1,a lake covering the ruins of an ancient town
-1,a lake inhabited by [2d20] charming *nixies* and the same number of *giant fish* guarding their sea weed garden
-1,a big lake [cold lake]
-1,a tribe of [5d8] *froglings* in a mud village guarded by [1d6-1] *giant toads*
+1,A lake covering the ruins of an ancient town
+1,A lake inhabited by [2d20] charming *nixies* and the same number of *giant fish* guarding their sea weed garden
+1,A big lake [cold lake]
+1,A tribe of [5d8] *froglings* in a mud village guarded by [1d6-1] *giant toads*
+
+;forest-hill
+1,Small creeks have dug deep channels into this forest. The going is tough.
+1,One one these forested hills is inhabited by [1d6 ogres].
+
+;1d6 ogres
+1,[ogre leader]
+5,[ogre leader] leading [ogres]
+
+;ogre
+1,Pain
+1,Smash
+1,Club
+1,Hammer
+1,Rock
+1,Flesh Eater
+
+;ogre leader
+1,an *ogre mage* called [ogre]
+5,an *ogre* called [ogre]
+
+;ogres
+1,[1d5] more *ogres*
+1,[1d5] more *ogres* and [1d6x10] *orcs*
 };
 
 sub get_data {
@@ -461,9 +485,22 @@ sub get_post_data {
   my %data = @_;
   $log->debug("get_post_data: $url");
   my $ua = Mojo::UserAgent->new;
-  my $res = $ua->post($url => form => \%data)->result;
-  return $res->body if $res->is_success;
-  $log->error("get_post_data: " . $res->code . " " . $res->message);
+  my $tx = $ua->post($url => form => \%data);
+  my $error;
+  if ($tx->success) {
+    my $res = $ua->post($url => form => \%data)->result;
+    return $res->body if $res->is_success;
+    $error = $res->code . " " . $res->message;
+  } else {
+    my $err = $tx->error;
+    if ($err->{code}) {
+      $error = $err->{code} . " " . $err->{message};
+    } else {
+      $error = $err->{message};
+    }
+  }
+  $log->error("get_post_data: $error");
+  return "<p>There was an error when attempting to load the map ($error).</p>";
 }
 
 sub parse_table {
@@ -503,11 +540,14 @@ sub describe {
   my @words = @_;
   my @descriptions;
   for my $word (@words) {
-    if (my ($n, $d, $p) = $word =~ /^(\d+)d(\d+)(?:\+(\d+))?$/) {
-      my $r = $p||0;
+    # valid dice rolls: 1d6, 1d6+1, 1d6x10, 1d6x10+1
+    if (my ($n, $d, $m, $p) = $word =~ /^(\d+)d(\d+)(?:x(\d+))?(?:\+(\d+))?$/) {
+      my $r = 0;
       for(my $i = 0; $i < $n; $i++) {
 	$r += int(rand($d)) + 1;
       }
+      $r *= $m||1;
+      $r += $p||0;
       $log->debug("rolling dice: $word = $r");
       push(@descriptions, $r);
     } else {
