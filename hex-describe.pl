@@ -318,8 +318,8 @@ include https://campaignwiki.org/contrib/gnomeyland.txt
 };
 
 my $default_table = q{;light-grey mountain
-1,the green valley up here has some sheep and a kid called [human kid] guarding them
-1,there is a cold pond up in this valley [maybe an undine]
+1,the green valley up here has some sheep and a *kid* called [human kid] guarding them
+1,there is a cold pond up in this valley [cold lake]
 1,the upper valley is rocky [maybe a hill giant]
 1,steep cliffs make progress practically impossible without climbing gear
 1,nothing but gray rocks
@@ -337,9 +337,10 @@ my $default_table = q{;light-grey mountain
 1,Jo
 1,Keg
 
-;maybe an undine
-5,but it's cold and nothing lives here
-1,and in it lives a water spirit called [undine]
+;cold lake
+4,but it's cold and nothing lives here
+1,and in it lives a *water spirit* called [undine]
+1,with [2d4] *turtle people* led by one they call [turtle]
 
 ;undine
 1,Tears of Joy
@@ -348,9 +349,18 @@ my $default_table = q{;light-grey mountain
 1,Eyes of Ice
 1,Sweet Sleep
 
+;turtle
+1,Patience
+1,Calm
+1,Quiet
+1,Slow
+1,Peace
+1,Submit
+1,Wait
+
 ;maybe a hill giant
 5,and empty
-1,and some of these boulders have been assembled into a crude stone tower with [2d4] hill giants led by one they call [hill giant]
+1,and some of these boulders have been assembled into a crude stone tower with [2d4] *hill giants* led by one they call [hill giant]
 
 ;hill giant
 1,Flat Nose
@@ -369,7 +379,7 @@ my $default_table = q{;light-grey mountain
 ;maybe an ice cave
 1,bright blue and ice cold
 1,and there is an ice cave leading beneath the glacier
-1,and there is an ice cave inhabited by a cryohydra
+1,and there is an ice cave inhabited by a *cryohydra*
 
 ;mountains
 1,these peaks are impossible to climb
@@ -399,11 +409,11 @@ my $default_table = q{;light-grey mountain
 
 ;mountain people
 1,[1d4 frost giants]
-1,[2d4] winter wolves
+1,[2d4] *winter wolves*
 
 ;1d4 frost giants
-1,the frost giant [frost giant] lives here in a [frost giant lair] with [frost giant companions]
-3,[1d3+1] frost giants live here with [frost giant companions] in a [frost giant lair] led by [frost giant]
+1,the *frost giant* [frost giant] lives here in a [frost giant lair] with [frost giant companions]
+3,[1d3+1] *frost giants* led by one they call [frost giant] live here with [frost giant companions] in a [frost giant lair]
 
 ;frost giant
 1,Winter's Bone
@@ -423,15 +433,16 @@ my $default_table = q{;light-grey mountain
 1,a fortress guarding one of the passages to the realm of eternal ice
 
 ;frost giant companions
-3,[1d4] white bears
-2,[2d4] winter wolves
-1,a cryohydra
-1,a spectre of their ancient ice king
+3,[1d4] *white bears*
+2,[2d4] *winter wolves*
+1,a *cryohydra*
+1,a *white dragon*
+1,a *spectre* of their ancient ice king
 };
 
 sub get_data {
   my $url = shift;
-  $log->info("get_data: $url");
+  $log->debug("get_data: $url");
   my $ua = Mojo::UserAgent->new;
   my $res = $ua->get($url)->result;
   return $res->body if $res->is_success;
@@ -441,7 +452,7 @@ sub get_data {
 sub get_post_data {
   my $url = shift;
   my %data = @_;
-  $log->info("get_post_data: $url");
+  $log->debug("get_post_data: $url");
   my $ua = Mojo::UserAgent->new;
   my $res = $ua->post($url => form => \%data)->result;
   return $res->body if $res->is_success;
@@ -450,7 +461,7 @@ sub get_post_data {
 
 sub parse_table {
   my $text = shift;
-  $log->info("parse_table: parsing " . length($text) . " characters");
+  $log->debug("parse_table: parsing " . length($text) . " characters");
   my $data = {};
   my $key;
   for my $line (split(/\n/, $text)) {
@@ -459,6 +470,7 @@ sub parse_table {
     } elsif ($key and $line =~ /^(\d+),(.+)/) {
       $data->{$key}->{total} += $1;
       my %h = (count => $1, text => $2);
+      $h{text} =~ s/\*(.*?)\*/<strong>$1<\/strong>/g;
       push(@{$data->{$key}->{lines}}, \%h);
     }
   }
@@ -489,18 +501,16 @@ sub describe {
       for(my $i = 0; $i < $n; $i++) {
 	$r += int(rand($d)) + 1;
       }
-      $log->info("rolling dice: $word = $r");
+      $log->debug("rolling dice: $word = $r");
       push(@descriptions, $r);
     } else {
-      $log->info("looking for a $word table");
+      $log->debug("looking for a $word table");
       if ($data->{$word}) {
 	my $total = $data->{$word}->{total};
 	my $lines = $data->{$word}->{lines};
 	my $text = pick_description($total, $lines);
-	$log->info("picked $text from $total entries");
-	if ($text =~ s/\[(.*?)\]/describe($data,$1)/ge) {
-	  $log->info("these changes resulted in $text");
-	}
+	$text =~ s/\[(.*?)\]/describe($data,$1)/ge;
+	$log->debug("picked $text from $total entries");
 	push(@descriptions, $text);
       }
     }
@@ -516,7 +526,7 @@ sub describe_map {
     # based on text-mapper.pl Mapper process
     if ($hex =~ /^(\d\d)(\d\d)(?:\s+([^"\r\n]+)?\s*(?:"(.+)"(?:\s+(\d+))?)?|$)/) {
       my ($x, $y, $types) = ($1, $2, $3);
-      $log->info("describing $x$y");
+      $log->debug("describing $x$y");
       my @types = split(/ /, $types);
       my @words;
       for my $w1 (@types) {
@@ -630,7 +640,7 @@ Table URL:
 %== $svg
 
 % for my $hex (sort keys %$descriptions) {
-<p><strong><%= $hex =%></strong>: <%= $descriptions->{$hex} %></p>
+<p><strong><%= $hex =%></strong>: <%== $descriptions->{$hex} %></p>
 % }
 
 
