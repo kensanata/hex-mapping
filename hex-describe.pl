@@ -487,7 +487,8 @@ my $default_table = q{;light-grey mountain
 
 ;orc fort
 1,surrounded by spiked pit traps
-5,guarded by [1d5] *boars*
+1,guarded by a *boar*
+4,guarded by [1d4+1] *boars*
 
 ;1d6 ogres
 1,[ogre leader]
@@ -514,7 +515,16 @@ my $default_table = q{;light-grey mountain
 1,Dry lands full of tumbleweed and thorn bushes.
 1,A well hidden hamlet of [5d8] *halflings* led by one they call [halfling leader].
 1,Beneath these badlands is a cavesystem including an underground river.
+1,The dry lands up here are the hunting grounds of a *manticore* called [manticore] living in the ruins of an old tower.
 1,A *green dragon* lives at [hill name], one of the hills overlooking these shrublands.
+
+;manticore
+1,Old Man Pain
+1,Old Man Greed
+1,Old Spite
+1,Lord Envy
+1,Grandfather Hate
+1,Avarice.
 
 ;halfling leader
 1,[halfling name] (level [1d6+1])
@@ -564,6 +574,7 @@ my $default_table = q{;light-grey mountain
 1,This reed is home to a lot of birds.
 1,These wet land have been settled by a tribe of [6d6] *lizard people* led by one the call [lizard leader] (HD [1d4+1]). The little village of mud huts is guarded by [lizard companions].
 1,This swamp is home to [5d8] *froglings* in a mud village guarded by [frogling companions].
+1,A ruined tower standing on a small island in this swamp is home to the *ettin* called [ettin].
 
 ;lizard leader
 1,Son of Set
@@ -581,6 +592,65 @@ my $default_table = q{;light-grey mountain
 2,spiked barriers
 5,[1d5] *giant wasps*
 5,[1d5] *giant lizards*
+
+;trees
+1,Tall trees cover this valley.
+1,There are traces of logging activity in this lifght forest.
+1,[2d4] *harpies* sing in the tree tops, luring men into the depths of the forest and to their death.
+1,There is a cave in this forest housing the *ettin* called [ettin].
+
+;ettin
+1,Bert and Bob
+1,Smasher and Gnawer
+1,Death and Pain
+1,Club and Nail
+1,Bone and Marrow
+1,Punch and Break
+
+;forest
+1,A dark forest without any trails. Without a guide, you will get lost.
+1,Tall trees and dense canopy keep the sunlight away. Big mushrooms everywhere.
+1,This forest is under the protection of [1d8 treants].
+1,The trees here are full of spider webs. Anybody climbing the trees will get attacked by [2d4] *giant spiders*.
+1,[2d12] *elves* led by one they call [elf leader] (level [1d6+1]) have built their [elf dwelling] in this forest. [elf companions]
+
+;1d8 treants
+1,the *treant* called [treant]
+7,[1d7+1] *treants* led by the one they call [treant]
+
+;treant
+1,Oldfather
+1,Birchwhip
+1,Rootstrong
+1,Mossman
+1,Coldwater
+
+;elf dwelling
+1,wooden tree palace
+1,network of hanging bridges and little tree houses
+
+;elf companions
+1,The settlement is nearly impossible to spot from the ground level.
+1,At night, the settlement is illuminated by magic light.
+1,During the day, sweet music can be haird from the tree tops.
+1,The settlement is protected by a *giant weasel*.
+2,The settlement is protected by [1d2+1] *giant weasels*.
+
+;elf leader
+1,Longevity
+1,Sleepyflower
+1,Forestflute
+1,Waspheart
+1,Lushvalley
+1,Starlight
+1,Treefriend
+1,Moonlove
+1,Sunshine
+
+;fir-forest
+
+;firs
+
 };
 
 sub get_data {
