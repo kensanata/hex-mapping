@@ -371,10 +371,11 @@ my $default_table = q{;light-grey mountain
 
 ;white mountain
 1,the air up here is cold
-1,snow fields make progress difficult without skis
+1,snow fields make impossible difficult without skis
 1,there is a hidden meadow up here, hidden from view from below
 1,the glaciers need a local guide and ropes to cross
 1,the glacier ends at a small lake [maybe an ice cave]
+1,a *white dragon* lives in a ruined mountain fortress on the highest peak around here
 
 ;maybe an ice cave
 1,bright blue and ice cold
@@ -438,6 +439,12 @@ my $default_table = q{;light-grey mountain
 1,a *cryohydra*
 1,a *white dragon*
 1,a *spectre* of their ancient ice king
+
+;water
+1,a lake covering the ruins of an ancient town
+1,a lake inhabited by [2d20] charming *nixies* and the same number of *giant fish* guarding their sea weed garden
+1,a big lake [cold lake]
+1,a tribe of [5d8] *froglings* in a mud village guarded by [1d6-1] *giant toads*
 };
 
 sub get_data {
