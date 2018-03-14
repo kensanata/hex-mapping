@@ -372,7 +372,7 @@ my $default_table = q{;light-grey mountain
 ;white mountain
 1,The air up here is cold.
 1,Snow fields make it impossible to cross without skis.
-1,There is a hidden meadow up here, hidden from view from below.
+1,There is a hidden meadow up here.
 1,The glaciers need a local guide and ropes to cross.
 1,The glacier ends at a small lake [maybe an ice cave].
 1,A *white dragon* lives in a ruined mountain fortress on the highest peak around here.
@@ -410,11 +410,11 @@ my $default_table = q{;light-grey mountain
 
 ;mountain people
 1,[1d4 frost giants]
-1,[2d4] *winter wolves*
+1,[2d4] *winter wolves* live in these mountains.
 
 ;1d4 frost giants
-1,the *frost giant* [frost giant] lives here in a [frost giant lair] with [frost giant companions]
-3,[1d3+1] *frost giants* led by one they call [frost giant] live here with [frost giant companions] in a [frost giant lair]
+1,The *frost giant* [frost giant] lives here in a [frost giant lair] with [frost giant companions].
+3,[1d3+1] *frost giants* led by one they call [frost giant] live here with [frost giant companions] in a [frost giant lair].
 
 ;frost giant
 1,Winter's Bone
@@ -524,7 +524,7 @@ my $default_table = q{;light-grey mountain
 1,Old Spite
 1,Lord Envy
 1,Grandfather Hate
-1,Avarice.
+1,Avarice
 
 ;halfling leader
 1,[halfling name] (level [1d6+1])
@@ -613,6 +613,17 @@ my $default_table = q{;light-grey mountain
 1,This forest is under the protection of [1d8 treants].
 1,The trees here are full of spider webs. Anybody climbing the trees will get attacked by [2d4] *giant spiders*.
 1,[2d12] *elves* led by one they call [elf leader] (level [1d6+1]) have built their [elf dwelling] in this forest. [elf companions]
+1,A system of big tunnels under these trees is home to [1d6 weasels].
+1,At dusk and dawn, you can sometimes see [boars].
+
+;boars
+1,the guardian spirit of this forest, a *demon boar*
+25,a male *boar* seaching for food
+5, a group of [5d6] female *boars* and their young
+
+;1d6 weasels
+1,a *giant weasel*
+5,[1d5+1] *giant weasels*
 
 ;1d8 treants
 1,the *treant* called [treant]
@@ -648,14 +659,62 @@ my $default_table = q{;light-grey mountain
 1,Sunshine
 
 ;fir-forest
+1,A fir forest.
+1,A fir forest. Sometimes you can see an *elk*.
+1,This fir forest is home to a pack of [3d6] *wolves*.
+1,At dusk and dawn, you can sometimes see [boars].
+1,There is a cave in this fir forest housing the *ettin* called [ettin].
+1,At the foot of [crag name], there is cave inhabited by [1d8 trolls].
+1,In this fir forest is a little campsite with [1d8 bugbears].
+
+;1d8 bugbears
+1,a *bugbear* called [bugbear]
+7,[1d7+1] *bugbears* led by one they call [bugbear]
+
+;bugbear
+1,Silentfoot
+1,Silverpaws
+1,Deathlicker
+1,Piercingeyes
+
+;crag name
+1,[crag 1] [crag 2]
+
+;crag 1
+1,Stone
+1,Steep
+1,Witching
+1,Old
+1,Wind
+
+;crag 2
+1,Crag
+1,Break
+1,Cliff
+1,Hill
+
+;1d8 trolls
+1,a *troll* called [troll]
+7,[1d7+1] *trolls* led by one they call [troll]
+
+;troll
+1,Stone
+1,Rock
+1,Boulder
+1,Strong
+1,Fist
+1,Grey
 
 ;firs
+1,A few stunted firs grow in these highlands.
+1,The dry lands up here are the hunting grounds of a *manticore* called [manticore] living in the ruins of an old tower.
+1,At dusk and dawn a pack of [3d6] *wolves* through these highlands.
 
 ;thorp
 1,There is a thorp of [1d4x10] *humans* led by one they call [human leader]. The [human houses] are protected by [human companions].
 
 ;village
-1,There is a village of [5d6x10] *humans* led by a [human class] (level 9) called [human leader] who lives in a small tower with their subordinate [human class] (level 7) called [human leader] and their two aides, the [human class] [human leader] and [human class] [human leader] (both level 5). The [human houses] are protected by [human companions] and a [human defense].
+1,There is a village of [5d6x10] *humans* led by a [human class] (level 9) called [human leader] who lives in a small tower with their subordinate [human class] (level 7) called [human leader] and their two aides, the [human class] [human leader] and the [human class] [human leader] (both level 5). The [human houses] are protected by [human companions] and a [human defense].
 
 ;town
 1,There is a town of [1d6x100] *humans* led by a [human class] (level 9) called [human leader] who lives in a keep with their subordinate [human class] (level 7) called [human leader] and their two aides, the [human class] [human leader] and [human class] [human leader] (both level 5). The [human houses] are protected by a town wall and the river. There is [town feature].
@@ -788,7 +847,7 @@ sub parse_table {
     for my $line (@{$data->{$table}->{lines}}) {
       for my $subtable ($line->{text} =~ /\[(.*?)\]/g) {
 	next if $subtable =~ /$dice_re/;
-	$log->error("Error in table $key: subtable $subtable is missing")
+	$log->error("Error in table $table: subtable $subtable is missing")
 	    unless $data->{$subtable};
       }
     }
