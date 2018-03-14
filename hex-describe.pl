@@ -444,7 +444,11 @@ my $default_table = q{;light-grey mountain
 1,A lake covering the ruins of an ancient town
 1,A lake inhabited by [2d20] charming *nixies* and the same number of *giant fish* guarding their sea weed garden
 1,A big lake [cold lake]
-1,A tribe of [5d8] *froglings* in a mud village guarded by [1d6-1] *giant toads*
+1,A tribe of [5d8] *froglings* in a mud village guarded by [frogling companions]
+
+;frogling companions
+1,spear traps
+5,[1d5] *giant toads*
 
 ;forest-hill
 1,Small creeks have dug deep channels into this forest. The going is tough.
@@ -504,6 +508,79 @@ my $default_table = q{;light-grey mountain
 ;ogres
 1,[1d5] more *ogres*
 1,[1d5] more *ogres* and [1d6x10] *orcs*
+
+;bushes
+1,Badlands full of shrubs and wild hedges.
+1,Dry lands full of tumbleweed and thorn bushes.
+1,A well hidden hamlet of [5d8] *halflings* led by one they call [halfling leader].
+1,Beneath these badlands is a cavesystem including an underground river.
+1,A *green dragon* lives at [hill name], one of the hills overlooking these shrublands.
+
+;halfling leader
+1,[halfling name] (level [1d6+1])
+
+;halfling name
+1,Asphodel
+1,Bell
+1,Berylla
+1,Celandine
+1,Dodinas
+1,Gorbadoc
+1,Hamfast
+1,Isumbras
+1,Lalia
+1,Lobelia
+1,Mentha
+1,Mosco
+1,Myrtle
+1,Otho
+1,Rufus
+1,Seredic
+1,Tobald
+1,Tolman
+
+;hill name
+1,[hill 1] [hill 2]
+
+;hill 1
+1,Green
+1,Red
+1,Big
+1,Rocky
+1,Gold
+1,Iron
+1,Dead Man's
+
+;hill 2
+1,Cliff
+1,Crag
+1,Hill
+1,Ridge
+1,Rock
+
+;swamp
+1,The river widens here and forms a large swamp. You need a guide and boats in order to pass through it.
+1,This bog is a labyrinth. You need a guide to find your way through it.
+1,This reed is home to a lot of birds.
+1,These wet land have been settled by a tribe of [6d6] *lizard people* led by one the call [lizard leader] (HD [1d4+1]). The little village of mud huts is guarded by [lizard companions].
+1,This swamp is home to [5d8] *froglings* in a mud village guarded by [frogling companions].
+
+;lizard leader
+1,Son of Set
+1,Egg Mother
+1,Forked Tongue
+1,Nest Builder
+1,Poet Heart
+1,Silent Hunter
+1,Quiet Night
+1,Golden Eyes
+1,Daughter of Drake
+1,Dragon Spirit
+
+;lizard companions
+2,spiked barriers
+5,[1d5] *giant wasps*
+5,[1d5] *giant lizards*
 };
 
 sub get_data {
@@ -538,6 +615,8 @@ sub get_post_data {
   return "<p>There was an error when attempting to load the map ($error).</p>";
 }
 
+my $dice_re = qr/^(\d+)d(\d+)(?:x(\d+))?(?:\+(\d+))?$/;
+
 sub parse_table {
   my $text = shift;
   $log->debug("parse_table: parsing " . length($text) . " characters");
@@ -551,6 +630,16 @@ sub parse_table {
       my %h = (count => $1, text => $2);
       $h{text} =~ s/\*(.*?)\*/<strong>$1<\/strong>/g;
       push(@{$data->{$key}->{lines}}, \%h);
+    }
+  }
+  # check tables
+  for my $table (keys %$data) {
+    for my $line (@{$data->{$table}->{lines}}) {
+      for my $subtable ($line->{text} =~ /\[(.*?)\]/g) {
+	next if $subtable =~ /$dice_re/;
+	$log->error("Error in table $key: subtable $subtable is missing")
+	    unless $data->{$subtable};
+      }
     }
   }
   return $data;
@@ -576,7 +665,7 @@ sub describe {
   my @descriptions;
   for my $word (@words) {
     # valid dice rolls: 1d6, 1d6+1, 1d6x10, 1d6x10+1
-    if (my ($n, $d, $m, $p) = $word =~ /^(\d+)d(\d+)(?:x(\d+))?(?:\+(\d+))?$/) {
+    if (my ($n, $d, $m, $p) = $word =~ /$dice_re/) {
       my $r = 0;
       for(my $i = 0; $i < $n; $i++) {
 	$r += int(rand($d)) + 1;
