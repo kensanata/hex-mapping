@@ -449,6 +449,41 @@ my $default_table = q{;light-grey mountain
 ;forest-hill
 1,Small creeks have dug deep channels into this forest. The going is tough.
 1,One one these forested hills is inhabited by [1d6 ogres].
+1,These hills belong to the [orctribe], [1d6x10] *orcs* led by one they call [orc leader] and their fort [orc fort].
+
+;orctribe
+1,[orctribe 1] [orctribe 2] tribe
+
+;orctribe 1
+1,White
+1,Red
+1,Black
+1,Broken
+1,Smashed
+1,Crushed
+1,Ground
+
+;orctribe 2
+1,Hand
+1,Fist
+1,Eye
+1,Face
+1,Skull
+1,Sword
+1,Hammer
+1,Shield
+
+;orc leader
+1,Mushroom Friend (HD [1d6+1])
+1,Pie Eater (HD [1d6+1])
+1,Pig Face (HD [1d6+1])
+1,Strong Arm (HD [1d6+1])
+1,Spear Thrower (HD [1d6+1])
+1,Long Fang (HD [1d6+1])
+
+;orc fort
+1,surrounded by spiked pit traps
+5,guarded by [1d5] *boars*
 
 ;1d6 ogres
 1,[ogre leader]
