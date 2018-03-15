@@ -832,8 +832,8 @@ sub parse_table {
   $log->debug("parse_table: parsing " . length($text) . " characters");
   my $data = {};
   my $key;
-  for my $line (split(/\n/, $text)) {
-    if ($line =~ /^;([^#\n]+)/) {
+  for my $line (split(/\r?\n/, $text)) {
+    if ($line =~ /^;([^#\r\n]+)/) {
       $key = $1;
     } elsif ($key and $line =~ /^(\d+),(.+)/) {
       $data->{$key}->{total} += $1;
@@ -905,7 +905,7 @@ sub describe_map {
   my $map = shift;
   my $data = shift;
   my %descriptions;
-  for my $hex (split(/\n/, $map)) {
+  for my $hex (split(/\r?\n/, $map)) {
     # based on text-mapper.pl Mapper process
     if ($hex =~ /^(\d\d)(\d\d)(?:\s+([^"\r\n]+)?\s*(?:"(.+)"(?:\s+(\d+))?)?|$)/) {
       my ($x, $y, $types) = ($1, $2, $3);
@@ -925,6 +925,18 @@ sub describe_map {
     }
   }
   return \%descriptions;
+}
+
+sub describe_text {
+  my $input = shift;
+  my $data = shift;
+  my @descriptions;
+  for my $text (split(/\r?\n/, $input)) {
+    $log->debug("replacing lookups in $text");
+    $text =~ s/\[(.*?)\]/describe($data,1,$1)/ge;
+    push(@descriptions, $text);
+  }
+  return \@descriptions;
 }
 
 get '/' => sub {
@@ -958,6 +970,23 @@ any '/describe' => sub {
   $c->render(template => 'description',
 	     svg => $svg,
 	     descriptions => describe_map($map, $data));
+};
+
+get '/nomap' => sub {
+  my $c = shift;
+  my $input = $c->param('input') || '';
+  my $url = $c->param('url');
+  $c->render(template => 'nomap', input => $input, url => $url);
+};
+
+any '/describe/text' => sub {
+  my $c = shift;
+  my $input = $c->param('input');
+  my $url = $c->param('table');
+  my $table = $url ? get_data($url) : $default_table;
+  my $data = parse_table($table);
+  $c->render(template => 'text',
+	     descriptions => describe_text($input, $data));
 };
 
 get '/default/map' => sub {
@@ -995,6 +1024,7 @@ Describe a hex map using some random data.
 <p>
 Load <%= link_to 'random Smale data' => 'loadrandomsmale' %>.
 Load <%= link_to 'random Alpine data' => 'loadrandomalpine' %>.
+Or use <%= link_to 'no map' => 'nomap' %>.
 </p>
 %= form_for describe => (method => 'POST') => begin
 %= text_area map => (cols => 60, rows => 15) => begin
@@ -1024,6 +1054,38 @@ Table URL:
 
 % for my $hex (sort keys %$descriptions) {
 <p><strong><%= $hex =%></strong>: <%== $descriptions->{$hex} %></p>
+% }
+
+
+@@ nomap.html.ep
+% layout 'default';
+% title 'Hex Describe (without a map)';
+<h1>Hex Describe (no map)</h1>
+<p>
+Write a text using [square brackets] to replace with data from a random table.
+Provide a random table using the URL below.
+</p>
+%= form_for describetext => (method => 'POST') => begin
+%= text_area input => (cols => 60, rows => 15) => begin
+<%= $input =%>
+% end
+
+<p>
+Table URL:
+%= text_field table => $url
+
+<p>
+%= submit_button 'Submit', name => 'submit'
+</p>
+%= end
+
+
+@@ text.html.ep
+% layout 'default';
+% title 'Hex Describe (without a map)';
+<h1>Hex Descriptions (no map)</h1>
+% for my $text (@$descriptions) {
+<p><%== $text %></p>
 % }
 
 
