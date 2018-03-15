@@ -8,12 +8,13 @@ This project collects the various tools I have used to work with hex
 maps. All of them are web applications (CGI scripts) written in Perl 5
 and the maps are always SVG documents.
 
-<!-- markdown-toc start - Don't edit this section. Run M-x markdown-toc-generate-toc again -->
+<!-- markdown-toc start - Don't edit this section. Run M-x markdown-toc-refresh-toc -->
 **Table of Contents**
 
 - [Hex Mapping](#hex-mapping)
 - [Text Mapper](#text-mapper)
     - [Text Maps from the Command Line](#text-maps-from-the-command-line)
+- [Hex Describe](#hex-describe)
 - [Traveller Subsector Generator](#traveller-subsector-generator)
     - [Subsectors from the Command Line](#subsectors-from-the-command-line)
 - [Old School Hex](#old-school-hex)
