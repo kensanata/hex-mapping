@@ -370,9 +370,9 @@ my $default_table = q{;light-grey mountain
 1,Ogon of the Valley, former soldier of Ugra the Great
 
 ;white mountain
-1,The air up here is cold.
+1,The air up here is cold. You can see the [name for white big mountains] from here.
 1,Snow fields make it impossible to cross without skis.
-1,There is a hidden meadow up here.
+1,There is a hidden meadow up here, protected by the [name for white big mountains].
 1,The glaciers need a local guide and ropes to cross.
 1,The glacier ends at a small lake [maybe an ice cave].
 1,A *white dragon* lives in a ruined mountain fortress on the highest peak around here.
@@ -383,12 +383,10 @@ my $default_table = q{;light-grey mountain
 1,and there is an ice cave inhabited by a *cryohydra*
 
 ;mountains
-1,These peaks are impossible to climb.
-1,These passes need a local guide to cross.
-1,[mountain people].
-1,Ice covers these mountains and passage is dangerous.
-1,A glacier fills the gap between these mountains.
-1,The locals call these mountains the [dreadful] [peaks].
+1,These mountains are called the [name for white big mountains]. [more mountains]
+
+;name for white big mountains
+1,[dreadful] [peaks]
 
 ;dreadful
 1,Dire
@@ -408,13 +406,19 @@ my $default_table = q{;light-grey mountain
 1,Mounts
 1,Graves
 
+;more mountains
+1,They are impossible to climb.
+1,These passes need a local guide to cross. [mountain people].
+1,A glacier fills the gap between these mountains.
+
 ;mountain people
 1,[1d4 frost giants]
-1,[2d4] *winter wolves* live in these mountains.
+1,[2d4] *winter wolves* live up here
+1,There is a dwarven forge called [dwarf forge] up here. [dwarves]
 
 ;1d4 frost giants
-1,The *frost giant* [frost giant] lives here in a [frost giant lair] with [frost giant companions].
-3,[1d3+1] *frost giants* led by one they call [frost giant] live here with [frost giant companions] in a [frost giant lair].
+1,The *frost giant* [frost giant] lives here in a [frost giant lair] with [frost giant companions]
+3,[1d3+1] *frost giants* led by one they call [frost giant] live here with [frost giant companions] in a [frost giant lair]
 
 ;frost giant
 1,Winter's Bone
@@ -439,6 +443,71 @@ my $default_table = q{;light-grey mountain
 1,a *cryohydra*
 1,a *white dragon*
 1,a *spectre* of their ancient ice king
+
+;dwarf forge
+1,[dwarf forge 0] [dwarf forge 1]
+1,[dwarf forge 1]
+1,[dwarf forge 1][dwarf forge 2]
+
+;dwarf forge 0
+1,Great
+1,Old
+1,High
+
+;dwarf forge 1
+1,Anvil
+1,Hammer
+1,Grimm
+1,Grind
+1,Sky
+1,Thunder
+1,Star
+1,Moon
+
+;dwarf forge 2
+1,light
+1,eater
+1,father
+
+;dwarves
+3,This is a small forge. [5d8] dwarves live and work here led by one they call [dwarf]
+1,This is a legendary forge stronghold. [5d8x10] dwarves live and work here led by one they call [dwarf] (level [1d4+8]). [3d6] families live here, each led by a clan elder (level [1d6+2])
+
+;dwarf
+1,[dwarf 1] [dwarf 2a][dwarf 2b]
+
+;dwarf 1
+1,Lóa
+1,Marjun
+1,Ragna
+1,Sigrun
+1,Tordís
+1,Várdís
+1,Yngva
+1,Albin
+1,Ani
+1,Baldur
+1,Bofi
+1,Egi
+1,Frosti
+1,Gylvi
+
+;dwarf 2a
+1,Shield
+1,Hammer
+1,Plate
+1,Sword
+1,Axe
+1,Stone
+1,Iron
+1,Steel
+
+;dwarf 2b
+1,bearer
+1,smasher
+1,master
+1,friend
+1,maker
 
 ;water
 1,A lake covering the ruins of an ancient town
@@ -825,6 +894,32 @@ sub get_post_data {
   return "<p>There was an error when attempting to load the map ($error).</p>";
 }
 
+# based on text-mapper.pl Mapper process
+my $hex_re = qr/^(\d\d)(\d\d)(?:\s+([^"\r\n]+)?\s*(?:"(.+)"(?:\s+(\d+))?)?|$)/;
+
+sub parse_map {
+  my $map = shift;
+  my $map_data;
+  for my $hex (split(/\r?\n/, $map)) {
+    if ($hex =~ /$hex_re/) {
+      my ($x, $y, $types) = ($1, $2, $3);
+      my @types = split(/ /, $types);
+      my @words;
+      for my $w1 (@types) {
+	for my $w2 (@types) {
+	  if ($w1 eq $w2) {
+	    push(@words, $w1);
+	  } else {
+	    push(@words, "$w1 $w2");
+	  }
+	}
+      }
+      $map_data->{"$x$y"} = \@words;
+    }
+  }
+  return $map_data;
+}
+
 my $dice_re = qr/^(\d+)d(\d+)(?:x(\d+))?(?:\+(\d+))?$/;
 
 sub parse_table {
@@ -869,13 +964,35 @@ sub pick_description {
   return '';
 }
 
-sub describe {
-  my $data = shift;
+sub pick {
+  my $map_data = shift;
+  my $table_data = shift;
   my $level = shift;
+  my $coordinates = shift;
+  my $word = shift;
+  my $text;
+  # $log->debug("looking for a $word table");
+  if ($table_data->{$word}) {
+    my $total = $table_data->{$word}->{total};
+    my $lines = $table_data->{$word}->{lines};
+    $text = pick_description($total, $lines);
+    $text =~ s/\[(.*?)\]/describe($map_data,$table_data,$level+1,$coordinates,[$1])/ge;
+    # $log->debug("picked $text from $total entries");
+  }
+  return $text;
+}
+
+my %names;
+
+sub describe {
+  my $map_data = shift;
+  my $table_data = shift;
+  my $level = shift;
+  my $coordinates = shift;
+  my $words = shift;
   return '' if $level > 10;
-  my @words = @_;
   my @descriptions;
-  for my $word (@words) {
+  for my $word (@$words) {
     # valid dice rolls: 1d6, 1d6+1, 1d6x10, 1d6x10+1
     if (my ($n, $d, $m, $p) = $word =~ /$dice_re/) {
       my $r = 0;
@@ -884,56 +1001,89 @@ sub describe {
       }
       $r *= $m||1;
       $r += $p||0;
-      $log->debug("rolling dice: $word = $r");
+      # $log->debug("rolling dice: $word = $r");
       push(@descriptions, $r);
+    } elsif ($word =~ /^name for (\S+)/) { # "name for white big mountain"
+      my $key = $1; # "white"
+      my $name = $names{"$word: $coordinates"}; # "name for white big mountain: 0101"
+      return $name if $name;
+      $name = pick($map_data, $table_data, $level, $coordinates, $word);
+      next unless $name;
+      push(@descriptions, $name);
+      spread_name($map_data, $coordinates, $word, $key, $name);
     } else {
-      $log->debug("looking for a $word table");
-      if ($data->{$word}) {
-	my $total = $data->{$word}->{total};
-	my $lines = $data->{$word}->{lines};
-	my $text = pick_description($total, $lines);
-	$text =~ s/\[(.*?)\]/describe($data,$level+1,$1)/ge;
-	$log->debug("picked $text from $total entries");
-	push(@descriptions, $text);
-      }
+      my $text = pick($map_data, $table_data, $level, $coordinates, $word);
+      next unless $text;
+      push(@descriptions, $text);
     }
   }
   return join(' ', @descriptions);
 }
 
 sub describe_map {
-  my $map = shift;
-  my $data = shift;
+  my $map_data = shift;
+  my $table_data = shift;
   my %descriptions;
-  for my $hex (split(/\r?\n/, $map)) {
-    # based on text-mapper.pl Mapper process
-    if ($hex =~ /^(\d\d)(\d\d)(?:\s+([^"\r\n]+)?\s*(?:"(.+)"(?:\s+(\d+))?)?|$)/) {
-      my ($x, $y, $types) = ($1, $2, $3);
-      $log->debug("describing $x$y");
-      my @types = split(/ /, $types);
-      my @words;
-      for my $w1 (@types) {
-	for my $w2 (@types) {
-	  if ($w1 eq $w2) {
-	    push(@words, $w1);
-	  } else {
-	    push(@words, "$w1 $w2");
-	  }
-	}
-      }
-      $descriptions{"$x$y"} = describe($data, 1, @words);
-    }
+  for my $coord (keys %$map_data) {
+    $descriptions{$coord} = describe($map_data, $table_data, 1, $coord, $map_data->{$coord});
   }
   return \%descriptions;
 }
 
+my $delta = [[[-1,  0], [ 0, -1], [+1,  0], [+1, +1], [ 0, +1], [-1, +1]],  # x is even
+	     [[-1, -1], [ 0, -1], [+1, -1], [+1,  0], [ 0, +1], [-1,  0]]]; # x is odd
+
+sub xy {
+  my $coordinates = shift;
+  return (substr($coordinates, 0, 2), substr($coordinates, 2));
+}
+
+sub coordinates {
+  my ($x, $y) = @_;
+  return sprintf("%02d%02d", $x, $y);
+}
+
+sub neighbour {
+  # $hex is [x,y] or "0101" and $i is a number 0 .. 5
+  my ($hex, $i) = @_;
+  $hex = [xy($hex)] unless ref $hex;
+  # return is a string like "0102"
+  return coordinates(
+    $hex->[0] + $delta->[$hex->[0] % 2]->[$i]->[0],
+    $hex->[1] + $delta->[$hex->[0] % 2]->[$i]->[1]);
+}
+
+sub spread_name {
+  my $map_data = shift;
+  my $coordinates = shift;
+  my $word = shift; # "name for white big mountain"
+  my $key = shift; # "white"
+  my $name = shift; # "Vesuv"
+  my %seen = ($coordinates => 1);
+  $log->info("$word: $coordinates = $name");
+  my @queue = map { neighbour($coordinates, $_) } 0..5;
+  while (@queue) {
+    # $log->debug("Working on the first item of @queue");
+    my $coord = shift(@queue);
+    next if $seen{$coord} or not $map_data->{$coord};
+    $seen{$coord} = 1;
+    if (grep { $_ eq $key } @{$map_data->{$coord}}) {
+      $log->error("$word for $coord is already something else")
+	  if $names{"$word for $coord"};
+      $names{"$word: $coord"} = $name; # "name for white big mountain: 0102"
+      $log->info("$word: $coord = $name");
+      push(@queue, map { neighbour($coord, $_) } 0..5);
+    }
+  }
+}
+
 sub describe_text {
   my $input = shift;
-  my $data = shift;
+  my $table_data = shift;
   my @descriptions;
   for my $text (split(/\r?\n/, $input)) {
     $log->debug("replacing lookups in $text");
-    $text =~ s/\[(.*?)\]/describe($data,1,$1)/ge;
+    $text =~ s/\[(.*?)\]/describe({},$table_data,1,"",[$1])/ge;
     push(@descriptions, $text);
   }
   return \@descriptions;
@@ -966,10 +1116,11 @@ any '/describe' => sub {
   my $svg = get_post_data('https://campaignwiki.org/text-mapper/render', map => $map);
   my $url = $c->param('table');
   my $table = $url ? get_data($url) : $default_table;
-  my $data = parse_table($table);
   $c->render(template => 'description',
 	     svg => $svg,
-	     descriptions => describe_map($map, $data));
+	     descriptions => describe_map(
+	       parse_map($map),
+	       parse_table($table)));
 };
 
 get '/nomap' => sub {
@@ -984,9 +1135,8 @@ any '/describe/text' => sub {
   my $input = $c->param('input');
   my $url = $c->param('table');
   my $table = $url ? get_data($url) : $default_table;
-  my $data = parse_table($table);
   $c->render(template => 'text',
-	     descriptions => describe_text($input, $data));
+	     descriptions => describe_text($input, parse_table($table)));
 };
 
 get '/default/map' => sub {
