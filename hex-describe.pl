@@ -871,6 +871,8 @@ sub pick_description {
 
 sub describe {
   my $data = shift;
+  my $level = shift;
+  return '' if $level > 10;
   my @words = @_;
   my @descriptions;
   for my $word (@words) {
@@ -890,7 +892,7 @@ sub describe {
 	my $total = $data->{$word}->{total};
 	my $lines = $data->{$word}->{lines};
 	my $text = pick_description($total, $lines);
-	$text =~ s/\[(.*?)\]/describe($data,$1)/ge;
+	$text =~ s/\[(.*?)\]/describe($data,$level+1,$1)/ge;
 	$log->debug("picked $text from $total entries");
 	push(@descriptions, $text);
       }
@@ -919,7 +921,7 @@ sub describe_map {
 	  }
 	}
       }
-      $descriptions{"$x$y"} = describe($data, @words);
+      $descriptions{"$x$y"} = describe($data, 1, @words);
     }
   }
   return \%descriptions;
