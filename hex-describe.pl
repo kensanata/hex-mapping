@@ -641,7 +641,7 @@ my $default_table = q{;light-grey mountain
 1,The river widens here and forms a large swamp. You need a guide and boats in order to pass through it.
 1,This bog is a labyrinth. You need a guide to find your way through it.
 1,This reed is home to a lot of birds.
-1,These wet land have been settled by a tribe of [6d6] *lizard people* led by one the call [lizard leader] (HD [1d4+1]). The little village of mud huts is guarded by [lizard companions].
+1,These wet land have been settled by a tribe of [6d6] *lizard people* led by one they call [lizard leader] (HD [1d4+1]). The little village of mud huts is guarded by [lizard companions].
 1,This swamp is home to [5d8] *froglings* in a mud village guarded by [frogling companions].
 1,A ruined tower standing on a small island in this swamp is home to the *ettin* called [ettin].
 
