@@ -1341,6 +1341,7 @@ tables:
 ;swamp
 ;trees
 ;forest
+;fir-forest
 ;firs
 ;thorp
 ;village
@@ -1358,6 +1359,49 @@ src="https://alexschroeder.ch/wiki/download/Image_1_for_2018-03-15_How_to_Descri
 
 <p>
 You’re good to go! Write those tables and share them. <img alt=":)" class="smiley" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQBAMAAADt3eJSAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAACFQTFRFAAAAAAAAHRkAiHUA07YA+tgAZFYA/90AWU0Aj3sA////jG0orwAAAAF0Uk5TAEDm2GYAAAABYktHRApo0PRWAAAAbUlEQVQI12NgYGAUFBRgAAJGZdcQIxBLLLy8vDQRKJBeUV7eXibAwBReWF4uXqrAIFwOYpQbMohAGI4MouVgEMggWgiixQMZRErEy8sL3R2BiieWl0sCFTOFVwoKTgdqZ0wHqQEaCLcCYSnUGQB7ciGbohFtcwAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxNC0wNy0wM1QxNDo0Nzo0NiswMjowMAcO4yYAAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTQtMDctMDNUMTQ6NDc6NDYrMDI6MDB2U1uaAAAAAElFTkSuQmC" />
+</p>
+
+<p>
+If you’re more interested in the <em>Smale</em> maps, I recommend you start with
+the following tables:
+</p>
+
+<pre>
+;water
+;swamp
+;marsh
+;desert
+;grass
+;trees
+;forest
+;fir-forest
+;forest-mountain
+;forest-mountains
+;forest-hill
+;mountain
+;hill
+;bush
+;bushes
+;thorp
+;village
+;town
+;large-town
+;city
+;keep
+;tower
+;castle
+;shrine
+;law
+;chaos
+;fields
+</pre>
+
+<p>
+And if you want to split them up: instead of “desert” use “sand desert” and
+“dust desert”; instead of “fir-forest” use “green fir-forest” and “dark-green
+fir-forest”; instead of “hill” use “light-grey hill” and “dust hill”; instead of
+“forest-hill” use “light-grey forest-hill” and “green forest-hill”; instead of
+“forest-mountains” use “green forest-mountains” and “grey forest-mountains”.
 </p>
 
 @@ layouts/default.html.ep
