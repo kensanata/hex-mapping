@@ -1093,8 +1093,272 @@ Table URL:
 % layout 'default';
 % title 'Hex Describe';
 <h1>Hex Describe Help</h1>
-<p>Sadly, the help is still missing.</p>
 
+<p>
+How do you get started writing a table for <em>Hex Describe</em>? This page is
+my attempt at writing a tutorial.
+</p>
+
+<p>
+First, let’s talk about random tables to generate text. <a class="url http
+outside" href="http://random-generator.com/">Abufalia</a> uses the following
+format:</p><ol><li>each table starts with a semicolon and the name of the
+table</li><li>each entry starts with a number, a comma and the
+text</li></ol><p>Let’s write a table for some hills.
+</p>
+
+<pre>
+;hills
+1,The hills are covered in trees.
+1,An orc tribe is camping in a ruined watch tower.
+</pre>
+
+<p>
+If we use this table to generate random text, then half the hills will be
+covered in trees and the other half will be covered in orc infested watch tower
+ruins. What we want is for orcs to be rare. We can simply make the harmless
+entry more likely:
+</p>
+
+<pre>
+;hills
+5,The hills are covered in trees.
+1,An orc tribe is camping in a ruined watch tower.
+</pre>
+
+<p>
+Now five in six hills will be harmless.
+</p>
+
+<p>
+We could have chosen a different approach, though. We could have written more
+entries instead.
+</p>
+
+<pre>
+1,The hills are covered in trees.
+1,Many small creeks separated by long ridges make for bad going in these badlands.
+1,An orc tribe is camping in a ruined watch tower.
+</pre>
+
+<p>
+Now every line has a one in three chance of being picked. I like almost all the
+hexes to have lairs in them. In my game, people can still travel through these
+regions with just a one in six chance of an encounter. That’s why I’m more
+likely to just write a table like this:
+</p>
+
+<pre>
+;hills
+1,Many small creeks separated by long ridges make for bad going in these badlands.
+1,An *ettin* is known to live in the area.
+1,A *manticore* has taken over a ruined tower.
+1,A bunch of *ogres* live in these hills.
+1,An *orc tribe* is camping in a ruined watch tower.
+</pre>
+
+<p>
+Now only one in five hexes has nothing to offer.
+</p>
+
+<p>
+We can be more specific because we can include dice rolls in square brackets. So
+let’s specify how many ogres you will encounter:
+</p>
+
+<pre>
+;hills
+1,Many small creeks separated by long ridges make for bad going in these badlands.
+1,An *ettin* is known to live in the area.
+1,A *manticore* has taken over a ruined tower.
+1,[1d6] *ogres* live in these hills.
+1,An *orc tribe* is camping in a ruined watch tower.
+</pre>
+
+<p>
+Then again, it makes me sad when the generated text then says “1 ogres”. It
+should say “1 ogre!” We can do that by creating a separate table for ogres.
+Separate tables come in square brackets, like dice rolls.
+</p>
+
+<pre>
+;hills
+1,Many small creeks separated by long ridges make for bad going in these badlands.
+1,An *ettin* is known to live in the area.
+1,A *manticore* has taken over a ruined tower.
+1,[1d6 ogres live] in these hills.
+1,An *orc tribe* is camping in a ruined watch tower.
+
+;1d6 ogres live
+1,An *ogre* lives
+5,[1d5+1] *ogres* live
+</pre>
+
+<p>
+Now if there are ogres in these hills, there is a one in six chance for an
+“ogre” living in these hills and a five in six chance for two to six “ogres”
+living in these hills.
+</p>
+
+<p>
+How about we name the most important ogre such that players have an ogre to talk
+to?
+</p>
+
+<pre>
+;hills
+1,Many small creeks separated by long ridges make for bad going in these badlands.
+1,An *ettin* is known to live in the area.
+1,A *manticore* has taken over a ruined tower.
+1,[1d6 ogres live] in these hills.
+1,An *orc tribe* is camping in a ruined watch tower.
+
+;1d6 ogres live
+1,An *ogre* named [ogre] lives
+5,[1d5+1] *ogres* led by one named [ogre] live
+
+;ogre
+1,Mad Eye
+1,Big Tooth
+1,Much Pain
+1,Bone Crusher
+</pre>
+
+<p>
+As you can see, these three tables can already generate a lot of different
+descriptions. For example:
+</p>
+
+<ol>
+<li>An <em>ettin</em> is known to live in the area.</li>
+<li>An <em>ogre</em> named Mad Eye lives in these hills.</li>
+<li>4 <em>ogres</em> led by one named Big Tooth live in these hills.</li>
+</ol>
+
+<p>
+Notice how the ogre names are all just two words. How about splitting them into
+tables?
+</p>
+
+<pre>
+;hills
+1,Many small creeks separated by long ridges make for bad going in these badlands.
+1,An *ettin* is known to live in the area.
+1,A *manticore* has taken over a ruined tower.
+1,[1d6 ogres live] in these hills.
+1,An *orc tribe* is camping in a ruined watch tower.
+
+;1d6 ogres live
+1,An *ogre* named [ogre] lives
+5,[1d5+1] *ogres* led by one named [ogre] live
+
+;ogre
+1,[ogre 1] [ogre 2]
+
+;ogre 1
+1,Mad
+1,Big
+1,Much
+1,Bone
+
+;ogre 2
+1,Eye
+1,Tooth
+1,Pain
+1,Crusher
+</pre>
+
+<p>
+Now we will see such fantastic names as Big Pain, Bone Eye and Mad Tooth.
+</p>
+
+<p>
+And now you just keep adding. Take a look at the <a class="url http outside"
+href="https://campaignwiki.org/hex-describe/default/table">default table</a> if
+you want to see more examples.
+</p>
+
+<p>
+But now you might be wondering: how does <em>Hex Describe</em> know which table
+to use for a map entry like the following?
+</p>
+
+<pre>
+0101 dark-green trees village
+</pre>
+
+<p>
+The answer is simple: <em>Hex Describe</em> will simply try every word and every
+two word combo. If a table for any of these exists, it will be used.
+</p>
+
+<p>
+Thus, the following tables will be used, if they exist:
+</p>
+
+<pre>
+;dark-green
+;dark-green trees
+;dark-green village
+;trees dark-green
+;trees
+;trees village
+;village dark-green
+;village trees
+;village
+</pre>
+
+<p>
+Not all of them make sense. I usually try to stick to single words. I needed
+this feature, however, because I wanted to provide different tables for “white
+mountain” and “light grey mountain”. Just look at the example:
+</p>
+
+<p>
+<img alt="A screenshot of the map" style="width: 100%"
+src="https://alexschroeder.ch/wiki/download/Image_1_for_2018-03-12_Describing_Hexes" />
+</p>
+
+<p>
+The mountains in the bottom left corner at (01.09) and (01.10) just feel
+different. I guess you could say that the two swamps in (05.07) and (06.08) also
+feel different. In that case you might opt to provide different tables for “grey
+swamp” and “dark-grey swamp”. Up to you!
+</p>
+
+<p>
+As far as I am concerned, however, I recommend to start with the following
+tables:
+</p>
+
+<pre>
+;water
+;mountains
+;white mountain
+;light-grey mountain
+;forest-hill
+;bushes
+;swamp
+;trees
+;forest
+;firs
+;thorp
+;village
+;town
+</pre>
+
+<p>
+This will have you covered for all these hexes:
+</p>
+
+<p>
+<img alt="A list of hexes illustrating the list of terrains covered" style="width: 100%"
+src="https://alexschroeder.ch/wiki/download/Image_1_for_2018-03-15_How_to_Describe_Hexes" />
+</p>
+
+<p>
+You’re good to go! Write those tables and share them. <img alt=":)" class="smiley" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQBAMAAADt3eJSAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAACFQTFRFAAAAAAAAHRkAiHUA07YA+tgAZFYA/90AWU0Aj3sA////jG0orwAAAAF0Uk5TAEDm2GYAAAABYktHRApo0PRWAAAAbUlEQVQI12NgYGAUFBRgAAJGZdcQIxBLLLy8vDQRKJBeUV7eXibAwBReWF4uXqrAIFwOYpQbMohAGI4MouVgEMggWgiixQMZRErEy8sL3R2BiieWl0sCFTOFVwoKTgdqZ0wHqQEaCLcCYSnUGQB7ciGbohFtcwAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxNC0wNy0wM1QxNDo0Nzo0NiswMjowMAcO4yYAAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTQtMDctMDNUMTQ6NDc6NDYrMDI6MDB2U1uaAAAAAElFTkSuQmC" />
+</p>
 
 @@ layouts/default.html.ep
 <!DOCTYPE html>
