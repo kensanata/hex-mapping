@@ -645,7 +645,7 @@ my $default_table = q{;light-grey mountain
 1,This swamp is home to [5d8] *froglings* in a mud village guarded by [frogling companions].
 1,A ruined tower standing on a small island in this swamp is home to the *ettin* called [ettin].
 1,In the old days, this bog was used to drown evil necromancers. [bog wights]
-1,One of the islands of this swamp there is a huge mud mound. [goblins]
+1,On one of the islands of this swamp there is a huge mud mound. [goblins]
 
 ;lizard leader
 1,Son of Set
@@ -715,15 +715,13 @@ my $default_table = q{;light-grey mountain
 
 ;goblins
 1,[6d10] *goblins* live here, led by one they call [goblin].
-5,[6d10] *goblins* live here, led by one they call [goblin]. The goblins have tamed [goblin companions]. Goblins love to ride giant animals into battle.
+5,[6d10] *goblins* live here, led by one they call [goblin]. The goblins have tamed [2d6] [goblin companions]. Goblins love to ride these into battle.
 
 ;goblin companions
-12,[3d6] *giant wolves* (HD 4+1)
-1,a *giant weasel*
-5,[1d5+1] *giant weasels*
-6,[2d6] *giant spiders* with a deadly poison
-1,a *giant beetle*
-5,[1d5+1] *giant beetles*
+2,*giant wolves*
+1,*giant weasels*
+1,*giant spiders*
+1,*giant beetles*
 
 ;goblin
 1,Death Rider
