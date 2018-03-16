@@ -644,6 +644,8 @@ my $default_table = q{;light-grey mountain
 1,These wet land have been settled by a tribe of [6d6] *lizard people* led by one they call [lizard leader] (HD [1d4+1]). The little village of mud huts is guarded by [lizard companions].
 1,This swamp is home to [5d8] *froglings* in a mud village guarded by [frogling companions].
 1,A ruined tower standing on a small island in this swamp is home to the *ettin* called [ettin].
+1,In the old days, this bog was used to drown evil necromancers. [bog wights]
+1,One of the islands of this swamp there is a huge mud mound. [goblins]
 
 ;lizard leader
 1,Son of Set
@@ -675,6 +677,61 @@ my $default_table = q{;light-grey mountain
 1,Club and Nail
 1,Bone and Marrow
 1,Punch and Break
+
+;bog wights
+1,At night, [wight crawls] out of their wet graves and roam the land in search of new followers.
+
+;wight crawls
+1,the *wight* [wight leader] crawls
+1,[1d7+1] *wights* led by [wight leader] crawl
+
+;wight leader
+1,Old [wight name] of [wight realm]
+1,[wight name] the Terrible of [wight realm]
+1,[wight name] the Cruel of [wight realm]
+1,King [king wight] of [wight realm]
+1,Queen [queen wight] of [wight realm]
+
+;wight name
+1,[king wight]
+1,[queen wight]
+
+;king wight
+1,Eilif
+1,Kyran
+1,Tariq
+
+;queen wight
+1,Kali
+1,Maura
+1,Thyia
+
+;wight realm
+1,Abilard
+1,Erlechai
+1,Merlen
+1,Ouria
+1,Yzarria
+
+;goblins
+1,[6d10] *goblins* live here, led by one they call [goblin].
+5,[6d10] *goblins* live here, led by one they call [goblin]. The goblins have tamed [goblin companions]. Goblins love to ride giant animals into battle.
+
+;goblin companions
+12,[3d6] *giant wolves* (HD 4+1)
+1,a *giant weasel*
+5,[1d5+1] *giant weasels*
+6,[2d6] *giant spiders* with a deadly poison
+1,a *giant beetle*
+5,[1d5+1] *giant beetles*
+
+;goblin
+1,Death Rider
+1,Man Killer
+1,Eye Poker
+1,Wolf King
+1,Beetle Basher
+1,The Impaler
 
 ;forest
 1,A dark forest without any trails. Without a guide, you will get lost.
