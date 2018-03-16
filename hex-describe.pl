@@ -679,11 +679,11 @@ my $default_table = q{;light-grey mountain
 1,Punch and Break
 
 ;bog wights
-1,At night, [wight crawls] out of their wet graves and roam the land in search of new followers.
+1,At night, [wight crawls]
 
 ;wight crawls
-1,the *wight* [wight leader] crawls
-1,[1d7+1] *wights* led by [wight leader] crawl
+1,the *wight* [wight leader] crawls out of a wet grave and roams the land in search of followers.
+1,[1d7+1] *wights* led by [wight leader] crawl out of their wet graves and roam the land in search of more followers.
 
 ;wight leader
 1,Old [wight name] of [wight realm]
