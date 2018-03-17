@@ -17,6 +17,7 @@ use Modern::Perl;
 use Mojolicious::Lite;
 use Mojo::UserAgent;
 use Mojo::Log;
+use Array::Utils qw(intersect);
 
 my $log = Mojo::Log->new;
 
@@ -732,13 +733,29 @@ my $default_table = q{;light-grey mountain
 1,The Impaler
 
 ;forest
-1,A dark forest without any trails. Without a guide, you will get lost.
+1,This is the [name for forest/forest-hill/trees/fir-forest/firs] forest and there are no trails, here. Without a guide, you will get lost.
 1,Tall trees and dense canopy keep the sunlight away. Big mushrooms everywhere.
 1,This forest is under the protection of [1d8 treants].
 1,The trees here are full of spider webs. Anybody climbing the trees will get attacked by [2d4] *giant spiders*.
 1,[2d12] *elves* led by one they call [elf leader] (level [1d6+1]) have built their [elf dwelling] in this forest. [elf companions]
 1,A system of big tunnels under these trees is home to [1d6 weasels].
 1,At dusk and dawn, you can sometimes see [boars].
+
+;name for forest/forest-hill/trees/fir-forest/firs
+1,[forest 1] [forest 2]
+
+;forest 1
+1,Dark
+1,Deep
+1,Murky
+1,Black
+1,Shadow
+1,Moon
+1,Green
+
+;forest 2
+1,Forest
+1,Wood
 
 ;boars
 1,the guardian spirit of this forest, a *demon boar*
@@ -1113,6 +1130,7 @@ sub spread_name {
   my $coordinates = shift;
   my $word = shift; # "name for white big mountain"
   my $key = shift; # "white"
+  my @keys = split(/\//, $key); # ("white")
   my $name = shift; # "Vesuv"
   my %seen = ($coordinates => 1);
   $log->info("$word: $coordinates = $name");
@@ -1122,7 +1140,7 @@ sub spread_name {
     my $coord = shift(@queue);
     next if $seen{$coord} or not $map_data->{$coord};
     $seen{$coord} = 1;
-    if (grep { $_ eq $key } @{$map_data->{$coord}}) {
+    if (intersect(@keys, @{$map_data->{$coord}})) {
       $log->error("$word for $coord is already something else")
 	  if $names{"$word for $coord"};
       $names{"$word: $coord"} = $name; # "name for white big mountain: 0102"
