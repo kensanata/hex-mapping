@@ -502,6 +502,7 @@ my $default_table = q{;light-grey mountain
 1,Stone
 1,Iron
 1,Steel
+1,Earth
 
 ;dwarf 2b
 1,bearer
@@ -509,6 +510,7 @@ my $default_table = q{;light-grey mountain
 1,master
 1,friend
 1,maker
+1,eater
 
 ;water
 1,A lake covering the ruins of an ancient town
@@ -525,6 +527,19 @@ my $default_table = q{;light-grey mountain
 1,Small creeks have dug deep channels into this forest. The going is tough.
 1,One one these forested hills is inhabited by [1d6 ogres].
 1,These hills belong to the [orctribe], [1d6x10] *orcs* led by one they call [orc leader] and their fort [orc fort].
+1,On one of the hills here stands an old tower overlooking the forest below. This is the home of a *manticore* called [manticore].
+1,The hill overlooking [name for forest/forest-hill/trees/fir-forest/firs] is the home of [1d8 treants].
+1,There is a hill with a nice cave which offers shelter from the rain but is home to [1d4 bears].
+1,[5d8] dwarves have set up a small logging community, here. They are led by one they call [dwarf]. The camp is defended by [dwarven companions]
+
+;dwarven companions
+1,a palisade and wooden spikes
+1,a *war bear*
+4,[1d5+1] *war bears*
+
+;1d4 bears
+1,an angry, male *bear*
+1,a small family of [1d3+1] *bears*
 
 ;orctribe
 1,[orctribe 1] [orctribe 2] tribe
@@ -585,17 +600,33 @@ my $default_table = q{;light-grey mountain
 1,Badlands full of shrubs and wild hedges.
 1,Dry lands full of tumbleweed and thorn bushes.
 1,A well hidden hamlet of [5d8] *halflings* led by one they call [halfling leader].
+1,An ancient stone fort overlooking the woods has been taken over by a war party of [4d6] *hobgoblins*. The fort is defended by [hobgoblin companions].
 1,Beneath these badlands is a cavesystem including an underground river.
 1,The dry lands up here are the hunting grounds of a *manticore* called [manticore] living in the ruins of an old tower.
 1,A *green dragon* lives at [hill name], one of the hills overlooking these shrublands.
 
+;hobgoblin companions
+1,a small watchtower with an archer
+1,a *giant ape*
+1,[1d5+1] *giant apes*
+
 ;manticore
-1,Old Man Pain
-1,Old Man Greed
-1,Old Spite
-1,Lord Envy
-1,Grandfather Hate
+1,Old Man [manticore name]
+1,Old [manticore name]
+1,Lord [manticore name]
+1,Grandfather [manticore name]
+1,[manticore name]
+1,Bastard of [manticore name]
+1,Ancient [manticore name]
+
+;manticore name
+1,Pain
+1,Greed
+1,Spite
+1,Envy
+1,Hate
 1,Avarice
+1,Ambition
 
 ;halfling leader
 1,[halfling name] (level [1d6+1])
