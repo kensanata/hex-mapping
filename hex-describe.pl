@@ -521,6 +521,7 @@ my $default_table = q{;light-grey mountain
 5,[1d5] *giant toads*
 
 ;forest-hill
+1,One of the hills has an old lookout from which you can see most of the [name for forest/forest-hill/trees/fir-forest/firs].
 1,Small creeks have dug deep channels into this forest. The going is tough.
 1,One one these forested hills is inhabited by [1d6 ogres].
 1,These hills belong to the [orctribe], [1d6x10] *orcs* led by one they call [orc leader] and their fort [orc fort].
@@ -733,7 +734,7 @@ my $default_table = q{;light-grey mountain
 1,The Impaler
 
 ;forest
-1,This is the [name for forest/forest-hill/trees/fir-forest/firs] forest and there are no trails, here. Without a guide, you will get lost.
+1,This is the [name for forest/forest-hill/trees/fir-forest/firs] and there are no trails, here. Without a guide, you will get lost.
 1,Tall trees and dense canopy keep the sunlight away. Big mushrooms everywhere.
 1,This forest is under the protection of [1d8 treants].
 1,The trees here are full of spider webs. Anybody climbing the trees will get attacked by [2d4] *giant spiders*.
