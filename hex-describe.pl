@@ -1396,12 +1396,12 @@ Alternatively, just paste your tables here:
 % layout 'default';
 % title 'Hex Describe';
 <h1>Hex Descriptions</h1>
+<div class="description">
 %== $svg
-
 % for my $hex (sort keys %$descriptions) {
 <p><strong><%= $hex =%></strong>: <%== $descriptions->{$hex} %></p>
 % }
-
+</div>
 
 @@ nomap.html.ep
 % layout 'default';
@@ -1436,9 +1436,11 @@ Alternatively, just paste your tables here:
 % layout 'default';
 % title 'Hex Describe (without a map)';
 <h1>Hex Descriptions (no map)</h1>
+<div class="description">
 % for my $text (@$descriptions) {
 <p><%== $text %></p>
 % }
+</div>
 
 
 @@ help.html.ep
@@ -1802,7 +1804,7 @@ td, th {
 svg {
   max-width: 80ex;
 }
-p {
+.description p {
   margin-bottom: 3em;
   max-width: 72ex;
 }
