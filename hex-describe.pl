@@ -1216,14 +1216,14 @@ get '/load/random/smale' => sub {
   my $c = shift;
   my $url = 'https://campaignwiki.org/text-mapper/smale/random/text';
   my $map = get_data($url);
-  $c->render(template => 'edit', map => $map);
+  $c->render(template => 'edit', map => $map, url=>'');
 };
 
 get '/load/random/alpine' => sub {
   my $c = shift;
   my $url = 'https://campaignwiki.org/text-mapper/alpine/random/text';
   my $map = get_data($url);
-  $c->render(template => 'edit', map => $map);
+  $c->render(template => 'edit', map => $map, url=>'');
 };
 
 any '/describe' => sub {
