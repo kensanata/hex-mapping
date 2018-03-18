@@ -487,7 +487,7 @@ my $default_table = q{;light-grey mountain
 1,This is a legendary forge stronghold. [5d8x10] dwarves live and work here led by one they call [dwarf] (level [1d4+8]). [3d6] families live here, each led by a clan elder (level [1d6+2])
 
 ;dwarf
-1,[dwarf 1] [dwarf 2a][dwarf 2b] <img style="float:right;width:80px" src="[[redirect https://campaignwiki.org/face/redirect/alex/dwarf]]" />
+1,[dwarf 1] [dwarf 2a][dwarf 2b]<img style="float:right;width:80px" src="[[redirect https://campaignwiki.org/face/redirect/alex/dwarf]]" />
 
 ;dwarf 1
 1,Lóa
@@ -576,9 +576,9 @@ my $default_table = q{;light-grey mountain
 1,Shield
 
 ;orc leader
-1,[orc boss] <img style="float:right;width:80px" src="[[redirect https://campaignwiki.org/face/redirect/alex/orc]]" />
+1,[orc]<img style="float:right;width:80px" src="[[redirect https://campaignwiki.org/face/redirect/alex/orc]]" />
 
-;orc boss
+;orc
 1,Mushroom Friend (HD [1d6+1])
 1,Pie Eater (HD [1d6+1])
 1,Pig Face (HD [1d6+1])
@@ -854,6 +854,9 @@ my $default_table = q{;light-grey mountain
 2,The settlement is protected by [1d2+1] *giant weasels*.
 
 ;elf leader
+1,[elf]<img style="float:right;width:80px" src="[[redirect https://campaignwiki.org/face/redirect/alex/elf]]" />
+
+;elf
 1,Longevity
 1,Sleepyflower
 1,Forestflute
