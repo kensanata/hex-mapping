@@ -1209,29 +1209,31 @@ get '/' => sub {
   my $c = shift;
   my $map = $c->param('map') || $default_map;
   my $url = $c->param('url');
-  $c->render(template => 'edit', map => $map, url => $url);
+  my $table = $c->param('table');
+  $c->render(template => 'edit', map => $map, url => $url, table => $table);
 };
 
 get '/load/random/smale' => sub {
   my $c = shift;
-  my $url = 'https://campaignwiki.org/text-mapper/smale/random/text';
-  my $map = get_data($url);
-  $c->render(template => 'edit', map => $map, url=>'');
+  my $map = get_data('https://campaignwiki.org/text-mapper/smale/random/text');
+  $c->render(template => 'edit', map => $map, url=>'', table => '');
 };
 
 get '/load/random/alpine' => sub {
   my $c = shift;
-  my $url = 'https://campaignwiki.org/text-mapper/alpine/random/text';
-  my $map = get_data($url);
-  $c->render(template => 'edit', map => $map, url=>'');
+  my $map = get_data('https://campaignwiki.org/text-mapper/alpine/random/text');
+  $c->render(template => 'edit', map => $map, url=>'', table => '');
 };
 
 any '/describe' => sub {
   my $c = shift;
   my $map = $c->param('map');
   my $svg = get_post_data('https://campaignwiki.org/text-mapper/render', map => $map);
-  my $url = $c->param('table');
-  my $table = $url ? get_data($url) : $default_table;
+  my $url = $c->param('url');
+  my $table;
+  $table = get_data($url) if $url;
+  $table ||= $c->param('table');
+  $table ||= $default_table;
   $c->render(template => 'description',
 	     svg => $svg,
 	     descriptions => describe_map(
@@ -1243,14 +1245,18 @@ get '/nomap' => sub {
   my $c = shift;
   my $input = $c->param('input') || '';
   my $url = $c->param('url');
-  $c->render(template => 'nomap', input => $input, url => $url);
+  my $table = $c->param('table');
+  $c->render(template => 'nomap', input => $input, url => $url, table => $table);
 };
 
 any '/describe/text' => sub {
   my $c = shift;
   my $input = $c->param('input');
-  my $url = $c->param('table');
-  my $table = $url ? get_data($url) : $default_table;
+  my $url = $c->param('url');
+  my $table;
+  $table = get_data($url) if $url;
+  $table ||= $c->param('table');
+  $table ||= $default_table;
   $c->render(template => 'text',
 	     descriptions => describe_text($input, parse_table($table)));
 };
@@ -1298,18 +1304,34 @@ Or use <%= link_to 'no map' => 'nomap' %>.
 % end
 
 <p>
-Table URL:
-%= text_field table => $url
+If you need the <%= link_to 'default map' => 'defaultmap' %>
+for anything, feel free to use it. It was generated using
+the <a href="https://campaignwiki.org/text-mapper/alpine">Alpine</a>
+generator.
+</p>
 
 <p>
 %= submit_button 'Submit', name => 'submit'
 </p>
-%= end
 
 <p>
-<%= link_to 'Default Map' => 'defaultmap' %>&#x2003;
-<%= link_to 'Default Table' => 'defaulttable' %>&#x2003;
+The description of the map is generated using the
+<%= link_to 'default table' => 'defaulttable' %>.
+If you have your own tables somewhere public (a pastebin, a public file at a
+file hosting service), you can provide the URL to your tables. Alternatively,
+you can just paste your tables into the text area below.
 </p>
+
+<p>
+Table URL:
+%= text_field url => $url
+
+<p>
+Alternatively, just paste your tables here:
+%= text_area table => (cols => 60, rows => 15) => begin
+<%= $table =%>
+% end
+%= end
 
 
 @@ description.html.ep
@@ -1338,7 +1360,13 @@ Provide a random table using the URL below.
 
 <p>
 Table URL:
-%= text_field table => $url
+%= text_field url => $url
+
+<p>
+Alternatively, just paste your tables here:
+%= text_area table => (cols => 60, rows => 15) => begin
+<%= $table =%>
+% end
 
 <p>
 %= submit_button 'Submit', name => 'submit'
