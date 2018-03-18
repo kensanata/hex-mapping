@@ -777,12 +777,30 @@ my $default_table = q{;light-grey mountain
 
 ;forest
 1,This is the [name for forest/forest-hill/trees/fir-forest/firs] and there are no trails, here. Without a guide, you will get lost.
-1,Tall trees and dense canopy keep the sunlight away. Big mushrooms everywhere.
+1,Tall trees and dense canopy keep the sunlight away. There are big mushrooms everywhere. [mushrooms]
 1,This forest is under the protection of [1d8 treants].
 1,The trees here are full of spider webs. Anybody climbing the trees will get attacked by [2d4] *giant spiders*.
 1,[2d12] *elves* led by one they call [elf leader] (level [1d6+1]) have built their [elf dwelling] in this forest. [elf companions]
 1,A system of big tunnels under these trees is home to [1d6 weasels].
 1,At dusk and dawn, you can sometimes see [boars].
+
+;mushrooms
+1,The mushrooms are guarded by [mykonids]
+1,If eaten, [do something interesting]
+1,These mushrooms are actually the antennaes and horns for the big sleeping supermushroom [name for forest/forest-hill/trees/fir-forest/firs] living beneath the forest. Around here, your sleep will be filled with mushroom dreams.
+
+;mykonids
+1,[3d6] *mykonids*.
+1,[3d6] *mykonids* guarding a mushroom circle. On nights of the full moon, or on a 1 in 6, the portal to the fey realms opens. If so, [2d12] *elves* led by one they call [elf leader] (level [1d6+1]) will be visiting.
+
+;do something interesting
+1,save vs. poison or die. The locals use this to kill criminals.
+1,save vs. poison or loose your voice for a week. The locals avoid doing this.
+1,save vs. poison or be cursed to turn into a mykonid over the coming week.
+1,save vs. poison or be paralysed for 1d4 hours. Local Set cultists will trade in these mushrooms.
+1,gain telepathic powers for a week. The locals use them to spy on the thoughts of any foreigners.
+1,enjoy wild and colorful visions for 1d20 hours. If you roll higher than your wisdom, see something relevant for the current campaign. The locals lead village idiots here to warn them of impeding danger.
+1,heal 1d6+1. The locals assemble here after a fight to recuperate.
 
 ;name for forest/forest-hill/trees/fir-forest/firs
 1,[forest 1] [forest 2]
@@ -1278,6 +1296,11 @@ get '/source' => sub {
   $c->render(text => <DATA>, format => 'txt');
 };
 
+get '/authors' => sub {
+  my $c = shift;
+  $c->render(template => 'authors');
+};
+
 get '/help' => sub {
   my $c = shift;
   $c->render(template => 'help');
@@ -1698,6 +1721,26 @@ fir-forest”; instead of “hill” use “light-grey hill” and “dust hill�
 “forest-mountains” use “green forest-mountains” and “grey forest-mountains”.
 </p>
 
+@@ authors.html.ep
+% layout 'default';
+% title 'Hex Describe Authors';
+<h1>Hex Describe Authors</h1>
+
+<p>
+The default table contains material by the following people:
+</p>
+
+<ul>
+<li><a href="https://alexschroeder.ch">Alex Schroeder</a></li>
+<li><a href="https://ropeblogi.wordpress.com/">Tommi Brander</a></li>
+</ul>
+
+<p>
+The icons are based on the
+<a href="https://github.com/kensanata/hex-mapping/tree/master/gnomeyland">Gnomeyland</a>
+icons by Gregory B. MacKenzie.
+</p>
+
 @@ layouts/default.html.ep
 <!DOCTYPE html>
 <html>
@@ -1729,6 +1772,7 @@ td, th {
 <hr>
 <p>
 <a href="https://campaignwiki.org/hex-describe">Hex Describe</a>&#x2003;
+<%= link_to 'Authors' => 'authors' %>&#x2003;
 <%= link_to 'Help' => 'help' %>&#x2003;
 <%= link_to 'Source' => 'source' %>&#x2003;
 <a href="https://github.com/kensanata/hex-mapping/blob/master/hex-describe.pl">GitHub</a>&#x2003;
