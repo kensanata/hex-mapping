@@ -16,6 +16,7 @@
 use Modern::Perl;
 use Mojolicious::Lite;
 use Mojo::UserAgent;
+use Mojo::URL;
 use Mojo::Log;
 use Array::Utils qw(intersect);
 
@@ -486,7 +487,7 @@ my $default_table = q{;light-grey mountain
 1,This is a legendary forge stronghold. [5d8x10] dwarves live and work here led by one they call [dwarf] (level [1d4+8]). [3d6] families live here, each led by a clan elder (level [1d6+2])
 
 ;dwarf
-1,[dwarf 1] [dwarf 2a][dwarf 2b]
+1,[dwarf 1] [dwarf 2a][dwarf 2b] <img style="float:right;width:80px" src="[[redirect https://campaignwiki.org/face/redirect/alex/dwarf]]" />
 
 ;dwarf 1
 1,Lóa
@@ -575,6 +576,9 @@ my $default_table = q{;light-grey mountain
 1,Shield
 
 ;orc leader
+1,[orc boss] <img style="float:right;width:80px" src="[[redirect https://campaignwiki.org/face/redirect/alex/orc]]" />
+
+;orc boss
 1,Mushroom Friend (HD [1d6+1])
 1,Pie Eater (HD [1d6+1])
 1,Pig Face (HD [1d6+1])
@@ -916,10 +920,10 @@ my $default_table = q{;light-grey mountain
 1,There is a thorp of [1d4x10] *humans* led by one they call [human leader]. The [human houses] are protected by [human companions].
 
 ;village
-1,There is a village of [5d6x10] *humans* led by a [human class] (level 9) called [human leader] who lives in a small tower with their subordinate [human class] (level 7) called [human leader] and their two aides, the [human class] [human leader] and the [human class] [human leader] (both level 5). The [human houses] are protected by [human companions] and a [human defense].
+1,There is a village of [5d6x10] *humans* led by a [human class] (level 9) called [human leader] who lives in a small tower with their subordinate [human class] (level 7) called [human retainer] and their two aides, the [human class] [human retainer] and the [human class] [human retainer] (both level 5). The [human houses] are protected by [human companions] and a [human defense].
 
 ;town
-1,There is a town of [1d6x100] *humans* led by a [human class] (level 9) called [human leader] who lives in a keep with their subordinate [human class] (level 7) called [human leader] and their two aides, the [human class] [human leader] and [human class] [human leader] (both level 5). The [human houses] are protected by a town wall and the river. There is [town feature].
+1,There is a town of [1d6x100] *humans* led by a [human class] (level 9) called [human leader] who lives in a keep with their subordinate [human class] (level 7) called [human retainer] and their two aides, the [human class] [human retainer] and [human class] [human retainer] (both level 5). The [human houses] are protected by a town wall and the river. There is [town feature].
 
 ;town feature
 1,a market
@@ -957,31 +961,41 @@ my $default_table = q{;light-grey mountain
 1,knight
 
 ;human leader
+1,[man]<img style="float:right;width:80px" src="[[redirect https://campaignwiki.org/face/redirect/alex/man]]" />
+1,[woman]<img style="float:right;width:80px" src="[[redirect https://campaignwiki.org/face/redirect/alex/woman]]" />
+
+;human retainer
+1,[man]
+1,[woman]
+
+;man
 1,Aaron
-1,Berta
 1,Claudius
-1,Dagmar
-1,Elena
+1,Berta
 1,Ferdinand
-1,Gertrude
 1,Hannibal
-1,Isolde
 1,Justinian
 1,Konrad
-1,Lamia
 1,Mondrian
-1,Nauma
 1,Orland
-1,Quen
 1,Rudolf
+1,Voron
+1,Xaver
+1,Zoran
+
+;woman
+1,Dagmar
+1,Elena
+1,Gertrude
+1,Isolde
+1,Lamia
+1,Nauma
+1,Quen
 1,Sereina
 1,Thorman
 1,Ulma
-1,Voron
 1,Wilma
-1,Xaver
 1,Ysolde
-1,Zoran
 
 ;power
 1,Set
@@ -1073,8 +1087,13 @@ sub parse_table {
   # check tables
   for my $table (keys %$data) {
     for my $line (@{$data->{$table}->{lines}}) {
-      for my $subtable ($line->{text} =~ /\[(.*?)\]/g) {
+      for my $subtable ($line->{text} =~
+			/
+			\[\[redirect (http\[\]\n*?)\]\]
+			\[([^\[\]\n]*?)\]
+			/gx) {
 	next if $subtable =~ /$dice_re/;
+	next if $subtable =~ /^https?:/;
 	$log->error("Error in table $table: subtable $subtable is missing")
 	    unless $data->{$subtable};
       }
@@ -1097,6 +1116,21 @@ sub pick_description {
   return '';
 }
 
+sub resolve_redirect {
+  # If you install this tool on a server using HTTPS, then some browsers will
+  # make sure that including resources from other servers will not work.
+  my $url = shift;
+  my $ua = Mojo::UserAgent->new;
+  my $res = $ua->get($url)->result;
+  if ($res->code == 301 or $res->code == 302) {
+    return Mojo::URL->new($res->headers->location)
+	->base(Mojo::URL->new($url))
+	->to_abs;
+  }
+  $log->info("resolving redirect for $url did not result in a redirection");
+  return $url;
+}
+
 sub pick {
   my $map_data = shift;
   my $table_data = shift;
@@ -1109,6 +1143,7 @@ sub pick {
     my $total = $table_data->{$word}->{total};
     my $lines = $table_data->{$word}->{lines};
     $text = pick_description($total, $lines);
+    $text =~ s/\[\[redirect (https:.*?)\]\]/resolve_redirect($1)/ge;
     $text =~ s/\[(.*?)\]/describe($map_data,$table_data,$level+1,$coordinates,[$1])/ge;
     # $log->debug("picked $text from $total entries");
   }
@@ -1194,7 +1229,7 @@ sub spread_name {
   my @keys = split(/\//, $key); # ("white")
   my $name = shift; # "Vesuv"
   my %seen = ($coordinates => 1);
-  $log->info("$word: $coordinates = $name");
+  # $log->debug("$word: $coordinates = $name");
   my @queue = map { neighbour($coordinates, $_) } 0..5;
   while (@queue) {
     # $log->debug("Working on the first item of @queue");
@@ -1205,7 +1240,7 @@ sub spread_name {
       $log->error("$word for $coord is already something else")
 	  if $names{"$word for $coord"};
       $names{"$word: $coord"} = $name; # "name for white big mountain: 0102"
-      $log->info("$word: $coord = $name");
+      # $log->debug("$word: $coord = $name");
       push(@queue, map { neighbour($coord, $_) } 0..5);
     }
   }
@@ -1763,6 +1798,13 @@ td, th {
 }
 .example {
   font-size: smaller;
+}
+svg {
+  max-width: 80ex;
+}
+p {
+  margin-bottom: 3em;
+  max-width: 72ex;
 }
 % end
 <meta name="viewport" content="width=device-width">
