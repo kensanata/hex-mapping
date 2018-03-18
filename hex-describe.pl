@@ -344,11 +344,22 @@ my $default_table = q{;light-grey mountain
 1,with [2d4] *turtle people* led by one they call [turtle]
 
 ;undine
-1,Tears of Joy
-1,Tears of Sorrow
-1,Mountain Dew
-1,Eyes of Ice
-1,Sweet Sleep
+1,[undine 1] [undine 2]
+
+;undine 1
+1,Mountain
+1,Tears of
+1,Eyes of
+1,Sweet
+1,Eternal
+
+;undine 2
+1,Joy
+1,Sorrow
+1,Ice
+1,Sleep
+1,Dew
+1,Rain
 
 ;turtle
 1,Patience
