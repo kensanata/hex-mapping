@@ -719,6 +719,7 @@ my $default_table = q{;light-grey mountain
 1,There are traces of logging activity in this light forest.
 1,[2d4] *harpies* sing in the tree tops, luring men into the depths of the forest and to their death.
 1,There is a cave in this forest housing the *ettin* called [ettin].
+1,Hiding between the trees are watchful eyes in the service of the elves underground, [1d8 bugbears].
 
 ;ettin
 1,Bert and Bob
@@ -890,14 +891,26 @@ my $default_table = q{;light-grey mountain
 1,In this fir forest is a little campsite with [1d8 bugbears].
 
 ;1d8 bugbears
-1,a *bugbear* called [bugbear]
+1,the *bugbear* [bugbear]
 7,[1d7+1] *bugbears* led by one they call [bugbear]
 
 ;bugbear
-1,Silentfoot
-1,Silverpaws
-1,Deathlicker
-1,Piercingeyes
+6,[bugbear 1] [bugbear 2]
+1,Piercing Eyes
+
+;bugbear 1
+1,Silent
+1,Quiet
+1,Deadly
+1,Death
+
+;bugbear 2
+1,Foot
+1,Paws
+1,Wind
+1,Lick
+1,Eyes
+1,Breath
 
 ;crag name
 1,[crag 1] [crag 2]
