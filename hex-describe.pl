@@ -772,12 +772,23 @@ my $default_table = q{;light-grey mountain
 1,*giant beetles*
 
 ;goblin
-1,Death Rider
-1,Man Killer
-1,Eye Poker
-1,Wolf King
-1,Beetle Basher
-1,The Impaler
+1,[goblin 1] [goblin 2]
+
+;goblin 1
+1,Death
+1,Man
+1,Eye
+1,Wolf
+1,Beetle
+1,The
+
+;goblin 2
+1,Rider
+1,Killer
+1,Poker
+1,King
+1,Basher
+1,Impaler
 
 ;forest
 1,This is the [name for forest/forest-hill/trees/fir-forest/firs] and there are no trails, here. Without a guide, you will get lost.
