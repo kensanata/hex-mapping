@@ -322,9 +322,69 @@ include https://campaignwiki.org/contrib/gnomeyland.txt
 my $default_table = q{;light-grey mountain
 1,The green valley up here has some sheep and a *kid* called [human kid] guarding them.
 1,There is a cold pond up in this valley [cold lake].
-1,The upper valley is rocky [maybe a hill giant].
+1,The upper valley is rocky and bare. [hill giants]
 1,Steep cliffs make progress practically impossible without climbing gear.
-1,Nothing but gray rocks.
+1,Nothing but gray rocks up here in the mountains.
+1,Rising up against the sky is an old elven tower made of green glass, [green tower].
+1,On one of the rock faces you can still see the markings of an old dwarf forge [dwarf forge]. [forge ruin]
+
+;forge ruin
+1,The ruin is abandoned and dead. If you explore the ruins, you will soon find the *balor* demon who caused its downfall. It guards a portal to the realm of eternal fire.
+1,The ruin has been settled by the [orctribe], [1d6x10] *orcs* led by one they call [orc leader].
+1,The ruin is full of broken machinery. In its depths, however, a *bronze golem* still wanders the halls.
+1,The ruin is now home to the *white dragon* [white dragon name].
+
+;green tower
+1,long abandoned
+1,now inhabited by a *white dragon* called [white dragon name]
+1,and at the very top there is a lair of very protective [2d8] *griffons*
+1,[gargoyles]
+
+;gargoyles
+1,a *gargoyle* named [gargoyle]
+5,[1d5+1] *gargoyles* led by one they call [gargoyle]
+
+;gargoyle
+1,Stillness
+1,Rock
+1,Boulder
+1,Berg
+1,Mount
+1,Strength
+1,Might
+1,Night
+1,Black
+1,Dark
+1,Forever
+
+;white dragon name
+1,[white dragon 1] [dragon 2] [white dragon 3]
+
+;white dragon 1
+1,White
+1,Cold
+1,Ice
+1,Snow
+1,Hail
+1,Frost
+1,Deep
+
+;dragon 2
+1,Bone
+1,Tooth
+1,Fang
+1,Death
+1,End
+1,Despair
+1,Agony
+
+;white dragon 3
+1,of the Glacier
+1,of the Mountain
+1,of the Thin Air
+1,of the Top
+1,the Eternal
+1,the Sleeper
 
 ;human kid
 1,Al
@@ -371,16 +431,56 @@ my $default_table = q{;light-grey mountain
 1,Submit
 1,Wait
 
-;maybe a hill giant
-5,and empty
-1,and some of these boulders have been assembled into a crude stone tower with [2d4] *hill giants* led by one they call [hill giant]
+;hill giants
+1,Some boulders have been assembled into a crude stone tower inhabited [2d4] *hill giants* led by one they call [hill giant].
+1,The bellowing *hill giants* can be heard every day up here. [2d4] of them have built a barricade across the passes, here. They are led by [hill giant] but he insists visitors call him [hill giant title].
 
 ;hill giant
-1,Flat Nose
-1,Thunder Voice
-1,Smash Fist
-1,Sheep Finder
-1,Ogon of the Valley, former soldier of Ugra the Great
+1,[hill giant 1] [hill giant 2]
+
+;hill giant 1
+1,Nose
+1,Neck
+1,Sheep
+1,Man
+1,Elf
+1,Dwarf
+1,Rock
+1,Boulder
+
+;hill giant 2
+1,Flattener
+1,Smash
+1,Finder
+1,Squisher
+1,Thrower
+
+;hill giant title
+1,King of the [hill giant thing]
+1,King of the [hill giant thing]
+1,[hill giant thing] Master
+1,former soldier of [foreign warlord]
+
+;hill giant thing
+1,Hill
+1,Valley
+1,Tax
+1,Toll
+
+;foreign warlord
+1,Ugra [warlord title]
+1,Ogon [warlord title]
+1,Agon [warlord title]
+1,Radan [warlord title]
+1,Elam [warlord title]
+1,Irah [warlord title]
+
+;warlord title
+1,the Great
+1,the Mighty
+1,Carnage
+1,Deathbringer
+1,the Killer
 
 ;white mountain
 1,The air up here is cold. You can see the [name for white big mountains] from here.
@@ -388,7 +488,7 @@ my $default_table = q{;light-grey mountain
 1,There is a hidden meadow up here, protected by the [name for white big mountains].
 1,The glaciers need a local guide and ropes to cross.
 1,The glacier ends at a small lake [maybe an ice cave].
-1,A *white dragon* lives in a ruined mountain fortress on the highest peak around here.
+1,A *white dragon* called [white dragon name] lives in a ruined mountain fortress on the highest peak around here.
 
 ;maybe an ice cave
 1,bright blue and ice cold
@@ -454,7 +554,7 @@ my $default_table = q{;light-grey mountain
 3,[1d4] *white bears*
 2,[2d4] *winter wolves*
 1,a *cryohydra*
-1,a *white dragon*
+1,a *white dragon* named [white dragon name]
 1,a *spectre* of their ancient ice king
 
 ;dwarf forge
@@ -1844,7 +1944,27 @@ https://dwarrowscholar.wordpress.com/general-documents/female-dwarf-outer-names/
 1,An ancient stone fort overlooking the woods has been taken over by a war party of [4d6] *hobgoblins*. The fort is defended by [hobgoblin companions].
 1,Beneath these badlands is a cavesystem including an underground river.
 1,The dry lands up here are the hunting grounds of a *manticore* called [manticore] living in the ruins of an old tower.
-1,A *green dragon* lives at [hill name], one of the hills overlooking these shrublands.
+1,A *green dragon* named [green dragon name] lives at [hill name], one of the hills overlooking these shrublands.
+
+;green dragon name
+1,[green dragon 1] [dragon 2] [green dragon 3]
+
+;green dragon 1
+1,Green
+1,Verdant
+1,Poison
+1,Jade
+1,Forest
+1,Piercing
+
+;green dragon 3
+1,of the Forest
+1,of the Trees
+1,the Sly
+1,the Devious
+1,of the Fumes
+1,of the Valley
+1,the Reborn
 
 ;hobgoblin companions
 1,a small watchtower with an archer
@@ -4290,13 +4410,9 @@ sub parse_table {
   # check tables
   for my $table (keys %$data) {
     for my $line (@{$data->{$table}->{lines}}) {
-      for my $subtable ($line->{text} =~
-			/
-			\[\[redirect (http\[\]\n*?)\]\]
-			\[([^\[\]\n]*?)\]
-			/gx) {
+      for my $subtable ($line->{text} =~ /\[([^\[\]\n]*?)\]/g) {
 	next if $subtable =~ /$dice_re/;
-	next if $subtable =~ /^https?:/;
+	next if $subtable =~ /^redirect https?:/;
 	$log->error("Error in table $table: subtable $subtable is missing")
 	    unless $data->{$subtable};
       }
