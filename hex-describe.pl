@@ -487,7 +487,7 @@ my $default_table = q{;light-grey mountain
 1,This is a legendary forge stronghold. [5d8x10] dwarves live and work here led by one they call [dwarf] (level [1d4+8]). [3d6] families live here, each led by a clan elder (level [1d6+2])
 
 ;dwarf
-1,[dwarf 1] [dwarf 2a][dwarf 2b]<img style="float:right;width:80px" src="[[redirect https://campaignwiki.org/face/redirect/alex/dwarf]]" />
+1,[dwarf 1] [dwarf 2a][dwarf 2b]<img src="[[redirect https://campaignwiki.org/face/redirect/alex/dwarf]]" />
 
 ;dwarf 1
 1,Lóa
@@ -538,7 +538,7 @@ my $default_table = q{;light-grey mountain
 1,One of the hills has an old lookout from which you can see most of the [name for forest/forest-hill/trees/fir-forest/firs].
 1,Small creeks have dug deep channels into this forest. The going is tough.
 1,One one these forested hills is inhabited by [1d6 ogres].
-1,These hills belong to the [orctribe], [1d6x10] *orcs* led by one they call [orc leader] and their fort [orc fort].
+1,These hills belong to the [orctribe], [1d6x10] *orcs* led by one they call [orc leader]. Their fort is [orc fort].
 1,On one of the hills here stands an old tower overlooking the forest below. This is the home of a *manticore* called [manticore].
 1,The hill overlooking [name for forest/forest-hill/trees/fir-forest/firs] is the home of [1d8 treants].
 1,There is a hill with a nice cave which offers shelter from the rain but is home to [1d4 bears].
@@ -576,7 +576,7 @@ my $default_table = q{;light-grey mountain
 1,Shield
 
 ;orc leader
-1,[orc]<img style="float:right;width:80px" src="[[redirect https://campaignwiki.org/face/redirect/alex/orc]]" />
+1,[orc]<img src="[[redirect https://campaignwiki.org/face/redirect/alex/orc]]" />
 
 ;orc
 1,Mushroom Friend (HD [1d6+1])
@@ -854,7 +854,7 @@ my $default_table = q{;light-grey mountain
 2,The settlement is protected by [1d2+1] *giant weasels*.
 
 ;elf leader
-1,[elf]<img style="float:right;width:80px" src="[[redirect https://campaignwiki.org/face/redirect/alex/elf]]" />
+1,[elf]<img src="[[redirect https://campaignwiki.org/face/redirect/alex/elf]]" />
 
 ;elf
 1,Longevity
@@ -920,13 +920,13 @@ my $default_table = q{;light-grey mountain
 1,At dusk and dawn a pack of [3d6] *wolves* through these highlands.
 
 ;thorp
-1,There is a thorp of [1d4x10] *humans* led by one they call [human leader]. The [human houses] are protected by [human companions].
+1,There is a thorp of [1d4x10] *humans* led by one they call [human]. The [human houses] are protected by [human companions].
 
 ;village
-1,There is a village of [5d6x10] *humans* led by a [human class] (level 9) called [human leader] who lives in a small tower with their subordinate [human class] (level 7) called [human retainer] and their two aides, the [human class] [human retainer] and the [human class] [human retainer] (both level 5). The [human houses] are protected by [human companions] and a [human defense].
+1,There is a village of [5d6x10] *humans* led by a [human class] (level 9) called [human] who lives in a small tower with their subordinate [human class] (level 7) called [human] and their two aides, the [human class] [human] and the [human class] [human] (both level 5). The [human houses] are protected by [human companions] and a [human defense].
 
 ;town
-1,There is a town of [1d6x100] *humans* led by a [human class] (level 9) called [human leader] who lives in a keep with their subordinate [human class] (level 7) called [human retainer] and their two aides, the [human class] [human retainer] and [human class] [human retainer] (both level 5). The [human houses] are protected by a town wall and the river. There is [town feature].
+1,There is a town of [1d6x100] *humans* led by a [human class] (level 9) called [human] who lives in a keep with their subordinate [human class] (level 7) called [human] and their two aides, the [human class] [human] and [human class] [human] (both level 5). The [human houses] are protected by a town wall and the river. There is [town feature].
 
 ;town feature
 1,a market
@@ -963,13 +963,9 @@ my $default_table = q{;light-grey mountain
 1,warlord
 1,knight
 
-;human leader
-1,[man]<img style="float:right;width:80px" src="[[redirect https://campaignwiki.org/face/redirect/alex/man]]" />
-1,[woman]<img style="float:right;width:80px" src="[[redirect https://campaignwiki.org/face/redirect/alex/woman]]" />
-
-;human retainer
-1,[man]
-1,[woman]
+;human
+1,[man]<img src="[[redirect https://campaignwiki.org/face/redirect/alex/man]]" />
+1,[woman]<img src="[[redirect https://campaignwiki.org/face/redirect/alex/woman]]" />
 
 ;man
 1,Aaron
@@ -1191,12 +1187,27 @@ sub describe {
   return join(' ', @descriptions);
 }
 
+sub process {
+  my $text = shift;
+  my @terms = split(/(<img.*?>)/, $text);
+  return $text unless @terms > 1;
+  my @output; # $output[0] is texts, $output[1] is images
+  my $i = 0;
+  while (@terms) {
+    push(@{$output[$i]}, shift(@terms));
+    $i = 1 - $i;
+  }
+  return '<span class="images">' . join('', @{$output[1]}) . '</span>'
+    . join('', @{$output[0]});
+}
+
 sub describe_map {
   my $map_data = shift;
   my $table_data = shift;
   my %descriptions;
   for my $coord (keys %$map_data) {
-    $descriptions{$coord} = describe($map_data, $table_data, 1, $coord, $map_data->{$coord});
+    $descriptions{$coord} = process(describe($map_data, $table_data, 1,
+					     $coord, $map_data->{$coord}));
   }
   return \%descriptions;
 }
@@ -1804,12 +1815,17 @@ td, th {
 .example {
   font-size: smaller;
 }
-svg {
+.description {
   max-width: 80ex;
 }
-.description p {
-  margin-bottom: 3em;
-  max-width: 72ex;
+p {
+  float: clear;
+}
+.images img {
+  max-width: 80px;
+}
+.images {
+  float: right;
 }
 % end
 <meta name="viewport" content="width=device-width">
