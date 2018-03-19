@@ -970,7 +970,6 @@ my $default_table = q{;light-grey mountain
 ;man
 1,Aaron
 1,Claudius
-1,Berta
 1,Ferdinand
 1,Hannibal
 1,Justinian
@@ -978,20 +977,22 @@ my $default_table = q{;light-grey mountain
 1,Mondrian
 1,Orland
 1,Rudolf
+1,Thorman
 1,Voron
 1,Xaver
 1,Zoran
 
 ;woman
+1,Berta
 1,Dagmar
 1,Elena
 1,Gertrude
 1,Isolde
 1,Lamia
 1,Nauma
+1,Petra
 1,Quen
 1,Sereina
-1,Thorman
 1,Ulma
 1,Wilma
 1,Ysolde
@@ -1819,13 +1820,16 @@ td, th {
   max-width: 80ex;
 }
 p {
-  float: clear;
 }
 .images img {
   max-width: 80px;
 }
 .images {
+  clear: both;
   float: right;
+}
+hr {
+  clear: both;
 }
 % end
 <meta name="viewport" content="width=device-width">
