@@ -709,8 +709,10 @@ my $default_table = q{;light-grey mountain
 
 ;lizard companions
 2,spiked barriers
-5,[1d5] *giant wasps*
-5,[1d5] *giant lizards*
+1,a *giant wasp*
+1,a *giant lizard*
+5,[1d4+1] *giant wasps*
+5,[1d4+1] *giant lizards*
 
 ;trees
 1,Tall trees cover this valley.
@@ -970,7 +972,7 @@ my $default_table = q{;light-grey mountain
 1,a [human class] (level 9) called [human]
 
 ;human retainer
-1,their retainer, a [human class] (level 7) called [human]
+1,a retainer, the [human class] (level 7) [human]
 
 
 ;retainer
