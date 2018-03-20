@@ -1990,10 +1990,31 @@ https://dwarrowscholar.wordpress.com/general-documents/female-dwarf-outer-names/
 1,Badlands full of shrubs and wild hedges.
 1,Dry lands full of tumbleweed and thorn bushes.
 1,A well hidden hamlet of [5d8] *halflings* led by one they call [halfling leader].
-1,An ancient stone fort overlooking the woods has been taken over by a war party of [4d6] *hobgoblins*. The fort is defended by [hobgoblin companions].
+1,An old fort overlooking the woods has been taken over by a war party of [4d6] *hobgoblins* led by [hobgoblin] (HD 3+1). The fort is defended by [hobgoblin companions].
+1,An abandoned watchtower on a promontory overlooking the drylands is home to [4d6] *hobgoblins* led by [hobgoblin] (HD 3+1). The approach is guarded by [hobgoblin companions].
+1,A massive fortress built by giants long ago is home to [1d6x10] *orcs* of the [orctribe], led by one they call [orc leader]. The fortress is [orc fort].
 1,Beneath these badlands is a cavesystem including an underground river.
 1,The dry lands up here are the hunting grounds of a *manticore* called [manticore] living in the ruins of an old tower.
 1,A *green dragon* named [green dragon name] lives at [hill name], one of the hills overlooking these shrublands.
+
+;hobgoblin
+1,[hobgoblin 1] of [hobgoblin 2]
+
+;hobgoblin 1
+1,Knife
+1,Spear
+1,Arrow
+1,Axe
+1,Voice
+
+;hobgoblin 2
+1,Sorrow
+1,Anger
+1,Longing
+1,Power
+1,Truth
+1,Law
+1,Authority
 
 ;green dragon name
 1,[green dragon 1] [dragon 2] [green dragon 3]
