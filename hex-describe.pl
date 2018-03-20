@@ -519,6 +519,55 @@ my $default_table = q{;light-grey mountain
 1,Mounts
 1,Graves
 
+;canyon
+1,[name for river] has dug itself a deep gorge.
+1,The gorge is wonderful and deep.
+1,Crossing the canyon requires climbing gear.
+
+;river
+1,[name for river] flows through here.
+1,[name for river] runs through here.
+
+;name for river
+1,[river 1] [river 2]
+
+;river 1
+1,Old
+1,Long
+1,Deep
+1,Cold
+1,Green
+1,Brown
+
+;river 2
+1,Creek
+1,Waters
+1,Stream
+
+;trail
+1,[name for trail] goes through here.
+1,[name for trail] leads through here.
+
+;name for trail
+9,[trail 1] [trail 2]
+1,[trail 1] [trail 1] [trail 2]
+
+;trail 1
+1,Gravel
+1,Mud
+1,Fish
+1,Gold
+1,Hollow
+1,Sunken
+1,Cattle
+1,Sheep
+1,Shady
+
+;trail 2
+1,Road
+1,Trail
+1,Lane
+
 ;more mountains
 1,They are impossible to climb.
 1,These passes need a local guide to cross. [mountain people].
@@ -4366,6 +4415,10 @@ sub get_post_data {
 
 # based on text-mapper.pl Mapper process
 my $hex_re = qr/^(\d\d)(\d\d)(?:\s+([^"\r\n]+)?\s*(?:"(.+)"(?:\s+(\d+))?)?|$)/;
+my $line_re = qr/^(\d\d\d\d(?:-\d\d\d\d)+)\s+(\S+)/;
+
+# extra data for every hex: $extra->{"0101"}->{"type"} eq "river"
+my $extra;
 
 sub parse_map {
   my $map = shift;
@@ -4385,6 +4438,24 @@ sub parse_map {
 	}
       }
       $map_data->{"$x$y"} = \@words;
+    }
+  }
+  # Don't add data for hexes outside the map (thus, rivers and trails must come
+  # at the end).
+  for my $hex (split(/\r?\n/, $map)) {
+    if ($hex =~ /$line_re/) {
+      my ($line, $type) = ($1, $2);
+      my %data = (type => $type);
+      for my $coord (compute_missing_points(split(/-/, $line))) {
+	next unless $map_data->{$coord};
+	# add river or trail to the hex description
+	unless (grep { $_ eq $type } @{$map_data->{$coord}}) {
+	  # $log->debug("Adding $type to $coord");
+	  push(@{$map_data->{$coord}}, $type);
+	}
+	# all river hexes share this hash and each hex can have multiple rivers;
+	push(@{$extra->{$coord}}, \%data);
+      }
     }
   }
   return $map_data;
@@ -4490,14 +4561,29 @@ sub describe {
       $r += $p||0;
       # $log->debug("rolling dice: $word = $r");
       push(@descriptions, $r);
-    } elsif ($word =~ /^name for (\S+)/) { # "name for white big mountain"
-      my $key = $1; # "white"
-      my $name = $names{"$word: $coordinates"}; # "name for white big mountain: 0101"
-      return $name if $name;
-      $name = pick($map_data, $table_data, $level, $coordinates, $word);
-      next unless $name;
-      push(@descriptions, $name);
-      spread_name($map_data, $coordinates, $word, $key, $name);
+    } elsif ($word =~ /^name for (\S+)/) {
+      my $key = $1; # "white" or "river"
+      if (my @lines = grep { $_->{type} eq $key } @{$extra->{$coordinates}}) {
+	# for rivers and the like: "name for river"
+	for my $line (@lines) {
+	  my $name = $line->{name};
+	  return $name if $name;
+	  $name = pick($map_data, $table_data, $level, $coordinates, $word);
+	  next unless $name;
+	  push(@descriptions, $name);
+	  $line->{name} = $name;
+	  # name the first one without a name, don't keep adding names
+	  last;
+	}
+      } else {
+	# regular featuers: "name for white big mountain"
+	my $name = $names{"$word: $coordinates"}; # "name for white big mountain: 0101"
+	return $name if $name;
+	$name = pick($map_data, $table_data, $level, $coordinates, $word);
+	next unless $name;
+	push(@descriptions, $name);
+	spread_name($map_data, $coordinates, $word, $key, $name);
+      }
     } else {
       my $text = pick($map_data, $table_data, $level, $coordinates, $word);
       next unless $text;
@@ -4553,6 +4639,38 @@ sub neighbour {
   return coordinates(
     $hex->[0] + $delta->[$hex->[0] % 2]->[$i]->[0],
     $hex->[1] + $delta->[$hex->[0] % 2]->[$i]->[1]);
+}
+
+sub one_step_to {
+  my $from = shift;
+  my $to = shift;
+  my ($min, $best);
+  for my $i (0 .. 5) {
+    # make a new guess
+    my ($x, $y) = ($from->[0] + $delta->[$from->[0] % 2]->[$i]->[0],
+		   $from->[1] + $delta->[$from->[0] % 2]->[$i]->[1]);
+    my $d = ($to->[0] - $x) * ($to->[0] - $x)
+          + ($to->[1] - $y) * ($to->[1] - $y);
+    if (!defined($min) || $d < $min) {
+      $min = $d;
+      $best = [$x, $y];
+    }
+  }
+  return $best;
+}
+
+sub compute_missing_points {
+  my @result = ($_[0]); # "0101" not [01,02]
+  my @points = map { [xy($_)] } @_;
+  # $log->debug("Line: " . join(", ", map { coordinates(@$_) } @points));
+  my $from = shift(@points);
+  while (@points) {
+    # $log->debug("Going from " . coordinates(@$from) . " to " . coordinates(@{$points[0]}));
+    $from = one_step_to($from, $points[0]);
+    shift(@points) if $from->[0] == $points[0]->[0] and $from->[1] == $points[0]->[1];
+    push(@result, coordinates(@$from));
+  }
+  return @result;
 }
 
 sub spread_name {
