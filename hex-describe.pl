@@ -3283,7 +3283,7 @@ https://dwarrowscholar.wordpress.com/general-documents/female-dwarf-outer-names/
 
 ;1d8 bugbears
 1,the *bugbear* [bugbear]
-7,[1d7+1] *bugbears* led by one they call [bugbear]
+7,[1d7+1] *bugbears* led by one they call [bugbear] belonging to [a bugbear band]
 
 ;bugbear
 6,[bugbear 1] [bugbear 2]
@@ -3302,6 +3302,35 @@ https://dwarrowscholar.wordpress.com/general-documents/female-dwarf-outer-names/
 1,Lick
 1,Eyes
 1,Breath
+
+;a bugbear band
+1,[name for a bugbear band1]
+1,[name for a bugbear band2]
+1,[name for a bugbear band3]
+
+;name for a bugbear band1
+1,[bugbear band]
+
+;name for a bugbear band2
+1,[bugbear band]
+
+;name for a bugbear band3
+1,[bugbear band]
+
+;bugbear band
+1,[bugbear band 1] [bugbear band 2]
+
+;bugbear band 1
+1,Bear
+1,Lynx
+1,Cat
+1,Wolf
+
+;bugbear band 2
+1,Claws
+1,Ears
+1,Teeth
+1,Eyes
 
 ;crag name
 1,[crag 1] [crag 2]
@@ -3340,7 +3369,7 @@ https://dwarrowscholar.wordpress.com/general-documents/female-dwarf-outer-names/
 1,There is a thorp of [1d4x10] *humans* led by one they call [human]. The [human houses] are protected by [human companions].
 
 ;village
-1,There is a village of [5d6x10] *humans* led by [human leader] who [lives in small building] with [human retainer] and [human friends]. The [human houses] are protected by [human companions] and a [human defense].
+1,There is a village of [5d6x10] *humans* led by [human leader] who [lives in small building] with [human retainer] and [human friends]. The [human houses] are protected by [human companions] and a [human defense]. Many of them belong to the [gang].
 
 ;town
 1,There is a town of [1d6x100] *humans* led by [human leader] who lives in a keep with [human retainer] and [human friends]. The [human houses] are protected by a town wall and the river. There is [town feature].
@@ -3377,7 +3406,6 @@ https://dwarrowscholar.wordpress.com/general-documents/female-dwarf-outer-names/
 
 ;human retainer
 1,a retainer, the [human class] (level 7) [human]
-
 
 ;retainer
 1,retainer
@@ -5254,6 +5282,13 @@ sub describe {
       $r += $p||0;
       # $log->debug("rolling dice: $word = $r");
       push(@descriptions, $r);
+    } elsif ($word =~ /^name for a /) {
+      # for global things like factions, dukes
+      my $name = $names{$word};
+      return $name if $name;
+      $name = pick($map_data, $table_data, $level, $coordinates, $word);
+      next unless $name;
+      push(@descriptions, $name);
     } elsif ($word =~ /^name for (\S+)/) {
       my $key = $1; # "white" or "river"
       if (my @lines = grep { $_->{type} eq $key } @{$extra->{$coordinates}}) {
