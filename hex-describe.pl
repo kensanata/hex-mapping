@@ -322,6 +322,16 @@ include https://campaignwiki.org/contrib/gnomeyland.txt
 my $default_table = q{# The default table
 # Written by Alex Schroeder and dedicated to the Public Domain
 
+;sand desert
+1,There is sand in every direction.
+1,The dunes make progress slow.
+
+;dust desert
+1,The land here is a flat and featureless desert.
+1,These white salt flats harbor as dead as dead can be.
+1,Bare stones wherever you look and no shade.
+1,These white salt flats harbor as dead as dead can be.
+
 ;grass
 1,The rolling grass stretches in all directions. In the distance, you can see some [cows].
 1,These grasslands are home to [1d4x10] *humans* led by one they call [human]. They are all lightly armored and excellent horse archers. Their tents are protected by [human companions].
