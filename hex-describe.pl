@@ -3283,7 +3283,7 @@ https://dwarrowscholar.wordpress.com/general-documents/female-dwarf-outer-names/
 
 ;1d8 bugbears
 1,the *bugbear* [bugbear]
-7,[1d7+1] *bugbears* led by one they call [bugbear] belonging to [a bugbear band]
+7,[1d7+1] *bugbears* led by one they call [bugbear] belonging to the [a bugbear band] band
 
 ;bugbear
 6,[bugbear 1] [bugbear 2]
