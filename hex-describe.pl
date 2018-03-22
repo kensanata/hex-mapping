@@ -999,7 +999,7 @@ my $default_table = q{# The default table
 
 ;forge ruin
 1,The ruin is abandoned and dead. If you explore the ruins, you will soon find the *balor* demon who caused its downfall. It guards a portal to the realm of eternal fire.
-1,The ruin has been settled by the [orctribe], [1d6x10] *orcs* led by one they call [orc leader].
+1,The ruin has been settled by the [evil tribe], [1d6x10] *orcs* led by one they call [orc leader].
 1,The ruin is full of broken machinery. In its depths, however, a *bronze golem* still wanders the halls.
 1,The ruin is now home to the *white dragon* [white dragon name].
 
@@ -2582,7 +2582,7 @@ https://dwarrowscholar.wordpress.com/general-documents/female-dwarf-outer-names/
 1,One of the hills has an old lookout from which you can see most of the [name for forest/forest-hill/trees/fir-forest/firs].
 1,Small creeks have dug deep channels into this forest. The going is tough.
 1,One one these forested hills is inhabited by [1d6 ogres].
-1,These hills belong to the [orctribe], [1d6x10] *orcs* led by one they call [orc leader]. Their fort is [orc fort].
+1,These hills belong to the [evil tribe], [1d6x10] *orcs* led by one they call [orc leader]. Their fort is [orc fort].
 1,On one of the hills here stands an old tower overlooking the forest below. This is the home of a *manticore* called [manticore].
 1,The hill overlooking [name for forest/forest-hill/trees/fir-forest/firs] is the home of [1d8 treants].
 1,There is a hill with a nice cave which offers shelter from the rain but is home to [1d4 bears].
@@ -2597,27 +2597,200 @@ https://dwarrowscholar.wordpress.com/general-documents/female-dwarf-outer-names/
 1,an angry, male *bear*
 1,a small family of [1d3+1] *bears*
 
-;orctribe
-1,[orctribe 1] [orctribe 2] tribe
+# http://random-generator.com/index.php?title=Orc_Tribe_Name
+# Name:Orc Tribe Name
+# Date:2006-10-14
+# By:Mike B.
 
-;orctribe 1
-1,White
-1,Red
+;evil tribe
+1,[evil tribe adjective] [evil tribe body part] [evil tribe body part action] tribe
+1,[evil tribe adjective] [evil tribe noun] tribe
+1,[evil tribe body part]-[evil tribe body part action] tribe
+
+;evil tribe adjective
+7,[evil tribe condition]
+2,[evil tribe color]
+2,[evil tribe other]
+
+;evil tribe noun
+3,[evil tribe body part]
+2,[evil tribe body part action]
+2,[evil tribe thing]
+2,[evil tribe weapon]
+1,[evil tribe animal]
+
+;evil tribe color
 1,Black
-1,Broken
-1,Smashed
-1,Crushed
-1,Ground
+1,Blue
+1,Crimson
+1,Green
+1,Red
+1,White
+1,Yellow
 
-;orctribe 2
-1,Hand
-1,Fist
+;evil tribe condition
+1,Bad
+1,Befouled
+1,Bent
+1,Bleeding
+1,Bloody
+1,Broken
+1,Cracked
+1,Crooked
+1,Dead
+1,Defiled
+1,Dirty
+1,Dripping
+1,Festering
+1,Fetid
+1,Fierce
+1,Filthy
+1,Flaming
+1,Foul
+1,Hairy
+1,Hated
+1,Jagged
+1,Lumbering
+1,Mean
+1,Muddy
+1,Nasty
+1,Noisy
+1,Oozing
+1,Pointy
+1,Repulsive
+1,Rotten
+1,Rotting
+1,Ruined
+1,Rusty
+1,Savage
+1,Stinky
+1,Ugly
+1,Vile
+
+;evil tribe other
+1,Carnage
+1,Dark
+1,Death
+1,Dire
+1,Iron
+1,Plague
+1,Rune
+1,Shadow
+1,Slaughter
+1,Steel
+
+;evil tribe body part
+1,Arm
+1,Boils
+1,Bone
+1,Brain
+1,Cheek
+1,Claw
+1,Corpse
+1,Crotch
 1,Eye
 1,Face
+1,Fang
+1,Filth
+1,Fingers
+1,Fist
+1,Flesh
+1,Foot
+1,Gore
+1,Guts
+1,Hand
+1,Heart
+1,Horn
+1,Jaw
+1,Knee
+1,Maw
+1,Nose
+1,Pox
+1,Scab
+1,Skin
 1,Skull
-1,Sword
+1,Snout
+1,Spine
+1,Talon
+1,Tongue
+1,Tooth
+1,Tusk
+1,Wart
+
+;evil tribe weapon
+1,Axe
+1,Blade
+1,Club
+1,Great Axe
 1,Hammer
-1,Shield
+1,Knife
+1,Mallet
+1,Spear
+1,Sword
+
+;evil tribe thing
+1,Canyon
+1,Cave
+1,Desert
+1,Earth
+1,Hill
+1,Lake
+1,Marsh
+1,Moon
+1,Rock
+1,Ruins
+1,Stone
+
+;evil tribe animal
+1,Bastards
+1,Bat
+1,Bear
+1,Boar
+1,Bull
+1,Dragon
+1,Drake
+1,Jackal
+1,Lion
+1,Rat
+1,Reptile
+1,Serpent
+1,Snake
+1,Tiger
+1,Toad
+1,Wolf
+
+;evil tribe body part action
+1,[evil tribe action]er
+1,[evil tribe action]ing
+
+;evil tribe action
+2,Eat
+1,Bit
+1,Break
+1,Butcher
+1,Chopp
+1,Crush
+1,Defil
+1,Devour
+1,Flay
+1,Gnaw
+1,Impal
+1,Jabb
+1,Kill
+1,Melt
+1,Munch
+1,Pick
+1,Punch
+1,Ripp
+1,Scratch
+1,Slash
+1,Slay
+1,Slic
+1,Smash
+1,Spitt
+1,Stabb
+1,Steal
+1,Thrash
 
 ;orc leader
 1,[orc]<img src="[[redirect https://campaignwiki.org/face/redirect/alex/orc]]" />
@@ -2653,7 +2826,7 @@ https://dwarrowscholar.wordpress.com/general-documents/female-dwarf-outer-names/
 
 ;ogres
 1,[1d5] more *ogres*
-1,[1d5] more *ogres* and [1d6x10] *orcs*
+1,[1d5] more *ogres* and [1d6x10] *orcs* of the [evil tribe]
 
 ;bush
 1,[bushes]
@@ -2664,7 +2837,7 @@ https://dwarrowscholar.wordpress.com/general-documents/female-dwarf-outer-names/
 1,A well hidden hamlet of [5d8] *halflings* led by one they call [halfling leader].
 1,An old fort overlooking the woods has been taken over by a war party of [4d6] *hobgoblins* led by [hobgoblin] (HD 3+1). The fort is defended by [hobgoblin companions].
 1,An abandoned watchtower on a promontory overlooking the drylands is home to [4d6] *hobgoblins* led by [hobgoblin] (HD 3+1). The approach is guarded by [hobgoblin companions].
-1,A massive fortress built by giants long ago is home to [1d6x10] *orcs* of the [orctribe], led by one they call [orc leader]. The fortress is [orc fort].
+1,A massive fortress built by giants long ago is home to [1d6x10] *orcs* of the [evil tribe], led by one they call [orc leader]. The fortress is [orc fort].
 1,Beneath these badlands is a cavesystem including an underground river.
 1,The dry lands up here are the hunting grounds of a *manticore* called [manticore] living in the ruins of an old tower.
 1,A *green dragon* named [green dragon name] lives at [hill name], one of the hills overlooking these shrublands.
@@ -5953,6 +6126,7 @@ The default table contains material by the following people:
 <ul>
 <li><a href="https://alexschroeder.ch">Alex Schroeder</a></li>
 <li><a href="https://ropeblogi.wordpress.com/">Tommi Brander</a></li>
+<li><a href="http://random-generator.com/">Dave Younce</a></li>
 </ul>
 
 <p>
