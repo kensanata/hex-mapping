@@ -3542,10 +3542,41 @@ https://dwarrowscholar.wordpress.com/general-documents/female-dwarf-outer-names/
 1,There is a thorp of [1d4x10] *humans* led by one they call [human]. The [human houses] are protected by [human companions].
 
 ;village
-1,There is a village of [5d6x10] *humans* led by [human leader] who [lives in small building] with [human retainer] and [human friends]. The [human houses] are protected by [human companions] and a [human defense]. Many of them belong to the [gang].
+1,There is a village of [5d6x10] *humans* led by [human leader] who [lives in small building] with [human retainer] and [human friends]. The [human houses] are protected by [human companions] and a [human defense]. [And a secret society]
 
 ;town
-1,There is a town of [1d6x100] *humans* led by [human leader] who lives in a keep with [human retainer] and [human friends]. The [human houses] are protected by a town wall and the river. There is [town feature].
+1,There is a town of [1d6x100] *humans* led by [human leader] who lives in a keep with [human retainer] and [human friends]. The [human houses] are protected by a town wall and the river. There is [town feature]. [And two secret societies feuding]
+
+;And a secret society
+1,Luckily, no secret societies have established themselves, here.
+1,The local contact for the secret society of the [one of the secret societies] is [a boss].
+1,The secret society of the [one of the secret societies] has a representative, here: [a boss].
+
+;And two secret societies feuding
+1,[And a secret society]
+1,A secret war between the [name for a secret society 1] and the [name for a secret society 2] is the cause of much misery in this town. [Their leaders are]
+1,The secret societies of the [name for a secret society 2] and the [name for a secret society 3] are feuding in this town. [Their leaders are]
+
+;Their leaders are
+1,They are led by [a boss] and [a boss], respectively.
+1,One is led by [a boss], the other by [a boss].
+1,This goes back to the old rivalries between their respective leaders, [a boss] and [a boss].
+
+;a boss
+1,[human] (level [1d4+2])
+
+# make sure there are only 3 of them
+;one of the secret societies
+1,[name for a secret society 1]
+1,[name for a secret society 2]
+1,[name for a secret society 3]
+
+;name for a secret society 1
+1,[secret society]
+;name for a secret society 2
+1,[secret society]
+;name for a secret society 3
+1,[secret society]
 
 ;lives in small building
 1,lives in a small tower
@@ -3575,10 +3606,10 @@ https://dwarrowscholar.wordpress.com/general-documents/female-dwarf-outer-names/
 1,the river flowing around it
 
 ;human leader
-1,a [human class] (level 9) called [human]
+1,a [human class] (level [1d2+8]) called [human]
 
 ;human retainer
-1,a retainer, the [human class] (level 7) [human]
+1,a retainer, the [human class] (level [1d2+6]) [human]
 
 ;retainer
 1,retainer
@@ -3587,7 +3618,7 @@ https://dwarrowscholar.wordpress.com/general-documents/female-dwarf-outer-names/
 1,best friend
 
 ;human friends
-1,their [whip], the [human class] [human] (level 6)
+1,their [whip], the [human class] [human] (level [1d4+1])
 1,their two [aides], the [human class] [human] and the [human class] [human] (both level 5)
 
 ;whip
@@ -3617,6 +3648,1467 @@ https://dwarrowscholar.wordpress.com/general-documents/female-dwarf-outer-names/
 ;human
 1,[man]<img src="[[redirect https://campaignwiki.org/face/redirect/alex/man]]" />
 1,[woman]<img src="[[redirect https://campaignwiki.org/face/redirect/alex/woman]]" />
+
+# http://random-generator.com/index.php?title=Secret_Society_Title&action=edit
+# by Dave Younce
+
+;secret society
+10,[special organisation] of the [special noun]
+10,[organisation name] of the [special noun]
+10,[special organisation] of the [noun]
+10,[organisation name] of the [noun]
+3,[secret society adjective] [title]s
+3,[special organisation]
+1,[organisation name] of [title]s
+1,[organisation name] of [adjective] [title]s
+2,[organisation name] of [special title]s
+1,[special organisation] of [title]s
+1,[special organisation] of [adjective] [title]s
+2,[special organisation] of [special title]s
+1,[organisation name] of St. [old name] the [special adjective]
+1,[special organisation] of St. [old name]
+
+;special organisation
+1,[secret society adjective] [organisation name]
+
+;special noun
+1,[adjective] [noun]
+
+;special title
+200,[special adjective] [title]
+30,[prefix]-[title]
+
+;prefix
+0,26 prefixes
+1,Anti
+1,Arch
+1,Chrono
+1,Crypto
+1,Demi
+1,Extra
+1,Giga
+1,Hyper
+1,Hypno
+1,Mega
+1,Myco
+1,Necro
+1,Neuro
+1,Omni
+1,Over
+1,Para
+1,Perma
+1,Pseudo
+1,Psycho
+1,Quasi
+1,Super
+1,Thermo
+1,Uber
+1,Ultra
+1,Under
+1,Vice
+
+;special adjective
+10,Most [special adjective]
+1,Able
+1,Absolute
+1,Accepted
+1,Accomplished
+1,Acting
+1,Admirable
+1,Almighty
+1,Ancient
+1,Anointed
+1,Apprentice
+1,Arcane
+1,Archaic
+1,Ardent
+1,Ascendant
+1,Axiomatic
+1,Beatific
+1,Blessed
+1,Brave
+1,Calm
+1,Candidate
+1,Chief
+1,Chivalrous
+1,Chosen
+1,Clever
+1,Concealed
+1,Consecrated
+1,Constant
+1,Consummate
+1,Courageous
+1,Craven
+1,Crowned
+1,Cryptic
+1,Cunning
+1,Dedicated
+1,Deputy
+1,Designated
+1,Devoted
+1,Devout
+1,Divine
+1,Elder
+1,Elite
+1,Elucidated
+1,Emeritus
+1,Enlightened
+1,Entered
+1,Epic
+1,Essential
+1,Esteemed
+1,Eternal
+1,Exalted
+1,Excellent
+1,Expert
+1,Extraordinary
+1,Faithful
+1,Favored
+1,Feral
+1,Fierce
+1,Fifth
+1,Final
+1,First
+1,Fortunate
+1,Fourth
+1,Free
+1,Gallant
+1,Generous
+1,Gifted
+1,Glorious
+1,Grand
+1,Gray
+1,Great
+1,Hallowed
+1,Heroic
+1,Hidden
+1,Hierophant
+1,High
+1,Highborn
+1,Holy
+1,Honored
+1,Honourable
+1,Humble
+1,Illuminated
+1,Illustrious
+1,Immaculate
+1,Imperial
+1,Incomparable
+1,Initiated
+1,Innocent
+1,Inscrutable
+1,Insidious
+1,Intimate
+1,Invisible
+1,Journeyman
+1,Junior
+1,Just
+1,Known
+1,Last
+1,Learned
+1,Legendary
+1,Legitimate
+1,Lofty
+1,Lone
+1,Lord High
+1,Loyal
+1,Mad
+1,Majestic
+1,Marked
+1,Master
+1,Matchless
+1,Mighty
+1,Most Excellent
+1,Most High
+1,Mystic
+1,Necrotic
+1,Noble
+1,Novice
+1,Numinous
+1,Obedient
+1,Omnipotent
+1,Only
+1,Ordained
+1,Patient
+1,Peculiar
+1,Penitent
+1,Penultimate
+1,Perfect
+1,Pious
+1,Practiced
+1,Preordained
+1,Presiding
+1,Primary
+1,Prime
+1,Principal
+1,Privileged
+1,Profound
+1,Prophetic
+1,Proud
+1,Proven
+1,Puissant
+1,Pure
+1,Radiant
+1,Recognized
+1,Relentless
+1,Reliable
+1,Renowned
+1,Resolute
+1,Resplendent
+1,Revered
+1,Reverent
+1,Rhadamanthine
+1,Right High
+1,Righteous
+1,Rightful
+1,Rising
+1,Royal
+1,Sacred
+1,Saintly
+1,Sanctified
+1,Second
+1,Secondary
+1,Secret
+1,Select
+1,Selected
+1,Senior
+1,Serene
+1,Seventh
+1,Shining
+1,Silent
+1,Singular
+1,Sixth
+1,Skilled
+1,Sober
+1,Solemn
+1,Sovereign
+1,Special
+1,Spiritual
+1,Sublime
+1,Submissive
+1,Subservient
+1,Superior
+1,Supreme
+1,Tertiary
+1,Third
+1,Transcendent
+1,Triumphant
+1,True
+1,Trusted
+1,Ultimate
+1,Unavoidable
+1,Undaunted
+1,Undeniable
+1,Unholy
+1,Unknown
+1,Unleashed
+1,Unseen
+1,Unspoiled
+1,Valiant
+1,Valorous
+1,Veiled
+1,Venerable
+1,Victorious
+1,Virtuous
+1,Wandering
+1,Wise
+1,Wonderful
+1,Worshipful
+1,Worthy
+1,Young
+
+;title
+1,Abbot
+1,Accensor
+1,Acolyte
+1,Adept
+1,Adherent
+1,Administrator
+1,Advisor
+1,Agent
+1,Alchemist
+1,Alderman
+1,Almoner
+1,Ambassador
+1,Anchorite
+1,Angel
+1,Apostle
+1,Apprentice
+1,Architect
+1,Armiger
+1,Artisan
+1,Ascendant
+1,Aspirant
+1,Assassin
+1,Astronomer
+1,Attendant
+1,Avenger
+1,Bailiff
+1,Balladeer
+1,Banneret
+1,Bard
+1,Baron
+1,Baronet
+1,Beggar
+1,Bishop
+1,Brahmin
+1,Brother
+1,Builder
+1,Burgrave
+1,Caliph
+1,Called One
+1,Cantor
+1,Captain
+1,Cardinal
+1,Cartographer
+1,Catchpoll
+1,Catechist
+1,Cavalier
+1,Celebrant
+1,Cenobite
+1,Centurion
+1,Chamberlain
+1,Champion
+1,Chancellor
+1,Chanter
+1,Chaplain
+1,Chevalier
+1,Child
+1,Chosen One
+1,Commander
+1,Companion
+1,Concealer
+1,Confidant
+1,Confirmand
+1,Conqueror
+1,Consecrator
+1,Consul
+1,Consigliere
+1,Constable
+1,Councilor
+1,Count
+1,Courier
+1,Crafter
+1,Cultivator
+1,Curate
+1,Daimyo
+1,Dean
+1,Defender
+1,Despot
+1,Devotee
+1,Diabolist
+1,Diarch
+1,Dictator
+1,Diplomat
+1,Disciple
+1,Discoverer
+1,Dragon
+1,Drapier
+1,Dreamthief
+1,Druid
+1,Duke
+1,Eagle
+1,Ealdorman
+1,Earl
+1,Elect
+1,Elector
+1,Eminence
+1,Emir
+1,Emissary
+1,Emperor
+1,Envoy
+1,Eremite
+1,Exchequer
+1,Executioner
+1,Exorcist
+1,Factotum
+1,Familiar
+1,Famulus
+1,Father
+1,Follower
+1,Foreman
+1,Fortune Teller
+1,Friend
+1,Fury
+1,Gatekeeper
+1,Genii
+1,Governor
+1,Guard
+1,Guardian
+1,Guardsman
+1,Guide
+1,Guildmaster
+1,Guru
+1,Hammer
+1,Hand
+1,Headman
+1,Heir
+1,Herald
+1,Holiness
+1,Hospitaler
+1,Hunter
+1,Hydra
+1,Incarnation
+1,Inheritor
+1,Initiate
+1,Inquisitor
+1,Inspector
+1,Inspector General
+1,Installator
+1,Instructor
+1,Interpreter
+1,Judge
+1,Juggernaut
+1,Justicar
+1,Justice
+1,Keeper
+1,Keymaster
+1,Khan
+1,Knight
+1,Knight-Bachelor
+1,Knight-Errant
+1,Lady
+1,Leader
+1,Legate
+1,Legionnaire
+1,Liaison
+1,Librarian
+1,Lion
+1,Lord
+1,Lorekeeper
+1,Magi
+1,Magister
+1,Magistrate
+1,Magus
+1,Maharajah
+1,Majesty
+1,Malik
+1,Man-at-Arms
+1,Marquis
+1,Marshal
+1,Martyr
+2,Master
+1,Mentor
+1,Messenger
+1,Minion
+1,Minister
+1,Missionary
+1,Minstrel
+1,Monarch
+1,Monitor
+1,Monk
+1,Mourner
+1,Muse
+1,Nabob
+1,Négociant
+1,Necromancer
+1,Neophyte
+1,Noble
+1,Novice
+1,Officer
+1,Opheliac
+1,Overlord
+1,Overseer
+1,Palatine
+1,Pasha
+1,Pathfinder
+1,Patriarch
+1,Pentarch
+1,Philosopher
+1,Pillar
+1,Pilot
+1,Plenipotentiary
+1,Pontiff
+1,Postulant
+1,Potentate
+1,Praetor
+1,Precursor
+1,Prefect
+1,Preparator
+1,Preparer
+1,Presbyter
+1,Preserver
+1,Priest
+1,Prince
+1,Prince Brahmin
+1,Prior
+1,Prisoner
+1,Professor
+1,Prophet
+1,Protector
+1,Provost
+1,Pupil
+1,Quartermaster
+1,Queen
+1,Questor
+1,Rajah
+1,Raven
+1,Reagent
+1,Refectorian
+1,Regent
+1,Regulator General
+1,Revelator
+1,Runemaster
+1,Runebearer
+1,Sacristan
+1,Sage
+1,Samurai
+1,Savant
+1,Scholar
+1,Scribe
+1,Scriptorian
+1,Secretary
+1,Seer
+1,Seneschal
+1,Sentinel
+1,Sergeant-at-arms
+1,Servant
+1,Sewerjack
+1,Shah
+1,Shaper
+1,Sheikh
+1,Shepherd
+1,Sheriff
+1,Skald
+1,Slave
+1,Sojourner
+1,Soldier
+1,Son
+1,Sorcerer
+1,Sovereign
+1,Spawn
+1,Spiritguide
+1,Spiritualist
+1,Squire
+1,Standard Bearer
+1,Steward
+1,Storykeeper
+1,Student
+1,Sultan
+1,Sword
+1,Swordmaster
+1,Tactician
+1,Taleteller
+1,Teacher
+1,Templar
+1,Tenebriate
+1,Tetrarch
+1,Thrall
+1,Titan
+1,Torchbearer
+1,Traveler
+1,Treasurer
+1,Tribune
+1,Troubadour
+1,Tsar
+1,Tyrant
+1,Underling
+1,Viceroy
+1,Virgin
+1,Viscount
+1,Vizier
+1,Wanderer
+1,Warchanter
+1,Warden
+1,Warder
+1,Warlock
+1,Warlord
+1,Warrior
+1,Watcher
+1,Waykeeper
+1,Wazeer
+1,Wazir
+1,Witch
+1,Wizard
+
+;secret society adjective
+1,Abyssal
+1,Alchemical
+1,Ancient
+1,Arcane
+1,Archaic
+1,Argent
+1,Ashen
+1,Astral
+1,Attentive
+1,Awakened
+1,Azure
+1,Barren
+1,Bearded
+1,Beautiful
+1,Bitter
+1,Black
+1,Blasphemous
+1,Blessed
+1,Blind
+1,Bloody
+1,Blue
+1,Brazen
+1,Bright
+1,Brilliant
+1,Burning
+1,Cadaverous
+1,Calm
+1,Ceaseless
+1,Celestial
+1,Celestine
+1,Changing
+1,Chivalric
+1,Chosen
+1,Chthonic
+1,Clerical
+1,Common
+1,Concealed
+1,Concordant
+1,Conquering
+1,Consecrated
+1,Copper
+1,Corrupted
+1,Corpulent
+1,Creeping
+1,Crimson
+1,Crouching
+1,Crystalline
+1,Cursed
+1,Cyclopean
+1,Dark
+1,Dauntless
+1,Dedicated
+1,Deep
+1,Desolate
+1,Devoted
+1,Diamond
+1,Dissident
+1,Divided
+1,Divine
+1,Dormant
+1,Dread
+1,Drunken
+1,Dynastic
+1,Easterly
+1,Eastern
+1,Ebony
+1,Eighth
+1,Elder
+1,Eldritch
+1,Elemental
+1,Elite
+1,Emerald
+1,Enchanted
+1,Endless
+1,Enlightened
+1,Essential
+1,Eternal
+1,Ethereal
+1,Exalted
+1,Faithless
+1,Falling
+1,Fiery
+1,Fifth
+1,Final
+1,First
+1,Flaming
+1,Flashing
+1,Flawless
+1,Flowering
+1,Flowing
+1,Forbidden
+1,Forgotten
+1,Forsworn
+1,Fourth
+1,Frozen
+1,Fundamental
+1,Furious
+1,Glorious
+1,Golden
+1,Grand
+1,Great
+1,Green
+1,Grey
+1,Grotesque
+1,Growing
+1,Guiding
+1,Hallowed
+1,Heavenly
+1,Hidden
+1,Holy
+1,Illuminated
+1,Illustrious
+1,Imminent
+1,Immortal
+1,Immovable
+1,Imperial
+1,Incommunicable
+1,Incomprehensible
+1,Independent
+1,Inestimable
+1,Inexplicable
+1,Infernal
+1,Inner
+1,Innocent
+1,Inscrutable
+1,Insidious
+1,Invisible
+1,Iron
+1,Ivory
+1,Knightly
+1,Last
+1,Laughing
+1,Leaping
+1,Lonely
+1,Lost
+1,Loyal
+1,Mad
+1,Magical
+1,Magnificent
+1,Military
+1,Monastic
+1,Mysterious
+1,Mystic
+1,Naked
+1,New
+1,Noble
+1,Northern
+1,Obscure
+1,Occult
+1,Octal
+1,Only True
+1,Ordered
+1,Outer
+1,Pale
+1,Pallid
+1,Peaceful
+1,Penultimate
+1,Perfect
+1,Pestilential
+1,Priestly
+1,Primary
+1,Primeval
+1,Profane
+1,Profound
+1,Prophetic
+1,Psionic
+1,Purple
+1,Quartal
+1,Quintal
+1,Radiant
+1,Red
+1,Reverent
+1,Rising
+1,Rosy
+1,Royal
+1,Ruby
+1,Sacred
+1,Sapphire
+1,Scarlet
+1,Second
+1,Secret
+1,Septimal
+1,Serene
+1,Serpentine
+1,Seventh
+1,Sextal
+1,Shattered
+1,Shining
+1,Silent
+1,Silver
+1,Sixth
+1,Sleeping
+1,Sorcerous
+1,Southern
+1,Sovereign
+1,Squamous
+1,Stygian
+1,Sublime
+1,Subtle
+1,Supreme
+1,Swirling
+1,Sylvan
+1,Tattooed
+1,Telestial
+1,Telestic
+1,Tenebrous
+1,Terrestial
+1,Tertiary
+1,Third
+1,Thorny
+1,Twisted
+1,Ultimate
+1,Undiscovered
+1,Undying
+1,Unending
+1,Unfathomable
+1,United
+1,Unknown
+1,Unseen
+1,Unspeakable
+1,Untamed
+1,Unutterable
+1,Veiled
+1,Venerable
+1,Vengeful
+1,Venomous
+1,Verdant
+1,Vespertine
+1,Vile
+1,Wandering
+1,Western
+1,White
+1,Wild
+1,Wise
+1,Withered
+1,Wonderful
+
+;organisation name
+8,[title]s
+3,Order
+2,Alliance
+2,Association
+2,Brotherhood
+2,Circle
+2,Community
+2,Company
+2,Council
+2,Fellowship
+2,Followers
+2,Fraternity
+2,Guardians
+2,Keepers
+2,Knights
+2,League
+2,Seekers
+2,Society
+1,Adherents
+1,Affiliate
+1,Affinity
+1,Army
+1,Assemblage
+1,Band
+1,Brethren
+1,Brigade
+1,Brothers
+1,Builders
+1,Cadre
+1,Camarilla
+1,Clan
+1,Coalition
+1,Collective
+1,College
+1,Column
+1,Comradeship
+1,Confederacy
+1,Congress
+1,Consortium
+1,Corps
+1,Corporation
+1,Coterie
+1,Court
+1,Coven
+1,Covey
+1,Cult
+1,Daughters
+1,Devotees
+1,Disciples
+1,Family
+1,Fathers
+1,Folk
+1,Guild
+1,High Council
+1,Horde
+1,House
+1,Kinfolk
+1,Kinship
+1,Men
+1,Militia
+1,Ministry
+1,Mutuality
+1,Parliament
+1,Patrons
+1,Phalanx
+1,Preservers
+1,Quorum
+1,Regiment
+1,School
+1,Servants
+1,Sisterhood
+1,Sisters
+1,Sodality
+1,Sorority
+1,Students
+1,Supporters
+1,Swarm
+1,Syndicate
+1,Templars
+1,Union
+
+;adjective
+1,Abyssal
+1,Alchemical
+1,All-Seeing
+1,Ancient
+1,Arcane
+1,Archaic
+1,Argent
+1,Astral
+1,Awakened
+1,Axiomatic
+1,Azure
+1,Barren
+1,Bearded
+1,Beautiful
+1,Bitter
+1,Black
+1,Bleeding
+1,Blessed
+1,Blind
+1,Bloodthirsty
+1,Blue
+1,Boreal
+1,Brazen
+1,Bright
+1,Brilliant
+1,Brown
+1,Burning
+1,Calm
+1,Ceaseless
+1,Celestial
+1,Celestine
+1,Changing
+1,Chosen
+1,Chthonic
+1,Common
+1,Concealed
+1,Concordant
+1,Conquering
+1,Consecrated
+1,Copper
+1,Corrupted
+1,Courtly
+1,Creeping
+1,Crimson
+1,Crippled
+1,Crouching
+1,Cruel
+1,Cursed
+1,Damned
+1,Dark
+1,Dauntless
+1,Dead
+1,Debonaire
+1,Dedicated
+1,Deep
+1,Demonic
+1,Desolate
+1,Diabolical
+1,Diamond
+1,Disinherited
+1,Dismal
+1,Divided
+1,Divine
+1,Dormant
+1,Draconic
+1,Dread
+1,Drowned
+1,Drunken
+1,Ducal
+1,Dying
+1,Dynastic
+1,Easterly
+1,Ebony
+1,Eighth
+1,Elder
+1,Eldritch
+1,Elegiac
+1,Elemental
+1,Emerald
+1,Enchanted
+1,Endless
+1,Enduring
+1,Enlightened
+1,Ephemeral
+1,Essential
+1,Eternal
+1,Ethereal
+1,Everlasting
+1,Exalted
+1,Extraordinary
+1,Faceless
+1,Faithless
+1,Falling
+1,Fiendish
+1,Fiery
+1,Fifth
+1,Final
+1,First
+1,Flaming
+1,Flashing
+1,Flawless
+1,Flowering
+1,Flowing
+1,Forbidden
+1,Forgotten
+1,Forsaken
+1,Foul
+1,Fourth
+1,Frozen
+1,Fundamental
+1,Furious
+1,Gargantuan
+1,Gentle
+1,Glorious
+1,Golden
+1,Great
+1,Green
+1,Grey
+1,Growing
+1,Guiding
+1,Hallowed
+1,Heavenly
+1,Hidden
+1,Holy
+1,Horned
+1,Illuminated
+1,Illustrious
+1,Imminent
+1,Immortal
+1,Immovable
+1,Imperial
+1,Incommunicable
+1,Incomprehensible
+1,Incorruptible
+1,Indefinite
+1,Inestimable
+1,Inexorable
+1,Inexplicable
+1,Infernal
+1,Infinite
+1,Inner
+1,Innocent
+1,Inscrutable
+1,Insidious
+1,Interminable
+1,Invisible
+1,Iron
+1,Ivory
+1,Last
+1,Laughing
+1,Leaping
+1,Lonely
+1,Lost
+1,Lucky
+1,Lunar
+1,Luxurious
+1,Magnificent
+1,Metamorphic
+1,Momentary
+1,Mysterious
+1,Mystic
+1,Naked
+1,New
+1,Noble
+1,Northern
+1,Obscure
+1,Obsidian
+1,Occluded
+1,Occult
+1,Octal
+1,Omnipotent
+1,Only True
+1,Oracular
+1,Orange
+1,Ordered
+1,Outer
+1,Pale
+1,Peaceful
+1,Penultimate
+1,Perfect
+1,Perpetual
+1,Primary
+1,Primeval
+1,Primordial
+1,Prismatic
+1,Profane
+1,Profound
+1,Prophesied
+1,Prophetic
+1,Psionic
+1,Purple
+1,Quartal
+1,Quintal
+1,Radiant
+1,Reborn
+1,Red
+1,Retrieved
+1,Rising
+1,Rosy
+1,Rotting
+1,Royal
+1,Ruby
+1,Sacred
+1,Sapphire
+1,Scarlet
+1,Second
+1,Secret
+1,Septimal
+1,Sepulchral
+1,Serene
+1,Serpentine
+1,Seventh
+1,Sextal
+1,Shadowy
+1,Shattered
+1,Shining
+1,Silent
+1,Silver
+1,Sixth
+1,Sleeping
+1,Somber
+1,Southern
+1,Sovereign
+1,Stolen
+1,Stygian
+1,Sublime
+1,Subterranean
+1,Subtle
+1,Suitable
+1,Supreme
+1,Swirling
+1,Sylvan
+1,Telestial
+1,Telestic
+1,Tentacled
+1,Terrestrial
+1,Tertiary
+1,Third
+1,Thorny
+1,Tidal
+1,Transient
+1,Transparent
+1,Twisted
+1,Ultimate
+1,Uncaring
+1,Undiscovered
+1,Undying
+1,Unending
+1,Unfathomable
+1,Unholy
+1,Unknown
+1,Unlucky
+1,Unseen
+1,Unspeakable
+1,Untamed
+1,Valiant
+1,Veiled
+1,Venerable
+1,Vengeful
+1,Venomous
+1,Verdant
+1,Vespertine
+1,Vile
+1,Wandering
+1,Waning
+1,Western
+1,White
+1,Wild
+1,Wise
+1,Withered
+1,Wonderful
+1,Wounded
+
+# 50% regular plural
+;s
+1,
+1,s
+
+# 50% irregular plural with es
+;es
+1,
+1,es
+
+# 50% irregular plural with y and ies
+;y
+1,y
+1,ies
+
+;noun
+202,[regular noun][s]
+
+1,Complex[es]
+1,Cross[es]
+1,Fortress[es]
+1,Grotto[es]
+1,Phoenix[es]
+1,Sphinx[es]
+1,Vortex[es]
+
+1,Academ[y]
+1,Arm[y]
+1,Ceremon[y]
+1,Cit[y]
+1,Compan[y]
+1,Countr[y]
+1,Destin[y]
+1,Eternit[y]
+1,Fraternit[y]
+1,Glor[y]
+1,Histor[y]
+1,Merc[y]
+1,Myster[y]
+1,Nobilit[y]
+1,Prophec[y]
+1,Sk[y]
+1,Societ[y]
+1,Stor[y]
+1,Victor[y]
+
+# don’t pluralize
+1,Aeons
+1,Air
+1,Aurora
+1,Awareness
+1,Balance
+1,Chaos
+1,Children
+1,Command
+1,Consciousness
+1,Court
+1,Court of Honour
+1,Darkness
+1,Deep
+1,Doom
+1,Ether
+1,Gentlemen
+1,Geste
+1,Honour
+1,Keep
+1,Leviathan
+1,Life
+1,Light
+1,Love
+1,Magic
+1,Mantis
+1,Men
+1,Might
+1,Opposition
+1,People
+1,Redemption
+1,Salvation
+1,Snows
+1,Solace
+1,South
+1,Spring
+1,Stillness
+1,Sun
+1,Turmoil
+1,Understanding
+1,Vale
+1,Wings
+1,Wisdom
+1,Wolf
+1,Work
+
+;regular noun
+1,Altar
+1,Anchor
+1,Answer
+1,Ark
+1,Art
+1,Artifact
+1,Autumn
+1,Axe
+1,Band
+1,Banner
+1,Bear
+1,Beast
+1,Birth
+1,Blade
+1,Bloodline
+1,Book
+1,Bow
+1,Brigade
+1,Brotherhood
+1,Cabal
+1,Castle
+1,Catacomb
+1,Cauldron
+1,Cavern
+1,Chalice
+1,Choice
+1,Chrysanthemum
+1,Circle
+1,Cloud
+1,College
+1,Comet
+1,Coven
+1,Craft
+1,Crown
+1,Crypt
+1,Cup
+1,Dance
+1,Dawn
+1,Death
+1,Deed
+1,Degree
+1,Depth
+1,Desert
+1,Desire
+1,Directive
+1,Dominion
+1,Dragon
+1,Dream
+1,Dungeon
+1,Eagle
+1,Earth
+1,Element
+1,Elite
+1,Elk
+1,Empire
+1,Enigma
+1,Evening
+1,Eye
+1,Falcon
+1,Fire
+1,Fist
+1,Forest
+1,Form
+1,Game
+1,Garter
+1,Gate
+1,Goblet
+1,God
+1,Grove
+1,Hammer
+1,Hand
+1,Harp
+1,Harvest
+1,Haven
+1,Hawk
+1,Heart
+1,Heaven
+1,Heir
+1,Helm
+1,Hill
+1,Immortal
+1,Intrigue
+1,Island
+1,Isle
+1,Jungle
+1,Key
+1,King
+1,Kingdom
+1,Knowledge
+1,Labyrinth
+1,Law
+1,Legend
+1,Lion
+1,Lizard
+1,Lute
+1,Maelstrom
+1,Maiden
+1,Master
+1,Meditation
+1,Mind
+1,Mirage
+1,Missive
+1,Mist
+1,Monkey
+1,Moon
+1,Morning
+1,Mother
+1,Mountain
+1,Name
+1,Nation
+1,Night
+1,Note
+1,Ocean
+1,Oracle
+1,Orb
+1,Order
+1,Pantheon
+1,Passage
+1,Path
+1,Pestilence
+1,Place
+1,Plain
+1,Plane
+1,Planisphere
+1,Portal
+1,Power
+1,Prophet
+1,Province
+1,Pyramid
+1,Queen
+1,Race
+1,Raven
+1,Realm
+1,Relic
+1,Revelation
+1,Ring
+1,Rite
+1,Ritual
+1,River
+1,Road
+1,Rod
+1,Rose
+1,Rune
+1,Sand
+1,Sceptre
+1,Science
+1,Scroll
+1,Sea
+1,Secret
+1,Serpent
+1,Shadow
+1,Shield
+1,Shore
+1,Sigil
+1,Skull
+1,Snake
+1,Song
+1,Spear
+1,Sphere
+1,Spirit
+1,Staff
+1,Stance
+1,Star
+1,Stone
+1,Storm
+1,Summer
+1,Sunrise
+1,Sunset
+1,Swamp
+1,Sword
+1,Symbol
+1,Tattoo
+1,Teaching
+1,Tempest
+1,Temple
+1,Terror
+1,Testament
+1,Throne
+1,Thunderbolt
+1,Tide
+1,Tiger
+1,Tomb
+1,Tome
+1,Tower
+1,Treasure
+1,Tree
+1,Troubadour
+1,Truth
+1,Vessel
+1,Vision
+1,Void
+1,Wand
+1,War
+1,Waste
+1,Water
+1,Way
+1,Will
+1,Wind
+1,Winter
+1,World
+1,Wyrm
 
 ;power
 1,Set
@@ -5313,6 +6805,12 @@ my $line_re = qr/^(\d\d\d\d(?:-\d\d\d\d)+)\s+(\S+)/;
 
 # extra data for every hex: $extra->{"0101"}->{"type"} eq "river"
 my $extra;
+my %names;
+
+sub init {
+  %names = ();
+  $extra = undef;
+}
 
 sub parse_map {
   my $map = shift;
@@ -5434,8 +6932,6 @@ sub pick {
   return $text;
 }
 
-my %names;
-
 sub describe {
   my $map_data = shift;
   my $table_data = shift;
@@ -5458,9 +6954,12 @@ sub describe {
     } elsif ($word =~ /^name for a /) {
       # for global things like factions, dukes
       my $name = $names{$word};
+      # $log->debug("Memoized: $word is $name") if $name;
       return $name if $name;
       $name = pick($map_data, $table_data, $level, $coordinates, $word);
       next unless $name;
+      $names{$word} = $name;
+      # $log->debug("$word is $name");
       push(@descriptions, $name);
     } elsif ($word =~ /^name for (\S+)/) {
       my $key = $1; # "white" or "river"
@@ -5512,6 +7011,7 @@ sub describe_map {
   my $map_data = shift;
   my $table_data = shift;
   my %descriptions;
+  init();
   for my $coord (keys %$map_data) {
     $descriptions{$coord} = process(describe($map_data, $table_data, 1,
 					     $coord, $map_data->{$coord}));
@@ -5603,10 +7103,11 @@ sub describe_text {
   my $input = shift;
   my $table_data = shift;
   my @descriptions;
+  init();
   for my $text (split(/\r?\n/, $input)) {
-    $log->debug("replacing lookups in $text");
+    # $log->debug("replacing lookups in $text");
     $text =~ s/\[(.*?)\]/describe({},$table_data,1,"",[$1])/ge;
-    push(@descriptions, $text);
+    push(@descriptions, process($text));
   }
   return \@descriptions;
 }
