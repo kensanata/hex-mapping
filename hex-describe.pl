@@ -2598,9 +2598,7 @@ https://dwarrowscholar.wordpress.com/general-documents/female-dwarf-outer-names/
 1,a small family of [1d3+1] *bears*
 
 # http://random-generator.com/index.php?title=Orc_Tribe_Name
-# Name:Orc Tribe Name
-# Date:2006-10-14
-# By:Mike B.
+# by Mike Banks
 
 ;evil tribe
 1,[evil tribe adjective] [evil tribe body part] [evil tribe body part action] tribe
@@ -7627,6 +7625,7 @@ The default table contains material by the following people:
 <ul>
 <li><a href="https://alexschroeder.ch">Alex Schroeder</a></li>
 <li><a href="https://ropeblogi.wordpress.com/">Tommi Brander</a></li>
+<li><a href="http://random-generator.com/">Mike Banks</a></li>
 <li><a href="http://random-generator.com/">Dave Younce</a></li>
 </ul>
 
