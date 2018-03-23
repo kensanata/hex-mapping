@@ -995,7 +995,7 @@ my $default_table = q{# The default table
 1,Steep cliffs make progress practically impossible without climbing gear.
 1,Nothing but gray rocks up here in the mountains.
 1,Rising up against the sky is an old elven tower made of green glass, [green tower].
-1,On one of the rock faces you can still see the markings of an old dwarf forge [dwarf forge]. [forge ruin]
+1,On one of the rock faces you can still see the markings of the old dwarf forge [dwarf forge]. [forge ruin]
 
 ;forge ruin
 1,The ruin is abandoned and dead. If you explore the ruins, you will soon find the *balor* demon who caused its downfall. It guards a portal to the realm of eternal fire.
@@ -1239,7 +1239,7 @@ my $default_table = q{# The default table
 
 ;more mountains
 1,They are impossible to climb.
-1,These passes need a local guide to cross. [mountain people].
+1,The passes need a local guide to cross. [mountain people].
 1,A glacier fills the gap between these mountains.
 
 ;mountain people
@@ -1301,8 +1301,8 @@ my $default_table = q{# The default table
 1,father
 
 ;dwarves
-3,This is a small forge. [5d8] dwarves live and work here led by one they call [dwarf]
-1,This is a legendary forge stronghold. [5d8x10] dwarves live and work here led by one they call [dwarf] (level [1d4+8]). [3d6] families live here, each led by a clan elder (level [1d6+2])
+3,This is a small forge. [5d8] *dwarves* live and work here led by one they call [dwarf]
+1,This is a legendary forge stronghold. [5d8x10] *dwarves* live and work here led by one they call [dwarf] (level [1d4+8]). [3d6] families live here, each led by a clan elder (level [1d6+2])
 
 ;dwarf
 1,[dwarf 1] [dwarf 2a][dwarf 2b]<img src="[[redirect https://campaignwiki.org/face/redirect/alex/dwarf]]" />
@@ -3534,7 +3534,7 @@ https://dwarrowscholar.wordpress.com/general-documents/female-dwarf-outer-names/
 ;firs
 1,A few stunted firs grow in these highlands.
 1,The dry lands up here are the hunting grounds of a *manticore* called [manticore] living in the ruins of an old tower.
-1,At dusk and dawn a pack of [3d6] *wolves* through these highlands.
+1,At dusk and dawn a pack of [3d6] *wolves* roam these highlands.
 
 ;thorp
 1,There is a thorp of [1d4x10] *humans* led by one they call [human]. The [human houses] are protected by [human companions].
