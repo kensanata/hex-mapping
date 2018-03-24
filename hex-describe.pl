@@ -985,10 +985,7 @@ my $default_table = q{# The default table
 1,Wenhaf
 1,Ynyra
 
-;grey mountain
-1,[light-grey mountain]
-
-;light-grey mountain
+;mountain
 1,The green valley up here has some sheep and a *kid* called [human kid] guarding them.
 1,There is a cold pond up in this valley [cold lake].
 1,The upper valley is rocky and bare. [hill giants]
@@ -1193,6 +1190,10 @@ my $default_table = q{# The default table
 1,The gorge is wonderful and deep.
 1,Crossing the canyon requires climbing gear.
 
+;swamp river
+1,The swamp stretches in all directions and it is impossible to follow [name for river].
+1,[name for river] disappears into the swamp.
+
 ;river
 1,[name for river] flows through here.
 1,[name for river] runs through here.
@@ -1213,12 +1214,17 @@ my $default_table = q{# The default table
 1,Waters
 1,Stream
 
+;swamp trail
+1,[name for trail] is marked with cairns every now and then.
+1,[name for trail] is reduced the a few logs and rafts.
+
 ;trail
 1,[name for trail] goes through here.
 1,[name for trail] leads through here.
 
 ;name for trail
-9,[trail 1] [trail 2]
+7,[trail 1] [trail 2]
+2,Old [trail 1] [trail 2]
 1,[trail 1] [trail 1] [trail 2]
 
 ;trail 1
@@ -6817,17 +6823,7 @@ sub parse_map {
     if ($hex =~ /$hex_re/) {
       my ($x, $y, $types) = ($1, $2, $3);
       my @types = split(/ /, $types);
-      my @words;
-      for my $w1 (@types) {
-	for my $w2 (@types) {
-	  if ($w1 eq $w2) {
-	    push(@words, $w1);
-	  } else {
-	    push(@words, "$w1 $w2");
-	  }
-	}
-      }
-      $map_data->{"$x$y"} = \@words;
+      $map_data->{"$x$y"} = \@types;
     }
   }
   # Don't add data for hexes outside the map (thus, rivers and trails must come
@@ -6916,16 +6912,24 @@ sub pick {
   my $table_data = shift;
   my $level = shift;
   my $coordinates = shift;
+  my $words = shift;
   my $word = shift;
   my $text;
-  # $log->debug("looking for a $word table");
-  if ($table_data->{$word}) {
-    my $total = $table_data->{$word}->{total};
-    my $lines = $table_data->{$word}->{lines};
-    $text = pick_description($total, $lines);
-    $text =~ s/\[\[redirect (https:.*?)\]\]/resolve_redirect($1)/ge;
-    $text =~ s/\[(.*?)\]/describe($map_data,$table_data,$level+1,$coordinates,[$1])/ge;
-    # $log->debug("picked $text from $total entries");
+  # Make sure we're testing all the context combinations first. Thus, if $words
+  # is [ "mountains" white" "chaos"] and $word is "mountains", we want to test
+  # "white mountains", "cold mountains" and "mountains", in this order.
+  for my $context (grep( { $_ ne $word } @$words), $word) {
+    my $key = ($context eq $word ? $word : "$context $word");
+    $log->debug("$coordinates: looking for a $key table") if $coordinates eq "0109";
+    if ($table_data->{$key}) {
+      my $total = $table_data->{$key}->{total};
+      my $lines = $table_data->{$key}->{lines};
+      $text = pick_description($total, $lines);
+      $log->debug("$coordinates: picked $text") if $coordinates eq "0109";
+      # $text =~ s/\[\[redirect (https:.*?)\]\]/resolve_redirect($1)/ge;
+      $text =~ s/\[(.*?)\]/describe($map_data,$table_data,$level+1,$coordinates,[$1])/ge;
+      last;
+    }
   }
   return $text;
 }
@@ -6954,7 +6958,7 @@ sub describe {
       my $name = $names{$word};
       # $log->debug("Memoized: $word is $name") if $name;
       return $name if $name;
-      $name = pick($map_data, $table_data, $level, $coordinates, $word);
+      $name = pick($map_data, $table_data, $level, $coordinates, $words, $word);
       next unless $name;
       $names{$word} = $name;
       # $log->debug("$word is $name");
@@ -6966,7 +6970,7 @@ sub describe {
 	for my $line (@lines) {
 	  my $name = $line->{name};
 	  return $name if $name;
-	  $name = pick($map_data, $table_data, $level, $coordinates, $word);
+	  $name = pick($map_data, $table_data, $level, $coordinates, $words, $word);
 	  next unless $name;
 	  push(@descriptions, $name);
 	  $line->{name} = $name;
@@ -6977,13 +6981,13 @@ sub describe {
 	# regular featuers: "name for white big mountain"
 	my $name = $names{"$word: $coordinates"}; # "name for white big mountain: 0101"
 	return $name if $name;
-	$name = pick($map_data, $table_data, $level, $coordinates, $word);
+	$name = pick($map_data, $table_data, $level, $coordinates, $words, $word);
 	next unless $name;
 	push(@descriptions, $name);
 	spread_name($map_data, $coordinates, $word, $key, $name);
       }
     } else {
-      my $text = pick($map_data, $table_data, $level, $coordinates, $word);
+      my $text = pick($map_data, $table_data, $level, $coordinates, $words, $word);
       next unless $text;
       push(@descriptions, $text);
     }
@@ -7544,7 +7548,7 @@ tables:
 ;water
 ;mountains
 ;white mountain
-;light-grey mountain
+;mountain
 ;forest-hill
 ;bushes
 ;swamp
