@@ -6922,13 +6922,13 @@ sub pick {
   # "white mountains", "cold mountains" and "mountains", in this order.
   for my $context (grep( { $_ ne $word } @$words), $word) {
     my $key = ($context eq $word ? $word : "$context $word");
-    $log->debug("$coordinates: looking for a $key table") if $coordinates eq "0109";
+    # $log->debug("$coordinates: looking for a $key table") if $coordinates eq "0109";
     if ($table_data->{$key}) {
       my $total = $table_data->{$key}->{total};
       my $lines = $table_data->{$key}->{lines};
       $text = pick_description($total, $lines);
-      $log->debug("$coordinates: picked $text") if $coordinates eq "0109";
-      # $text =~ s/\[\[redirect (https:.*?)\]\]/resolve_redirect($1)/ge;
+      # $log->debug("$coordinates: picked $text") if $coordinates eq "0109";
+      $text =~ s/\[\[redirect (https:.*?)\]\]/resolve_redirect($1)/ge;
       $text =~ s/\[(.*?)\]/describe($map_data,$table_data,$level+1,$coordinates,[$1])/ge;
       last;
     }
