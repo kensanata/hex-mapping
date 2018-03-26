@@ -7683,22 +7683,11 @@ fir-forest”; instead of “hill” use “light-grey hill” and “dust hill�
 
 <p>
 Basically, the idea is that there are some regional things with names
-such as factions, dukes, and so on. In the following example, we have
-bugbears belonging to the <em>Wolf Eyes</em> tribe and I want to make
-sure that there are at most three tribes on the map, but I don’t want
-to use the same three names for every map. Thus, I need a table to
-generate bugbear band names, and there should be at most three of
+such as factions, dukes, and so on. In the following example I want to
+make sure that there are at most three tribes on the map, but I don’t
+want to use the same three names for every map. Thus, I need a table
+to generate bugbear band names, and there should be at most three of
 them.
-</p>
-
-<blockquote>
-<strong>0302</strong>: Hiding between the trees are watchful eyes in
-the service of the elves underground, 6 <strong>bugbears</strong> led
-by one they call Silent Paws belonging to the Wolf Eyes band.
-</blockquote>
-
-<p>
-Here’s how to set it up:
 </p>
 
 %= example begin
