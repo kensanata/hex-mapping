@@ -6837,10 +6837,11 @@ sub parse_map {
 	next unless $map_data->{$coord};
 	# add river or trail to the hex description
 	unless (grep { $_ eq $type } @{$map_data->{$coord}}) {
+	  # this prevents the duplication of types in a hex
 	  # $log->debug("Adding $type to $coord");
 	  push(@{$map_data->{$coord}}, $type);
 	}
-	# all river hexes share this hash and each hex can have multiple rivers;
+	# all river hexes share this hash and each hex can have a river, a trail, a canyon, etc.
 	push(@{$extra->{$coord}}, \%data);
       }
     }
@@ -6966,12 +6967,17 @@ sub describe {
       push(@descriptions, $name);
     } elsif ($word =~ /^name for (\S+)/) {
       my $key = $1; # "white" or "river"
+      # $log->debug("Looking at $key for $coordinates...");
       if (my @lines = grep { $_->{type} eq $key } @{$extra->{$coordinates}}) {
 	# for rivers and the like: "name for river"
 	for my $line (@lines) {
+	  # $log->debug("Looking at $word for $coordinates...");
 	  my $name = $line->{name};
+	  # $log->debug("... we already have a name: $name") if $name;
+	  # if a type appears twice for a hex, this returns the same name for all of them
 	  return $name if $name;
 	  $name = pick($map_data, $table_data, $level, $coordinates, $words, $word);
+	  # $log->debug("... we picked a new name: $name") if $name;
 	  next unless $name;
 	  push(@descriptions, $name);
 	  $line->{name} = $name;
@@ -7014,7 +7020,6 @@ sub describe_map {
   my $map_data = shift;
   my $table_data = shift;
   my %descriptions;
-  init();
   for my $coord (keys %$map_data) {
     $descriptions{$coord} = process(describe($map_data, $table_data, 1,
 					     $coord, $map_data->{$coord}));
@@ -7106,7 +7111,6 @@ sub describe_text {
   my $input = shift;
   my $table_data = shift;
   my @descriptions;
-  init();
   for my $text (split(/\r?\n/, $input)) {
     # $log->debug("replacing lookups in $text");
     $text =~ s/\[(.*?)\]/describe({},$table_data,1,"",[$1])/ge;
@@ -7161,6 +7165,7 @@ any '/describe' => sub {
   $table = get_data($url) if $url;
   $table ||= $c->param('table');
   $table ||= $default_table;
+  init();
   $c->render(template => 'description',
 	     svg => $svg,
 	     descriptions => describe_map(
@@ -7184,6 +7189,7 @@ any '/describe/text' => sub {
   $table = get_data($url) if $url;
   $table ||= $c->param('table');
   $table ||= $default_table;
+  init();
   $c->render(template => 'text',
 	     descriptions => describe_text($input, parse_table($table)));
 };
