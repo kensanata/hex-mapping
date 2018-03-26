@@ -7740,7 +7740,7 @@ band1-3” are eventually determined.
 <h2>Naming Features</h2>
 
 <p>
-Rivers, trails, canyons, mountains, swamps, forests -- all these
+Rivers, trails, canyons, mountains, swamps, forests – all these
 things which can stretch over more than one hex can have a name. This
 is done by attaching the name to a feature of the hex. Every
 neighbouring hex having the same feature also gets this name. Once
