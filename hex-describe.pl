@@ -7334,7 +7334,7 @@ page is my attempt at writing a tutorial.
 
 <p>
 First, let’s talk about random tables to generate text. <a class="url
-http outside" href="http://random-generator.com/">Abufalia</a> uses
+http outside" href="http://random-generator.com/">Abulafia</a> uses
 the following format:
 </p>
 
