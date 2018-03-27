@@ -1215,6 +1215,9 @@ my $default_table = q{# The default table
 1,Waters
 1,Stream
 
+;river merge
+1,[names for river] merge here.
+
 ;swamp trail
 1,[name for trail] is marked with cairns every now and then.
 1,[name for trail] is reduced the a few logs and rafts.
@@ -6835,11 +6838,12 @@ sub parse_map {
       my %data = (type => $type);
       for my $coord (compute_missing_points(split(/-/, $line))) {
 	next unless $map_data->{$coord};
-	# add river or trail to the hex description
-	unless (grep { $_ eq $type } @{$map_data->{$coord}}) {
-	  # this prevents the duplication of types in a hex
-	  # $log->debug("Adding $type to $coord");
+	# add river or trail to the hex description, or add the special word
+	# 'merge' to the description
+	if (not grep { $_ eq $type } @{$map_data->{$coord}}) {
 	  push(@{$map_data->{$coord}}, $type);
+	} elsif (not grep { $_ eq 'merge' } @{$map_data->{$coord}}) {
+	  push(@{$map_data->{$coord}}, 'merge');
 	}
 	# all river hexes share this hash and each hex can have a river, a trail, a canyon, etc.
 	push(@{$extra->{$coord}}, \%data);
@@ -6872,6 +6876,7 @@ sub parse_table {
       for my $subtable ($line->{text} =~ /\[([^\[\]\n]*?)\]/g) {
 	next if $subtable =~ /$dice_re/;
 	next if $subtable =~ /^redirect https?:/;
+	next if $subtable =~ /names for (.*)/ and $data->{"name for $1"};
 	$log->error("Error in table $table: subtable $subtable is missing")
 	    unless $data->{$subtable};
       }
@@ -6965,6 +6970,31 @@ sub describe {
       $names{$word} = $name;
       # $log->debug("$word is $name");
       push(@descriptions, $name);
+    } elsif ($word =~ /^names for (\S+)/) {
+      my $key = $1; # "river"
+      $log->debug("Looking at $key for $coordinates...");
+      if (my @lines = grep { $_->{type} eq $key } @{$extra->{$coordinates}}) {
+	$log->debug("...@lines");
+	# make sure all the lines (rivers, trails) are named
+	my @names = ();
+	for my $line (@lines) {
+	  my $name = $line->{name};
+	  if (not $name) {
+	    $name ||= pick($map_data, $table_data, $level, $coordinates, $words, "name for $key");
+	    $line->{name} = $name;
+	  }
+	  push(@names, $name);
+	}
+	my $list;
+	if (@names > 2) {
+	  $list = join(", ", @names[0 .. $#names-1], "and " . $names[-1]);
+	} else {
+	  $list = join(" and ", @names);
+	}
+	$log->error("$coordinates uses merging rule without names") unless $list;
+	next unless $list;
+	push(@descriptions, $list);
+      }
     } elsif ($word =~ /^name for (\S+)/) {
       my $key = $1; # "white" or "river"
       # $log->debug("Looking at $key for $coordinates...");
