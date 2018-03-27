@@ -1200,20 +1200,39 @@ my $default_table = q{# The default table
 1,[name for river] runs through here.
 
 ;name for river
-1,[river 1] [river 2]
+5,[river 1] [river 2]
+1,[river 1] [old name]'s [river 2]
+1,[river 1] [halfling name]'s [river 2]
 
 ;river 1
-1,Old
-1,Long
-1,Deep
-1,Cold
-1,Green
+1,Battle
+1,Black
+1,Blood
+1,Blue
+1,Bone
 1,Brown
+1,Cold
+1,Deep
+1,Green
+1,Long
+1,Loud
+1,Old
+1,Red
+1,War
 
 ;river 2
+1,Brook
+1,Brooklet
+1,Channel
 1,Creek
 1,Waters
+1,Rill
+1,Rindle
+1,Rivulet
+1,Run
+1,Runnel
 1,Stream
+1,Streamlet
 
 ;river-merge
 1,[names for river] merge here.
@@ -2842,13 +2861,33 @@ https://dwarrowscholar.wordpress.com/general-documents/female-dwarf-outer-names/
 ;bushes
 1,Badlands full of shrubs and wild hedges.
 1,Dry lands full of tumbleweed and thorn bushes.
-1,A well hidden hamlet of [5d8] *halflings* led by one they call [halfling leader].
+1,Hidden between some hills is a valley apparently full of thorn bushes. There is a well hidden hamlet of [5d8] *halflings* led by one they call [halfling leader].
 1,An old fort overlooking the woods has been taken over by a war party of [4d6] *hobgoblins* led by [hobgoblin] (HD 3+1). The fort is defended by [hobgoblin companions].
 1,An abandoned watchtower on a promontory overlooking the drylands is home to [4d6] *hobgoblins* led by [hobgoblin] (HD 3+1). The approach is guarded by [hobgoblin companions].
 1,A massive fortress built by giants long ago is home to [1d6x10] *orcs* of the [evil tribe], led by one they call [orc leader]. The fortress is [orc fort].
-1,Beneath these badlands is a cavesystem including an underground river.
+1,There are caves beneath these badlands. [caves]
 1,The dry lands up here are the hunting grounds of a *manticore* called [manticore] living in the ruins of an old tower.
 1,A *green dragon* named [green dragon name] lives at [hill name], one of the hills overlooking these shrublands.
+
+;caves
+1,[cave use] [goblins]
+1,[cave use] [orcs]
+1,[cave use] [1d4 bears]
+1,[cave use] They are inhavited by [1d8 trolls].
+1,[cave use]. They have been abandoned a long time ago.
+
+;orcs
+1,Signs of the [evil tribe] abound. [1d6x10] *orcs* led by one they call [orc leader] live here.
+
+;cave use
+1,The caves used to be an old mine.
+1,The caves were dug by underground waters ages ago. Old wall paintings can be found.
+1,Cold lava tunnels lead into a big cavern, the heart of an old vulcano.
+1,The caves are deep pits that lead into the veins of the earth.
+1,The ominous caves radiate the mutating magic of earth blood.
+1,The strange caves look like an underground city built by the ancients.
+1,In these caves you can still find the ancient vats of an abandoned vivimancer lab.
+1,The caves are an ancient burial complex. There are thousands of dessicated corpses down here.
 
 ;hobgoblin
 1,[hobgoblin 1] of [hobgoblin 2]
