@@ -1215,7 +1215,7 @@ my $default_table = q{# The default table
 1,Waters
 1,Stream
 
-;river merge
+;river-merge
 1,[names for river] merge here.
 
 ;swamp trail
@@ -6830,24 +6830,60 @@ sub parse_map {
       $map_data->{"$x$y"} = \@types;
     }
   }
-  # Don't add data for hexes outside the map (thus, rivers and trails must come
-  # at the end).
+  my @lines;
   for my $hex (split(/\r?\n/, $map)) {
     if ($hex =~ /$line_re/) {
       my ($line, $type) = ($1, $2);
-      my %data = (type => $type);
-      for my $coord (compute_missing_points(split(/-/, $line))) {
-	next unless $map_data->{$coord};
-	# add river or trail to the hex description, or add the special word
-	# 'merge' to the description
+      my @points = compute_missing_points(split(/-/, $line));
+      push(@lines, [$type, @points]);
+      
+    }
+  }
+  # longest rivers first
+  @lines = sort { @$b <=> @$a } @lines;
+  # for my $line (@lines) {
+  #   $log->debug("@$line");
+  # }
+  for my $line (@lines) {
+    my $type = shift(@$line);
+    my %data = (type => $type);
+    my $start = 1;
+    for my $coord (@$line) {
+      # $log->debug("$coord");
+      # Don't add data for hexes outside the map (thus, rivers and trails must
+      # come at the end).
+      last unless $map_data->{$coord};
+      # add river or trail to the hex description, add "$type-start" if the
+      # first one, or add "$type-merge" when running into an existing one
+      my $merged;
+      if ($start) {
+	if (grep { $_ eq $type } @{$map_data->{$coord}}) {
+	  # don't note a start in an existing river
+	  # $log->debug("Skipping $type start at $coord");
+	  last;
+	} else {
+	  push(@{$map_data->{$coord}}, $type, "$type-start");
+	  $start = 0;
+	  # $log->debug("$type start at $coord");
+	}
+      } else {
 	if (not grep { $_ eq $type } @{$map_data->{$coord}}) {
 	  push(@{$map_data->{$coord}}, $type);
-	} elsif (not grep { $_ eq 'merge' } @{$map_data->{$coord}}) {
-	  push(@{$map_data->{$coord}}, 'merge');
+	  # $log->debug("...$type leading into $coord");
+	} elsif (not grep { $_ eq "$type-merge" } @{$map_data->{$coord}}) {
+	  push(@{$map_data->{$coord}}, "$type-merge");
+	  $merged = 1;
+	  # $log->debug("...merging into $type at $coord");
+	} else {
+	  $merged = 1;
+	  # $log->debug("...merged with other $type at $coord");
 	}
-	# all river hexes share this hash and each hex can have a river, a trail, a canyon, etc.
-	push(@{$extra->{$coord}}, \%data);
       }
+      # all river hexes share this hash and each hex can have a river, a
+      # trail, a canyon, etc.
+      push(@{$extra->{$coord}}, \%data);
+      # if a river merges into another, don't add any hexes downriver
+      last if $merged;
     }
   }
   return $map_data;
@@ -6972,9 +7008,9 @@ sub describe {
       push(@descriptions, $name);
     } elsif ($word =~ /^names for (\S+)/) {
       my $key = $1; # "river"
-      $log->debug("Looking at $key for $coordinates...");
+      # $log->debug("Looking at $key for $coordinates...");
       if (my @lines = grep { $_->{type} eq $key } @{$extra->{$coordinates}}) {
-	$log->debug("...@lines");
+	# $log->debug("...@lines");
 	# make sure all the lines (rivers, trails) are named
 	my @names = ();
 	for my $line (@lines) {
@@ -6988,8 +7024,11 @@ sub describe {
 	my $list;
 	if (@names > 2) {
 	  $list = join(", ", @names[0 .. $#names-1], "and " . $names[-1]);
-	} else {
+	} elsif (@names == 2) {
 	  $list = join(" and ", @names);
+	} else {
+	  $log->error("$coordinates has merge but just one line (@lines)");
+	  $list = shift(@names);
 	}
 	$log->error("$coordinates uses merging rule without names") unless $list;
 	next unless $list;
