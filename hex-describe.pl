@@ -2907,9 +2907,12 @@ https://dwarrowscholar.wordpress.com/general-documents/female-dwarf-outer-names/
 1,On one of the hills you find an old watchtower. [tower inhabitant]
 
 ;tower inhabitant
-1,In this tower lives the *[magic user]* [human] (level [1d3+4]).
+1,In this tower lives the *necromancer* [human] (level [1d3+4]), protected by his [4d6] *zombies*.
+1,In this tower lives the *vivimancer* [human] (level [1d3+4]), protected by [3d6] *mykonids*.
 1,Here lives the *hermit* [human] (level 1).
-1,Here lives the *hermit* halfling [halfling] (level 1).
+1,Here lives the *hermit* [human] (level 1) and a *puma*.
+1,Here lives the *hermit* [human] (level 1) and a *jaguar*.
+1,Here lives the *hermit* halfling [halfling] (level 1) with some sheep.
 
 ;some time ago
 1,[1d6] days ago
@@ -3633,9 +3636,14 @@ https://dwarrowscholar.wordpress.com/general-documents/female-dwarf-outer-names/
 1,Grey
 
 ;firs
+1,[fir highlands] The land up here is the hunting ground of a *manticore* called [manticore] living in the ruins of an old tower overlooking the area.
+1,[fir highlands] At dusk and dawn a pack of [3d6] *wolves* roam these lands.
+
+;fir highlands
 1,A few stunted firs grow in these highlands.
-1,The dry lands up here are the hunting grounds of a *manticore* called [manticore] living in the ruins of an old tower.
-1,At dusk and dawn a pack of [3d6] *wolves* roam these highlands.
+1,It's colder up here and the forest is dominated by firs.
+1,The firs cast long shadows in these lands.
+1,The forest is cold and dark, full of firs.
 
 ;thorp
 1,There is a thorp of [1d4x10] *humans* led by one they call [human]. The [human houses] are protected by [human companions].
