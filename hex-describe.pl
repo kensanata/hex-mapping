@@ -1195,6 +1195,13 @@ my $default_table = q{# The default table
 1,The swamp stretches in all directions and it is impossible to follow [name for river].
 1,[name for river] disappears into the swamp.
 
+;river-start river
+1,This where the spring of [name for river] is.
+1,[name for river] starts here.
+1,The spring of [name for river] is a small pond beneath some trees.
+1,The spring of [name for river] can be found between some boulders.
+1,At the foot of a small hill, [name for river] makes its appearance.
+
 ;river
 1,[name for river] flows through here.
 1,[name for river] runs through here.
@@ -2859,9 +2866,9 @@ https://dwarrowscholar.wordpress.com/general-documents/female-dwarf-outer-names/
 1,[bushes]
 
 ;bushes
-1,Badlands full of shrubs and wild hedges.
-1,Dry lands full of tumbleweed and thorn bushes.
-1,Hidden between some hills is a valley apparently full of thorn bushes. There is a well hidden hamlet of [5d8] *halflings* led by one they call [halfling leader].
+1,Badlands full of shrubs and wild hedges. [loner]
+1,Dry lands full of tumbleweed and thorn bushes. [loner]
+1,Hidden between some hills is a valley apparently full of thorn bushes. There is a well hidden hamlet of [5d8] *halflings* led by one they call [halfling].
 1,An old fort overlooking the woods has been taken over by a war party of [4d6] *hobgoblins* led by [hobgoblin] (HD 3+1). The fort is defended by [hobgoblin companions].
 1,An abandoned watchtower on a promontory overlooking the drylands is home to [4d6] *hobgoblins* led by [hobgoblin] (HD 3+1). The approach is guarded by [hobgoblin companions].
 1,A massive fortress built by giants long ago is home to [1d6x10] *orcs* of the [evil tribe], led by one they call [orc leader]. The fortress is [orc fort].
@@ -2869,12 +2876,28 @@ https://dwarrowscholar.wordpress.com/general-documents/female-dwarf-outer-names/
 1,The dry lands up here are the hunting grounds of a *manticore* called [manticore] living in the ruins of an old tower.
 1,A *green dragon* named [green dragon name] lives at [hill name], one of the hills overlooking these shrublands.
 
+;loner
+1,At the foot of a hill you find a burned down cabin. This must have happened [some time ago].
+1,On one of the hills you find an old watchtower. [tower inhabitant]
+
+;tower inhabitant
+1,In this tower lives the *[magic user]* [human] (level [1d3+4]).
+1,Here lives the *hermit* [human] (level 1).
+1,Here lives the *hermit* halfling [halfling] (level 1).
+
+;some time ago
+1,[1d6] days ago
+1,[1d4] weeks ago
+1,months ago
+1,years ago
+
 ;caves
 1,[cave use] [goblins]
 1,[cave use] [orcs]
-1,[cave use] [1d4 bears]
-1,[cave use] They are inhavited by [1d8 trolls].
-1,[cave use]. They have been abandoned a long time ago.
+1,[cave use] They are filled with mushrooms and guarded by [mykonids]
+1,[cave use] In winter, this cave is home to [1d4 bears].
+1,[cave use] They are inhabited by [1d8 trolls].
+1,[cave use] They have been abandoned a long time ago.
 
 ;orcs
 1,Signs of the [evil tribe] abound. [1d6x10] *orcs* led by one they call [orc leader] live here.
@@ -2952,7 +2975,10 @@ https://dwarrowscholar.wordpress.com/general-documents/female-dwarf-outer-names/
 1,Ambition
 
 ;halfling leader
-1,[halfling name] (level [1d6+1])
+1,[halfling] (level [1d6+1])
+
+;halfling
+1,[halfling name]<img src="[[redirect https://campaignwiki.org/face/redirect/alex/woman]]" />
 
 ;halfling name
 1,[gothic names for men]
@@ -3420,7 +3446,7 @@ https://dwarrowscholar.wordpress.com/general-documents/female-dwarf-outer-names/
 
 ;mykonids
 1,[3d6] *mykonids*.
-1,[3d6] *mykonids* guarding a mushroom circle. On nights of the full moon, or on a 1 in 6, the portal to the fey realms opens. If so, [2d12] *elves* led by one they call [elf leader] (level [1d6+1]) will be visiting.
+1,[3d6] *mykonids* watching their mushroom circle. On nights of the full moon, or on a 1 in 6, the portal to the fey realms opens. If so, [2d12] *elves* led by one they call [elf leader] (level [1d6+1]) will be visiting.
 
 ;do something interesting
 1,save vs. poison or die. The locals use this to kill criminals.
@@ -3625,6 +3651,7 @@ https://dwarrowscholar.wordpress.com/general-documents/female-dwarf-outer-names/
 ;name for a secret society 3
 1,[secret society]
 
+# meaning the human has no class and isn't a priest
 ;lives in small building
 1,lives in a small tower
 1,lives in a small keep
@@ -3653,10 +3680,10 @@ https://dwarrowscholar.wordpress.com/general-documents/female-dwarf-outer-names/
 1,the river flowing around it
 
 ;human leader
-1,a [human class] (level [1d2+8]) called [human]
+1,a [human class] [human] (level [1d2+8])
 
 ;human retainer
-1,a retainer, the [human class] (level [1d2+6]) [human]
+1,a retainer, the [human class] [human] (level [1d2+6])
 
 ;retainer
 1,retainer
@@ -3672,7 +3699,7 @@ https://dwarrowscholar.wordpress.com/general-documents/female-dwarf-outer-names/
 1,whip
 1,slave master
 1,steward
-1,priest
+1,acolyte
 
 ;aides
 1,aides
@@ -3685,12 +3712,24 @@ https://dwarrowscholar.wordpress.com/general-documents/female-dwarf-outer-names/
 6,[1d6+1] *war dogs*
 
 ;human class
+1,[magic user]
+1,[fighter]
+
+;magic user
 1,sorceror
 1,magic user
 1,necromancer
+1,vivimancer
+1,conjurer
+1,illusionist
+1,druid
+1,[power] priest
+
+;fighter
 1,fighter
-1,warlord
 1,knight
+1,captain
+1,mercenary
 
 ;human
 1,[man]<img src="[[redirect https://campaignwiki.org/face/redirect/alex/man]]" />
