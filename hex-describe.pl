@@ -1244,6 +1244,11 @@ my $default_table = q{# The default table
 ;river-merge
 1,[names for river] merge here.
 
+;forest-hill trail
+1,[name for trail] winds its way along these hills.
+1,[name for trail] hugs the hills.
+1,[name for trail] crosses over the water below at [bridge name].
+
 ;swamp trail
 1,[name for trail] is marked with cairns every now and then.
 1,[name for trail] is reduced the a few logs and rafts.
@@ -1272,6 +1277,27 @@ my $default_table = q{# The default table
 1,Road
 1,Trail
 1,Lane
+
+;bridge name
+1,[bridge 1] [bridge 2] bridge
+1,the bridge of [power] the [special power]
+1,[power]'s bridge
+1,bridge of St. [old name]
+1,bridge of St. [old name] the [special adjective]
+
+;bridge 1
+1,Old
+1,Stone
+1,Fallen
+1,Bloody
+
+;bridge 2
+1,Arch
+1,Smugglers
+1,Trade
+1,War
+1,King's
+1,Queen's
 
 ;more mountains
 1,They are impossible to climb.
@@ -5206,6 +5232,18 @@ https://dwarrowscholar.wordpress.com/general-documents/female-dwarf-outer-names/
 1,Thor
 1,Mithra
 1,Hel
+
+;special power
+1,[power] the [power attribute]
+
+;power attribute
+1,Strong
+1,Wild
+1,Merciful
+1,Harsh
+1,Watchful
+1,Patient
+1,Wise
 
 ;man
 1,Aaron
