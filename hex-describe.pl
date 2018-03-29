@@ -1208,8 +1208,8 @@ my $default_table = q{# The default table
 
 ;name for river
 5,[river 1] [river 2]
-1,[river 1] [old name]'s [river 2]
-1,[river 1] [halfling name]'s [river 2]
+1,[old name]'s [river 2]
+1,[halfling name]'s [river 2]
 
 ;river 1
 1,Battle
