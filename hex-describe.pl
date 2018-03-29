@@ -1301,8 +1301,29 @@ my $default_table = q{# The default table
 
 ;more mountains
 1,They are impossible to climb.
+1,Fissures lead into the depth of the mountain and in the warm chambers below there sleeps the *red dragon* [red dragon name].
 1,The passes need a local guide to cross. [mountain people].
 1,A glacier fills the gap between these mountains.
+
+;red dragon name
+1,[red dragon 1] [dragon 2] [red dragon 3]
+
+;red dragon 1
+1,Red
+1,Hot
+1,Fire
+1,Ash
+1,Black
+1,Searing
+1,Burning
+
+;red dragon 3
+1,of the Mountain
+1,of the Holy Fire
+1,of the Deeps
+1,of the End Times
+1,the Eternal
+1,the Sleeper
 
 ;mountain people
 1,[1d4 frost giants]
