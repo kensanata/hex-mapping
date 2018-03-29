@@ -7093,7 +7093,8 @@ sub pick {
       my $lines = $table_data->{$key}->{lines};
       $text = pick_description($total, $lines);
       # $log->debug("$coordinates: picked $text") if $coordinates eq "0109";
-      $text =~ s/\[\[redirect (https:.*?)\]\]/resolve_redirect($1)/ge;
+      $text =~ s/\[\[redirect (https:.*?)\]\]/
+		     $log->level eq 'debug' ? '' : resolve_redirect($1)/ge;
       $text =~ s/\[(.*?)\]/describe($map_data,$table_data,$level+1,$coordinates,[$1])/ge;
       last;
     }
