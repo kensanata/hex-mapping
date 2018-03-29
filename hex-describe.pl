@@ -2925,15 +2925,63 @@ https://dwarrowscholar.wordpress.com/general-documents/female-dwarf-outer-names/
 
 ;loner
 1,At the foot of a hill you find a burned down cabin. This must have happened [some time ago].
-1,On one of the hills you find an old watchtower. [tower inhabitant]
+3,On one of the hills you find an old watchtower. [tower inhabitant]
 
 ;tower inhabitant
-1,In this tower lives the *necromancer* [human] (level [1d3+4]), protected by his [4d6] *zombies*.
-1,In this tower lives the *vivimancer* [human] (level [1d3+4]), protected by [3d6] *mykonids*.
+1,[necromancer]
+1,[vivimancer]
 1,Here lives the *hermit* [human] (level 1).
 1,Here lives the *hermit* [human] (level 1) and a *puma*.
 1,Here lives the *hermit* [human] (level 1) and a *jaguar*.
 1,Here lives the *hermit* halfling [halfling] (level 1) with some sheep.
+
+;necromancer
+1,In this tower lives the *necromancer* [human] (level [1d3+4]), protected by [necromancer companions]. [necromancer tower]
+
+;necromancer companions
+1,[4d6] watchful *zombies*
+1,[2d8] noble *ghouls*, decadent, immortal, foppish, and always hungry
+1,[2d6] *werewolves* in human disguise, welcoming, but rough
+1,[2d4] *hell hounds*
+
+;necromancer tower
+1,The tower itself is surrounded by a moat and inside the moat lives a *pyrohydra* chained to the foundations of the tower.
+1,The stinking dungeons below the tower are filled with cells where a hundred people or more must have died over the years. A pit of rotten flesh and bones awaits all who die here.
+1,Below the tower is a conjuration room with a circle of protection. There's a book, here: [necronomicon].
+1,The tower is surrounded by permanent darkness spells, and in the darkness lie spiked pits and poison trees, and [3d6] *shadow wolves*.
+
+;necronomicon
+1,[the secrets of] [necromancy], author unknown
+1,[the secrets of] [necromancy], by [old name]
+1,[the secrets of] [necromancy], by [old name] the [special adjective]
+
+;the secrets of
+1,The Secret Life of
+1,The Deadly Secrets of
+1,Morbid
+1,The Afterlife and
+1,Hell and the
+1,Realm of the
+1,Power over
+1,Jealousy and the
+1,Loving
+1,Interactions with
+1,The End of
+
+;necromancy
+1,Ghouls
+1,Zombies
+1,Undead
+1,Necromancers
+1,Demons
+1,Devils
+1,Spirits
+1,Humans
+1,[old name]
+1,[wight leader]
+
+;vivimancer
+1, In this tower lives the *vivimancer* [human] (level [1d3+4]), protected by [3d6] *mykonids*. 
 
 ;some time ago
 1,[1d6] days ago
