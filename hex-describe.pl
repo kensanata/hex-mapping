@@ -2655,10 +2655,10 @@ https://dwarrowscholar.wordpress.com/general-documents/female-dwarf-outer-names/
 1,eater
 
 ;water
-1,A lake covering the ruins of an ancient town
-1,A lake inhabited by [2d20] charming *nixies* and the same number of *giant fish* guarding their sea weed garden
-1,A big lake [cold lake]
-1,A tribe of [5d8] *froglings* in a mud village guarded by [frogling companions]
+1,A lake covering the ruins of an ancient town.
+1,A lake inhabited by [2d20] charming *nixies* and the same number of *giant fish* guarding their sea weed garden.
+1,A big lake [cold lake].
+1,A tribe of [5d8] *froglings* in a mud village guarded by [frogling companions].
 
 ;frogling companions
 1,spear traps
@@ -2892,6 +2892,226 @@ https://dwarrowscholar.wordpress.com/general-documents/female-dwarf-outer-names/
 1,guarded by a *boar*
 4,guarded by [1d4+1] *boars*
 
+;orc feature
+1,Many skulls are on display.
+1,At the back is an entrance to an abandoned mine. [abandoned mine]
+
+;abandoned mine
+1,It's basically a deep hole where a single miner would keep digging for coal.
+1,This used to be a mine for a small family, digging for coal.
+1,This is a huge shaft leading down into blackness. At the bottom are the ruins of an underground building by the ancients. [ruins of the ancients]
+1,A twisting passage leads down into a huge cave where they must have dug for gems.
+
+;ruins of the ancients
+1,The degenerate survivors of the builders are [2d8] *ghouls* serving [evil power]. Their rituals have summoned [1d8 shadows].
+1,Down here is a palace made of orange metals and green glass inhabited by [1d4 squid people]. At the center is a huge *brain* floating in a glass cylinder.
+1,All is deadly quiet but the dancing shadows on the walls are real. The light summons [1d8 shadows].
+
+;1d4 squid people
+1,the *squid person* [squid leader]
+3,[1d3+1] *squid people* led by [squid leader]
+
+;squid leader
+1,[squid 1] [star name]<img src="[[redirect https://campaignwiki.org/face/redirect/alex/squid]]" />
+
+;squid 1
+1,Far
+1,Distant
+1,Mad
+1,Blind
+1,All Knowing
+1,Brainer
+
+;star name
+1,Acamar
+1,Achernar
+1,Acrab
+1,Açubens
+1,Adhafera
+1,Adhara
+1,Adhil
+1,Adib
+1,Ain
+1,Aladfar
+1,Alawwad
+1,Albali
+1,Alchibah
+1,Alcor
+1,Aldebaran
+1,Alderamin
+1,Aldhibah
+1,Aldhibain
+1,Aldulfin
+1,Alfirk
+1,Algebar
+1,Algedi
+1,Algenib
+1,Algieba
+1,Algol
+1,Algorab
+1,Alhena
+1,Alioth
+1,Alkaid
+1,Alkes
+1,Almak/
+1,Almeisan
+1,Alnair
+1,Alnasl
+1,Alnilam
+1,Alnitak
+1,Alphard
+1,Alphecca
+1,Alpheratz
+1,Alruba
+1,Alrescha
+1,Alsafi
+1,Alsuhail
+1,Altair
+1,Altais
+1,Alterf
+1,Aludra
+1,Alula
+1,Alya
+1,Alsephina
+1,Angetenar
+1,Ankaa
+1,Arkab
+1,Arneb
+1,Arrakis
+1,Asuja
+1,Atik
+1,Auva
+1,Azfar
+1,Azha
+1,Baham
+1,Baten
+1,Beid
+1,Benetnash
+1,Betelgeuse
+1,Botein
+1,Caph
+1,Celbalrai
+1,Chort
+1,Cursa
+1,Dabih
+1,Deneb
+1,Deneb
+1,Deneb
+1,Deneb
+1,Denebola
+1,Diphda
+1,Dschubba
+1,Dubhe
+1,Dziban
+1,Edasich
+1,El
+1,Eltanin
+1,Enif
+1,Errai
+1,Fomalhaut
+1,Furud
+1,Gienah
+1,Gomeisa
+1,Hadar
+1,Hamal
+1,Heka
+1,Homam
+1,Iklil
+1,Izar
+1,Jabbah
+1,Kabdhilinan
+1,Kaffaljidhma
+1,Kaus
+1,Keid
+1,Kitalpha
+1,Kochab
+1,Kurhah
+1,Lesath
+1,Luh-Denebola
+1,Maasym
+1,Maaz
+1,Mankib
+1,Marfik
+1,Markab
+1,Markeb
+1,Matar
+1,Mebsuta
+1,Megrez
+1,Meissa
+1,Mekbuda
+1,Meleph
+1,Menkalinan
+1,Menkar
+1,Menkent
+1,Menkib
+1,Merak
+1,Mintaka
+1,Mirach
+1,Mirak
+1,Mirfak
+1,Mizar
+1,Mothallah
+1,Muhlifain
+1,Muliphein
+1,Muphrid
+1,Murzim/
+1,Nashira
+1,Nekkar
+1,Nihal
+1,Nusakan
+1,Nushaba
+1,Okda
+1,Phact
+1,Phad
+1,Pherkad
+1,Polaris
+1,Rasalased
+1,Rasalgethi
+1,Rasalhague
+1,Rastaban
+1,Rigel
+1,Rigilkent
+1,Risha
+1,Rukbah
+1,Rukbat
+1,Sabik
+1,Sadachbia
+1,Sadalbari
+1,Sadalmelik
+1,Sadalsuud
+1,Sadr
+1,Saiph
+1,Scheat
+1,Shaula
+1,Shedir
+1,Sheliak
+1,Sheratan
+1,Sirrah
+1,Skat
+1,Spica
+1,Sulafat
+1,Talitha
+1,Tania
+1,Tarf
+1,Thuban
+1,Unukalhai
+1,Vega
+1,Wasat
+1,Wezen
+1,Wezn
+1,Yed
+1,Yed
+1,Zaurac
+1,Zavijava
+1,Zawiah
+1,Zubenelgenubi
+1,Zubenelhakrabi
+1,Zubeneshamali
+
+;1d8 shadows
+1,a *shadow*
+7,[1d7+1] *shadows*
+
 ;1d6 ogres
 1,[ogre leader]
 5,[ogre leader] leading [ogres]
@@ -2993,15 +3213,15 @@ https://dwarrowscholar.wordpress.com/general-documents/female-dwarf-outer-names/
 1,years ago
 
 ;caves
-1,[cave use] [goblins]
-1,[cave use] [orcs]
+1,[cave use] The caves are full broken constructions, tiny ladders and walkways. [goblins]
+1,[cave use] There are paintings of the [evil tribe] on the cave walls. [orcs]
 1,[cave use] They are filled with mushrooms and guarded by [mykonids]
 1,[cave use] In winter, this cave is home to [1d4 bears].
 1,[cave use] They are inhabited by [1d8 trolls].
 1,[cave use] They have been abandoned a long time ago.
 
 ;orcs
-1,Signs of the [evil tribe] abound. [1d6x10] *orcs* led by one they call [orc leader] live here.
+1,[1d6x10] *orcs* led by one they call [orc leader] live here.
 
 ;cave use
 1,The caves used to be an old mine.
@@ -3452,6 +3672,7 @@ https://dwarrowscholar.wordpress.com/general-documents/female-dwarf-outer-names/
 5,[1d4+1] *giant wasps*
 5,[1d4+1] *giant lizards*
 
+# These are the monsters for larger villages
 ;trees
 1,Tall trees cover this valley.
 1,There are traces of logging activity in this light forest.
@@ -3619,14 +3840,16 @@ https://dwarrowscholar.wordpress.com/general-documents/female-dwarf-outer-names/
 1,Moonlove
 1,Sunshine
 
+# These are the fir forests next to thorps
 ;fir-forest
-1,A fir forest. Sometimes you can see an *elk*.
-1,A fir forest. Sometimes you can see some *deer*.
-1,This fir forest is home to a pack of [3d6] *wolves*.
-1,At dusk and dawn, you can sometimes see [boars].
+1,[fir highlands] The land up here is the hunting ground of a *manticore* called [manticore] living in the ruins of an old tower overlooking the area.
+1,[fir highlands] This fir forest is home to a pack of [3d6] *wolves*.
+1,[fir highlands] At dusk and dawn, you can sometimes see [boars].
 1,There is a cave in this fir forest housing the *ettin* called [ettin].
-1,At the foot of [crag name], there is cave inhabited by [1d8 trolls].
-1,In this fir forest is a little campsite with [1d8 bugbears].
+1,[fir highlands] At the foot of [crag name], there is cave inhabited by [1d8 trolls].
+1,[fir highlands] In this fir forest is a little campsite with [1d8 bugbears].
+1,[fir highlands] At night, the orcs of the [evil tribe] hunt these lands. [orcs] Their settlement is protected by a palisade and [orc fort]. [orc feature]
+1,[fir highlands] There is an abandoned shrine to [power] up here. It is haunted by the *spectre* of [old name], the last priest who cared for it. The locals avoid it.
 
 ;1d8 bugbears
 1,the *bugbear* [bugbear]
@@ -3707,15 +3930,20 @@ https://dwarrowscholar.wordpress.com/general-documents/female-dwarf-outer-names/
 1,Fist
 1,Grey
 
+# These are the challenges facing adventurers starting out in a thorp!
+# A bit further away are the fir-forest hexes.
 ;firs
-1,[fir highlands] The land up here is the hunting ground of a *manticore* called [manticore] living in the ruins of an old tower overlooking the area.
+1,[fir highlands] Sometimes you can see an elk.
+1,[fir highlands] Sometimes you can see some deer.
 1,[fir highlands] At dusk and dawn a pack of [3d6] *wolves* roam these lands.
+1,[fir highlands] At dusk and dawn, you can sometimes see [boars].
 
 ;fir highlands
 1,A few stunted firs grow in these highlands.
 1,It's colder up here and the forest is dominated by firs.
 1,The firs cast long shadows in these lands.
 1,The forest is cold and dark, full of firs.
+1,This is a fir forest.
 
 ;thorp
 1,There is a thorp of [1d4x10] *humans* led by one they call [human]. The [human houses] are protected by [human companions].
@@ -5303,15 +5531,21 @@ https://dwarrowscholar.wordpress.com/general-documents/female-dwarf-outer-names/
 1,Wyrm
 
 ;power
+1,[evil power]
+1,[good power]
+
+;evil power
 1,Set
 1,Orcus
 1,Nergal
 1,Pazuzu
+1,Hel
+
+;good power
 1,Freya
 1,Odin
 1,Thor
 1,Mithra
-1,Hel
 
 ;special power
 1,[power] the [power attribute]
