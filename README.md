@@ -99,20 +99,14 @@ Assuming the following description:
 0101 dark-green trees village
 ```
 
-The description will be generated from any tables that exist:
+The description will be generated from any tables that match:
 
 * dark-green
-* dark-green trees
-* dark-green village
-* trees dark-green
 * trees
-* trees village
-* village dark-green
-* village trees
 * village
 
-It would make sense to just provide tables for "trees" and
-"village", for example.
+It would make sense to just provide tables for "trees" and "village",
+for example.
 
 Tables looks like this:
 
@@ -135,6 +129,8 @@ you can link from one table to another using square brackets.
 
 Square brackets are also used for dice rolls. A dice roll can look
 like this: 3d6, 3d6+5 3d6x10, or 3d6x10+5.
+
+There's an built-in help page with more details.
 
 Try it: https://campaignwiki.org/hex-describe
 

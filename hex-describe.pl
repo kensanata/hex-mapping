@@ -21,7 +21,10 @@ use Mojo::Log;
 use Mojo::ByteStream;
 use Array::Utils qw(intersect);
 
+plugin Config => {default => {loglevel => 'debug'}};
+
 my $log = Mojo::Log->new;
+$log->level(app->config('loglevel'));
 
 my $default_map = q{0101 dark-green trees village
 0102 light-green bushes
