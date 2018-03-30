@@ -7271,15 +7271,17 @@ sub describe {
 sub process {
   my $text = shift;
   my @terms = split(/(<img.*?>)/, $text);
-  return $text unless @terms > 1;
+  return { images => '', html => $text } unless @terms > 1;
   my @output; # $output[0] is texts, $output[1] is images
   my $i = 0;
   while (@terms) {
     push(@{$output[$i]}, shift(@terms));
     $i = 1 - $i;
   }
-  return '<span class="images">' . join('', @{$output[1]}) . '</span>'
-    . join('', @{$output[0]});
+  return {
+    images => '<span class="images">' . join('', @{$output[1]}) . '</span>',
+    html => join('', @{$output[0]}),
+  };
 }
 
 sub describe_map {
@@ -7548,7 +7550,7 @@ Alternatively, just paste your tables here:
 <div class="description">
 %== $svg
 % for my $hex (sort keys %$descriptions) {
-<p><strong><%= $hex =%></strong>: <%== $descriptions->{$hex} %></p>
+<p><%== $descriptions->{$hex}->{images} %><strong><%= $hex =%></strong>: <%== $descriptions->{$hex}->{html} %></p>
 % }
 </div>
 
@@ -7586,8 +7588,8 @@ Alternatively, just paste your tables here:
 % title 'Hex Describe (without a map)';
 <h1>Hex Descriptions (no map)</h1>
 <div class="description">
-% for my $text (@$descriptions) {
-<p><%== $text %></p>
+% for my $description (@$descriptions) {
+<p><%== $description->{images} %><%== $description->{html} %></p>
 % }
 </div>
 
