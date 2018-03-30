@@ -7166,7 +7166,7 @@ sub pick {
       $text = pick_description($total, $lines);
       # $log->debug("$coordinates: picked $text") if $coordinates eq "0109";
       $text =~ s/\[\[redirect (https:.*?)\]\]/
-		     $log->level eq 'debug' ? '' : resolve_redirect($1)/ge;
+		     app->mode eq 'development' ? '' : resolve_redirect($1)/ge;
       $text =~ s/\[(.*?)\]/describe($map_data,$table_data,$level+1,$coordinates,[$1])/ge;
       last;
     }
@@ -8186,6 +8186,12 @@ same domain since <em>campaignwiki.org</em> is secured by HTTPS and I
 think most browsers will then refuse to load resources such as images
 from services that aren’t hosted on the same domain
 (<a href="https://en.wikipedia.org/wiki/Same-origin_policy">same-origin policy</a>).
+</p>
+
+<p>
+If you run the application yourself, images will not be loaded. In order to load
+them, switch the application mode to production. Running it from the command
+line, for example, provide the option `-m production`.
 </p>
 
 @@ authors.html.ep
