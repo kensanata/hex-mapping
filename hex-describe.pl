@@ -1194,10 +1194,6 @@ my $default_table = q{# The default table
 1,The gorge is wonderful and deep.
 1,Crossing the canyon requires climbing gear.
 
-;swamp river
-1,The swamp stretches in all directions and it is impossible to follow [name for river].
-1,[name for river] disappears into the swamp.
-
 ;river-start river
 1,This where the spring of [name for river] is.
 1,[name for river] starts here.
@@ -1244,7 +1240,7 @@ my $default_table = q{# The default table
 1,Stream
 1,Streamlet
 
-;river-merge
+;river-merge river
 1,[names for river] merge here.
 
 ;forest-hill trail
@@ -1252,9 +1248,12 @@ my $default_table = q{# The default table
 1,[name for trail] hugs the hills.
 1,[name for trail] crosses over the water below at [bridge name].
 
-;swamp trail
-1,[name for trail] is marked with cairns every now and then.
-1,[name for trail] is reduced the a few logs and rafts.
+;trail-start trail
+1,[name for trail] starts here.
+1,This is the beginning of [name for trail].
+
+;trail-merge trail
+1,[names for trail] meet here.
 
 ;trail
 1,[name for trail] goes through here.
@@ -1266,20 +1265,25 @@ my $default_table = q{# The default table
 1,[trail 1] [trail 1] [trail 2]
 
 ;trail 1
-1,Gravel
-1,Mud
+1,Cattle
+1,Cheese
 1,Fish
 1,Gold
+1,Gravel
 1,Hollow
-1,Sunken
-1,Cattle
-1,Sheep
+1,Mud
+1,Salt
 1,Shady
+1,Sheep
+1,Sunken
 
 ;trail 2
-1,Road
-1,Trail
 1,Lane
+1,Path
+1,Road
+1,Track
+1,Trail
+1,Way
 
 ;bridge name
 1,[bridge 1] [bridge 2] bridge
@@ -3204,7 +3208,7 @@ https://dwarrowscholar.wordpress.com/general-documents/female-dwarf-outer-names/
 1,[wight leader]
 
 ;vivimancer
-1, In this tower lives the *vivimancer* [human] (level [1d3+4]), protected by [3d6] *mykonids*. 
+1, In this tower lives the *vivimancer* [human] (level [1d3+4]), protected by [3d6] *mykonids*.
 
 ;some time ago
 1,[1d6] days ago
@@ -7266,7 +7270,6 @@ sub parse_map {
       my ($line, $type) = ($1, $2);
       my @points = compute_missing_points(split(/-/, $line));
       push(@lines, [$type, @points]);
-      
     }
   }
   # longest rivers first
@@ -7275,46 +7278,65 @@ sub parse_map {
   #   $log->debug("@$line");
   # }
   for my $line (@lines) {
-    my $type = shift(@$line);
-    my %data = (type => $type);
+    my $type = $line->[0];
+    my %data = (type => $type, line => $line);
+    $log->debug("New $type...");
     my $start = 1;
-    for my $coord (@$line) {
-      # $log->debug("$coord");
-      # Don't add data for hexes outside the map (thus, rivers and trails must
-      # come at the end).
+  COORD:
+    for my $i (1 .. $#$line) {
+      my $coord = $line->[$i];
+      # don't add data for hexes outside the map
       last unless $map_data->{$coord};
-      # add river or trail to the hex description, add "$type-start" if the
-      # first one, or add "$type-merge" when running into an existing one
-      my $merged;
-      if ($start) {
-	if (grep { $_ eq $type } @{$map_data->{$coord}}) {
-	  # don't note a start in an existing river
-	  # $log->debug("Skipping $type start at $coord");
+      # don't start a line going in the same direction as an existing line in
+      # the same hex (e.g. 0906) but also don't stop a line if it runs into a
+      # merge and continues (e.g. 0305)
+      my $same_dir = 0;
+      for my $line2 (grep { $_->{type} eq $type } @{$extra->{$coord}}) {
+	if (same_direction($coord, $line, $line2->{line})) {
+	  $log->debug("... at $coord, @$line and @{$line2->{line}} go in the same direction");
+	  $same_dir = 1;
 	  last;
-	} else {
-	  push(@{$map_data->{$coord}}, $type, "$type-start");
-	  $start = 0;
-	  # $log->debug("$type start at $coord");
-	}
-      } else {
-	if (not grep { $_ eq $type } @{$map_data->{$coord}}) {
-	  push(@{$map_data->{$coord}}, $type);
-	  # $log->debug("...$type leading into $coord");
-	} elsif (not grep { $_ eq "$type-merge" } @{$map_data->{$coord}}) {
-	  push(@{$map_data->{$coord}}, "$type-merge");
-	  $merged = 1;
-	  # $log->debug("...merging into $type at $coord");
-	} else {
-	  $merged = 1;
-	  # $log->debug("...merged with other $type at $coord");
 	}
       }
-      # all river hexes share this hash and each hex can have a river, a
-      # trail, a canyon, etc.
+      if ($start and $same_dir) {
+	$log->debug("... skipping");
+	last COORD;
+      }
+      # add type to the hex description, add "$type-merge" when
+      # running into an existing one
+      my $merged;
+      if (not grep { $_ eq $type } @{$map_data->{$coord}}) {
+	$log->debug("...$type leading into $coord");
+	push(@{$map_data->{$coord}}, $type);
+      } elsif (not grep { $_ eq "$type-merge" } @{$map_data->{$coord}}) {
+	$merged = $same_dir; # skip the rest of the line, if same dir
+	$log->debug("...noted merge into existing $type at $coord");
+	push(@{$map_data->{$coord}}, "$type-merge");
+      } else {
+	$merged = $same_dir; # skip the rest of the line, if same dir
+	$log->debug("...leads into existing $type merge at $coord");
+      }
+      $start = 0;
+      # all hexes along a line share this hash
       push(@{$extra->{$coord}}, \%data);
       # if a river merges into another, don't add any hexes downriver
       last if $merged;
     }
+  }
+  # add "$type-start" to the first and last hex of a line, unless it is a merge
+  for my $line (@lines) {
+    my $type = $line->[0];
+    for my $coord ($line->[1], $line->[$#$line]) {
+      # skip hexes outside the map
+      last unless $map_data->{$coord};
+      # skip merges
+      last if grep { $_ eq "$type-merge" } @{$map_data->{$coord}};
+      # add start
+      push(@{$map_data->{$coord}}, "$type-start");
+    }
+  }
+  for my $coord (sort keys %$map_data) {
+    $log->debug(join(" ", $coord, @{$map_data->{$coord}}));
   }
   return $map_data;
 }
@@ -7582,6 +7604,36 @@ sub compute_missing_points {
     push(@result, coordinates(@$from));
   }
   return @result;
+}
+
+sub same_direction {
+  my $coord = shift;
+  my $line1 = shift;
+  my $line2 = shift;
+  # $log->debug("same_direction: $coord, @$line1 and @$line2");
+  # this code assumes that a line starts with $type at index 0
+  my $j;
+  for my $i (1 .. $#$line1) {
+    if ($line1->[$i] eq $coord) {
+      $j = $i;
+      last;
+    }
+  }
+  # $log->debug("same_direction: $coord has index $j in @$line1");
+  for my $i1 ($j - 1, $j + 1) {
+    next if $i1 == 0 or $i1 > $#$line1;
+    my $next = $line1->[$i1];
+    for my $i2 (1 .. $#$line2) {
+      if ($line2->[$i2] eq $coord) {
+	if ($line2->[$i2-1] and $next eq $line2->[$i2-1]
+	    or $line2->[$i2+1] and $next eq $line2->[$i2+1]) {
+	  # $log->debug("same direction at $coord: @$line1 and @$line2");
+	  return 1;
+	}
+      }
+    }
+  }
+  return 0;
 }
 
 sub spread_name {
