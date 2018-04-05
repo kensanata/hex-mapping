@@ -7661,7 +7661,7 @@ get '/load/random/alpine' => sub {
 any '/describe' => sub {
   my $c = shift;
   my $map = $c->param('map');
-  my $svg = get_post_data('https://campaignwiki.org/text-mapper/render', map => $map);
+  my $svg = app->mode eq 'development' ? '' : get_post_data('https://campaignwiki.org/text-mapper/render', map => $map);
   my $url = $c->param('url');
   my $table;
   $table = get_data($url) if $url;
