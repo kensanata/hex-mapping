@@ -276,6 +276,13 @@ get '/help' => sub {
 
 This chapter is used to document the code.
 
+=over 4
+
+=item get_data
+
+This is is the basic work horse to get data from a URL. It is used to download
+the table from a URL, if provided. This uses a simple GET request.
+
 =cut
 
 sub get_data {
@@ -286,6 +293,15 @@ sub get_data {
   return $res->body if $res->is_success;
   $log->error("get_data: " . $res->code . " " . $res->message);
 }
+
+=item get_post_data
+
+This is is used to get data from a URL when we need a POST request instead of a
+GET request. We need this for Text Mapper when rendering the map since we send
+the entire map to Text Mapper in order to render it. A simple GET request will
+not do.
+
+=cut
 
 sub get_post_data {
   my $url = shift;
@@ -310,11 +326,30 @@ sub get_post_data {
   return "<p>There was an error when attempting to load the map ($error).</p>";
 }
 
-# based on text-mapper.pl Mapper process
-my $hex_re = qr/^(\d\d)(\d\d)(?:\s+([^"\r\n]+)?\s*(?:"(.+)"(?:\s+(\d+))?)?|$)/;
-my $line_re = qr/^(\d\d\d\d(?:-\d\d\d\d)+)\s+(\S+)/;
+=item init
 
-# extra data for every hex: $extra->{"0101"}->{"type"} eq "river"
+When starting a description, we need to initialize our data. There are two
+global data structures beyond the map.
+
+B<$extra> is a reference to a hash of hashes used to keep common data per line.
+In this context, lines are linear structures like rivers or trails on the map.
+The first hash uses the hex coordinates as a key, the second hash uses the keys
+"type" to indicate the type of line, "line" for the raw data (for debugging),
+and later "name" will be used to name these lines.
+
+    $extra->{"0101"}->{"type"} eq "river"
+
+B<%names> is just a hash of names. It is used for all sorts of things. When
+using the reference C<name for a bugbear band1>, then "name for a bugbear band1"
+will be a key in this hash. When using the reference C<name for forest foo>,
+then "name for forest foo: 0101" and will be set for every hex sharing that
+name.
+
+    $names{"name for a bugbear band1"} eq "Long Fangs"
+    $names{"name for forest foo: 0101"} eq "Dark Wood"
+
+=cut
+
 my $extra;
 my %names;
 
@@ -323,7 +358,18 @@ sub init {
   $extra = undef;
 }
 
-sub parse_map {
+=item parse_map_data
+
+This does basic parsing of hexes on the map as produced by Text Mapper, for
+example:
+
+    0101 dark-green trees village
+
+=cut
+
+my $hex_re = qr/^(\d\d)(\d\d)(?:\s+([^"\r\n]+)?\s*(?:"(.+)"(?:\s+(\d+))?)?|$)/;
+
+sub parse_map_data {
   my $map = shift;
   my $map_data;
   for my $hex (split(/\r?\n/, $map)) {
@@ -333,6 +379,24 @@ sub parse_map {
       $map_data->{"$x$y"} = \@types;
     }
   }
+  return $map_data;
+}
+
+=item parse_map_lines
+
+This does basic parsing of linear structures on the map as produced by Text
+Mapper, for example:
+
+     0302-0101 trail
+
+We use C<compute_missing_points> to find all the missing points on the line.
+
+=cut
+
+my $line_re = qr/^(\d\d\d\d(?:-\d\d\d\d)+)\s+(\S+)/;
+
+sub parse_map_lines {
+  my $map = shift;
   my @lines;
   for my $hex (split(/\r?\n/, $map)) {
     if ($hex =~ /$line_re/) {
@@ -341,12 +405,45 @@ sub parse_map {
       push(@lines, [$type, @points]);
     }
   }
-  # longest rivers first
-  @lines = sort { @$b <=> @$a } @lines;
-  # for my $line (@lines) {
-  #   $log->debug("@$line");
-  # }
-  for my $line (@lines) {
+  return \@lines;
+}
+
+=item process_map_merge_lines
+
+As we process lines, we want to do two things: if a hex is part of a linear
+structure, we want to add the B<type> to the terrain features. Thus, given the
+following hex and river, we want to add "river" to the terrain features of 0101:
+
+    0801-0802-0703-0602-0503-0402-0302-0201-0101-0100 river
+
+Adds the type "river" to the hex:
+
+    0101 dark-green trees village river
+
+Furthermore, given another river like the following, we want to merge these
+where they meet (at 0302):
+
+    0701-0601-0501-0401-0302-0201-0101-0100 river
+
+Adds the type "river-merge" to the hex:
+
+    0302 dark-green trees town river river-merge
+
+If you look at the default map, here are some interesting situations:
+
+A river starts at 0906 but it immediately merges with the river starting at 1005
+thus it should be dropped entirely.
+
+A trail starts at 0206 and passes through 0305 on the way to 0404 but it
+shouldn't end at 0305 just because there's also a trail starting at 0305 going
+north to 0302.
+
+=cut
+
+sub process_map_merge_lines {
+  my $map_data = shift;
+  my $lines = shift;
+  for my $line (@$lines) {
     my $type = $line->[0];
     my %data = (type => $type, line => $line);
     # $log->debug("New $type...");
@@ -392,8 +489,32 @@ sub parse_map {
       last if $merged;
     }
   }
+}
+
+=item process_map_start_lines
+
+As we process lines, we also want to note the start of lines: sources of rivers,
+the beginning of trails. Thus, given the following hex and river, we want to add
+"river-start" to the terrain features of 0801:
+
+    0801-0802-0703-0602-0503-0402-0302-0201-0101-0100 river
+
+Adds a river to the hex:
+
+    0801 light-grey mountain river river-start
+
+But note that we don't want to do this where linear structures have merged. If a
+trail ends at a town and merges with other trails there, it doesn't "start"
+there. It can only be said to start somewhere if no other linear structure
+starts there.
+
+=cut
+
+sub process_map_start_lines {
+  my $map_data = shift;
+  my $lines = shift;
   # add "$type-start" to the first and last hex of a line, unless it is a merge
-  for my $line (@lines) {
+  for my $line (@$lines) {
     my $type = $line->[0];
     for my $coord ($line->[1], $line->[$#$line]) {
       # skip hexes outside the map
@@ -404,11 +525,57 @@ sub parse_map {
       push(@{$map_data->{$coord}}, "$type-start");
     }
   }
+}
+
+=item parse_map
+
+This calls all the map parsing and processing functions we just talked about.
+
+=cut
+
+sub parse_map {
+  my $map = shift;
+  my $map_data = parse_map_data($map);
+  my $lines = parse_map_lines($map);
+  # longest rivers first
+  @$lines = sort { @$b <=> @$a } @$lines;
+  # for my $line (@$lines) {
+  #   $log->debug("@$line");
+  # }
+  process_map_merge_lines($map_data, $lines);
+  process_map_start_lines($map_data, $lines);
   # for my $coord (sort keys %$map_data) {
   #   $log->debug(join(" ", $coord, @{$map_data->{$coord}}));
   # }
   return $map_data;
 }
+
+=item parse_table
+
+This parses the random tables. This is also where *bold* gets translated to
+HTML. We also do some very basic checking of references. If we refer to another
+table in square brackets we check whether we've seen such a table.
+
+Table data is a reference to a hash of hashes. The key to the first hash is the
+name of the table; the key to the second hash is "total" for the number of
+options and "lines" for a reference to a list of hashes with two keys, "count"
+(the weight of this lines) and "text" (the text of this line).
+
+A table like the following:
+
+    ;tab
+    1,a
+    2,b
+
+Would be:
+
+    $table_data->{tab}->{total} == 3
+    $table_data->{tab}->{lines}->[0]->{count} == 1
+    $table_data->{tab}->{lines}->[0]->{text} eq "a"
+    $table_data->{tab}->{lines}->[1]->{count} == 2
+    $table_data->{tab}->{lines}->[1]->{text} eq "b"
+
+=cut
 
 my $dice_re = qr/^(\d+)d(\d+)(?:x(\d+))?(?:\+(\d+))?$/;
 
@@ -442,6 +609,14 @@ sub parse_table {
   return $data;
 }
 
+=item pick_description
+
+Pick a description from a given table. In the example above, pick a random
+number between 1 and 3 and then go through the list, addin up counts until you
+hit that number.
+
+=cut
+
 sub pick_description {
   my $total = shift;
   my $lines = shift;
@@ -455,6 +630,13 @@ sub pick_description {
   }
   return '';
 }
+
+=item resolve_redirect
+
+This handles the special redirect syntax: request an URL and if the response
+code is a 301 or 302, take the location header in the response and return it.
+
+=cut
 
 sub resolve_redirect {
   # If you install this tool on a server using HTTPS, then some browsers will
@@ -470,6 +652,29 @@ sub resolve_redirect {
   $log->info("resolving redirect for $url did not result in a redirection");
   return $url;
 }
+
+=item pick
+
+This fucntion picks the appropriate table given a particular word (usually a map
+feature such as "forest" or "river").
+
+This is where I<context> is implemented. Let's start with this hex:
+
+    0101 dark-green trees village river trail
+
+Remember that parsing the map added a more terrain than was noted on the map
+itself. Our function will get called for each of these words, Let's assume it
+will get called for "dark-green". Before checking whether a table called
+"dark-green" exists, we want to check whether any of the other words provide
+enough context to pick a more specific table. Thus, we will check "trees
+dark-green", "village dark-green", "river dark-green" and "trail dark-green"
+before checking for "dark-green".
+
+If such a table exists in C<$table_data>, we call C<pick_description> to pick a
+text from the table and then we go through text and call C<describe> to resolve
+any table references in square brackets.
+
+=cut
 
 sub pick {
   my $map_data = shift;
@@ -498,6 +703,16 @@ sub pick {
   }
   return $text;
 }
+
+=item describe
+
+This is where all the references get resolved. We handle references to dice
+rolls, the normal recursive table lookup, and all the special rules for names
+that get saved once they have been determined both globally or per terrain
+features. Please refer to the tutorial on the help page for the various
+features.
+
+=cut
 
 sub describe {
   my $map_data = shift;
@@ -601,6 +816,14 @@ sub describe {
   return join(' ', @descriptions);
 }
 
+=item process
+
+We do some post-processing after the description has been assembled: we move all
+the IMG tags to the front of the paragraph and put it in a SPAN element with
+class "images". This makes it easier to lay out the result using CSS.
+
+=cut
+
 sub process {
   my $text = shift;
   my @terms = split(/(<img.*?>)/, $text);
@@ -617,6 +840,15 @@ sub process {
   };
 }
 
+=item describe_map
+
+This is one of the top entry points: it simply calls C<describe> for every hex
+in C<$map_data> and calls C<process> on the result. All the texts are collected
+into a new hash where the hex coordinates are the key and the generated
+description is the value.
+
+=cut
+
 sub describe_map {
   my $map_data = shift;
   my $table_data = shift;
@@ -628,18 +860,39 @@ sub describe_map {
   return \%descriptions;
 }
 
-my $delta = [[[-1,  0], [ 0, -1], [+1,  0], [+1, +1], [ 0, +1], [-1, +1]],  # x is even
-	     [[-1, -1], [ 0, -1], [+1, -1], [+1,  0], [ 0, +1], [-1,  0]]]; # x is odd
+=item xy
+
+This is a helper function to turn "0101" into ("01", "01") which is equivalent
+to (1, 1).
+
+=cut
 
 sub xy {
   my $coordinates = shift;
   return (substr($coordinates, 0, 2), substr($coordinates, 2));
 }
 
+=item coordinates
+
+This is a helper function to turn (1, 1) back into "0101".
+
+=cut
+
 sub coordinates {
   my ($x, $y) = @_;
   return sprintf("%02d%02d", $x, $y);
 }
+
+=item neighbour
+
+This is a helper function that takes the coordinates of a hex, a reference like
+[1,1], and a direction from 0 to 5, and returns the coordinates of the
+neighbouring hex in that diection.
+
+=cut
+
+my $delta = [[[-1,  0], [ 0, -1], [+1,  0], [+1, +1], [ 0, +1], [-1, +1]],  # x is even
+	     [[-1, -1], [ 0, -1], [+1, -1], [+1,  0], [ 0, +1], [-1,  0]]]; # x is odd
 
 sub neighbour {
   # $hex is [x,y] or "0101" and $i is a number 0 .. 5
@@ -650,6 +903,13 @@ sub neighbour {
     $hex->[0] + $delta->[$hex->[0] % 2]->[$i]->[0],
     $hex->[1] + $delta->[$hex->[0] % 2]->[$i]->[1]);
 }
+
+=item one_step_to
+
+Given a hex to start from, check all directions and figure out which neighbour
+is closer to your destination. Return the coordinates of this neighbour.
+
+=cut
 
 sub one_step_to {
   my $from = shift;
@@ -669,6 +929,13 @@ sub one_step_to {
   return $best;
 }
 
+=item compute_missing_points
+
+Return a list of coordinates in string form. Thus, given a list like ("0302",
+"0101") it will return ("0302", "0201", "0101").
+
+=cut
+
 sub compute_missing_points {
   my @result = ($_[0]); # "0101" not [01,02]
   my @points = map { [xy($_)] } @_;
@@ -682,6 +949,13 @@ sub compute_missing_points {
   }
   return @result;
 }
+
+=item same_direction
+
+Given two linear structures and a point of contact, return 1 if the these
+objects go in the same direction on way or the other.
+
+=cut
 
 sub same_direction {
   my $coord = shift;
@@ -713,6 +987,12 @@ sub same_direction {
   return 0;
 }
 
+=item spread_name
+
+This function is used to spread a name along terrain features.
+
+=cut
+
 sub spread_name {
   my $map_data = shift;
   my $coordinates = shift;
@@ -738,6 +1018,13 @@ sub spread_name {
   }
 }
 
+=item describe_text
+
+This function does what C<describe> does, but for simple text without hex
+coordinates.
+
+=cut
+
 sub describe_text {
   my $input = shift;
   my $table_data = shift;
@@ -749,6 +1036,13 @@ sub describe_text {
   }
   return \@descriptions;
 }
+
+=item helper example
+
+This Mojolicious helper is used on the help page to make all the examples
+clickable.
+
+=cut
 
 helper example => sub {
   my ($c, $block) = @_;
@@ -767,9 +1061,11 @@ helper example => sub {
   return Mojo::ByteStream->new(qq(<pre>$result</pre><p><a href='$url'>Try it</a>.</p>));
 };
 
+=back
+
 =head2 Finally
 
-Once these entry points are defined, all we need to do is start the app.
+Start the app at the very end. The rest is templates for the various web pages.
 
 =cut
 
