@@ -1,6 +1,6 @@
 # This has been altered from the original default table
 # which was written by Alex Schroeder and dedicated to the Public Domain
-# This table has been altered by Peter Seckler and is still public domain. 
+# This table has been altered by Peter Seckler and is still public domain.
 # Feel free to use, alter correct and share!
 
 ;sand desert
@@ -9,20 +9,20 @@
 1,There is endless sand.
 1,The sand here has formed strange whorls and eddies.
 1,Strange desert flora dot the landscape here.
-1,Dead calm in the desert, and tall angular cacti can be seen in every direction. 
-1,The sand here has shifted into tall hills. 
-1,On the [moongatetime], a shimmering moongate appears in this part of the desert. It can be seen for miles around.. It teleports any who enter to hex 1[1d9]0[1d9]. Otherwise there is only empty desert here. 
-1,*Giant Sandworms* roam this part of the desert. They ambush travelers. 
+1,Dead calm in the desert, and tall angular cacti can be seen in every direction.
+1,The sand here has shifted into tall hills.
+1,On the [moongatetime], a shimmering moongate appears in this part of the desert. It can be seen for miles around.. It teleports any who enter to hex 1[1d9]0[1d9]. Otherwise there is only empty desert here.
+1,*Giant Sandworms* roam this part of the desert. They ambush travelers.
 
 ;dust desert
 3,The land here is a flat and featureless desert.
 1,These white salt flats are as dead as dead can be.
 1,Bare stones wherever you look and no shade.
 1,These white salt flats are the home of *dust devils*.
-1,Strange winds kick up choking and blinding dust in this desert. 
-1,These dusty dunes feature are an unusual [natcolor] color. 
+1,Strange winds kick up choking and blinding dust in this desert.
+1,These dusty dunes feature are an unusual [natcolor] color.
 1,The remains of a crumbling colossus lie half-buried in the sands here.
-1,A secret natural oasis is located in this part of the desert but it is usually only found by those who can see through illusions or dispel magic. Otherwise it is only found 1 chance in 6.  
+1,A secret natural oasis is located in this part of the desert but it is usually only found by those who can see through illusions or dispel magic. Otherwise it is only found 1 chance in 6.
 
 ;moongatetime
 3,first night of the full moon
@@ -56,24 +56,24 @@
 ;grass
 1,The rolling grass stretches in all directions. In the distance, you can see some [cows].
 1,These grasslands are home to [1d4x10] nomadic *humans* led by one they call [human]. They are all lightly armored and excellent horse archers. Their tents are protected by [human companions].
-1,The grasslands here are peaceful and lush. A solitary priest called [old name] is trying to build a little shrine to [good power] here. 
+1,The grasslands here are peaceful and lush. A solitary priest called [old name] is trying to build a little shrine to [good power] here.
 1,The ruined foundation of an old keep can be found here. In the floor there is a trap door leading down a shaft to a dungeon known as the [dungeon].
 1,An independent farmer known as [human] has set up a small farm on these grasslands and is [farmresults]. The farmer is [farmattitude].
-1,These grasslands were once the site of a vicious battle, and packs of [1d8+4] assorted zombies and skeletons still roam the area aimlessly. 
-1,A small halfling settlement is located on this grassy plain. There are [2d20+6] halflings here, and they have built low mound-shaped houses out of sod. They are [halflingreactions]. 
-1,These grasslands are home to small herds of wild horses. 
-1,These grasslands are overgrown with very tall grass. The grass is as tall as a mans height. 
+1,These grasslands were once the site of a vicious battle, and packs of [1d8+4] assorted zombies and skeletons still roam the area aimlessly.
+1,A small halfling settlement is located on this grassy plain. There are [2d20+6] halflings here, and they have built low mound-shaped houses out of sod. They are [halflingreactions].
+1,These grasslands are home to small herds of wild horses.
+1,These grasslands are overgrown with very tall grass. The grass is as tall as a mans height.
 1,These grasslands are home to [centaurs].
 1,An enterprising merchant known as [human] has set up an impromptu trading post here in the middle of nowhere. [merchantprobs]
 1,These grasslands are infested with *stirges*. There are [3d12] *stirges* here.
-1,[4d6] *giant ants* have their lair underneath these grasslands. They attack any trespassers. 
-1,[1d3+1] *giant bees* roam this area looking for pollen and defending their hive-mound, located somewhere nearby. There are [10d3] more bees back at the hive. 
-1,The grasslands here are an unusual [natcolor] shade. 
-1,Sparse trees provide shade on these rolling plains. 
-1,A natural spring feeds a shallow creek along on these grasslands. 
-1,The ruins of an ancient settlement can be found here in the tall grass. 
-1,The grasslands here are home to small herds of flightless birds. 
-1,An abandoned cottage can be found on these overgrown grasslands. There is nothing of value inside. 
+1,[4d6] *giant ants* have their lair underneath these grasslands. They attack any trespassers.
+1,[1d3+1] *giant bees* roam this area looking for pollen and defending their hive-mound, located somewhere nearby. There are [10d3] more bees back at the hive.
+1,The grasslands here are an unusual [natcolor] shade.
+1,Sparse trees provide shade on these rolling plains.
+1,A natural spring feeds a shallow creek along on these grasslands.
+1,The ruins of an ancient settlement can be found here in the tall grass.
+1,The grasslands here are home to small herds of flightless birds.
+1,An abandoned cottage can be found on these overgrown grasslands. There is nothing of value inside.
 1,On the [moongatetime], a shimmering moongate appears in this part of the plains. It can be seen for miles around. It teleports any who enter to hex 1[1d9]0[1d9].
 
 ;farmresults
@@ -159,7 +159,7 @@
 1,He is also hoping to spread the worship of [good power]
 1,Secretly he is a cleric of [evil power]
 1,He hopes to sell off his inventory soon
-1,He is actually a spy for a vampire known as [old name] who inhabits a hidden underground tomb nearby. 
+1,He is actually a spy for a vampire known as [old name] who inhabits a hidden underground tomb nearby.
 
 ;centaurs
 1,the *centaur* [centaur]
@@ -208,55 +208,55 @@
 1,*wild sheep*
 
 ;hill
-1,A savage band of [1d3+1] *minotaur* lives in these hills. They are in the process of constructing a labyrinth from hedges and stone walls. The labyrinth is [labcondition]. 
+1,A savage band of [1d3+1] *minotaur* lives in these hills. They are in the process of constructing a labyrinth from hedges and stone walls. The labyrinth is [labcondition].
 1,A group of [1d12+1] bandits are looking for easy victims in these hills. They are deserters from the [mercenary company]
 1,These hills are peaceful and quiet.
-1,Unusual [natcolor] flowers grow on these hills. 
-1,Boulders and large rock outcroppings dot these hills. 
-1,A patrol of [2d8] human warriors from the local settlements occupy this area. They are mounted on light horses, and armed with spears. 
-1,A pair of wandering *hill giants* and their [giantpet] have stopped on this hill. 
+1,Unusual [natcolor] flowers grow on these hills.
+1,Boulders and large rock outcroppings dot these hills.
+1,A patrol of [2d8] human warriors from the local settlements occupy this area. They are mounted on light horses, and armed with spears.
+1,A pair of wandering *hill giants* and their [giantpet] have stopped on this hill.
 1,These hills are dry and forbidding. The only animals you can see are some *goats*.
 1,These hills are well-grazed, and you find plentiful flocks of *wild sheep*
-1,These hills are well grazed. You can see a herd of [cows] in the distance. 
+1,These hills are well grazed. You can see a herd of [cows] in the distance.
 1,These hills are steep and unrelenting.
-3,Gentle rolling hills here. 
-1,A group of [2d8] bandits roam these hills, looking for victims to rob. 
+3,Gentle rolling hills here.
+1,A group of [2d8] bandits roam these hills, looking for victims to rob.
 1,Several of these hills are riddled with natural caves.
-1,A small pack of undead including [1d7+1] skeletons and [2d4] zombies roams these hills randomly. They wear the rags of an old mercenary company that has fallen under a curse. 
-1,Isolated burrows in these hills have been converted into a cluster of gnome-homes. There are [4d6] *gnomes* living here. 
+1,A small pack of undead including [1d7+1] skeletons and [2d4] zombies roams these hills randomly. They wear the rags of an old mercenary company that has fallen under a curse.
+1,Isolated burrows in these hills have been converted into a cluster of gnome-homes. There are [4d6] *gnomes* living here.
 1,These hills are home to a clan of [1d6+1] *ogres*
 1,The largest hill here has a small palisade fort inhabited by [4d6] hill dwarves
-1,These hills are the home of a group of [2d6] vicious *bandits*. 
-1,Certain of these hills are covered in mounds and burrows- it isn’t clear what sort of creature occupies them. 
-1,Tall insect mounds (each taller than a mans height) dot these hills, and you find the opening to a *giant ant* lair. There are [4d10] giant ants here. 
+1,These hills are the home of a group of [2d6] vicious *bandits*.
+1,Certain of these hills are covered in mounds and burrows- it isn’t clear what sort of creature occupies them.
+1,Tall insect mounds (each taller than a mans height) dot these hills, and you find the opening to a *giant ant* lair. There are [4d10] giant ants here.
 1,The hills here are lightly forested and dotted with crumbling walls.
-1,The hills here are lush and green. 
+1,The hills here are lush and green.
 1,The hills here are covered in scrub terrain.
 1,The hills here are lightly forested.
-1,These hills hide a freshwater spring, known as [old name]’s Spring. 
-1,One hill here in particular is fitted with a curious-looking door. It seems you have found the home of the solitary [hilldweller] known as [old names for men]. 
-1,These hills are rocky and difficult to navigate. 
-1,These hills are covered in an occasional crumbling grave marker. 
-1,These hills are covered in large boulders and stones. 
+1,These hills hide a freshwater spring, known as [old name]’s Spring.
+1,One hill here in particular is fitted with a curious-looking door. It seems you have found the home of the solitary [hilldweller] known as [old names for men].
+1,These hills are rocky and difficult to navigate.
+1,These hills are covered in an occasional crumbling grave marker.
+1,These hills are covered in large boulders and stones.
 1,These hills are sacred to the Fey. An ancient stone marker on one of the hills marks an invisible border to the Fey Kingdom. It isn’t clear how you can cross over to the Fey Kingdom, however.
-1,These hills are covered in scattered bones and the remains of rusted armor. Apparently a great battle took place here. 
+1,These hills are covered in scattered bones and the remains of rusted armor. Apparently a great battle took place here.
 1,The hills are bare and the narrow creeks between them have dug deep channels. One of these channels is home to [some canyon wights].
 1,Deep ravines cut through these hills. A cave in one of those dry riverbeds is home to [giant scorpions].
 1,On one of these rocky hills stands a ruined fortress currently occupied by [warlocks]. They are servants of [medusa], the medusa ruling these lands.
 
 ;labcondition
-1,currently incomplete. 
+1,currently incomplete.
 1,poorly made.
 1,easy to navigate, but cursed.
-1,hexed with a variety of strange spells. Those who enter will be teleported into an extensive other-dimensional maze. 
-1,unfinished. 
+1,hexed with a variety of strange spells. Those who enter will be teleported into an extensive other-dimensional maze.
+1,unfinished.
 1,not much more than a circular pattern on the ground at this point.
 1,almost done.
 1,deceptively clever
 1,strangely beautiful.
-1,foreboding and intimidating. 
+1,foreboding and intimidating.
 1,ensorcelled so that it isolates each party member in a strange dream-maze upon entry.
-1,a simple circular hedge-maze. 
+1,a simple circular hedge-maze.
 
 ;giantpet
 1,*cave bear*
@@ -271,10 +271,10 @@
 1,Local Militia
 1,Brothers of Baal mercenary company
 1,Reavers of [old name] mercenary company
-1,forces of [old name], a local warlord. 
+1,forces of [old name], a local warlord.
 1,forces of [medusa], a medusa who lives in these parts.
 1,Guardians of [old name], a foreign mercenary company
-1,Slayers of [old name], an independent mercenary company. 
+1,Slayers of [old name], an independent mercenary company.
 
 ;hilldweller
 1,gnome
@@ -329,14 +329,14 @@
 
 ;warlocks
 1,a *warlock* (level [1d3+1]) and a small group of [1d19+1] human cultists
-1,a *warlock* (level [1d3+1]) and his [evilmounts] mount.  
-1,[1d5+1] *warlocks* (level [1d6+1])-each mounted on a [evilmounts] 
+1,a *warlock* (level [1d3+1]) and his [evilmounts] mount.
+1,[1d5+1] *warlocks* (level [1d6+1])-each mounted on a [evilmounts]
 1,a *warlock* (level 5) and his *giant scorpion* mount
 1,[1d5+1] *warlocks* (level 5) and their *giant scorpion* mounts
 1,a cult of [1d7+1] (level [1d4+1])*warlocks* and their leader, [old name].
-1,a *mind-flayer* and a small group of [1d4+1] *warlocks* 
+1,a *mind-flayer* and a small group of [1d4+1] *warlocks*
 1,a [level 1d4+1] *half-dragon sorcerer* known as [dwarf name for men] and his pet *[evilmount]*
- 
+
 ;evilmounts
 1,giant beetle
 1,dire wolf
@@ -363,13 +363,13 @@
 ;some canyon wights
 1,the *wight* [old name] [the necromaner] who surfaces from his watery grave every night and searches the canyon for fools to drown
 1,[1d7+1] *wights* led by [old name] [the necromaner]. They roam the canyons, looking for victims to drown and add to their undead posse
-1,the *wight* [old name] [the necromaner] who leads a pack of [1d19+1] *zombies* in a never-ending patrol of the area. 
+1,the *wight* [old name] [the necromaner] who leads a pack of [1d19+1] *zombies* in a never-ending patrol of the area.
 1,the solitary *wight* known as [old name] who avoids visitors.
 1,the insane *wight* known as [old name] who will usually follow any party who enters his territory and attempt to pick off stragglers.
-1,the tragic *wight* known as [old name] who will attempt to befriend the party-- but is ashamed of its undead condition. 
-1,the ghoul [old name] who lurks in the canyon, searching for victims to murder. 
-1,[1d5+1] ghouls led by [old name] [the necromaner]. They haunt the area, searching for easy victims to seize in the night. 
-1,[1d19+1] ghouls who serve the *night hag* known as [old names for women][the necromaner] who lives in a hut in the region. 
+1,the tragic *wight* known as [old name] who will attempt to befriend the party-- but is ashamed of its undead condition.
+1,the ghoul [old name] who lurks in the canyon, searching for victims to murder.
+1,[1d5+1] ghouls led by [old name] [the necromaner]. They haunt the area, searching for easy victims to seize in the night.
+1,[1d19+1] ghouls who serve the *night hag* known as [old names for women][the necromaner] who lives in a hut in the region.
 
 ;the necromaner
 1,the Necromancer
@@ -992,30 +992,30 @@
 ;mountain
 1,The green valley up here has some sheep and a *kid* called [human kid] guarding them.
 1,There is a cold pond up in this valley [cold lake].
-1,This mountain has strange runic stone carvings posted at intervals. 
+1,This mountain has strange runic stone carvings posted at intervals.
 1,The upper valley is rocky and bare. [hill giants]
 1,Steep cliffs make progress practically impossible without climbing gear.
-1,[1d19+1] human bandits have set up an ambush here in these mountains. 
+1,[1d19+1] human bandits have set up an ambush here in these mountains.
 1,The mountains here are prone to rockfalls and avalanches. Be Careful!
 1,These mountains are the home of a vicious *wyvern*.
-1,The mountains here are the home of a tribe of [4d6] *orcs*. 
-1,There is an old shrine dedicated to the ancient [totem] in these mountains. You can find it along one of the main trails. 
-1,The mountains here are known to be filled with caves that wind their way deep underground. 
-1,These mountains have strange crystalline formations forming along the cliff faces. 
+1,The mountains here are the home of a tribe of [4d6] *orcs*.
+1,There is an old shrine dedicated to the ancient [totem] in these mountains. You can find it along one of the main trails.
+1,The mountains here are known to be filled with caves that wind their way deep underground.
+1,These mountains have strange crystalline formations forming along the cliff faces.
 1,The mountains here are majestic and particularly beautiful.
-1,The mountains are nearly impassable without specialized gear. 
-1,This is where the (level [1d20+1]) [magic user] [old name] keeps his manse. It is known to disappear from time to time. 
-1,The mountain cliffs here are an unusual [natcolor] stone. 
-1,The mountains here have a treacherous winding mountain path, suitable only for single file travel. 
-1,These mountains are home to small groups of [3d8] goblin raiders. 
-1,These mountains are home to a xenophobic clan of [4d6] dwarves who are likely to ambush and attack unwary visitors. They especially hate elves and orcs. 
+1,The mountains are nearly impassable without specialized gear.
+1,This is where the (level [1d20+1]) [magic user] [old name] keeps his manse. It is known to disappear from time to time.
+1,The mountain cliffs here are an unusual [natcolor] stone.
+1,The mountains here have a treacherous winding mountain path, suitable only for single file travel.
+1,These mountains are home to small groups of [3d8] goblin raiders.
+1,These mountains are home to a xenophobic clan of [4d6] dwarves who are likely to ambush and attack unwary visitors. They especially hate elves and orcs.
 1,Nothing but gray rocks up here in the mountains.
 1,These mountains are riddled with natural limestone caves inhabited by [cavedwellers].
 1,Rising up against the sky is an old elven tower made of green glass, [green tower].
 1,On one of the rock faces you can still see the markings of the old dwarf forge [dwarf forge]. [forge ruin]
-1,A group of [3d12] fanatical *dervishes* dedicated to [evil power] zealously guard their temple here in the mountains. 
-1,A group of [4d6] insane *dervishes* dedicated to [chaos power] inhabit an ancient stone temple in these mountains. They are likely to [chaosreact] any visitors who enter the area. 
-1,A group of [5d4] pious *dervishes* dedicated to [good power] inhabit their temple here in the mountains. They are likely to welcome visitors and provide healing if they are treated honorably and a donation is made. 
+1,A group of [3d12] fanatical *dervishes* dedicated to [evil power] zealously guard their temple here in the mountains.
+1,A group of [4d6] insane *dervishes* dedicated to [chaos power] inhabit an ancient stone temple in these mountains. They are likely to [chaosreact] any visitors who enter the area.
+1,A group of [5d4] pious *dervishes* dedicated to [good power] inhabit their temple here in the mountains. They are likely to welcome visitors and provide healing if they are treated honorably and a donation is made.
 
 ;chaosreact
 1,kill
@@ -1047,7 +1047,7 @@
 1,[1d6+2] *giant lizards*
 1,a pair of *bullettes*
 1,a [dragontype] dragon known as [dragon name]
-1,a [demon] and it's followers. 
+1,a [demon] and it's followers.
 1,a *medusa* known as [medusa 1][medusa 2]
 1,a *lamia* know as [old names for women]
 1,a *sphinx* known as [old names for women]
@@ -1055,7 +1055,7 @@
 
 ;abberant creatures
 1,a *beholder*
-1,a *mind flayer* 
+1,a *mind flayer*
 1,an *otyugh*
 1,[1d4+2] * mind flayers*
 1,[1d3+1] *otyughs*
@@ -1080,7 +1080,7 @@
 1,The ruin is abandoned and dead. If you explore the ruins, you will soon find the [demon] who caused its downfall. It guards a [realm]
 1,The ruin has been settled by the [evil tribe], [1d6x10] *orcs* led by one they call [orc leader].
 1,The ruin is full of broken machinery. In its depths, however, a *bronze golem* still wanders the halls.
-1,The ruin extends deep into the underground. There is a dungeon here. 
+1,The ruin extends deep into the underground. There is a dungeon here.
 1,The ruin is now home to the *[dragontype] dragon* [dragon name].
 1,The ruin is in the process of being reclaimed by an industrious clan of [4d10] dwarves.
 
@@ -1115,13 +1115,13 @@
 1,active teleportation circle.
 1,stargate to an unknown realm.
 1,doorway to the Fey realm.
-1,a silvery summoning circle. 
+1,a silvery summoning circle.
 
 ;green tower
 1,long abandoned
 1,infested by strange elemental spirits
 1,encased in shimmering green ice
-1,inhabited by [1d20+9] elves. 
+1,inhabited by [1d20+9] elves.
 1,now inhabited by a *dragon* called [dragon name]
 1,and at the very top there is a lair of very protective [2d8] *griffons*
 1,inhabited by an eccentric wizard called [old name].
@@ -1317,9 +1317,9 @@
 ;hill giants
 1,Some boulders have been assembled into a crude stone tower inhabited by [2d4] *hill giants* led by one they call [hill giant].
 1,The bellowing *hill giants* can be heard every day up here. [2d4] of them have built a barricade across the passes, here. They are led by [hill giant] but he insists visitors call him [hill giant title].
-1,a massive wooden hall has been built here by [1d4+1] *hill giants*. 
+1,a massive wooden hall has been built here by [1d4+1] *hill giants*.
 1,a massive tent complex made of heavy hides and tree trunks serves as the camp of [1d8+1] ogres and their *hill giant* leader.
-1,a huge stone circle here marks the Moot of a clan of [1d6+2] fierce *hill giants*. 
+1,a huge stone circle here marks the Moot of a clan of [1d6+2] fierce *hill giants*.
 
 ;hill giant
 1,[hill giant 1][hill giant 2]
@@ -1420,11 +1420,11 @@
 1,bright blue and ice cold
 1,and there is an ice cave leading beneath the glacier
 1,and there is an ice cave inhabited by a *cryohydra*
-1,and there is an extensive series of icy caves here. 
+1,and there is an extensive series of icy caves here.
 1,that is completely iced over
 1,inhabited by a group of [1d12+1] *ice mephits*
-1,and there is an abandoned campsite here as well. 
-1,where you find a bizarre crystalline structure hovering in the center of the lake. 
+1,and there is an abandoned campsite here as well.
+1,where you find a bizarre crystalline structure hovering in the center of the lake.
 1,that is the hunting grounds of a group of [1d20+1] *ice trolls*
 
 ;mountains
@@ -1471,12 +1471,12 @@
 1,[name for river] has dug itself a deep gorge.
 1,The gorge is wonderful and deep.
 1,Crossing the canyon requires climbing gear.
-1,A group of [2d6] bandits have staked out this canyon as their hideout. 
+1,A group of [2d6] bandits have staked out this canyon as their hideout.
 1,A majestic canyon makes it’s way through here.
-1,The stone walls in this canyon are an unusual [natcolor] color. 
-1,Strange primitive carvings adorn the walls of this canyon. 
+1,The stone walls in this canyon are an unusual [natcolor] color.
+1,Strange primitive carvings adorn the walls of this canyon.
 1,A lonesome wind howls through this canyon.
-1,A group of [4d6] *dwarves* have set up an extensive sluice gate system to pan for gold in this canyon. 
+1,A group of [4d6] *dwarves* have set up an extensive sluice gate system to pan for gold in this canyon.
 
 ;swamp river
 1,The swamp stretches in all directions and it is impossible to follow [name for river].
@@ -1618,7 +1618,7 @@
 1,A glacier fills the gap between these mountains.
 1,There are volcanic vents here.
 1,There is a series of caves here.
-1,You have discovered an opening to a dungeon here. 
+1,You have discovered an opening to a dungeon here.
 
 
 
@@ -1645,9 +1645,9 @@
 1,[1d4 frost giants]
 1,[2d4] *winter wolves* live up here
 1,There is a dwarven forge called [dwarf forge] up here. [dwarves]
-1,[3d6] mountain-dwelling *barbarians* live in this area. 
-1,[2d4] *gnomes* inhabit this area. 
-1,[4d10] *mountain orcs] live in this area. 
+1,[3d6] mountain-dwelling *barbarians* live in this area.
+1,[2d4] *gnomes* inhabit this area.
+1,[4d10] *mountain orcs] live in this area.
 
 ;1d4 frost giants
 1,The *frost giant* [frost giant] lives here in a [frost giant lair] with [frost giant companions]
@@ -2978,11 +2978,11 @@ https://dwarrowscholar.wordpress.com/general-documents/female-dwarf-outer-names/
 1,eater
 
 ;water
-6,A lake is located here. 
+6,A lake is located here.
 1,A small community of [3d20+10] *humans* have set up a stilt village here on the lake. They travel by rafts. Their leader is known as [old name].
-1,The withered remains of a stilt tower here emerge from the lake. It is unclear if this structure is occupied. 
-1,The lake here is inhabited by a *hag* known as [old names for women]. 
-1,The lake here is choked with [natcolor] blooms of some kind of algae. 
+1,The withered remains of a stilt tower here emerge from the lake. It is unclear if this structure is occupied.
+1,The lake here is inhabited by a *hag* known as [old names for women].
+1,The lake here is choked with [natcolor] blooms of some kind of algae.
 1,The lake here is filled with plentiful fish.
 1,A lake here is covering the ruins of an ancient town.
 1,A lake here is inhabited by [2d20] charming *nixies* and [aquaticpets] guarding their sea weed garden.
@@ -3009,7 +3009,7 @@ https://dwarrowscholar.wordpress.com/general-documents/female-dwarf-outer-names/
 1,The hill overlooking [name for forest/forest-hill/trees/fir-forest/firs] is the home of [1d8 treants].
 1,There is a hill with a nice cave which offers shelter from the rain. [inthecave].
 1,[5d8] dwarves have set up a small logging community, here. They are led by one they call [dwarf]. The camp is defended by [dwarven companions].
-1,There are [fruit] trees located here. 
+1,There are [fruit] trees located here.
 
 ;fruit
 1,apple
@@ -3034,7 +3034,7 @@ https://dwarrowscholar.wordpress.com/general-documents/female-dwarf-outer-names/
 1,The cave is unoccupied
 1,The cave is filled with edible mushrooms
 1,The cave has a clean water source inside
-1,The cave is occupied by a tribe of [2d12+4] humans who are reclusive and shy. 
+1,The cave is occupied by a tribe of [2d12+4] humans who are reclusive and shy.
 1,The cave is occupied by [cavedwellers]
 
 # http://random-generator.com/index.php?title=Orc_Tribe_Name
@@ -3529,7 +3529,7 @@ https://dwarrowscholar.wordpress.com/general-documents/female-dwarf-outer-names/
 1,[old name]
 1,[wight leader]
 ;golem-mancer
-1,In this tower lives the *warlock* [human] (level [1d3+4]), protected by [3d6] [warlockservants]. 
+1,In this tower lives the *warlock* [human] (level [1d3+4]), protected by [3d6] [warlockservants].
 
 ;warlockservants
 1,*goblins*
@@ -3572,7 +3572,7 @@ https://dwarrowscholar.wordpress.com/general-documents/female-dwarf-outer-names/
 1,In these caves you can still find the ancient vats of an abandoned golem-mancer lab.
 1,The caves are an ancient burial complex. There are thousands of dessicated corpses down here.
 1,the caves are an ancient burial complex- the mouldering bones tucked into individual niches dug into the walls. There are [2d6] *ghouls* here.
-1,the caves were once an ancient burial place but the tombs have all been looted. A *wight* known as [old name] wanders the passages. 
+1,the caves were once an ancient burial place but the tombs have all been looted. A *wight* known as [old name] wanders the passages.
 
 ;hobgoblin
 1,[hobgoblin 1][hobgoblin 2]
@@ -4103,7 +4103,7 @@ https://dwarrowscholar.wordpress.com/general-documents/female-dwarf-outer-names/
 1,Visitors to this forest arelikely to be ambushed by a rogue warband of [2d12] *Wood Elves*.
 1,A Forest Drake hunts in this area of the woods.
 1,An ancient looking tree-stump in these woods is the site of a concealed entryway to the dungeon known as [dungeon]
-1,Shy, xenophobic wood elves haunt this area of the forest. They are likely to play tricks on any trespassers and lead them astray. 
+1,Shy, xenophobic wood elves haunt this area of the forest. They are likely to play tricks on any trespassers and lead them astray.
 1,
 1,Tall trees and dense canopy keep the sunlight away. There are big mushrooms everywhere. [mushrooms]
 1,This forest is under the protection of [1d8 treants].
@@ -4156,7 +4156,7 @@ https://dwarrowscholar.wordpress.com/general-documents/female-dwarf-outer-names/
 1,[1d5+1] *giant weasels*
 1,[cavedwellers]
 1,[1d6+3] *ettercops*
-1,a hidden barrow of [1d8+1] ghouls. 
+1,a hidden barrow of [1d8+1] ghouls.
 
 ;1d8 treants
 1,the *treant* called [treant]
@@ -4178,7 +4178,7 @@ https://dwarrowscholar.wordpress.com/general-documents/female-dwarf-outer-names/
 1,The settlement is nearly impossible to spot from the ground level.
 1,At night, the settlement is illuminated by magic light.
 1,During the day, sweet music can be heard from the tree tops.
-1,Eerie string music can be heard from somewhere. 
+1,Eerie string music can be heard from somewhere.
 1,The settlement is protected by a *giant weasel*.
 1,The settlement is protected by [1d8+2] *elven dogs*
 1,The settlement is protected by [1d8+2] *blink dogs*
@@ -4187,26 +4187,26 @@ https://dwarrowscholar.wordpress.com/general-documents/female-dwarf-outer-names/
 ;elf leader
 1,[elf]<img src="[[redirect https://campaignwiki.org/face/redirect/alex/elf]]" />
 ;elf
-1,Halafarin 
+1,Halafarin
 1,Yelmyar
-1,Entrydal 
+1,Entrydal
 1,Aevalur
-1,Wistari 
+1,Wistari
 1,Yelstina
-1,Folmar 
+1,Folmar
 1,Miraberos
-1,Selanlar 
+1,Selanlar
 1,Aeqen
-1,Nilssae 
+1,Nilssae
 1,Permoira
-1,Xharlion 
+1,Xharlion
 1,Melf
 1,Herberos
-1,Ayenna 
+1,Ayenna
 1,Norgella
 1,Tehlmar
 1,Magxisys
-1,Taenya 
+1,Taenya
 1,Elrieth
 1,Elmyra
 1,Reyrona
@@ -5912,7 +5912,7 @@ https://dwarrowscholar.wordpress.com/general-documents/female-dwarf-outer-names/
 1,Savior
 1,Blessed
 1,Redeemer
-1,Giving 
+1,Giving
 1,Wild
 1,Merciful
 1,Harsh
