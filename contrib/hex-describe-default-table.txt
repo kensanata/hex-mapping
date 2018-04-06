@@ -2827,18 +2827,28 @@
 
 ;loner
 1,At the foot of a hill you find a burned down cabin. This must have happened [some time ago].
-3,On one of the hills you find an old watchtower. [tower inhabitant]
+1,[necromancer]
+1,[vivimancer]
+1,[some ruins] Here lives the *hermit* [human] (level 1).
+1,[some ruins] Here lives the *hermit* [human] (level 1) and a *puma*.
+1,[some ruins] Here lives the *hermit* [human] (level 1) and a *jaguar*.
+1,[some ruins] Here lives the *hermit* halfling [halfling] (level 1) with some sheep.
+
+;some ruins
+1,On one of the hills you find an old two story watchtower.
+1,One of the hills is actually an old burial mound. The dead are long gone.
+1,On one of the hills are the ruins of an old temple.
+1,One of the hills contains one of these smooth shafts that go down a hundred feet or so. Ropes and ladders lead to the strange rooms below.
+1,A few large boulders stand close together and somebody built a little shelter using wooden lattice and some straw.
+1,Somebody dug a hole under one of the larger boulders.
+1,Sheltered behind one of the boulders and well hidden by some bushes there is a tent.
 
 ;tower inhabitant
 1,[necromancer]
 1,[vivimancer]
-1,Here lives the *hermit* [human] (level 1).
-1,Here lives the *hermit* [human] (level 1) and a *puma*.
-1,Here lives the *hermit* [human] (level 1) and a *jaguar*.
-1,Here lives the *hermit* halfling [halfling] (level 1) with some sheep.
 
 ;necromancer
-1,In this tower lives the *necromancer* [human] (level [1d3+4]), protected by [necromancer companions]. [necromancer tower]
+1,Here lives the *necromancer* [human] (level [1d3+4]), protected by [necromancer companions], in a tower. [necromancer tower]
 
 ;necromancer companions
 1,[4d6] watchful *zombies*
@@ -2847,10 +2857,10 @@
 1,[2d4] *hell hounds*
 
 ;necromancer tower
-1,The tower itself is surrounded by a moat and inside the moat lives a *pyrohydra* chained to the foundations of the tower.
+1,It is surrounded by a moat and inside the moat lives a *pyrohydra* chained to the foundations of the tower.
 1,The stinking dungeons below the tower are filled with cells where a hundred people or more must have died over the years. A pit of rotten flesh and bones awaits all who die here.
 1,Below the tower is a conjuration room with a circle of protection. There's a book, here: [necronomicon].
-1,The tower is surrounded by permanent darkness spells, and in the darkness lie spiked pits and poison trees, and [3d6] *shadow wolves*.
+1,It is surrounded by permanent darkness spells, and in the darkness lie spiked pits and poison trees, and [3d6] *shadow wolves*.
 
 ;necronomicon
 1,[the secrets of] [necromancy], author unknown
@@ -2883,7 +2893,18 @@
 1,[wight leader]
 
 ;vivimancer
-1, In this tower lives the *vivimancer* [human] (level [1d3+4]), protected by [3d6] *mykonids*.
+1,Here lives the *vivimancer* [human] (level [1d3+4]), protected by [3d6] *mykonids*, in a tower.
+1,Here is the tower of *vivimancer* [human] (level [1d3+4]) with [3d6] [slimes]. [safe zone]
+
+;slimes
+1,*black puddings* in pools and pits
+1,*grey slimes* which have integrated themselves into the walls
+1,*green slimes* which lurk under every ceiling
+
+;safe zone
+1,A rickety bridge leads into the tower and to a small platform with a bed and the laboratory.
+1,Outside the tower, on some wooden stilts, is a small house with bedding and laboratory, all up there.
+1,The entire tower is surrounded by a ditch and a fence. Bedroom and laboratory are on the outside.
 
 ;some time ago
 1,[1d6] days ago
