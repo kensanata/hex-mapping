@@ -1,9 +1,7 @@
-
 # This has been altered from the original default table
 # which was written by Alex Schroeder and dedicated to the Public Domain
-#This table has been altered by Peter Seckler and is still public domain. 
-#Feel free to use, alter correct and share!
-
+# This table has been altered by Peter Seckler and is still public domain. 
+# Feel free to use, alter correct and share!
 
 ;sand desert
 3,There is sand in every direction.
@@ -14,7 +12,7 @@
 1,Dead calm in the desert, and tall angular cacti can be seen in every direction. 
 1,The sand here has shifted into tall hills. 
 1,On the [moongatetime], a shimmering moongate appears in this part of the desert. It can be seen for miles around.. It teleports any who enter to hex 1[1d9]0[1d9]. Otherwise there is only empty desert here. 
-1, *Giant Sandworms* roam this part of the desert. They ambush travelers. 
+1,*Giant Sandworms* roam this part of the desert. They ambush travelers. 
 
 ;dust desert
 3,The land here is a flat and featureless desert.
@@ -66,7 +64,7 @@
 1,These grasslands are home to small herds of wild horses. 
 1,These grasslands are overgrown with very tall grass. The grass is as tall as a mans height. 
 1,These grasslands are home to [centaurs].
-1, An enterprising merchant known as [human] has set up an impromptu trading post here in the middle of nowhere. [merchantprobs]
+1,An enterprising merchant known as [human] has set up an impromptu trading post here in the middle of nowhere. [merchantprobs]
 1,These grasslands are infested with *stirges*. There are [3d12] *stirges* here.
 1,[4d6] *giant ants* have their lair underneath these grasslands. They attack any trespassers. 
 1,[1d3+1] *giant bees* roam this area looking for pollen and defending their hive-mound, located somewhere nearby. There are [10d3] more bees back at the hive. 
@@ -152,16 +150,16 @@
 1,outwardly friendly, but have a secret shrine to [chaos power]
 
 ;merchantprobs
-1, His wagon has broken an axle.
-1, He specializes in selling weaponry
-1, He knows the area very well
-1, He also happens to be a level [1d4+1] [magic user]
-1, He knows very little about the area
-1, He speaks fluent orcish and trades with the local orcs frequently
-1, He is also hoping to spread the worship of [good power]
-1, Secretly he is a cleric of [evil power]
-1, He hopes to sell off his inventory soon
-1, He is actually a spy for a vampire known as [old name] who inhabits a hidden underground tomb nearby. 
+1,His wagon has broken an axle.
+1,He specializes in selling weaponry
+1,He knows the area very well
+1,He also happens to be a level [1d4+1] [magic user]
+1,He knows very little about the area
+1,He speaks fluent orcish and trades with the local orcs frequently
+1,He is also hoping to spread the worship of [good power]
+1,Secretly he is a cleric of [evil power]
+1,He hopes to sell off his inventory soon
+1,He is actually a spy for a vampire known as [old name] who inhabits a hidden underground tomb nearby. 
 
 ;centaurs
 1,the *centaur* [centaur]
@@ -396,8 +394,8 @@
 1,the Unhallowed
 1,the Last
 1,the Deathly
-1, the Hungerer
-1, the ancient.
+1,the Hungerer
+1,the ancient.
 
 ;old name
 1,[old names for men]
@@ -1003,7 +1001,7 @@
 1,The mountains here are the home of a tribe of [4d6] *orcs*. 
 1,There is an old shrine dedicated to the ancient [totem] in these mountains. You can find it along one of the main trails. 
 1,The mountains here are known to be filled with caves that wind their way deep underground. 
-1, These mountains have strange crystalline formations forming along the cliff faces. 
+1,These mountains have strange crystalline formations forming along the cliff faces. 
 1,The mountains here are majestic and particularly beautiful.
 1,The mountains are nearly impassable without specialized gear. 
 1,This is where the (level [1d20+1]) [magic user] [old name] keeps his manse. It is known to disappear from time to time. 
@@ -1041,13 +1039,13 @@
 1,[abberant creatures]
 1,[1d10] *gnomes*
 1,[1d4+1] *dracotaurs*
-1, an *ogre* called [old name]
-1, a hill giant known as [dwarf name for men]
+1,an *ogre* called [old name]
+1,a hill giant known as [dwarf name for men]
 1,[1d6+1] *ogres*
 1,a vicious *giant spider*
 1,[1d4+1] *giant spiders*
 1,[1d6+2] *giant lizards*
-1, a pair of *bullettes*
+1,a pair of *bullettes*
 1,a [dragontype] dragon known as [dragon name]
 1,a [demon] and it's followers. 
 1,a *medusa* known as [medusa 1][medusa 2]
@@ -1061,7 +1059,7 @@
 1,an *otyugh*
 1,[1d4+2] * mind flayers*
 1,[1d3+1] *otyughs*
-1, a pair of *grell*
+1,a pair of *grell*
 1,[1d6+2] *grell*
 
 ;totem
@@ -1321,7 +1319,7 @@
 1,The bellowing *hill giants* can be heard every day up here. [2d4] of them have built a barricade across the passes, here. They are led by [hill giant] but he insists visitors call him [hill giant title].
 1,a massive wooden hall has been built here by [1d4+1] *hill giants*. 
 1,a massive tent complex made of heavy hides and tree trunks serves as the camp of [1d8+1] ogres and their *hill giant* leader.
-1, a huge stone circle here marks the Moot of a clan of [1d6+2] fierce *hill giants*. 
+1,a huge stone circle here marks the Moot of a clan of [1d6+2] fierce *hill giants*. 
 
 ;hill giant
 1,[hill giant 1][hill giant 2]
@@ -1475,10 +1473,10 @@
 1,Crossing the canyon requires climbing gear.
 1,A group of [2d6] bandits have staked out this canyon as their hideout. 
 1,A majestic canyon makes it’s way through here.
-1, The stone walls in this canyon are an unusual [natcolor] color. 
-1, Strange primitive carvings adorn the walls of this canyon. 
-1, A lonesome wind howls through this canyon.
-1, A group of [4d6] *dwarves* have set up an extensive sluice gate system to pan for gold in this canyon. 
+1,The stone walls in this canyon are an unusual [natcolor] color. 
+1,Strange primitive carvings adorn the walls of this canyon. 
+1,A lonesome wind howls through this canyon.
+1,A group of [4d6] *dwarves* have set up an extensive sluice gate system to pan for gold in this canyon. 
 
 ;swamp river
 1,The swamp stretches in all directions and it is impossible to follow [name for river].
@@ -1620,7 +1618,7 @@
 1,A glacier fills the gap between these mountains.
 1,There are volcanic vents here.
 1,There is a series of caves here.
-1, You have discovered an opening to a dungeon here. 
+1,You have discovered an opening to a dungeon here. 
 
 
 
@@ -3531,7 +3529,7 @@ https://dwarrowscholar.wordpress.com/general-documents/female-dwarf-outer-names/
 1,[old name]
 1,[wight leader]
 ;golem-mancer
-1, In this tower lives the *warlock* [human] (level [1d3+4]), protected by [3d6] [warlockservants]. 
+1,In this tower lives the *warlock* [human] (level [1d3+4]), protected by [3d6] [warlockservants]. 
 
 ;warlockservants
 1,*goblins*
@@ -3649,7 +3647,7 @@ https://dwarrowscholar.wordpress.com/general-documents/female-dwarf-outer-names/
 1,[manticore name]
 1,Bastard of [manticore name]
 1,Ancient [manticore name]
-6, [dwarf name for men]
+6,[dwarf name for men]
 
 ;manticore name
 5,[dwarf name for men]
@@ -4151,7 +4149,7 @@ https://dwarrowscholar.wordpress.com/general-documents/female-dwarf-outer-names/
 ;boars
 1,the guardian spirit of this forest, a *demon boar*
 25,a male *boar* seaching for food
-5, a group of [5d6] female *boars* and their young
+5,a group of [5d6] female *boars* and their young
 
 ;1d6 weasels
 1,a *giant weasel*
