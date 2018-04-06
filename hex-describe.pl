@@ -44,15 +44,23 @@ use Array::Utils qw(intersect);
 
 As a Mojolicious application, it will read a config file called
 F<hex-describe.conf> in the same directory, if it exists. As the default log
-level is 'debug', one use of the config file is to change the log level:
+level is 'debug', one use of the config file is to change the log level using
+the C<loglevel> key.
+
+The default map and table are stored in the F<contrib> directory. You can change
+this directory using the C<default_dir> key. This is necessary when using
+Toadfarm to run the application, for example.
 
     {
       loglevel => 'warn',
+      default_dir => '/home/alex/farm/contrib',
     };
 
 =cut
 
-plugin Config => {default => {loglevel => 'debug'}};
+plugin Config => {default => {
+  loglevel => 'debug',
+  default_dir => 'contrib', }};
 
 my $log = Mojo::Log->new;
 $log->level(app->config('loglevel'));
@@ -66,8 +74,9 @@ probably read the tutorial.
 
 =cut
 
-my $default_map = Mojo::File->new('contrib/hex-describe-default-map.txt');
-my $default_table = Mojo::File->new('contrib/hex-describe-default-table.txt');
+my $dir = app->config('default_dir');
+my $default_map = Mojo::File->new("$dir/hex-describe-default-map.txt");
+my $default_table = Mojo::File->new("$dir/hex-describe-default-table.txt");
 
 =head2 Entry Points
 
