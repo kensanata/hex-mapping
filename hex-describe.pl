@@ -36,6 +36,7 @@ use Mojolicious::Lite;
 use Mojo::UserAgent;
 use Mojo::URL;
 use Mojo::Log;
+use Mojo::File;
 use Mojo::ByteStream;
 use Array::Utils qw(intersect);
 
@@ -56,8 +57,8 @@ plugin Config => {default => {loglevel => 'debug'}};
 my $log = Mojo::Log->new;
 $log->level(app->config('loglevel'));
 
-my $default_map;
-my $default_table;
+my $default_map = Mojo::File->new('contrib/hex-describe-default-map.txt');
+my $default_table = Mojo::File->new('contrib/hex-describe-default-map.txt');
 
 =head2 Entry Points
 
