@@ -130,7 +130,10 @@ you can link from one table to another using square brackets.
 Square brackets are also used for dice rolls. A dice roll can look
 like this: 3d6, 3d6+5 3d6x10, or 3d6x10+5.
 
-There's an built-in help page with more details.
+There's an built-in help page with more details for end users. If you
+intend to host the application yourself, use `perldoc hex-describe.pl`
+to get a more technical documentation based on the comments in the
+code.
 
 Try it: https://campaignwiki.org/hex-describe
 
