@@ -349,7 +349,7 @@ sub parse_map {
   for my $line (@lines) {
     my $type = $line->[0];
     my %data = (type => $type, line => $line);
-    $log->debug("New $type...");
+    # $log->debug("New $type...");
     my $start = 1;
   COORD:
     for my $i (1 .. $#$line) {
@@ -362,28 +362,28 @@ sub parse_map {
       my $same_dir = 0;
       for my $line2 (grep { $_->{type} eq $type } @{$extra->{$coord}}) {
 	if (same_direction($coord, $line, $line2->{line})) {
-	  $log->debug("... at $coord, @$line and @{$line2->{line}} go in the same direction");
+	  # $log->debug("... at $coord, @$line and @{$line2->{line}} go in the same direction");
 	  $same_dir = 1;
 	  last;
 	}
       }
       if ($start and $same_dir) {
-	$log->debug("... skipping");
+	# $log->debug("... skipping");
 	last COORD;
       }
       # add type to the hex description, add "$type-merge" when
       # running into an existing one
       my $merged;
       if (not grep { $_ eq $type } @{$map_data->{$coord}}) {
-	$log->debug("...$type leading into $coord");
+	# $log->debug("...$type leading into $coord");
 	push(@{$map_data->{$coord}}, $type);
       } elsif (not grep { $_ eq "$type-merge" } @{$map_data->{$coord}}) {
 	$merged = $same_dir; # skip the rest of the line, if same dir
-	$log->debug("...noted merge into existing $type at $coord");
+	# $log->debug("...noted merge into existing $type at $coord");
 	push(@{$map_data->{$coord}}, "$type-merge");
       } else {
 	$merged = $same_dir; # skip the rest of the line, if same dir
-	$log->debug("...leads into existing $type merge at $coord");
+	# $log->debug("...leads into existing $type merge at $coord");
       }
       $start = 0;
       # all hexes along a line share this hash
@@ -404,9 +404,9 @@ sub parse_map {
       push(@{$map_data->{$coord}}, "$type-start");
     }
   }
-  for my $coord (sort keys %$map_data) {
-    $log->debug(join(" ", $coord, @{$map_data->{$coord}}));
-  }
+  # for my $coord (sort keys %$map_data) {
+  #   $log->debug(join(" ", $coord, @{$map_data->{$coord}}));
+  # }
   return $map_data;
 }
 
