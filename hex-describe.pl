@@ -76,7 +76,8 @@ probably read the tutorial.
 
 my $dir = app->config('default_dir');
 my $default_map = Mojo::File->new("$dir/hex-describe-default-map.txt");
-my $default_table = Mojo::File->new("$dir/hex-describe-default-table.txt");
+my $schroeder_table = Mojo::File->new("$dir/hex-describe-schroeder-table.txt");
+my $seckler_table = Mojo::File->new("$dir/hex-describe-seckler-table.txt");
 
 =head2 Entry Points
 
@@ -148,12 +149,14 @@ used.
 any '/describe' => sub {
   my $c = shift;
   my $map = $c->param('map');
+  my $load = $c->param('load');
   my $svg = app->mode eq 'development' ? '' : get_post_data('https://campaignwiki.org/text-mapper/render', map => $map);
   my $url = $c->param('url');
   my $table;
   $table = get_data($url) if $url;
   $table ||= $c->param('table');
-  $table ||= $default_table->slurp;
+  $table ||= $seckler_table->slurp if $load eq 'seckler';
+  $table ||= $schroeder_table->slurp if $load eq 'schroeder';
   init();
   $c->render(template => 'description',
 	     svg => $svg,
@@ -201,11 +204,13 @@ neither is provided, the default table is used.
 any '/describe/text' => sub {
   my $c = shift;
   my $input = $c->param('input');
+  my $load = $c->param('load');
   my $url = $c->param('url');
   my $table;
   $table = get_data($url) if $url;
   $table ||= $c->param('table');
-  $table ||= $default_table->slurp;
+  $table ||= $seckler_table->slurp if $load eq 'seckler';
+  $table ||= $schroeder_table->slurp if $load eq 'schroeder';
   init();
   $c->render(template => 'text',
 	     descriptions => describe_text($input, parse_table($table)));
@@ -222,15 +227,26 @@ get '/default/map' => sub {
   $c->render(text => $default_map->slurp, format => 'txt');
 };
 
-=item get /default/table
+=item get /schroeder/table
 
-This shows you the default table.
+This shows you the table by Alex Schroeder.
 
 =cut
 
-get '/default/table' => sub {
+get '/schroeder/table' => sub {
   my $c = shift;
-  $c->render(text => $default_table->slurp, format => 'txt');
+  $c->render(text => $schroeder_table->slurp, format => 'txt');
+};
+
+=item get /seckler/table
+
+This shows you the table by Peter Seckler.
+
+=cut
+
+get '/seckler/table' => sub {
+  my $c = shift;
+  $c->render(text => $seckler_table->slurp, format => 'txt');
 };
 
 =item get /source
@@ -1104,11 +1120,18 @@ generator.
 </p>
 
 <p>
-The description of the map is generated using the
-<%= link_to 'default table' => 'defaulttable' %>.
+What random tables should be used to generate the descriptions?
+</p>
+
+% param load => 'schroeder' unless param 'load';
+<%= radio_button load => 'schroeder' %>
+<%= link_to 'Alex Schroeder' => 'schroedertable' %>
+<%= radio_button load => 'seckler' %>
+<%= link_to 'Peter Seckler' => 'secklertable' %>
+
+<p>
 If you have your own tables somewhere public (a pastebin, a public file at a
-file hosting service), you can provide the URL to your tables. Alternatively,
-you can just paste your tables into the text area below.
+file hosting service), you can provide the URL to your tables right here:
 </p>
 
 <p>
@@ -1782,7 +1805,7 @@ line, for example, provide the option `-m production`.
 <h1>Hex Describe Authors</h1>
 
 <p>
-The default table contains material by the following people:
+The tables contains material by the following people:
 </p>
 
 <ul>
@@ -1790,6 +1813,7 @@ The default table contains material by the following people:
 <li><a href="https://ropeblogi.wordpress.com/">Tommi Brander</a></li>
 <li><a href="http://random-generator.com/">Mike Banks</a></li>
 <li><a href="http://random-generator.com/">Dave Younce</a></li>
+<li><a href="https://plus.google.com/103299975524461918112">Peter Seckler</a></li>
 </ul>
 
 <p>
