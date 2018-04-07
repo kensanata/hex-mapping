@@ -1796,7 +1796,7 @@ from services that aren’t hosted on the same domain
 <p>
 If you run the application yourself, images will not be loaded. In order to load
 them, switch the application mode to production. Running it from the command
-line, for example, provide the option `-m production`.
+line, for example, provide the option <code>-m production</code>.
 </p>
 
 @@ authors.html.ep
