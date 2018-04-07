@@ -348,13 +348,14 @@ sub get_post_data {
 When starting a description, we need to initialize our data. There are two
 global data structures beyond the map.
 
-B<$extra> is a reference to a hash of hashes used to keep common data per line.
-In this context, lines are linear structures like rivers or trails on the map.
-The first hash uses the hex coordinates as a key, the second hash uses the keys
-"type" to indicate the type of line, "line" for the raw data (for debugging),
-and later "name" will be used to name these lines.
+B<$extra> is a reference to a hash of lists of hashes used to keep common data
+per line. In this context, lines are linear structures like rivers or trails on
+the map. The first hash uses the hex coordinates as a key. This gets you the
+list of hashes, one per line going through this hex. Each of these hashes uses
+the key "type" to indicate the type of line, "line" for the raw data (for
+debugging), and later "name" will be used to name these lines.
 
-    $extra->{"0101"}->{"type"} eq "river"
+    $extra->{"0101"}->[0]->{"type"} eq "river"
 
 B<%names> is just a hash of names. It is used for all sorts of things. When
 using the reference C<name for a bugbear band1>, then "name for a bugbear band1"
