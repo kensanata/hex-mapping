@@ -1123,11 +1123,15 @@ generator.
 What random tables should be used to generate the descriptions?
 </p>
 
+<p>
 % param load => 'schroeder' unless param 'load';
 <%= radio_button load => 'schroeder' %>
 <%= link_to 'Alex Schroeder' => 'schroedertable' %>
+(best for Alpine maps)
 <%= radio_button load => 'seckler' %>
 <%= link_to 'Peter Seckler' => 'secklertable' %>
+(best for Smale maps)
+</p>
 
 <p>
 If you have your own tables somewhere public (a pastebin, a public file at a
