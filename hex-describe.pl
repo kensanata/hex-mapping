@@ -39,6 +39,7 @@ use Mojo::Log;
 use Mojo::File;
 use Mojo::ByteStream;
 use Array::Utils qw(intersect);
+use Encode qw/decode_utf8/;
 
 =head2 Configuration
 
@@ -97,7 +98,7 @@ result instead of allow the user to edit the form.
 
 get '/' => sub {
   my $c = shift;
-  my $map = $c->param('map') || $default_map->slurp;
+  my $map = $c->param('map') || decode_utf8($default_map->slurp);
   my $url = $c->param('url');
   my $table = $c->param('table');
   $c->render(template => 'edit', map => $map, url => $url, table => $table);
@@ -155,8 +156,8 @@ any '/describe' => sub {
   my $table;
   $table = get_data($url) if $url;
   $table ||= $c->param('table');
-  $table ||= $seckler_table->slurp if $load eq 'seckler';
-  $table ||= $schroeder_table->slurp if $load eq 'schroeder';
+  $table ||= decode_utf8($seckler_table->slurp) if $load eq 'seckler';
+  $table ||= decode_utf8($schroeder_table->slurp) if $load eq 'schroeder';
   init();
   $c->render(template => 'description',
 	     svg => $svg,
@@ -209,8 +210,8 @@ any '/describe/text' => sub {
   my $table;
   $table = get_data($url) if $url;
   $table ||= $c->param('table');
-  $table ||= $seckler_table->slurp if $load eq 'seckler';
-  $table ||= $schroeder_table->slurp if $load eq 'schroeder';
+  $table ||= decode_utf8($seckler_table->slurp) if $load eq 'seckler';
+  $table ||= decode_utf8($schroeder_table->slurp) if $load eq 'schroeder';
   init();
   $c->render(template => 'text',
 	     descriptions => describe_text($input, parse_table($table)));
@@ -224,7 +225,7 @@ This shows you the default map.
 
 get '/default/map' => sub {
   my $c = shift;
-  $c->render(text => $default_map->slurp, format => 'txt');
+  $c->render(text => decode_utf8($default_map->slurp), format => 'txt');
 };
 
 =item get /schroeder/table
@@ -235,7 +236,7 @@ This shows you the table by Alex Schroeder.
 
 get '/schroeder/table' => sub {
   my $c = shift;
-  $c->render(text => $schroeder_table->slurp, format => 'txt');
+  $c->render(text => decode_utf8($schroeder_table->slurp), format => 'txt');
 };
 
 =item get /seckler/table
@@ -246,7 +247,7 @@ This shows you the table by Peter Seckler.
 
 get '/seckler/table' => sub {
   my $c = shift;
-  $c->render(text => $seckler_table->slurp, format => 'txt');
+  $c->render(text => decode_utf8($seckler_table->slurp), format => 'txt');
 };
 
 =item get /source
@@ -1167,12 +1168,35 @@ Alternatively, just paste your tables here:
 <h1>Hex Describe (no map)</h1>
 <p>
 Write a text using [square brackets] to replace with data from a random table.
-Provide a random table using the URL below.
 </p>
+
 %= form_for describetext => (method => 'POST') => begin
 %= text_area input => (cols => 60, rows => 15) => begin
 <%= $input =%>
 % end
+
+<p>
+%= submit_button 'Submit', name => 'submit'
+</p>
+
+<p>
+What random tables should be used to generate the text?
+</p>
+
+<p>
+% param load => 'schroeder' unless param 'load';
+<%= radio_button load => 'schroeder' %>
+<%= link_to 'Alex Schroeder' => 'schroedertable' %>
+(best for Alpine maps)
+<%= radio_button load => 'seckler' %>
+<%= link_to 'Peter Seckler' => 'secklertable' %>
+(best for Smale maps)
+</p>
+
+<p>
+If you have your own tables somewhere public (a pastebin, a public file at a
+file hosting service), you can provide the URL to your tables right here:
+</p>
 
 <p>
 Table URL:
@@ -1183,10 +1207,6 @@ Alternatively, just paste your tables here:
 %= text_area table => (cols => 60, rows => 15) => begin
 <%= $table =%>
 % end
-
-<p>
-%= submit_button 'Submit', name => 'submit'
-</p>
 %= end
 
 
