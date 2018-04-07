@@ -715,7 +715,8 @@ sub pick {
       # $log->debug("$coordinates: picked $text") if $coordinates eq "0109";
       $text =~ s/\[\[redirect (https:.*?)\]\]/
 		     app->mode eq 'development' ? '' : resolve_redirect($1)/ge;
-      $text =~ s/\[(.*?)\]/describe($map_data,$table_data,$level+1,$coordinates,[$1])/ge;
+      $text =~ s/\[([^][]*)\]/describe($map_data,$table_data,$level+1,$coordinates,[$1])/ge;
+      $text =~ s/\[([^][]*)\]/describe($map_data,$table_data,$level+1,$coordinates,[$1])/ge;
       last;
     }
   }
@@ -761,14 +762,6 @@ sub describe {
       $names{$word} = $name;
       # $log->debug("$word is $name");
       push(@descriptions, $name);
-    } elsif ($word =~ /^(.+?) is (.+)/) {
-      # for defining variables which are basically tables with just one lookup
-      my $key = $1;
-      my $text = "[$2]";
-      $log->debug("$key is redefined to mean $text");
-      my %h = (count => 1, text => $text);
-      $table_data->{$key}->{total} = 1;
-      push(@{$table_data->{$key}->{lines}}, \%h);
     } elsif ($word =~ /^names for (\S+)/) {
       my $key = $1; # "river"
       # $log->debug("Looking at $key for $coordinates...");
@@ -819,9 +812,12 @@ sub describe {
       } else {
 	# regular features: "name for white big mountain"
 	my $name = $names{"$word: $coordinates"}; # "name for white big mountain: 0101"
+	# $log->debug("$word for $coordinates is $name") if $name;
 	return $name if $name;
 	$name = pick($map_data, $table_data, $level, $coordinates, $words, $word);
+	# $log->debug("new $word for $coordinates is $name") if $name;
 	next unless $name;
+	$names{"$word: $coordinates"} = $name;
 	push(@descriptions, $name);
 	spread_name($map_data, $coordinates, $word, $key, $name);
       }
@@ -1772,6 +1768,58 @@ the same line, the same name will be returned.
 <p>
 A limitation of the current implementation is that when two trails or
 two rivers meet in a hex, only one of them will get mentioned.
+</p>
+
+<h2>More</h2>
+
+<p>
+Sometimes you want to use the entry picked from a table as the name of
+a table from which to pick an entry. Take a look at the following
+example:
+</p>
+
+%= example begin
+0101 light-grey mountain
+0201 white mountain
+0301 white mountains
+0401 white mountain
+0501 light-grey mountain
+0601 light-green fir-forest
+0701 light-green fir-forest
+0801 light-grey mountain
+0901 white mountain
+1001 white mountains
+1101 white mountain
+1201 light-grey mountain
+1301 light-green fir-forest
+include https://campaignwiki.org/contrib/gnomeyland.txt
+
+
+;mountains
+1,[mountain]
+
+;mountain
+1,This mountain range is [name for mountain/mountains type]: [encounter [name for mountain/mountains type]]
+
+;name for mountain/mountains type
+1,haunted
+1,enchanted
+
+;encounter haunted
+1,ghouls
+1,zombies
+1,wights
+
+;encounter enchanted
+1,an angel
+1,a saint
+1,a hermit
+% end
+
+<p>
+In this example, all the hexes forming a mountain range are either
+haunted or enchanted. Based on this, the encounters always come from
+the appropriate table.
 </p>
 
 <h2>Images</h2>
