@@ -3649,7 +3649,7 @@
 1,There is a thorp of [1d4x10] *humans* led by one they call [human]. The [human houses] are protected by [human companions].
 
 ;village
-1,There is a village of [5d6x10] *humans* led by [human leader] who [lives in small building] with [human retainer] and [human friends]. The [human houses] are protected by [human companions] and a [human defense]. [And a secret society]
+1,There is a village of [5d6x10] *humans* led by [human leader] who lives in a small [name for village building] with [human retainer] and [human friends]. [small [name for village building]] The [human houses] are protected by [human companions] and a [human defense]. [And a secret society]
 
 ;town
 1,There is a town of [1d6x100] *humans* led by [human leader] who lives in a keep with [human retainer] and [human friends]. The [human houses] are protected by a town wall and the river. There is [town feature]. [And two secret societies feuding]
@@ -3686,10 +3686,96 @@
 1,[secret society]
 
 # meaning the human has no class and isn't a priest
-;lives in small building
-1,lives in a small tower
-1,lives in a small keep
-1,runs a small temple to [power]
+# the result is also reused in the following table
+;name for village building
+1,tower
+1,keep
+1,temple dedicated to [power]
+
+;small tower
+1,The tower is four stories high and has an entrance on the second level. A ladder leads up to it. Twenty large stones are stored on the roof. This should be enough to deter any peasant uprising.
+1,The massive round tower is three stories high and topped with a wooden section that feels like a comfortable tree house in peace time. The walls are thick and the main doors are reinforced with iron bands.
+
+;small keep
+1,The keep consists of a square tower three stories high, a stable, a kennel, and a little courtyard enclosed by a strong wall. Inside the wall is a wooden walkway that allows guards to repel attackers.
+1,The keep consists of a gatehouse protecting the small courtyard and a square tower four stories high.
+
+;small temple dedicated to Set
+1,[small shrine]
+1,The temple is nothing but a pit in the earth with a stone ceiling and the statue of a giant snake in the back. In front of the snake there are burning candles and wooden poles with strings attached and at the end of every string is an accusation: names of villagers and their misdeed, the punishment requested, and counter claims, and peace offerings. This is where the elders decide upon blood money to be paid and punishments to be exacted.
+1,Between some rocks, a crack leads deeper into the earth and into a cave. There, a giant snake made of stone watches over all who pray to Set. A deep pit contains the polished bones of all who where killed in revenge for their misdeeds. There are always wooden accusation plates to be found naming bandits, thieves, murders, adulterers, and cowards who ran from a battle, deserting their village comrades. Will you take a plate and exact revenge in the name of Set?
+1,An old stairway leads in the bowels of the earth where warm vapours make your head swim. Down here, the *spirit naga* [naga] will guide your hand, should you need her words. Spend an hour down here and any soul dedicated to Set will tell you of the past and the future for all time goes in circles and the big snake eats itself.
+1,This is a snake pit, a breeding ground for [1d4 giant snakes] and vipers, a place dangerous to every warm blooded creature. And yet, the terror of these snakes also keeps bandits at bay and no orc will set foot near this place, such is the power of Set. They say that those with the secret knowledge can use snake poison to poison their blades and they say that all who serve the temple have done just that.
+
+;naga
+1,[naga 1] [naga 2] of [naga 3]
+
+;naga 1
+1,Most Exalted
+1,Exalted
+1,Magnificent
+1,Terrible
+1,Dread
+
+;naga 2
+1,Terror
+1,Wisdom
+1,Sorcerer
+1,Queen
+1,Spirit
+
+;naga 3
+1,Midgard
+1,Embryonic Life
+1,Revenge
+1,Retribution
+1,Hate
+1,Truth
+1,Lies
+1,Venom
+1,Poison
+1,Death
+
+;1d4 giant snakes
+1,a *giant snake*
+3,[1d3+1] *giant snakes*
+
+# FIXME
+;small temple dedicated to Orcus
+1,[small shrine]
+
+# FIXME
+;small temple dedicated to Nergal
+1,[small shrine]
+
+# FIXME
+;small temple dedicated to Pazuzu
+1,[small shrine]
+
+# FIXME
+;small temple dedicated to Hel
+1,[small shrine]
+
+# FIXME
+;small temple dedicated to Freya
+1,[small shrine]
+
+# FIXME
+;small temple dedicated to Odin
+1,[small shrine]
+
+# FIXME
+;small temple dedicated to Thor
+1,[small shrine]
+1,The small temple is in fact a large shrine built inside the village smith's forge. This is where the strongest villagers meet every seven-night to discuss their grievances and resolve their issues. Money changes hands, children are promised into apprenticeship and journeymen are welcomed into the village.
+
+# FIXME
+;small temple dedicated to Mithra
+1,[small shrine]
+
+;small shrine
+1,The temple is actually nothing but a simple shrine with a small statue, some food offerings, and an annex where the caretakers of this shrine live.
+1,The temple is a tiny affair where new born babies are blessed and the dead are mourned and buried. There is a small spirit gate here which symbolises the passage to the next world. In the back is the graveyard full of name stones.
 
 ;town feature
 1,a market
@@ -5230,6 +5316,7 @@
 1,World
 1,Wyrm
 
+# note that elsewhere tables exist that refer to all the powers
 ;power
 1,[evil power]
 1,[good power]
