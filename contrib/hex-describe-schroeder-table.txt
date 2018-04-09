@@ -3740,9 +3740,32 @@
 1,a *giant snake*
 3,[1d3+1] *giant snakes*
 
-# FIXME
 ;small temple dedicated to Orcus
 1,[small shrine]
+1,The temple is a simple mausoleum with a bone pit. The poor and foreign folks are brought here upon their death for it is said that in the hour of need the dead will rise and fight for us at the End of the World.
+1,The temple is an underground network of crypt with dozens of bone chambers. The bones of the dead are used walls, floor, and ceiling. They say that the Bone Road of the underworld is similarly made of all the bones of the restless dead. There they await the End of the World. The bone chambers are there to remind us that everything must pass.
+1,The temple is an underground labyrinth of tunnels with dozens of niches where warriors of old await the end of the world. Most of them are truly dead except for [1d8 mummies]. Down here in the cold darkness, somebody is always eager to whisper words of wisdom in exchange for gold and jewels intent on corrupting the world above. It is the hope for eternal life, of resurrection in this world, which brings people back again and again.
+1,Beneath the town, after descending into an old chamber via many stairs, is the temple: a black pit from which the broken whispers of [1d8 wights]. Down there are the tunnels of madness. Behind the pit is a status of a naked man, fat and hairy, with the horns of a giant ram, served by satyrs and skeletons. This is the trickster demon lord, the only one capable of bringing back souls from the afterlife, or so they say.
+1,The temple is a burial mound with various secret crypts, each sealed and secured. Falling rocks, swinging blades, spiked pits, and hidden spears await the fools intent on disturbing the draugar, the restless dead, champions of old, warriors and sorcerers all, awakened and animated by the Earth Blood, waiting for their signal. When Fenrir devours the sun, the undead will smash their prison gates and it will be the of all that is good. The [1d4+1] crypts house [1d8 wights without a name] and [1d4 spectres].
+
+;1d4 spectres
+1,a *spectre* called [old name] the [special adjective]
+3,[1d3+1] *spectres* led by [old name] the [special adjective]
+
+;1d8 wights
+1,a *wight* called [old name] the [special adjective]
+7,[1d7+1] *wights* led by [old name] the [special adjective]
+
+;1d8 wights without a name
+1,a *wight*
+7,[1d7+1] *wights*
+
+;1d8 mummies
+1,a *mummy* called [an old hero]
+7,[1d7+1] *mummies* led by [an old hero]
+
+;an old hero
+1,[old name] the [special adjective]
 
 # FIXME
 ;small temple dedicated to Nergal
