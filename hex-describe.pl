@@ -619,6 +619,7 @@ sub parse_table {
 	next if $subtable =~ /$dice_re/;
 	next if $subtable =~ /^redirect https?:/;
 	next if $subtable =~ /names for (.*)/ and $data->{"name for $1"};
+	next if $subtable =~ /adjacent hex/; # experimental
 	$log->error("Error in table $table: subtable $subtable is missing")
 	    unless $data->{$subtable};
       }
@@ -821,6 +822,9 @@ sub describe {
 	push(@descriptions, $name);
 	spread_name($map_data, $coordinates, $word, $key, $name);
       }
+    } elsif ($word eq 'adjacent hex') {
+      # experimental
+      return one(neighbours($map_data, $coordinates));
     } else {
       my $text = pick($map_data, $table_data, $level, $coordinates, $words, $word);
       next unless $text;
@@ -900,8 +904,8 @@ sub coordinates {
 =item neighbour
 
 This is a helper function that takes the coordinates of a hex, a reference like
-[1,1], and a direction from 0 to 5, and returns the coordinates of the
-neighbouring hex in that diection.
+[1,1] or regular coordinates like "0101", and a direction from 0 to 5, and
+returns the coordinates of the neighbouring hex in that direction.
 
 =cut
 
@@ -916,6 +920,42 @@ sub neighbour {
   return coordinates(
     $hex->[0] + $delta->[$hex->[0] % 2]->[$i]->[0],
     $hex->[1] + $delta->[$hex->[0] % 2]->[$i]->[1]);
+}
+
+=item neighbours
+
+This is a helper function that takes map_data and the coordinates of a hex, a
+reference like [1,1] or regular coordinates like "0101", and returns a list of
+existing neighbours, or the string "[…]". This makes a difference at the edge of
+the map.
+
+=cut
+
+sub neighbours {
+  my $map_data = shift;
+  my $hex = shift;
+  my  @neighbours;
+  $hex = [xy($hex)] unless ref $hex;
+  for my $i (0 .. 5) {
+    my $neighbour = neighbour($hex, $i);
+    $log->debug($neighbour);
+    push(@neighbours, $neighbour) if $map_data->{$neighbour};
+  }
+  return "..." unless @neighbours;
+  return @neighbours;
+}
+
+=item one
+
+This is a helper function that picks a random element from a list. This works
+both for actual lists and for references to lists.
+
+=cut
+
+sub one {
+  my @arr = @_;
+  @arr = @{$arr[0]} if @arr == 1 and ref $arr[0] eq 'ARRAY';
+  return $arr[int(rand(scalar @arr))];
 }
 
 =item one_step_to
