@@ -160,7 +160,7 @@ any '/describe' => sub {
   $table ||= decode_utf8($schroeder_table->slurp) if $load eq 'schroeder';
   init();
   $c->render(template => 'description',
-	     svg => $svg,
+	     svg => add_links($svg),
 	     descriptions => describe_map(
 	       parse_map($map),
 	       parse_table($table)));
@@ -341,6 +341,27 @@ sub get_post_data {
   }
   $log->error("get_post_data: $error");
   return "<p>There was an error when attempting to load the map ($error).</p>";
+}
+
+=item add_links
+
+After we get the SVG map from Text Mapper, we need to add links to the hex
+descriptions. Text Mapper already allows us to define an URL such that I<labels>
+get linked to that URL. This feature is of no use to us because we're not using
+labels. Basically, we want to add links to the I<coordinates>. This function
+does that: it goes through the SVG and adds appropriate anchor elements.
+
+=cut
+
+sub add_links {
+  my $svg = shift;
+  my $dom = Mojo::DOM->new($svg);
+  $dom->find('g#coordinates text')
+      ->each(sub {
+	my $text = $_->text;
+	$text =~ s/\.//; # strip dot
+	$_->wrap(qq{<a xlink:href="#desc$text"></a>})});
+  return "$dom";
 }
 
 =item init
@@ -1195,7 +1216,13 @@ Alternatively, just paste your tables here:
 <div class="description">
 %== $svg
 % for my $hex (sort keys %$descriptions) {
-<p><%== $descriptions->{$hex}->{images} %><strong><%= $hex =%></strong>: <%== $descriptions->{$hex}->{html} %></p>
+<p>
+<%== $descriptions->{$hex}->{images} %>
+<strong class="coordinates" id="desc<%= $hex =%>">
+<a href="#hex<%= $hex =%>">
+<%= $hex =%></a></strong>:
+<%== $descriptions->{$hex}->{html} %>
+</p>
 % }
 </div>
 
@@ -1965,6 +1992,9 @@ td, th {
 .images {
   clear: both;
   float: right;
+}
+.coordinates a {
+  color: inherit;
 }
 hr {
   clear: both;
