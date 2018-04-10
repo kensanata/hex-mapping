@@ -3823,7 +3823,7 @@
 1,the river flowing around it
 
 ;human leader
-1,a [human class] [human] (level [1d2+8])
+1,the [human class] [human] (level [1d2+8])
 
 ;human retainer
 1,a retainer, the [human class] [human] (level [1d2+6])
