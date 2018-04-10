@@ -212,7 +212,6 @@ any '/describe/text' => sub {
   $table ||= $c->param('table');
   $table ||= decode_utf8($seckler_table->slurp) if $load eq 'seckler';
   $table ||= decode_utf8($schroeder_table->slurp) if $load eq 'schroeder';
-  init();
   $c->render(template => 'text',
 	     descriptions => describe_text($input, parse_table($table)));
 };
@@ -386,6 +385,8 @@ name.
 
     $names{"name for a bugbear band1"} eq "Long Fangs"
     $names{"name for forest foo: 0101"} eq "Dark Wood"
+
+Note that for C</describe/text>, C<init> is called for every paragraph.
 
 =cut
 
@@ -841,7 +842,7 @@ sub describe {
 	next unless $name;
 	$names{"$word: $coordinates"} = $name;
 	push(@descriptions, $name);
-	spread_name($map_data, $coordinates, $word, $key, $name);
+	spread_name($map_data, $coordinates, $word, $key, $name) if %$map_data;
       }
     } elsif ($word eq 'adjacent hex') {
       # experimental
@@ -1106,6 +1107,7 @@ sub describe_text {
   my @descriptions;
   for my $text (split(/\r?\n/, $input)) {
     # $log->debug("replacing lookups in $text");
+    init();
     $text =~ s/\[(.*?)\]/describe({},$table_data,1,"",[$1])/ge;
     push(@descriptions, process($text));
   }
@@ -1861,7 +1863,6 @@ example:
 1301 light-green fir-forest
 include https://campaignwiki.org/contrib/gnomeyland.txt
 
-
 ;mountains
 1,[mountain]
 
@@ -1888,6 +1889,19 @@ In this example, all the hexes forming a mountain range are either
 haunted or enchanted. Based on this, the encounters always come from
 the appropriate table.
 </p>
+
+<p>
+This is how you can reuse results. Assume for example that you want to generate
+a character with random level, and add their hit points.
+</p>
+
+%= example begin
+;mu
+1,magic-user (level [name for mu level], hp [[name for mu level]d4])
+
+;name for mu level
+1,[1d10]
+% end
 
 <h2>Images</h2>
 
