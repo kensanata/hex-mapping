@@ -3866,7 +3866,7 @@
 1,conjurer
 1,illusionist
 1,druid
-1,[power] priest
+1,priest
 
 ;fighter
 1,fighter
