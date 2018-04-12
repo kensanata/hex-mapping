@@ -37,6 +37,7 @@ use Mojo::UserAgent;
 use Mojo::URL;
 use Mojo::Log;
 use Mojo::File;
+use Mojo::Util qw(html_unescape);
 use Mojo::ByteStream;
 use Array::Utils qw(intersect);
 use Encode qw/decode_utf8/;
@@ -1129,11 +1130,11 @@ helper example => sub {
     my $map = join("\n", grep(/^\d\d\d\d|^include/, split(/\n/, $result)));
     my $table = join("\n", grep(!/^\d\d\d\d|^include/, split(/\n/, $result)));
     $url = $c->url_for('edit')->query(map => $map,
-				      table=> $table);
+				      table=> html_unescape($table));
   } else {
     my ($key) = $result =~ /^;(.*)/m;
     $url = $c->url_for('nomap')->query(input => "[$key]\n" x 4,
-				       table=> $result);
+				       table=> html_unescape($result));
   }
   return Mojo::ByteStream->new(qq(<pre>$result</pre><p><a href='$url'>Try it</a>.</p>));
 };
@@ -1902,6 +1903,65 @@ a character with random level, and add their hit points.
 ;name for mu level
 1,[1d10]
 % end
+
+<p>
+Here's another idea: there is currently an experimental feature whereby
+<code>[adjacent hex]</code> picks a random neighbouring hex.
+</p>
+
+%= example begin
+0101 light-grey mountain
+0201 white mountain
+0301 white mountains
+0401 white mountain
+0501 light-grey mountain
+0601 light-green fir-forest
+0701 light-green fir-forest
+0801 light-grey mountain
+0901 white mountain
+1001 white mountains
+1101 white mountain
+1201 light-grey mountain
+1301 light-green fir-forest
+include https://campaignwiki.org/contrib/gnomeyland.txt
+
+;mountains
+1,Here lives a dragon that loves to hunt in [adjacent hex].
+% end
+
+<p>
+What if you want to link to this adjacent hex?
+</p>
+
+%= example begin
+0101 light-grey mountain
+0201 white mountain
+0301 white mountains
+0401 white mountain
+0501 light-grey mountain
+0601 light-green fir-forest
+0701 light-green fir-forest
+0801 light-grey mountain
+0901 white mountain
+1001 white mountains
+1101 white mountain
+1201 light-grey mountain
+1301 light-green fir-forest
+include https://campaignwiki.org/contrib/gnomeyland.txt
+
+;mountains
+1,Here lives a dragon that loves to hunt in &lt;a href="#desc[name for neighbour]"&gt;[name for neighbour]&lt;/a&gt;.
+
+;name for neighbour
+1,[adjacent hex]
+% end
+
+<p>
+Since the second rule picks a result (and uses it for all the surrounding hexes
+which have the feature "neighbour" which is none of them), you can refer to it
+multiple times: once for the link target and once for the link text. Yeah, it's
+hack. But it works.
+</p>
 
 <h2>Images</h2>
 
