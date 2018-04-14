@@ -2893,7 +2893,7 @@
 1,[wight leader]
 
 ;vivimancer
-1,Here lives the *vivimancer* [human] (level [1d3+4]), protected by [3d6] *mykonids*, in a tower.
+1,Here lives the *vivimancer* [human] (level [1d3+4]), protected by [3d6] *myconids*, in a tower.
 1,Here is the tower of *vivimancer* [human] (level [1d3+4]) with [3d6] [slimes]. [safe zone]
 
 ;slimes
@@ -2915,7 +2915,7 @@
 ;caves
 1,[cave use] The caves are full broken constructions, tiny ladders and walkways. [goblins]
 1,[cave use] There are paintings of the [evil tribe] on the cave walls. [orcs]
-1,[cave use] They are filled with mushrooms and guarded by [mykonids]
+1,[cave use] They are filled with mushrooms and guarded by [myconids]
 1,[cave use] In winter, this cave is home to [1d4 bears].
 1,[cave use] They are inhabited by [1d8 trolls].
 1,[cave use] They have been abandoned a long time ago.
@@ -3462,18 +3462,18 @@
 1,At dusk and dawn, you can sometimes see [boars].
 
 ;mushrooms
-1,The mushrooms are guarded by [mykonids]
+1,The mushrooms are guarded by [myconids]
 1,If eaten, [do something interesting]
 1,These mushrooms are actually the antennaes and horns for the big sleeping supermushroom [name for forest/forest-hill/trees/fir-forest/firs] living beneath the forest. Around here, your sleep will be filled with mushroom dreams.
 
-;mykonids
-1,[3d6] *mykonids*.
-1,[3d6] *mykonids* watching their mushroom circle. On nights of the full moon, or on a 1 in 6, the portal to the fey realms opens. If so, [2d12] *elves* led by one they call [elf leader] (level [1d6+1]) will be visiting.
+;myconids
+1,[3d6] *myconids*.
+1,[3d6] *myconids* watching their mushroom circle. On nights of the full moon, or on a 1 in 6, the portal to the fey realms opens. If so, [2d12] *elves* led by one they call [elf leader] (level [1d6+1]) will be visiting.
 
 ;do something interesting
 1,save vs. poison or die. The locals use this to kill criminals.
 1,save vs. poison or loose your voice for a week. The locals avoid doing this.
-1,save vs. poison or be cursed to turn into a mykonid over the coming week.
+1,save vs. poison or be cursed to turn into a myconid over the coming week.
 1,save vs. poison or be paralysed for 1d4 hours. Local Set cultists will trade in these mushrooms.
 1,gain telepathic powers for a week. The locals use them to spy on the thoughts of any foreigners.
 1,enjoy wild and colorful visions for 1d20 hours. If you roll higher than your wisdom, see something relevant for the current campaign. The locals lead village idiots here to warn them of impeding danger.
