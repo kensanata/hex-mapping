@@ -3706,7 +3706,7 @@
 1,Between some rocks, a crack leads deeper into the earth and into a cave. There, a giant snake made of stone watches over all who pray to Set. A deep pit contains the polished bones of all who where killed in revenge for their misdeeds. There are always wooden accusation plates to be found naming bandits, thieves, murders, adulterers, and cowards who ran from a battle, deserting their village comrades. Will you take a plate and exact revenge in the name of Set?
 1,An old stairway leads into the bowels of the earth where warm vapours make your head swim. Down here, the *spirit naga* [naga] will guide your hand, should you need her words. Spend an hour down here and any soul dedicated to Set will tell you of the past and the future for all time goes in circles and the big snake eats itself.
 1,This is a snake pit, a breeding ground for [1d4 giant snakes] and vipers, a place dangerous to every warm blooded creature. And yet, the terror of these snakes also keeps bandits at bay and no orc will set foot near this place, such is the power of Set. They say that those with the secret knowledge can use snake poison to poison their blades and they say that all who serve the temple have done just that.
-1,This temple is a school for assassins. This is where you learn to sneak, to lie, to conceal, to poison, to stab, to strangle. Students learn the secrets of the garrote, of the hidden blade and of the crossbow. All of this is known and yet the farce continues: this is where the young ones learn discipline and strength, diligence and respect. It's a way to put food on the table, and it's a useful skill to have available if you're trying to get ahead.
+1,The temple is a school for assassins. This is where you learn to sneak, to lie, to conceal, to poison, to stab, to strangle. Students learn the secrets of the garrote, of the hidden blade and of the crossbow. All of this is known and yet the farce continues: this is where the young ones learn discipline and strength, diligence and respect. It's a way to put food on the table, and it's a useful skill to have available if you're trying to get ahead.
 
 ;naga
 1,[naga 1] [naga 2] of [naga 3]
@@ -3768,16 +3768,16 @@
 ;an old hero
 1,[old name] the [special adjective]
 
-# FIXME
 ;small temple dedicated to Nergal
 1,[small temple]
 1,The small temple here is actually a sick house. This is where the sick go to die. There is currently one old person here, [human name].
 1,The small temple here is actually a sick house. This is where the sick go to die. There are currently [1d3+1] old people here. The healthiest one is [human name].
 1,The small temple here is actually a charnel house. The sick and the dying are brought here and as the plague is currently active in the area, there are [3d6] sick people here. Many can no longer speak, but [human name] and [human name] will talk.
-1,This temple houses a traditional reed boat. This symbolizes the passage into the netherworld. Inscriptions on the wall describe sickness and death as the transition from the world of the living into the realm of Nergal. Behind the temple is the graveyard.
-1,This temple is a school of exorcism. All the dead belong to Nergal and to animate the dead is theft. The temple specialises in the finding and killing of [undead].
+1,The temple houses a traditional reed boat. This symbolizes the passage into the netherworld. Inscriptions on the wall describe sickness and death as the transition from the world of the living into the realm of Nergal. Behind the temple is the graveyard.
+1,The temple is a school of exorcism. All the dead belong to Nergal and to animate the dead is theft. The temple specialises in the finding and killing of [undead].
 1,The temple used to be a hospice but now most of the building is abandoned and sealed. Should the seal be broken, sickness and death awaits any trespassers. Poisonous molds. Deadly gases. Rotting diseases and blindness. The plague will return.
-1,This temple is a big feasting hall and a meeting place for the sisters and brothers of the hunt. They hunt vampires wherever they go and thus they all carry magical blades. Beneath the hall are fortified sleeping quarters. This is where the elders lock themselves away when the moon is full for they are all werewolves.
+1,The temple is a big feasting hall and a meeting place for the sisters and brothers of the hunt. They hunt vampires wherever they go and thus they all carry magical blades. Beneath the hall are fortified sleeping quarters. This is where the elders lock themselves away when the moon is full for they are all werewolves.
+1,The temple is an asylum for the demented and the old. Everything is quiet. [3d6] old people sit there, staring at you, unblinking. Their caretaker is [human name]. Nergal wants the living to forget the dead and the process starts right here, right now.
 
 ;undead
 1,zombies
@@ -3786,9 +3786,68 @@
 1,spectres
 1,vampires
 
-# FIXME
 ;small temple dedicated to Pazuzu
 1,[small temple]
+1,The temple is built like the aerie of a giant vulture into a cliff. A narrow stair winds itself through the rock from the base up 100ft to this nest. There, a stone vulture watches the buildings below. A great many small dolls adorn the shelves at the back. These are all the lost children.
+1,The temple is a four storied windowless square tower. Inside a set of ladders leads to the roof. There's a lift with which to raise corpses to the roof. The roof itself is covered in broken bones. This is where the sky burial takes place. Meat boys and bone girls cut up the corpses and offer the remains of the dead to the vultures of Pazuzu.
+1,The temple stands right next to hanging tree. There must be at least a hundred crows, here. They say Pazuzu sees everything the crows see and thus the local priests are feared and everything that's secret has to happen in the dark of night.
+1,The temple stands on a rock needle about 100ft high with a rickety sequence of ladders leading up there. The four winged statue of the crow demon Pazuzu is hard to see in all the smoke produced by smoldering fires in iron pots hanging in all four corners of the temple. The temple is looked after by [1d6 tengus].
+1,The temple stands on a large rock about 20ft above the ground. Petitioners have to climb a rope hanging down over the edge. The temple also houses the *vulture demon* [pazuzu demon name] (HD 7 AC 2 1d6/1d10/1d10 F14 MV 15 ML 12; magic weapon required to hit)
+1,The temple is a a roofed platform made of wood built on top of a large rock about 20ft high. The platform has been blasted by fire many times. Many skulls are hanging from the roof. There is a statue of the four winged god in each corner. Beneath it are the old runes spelling out the name Pazuzu. Whosoever utters his name three times will summon him. Pazuzu will be friendly and grant a wish, and take your soul (never to be resurrected again). To insult him will unleash an unholy blight dealing 20d6 damage to anybody within 10ft of the blasphemer; save vs. death for half damage.
+
+;1d6 tengus
+1,the *tengu* master swordsman [tengu name] (HD 5+1 AC 6 1d8 F10 MV15 ML8)
+5,[1d5+1] *tengus* led by the master swordsman [tengu name] (HD 5+1 AC 6 1d8 F10 MV15 ML8)
+
+;tengu name
+1,[tengu 1] of [tengu 2]
+
+;tengu 1
+1,Blade
+1,Tongue
+1,Beak
+1,Voice
+1,Sword
+1,Halberd
+1,Spear
+
+;tengu 2
+1,Truth
+1,Misery
+1,Wisdom
+1,Pain
+1,Death
+1,Relief
+1,Terrible Endings
+
+;pazuzu demon name
+1,The [special noun] of [pazuzu place]
+
+;pazuzu place
+1,Hell
+1,the [pazuzu place]
+1,the [pazuzu adjective] [pazuzu place]
+1,the Gods
+1,the Vanir
+1,Giants
+
+;pazuzu adjective
+1,Lead
+1,Dead
+1,Blood
+1,Torn
+1,Burnt
+1,Flaming
+
+;pazuzu place
+1,Sky
+1,Wind
+1,Air
+1,Wings
+1,Desert
+1,Netherworld
+1,Underworld
+1,Vanaheim
 
 # FIXME
 ;small temple dedicated to Hel
@@ -3814,6 +3873,8 @@
 ;small temple
 1,The temple is actually nothing but a simple altar and a small statue, some food offerings, and a little hut where the caretakers of this temple lives.
 1,The temple is a tiny affair where new born babies are blessed and the dead are mourned and buried. There is a small spirit gate here which symbolises the passage to the next world. In the back is the graveyard full of name stones.
+1,The temple is basically tiny spirit house with a small altar, some fruit, a cup of tea, and a small, unpainted statue carved in wood
+1,The temple is the small courtyard with a stone altar, a little statue, and some flowers and twigs in a jar.
 
 ;town feature
 1,a market
