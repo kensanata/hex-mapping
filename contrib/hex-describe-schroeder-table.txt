@@ -3652,7 +3652,7 @@
 1,There is a village of [5d6x10] *humans* led by [human leader] who lives in a small [name for village building] with [human retainer] and [human friends]. [small [name for village building]] The [human houses] are protected by [human companions] and a [human defense]. [And a secret society]
 
 ;town
-1,There is a town of [1d6x100] *humans* led by [human leader] who lives in a keep with [human retainer] and [human friends]. The [human houses] are protected by a town wall and the river. There is [town feature]. [And two secret societies feuding]
+1,There is a town of [1d6x100] *humans* led by [human leader] who lives in a keep with [human retainer] and [human friends]. The [human houses] are protected by a town wall and the river. [And two secret societies feuding] There is [town feature] and a [name for town temple]. [small [name for town temple]]
 
 ;And a secret society
 1,Luckily, no secret societies have established themselves, here.
@@ -3690,7 +3690,7 @@
 ;name for village building
 1,tower
 1,keep
-1,temple dedicated to [power]
+1,[temple]
 
 ;small tower
 1,The tower is four stories high and has an entrance on the second level. A ladder leads up to it. Twenty large stones are stored on the roof. This should be enough to deter any peasant uprising.
@@ -3699,6 +3699,9 @@
 ;small keep
 1,The keep consists of a square tower three stories high, a stable, a kennel, and a little courtyard enclosed by a strong wall. Inside the wall is a wooden walkway that allows guards to repel attackers.
 1,The keep consists of a gatehouse protecting the small courtyard and a square tower four stories high.
+
+;temple
+1,temple dedicated to [power]
 
 ;small temple dedicated to Set
 1,[small temple]
@@ -3744,9 +3747,9 @@
 ;small temple dedicated to Orcus
 1,[small temple]
 1,The temple is a simple mausoleum with a bone pit. The poor and foreign folks are brought here upon their death for it is said that in the hour of need the dead will rise and fight for us at the End of the World.
-1,The temple is an underground network of crypt with dozens of bone chambers. The bones of the dead are used walls, floor, and ceiling. They say that the Bone Road of the underworld is similarly made of all the bones of the restless dead. There they await the End of the World. The bone chambers are there to remind us that everything must pass.
+1,The temple is an underground network of crypts with dozens of bone chambers. The bones of the dead are used walls, floor, and ceiling. They say that the Bone Road of the underworld is similarly made of all the bones of the restless dead. There they await the End of the World. The bone chambers are there to remind us that everything must pass.
 1,The temple is an underground labyrinth of tunnels with dozens of niches where warriors of old await the end of the world. Most of them are truly dead except for [1d8 mummies]. Down here in the cold darkness, somebody is always eager to whisper words of wisdom in exchange for gold and jewels intent on corrupting the world above. It is the hope for eternal life, of resurrection in this world, which brings people back again and again.
-1,Beneath the town, after descending into an old chamber via many stairs, is the temple: a black pit from which the broken whispers of [1d8 wights]. Down there are the tunnels of madness. Behind the pit is a status of a naked man, fat and hairy, with the horns of a giant ram, served by satyrs and skeletons. This is the trickster demon lord, the only one capable of bringing back souls from the afterlife, or so they say.
+1,Beneath the town, after descending into an old chamber via many stairs, is the temple: a black pit where the broken whispers of [1d8 wights] can be heard. Down there are the tunnels of madness. Behind the pit is a status of a naked man, fat and hairy, with the horns of a giant ram, served by satyrs and skeletons. This is the trickster demon lord, the only one capable of bringing back souls from the afterlife, or so they say.
 1,The temple is a burial mound with various secret crypts, each sealed and secured. Falling rocks, swinging blades, spiked pits, and hidden spears await the fools intent on disturbing the draugar, the restless dead, champions of old, warriors and sorcerers all, awakened and animated by the Earth Blood, waiting for their signal. When Fenrir devours the sun, the undead will smash their prison gates and it will be the of all that is good. The [1d4+1] crypts house [1d8 wights without a name] and [1d4 spectres].
 
 ;1d4 spectres
@@ -3883,7 +3886,9 @@
 1,a huge gallows
 1,a fight pit
 1,a chained *troll*
-1,a temple of [power]
+
+;name for town temple
+1,[temple]
 
 ;human houses
 1,thatched huts
@@ -5458,7 +5463,6 @@
 1,Charlie
 1,Claudius
 1,Dean
-1,F
 1,Ferdinand
 1,Flor
 1,Hannibal
