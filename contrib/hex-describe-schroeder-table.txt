@@ -3864,7 +3864,7 @@
 1,The temple is a witch coven, a labyrinth of tiny passages, low ceilings, confusing twists and turns, skulls, stuffed animals, and flickering candles. A group of [3d4] women run this place, led by [woman]. They say that on nights of the full moon these women fly through the air to visit remote farms and steal the babies.
 1,The temple is built atop a nexus of Earth Blood, both channelling its energy and protecting the surface from its mutagenic power. Multiple circles of protection and seals of banning can be seen on the ground and on the standing stones throughout the area. [3d4] women care for this place, led by [woman].
 1,The temple is a warren dug into a hill. It smells of death. At the entrance, votive offerings have been placed on shelves. Most of these are small statues and dolls, prayers for recovery or peace in the afterlife, or people begging for guidance. Down below, however, when you reach the oldest layers of the settlement, a terrible secret is revealed: a big pit full of baby skeletons. [why baby skeletons]
-1,This temple is dug deep into the rocks below. Unbeknownst to most, the caves down here are inhabited by [1d4+2] trolls led by one they call [troll]. Human bones are everywhere. [why trolls]
+1,The temple is dug deep into the rocks below. Unbeknownst to most, the caves down here are inhabited by [1d4+2] trolls led by one they call [troll]. Human bones are everywhere. [why trolls]
 
 ;why baby skeletons
 1,These are the victims of Earth Blood exposure.
@@ -3878,9 +3878,25 @@
 1,These trolls are called the Children of Hel and they are sacred.
 1,These trolls guard a secret passage to the realm of snow and black forests itself, to Niflheim.
 
-# FIXME
 ;small temple dedicated to Freya
 1,[small temple]
+1,The temple lies on a hill and boasts a great hall, a long house, were beer is always to be had. The walls are full of weapons and shields of famous patrons, and there are wood carvings of the Freya's beautiful home in Asgard, the city of the gods, a realm all to itself.
+1,The temple lies at the edge of the settlement, under some oak trees and with fields in the back. A few standing stones show Freya in her various guises over the course of the year. Sowing, growing, harvesting, and fighting. There are [3d6] [boars or wolves] living in the vicinity. The building itself is a longhouse with a grass roof.
+1,The temple has a courtyard with the wooden statue of a wolf mother raising two human babies. The building is run by [2d6] midwives. [woman] is the oldest and their spokeswoman. All the parents in this settlement know how much they owe these midwives, and they know it, too.
+1,The temple belongs to the local [shield maidens], a society of armed women sworn to protect each other and their community. There are [3d6] women led by [woman] living here and all are considered armed and dangerous by the locals.
+1,The local priests have turned their attention on the sick and as their reputation grew, so did the number of petitioners waiting outside their hall every morning. There are currently [2d4] priests under the guiding hand of [woman] tending the [3d10] sick and wounded.
+1,This temple is run by the she-wolf [woman]. She is always in the company of her *winter wolf*, a beast as large as a pony, with red eyes and fearsome fangs.
+
+;boars or wolves
+1,*boars*
+1,*wolves*
+
+;shield maidens
+1,Shield Maidens
+1,Sisters of Mercy
+1,True Blades
+1,Daughters of Freya
+1,Winter Wolves
 
 # FIXME
 ;small temple dedicated to Odin
