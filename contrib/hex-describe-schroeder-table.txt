@@ -371,7 +371,8 @@
 1,Aneira
 1,Anest
 1,Angharad
-1,Ann, Anna
+1,Ann
+1,Anna
 1,Anwen
 1,Annwr
 1,Annwyl
@@ -3653,10 +3654,14 @@
 1,There is a thorp of [1d4x10] *humans* led by one they call [human]. The [human houses] are protected by [human companions].
 
 ;village
-1,There is a village of [5d6x10] *humans* led by [human leader] who lives in a small [name for village building] with [human retainer] and [human friends]. [small [name for village building]] The [human houses] are protected by [human companions] and a [human defense]. [And a secret society]
+2,There is a village of [5d6x10] *humans* led by [human leader] who lives in a small [name for village building] with [human retainer] and [human friends]. [small [name for village building]] The [human houses] are protected by [human companions] and a [human defense]. [And a secret society]
+1,There is a village of [5d6x10] *humans* led by [human leader] who lives in a small [name for village building] with [human retainer] and [human friends]. [small [name for village building]] [And a secret society] The [human houses] are protected by [human companions] and a [human defense]. There is a [name for temple]. [small [name for temple]]
 
 ;town
-1,There is a town of [1d6x100] *humans* led by [human leader] who lives in a keep with [human retainer] and [human friends]. The [human houses] are protected by a town wall and the river. [And two secret societies feuding] There is [town feature] and a [name for town temple]. [small [name for town temple]]
+1,There is a town of [1d6x100] *humans* led by [human leader] who lives in a keep with [human retainer] and [human friends]. The [human houses] are protected by a town wall and the river. [And two secret societies feuding] There is [town feature] and a [name for temple]. [small [name for temple]]
+
+;name for temple
+1,temple dedicated to [power]
 
 ;And a secret society
 1,Luckily, no secret societies have established themselves, here.
@@ -3690,11 +3695,10 @@
 1,[secret society]
 
 # meaning the human has no class and isn't a priest
-# the result is also reused in the following table
+# the result is also reused in the following tables
 ;name for village building
 1,tower
 1,keep
-1,[temple]
 
 ;small tower
 1,The tower is four stories high and has an entrance on the second level. A ladder leads up to it. Twenty large stones are stored on the roof. This should be enough to deter any peasant uprising.
@@ -3703,9 +3707,6 @@
 ;small keep
 1,The keep consists of a square tower three stories high, a stable, a kennel, and a little courtyard enclosed by a strong wall. Inside the wall is a wooden walkway that allows guards to repel attackers.
 1,The keep consists of a gatehouse protecting the small courtyard and a square tower four stories high.
-
-;temple
-1,temple dedicated to [power]
 
 ;small temple dedicated to Set
 1,[small temple]
@@ -3882,7 +3883,7 @@
 1,[small temple]
 1,The temple lies on a hill and boasts a great hall, a long house, were beer is always to be had. The walls are full of weapons and shields of famous patrons, and there are wood carvings of the Freya's beautiful home in Asgard, the city of the gods, a realm all to itself.
 1,The temple lies at the edge of the settlement, under some oak trees and with fields in the back. A few standing stones show Freya in her various guises over the course of the year. Sowing, growing, harvesting, and fighting. There are [3d6] [boars or wolves] living in the vicinity. The building itself is a longhouse with a grass roof.
-1,The temple has a courtyard with the wooden statue of a wolf mother raising two human babies. The building is run by [2d6] midwives. [woman] is the oldest and their spokeswoman. All the parents in this settlement know how much they owe these midwives, and they know it, too.
+1,The temple has a courtyard with the wooden statue of a wolf mother raising two human babies. The building is run by [2d6] midwives. Old [woman] is their spokeswoman. All the parents in this settlement know how much they owe these midwives, and they know it, too.
 1,The temple belongs to the local [shield maidens], a society of armed women sworn to protect each other and their community. There are [3d6] women led by [woman] living here and all are considered armed and dangerous by the locals.
 1,The local priests have turned their attention on the sick and as their reputation grew, so did the number of petitioners waiting outside their hall every morning. There are currently [2d4] priests under the guiding hand of [woman] tending the [3d10] sick and wounded.
 1,This temple is run by the she-wolf [woman]. She is always in the company of her *winter wolf*, a beast as large as a pony, with red eyes and fearsome fangs.
@@ -3901,6 +3902,75 @@
 # FIXME
 ;small temple dedicated to Odin
 1,[small temple]
+1,The temple houses an 8ft high wooden statue of Odin wielding his magic spear. An old woman named [woman] takes care of the temple. She knows the power of the runes and will cast the stones for your, should want to locate a loved one or find a dragon.
+1,The temple is actually a feast hall housing a small college of bards led by [human name]. During the day, they sing songs, practice balads, and compete in poetry. In the evening, the drink. All bards are expected to deliver a yearly donation for the upkeep of the college. Failure to do so results in being placed on a list. Should you need rescuing, they will contract a secret society to do that. Should you skip your obligation, they will contract a secret society to remedy that.
+1,The temple is also a famous school for birds of prey. They are trained here and then sold to nobility in far away regions. The rich merchants making this trip often need guards and thus a mercenary house was established here. [mercenary house]
+1,The temple was built atop a pool of Earth Blood. It was biult in the old days by Wise [human name] in order to prevent its mutagenic power from corrupting the area. Many magic users and elves have come here over the years, drawn by the small eddies of magic energy still emanating from the sealed area: get one extra spell slot of your liking while you sleep nearby, for example in the [inn name].
+1,The temple functions welcomes all wanderers and homeless people, housing people for up to week for a gold piece per person. This is the [inn name] run by [human name]. The common room has an entire altar built into it, including carved columns with eagles and ravens and showing Odin riding his eight legged horse over the rainbow bridge.
+
+;mercenary house
+1,The [mercenary house name 1] [mercenary house name 1] of [mercenary house name 2] is run by [human name] and consists of 6d6 mercenaries.
+
+;mercenary house name 1
+1,Legendary
+1,Old
+1,All-Seeing
+1,Famous
+1,Notorious
+1,Superb
+1,True
+
+;mercenary house name 2
+1,Killers
+1,Heroes
+1,Fighters
+1,Blood Brothers and Sisters
+1,Swords
+1,Blades
+1,Spears
+
+;mercenary house name 3
+1,[mercenary house name 4] [mercenary house name 5]
+1,[mercenary house name 5]
+
+;mercenary house name 4
+1,Cruel
+1,Sweet
+1,Quick
+1,Smooth
+
+;mercenary house name 5
+1,Mercy
+1,Death
+1,Life
+1,Battle
+1,Killing
+
+;inn name
+1,[inn name 2] [inn name 1]
+1,[inn name 3] [inn name 2] [inn name 1]
+
+;inn name 1
+1,pub
+1,inn
+1,tavern
+1,guesthouse
+1,bathhouse
+
+;inn name 2
+1,Pony
+1,Horse
+1,Bear
+1,Lion
+1,Eagle
+1,Deer
+1,Rose
+
+;inn name 3
+1,Prancing
+1,Black
+1,White
+1,Wild
 
 # FIXME
 ;small temple dedicated to Thor
@@ -3914,7 +3984,7 @@
 ;small temple
 1,The temple is actually nothing but a simple altar and a small statue, some food offerings, and a little hut where the caretakers of this temple lives.
 1,The temple is a tiny affair where new born babies are blessed and the dead are mourned and buried. There is a small spirit gate here which symbolises the passage to the next world. In the back is the graveyard full of name stones.
-1,The temple is basically tiny spirit house with a small altar, some fruit, a cup of tea, and a small, unpainted statue carved in wood
+1,The temple is basically a tiny spirit house with a small altar, some fruit, a cup of tea, and a small, unpainted statue carved in wood.
 1,The temple is the small courtyard with a stone altar, a little statue, and some flowers and twigs in a jar.
 
 ;town feature
@@ -3924,9 +3994,6 @@
 1,a huge gallows
 1,a fight pit
 1,a chained *troll*
-
-;name for town temple
-1,[temple]
 
 ;human houses
 1,thatched huts
@@ -3939,7 +4006,7 @@
 ;human defense
 1,ditch
 1,palisade
-1,the river flowing around it
+1,river flowing around it
 
 ;human leader
 1,the [human class] [human] (level [1d2+8])
