@@ -641,8 +641,8 @@ sub parse_table {
       for my $subtable ($line->{text} =~ /\[([^\[\]\n]*?)\]/g) {
 	next if $subtable =~ /$dice_re/;
 	next if $subtable =~ /^redirect https?:/;
-	next if $subtable =~ /names for (.*)/ and $data->{"name for $1"};
-	next if $subtable =~ /adjacent hex/; # experimental
+	next if $subtable =~ /^names for (.*)/ and $data->{"name for $1"};
+	next if $subtable =~ /^adjacent hex$/; # experimental
 	$log->error("Error in table $table: subtable $subtable is missing")
 	    unless $data->{$subtable};
       }
