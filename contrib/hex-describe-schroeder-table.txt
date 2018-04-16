@@ -3876,8 +3876,15 @@
 ;why trolls
 1,These trolls are the secret protectors of the settlement. At night, they sneak out and take care of all their enemies.
 1,These trolls are the very trolls that helped the founders settle this area and their safety is part of a covenant as old as the settlement itself.
-1,These trolls are called the Children of Hel and they are sacred.
-1,These trolls guard a secret passage to the realm of snow and black forests itself, to Niflheim.
+1,These trolls are called the Children of Hel and they are sacred. their contact with the settlement being passed down from generation to generation. The current troll friend is [human name].
+1,These trolls are the true priests of Hel.
+1,These trolls guard a secret passage to the realm of snow and black forests itself, to Niflheim. The gate to Niflheim itself at the end of this passage is further guarded by a [gate monster].
+
+;gate monster
+1,*hydra*
+1,*chimera*
+1,three-headed *hell hound*
+1,three-headed *winter wolf*
 
 ;small temple dedicated to Freya
 1,[small temple]
@@ -3899,7 +3906,6 @@
 1,Daughters of Freya
 1,Winter Wolves
 
-# FIXME
 ;small temple dedicated to Odin
 1,[small temple]
 1,The temple houses an 8ft high wooden statue of Odin wielding his magic spear. An old woman named [woman] takes care of the temple. She knows the power of the runes and will cast the stones for your, should want to locate a loved one or find a dragon.
@@ -3972,10 +3978,18 @@
 1,White
 1,Wild
 
-# FIXME
 ;small temple dedicated to Thor
 1,[small temple]
-1,The small temple is in fact an altar built inside the village smith's forge. This is where the strongest villagers meet every seven-night to discuss their grievances and resolve their issues. Money changes hands, children are promised into apprenticeship and journeymen are welcomed into the village.
+1,The temple is in fact an altar built inside the village smith's forge. This is where the strongest villagers meet every seven-night to discuss their grievances and resolve their issues. Money changes hands, children are promised into apprenticeship and journeymen are welcomed into the village.
+1,The temple is an altar at the foot of a big rock. The top has been hit by lightning countless times. Next to the altar is the wrestling field. Every festival involves wrestling and old [human name] is the most proficient wrestler, here.
+1,The temple stands in the backyard of [human name] the chariot maker. Inside it is a life sized statue of Thor riding a charriot drawn by two giant goats. The chariot maker is rich and has buried all his gold beneath the chariot.
+1,The temple is one of the few places where they rise *giant goats*. There are currently [2d6] of these giant goats, here. The paintings beneath the roof show Thor riding hsi chariot pulled by his two famous goats. These giant goats are sold to [goat clients].
+
+;goat clients
+1,dwarves
+1,highland farmers
+
+
 
 # FIXME
 ;small temple dedicated to Mithra
