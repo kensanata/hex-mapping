@@ -13,7 +13,7 @@
 
 ;grass
 1,The rolling grass stretches in all directions. In the distance, you can see some [cows].
-1,These grasslands are home to [1d4x10] *humans* led by one they call [human]. They are all lightly armored and excellent horse archers. Their tents are protected by [human companions].
+1,These grasslands are home to [1d4x10] *humans* led by [human]. They are all lightly armored and excellent horse archers. Their tents are protected by [human companions].
 1,These grasslands are home to [centaurs].
 
 ;centaurs
@@ -671,12 +671,12 @@
 1,The upper valley is rocky and bare. [hill giants]
 1,Steep cliffs make progress practically impossible without climbing gear.
 1,Nothing but gray rocks up here in the mountains.
-1,Rising up against the sky is an old elven tower made of green glass, [green tower].
+1,High up on on a ridge is an old elven tower made of green glass, [green tower].
 1,On one of the rock faces you can still see the markings of the old dwarf forge [dwarf forge]. [forge ruin]
 
 ;forge ruin
 1,The ruin is abandoned and dead. If you explore the ruins, you will soon find the *balor* demon who caused its downfall. It guards a portal to the realm of eternal fire, to Muspelheim.
-1,The ruin has been settled by the [evil tribe], [1d6x10] *orcs* led by one they call [orc leader].
+1,The ruin has been settled by the [evil tribe], [1d6x10] *orcs* led by [orc leader].
 1,The ruin is full of broken machinery. In its depths, however, a *bronze golem* still wanders the halls.
 1,The ruin is now home to the *white dragon* [white dragon name].
 
@@ -688,7 +688,7 @@
 
 ;gargoyles
 1,a *gargoyle* named [gargoyle]
-5,[1d5+1] *gargoyles* led by one they call [gargoyle]
+5,[1d5+1] *gargoyles* led by [gargoyle]
 
 ;gargoyle
 1,Stillness
@@ -748,7 +748,7 @@
 ;cold lake
 4,but it's cold and nothing lives here
 1,and in it lives a *water spirit* called [undine]
-1,with [2d4] *turtle people* led by one they call [turtle]
+1,with [2d4] *turtle people* led by [turtle]
 
 ;undine
 1,[undine 1] [undine 2]
@@ -778,7 +778,7 @@
 1,Wait
 
 ;hill giants
-1,Some boulders have been assembled into a crude stone tower inhabited [2d4] *hill giants* led by one they call [hill giant].
+1,Some boulders have been assembled into a crude stone tower inhabited [2d4] *hill giants* led by [hill giant].
 1,The bellowing *hill giants* can be heard every day up here. [2d4] of them have built a barricade across the passes, here. They are led by [hill giant] but he insists visitors call him [hill giant title].
 
 ;hill giant
@@ -837,7 +837,7 @@
 1,A *white dragon* called [white dragon name] lives in a ruined mountain fortress on the highest peak around here.
 
 ;maybe an ice cave
-1,bright blue and ice cold
+1,and it is bright blue and ice cold
 1,and there is an ice cave leading beneath the glacier
 1,and there is an ice cave inhabited by a *cryohydra*
 
@@ -871,7 +871,7 @@
 1,Crossing the canyon requires climbing gear.
 
 ;river-start river
-1,This where the spring of [name for river] is.
+1,This is where the spring of [name for river] is.
 1,[name for river] starts here.
 1,The spring of [name for river] is a small pond beneath some trees.
 1,The spring of [name for river] can be found between some boulders.
@@ -1015,7 +1015,7 @@
 
 ;1d4 frost giants
 1,The *frost giant* [frost giant] lives here in a [frost giant lair] with [frost giant companions]
-3,[1d3+1] *frost giants* led by one they call [frost giant] live here with [frost giant companions] in a [frost giant lair]
+3,[1d3+1] *frost giants* led by [frost giant] live here with [frost giant companions] in a [frost giant lair]
 
 ;frost giant
 1,Winter's Bone
@@ -1067,8 +1067,8 @@
 1,father
 
 ;dwarves
-3,This is a small forge. [5d8] *dwarves* live and work here led by one they call [dwarf]
-1,This is a legendary forge stronghold. [5d8x10] *dwarves* live and work here led by one they call [dwarf] (level [1d4+8]). [3d6] families live here, each led by a clan elder (level [1d6+2])
+3,This is a small forge. [5d8] *dwarves* live and work here led by [dwarf]
+1,This is a legendary forge stronghold. [5d8x10] *dwarves* live and work here led by [dwarf] (level [1d4+8]). [3d6] families live here, each led by a clan elder (level [1d6+2])
 
 ;dwarf
 1,[dwarf 1] [dwarf 2a][dwarf 2b]<img src="[[redirect https://campaignwiki.org/face/redirect/alex/dwarf]]" alt="" />
@@ -2348,11 +2348,11 @@
 1,One of the hills has an old lookout from which you can see most of the [name for forest/forest-hill/trees/fir-forest/firs].
 1,Small creeks have dug deep channels into this forest. The going is tough.
 1,One one these forested hills is inhabited by [1d6 ogres].
-1,These hills belong to the [evil tribe], [1d6x10] *orcs* led by one they call [orc leader]. Their fort is [orc fort].
+1,These hills belong to the [evil tribe], [1d6x10] *orcs* led by [orc leader]. Their fort is [orc fort].
 1,On one of the hills here stands an old tower overlooking the forest below. This is the home of a *manticore* called [manticore].
 1,The hill overlooking [name for forest/forest-hill/trees/fir-forest/firs] is the home of [1d8 treants].
 1,There is a hill with a nice cave which offers shelter from the rain but is home to [1d4 bears].
-1,[5d8] dwarves have set up a small logging community, here. They are led by one they call [dwarf]. The camp is defended by [dwarven companions].
+1,[5d8] dwarves have set up a small logging community, here. They are led by [dwarf]. The camp is defended by [dwarven companions].
 
 ;dwarven companions
 1,a palisade and wooden spikes
@@ -2818,13 +2818,19 @@
 ;bushes
 1,Badlands full of shrubs and wild hedges. [loner]
 1,Dry lands full of tumbleweed and thorn bushes. [loner]
-1,Hidden between some hills is a valley apparently full of thorn bushes. There is a well hidden hamlet of [5d8] *halflings* led by one they call [halfling].
+1,Hidden between some hills is a valley apparently full of thorn bushes. It hides a hamlet of [5d8] *halflings* led by [halfling leader].
 1,An old fort overlooking the woods has been taken over by a war party of [4d6] *hobgoblins* led by [hobgoblin] (HD 3+1). The fort is defended by [hobgoblin companions].
 1,An abandoned watchtower on a promontory overlooking the drylands is home to [4d6] *hobgoblins* led by [hobgoblin] (HD 3+1). The approach is guarded by [hobgoblin companions].
-1,A massive fortress built by giants long ago is home to [1d6x10] *orcs* of the [evil tribe], led by one they call [orc leader]. The fortress is [orc fort].
+1,Up in these drylands, a massive fortress built by giants long ago is home to [1d6x10] *orcs* of the [evil tribe], led by [orc leader]. The fortress is [orc fort].
+1,Up here on these hills and overlooking the shrublands is a massive fortress built by giants long ago. It has been taken over by *humans* and now it is home to [1d4x10] bandits led by [human]. The fortress is [human fort].
 1,There are caves beneath these badlands. [caves]
 1,The dry lands up here are the hunting grounds of a *manticore* called [manticore] living in the ruins of an old tower.
 1,A *green dragon* named [green dragon name] lives at [hill name], one of the hills overlooking these shrublands.
+
+;humand fort
+1,protected long stakes against charging
+1,protected by a *war dog*
+6,protected by [1d6+1] *war dogs*
 
 ;loner
 1,At the foot of a hill you find a burned down cabin. This must have happened [some time ago].
@@ -2837,7 +2843,7 @@
 
 ;some ruins
 1,On one of the hills you find an old two story watchtower.
-1,One of the hills is actually an old burial mound. The dead are long gone.
+1,One of the hills is actually an old burial mound but the dead are long gone.
 1,On one of the hills are the ruins of an old temple.
 1,One of the hills contains one of these smooth shafts that go down a hundred feet or so. Ropes and ladders lead to the strange rooms below.
 1,A few large boulders stand close together and somebody built a little shelter using wooden lattice and some straw.
@@ -2895,7 +2901,7 @@
 
 ;vivimancer
 1,Here lives the *vivimancer* [human] (level [1d3+4]), protected by [3d6] *myconids*, in a tower.
-1,Here is the tower of *vivimancer* [human] (level [1d3+4]) with [3d6] [slimes]. [safe zone]
+1,Here is the tower of the *vivimancer* [human] (level [1d3+4]) with [3d6] [slimes]. [safe zone]
 
 ;slimes
 1,*black puddings* in pools and pits
@@ -2914,15 +2920,15 @@
 1,years ago
 
 ;caves
-1,[cave use] The caves are full broken constructions, tiny ladders and walkways. [goblins]
-1,[cave use] There are paintings of the [evil tribe] on the cave walls. [orcs]
-1,[cave use] They are filled with mushrooms and guarded by [myconids]
-1,[cave use] In winter, this cave is home to [1d4 bears].
-1,[cave use] They are inhabited by [1d8 trolls].
-1,[cave use] They have been abandoned a long time ago.
+1,[cave use] The caves are full of broken constructions, tiny ladders and walkways. [goblins]
+1,[cave use] The caves are paintings of the [evil tribe] on the cave walls. [orcs]
+1,[cave use] The caves are filled with mushrooms and guarded by [myconids]
+1,[cave use] In winter, these caves are home to [1d4 bears].
+1,[cave use] The caves are inhabited by [1d8 trolls].
+1,[cave use] The caves have been abandoned a long time ago.
 
 ;orcs
-1,[1d6x10] *orcs* led by one they call [orc leader] live here.
+1,[1d6x10] *orcs* led by [orc leader] live here.
 
 ;cave use
 1,The caves used to be an old mine.
@@ -3348,7 +3354,7 @@
 1,The river widens here and forms a large swamp. You need a guide and boats in order to pass through it.
 1,This bog is a labyrinth. You need a guide to find your way through it.
 1,This reed is home to a lot of birds.
-1,These wet land have been settled by a tribe of [6d6] *lizard people* led by one they call [lizard leader] (HD [1d4+1]). The little village of mud huts is guarded by [lizard companions].
+1,These wet land have been settled by a tribe of [6d6] *lizard people* led by [lizard leader] (HD [1d4+1]). The little village of mud huts is guarded by [lizard companions].
 1,This swamp is home to [5d8] *froglings* in a mud village guarded by [frogling companions].
 1,A ruined tower standing on a small island in this swamp is home to the *ettin* called [ettin].
 1,In the old days, this bog was used to drown evil necromancers. [bog wights]
@@ -3425,8 +3431,8 @@
 1,Yzarria
 
 ;goblins
-1,[6d10] *goblins* live here, led by one they call [goblin].
-5,[6d10] *goblins* live here, led by one they call [goblin]. The goblins have tamed [2d6] [goblin companions]. Goblins love to ride these into battle.
+1,[6d10] *goblins* live here, led by [goblin].
+5,[6d10] *goblins* live here, led by [goblin]. The goblins have tamed [2d6] [goblin companions]. Goblins love to ride these into battle.
 
 ;goblin companions
 2,*giant wolves*
@@ -3454,11 +3460,11 @@
 1,Impaler
 
 ;forest
-1,This is the [name for forest/forest-hill/trees/fir-forest/firs] and there are no trails, here. Without a guide, you will get lost.
+1,This is the [name for forest/forest-hill/trees/fir-forest/firs] and there are no trails. Without a guide, you will get lost.
 1,Tall trees and dense canopy keep the sunlight away. There are big mushrooms everywhere. [mushrooms]
 1,This forest is under the protection of [1d8 treants].
 1,The trees here are full of spider webs. Anybody climbing the trees will get attacked by [2d4] *giant spiders*.
-1,[2d12] *elves* led by one they call [elf leader] (level [1d6+1]) have built their [elf dwelling] in this forest. [elf companions]
+1,[2d12] *elves* led by [elf leader] (level [1d6+1]) have built their [elf dwelling] in this forest. [elf companions]
 1,A system of big tunnels under these trees is home to [1d6 weasels].
 1,At dusk and dawn, you can sometimes see [boars].
 
@@ -3469,7 +3475,7 @@
 
 ;myconids
 1,[3d6] *myconids*.
-1,[3d6] *myconids* watching their mushroom circle. On nights of the full moon, or on a 1 in 6, the portal to the fey realms opens. If so, [2d12] *elves* led by one they call [elf leader] (level [1d6+1]) will be visiting from [fey realm].
+1,[3d6] *myconids* watching their mushroom circle. On nights of the full moon, or on a 1 in 6, the portal to the fey realms opens. If so, [2d12] *elves* led by [elf leader] (level [1d6+1]) will be visiting from [fey realm].
 
 ;fey realm
 1,Alfheim
@@ -3511,7 +3517,7 @@
 
 ;1d8 treants
 1,the *treant* called [treant]
-7,[1d7+1] *treants* led by the one they call [treant]
+7,[1d7+1] *treants* led by the [treant]
 
 ;treant
 1,Oldfather
@@ -3558,7 +3564,7 @@
 
 ;1d8 bugbears
 1,the *bugbear* [bugbear]
-7,[1d7+1] *bugbears* led by one they call [bugbear] belonging to the [a bugbear band] band
+7,[1d7+1] *bugbears* led by [bugbear] belonging to the [a bugbear band] band
 
 ;bugbear
 6,[bugbear 1] [bugbear 2]
@@ -3625,7 +3631,7 @@
 
 ;1d8 trolls
 1,a *troll* called [troll]
-7,[1d7+1] *trolls* led by one they call [troll]
+7,[1d7+1] *trolls* led by [troll]
 
 ;troll
 1,Stone
@@ -3651,14 +3657,14 @@
 1,This is a fir forest.
 
 ;thorp
-1,There is a thorp of [1d4x10] *humans* led by one they call [human]. The [human houses] are protected by [human companions].
+1,There is a thorp of [1d4x10] *humans* led by [human]. The [human houses] are protected by [human companions].
 
 ;village
-2,There is a village of [5d6x10] *humans* led by [human leader] who lives in a small [name for village building] with [human retainer] and [human friends]. [small [name for village building]] The [human houses] are protected by [human companions] and a [human defense]. [And a secret society]
-1,There is a village of [5d6x10] *humans* led by [human leader] who lives in a small [name for village building] with [human retainer] and [human friends]. [small [name for village building]] [And a secret society] The [human houses] are protected by [human companions] and a [human defense]. There is a [name for temple]. [small [name for temple]]
+2,There is a village of [5d6x10] *humans* led by [human leader] who lives in a small [name for village building] with [human retainer] and [human friends]. [small [name for village building]] The [human houses] outside are protected by [human companions] and a [human defense]. [And a secret society]
+1,There is a village of [5d6x10] *humans* led by [human leader] who lives in a small [name for village building] with [human retainer] and [human friends]. [small [name for village building]] The [human houses] outside are protected by [human companions] and a [human defense]. [And a secret society] There is a [name for temple]. [small [name for temple]]
 
 ;town
-1,There is a town of [1d6x100] *humans* led by [human leader] who lives in a keep with [human retainer] and [human friends]. The [human houses] are protected by a town wall and the river. [And two secret societies feuding] There is [town feature] and a [name for temple]. [small [name for temple]]
+1,There is a town of [1d6x100] *humans* led by [human leader] who lives in a keep with [human retainer] and [human friends]. The [human houses] outside are protected by a town wall and the river. [And two secret societies feuding] There is [town feature] and a [name for temple]. [small [name for temple]]
 
 ;name for temple
 1,temple dedicated to [power]
@@ -3705,7 +3711,7 @@
 1,The massive round tower is three stories high and topped with a wooden section that feels like a comfortable tree house in peace time. The walls are thick and the main doors are reinforced with iron bands.
 
 ;small keep
-1,The keep consists of a square tower three stories high, a stable, a kennel, and a little courtyard enclosed by a strong wall. Inside the wall is a wooden walkway that allows guards to repel attackers.
+1,The keep consists of a square tower three stories high, a stable, a kennel, and a little courtyard enclosed by a strong wall. Inside the wall is a wooden walkway that allows guards to look over the wall and shoot anybody approaching.
 1,The keep consists of a gatehouse protecting the small courtyard and a square tower four stories high.
 
 ;small temple dedicated to Set
@@ -3865,7 +3871,7 @@
 1,The temple is a witch coven, a labyrinth of tiny passages, low ceilings, confusing twists and turns, skulls, stuffed animals, and flickering candles. A group of [3d4] women run this place, led by [woman]. They say that on nights of the full moon these women fly through the air to visit remote farms and steal the babies.
 1,The temple is built atop a nexus of Earth Blood, both channelling its energy and protecting the surface from its mutagenic power. Multiple circles of protection and seals of banning can be seen on the ground and on the standing stones throughout the area. [3d4] women care for this place, led by [woman].
 1,The temple is a warren dug into a hill. It smells of death. At the entrance, votive offerings have been placed on shelves. Most of these are small statues and dolls, prayers for recovery or peace in the afterlife, or people begging for guidance. Down below, however, when you reach the oldest layers of the settlement, a terrible secret is revealed: a big pit full of baby skeletons. [why baby skeletons]
-1,The temple is dug deep into the rocks below. Unbeknownst to most, the caves down here are inhabited by [1d4+2] trolls led by one they call [troll]. Human bones are everywhere. [why trolls]
+1,The temple is dug deep into the rocks below. Unbeknownst to most, the caves down here are inhabited by [1d4+2] trolls led by [troll]. Human bones are everywhere. [why trolls]
 
 ;why baby skeletons
 1,These are the victims of Earth Blood exposure.
@@ -3908,7 +3914,7 @@
 
 ;small temple dedicated to Odin
 1,[small temple]
-1,The temple houses an 8ft high wooden statue of Odin wielding his magic spear. An old woman named [woman] takes care of the temple. She knows the power of the runes and will cast the stones for your, should want to locate a loved one or find a dragon.
+1,The temple houses an 8ft high wooden statue of Odin wielding his magic spear. An old woman named [woman] takes care of the temple. She knows the power of runes and will cast the stones for you, should want to locate a loved one or find a dragon.
 1,The temple is actually a feast hall housing a small college of bards led by [human name]. During the day, they sing songs, practice balads, and compete in poetry. In the evening, the drink. All bards are expected to deliver a yearly donation for the upkeep of the college. Failure to do so results in being placed on a list. Should you need rescuing, they will contract a secret society to do that. Should you skip your obligation, they will contract a secret society to remedy that.
 1,The temple is also a famous school for birds of prey. They are trained here and then sold to nobility in far away regions. The rich merchants making this trip often need guards and thus a mercenary house was established here. [mercenary house]
 1,The temple was built atop a pool of Earth Blood. It was biult in the old days by Wise [human name] in order to prevent its mutagenic power from corrupting the area. Many magic users and elves have come here over the years, drawn by the small eddies of magic energy still emanating from the sealed area: get one extra spell slot of your liking while you sleep nearby, for example in the [inn name].
