@@ -143,8 +143,17 @@ L<Face Generator|https://campaignwiki.org/face> are installed, then we can load
 the images. When under development, we skip it.
 
 B<map> is the map, B<url> is the URL to an external table. If not provided,
-B<table> is the text of the table. If neither is provided, the default table is
-used.
+B<table> is the text of the table. If neither is provided, a table will be
+loaded based on the B<load> parameter. Current valid values are I<seckler> and
+I<schroeder>.
+
+If we want to call this from the command line, we will need to request a map
+from Text Mapper, too.
+
+    ./text-mapper.pl get /alpine.txt > map.txt
+    ./hex-describe.pl get /describe --form map=@map.txt --form load=schroeder
+
+Pipe through C<lynx -stdin -dump -nolist> to get text instead of HTML.
 
 =cut
 
@@ -200,6 +209,12 @@ get '/nomap' => sub {
 This is where the text input is rendered. B<input> is the text, B<url> is the
 URL to an external table. If not provided, B<table> is the text of the table. If
 neither is provided, the default table is used.
+
+To call this from the command line:
+
+    ./hex-describe.pl get /describe/text --form input=[village] --form load=schroeder
+
+Pipe through C<lynx -stdin -dump -nolist> to get text instead of HTML.
 
 =cut
 
@@ -413,6 +428,9 @@ my $hex_re = qr/^(\d\d)(\d\d)(?:\s+([^"\r\n]+)?\s*(?:"(.+)"(?:\s+(\d+))?)?|$)/;
 sub parse_map_data {
   my $map = shift;
   my $map_data;
+  if ($map and $map->isa('Mojo::Upload')) {
+    $map = $map->slurp();
+  };
   for my $hex (split(/\r?\n/, $map)) {
     if ($hex =~ /$hex_re/) {
       my ($x, $y, $types) = ($1, $2, $3);
@@ -1977,8 +1995,8 @@ The default table has the following entry:
 
 <pre>
 ;human
-1,[man]&lt;img src="[[redirect https://campaignwiki.org/face/redirect/alex/man]]" /&gt;
-1,[woman]&lt;img src="[[redirect https://campaignwiki.org/face/redirect/alex/woman]]" /&gt;
+1,[man]&lt;img src="[[redirect https://campaignwiki.org/face/redirect/alex/man]]" alt=""/&gt;
+1,[woman]&lt;img src="[[redirect https://campaignwiki.org/face/redirect/alex/woman]]" alt="" /&gt;
 </pre>
 
 <p>

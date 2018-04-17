@@ -1818,8 +1818,12 @@ get '/random' => sub {
 get '/smale' => sub {
   my $c = shift;
   my $bw = $c->param('bw');
-  $c->render(template => 'edit',
-	     map => Smale::generate_map($bw));
+  if ($c->stash('format') eq 'txt') {
+    $c->render(text => Smale::generate_map());
+  } else {
+    $c->render(template => 'edit',
+	       map => Smale::generate_map($bw));
+  }
 };
 
 get '/smale/random' => sub {
@@ -1840,10 +1844,16 @@ get '/smale/random/text' => sub {
 
 get '/alpine' => sub {
   my $c = shift;
-  $c->render(template => 'edit',
-	     map => Schroeder::generate_map($c->param('width'),
-					    $c->param('height'),
-					    $c->param('seed')));
+  if ($c->stash('format') eq 'txt') {
+    $c->render(text => Schroeder::generate_map($c->param('width'),
+					       $c->param('height'),
+					       $c->param('seed')));
+  } else {
+    $c->render(template => 'edit',
+	       map => Schroeder::generate_map($c->param('width'),
+					      $c->param('height'),
+					      $c->param('seed')));
+  }
 };
 
 get '/alpine/random' => sub {
