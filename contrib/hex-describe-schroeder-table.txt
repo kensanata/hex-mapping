@@ -2970,8 +2970,8 @@
 1,The caves used to be an old mine.
 1,The caves were dug by underground waters ages ago. Old wall paintings can be found.
 1,Cold lava tunnels lead into a big cavern, the heart of an old vulcano.
-1,The caves are deep pits that lead into the veins of the earth.
-1,The ominous caves radiate the mutating magic of earth blood.
+1,The caves are deep pits that lead into the Veins of the Earth.
+1,The ominous caves radiate the mutating magic of Earth Blood.
 1,The strange caves look like an underground city built by the ancients.
 1,In these caves you can still find the ancient vats of an abandoned vivimancer lab.
 1,The caves are an ancient burial complex. There are thousands of dessicated corpses down here.
