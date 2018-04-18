@@ -684,7 +684,7 @@
 1,long abandoned
 1,now inhabited by a *white dragon* called [white dragon name]
 1,and at the very top there is a lair of very protective [2d8] *griffons*
-1,[gargoyles]
+1,currently the home of [gargoyles]
 
 ;gargoyles
 1,a *gargoyle* named [gargoyle]
@@ -2346,13 +2346,14 @@
 
 ;forest-hill
 1,One of the hills has an old lookout from which you can see most of the [name for forest/forest-hill/trees/fir-forest/firs].
-1,Small creeks have dug deep channels into this forest. The going is tough.
-1,One one these forested hills is inhabited by [1d6 ogres].
-1,These hills belong to the [evil tribe], [1d6x10] *orcs* led by [orc leader]. Their fort is [orc fort].
-1,On one of the hills here stands an old tower overlooking the forest below. This is the home of a *manticore* called [manticore].
-1,The hill overlooking [name for forest/forest-hill/trees/fir-forest/firs] is the home of [1d8 treants].
-1,There is a hill with a nice cave which offers shelter from the rain but is home to [1d4 bears].
-1,[5d8] dwarves have set up a small logging community, here. They are led by [dwarf]. The camp is defended by [dwarven companions].
+1,Small creeks have dug deep channels into [name for forest/forest-hill/trees/fir-forest/firs]. The going is tough.
+1,[name for forest/forest-hill/trees/fir-forest/firs] covers a few hills, here. One one them is inhabited by [1d6 ogres].
+1,These hills in [name for forest/forest-hill/trees/fir-forest/firs] belong to the [evil tribe], [1d6x10] *orcs* led by [orc leader]. Their fort is [orc fort]
+1,On one of the hills of [name for forest/forest-hill/trees/fir-forest/firs] stands an old tower overlooking the lands below. This is the home of a *manticore* called [manticore].
+1,The hill overlooking [name for forest/forest-hill/trees/fir-forest/firs] is the home of [1d8 treants]. They mostly stand around near [forest feature].
+1,There is a hill rising high above [name for forest/forest-hill/trees/fir-forest/firs] with a nice cave which offers shelter from the rain but is home to [1d4 bears].
+1,[5d8] dwarves have set up a small logging community, here in [name for forest/forest-hill/trees/fir-forest/firs]. They are led by [dwarf]. The camp is defended by [dwarven companions].
+1,The hills of [name for forest/forest-hill/trees/fir-forest/firs] are full of ancient ruins. On one of these hills right here you can find the foundations of an old keep. The walls are long gone but the cistern and the storage rooms below are still usable. [1d4x10] *bandits* led by [human] have made this their permament base. The camp is [human fort].
 
 ;dwarven companions
 1,a palisade and wooden spikes
@@ -2557,9 +2558,9 @@
 1,Thrash
 
 ;orc leader
-1,[orc]<img src="[[redirect https://campaignwiki.org/face/redirect/alex/orc]]" alt="" />
+1,[name for orc leader]<img src="[[redirect https://campaignwiki.org/face/redirect/alex/orc]]" alt="" />
 
-;orc
+;name for orc leader
 1,Mushroom Friend (HD [1d6+1])
 1,Pie Eater (HD [1d6+1])
 1,Pig Face (HD [1d6+1])
@@ -2568,13 +2569,37 @@
 1,Long Fang (HD [1d6+1])
 
 ;orc fort
-1,surrounded by spiked pit traps
-1,guarded by a *boar*
-4,guarded by [1d4+1] *boars*
+1,surrounded by spiked pit traps. [orc feature]
+1,guarded by a *boar*. [orc feature]
+4,guarded by [1d4+1] *boars*. [orc feature]
 
 ;orc feature
 1,Many skulls are on display.
 1,At the back is an entrance to an abandoned mine. [abandoned mine]
+1,[name for orc leader] is a famous sword smith in the [orc sword tradition].
+
+;orc sword tradition
+1,[orc sword 1] [orc sword 2] [orc sword 3] tradition
+
+;orc sword 1
+1,Two Handed
+1,Long
+1,Wicked
+1,Toothed
+1,Barbed
+
+;orc sword 2
+1,Back
+1,Crooked
+1,Horse
+1,Rank
+1,Monkey
+
+;orc sword 3
+1,Biter
+1,Slicer
+1,Killer
+1,Ripper
 
 ;abandoned mine
 1,It's basically a deep hole where a single miner would keep digging for coal.
@@ -2821,13 +2846,13 @@
 1,Hidden between some hills is a valley apparently full of thorn bushes. It hides a hamlet of [5d8] *halflings* led by [halfling leader].
 1,An old fort overlooking the woods has been taken over by a war party of [4d6] *hobgoblins* led by [hobgoblin] (HD 3+1). The fort is defended by [hobgoblin companions].
 1,An abandoned watchtower on a promontory overlooking the drylands is home to [4d6] *hobgoblins* led by [hobgoblin] (HD 3+1). The approach is guarded by [hobgoblin companions].
-1,Up in these drylands, a massive fortress built by giants long ago is home to [1d6x10] *orcs* of the [evil tribe], led by [orc leader]. The fortress is [orc fort].
+1,Up in these drylands, a massive fortress built by giants long ago is home to [1d6x10] *orcs* of the [evil tribe], led by [orc leader]. The fortress is [orc fort]
 1,Up here on these hills and overlooking the shrublands is a massive fortress built by giants long ago. It has been taken over by *humans* and now it is home to [1d4x10] bandits led by [human]. The fortress is [human fort].
 1,There are caves beneath these badlands. [caves]
 1,The dry lands up here are the hunting grounds of a *manticore* called [manticore] living in the ruins of an old tower.
 1,A *green dragon* named [green dragon name] lives at [hill name], one of the hills overlooking these shrublands.
 
-;humand fort
+;human fort
 1,protected long stakes against charging
 1,protected by a *war dog*
 6,protected by [1d6+1] *war dogs*
@@ -3461,12 +3486,12 @@
 
 ;forest
 1,This is the [name for forest/forest-hill/trees/fir-forest/firs] and there are no trails. Without a guide, you will get lost.
-1,Tall trees and dense canopy keep the sunlight away. There are big mushrooms everywhere. [mushrooms]
-1,This forest is under the protection of [1d8 treants].
-1,The trees here are full of spider webs. Anybody climbing the trees will get attacked by [2d4] *giant spiders*.
-1,[2d12] *elves* led by [elf leader] (level [1d6+1]) have built their [elf dwelling] in this forest. [elf companions]
-1,A system of big tunnels under these trees is home to [1d6 weasels].
-1,At dusk and dawn, you can sometimes see [boars].
+1,The tall trees of [name for forest/forest-hill/trees/fir-forest/firs] and their dense canopy keep the sunlight away. Down here in the shade there are big mushrooms everywhere. [mushrooms]
+1,This part of [name for forest/forest-hill/trees/fir-forest/firs] is under the protection of [1d8 treants]. They mostly stand around near [forest feature].
+1,The trees of [name for forest/forest-hill/trees/fir-forest/firs] are full of spider webs, here. Anybody climbing the trees or travelling on their own will get attacked by [2d4] *giant spiders*.
+1,[2d12] *elves* led by [elf leader] (level [1d6+1]) have built their [elf dwelling] in [name for forest/forest-hill/trees/fir-forest/firs]. [elf companions]
+1,These trees are part of [name for forest/forest-hill/trees/fir-forest/firs]. A system of big tunnels is home to [1d6 weasels].
+1,At dusk and dawn, you can sometimes see [boars] in the [name for forest/forest-hill/trees/fir-forest/firs], here.
 
 ;mushrooms
 1,The mushrooms are guarded by [myconids]
@@ -3505,6 +3530,22 @@
 ;forest 2
 1,Forest
 1,Wood
+
+;forest feature
+1,[forest feature 1] [forest feature 2]
+
+;forest feature 1
+1,Crystal
+1,Secret
+1,Black
+1,Shadow
+1,Blue
+
+;forest feature 2
+1,Cave
+1,Pond
+1,Mere
+1,Lake
 
 ;boars
 1,the guardian spirit of this forest, a *demon boar*
@@ -3559,7 +3600,7 @@
 1,There is a cave in this fir forest housing the *ettin* called [ettin].
 1,[fir highlands] At the foot of [crag name], there is cave inhabited by [1d8 trolls].
 1,[fir highlands] In this fir forest is a little campsite with [1d8 bugbears].
-1,[fir highlands] At night, the orcs of the [evil tribe] hunt these lands. [orcs] Their settlement is protected by a palisade and [orc fort]. [orc feature]
+1,[fir highlands] At night, the orcs of the [evil tribe] hunt these lands. [orcs] Their settlement is protected by a palisade and [orc fort]
 1,[fir highlands] There is an abandoned shrine to [power] up here. It is haunted by the *spectre* of [old name], the last priest who cared for it. The locals avoid it.
 
 ;1d8 bugbears
@@ -3917,8 +3958,8 @@
 1,The temple houses an 8ft high wooden statue of Odin wielding his magic spear. An old woman named [woman] takes care of the temple. She knows the power of runes and will cast the stones for you, should want to locate a loved one or find a dragon.
 1,The temple is actually a feast hall housing a small college of bards led by [human name]. During the day, they sing songs, practice balads, and compete in poetry. In the evening, the drink. All bards are expected to deliver a yearly donation for the upkeep of the college. Failure to do so results in being placed on a list. Should you need rescuing, they will contract a secret society to do that. Should you skip your obligation, they will contract a secret society to remedy that.
 1,The temple is also a famous school for birds of prey. They are trained here and then sold to nobility in far away regions. The rich merchants making this trip often need guards and thus a mercenary house was established here. [mercenary house]
-1,The temple was built atop a pool of Earth Blood. It was biult in the old days by Wise [human name] in order to prevent its mutagenic power from corrupting the area. Many magic users and elves have come here over the years, drawn by the small eddies of magic energy still emanating from the sealed area: get one extra spell slot of your liking while you sleep nearby, for example in the [inn name].
-1,The temple functions welcomes all wanderers and homeless people, housing people for up to week for a gold piece per person. This is the [inn name] run by [human name]. The common room has an entire altar built into it, including carved columns with eagles and ravens and showing Odin riding his eight legged horse over the rainbow bridge.
+1,It was built generations ago atop a pool of Earth Blood by Wise [human name] in order to prevent its mutagenic power from corrupting the area. Many magic users and elves have come here over the years, drawn by the small eddies of magic energy still emanating from the sealed area: get one extra spell slot of your liking while you sleep nearby. [name for inn] was built next to the temple just for this.
+1,The temple functions welcomes all wanderers and homeless people, housing people for up to week for a gold piece per person. This is the [name for inn] run by [human name]. The common room has an entire altar built into it, including carved columns with eagles and ravens and showing Odin riding his eight legged horse over the rainbow bridge.
 
 ;mercenary house
 1,The [mercenary house name 1] [mercenary house name 1] of [mercenary house name 2] is run by [human name] and consists of 6d6 mercenaries.
@@ -3958,7 +3999,7 @@
 1,Battle
 1,Killing
 
-;inn name
+;name for inn
 1,[inn name 2] [inn name 1]
 1,[inn name 3] [inn name 2] [inn name 1]
 
