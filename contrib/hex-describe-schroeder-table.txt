@@ -683,7 +683,7 @@
 ;green tower
 1,long abandoned
 1,now inhabited by a *white dragon* called [white dragon name]
-1,and at the very top there is a lair of very protective [2d8] *griffons*
+1,and at the very top there is a lair of [2d8] very protective *griffons*
 1,currently the home of [gargoyles]
 
 ;gargoyles
@@ -829,12 +829,12 @@
 1,the Killer
 
 ;white mountain
-1,The air up here is cold. You can see the [name for white big mountains] from here.
-1,Snow fields make it impossible to cross without skis.
+1,The air up here is cold. You can see the [name for white big mountains] looming up ahead.
+1,The snow fields beneath the [name for white big mountains] are impossible to cross without skis.
 1,There is a hidden meadow up here, protected by the [name for white big mountains].
-1,The glaciers need a local guide and ropes to cross.
-1,The glacier ends at a small lake [maybe an ice cave].
-1,A *white dragon* called [white dragon name] lives in a ruined mountain fortress on the highest peak around here.
+1,The glaciers flowing from the [name for white big mountains] need a local guide and ropes to cross.
+1,The glacier of [name for white big mountains] ends at a small lake [maybe an ice cave].
+1,A *white dragon* called [white dragon name] lives in a ruined mountain fortress guarding the approaches to the [name for white big mountains].
 
 ;maybe an ice cave
 1,and it is bright blue and ice cold
@@ -2558,15 +2558,15 @@
 1,Thrash
 
 ;orc leader
-1,[name for orc leader]<img src="[[redirect https://campaignwiki.org/face/redirect/alex/orc]]" alt="" />
+1,[name for orc]<img src="[[redirect https://campaignwiki.org/face/redirect/alex/orc]]" alt="" /> (HD [1d6+1])
 
-;name for orc leader
-1,Mushroom Friend (HD [1d6+1])
-1,Pie Eater (HD [1d6+1])
-1,Pig Face (HD [1d6+1])
-1,Strong Arm (HD [1d6+1])
-1,Spear Thrower (HD [1d6+1])
-1,Long Fang (HD [1d6+1])
+;name for orc
+1,Mushroom Friend
+1,Pie Eater
+1,Pig Face
+1,Strong Arm
+1,Spear Thrower
+1,Long Fang
 
 ;orc fort
 1,surrounded by spiked pit traps. [orc feature]
@@ -2576,7 +2576,7 @@
 ;orc feature
 1,Many skulls are on display.
 1,At the back is an entrance to an abandoned mine. [abandoned mine]
-1,[name for orc leader] is a famous sword smith in the [orc sword tradition].
+1,[name for orc] is a famous sword smith in the [orc sword tradition].
 
 ;orc sword tradition
 1,[orc sword 1] [orc sword 2] [orc sword 3] tradition
@@ -2844,13 +2844,24 @@
 1,Badlands full of shrubs and wild hedges. [loner]
 1,Dry lands full of tumbleweed and thorn bushes. [loner]
 1,Hidden between some hills is a valley apparently full of thorn bushes. It hides a hamlet of [5d8] *halflings* led by [halfling leader].
-1,An old fort overlooking the woods has been taken over by a war party of [4d6] *hobgoblins* led by [hobgoblin] (HD 3+1). The fort is defended by [hobgoblin companions].
+1,An old fort overlooking the woods has been taken over by a war party of [4d6] *hobgoblins* led by [hobgoblin] (HD 3+1). The fort is defended by [hobgoblin companions]. [old fort]
 1,An abandoned watchtower on a promontory overlooking the drylands is home to [4d6] *hobgoblins* led by [hobgoblin] (HD 3+1). The approach is guarded by [hobgoblin companions].
 1,Up in these drylands, a massive fortress built by giants long ago is home to [1d6x10] *orcs* of the [evil tribe], led by [orc leader]. The fortress is [orc fort]
 1,Up here on these hills and overlooking the shrublands is a massive fortress built by giants long ago. It has been taken over by *humans* and now it is home to [1d4x10] bandits led by [human]. The fortress is [human fort].
 1,There are caves beneath these badlands. [caves]
 1,The dry lands up here are the hunting grounds of a *manticore* called [manticore] living in the ruins of an old tower.
 1,A *green dragon* named [green dragon name] lives at [hill name], one of the hills overlooking these shrublands.
+
+;old fort
+1,On a pedestal outside the fort there is a withered statue of [power] overlooking the lands below.
+1,There is [old fort passage] leading to a ditch filled with thorn bushes far below.
+1,There is [old fort passage] leading to a forgotten temple of [evil power].
+1,There is [old fort passage] leading to an old necropolis. There must be at least a thousand mummified corpses in all these niches and chambers.
+
+;old fort passage
+1,a secret escape passage via a trapdoor inside the main building
+1,a secret passage via the well inside the fort
+1,a secret passage from the cellar below the watch tower
 
 ;human fort
 1,protected long stakes against charging
@@ -3406,11 +3417,21 @@
 
 # These are the monsters for larger villages
 ;trees
-1,Tall trees cover this valley.
-1,There are traces of logging activity in this light forest.
-1,[2d4] *harpies* sing in the tree tops, luring men into the depths of the forest and to their death.
-1,There is a cave in this forest housing the *ettin* called [ettin].
-1,Hiding between the trees are watchful eyes in the service of the elves underground, [1d8 bugbears].
+1,This is the [name for forest/forest-hill/trees/fir-forest/firs]. [signs of human activity] [a monster threatening the village]
+
+;signs of human activity
+1,Tall trees cover this valley. Occasionally, you can see tree stumps so somebody must be logging these trees.
+1,There are many trails made by loggers, wood gatherers and swine herders leading to a village.
+1,There are many trees here have been cut back for many years. Clearly a sign of human activity.
+1,Within the forest are a few clearings with small cherry and plum tree orchards.
+1,Within the forest are a few clearings with small apple tree orchards.
+1,There is a clearing in this forest where an old statue of [power] still stands.
+
+;a monster threatening the village
+1,You shouldn't stray too far from the trails because this forest has been cursed by the presence of [2d4] *harpies* luring men into the depths of the forest and to their death with their magical singing.
+1,Deep in the forest there is a cave where the *ettin* [ettin] live. They are known for their fury and their appetite for human flesh.
+1,Hiding between the trees are the watchful eyes of [1d8 bugbears]. Bugbears are usually a bad sign for they are often employed as spies by the elves of the netherworld.
+1,The camp of [1d8 bugbears] is hard to find. They hunt these woods at night and like to kill anybody that didn't make it back to the village during daytime.
 
 ;ettin
 1,Bert and Bob
