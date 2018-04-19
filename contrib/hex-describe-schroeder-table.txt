@@ -1067,11 +1067,14 @@
 1,father
 
 ;dwarves
-3,This is a small forge. [5d8] *dwarves* live and work here led by [dwarf]
-1,This is a legendary forge stronghold. [5d8x10] *dwarves* live and work here led by [dwarf] (level [1d4+8]). [3d6] families live here, each led by a clan elder (level [1d6+2])
+3,This is a small forge. [5d8] *dwarves* live and work here led by [dwarf leader]
+1,This is a legendary forge stronghold. [5d8x10] *dwarves* live and work here led by [dwarf leader] (level [1d4+8]). [3d6] families live here, each led by a clan elder (level [1d6+2])
+
+;dwarf leader
+1,[dwarf]<img src="[[redirect https://campaignwiki.org/face/redirect/alex/dwarf]]" alt="[same dwarf]" title="[same dwarf]"/>
 
 ;dwarf
-1,[dwarf 1] [dwarf 2a][dwarf 2b]<img src="[[redirect https://campaignwiki.org/face/redirect/alex/dwarf]]" alt="" />
+1,[dwarf 1] [dwarf 2a][dwarf 2b]
 
 ;dwarf 1
 1,[dwarf name for men]
@@ -2352,7 +2355,7 @@
 1,On one of the hills of [name for forest/forest-hill/trees/fir-forest/firs] stands an old tower overlooking the lands below. This is the home of a *manticore* called [manticore].
 1,The hill overlooking [name for forest/forest-hill/trees/fir-forest/firs] is the home of [1d8 treants]. They mostly stand around near [forest feature].
 1,There is a hill rising high above [name for forest/forest-hill/trees/fir-forest/firs] with a nice cave which offers shelter from the rain but is home to [1d4 bears].
-1,[5d8] dwarves have set up a small logging community, here in [name for forest/forest-hill/trees/fir-forest/firs]. They are led by [dwarf]. The camp is defended by [dwarven companions].
+1,[5d8] dwarves have set up a small logging community, here in [name for forest/forest-hill/trees/fir-forest/firs]. They are led by [dwarf leader]. The camp is defended by [dwarven companions].
 1,The hills of [name for forest/forest-hill/trees/fir-forest/firs] are full of ancient ruins. On one of these hills right here you can find the foundations of an old keep. The walls are long gone but the cistern and the storage rooms below are still usable. [1d4x10] *bandits* led by [human] have made this their permament base. The camp is [human fort].
 
 ;dwarven companions
@@ -2558,7 +2561,7 @@
 1,Thrash
 
 ;orc leader
-1,[orc]<img src="[[redirect https://campaignwiki.org/face/redirect/alex/orc]]" alt="[same orc] title=[same orc]" /> (HD [1d6+1])
+1,[orc]<img src="[[redirect https://campaignwiki.org/face/redirect/alex/orc]]" alt="[same orc]" title="[same orc]" /> (HD [1d6+1])
 
 ;orc
 1,[orc food] [orc eat]
@@ -2612,7 +2615,7 @@
 ;orc feature
 1,Many skulls are on display.
 1,At the back is an entrance to an abandoned mine. [abandoned mine]
-1,[name for orc] is a famous sword smith in the [orc sword tradition].
+1,[same orc] is a famous sword smith in the [orc sword tradition].
 
 ;orc sword tradition
 1,[orc sword 1] [orc sword 2] [orc sword 3] tradition
@@ -2653,7 +2656,10 @@
 3,[1d3+1] *squid people* led by [squid leader]
 
 ;squid leader
-1,[squid 1] [star name]<img src="[[redirect https://campaignwiki.org/face/redirect/alex/squid]]" alt="" />
+1,[squid]<img src="[[redirect https://campaignwiki.org/face/redirect/alex/squid]]" alt="[same squid]" title="[same squid]"/>
+
+;squid
+1,[squid 1] [star name]
 
 ;squid 1
 1,Far
@@ -3078,7 +3084,7 @@
 1,[halfling] (level [1d6+1])
 
 ;halfling
-1,[halfling name]<img src="[[redirect https://campaignwiki.org/face/redirect/alex/woman]]" alt="[halfling name]" title="[same halfling name]"/>
+1,[halfling name]<img src="[[redirect https://campaignwiki.org/face/redirect/alex/woman]]" alt="[same halfling name]" title="[same halfling name]"/>
 
 ;halfling name
 1,[gothic names for men]

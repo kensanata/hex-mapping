@@ -879,8 +879,10 @@ sub describe {
     } elsif ($word eq 'adjacent hex') {
       # experimental
       return one(neighbours($map_data, $coordinates));
-    } elsif ($word =~ /^same (\S+)/) {
-      return $locals{$1};
+    } elsif ($word =~ /^same (.+)/) {
+      return $locals{$1} if exists $locals{$1};
+      $log->error("[$word] is undefined");
+      return "";
     } else {
       my $text = pick($map_data, $table_data, $level, $coordinates, $words, $word);
       next unless $text;
