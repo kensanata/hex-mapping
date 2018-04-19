@@ -2558,15 +2558,51 @@
 1,Thrash
 
 ;orc leader
-1,[name for orc]<img src="[[redirect https://campaignwiki.org/face/redirect/alex/orc]]" alt="" /> (HD [1d6+1])
+1,[orc]<img src="[[redirect https://campaignwiki.org/face/redirect/alex/orc]]" alt="[same orc] title=[same orc]" /> (HD [1d6+1])
 
-;name for orc
-1,Mushroom Friend
-1,Pie Eater
-1,Pig Face
-1,Strong Arm
-1,Spear Thrower
-1,Long Fang
+;orc
+1,[orc food] [orc eat]
+1,[orc weapon] [orc use]
+1,[orc is] [orc limb]
+
+;orc food
+1,Pie
+1,Mushroom
+1,Fungus
+1,Grub
+1,Root
+
+;orc eat
+1,Friend
+1,Finder
+1,Eater
+
+;orc weapon
+1,Sword
+1,Spear
+1,Club
+1,Axe
+
+;orc use
+1,Arm
+1,Breaker
+1,Maker
+1,Thrower
+
+;orc is
+1,Strong
+1,Big
+1,Fearsome
+1,Loud
+1,Pig
+1,Long
+
+;orc limb
+1,Face
+1,Arm
+1,Snout
+1,Nostril
+1,Fang
 
 ;orc fort
 1,surrounded by spiked pit traps. [orc feature]
@@ -3042,7 +3078,7 @@
 1,[halfling] (level [1d6+1])
 
 ;halfling
-1,[halfling name]<img src="[[redirect https://campaignwiki.org/face/redirect/alex/woman]]" alt="" />
+1,[halfling name]<img src="[[redirect https://campaignwiki.org/face/redirect/alex/woman]]" alt="[halfling name]" title="[same halfling name]"/>
 
 ;halfling name
 1,[gothic names for men]
@@ -3600,7 +3636,7 @@
 2,The settlement is protected by [1d2+1] *giant weasels*.
 
 ;elf leader
-1,[elf]<img src="[[redirect https://campaignwiki.org/face/redirect/alex/elf]]" alt="" />
+1,[elf]<img src="[[redirect https://campaignwiki.org/face/redirect/alex/elf]]" alt="[same elf]" title="same elf"/>
 
 ;elf
 1,Longevity
@@ -4184,8 +4220,8 @@
 1,mercenary
 
 ;human
-1,[man]<img src="[[redirect https://campaignwiki.org/face/redirect/alex/man]]" alt="[same man]" />
-1,[woman]<img src="[[redirect https://campaignwiki.org/face/redirect/alex/woman]]" alt="[same woman]" />
+1,[man]<img src="[[redirect https://campaignwiki.org/face/redirect/alex/man]]" alt="[same man]" title="[same man]"/>
+1,[woman]<img src="[[redirect https://campaignwiki.org/face/redirect/alex/woman]]" alt="[same woman]" title="[same woman]"/>
 
 ;human name
 1,[man]
