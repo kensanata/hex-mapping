@@ -404,13 +404,24 @@ name.
 
 Note that for C</describe/text>, C<init> is called for every paragraph.
 
+<%locals> is a hash of all the "normal" table lookups encountered so far. It is
+is reset for every paragraph. To refer to a previous result, start a reference
+with the word "same". This doesn't work for references to adjacent hexes, dice
+rolls, or names. Here's an example:
+
+    ;village boss
+    1,[man] is the village boss. They call him Big [same man].
+    1,[woman] is the village boss. They call her Big [same woman].
+
 =cut
 
 my $extra;
 my %names;
+my %locals;
 
 sub init {
   %names = ();
+  %locals = ();
   $extra = undef;
 }
 
@@ -661,6 +672,7 @@ sub parse_table {
 	next if $subtable =~ /^redirect https?:/;
 	next if $subtable =~ /^names for (.*)/ and $data->{"name for $1"};
 	next if $subtable =~ /^adjacent hex$/; # experimental
+	next if $subtable =~ /^same (.*)/ and $data->{$1};
 	$log->error("Error in table $table: subtable $subtable is missing")
 	    unless $data->{$subtable};
       }
@@ -782,6 +794,7 @@ sub describe {
   my $coordinates = shift;
   my $words = shift;
   return '' if $level > 10;
+  %locals = () if $level == 1; # reset once per paragraph
   my @descriptions;
   for my $word (@$words) {
     # valid dice rolls: 1d6, 1d6+1, 1d6x10, 1d6x10+1
@@ -866,9 +879,12 @@ sub describe {
     } elsif ($word eq 'adjacent hex') {
       # experimental
       return one(neighbours($map_data, $coordinates));
+    } elsif ($word =~ /^same (\S+)/) {
+      return $locals{$1};
     } else {
       my $text = pick($map_data, $table_data, $level, $coordinates, $words, $word);
       next unless $text;
+      $locals{$word} = $text;
       push(@descriptions, $text);
     }
   }
@@ -894,7 +910,8 @@ sub process {
     $i = 1 - $i;
   }
   return {
-    images => '<span class="images">' . join('', @{$output[1]}) . '</span>',
+    images => app->mode eq 'development'
+	? '' : '<span class="images">' . join('', @{$output[1]}) . '</span>',
     html => join('', @{$output[0]}),
   };
 }
@@ -2026,9 +2043,12 @@ from services that aren’t hosted on the same domain
 </p>
 
 <p>
-If you run the application yourself, images will not be loaded. In order to load
-them, switch the application mode to production. Running it from the command
-line, for example, provide the option <code>-m production</code>.
+If you run the application yourself, the mode defaults to "development" and thus
+redirects will not be resolved (this prevents wasting time calling the face
+generator) and the images will be stripped from the output (such that not even
+the alt text is shown). In order have all that, switch the application mode to
+production. Running it from the command line, for example, provide the option
+<code>-m production</code>.
 </p>
 
 @@ authors.html.ep
