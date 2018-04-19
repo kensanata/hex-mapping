@@ -1256,9 +1256,7 @@ Alternatively, just paste your tables here:
 % for my $hex (sort keys %$descriptions) {
 <p>
 <%== $descriptions->{$hex}->{images} %>
-<strong class="coordinates" id="desc<%= $hex =%>">
-<a href="#hex<%= $hex =%>">
-<%= $hex =%></a></strong>:
+<strong class="coordinates" id="desc<%= $hex =%>"><a href="#hex<%= $hex =%>"><%= $hex =%></a></strong>:
 <%== $descriptions->{$hex}->{html} %>
 </p>
 % }
