@@ -4184,8 +4184,8 @@
 1,mercenary
 
 ;human
-1,[man]<img src="[[redirect https://campaignwiki.org/face/redirect/alex/man]]" alt="" />
-1,[woman]<img src="[[redirect https://campaignwiki.org/face/redirect/alex/woman]]" alt="" />
+1,[man]<img src="[[redirect https://campaignwiki.org/face/redirect/alex/man]]" alt="[same man]" />
+1,[woman]<img src="[[redirect https://campaignwiki.org/face/redirect/alex/woman]]" alt="[same woman]" />
 
 ;human name
 1,[man]
