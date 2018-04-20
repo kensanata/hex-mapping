@@ -2138,7 +2138,7 @@ will get used.
 1001 white mountains
 1101 white mountain
 1201 light-grey mountain
-1301 light-green fir-forest village
+1301 light-green village
 include https://campaignwiki.org/contrib/gnomeyland.txt
 
 ;mountain
@@ -2159,6 +2159,84 @@ include https://campaignwiki.org/contrib/gnomeyland.txt
 1,Snow Lilly
 1,Ice Devil
 % end
+
+<p>
+Or more complicated, with types of ingredients.
+</p>
+
+%= example begin
+0101 light-grey mountain
+0201 white mountain
+0301 white mountains
+0401 white mountain
+0501 light-grey mountain
+0601 light-green fir-forest
+0701 light-green fir-forest
+0801 light-grey mountain
+0901 white mountain
+1001 white mountains
+1101 white mountain
+1201 light-grey mountain
+1301 light-green village
+include https://campaignwiki.org/contrib/gnomeyland.txt
+
+;mountain
+2,It's cold up here.
+1,The [here mountain ingredient] grows up here, if you know where to look.
+
+;mountains
+1,[mountain]
+
+;fir-forest
+1,The [here forest ingredient] grows up here, if you know where to look.
+
+;village
+1,The village alchemist is looking for [ingredient].
+
+;mountain ingredient
+1,Edelweiss
+1,Snow Lilly
+1,Ice Devil
+
+;forest ingredient
+1,Blue Worm
+1,Fey Moss
+1,Magic Mushroom
+
+;ingredient
+1,[nearby mountain ingredient]
+1,[nearby forest ingredient]
+% end
+
+<p>
+Beware: If you start a reference with the word "nearby" then what follows has to
+be the thing that was saved using references starting with the word "here". In
+the example above, <code>[here forest ingredient]</code> matches <code>[nearby
+forest ingredient]</code>. The following wouldn't work and it would be hard to
+spot:
+</p>
+
+<pre>
+;village
+1,The village alchemist is looking for [nearby ingredient].
+
+;ingredient
+1,[mountain ingredient]
+1,[forest ingredient]
+</pre>
+
+<p>
+The problem is that it never says <code>[here ingredient]</code> anywhere, so
+nothing is ever found, which means that a random ingredient will get picked.
+Thus, it <em>looks</em> as if it worked because a random ingredient is picked,
+but it doesn't prefer ingredients that were actually used on the map. You might
+just as well have written <code>The village alchemist is looking for
+[ingredient].</code>
+</p>
+
+<p>
+Remember: "nearby X" and "here X" must match up.
+</p>
 
 <h2 id="images">Images</h2>
 
