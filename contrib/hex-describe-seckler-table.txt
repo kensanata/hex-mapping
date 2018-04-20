@@ -5,19 +5,65 @@
 # should appear near the top of the document (but this isn’t always so)
 # Note: Many of the more obscure monsters and plants here can be found 
 # in 1st edition Advanced. See MM, MM2 and FF for details. 
+# as of hexes.txt.8 4/19/2018 support for castles has been added-
+# users can ‘force’ a castle – or any terrain into the smale data at any 
+# hex location before hitting the submit button
+
+
+#this table needs help!
+
+;city
+1,There is a large city here
 
 ;randhex
-1,0[1d9]0[1d9]
-1,1[1d9]0[1d9]
-1,2[1d9]0[1d9]
-1,2[1d9]1[1d9]
+1,0[1d3]0[1d9]
+1,1[1d3]0[1d9]
+1,2[1d3]0[1d9]
+1,2[1d3]1[1d8]
+
+;reagents
+1,feywing spores for [1d10]gp/ounce
+1,trollblood moss for [1d100]gp/ounce
+1,obliviax moss for [1d10]gp/ounce
+1,snapdragon fangweed for [1d100]gp/ounce
+1,wild skelladonna weed for [1d100]gp/ounce
+1,undead bone blossom for [1d100]gp/ounce
+1,dragon-scale petals for [1d10]gp/ounce
+1,goblin hair weed for [1d10]gp/ounce
+1,boars blood flowers for [1d10]gp/ounce
+1,lizardskin leaves for [1d10]gp/ounce
+1,bat’s wing blossoms for [1d100]gp/ounce
+1,chtonic extract for [1d1000]gp/ounce
+1,foxtongue stamens for [1d10]gp/ounce
+
+;reagents2
+1,feywing spores 
+1,trollblood moss 
+1,obliviax moss 
+1,snapdragon fangweed 
+1,wild skelladonna weed 
+1,undead bone blossom 
+1,dragon-scale petals 
+1,goblin hair weed 
+1,boars blood flowers 
+1,lizardskin leaves 
+1,bat’s wing blossoms 
+1,chtonic extract 
+1,foxtongue stamens 
+1,oaken-heart seeds
+1,wild argentleaf
+1,feyblossom
+1,leafhealers balm
+1,wild mistletoe
+1,dragonfang orchid
+
 
 ;forest-mountains
 1,The mountains here are heavily forested.
 1,This lone mountain is known as [dreadful] Peak. It is heavily forested. 
 1,This mountain is known for its rejuvenating mineral water springs. Those who drink the water here gain +1 on saves vs disease for the following week. 
 1,This lone mountain is the home of a tribe of reclusive mountain *orcs*. Unlike most of their kind, this group avoids raiding other settlements. 
-1,This mountain is home to a mixed community of humans, half-orcs, and orcs. They’re own language is a mix of human and orcish, and they have their own traditions and ways. 
+1,This mountain is home to a mixed community of humans, half-orcs, and orcs. Their own language is a mix of human and orcish, and they have their own traditions and ways. 
 1,This lone forested mountain is the home of a large group of *griffins* that nest in the highest peaks. 
 1,This lone forested mountain is the ‘kingdom’ of an isolated fey community that is somewhat hostile to outsiders. At the very top of the mountain is a fey castle ruled by [royal] [old name], of the [fey type].
 
@@ -25,7 +71,234 @@
 1,There is a tower here. 
 
 ;castle
-1,There is a castle here. 
+1,There is an active castle here. Surrounded by fields and farmers rises the walls of [castek]. [1d100+125] men are garrisoned here wearing the distinctive heraldry of house [old name], [heraldry]. The ruler of the castle is [lor] [old name], a [1d9+8]th level [lor1] Fighter.
+
+;lor
+1,Lord
+1,Lady
+
+;lor1
+7,human
+1,half-elven
+1,dwarven
+1,elven
+1,halfling
+1,gnome
+
+;castek
+1,[cast1][cast2] [cast3]
+
+;cast1
+1,Ara
+1,Ork
+1,Ala
+1,Ama
+1,Bel
+1,Bael
+1,Bek
+1,Cad
+1,Caer
+1,Cairna
+1,Dek
+1,Det
+1,Deth
+1,Ere
+1,Eke
+1,Eon
+1,Eo
+1,Fer
+1,Fend
+1,Geth
+1,Get
+1,Gemma
+1,Het
+1,Hek
+1,Hend
+1,Jez
+1,Jek
+1,Ket
+1,Kin
+1,Kith
+1,Kir
+1,Luc
+1,Land
+1,Lant
+1,Met
+1,Mena
+1,Mek
+1,Neth
+1,Nek
+1,Orm
+1,Pol
+1,Quad
+1,Rev
+1,Sark
+1,Set
+1,Septa
+1,Teth
+1,Tek
+1,Uru
+1,Val
+1,Wal
+1,Zir
+
+;cast2
+1,halla
+1,walla
+1,ket
+1,ith
+1,rith
+1,awraith
+1,aket
+1,alore
+1,rak
+1,bon
+1,ket
+1,vail
+1,h
+1,et
+1,rist
+1,ron
+1,ra
+1,gar
+1,geth
+1,ger
+1,meen
+1,geist
+1,hak
+1,het
+1,hol
+1,lok
+1,lore
+1,arnia
+1,arik
+
+;cast3
+3,Castle
+2,Fort
+1,Hold
+1,Keep
+1,Palace
+1,Fortress
+1,Chateau
+
+#note please excuse my fanciful and ahistorical heraldry attempt -peter
+
+;heraldry
+1,a [hercol] [herdevice] emblazoned on a field of [hercol2]
+1,a quartered field of [hercol] and [hercol2]
+1,a counterchanged [herdevice] on a field of [hercol] and [hercol2]
+1,a [hercol2] bend over a [hercol] field
+1,a [hercol2] field partioned with a [hercol] line
+1,a [hercol2] field partioned with a nebuly [hercol] line
+1,a [hercol2] field partioned with an engrailed [hercol] band
+1,a [hercol2] field partioned with an embattled [hercol] band
+1,a [hercol2] field partioned with a [hercol] line and a [herdevice]
+1,a [hercol2] field partioned with a nebuly [hercol] line and a [herdevice]
+1,a [hercol2] field partioned with an engrailed [hercol] band and a [herdevice]
+1,a [hercol2] field partioned with an embattled [hercol] band and a [herdevice]
+
+;hercol
+1,gold
+1,silver
+1,yellow
+1,white
+1,ermine
+1,orange
+1,red
+1,crimson
+1,scarlet
+1,light green
+1,light blue
+
+;hercol2
+1,black
+1,dark purple
+1,dark blue
+1,dark green
+1,dark brown
+1,deep red
+1,dark fur
+
+;herdevice
+1,diamond
+1,ring
+1,arm
+1,fist
+1,head
+1,club
+1,foot
+1,fountain
+1,hand
+1,heart
+1,lion
+1,tiger
+1,leopard
+1,fox
+1,wolf
+1,rabbit
+1,bear
+1,badger
+1,otter
+1,antelope
+1,bull
+1,camel
+1,stag
+1,skull
+1,unicorn
+1,pegasus
+1,hippogriff
+1,griffin
+1,pig
+1,ram
+1,dragon
+1,wyvern
+1,salamander
+1,bee
+1,ant
+1,dragonfly
+1,grasshopper
+1,cricket
+1,bird
+1,harpy
+1,sphinx
+1,cock
+1,crow
+1,crane
+1,swan
+1,dove
+1,duck
+1,eagle
+1,two-headed eagle
+1,chaos-symbol
+1,law-symbol
+1,owl
+1,ostrich
+1,pelican
+1,egg
+1,raven
+1,dolphin
+1,eel
+1,fish
+1,tusk
+1,horn
+1,antlers
+1,paw
+1,flower
+1,rose
+1,thistle
+1,lotus
+1,tree
+1,sun
+1,moon
+1,devil
+1,angel
+1,wings
+1,wheat
+1,star
+1,crescent
+1,wheel
+1,wall
 
 ;fields
 1,Thriving fields of grain are being raised here and a group of [pcraces] can be seen working. 
@@ -176,7 +449,16 @@
 ;grass
 1,The rolling grass stretches in all directions. In the distance, you can see some [cows].
 1,These grasslands are home to [1d4x10] nomadic *humans* led by one they call [human]. They are all lightly armored and excellent horse archers. Their tents are protected by [human companions].
-1,These grasslands are home to a small community of gnomes. Their underground burrows are well hidden but they will greet visitors to this area to assess any evil motives. Any group that appears suspicious will probably be followed secretly until they leave the area. If the gnomes feel they are stronger than a suspicious party that moves through their area, they are likely to ambush or play cruel tricks on any visitors. They have a captive *bullette* they can use against a particularly tough seeming group. 
+3,The plains here are a vast rolling sea of tall grass. 
+1,These grasslands are home to a group of marauding *bandits*. There are [1d18+10] bandits total, and they are on foot, armed with simple spears and wearing leather armor. 
+1,The grasslands here are home to a particularly vicious pack of *wild boar*. 
+1,A group of [cows] are grazing peacefully on the grasslands here. 
+1,There is a shallow creek here running through these grasslands. It may be possible to replenish your water supply here. 
+1,These grasslands are home to a small community of gnomes. Their underground burrows are well hidden but they will greet visitors to this area to assess any evil motives. Any group that appears suspicious will probably be followed secretly until they leave the area. If the gnomes feel they are stronger than a suspicious party that moves through their area, they are likely to ambush or play cruel tricks on any visitors. They have a captive *bullette* they can use against a particularly tough seeming group.
+1,A wild growth of [reagents2] can be harvested here. 
+1,A strange complex of burial mounds can be found amongst these grasslands.
+1,A series of underground tunnels under these grasslands is the rumored location of the [regular noun] of [power] 
+1,These grasslands are home to a hermit alchemist known as [human] who is currently buying [reagents]. He can vaguely describe the nearest growth of these ingredients in Hex [randhex].
 1,The grasslands here are peaceful and lush. A solitary priest called [old name] is trying to build a little shrine to [good power] here. 
 1,The ruined foundation of an old keep can be found here. In the floor there is a trap door leading down a shaft to a dungeon known as the [dungeon]. It is [dungeondeep]. One particular area of note is [sublevel]
 1,An independent farmer known as [human] has set up a small farm on these grasslands and is [farmresults]. The farmer is [farmattitude].
@@ -184,6 +466,7 @@
 1,A small halfling settlement is located on this grassy plain. There are [2d20+6] halflings here, and they have built low mound-shaped houses out of sod. They are [halflingreactions]. 
 1,These grasslands are home to small herds of *wild horses*. 
 1,These grasslands are overgrown with very tall grass. The grass is as tall as a mans height. 
+1,A crumbling foundation and rubble can be found in these grasslands. 
 1,These grasslands are home to [centaurs].
 1, An enterprising merchant known as [human] has set up an impromptu trading post here in the middle of nowhere. [merchantprobs]
 1,These grasslands are infested with *stirges*. There are [3d12] *stirges* here.
@@ -197,6 +480,7 @@
 1,An abandoned cottage can be found on these overgrown grasslands. There is nothing of value inside. 
 1,On the [moongatetime], a shimmering moongate appears in this part of the plains. It can be seen for miles around. It teleports any who enter to hex 1[1d9]0[1d9].
 1,A growth of dangerous *Twilight Blooms* can be found in this area. 
+1,The crumbling remains of an old [megalith] statue can be found in an overgrown area of these grasslands. It seems to date from ancient times. 
 
 ;dungeondeep
 3, just a single level deep, around [1d10+10] rooms. The most significant feature of this dungeon is [lairlow]. 
@@ -207,7 +491,10 @@
 1,[1d10+5] levels deep- this is at an estimate- the complex connects to a larger series of caverns and is mostly unexplored. Each level contains somewhere between [1d20+5] and [1d76+25] detailed areas. One significant feature is [lairlow].
 1,[1d12+8] levels deep- this is at an estimate- nobody truly knows how deep it reaches. Each level contains somewhere between 15 and 100 rooms. This dungeon is effectively a massive structure that extends deep into hex [adjacent hex] (where an alternate exit can be found). It has been inhabited by multiple generations and factions of monsters, men, and (if the rumors are true) even gods. One particular area of note is [sublevel]
 
+
 ;cavesorno
+1,rest are ancient tiled passages and strange lightless rooms
+1,rest are crumbling gothic architecture and tiled halls
 1,rest are twisted corridors and endless hallways
 1,caves wind their way through all of the rest of the levels. Certain rooms and areas have been fashioned into rooms and hallways.
 1,lowest level opens directly into the [planes] 
@@ -222,10 +509,11 @@
 ;lairlow
 1,a lair of a pair of ogres who are known to kidnap children
 1,an ogre warlord and his forces of assorted evil humanoids
-1,a small tribe of ogre raiders has their base
+1,a small tribe of ogre raiders 
 1,an ogre magi and his army of phantoms have set up a fortress underground
 1,an evil human slaver and his fellow slavers
 1,a *mind flayer* slave camp
+1,the [power attribute] [regular noun] of [power] 
 1, a pair of *beholders* and an enslaved tribe of orcs
 1, a *neogi* slave base with an aerial portal that leads to their sky-ship
 1,the ruins of an ancient dwarven mine
@@ -235,6 +523,14 @@
 1,an underwater grotto where a small gang of kuo-tua conduct their twisted rituals
 1,a fiery chamber at the center where a group of Azers have been building an elemental forge 
 1,an old wizards lab that still has a number of arcane experiments wandering the halls
+1,a well-guarded vault containing a magical [regular noun]
+1,a temple to [evil power]
+1,a temple to [chaos power]
+1,a temple to [good power]
+1,an idol dedicated to [evil power]
+1,an altar where sacrifices are made to [evil power]
+1,a prison complex where captives are held in lightless cells
+1,a strange complex of myriad gateways that open into locations miles away
 1,a tomb complex that contains the final resting place of [old name], an ancient ruler in these lands. 
 1,an underground elven tomb-tree, where the bodies of ancient elves were wrapped in spidersilk and preserved with their finery and grave goods intact. It is currently inhabited by [elventhreats]
 1,a library of forbidden lore that was assembled here by a heretical cult. It is guarded by [libraryguards]
@@ -242,9 +538,11 @@
 1,a tribe of goblins who use this dungeon as a raiding base
 1,a family of outcast drow that have set up a spider-silkweaving tradepost
 1, a group of *bugbears* that will ambush anyone foolish enough to enter their territory
-1,a bizzare labyrinth constructed by ancient minotaurs
+1,a weird planar gateway powered by [energy]-energy. 
+1,a bizarre labyrinth constructed by ancient minotaurs
 1,an anachronistic elevator system (now of questionable reliability)
 1,a vast lake of primordial ooze that spawns aberrant monstrosities of every type and description
+1,a mysterious [energy] force-field that blocks off access to additional levels below
 1,a lair of [humanoidtype]
 1,a lair where a group of devils have set up a strange circus
 1,a level where fiends are operating a hellish casino. Visitors may gamble with their own souls against the souls of loved ones that the devils have stolen. Winner take all. 
@@ -300,7 +598,7 @@
 1,a bizarre level where a mad illusionist is creating an alternate reality filled with melting clocks and strange upside down rooms.  
 1,a temple level dedicated to [evil power], where monstrous servants are summoned. 
 1,a fortress level ruled by an entire lair of [humanoidtype]
-1,the massive hollow colossus of a [material][megalith]
+1,the massive hollow colossus of a [material] [megalith]
 1,a deathtrap level ruled by a guild of thieves
 1,a level where a den of assassins has their secret hideout
 1,a level where strange ‘demon-cysts’ have sprouted up and are spawning a demonic horde
@@ -372,7 +670,7 @@
 1,the young [dragontype] dragon known as [dragon name]
 1,a solitary *banshee* and her phantom followers. 
 1,[1d12+6] *elven zombies*
-
+1,a pair of *banshee* and a host of *shadows*. 
 
 ;farmresults
 1,doing well
@@ -381,6 +679,7 @@
 1,struggling
 1,doing terribly
 1,just getting by
+1,booming
 
 ;farmattitude
 1,wary of strangers
@@ -429,7 +728,8 @@
 1,halflings
 6,humans
 1,gnomes
-1,orcs and half-orcs
+1,orcs
+1,half-orcs
 1,goblinoids
 1,dragonborn
 1,tieflings
@@ -470,6 +770,9 @@
 1,[1d19+1] drunken *centaurs* led by [centaur]
 1,the *satyr* [centaur]
 1,[1d8+4] wild *satyrs*
+1,[2d6] invisible *pixies*
+1,[2d6] grigs
+1,a *brownie* known as [dwarf name for men]
 
 ;centaur
 1,Karza
@@ -551,7 +854,7 @@
 1,The hills here are covered in scrub terrain.
 1,The hills here are lightly forested.
 1,These hills hide a freshwater spring, known as [old name]’s Spring. 
-1,One hill here in particular is fitted with a curious-looking door. It seems you have found the home of the solitary [hilldweller] known as [old names for men]. 
+1,One hill here in particular is fitted with a curious-looking door. It seems you have found the home of the [hermetic] [hilldweller] known as [old names for men]. 
 1,These hills are rocky and difficult to navigate. 
 1,These hills are covered in an occasional crumbling grave marker. 
 1,These hills are covered in large boulders and stones. 
@@ -560,6 +863,20 @@
 1,The hills are bare and the narrow creeks between them have dug deep channels. One of these channels is home to [some canyon wights].
 1,Deep ravines cut through these hills. A cave in one of those dry riverbeds is home to [giant scorpions].
 1,On one of these rocky hills stands a ruined fortress currently occupied by [warlocks]. They are servants of [medusa], the medusa ruling these lands.
+
+;hermetic
+1,hermetic
+1,solitary
+1,legendary
+1,eccentric
+1,lonely
+1,insane
+1,mysterious
+1,hateful
+1,misanthropic
+1,philosopher
+1,mountebank
+
 
 ;labcondition
 1,currently incomplete. 
@@ -1332,24 +1649,27 @@
 
 ;mountain
 1,The green valley up here has some sheep and a *kid* called [human kid] guarding them.
-1,There is a cold pond up in this valley [cold lake].
+1,The cold pond up in this valley [cold lake].
 1,This mountain has strange runic stone carvings posted at intervals. 
 1,The upper valley is rocky and bare. [hill giants]
 1,Steep cliffs make progress practically impossible without climbing gear.
 1,[1d19+1] human bandits have set up an ambush here in these mountains. 
 1,The mountains here are prone to rockfalls and avalanches. Be Careful!
-1,These mountains are the home of a vicious *wyvern*.
+1,These mountains are the home of a vicious *wyvern*. It’s hunting ground extends deep into Hex [adjacent hex].
 1,The mountains here are the home of a tribe of [4d6] *orcs*. 
-1,The mountains here are inhabited bya tribe of [1d10+20] *taer*
+1,The mountains here are inhabited by a tribe of [1d10+20] *taer*
 1,A pair of *yeti* wander the highest trails of this mountain. 
 1,There is an old shrine dedicated to the ancient [totem] in these mountains. You can find it along one of the main trails. 
 1,The mountains here are known to be filled with caves that wind their way deep underground. 
 1, These mountains have strange crystalline formations forming along the cliff faces. 
 1,The mountains here are majestic and particularly beautiful.
 1,The mountains are nearly impassable without specialized gear. 
-1,This is where the (level [1d20+1]) [magic user] [old name] keeps his manse. It is known to disappear from time to time. 
+1,This is where the (level [1d20+1]) [magic user] [old name] keeps his manse. It is known to disappear from time to time. Whether this means it has become invisible, or actually left the plane is a mystery. 
+1,This is where the (level [1d20+1]) [magic user] [old name] keeps his manse. It is overseen by a tribe of loyal [warlockservants]
+1,A mysterious floating tower can be seen floating above the mountains here. 
 1,The mountain cliffs here are an unusual [natcolor] stone. 
 1,The mountains here have a treacherous winding mountain path, suitable only for single file travel. 
+1,A group of elven riders mounted on hippogriffs can be spotted flying through these mountains from time to time. They are patrolling for evildoers, and may stop to question or observe the party.  
 1,These mountains are home to small groups of [3d8] goblin raiders. 
 1,These mountains are home to a xenophobic clan of [4d6] dwarves who are likely to ambush and attack unwary visitors. They especially hate elves and orcs. 
 1,Nothing but gray rocks up here in the mountains.
@@ -1371,17 +1691,17 @@
 1,attempt to seduce
 
 ;cavedwellers
-1,[2d4] *troglodytes*
-1,[1d20] *orcs*
-1,[2d6] *goblins*
+1,[2d4+4] *troglodytes*
+1,[1d20+20] *orcs*
+1,[6d6] *goblins*
 1,[1d8+1] *primitive humans*
 1,[1d8+1] *lizardfolk*
-1,[2d4] *dark-elves*
-1,[1d10] *dwarves*
+1,[2d4+4] *dark-elves*
+1,[1d10+6] *dwarves*
 1,[1d6+2] *dwarven undead* (assorted zombies and skeletons)
 1,[abberant creatures]
-1,[1d10] *gnomes*
-1,[1d4+1] *dracotaurs*
+1,[1d10+4] *gnomes*
+1,[1d4+2] *dracotaurs*
 1, an *ogre* called [old name]
 1, a hill giant known as [dwarf name for men]
 1,[1d6+1] *ogres*
@@ -1582,9 +1902,9 @@
 1,Miska
 
 ;cold lake
-4,but it's cold and nothing lives here.
-1,completely iced-over.
-1, is freezing cold and covered with a heavy mist.
+1,is rumored to be the last location of the Magical [regular noun] of [human]
+1,is completely iced-over.
+1,is freezing cold and covered with a heavy mist.
 1,is well-stocked with coldwater fish.
 1,is the home of a *water spirit* called [undine]
 1,is the home of [2d4] *lizardfolk* led by one they call [lizardfolk]
@@ -3345,18 +3665,18 @@ https://dwarrowscholar.wordpress.com/general-documents/female-dwarf-outer-names/
 1,A lake here is inhabited by [2d20] charming *nixies* and [aquaticpets] guarding their sea weed garden.
 1,A big lake [cold lake].
 1,A sorcerer known as [man] and his daughter [woman] have a curious turtle-shaped houseboat moored here. They are wary of strangers. 
-1,A tribe of [5d8] *froglings* in a mud village guarded by [aquaticpets].
+1,A tribe of [5d8] *froglings* in a mud village guarded by [aquaticpets]
 
 ;aquaticpets
-1,[1d4+1] *giant water beetles*
-1,[1d4+1] *mutant crabs*
-1,[1d4+1] *carnivorous frogs*
-1,[1d4+1] *alligators*
-1,[1d4+1] *trained serpents*
-1,[1d4+1] *water weirds*
-1,[1d2+1] *minor elementals*
-1,[1d8+1] *giant snapping turtles*
-1,[1d4+1] *giant toads*
+1, *giant water beetles*
+1, *mutant crabs*
+1, *carnivorous frogs*
+1, *alligators*
+1, *trained serpents*
+1, *water weirds*
+1, *minor elementals*
+1, *giant snapping turtles*
+1, *giant toads*
 
 ;forest-hill
 1,One of the hills has an old lookout tower from which you can see most of the [name for forest/forest-hill/trees/fir-forest/firs].
@@ -3411,6 +3731,8 @@ https://dwarrowscholar.wordpress.com/general-documents/female-dwarf-outer-names/
 1,Red
 1,White
 1,Yellow
+1,Pale
+1,Ochre
 
 ;evil tribe condition
 1,Bad
@@ -3447,20 +3769,21 @@ https://dwarrowscholar.wordpress.com/general-documents/female-dwarf-outer-names/
 1,Ruined
 1,Rusty
 1,Savage
-1,Stinky
+1,Stinking
 1,Ugly
 1,Vile
 ;evil tribe other
-1,Carnage
-1,Dark
-1,Death
-1,Doom
-1,Iron
-1,Plague
-1,Runes
-1,Shadow
-1,Slaughter
-1,Steel
+1,Broken Skull
+1,Darkened Gate
+1,Deathwing 
+1,Doomed
+1,Bleak Palace
+1,Dark Fortress
+1,Plagued
+1,Twisted Runes
+1,Demons Shadow
+1,Mordant Slaughter
+1,Shattered Tower
 ;evil tribe body part
 1,Arm
 1,Boils
@@ -3545,7 +3868,7 @@ https://dwarrowscholar.wordpress.com/general-documents/female-dwarf-outer-names/
 1,[evil tribe action]er
 1,[evil tribe action]ing
 ;evil tribe action
-2,Eat
+1,Eat
 1,Bit
 1,Break
 1,Butcher
@@ -4351,15 +4674,17 @@ https://dwarrowscholar.wordpress.com/general-documents/female-dwarf-outer-names/
 1,Hill
 1,Ridge
 1,Rock
+
 ;swamp
 1,The river widens here and forms a large swamp. You need a guide and boats in order to pass through it.
 1,This bog is a labyrinth. You need a guide to find your way through it.
 1,This reed is home to a lot of birds.
 1,These wet land have been settled by a tribe of [6d6] *lizard people* led by one they call [lizard leader] (HD [1d4+1]). The little village of mud huts is guarded by [lizard companions].
-1,This swamp is home to [5d8] *froglings* in a mud village guarded by [frogling companions].
+1,This swamp is home to [5d8] *froglings* in a mud village guarded by [aquaticpets].
 1,A ruined tower standing on a small island in this swamp is home to the *ettin* called [ettin].
 1,In the old days, this bog was used to drown evil necromancers. [bog wights]
 1,On one of the islands of this swamp there is a huge mud mound. [goblins]
+
 ;lizard leader
 1,Son of Set
 1,Egg Mother
@@ -4453,22 +4778,27 @@ https://dwarrowscholar.wordpress.com/general-documents/female-dwarf-outer-names/
 
 ;forest
 1,This is the [name for forest/forest-hill/trees/fir-forest/firs] and there are no trails, here. Without a guide, you will get lost.
-1,The trees in this forest are dense and foreboding.
-1,Visitors to this forest are likely to be ambushed by a rogue warband of [2d12] *wood elves*. These elves do not take kindly to strangers, especially those groups that have no elves in their party. Elves are likely to be kidnapped and imprisoned. 
+1,The trees in this forest are dense and foreboding.. but a trail leads through this area to the [compass]
+1,Wild growths of [reagents2] can be harvested here.
+1,Visitors to this forest are likely to be ambushed by a rogue warband of [2d12] *wood elves*. These elves do not take kindly to strangers, especially those groups that have no elves in their party. Elves are likely to be kidnapped and imprisoned. Half-elves may be singled out for especially nasty treatment. 
 1,A pack of [1d6+4] *forest drakes* hunt in this area of the woods.
 1,An ancient looking tree-stump in these woods is the site of a concealed entryway to the place known as [dungeon]. Stairs lead down into the darkness. This dungeon is [dungeondeep].
 1,Shy, xenophobic wood elves haunt this area of the forest. They are likely to play tricks on any trespassers and lead them astray. 
-1,
+1,An astute druid or ranger can harvest [reagents2] in this part of the forest. 
+1,There are [fruit] trees located here. 
 1,Tall trees and dense canopy keep the sunlight away. There are big mushrooms everywhere. [mushrooms]
 1,This forest is under the protection of [1d8 treants].
 1,The trees here are full of spider webs.
-1,The trees here are full of colorful birds
-1,This forest is the lair of a small herd of *mastodon*
-1,This forest is the lair of a rogue *mastodon*
+1,The trees here are full of colorful birds.
+1,This forest is the lair of a small herd of *mastodon*. They usually move peacefully through the forest, foraging, but will react defensively if attacked. 
+1,This forest is the lair of a rogue *mastodon*. It is almost twice the size of a normal mastodon, and has the remains of hundreds of broken spears jutting from its thick matted hide. Local legends suggest it is hundreds of years old.  
 1,*Giant centipedes* scuttle and crawl through this part of the forest.
 1,An overgrown ruin in the middle of this forest conceals the entrance to [dungeon]. It is [dungeondeep].
+1,A warband of [3d6+6] goblins is hunting for food in this part of the forest. 
+1,A strange overgrown shrine here is where the [regular noun] of [power] can be found. 
 1,The trees here are full of strange, [natcolor] growths.
 1,The trees here are full of spider webs. Anybody climbing the trees will get attacked by [2d4] *giant spiders*.
+1,A unique breed of [natcolor] tree grows in the thickest area of this forest. 
 1,[2d12] *elves* led by one they call [elf leader] (level [1d6+1]) have built their [elf dwelling] in this forest. [elf companions]
 1,A system of big tunnels under these trees is home to [1d6 weasels].
 1,At dusk and dawn, you can sometimes see [boars].
@@ -4610,7 +4940,7 @@ https://dwarrowscholar.wordpress.com/general-documents/female-dwarf-outer-names/
 1,[fir highlands] This fir forest is home to a pack of [3d6] *wolves*.
 1,[fir highlands] At dusk and dawn, you can sometimes see [boars].
 1,There is a cave in this fir forest housing the *ettin* called [ettin].
-1,[fir highlands] At the foot of [crag name], there is cave inhabited by [1d8 trolls].
+1,[fir highlands] At the foot of [crag name], there is a cave inhabited by [1d8 trolls].
 1,[fir highlands] In this fir forest is a little campsite with [1d8 bugbears].
 1,[fir highlands] At night, the orcs of the [evil tribe] hunt these lands. [orcs] Their settlement is protected by a palisade and [orc fort]. [orc feature]
 1,[fir highlands] There is an abandoned shrine to [power] up here. 
@@ -6016,6 +6346,7 @@ https://dwarrowscholar.wordpress.com/general-documents/female-dwarf-outer-names/
 1,Societ[y]
 1,Stor[y]
 1,Victor[y]
+
 # don’t pluralize
 1,Aeons
 1,Air
@@ -6061,160 +6392,124 @@ https://dwarrowscholar.wordpress.com/general-documents/female-dwarf-outer-names/
 1,Wisdom
 1,Wolf
 1,Work
+
 ;regular noun
 1,Altar
 1,Anchor
-1,Answer
+1,Ankh
+1,Adze
 1,Ark
-1,Art
+1,Armband
+1,Arrow
 1,Artifact
-1,Autumn
 1,Axe
-1,Band
 1,Banner
 1,Bear
+1,Bell
+1,Belt
 1,Beast
-1,Birth
 1,Blade
-1,Bloodline
+1,Blood
 1,Book
 1,Bow
+1,Bracer
 1,Brigade
 1,Brotherhood
 1,Cabal
 1,Castle
+1,Candle
 1,Catacomb
+1,Chariot
+1,Chair
+1,Cittern
+1,Cube
+1,Claw
+1,Cymbal
 1,Cauldron
 1,Cavern
 1,Chalice
-1,Choice
 1,Chrysanthemum
 1,Circle
-1,Cloud
 1,College
-1,Comet
 1,Coven
-1,Craft
+1,Icon
 1,Crown
+1,Cross
 1,Crypt
 1,Cup
-1,Dance
-1,Dawn
-1,Death
-1,Deed
-1,Degree
-1,Depth
 1,Desert
-1,Desire
-1,Directive
-1,Dominion
+1,Card Deck
 1,Dragon
-1,Dream
 1,Dungeon
 1,Eagle
-1,Earth
-1,Element
-1,Elite
 1,Elk
 1,Empire
 1,Enigma
-1,Evening
 1,Eye
 1,Falcon
+1,Figurine
 1,Fire
 1,Fist
 1,Forest
-1,Form
+1,Fountain
 1,Game
+1,Glaive
+1,Grave
+1,Gaunlet
 1,Garter
 1,Gate
 1,Goblet
-1,God
 1,Grove
 1,Hammer
 1,Hand
 1,Harp
-1,Harvest
-1,Haven
+1,Holy Symbol
+1,Heart
+1,Horcrux
 1,Hawk
 1,Heart
-1,Heaven
-1,Heir
 1,Helm
-1,Hill
-1,Immortal
-1,Intrigue
-1,Island
-1,Isle
-1,Jungle
+1,Idol
+1,Jewel
+1,Bijou
+1,Bauble
+1,Mattock
+1,Oil
+1,Unguent
+1,Dust
+1,Dress
+1,Carpet
 1,Key
 1,King
-1,Kingdom
-1,Knowledge
+1,Keyblade
 1,Labyrinth
-1,Law
-1,Legend
 1,Lion
 1,Lizard
 1,Lute
-1,Maelstrom
-1,Maiden
-1,Master
-1,Meditation
-1,Mind
-1,Mirage
-1,Missive
-1,Mist
 1,Monkey
-1,Moon
-1,Morning
-1,Mother
-1,Mountain
-1,Name
-1,Nation
-1,Night
-1,Note
-1,Ocean
+1,Necklace
 1,Oracle
 1,Orb
-1,Order
-1,Pantheon
-1,Passage
-1,Path
-1,Pestilence
-1,Place
-1,Plain
-1,Plane
-1,Planisphere
 1,Portal
-1,Power
-1,Prophet
-1,Province
+1,Potion
+1,Phylactery
+1,Pylon
 1,Pyramid
-1,Queen
-1,Race
 1,Raven
-1,Realm
 1,Relic
-1,Revelation
 1,Ring
-1,Rite
-1,Ritual
-1,River
-1,Road
 1,Rod
 1,Rose
 1,Rune
 1,Sand
 1,Sceptre
-1,Science
+1,Seal
+1,Spear
 1,Scroll
-1,Sea
-1,Secret
+1,Shell
 1,Serpent
 1,Shadow
 1,Shield
-1,Shore
 1,Sigil
 1,Skull
 1,Snake
@@ -6223,25 +6518,15 @@ https://dwarrowscholar.wordpress.com/general-documents/female-dwarf-outer-names/
 1,Sphere
 1,Spirit
 1,Staff
-1,Stance
 1,Star
 1,Stone
-1,Storm
-1,Summer
-1,Sunrise
-1,Sunset
-1,Swamp
 1,Sword
 1,Symbol
 1,Tattoo
-1,Teaching
-1,Tempest
 1,Temple
-1,Terror
-1,Testament
 1,Throne
 1,Thunderbolt
-1,Tide
+1,Tiara
 1,Tiger
 1,Tomb
 1,Tome
@@ -6249,27 +6534,21 @@ https://dwarrowscholar.wordpress.com/general-documents/female-dwarf-outer-names/
 1,Treasure
 1,Tree
 1,Troubadour
-1,Truth
 1,Vessel
-1,Vision
-1,Void
 1,Wand
-1,War
-1,Waste
 1,Water
-1,Way
-1,Will
-1,Wind
-1,Winter
-1,World
 1,Wyrm
+
 ;power
 1,[evil power]
 1,[good power]
 1,[chaos power]
+1,[forgotten power]
 
 ;forgotten power
 1,Chronos
+1,Chronoepsis
+1,Prometheus
 1,Marduk
 1,Hephaestus
 1,the Elemental Gods
@@ -6277,8 +6556,6 @@ https://dwarrowscholar.wordpress.com/general-documents/female-dwarf-outer-names/
 1,Fenrir
 1,Ptah
 1,Ymir
-
-
 
 ;evil power
 1,Asmodeus
@@ -8002,3 +8279,5 @@ https://dwarrowscholar.wordpress.com/general-documents/female-dwarf-outer-names/
 1,Yi
 1,Ysolde
 1,Émilie
+
+
