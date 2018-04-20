@@ -404,7 +404,7 @@ name.
 
 Note that for C</describe/text>, C<init> is called for every paragraph.
 
-<%locals> is a hash of all the "normal" table lookups encountered so far. It is
+B<%locals> is a hash of all the "normal" table lookups encountered so far. It is
 is reset for every paragraph. To refer to a previous result, start a reference
 with the word "same". This doesn't work for references to adjacent hexes, dice
 rolls, or names. Here's an example:
@@ -413,15 +413,46 @@ rolls, or names. Here's an example:
     1,[man] is the village boss. They call him Big [same man].
     1,[woman] is the village boss. They call her Big [same woman].
 
+Thus:
+
+    $locals->{man} eq "Alex"
+
+B<%globals> is a hash of hashes of all the table lookups beginning with the word
+"here" per hex. In a second phase, all the references starting with the word
+"nearby" will be resolved using these. with the word "same". This doesn't work
+for references to adjacent hexes, dice rolls, or names. Here's an example:
+
+    ;ingredient
+    1,fey moss
+    1,blue worms
+    ;forest
+    3,There is nothing here but trees.
+    1,You find [here ingredient].
+    ;village
+    1,The alchemist needs [nearby ingredient].
+
+Some of the forest hexes will have one of the two possible ingredients and the
+village alchemist will want one of the nearby ingredients. Currently, there is a
+limitation in place: we can only resolve the references starting with the word
+"nearby" when everything else is done. This means that at that point, references
+starting with the word "same" will no longer work since C<$locals> will no
+longer be set.
+
+Thus:
+
+    $globals->{ingredient}->{"0101"} eq "fey moss"
+
 =cut
 
 my $extra;
 my %names;
 my %locals;
+my $globals;
 
 sub init {
   %names = ();
   %locals = ();
+  $globals = undef;
   $extra = undef;
 }
 
@@ -672,7 +703,7 @@ sub parse_table {
 	next if $subtable =~ /^redirect https?:/;
 	next if $subtable =~ /^names for (.*)/ and $data->{"name for $1"};
 	next if $subtable =~ /^adjacent hex$/; # experimental
-	next if $subtable =~ /^same (.*)/ and $data->{$1};
+	next if $subtable =~ /^(?:same|here|nearby) (.*)/ and $data->{$1};
 	$log->error("Error in table $table: subtable $subtable is missing")
 	    unless $data->{$subtable};
       }
@@ -879,10 +910,20 @@ sub describe {
     } elsif ($word eq 'adjacent hex') {
       # experimental
       return one(neighbours($map_data, $coordinates));
+    } elsif ($word =~ /^nearby (.+)/) {
+      # skip on the first pass
+      return "[$word]";
     } elsif ($word =~ /^same (.+)/) {
       return $locals{$1} if exists $locals{$1};
       $log->error("[$word] is undefined");
       return "";
+    } elsif ($word =~ /^here (.+)/) {
+      my $key = $1;
+      my $text = pick($map_data, $table_data, $level, $coordinates, $words, $key);
+      next unless $text;
+      $locals{$key} = $text;
+      $globals->{$key}->{$coordinates} = $text;
+      push(@descriptions, $text);
     } else {
       my $text = pick($map_data, $table_data, $level, $coordinates, $words, $word);
       next unless $text;
@@ -918,6 +959,77 @@ sub process {
   };
 }
 
+=item resolve_nearby
+
+This is a second phase. We have nearly everything resolved except for references
+starting with the word "nearby" because these require all of the other data to
+be present. This modifies the third parameter, C<$descriptions>.
+
+=cut
+
+sub resolve_nearby {
+  my $map_data = shift;
+  my $table_data = shift;
+  my $descriptions = shift;
+  for my $coord (keys %$descriptions) {
+    $descriptions->{$coord}->{html} =~ s/\[nearby ([^][]*)\]/closest($map_data,$table_data,$coord,$1)/ge;
+  }
+}
+
+=item closest
+
+This picks the closest instance of whatever we're looking for.
+
+=cut
+
+sub closest {
+  my $map_data = shift;
+  my $table_data = shift;
+  my $coordinates = shift;
+  my $key = shift;
+  my @coordinates = sort {
+    distance($coordinates, $a) <=> distance($coordinates, $b)
+  } keys %{$globals->{$key}};
+  if (not @coordinates) {
+    $log->info("Did not find any hex with $key");
+    return pick($map_data, $table_data, 1, $coordinates, [], $key);
+  }
+  # the first one is the closest
+  return $globals->{$key}->{$coordinates[0]};
+}
+
+=item distance
+
+Returns the distance between two hexes. Either provide two coordinates (strings
+in the form "0101", "0102") or four numbers (1, 1, 1, 2).
+
+=cut
+
+sub distance {
+  my ($x1, $y1, $x2, $y2) = @_;
+  if (@_ == 2) {
+    ($x1, $y1, $x2, $y2) = map { xy($_) } @_;
+  }
+  # transform the coordinate system into a decent system with one axis tilted by
+  # 60°
+  $y1 = $y1 - POSIX::ceil($x1/2);
+  $y2 = $y2 - POSIX::ceil($x2/2);
+  if ($x1 > $x2) {
+    # only consider moves from left to right and transpose start and
+    # end point to make it so
+    my ($t1, $t2) = ($x1, $y1);
+    ($x1, $y1) = ($x2, $y2);
+    ($x2, $y2) = ($t1, $t2);
+  }
+  if ($y2>=$y1) {
+    # if it the move has a downwards component add Δx and Δy
+    return $x2-$x1 + $y2-$y1;
+  } else {
+    # else just take the larger of Δx and Δy
+    return $x2-$x1 > $y1-$y2 ? $x2-$x1 : $y1-$y2;
+  }
+}
+
 =item describe_map
 
 This is one of the top entry points: it simply calls C<describe> for every hex
@@ -935,6 +1047,7 @@ sub describe_map {
     $descriptions{$coord} = process(describe($map_data, $table_data, 1,
 					     $coord, $map_data->{$coord}));
   }
+  resolve_nearby($map_data, $table_data, \%descriptions);
   return \%descriptions;
 }
 
@@ -1875,7 +1988,7 @@ A limitation of the current implementation is that when two trails or
 two rivers meet in a hex, only one of them will get mentioned.
 </p>
 
-<h2>More</h2>
+<h2>Reusing Results</h2>
 
 <p>
 Sometimes you want to use the entry picked from a table as the name of
@@ -1939,6 +2052,8 @@ a character with random level, and add their hit points.
 1,[1d10]
 % end
 
+<h2>Adjacent Hexes</h2>
+
 <p>
 Here's another idea: there is currently an experimental feature whereby
 <code>[adjacent hex]</code> picks a random neighbouring hex.
@@ -1963,6 +2078,8 @@ include https://campaignwiki.org/contrib/gnomeyland.txt
 ;mountains
 1,Here lives a dragon that loves to hunt in [adjacent hex].
 % end
+
+<h2>Linking to Other Hexes</h2>
 
 <p>
 What if you want to link to this adjacent hex?
@@ -1997,6 +2114,51 @@ which have the feature "neighbour" which is none of them), you can refer to it
 multiple times: once for the link target and once for the link text. Yeah, it's
 hack. But it works.
 </p>
+
+<h2>Simple Quests</h2>
+
+<p>
+Here's another idea which you might use to build simple fetch quests and the
+like. If a references starts with the word "here" then the result of the table
+will get saved. At the very end, when everything is else is done and there is a
+reference starts with the word "nearby" then the closest of these saved items
+will get used.
+</p>
+
+%= example begin
+0101 light-grey mountain
+0201 white mountain
+0301 white mountains
+0401 white mountain
+0501 light-grey mountain
+0601 light-green fir-forest
+0701 light-green fir-forest
+0801 light-grey mountain
+0901 white mountain
+1001 white mountains
+1101 white mountain
+1201 light-grey mountain
+1301 light-green fir-forest village
+include https://campaignwiki.org/contrib/gnomeyland.txt
+
+;mountain
+2,It's cold up here.
+1,The [here ingredient] grows up here, if you know where to look.
+
+;mountains
+1,[mountain]
+
+;fir-forest
+1,A forest grows up here.
+
+;village
+1,The village alchemist is looking for [nearby ingredient].
+
+;ingredient
+1,Edelweiss
+1,Snow Lilly
+1,Ice Devil
+% end
 
 <h2>Images</h2>
 
