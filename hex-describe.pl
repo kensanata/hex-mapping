@@ -1446,7 +1446,7 @@ How do you get started writing a table for <em>Hex Describe</em>? This
 page is my attempt at writing a tutorial.
 </p>
 
-<h2>The Basics</h2>
+<h2 id="basics">The Basics</h2>
 
 <p>
 First, let’s talk about random tables to generate text. <a class="url
@@ -1653,7 +1653,7 @@ href="https://campaignwiki.org/hex-describe/default/table">default
 table</a> if you want to see more examples.
 </p>
 
-<h2>Context</h2>
+<h2 id="context">Context</h2>
 
 <p>
 But now you might be wondering: how does <em>Hex Describe</em> know
@@ -1795,7 +1795,7 @@ fir-forest”; instead of “hill” use “light-grey hill” and “dust hill�
 “forest-mountains” use “green forest-mountains” and “grey forest-mountains”.
 </p>
 
-<h2>Naming Things</h2>
+<h2 id="naming_things">Naming Things</h2>
 
 <p>
 Basically, the idea is that there are some regional things with names
@@ -1853,7 +1853,7 @@ bugbear bands will have one of three names as “name for a bugbear
 band1-3” are eventually determined.
 </p>
 
-<h2>Naming Features</h2>
+<h2 id="naming_features">Naming Features</h2>
 
 <p>
 Rivers, trails, canyons, mountains, swamps, forests – all these
@@ -1988,7 +1988,7 @@ A limitation of the current implementation is that when two trails or
 two rivers meet in a hex, only one of them will get mentioned.
 </p>
 
-<h2>Reusing Results</h2>
+<h2 id="reusing">Reusing Results</h2>
 
 <p>
 Sometimes you want to use the entry picked from a table as the name of
@@ -2052,7 +2052,7 @@ a character with random level, and add their hit points.
 1,[1d10]
 % end
 
-<h2>Adjacent Hexes</h2>
+<h2 id="adjacent">Adjacent Hexes</h2>
 
 <p>
 Here's another idea: there is currently an experimental feature whereby
@@ -2079,7 +2079,7 @@ include https://campaignwiki.org/contrib/gnomeyland.txt
 1,Here lives a dragon that loves to hunt in [adjacent hex].
 % end
 
-<h2>Linking to Other Hexes</h2>
+<h2 id="links">Linking to Other Hexes</h2>
 
 <p>
 What if you want to link to this adjacent hex?
@@ -2115,7 +2115,7 @@ multiple times: once for the link target and once for the link text. Yeah, it's
 hack. But it works.
 </p>
 
-<h2>Simple Quests</h2>
+<h2 id="quests">Simple Quests</h2>
 
 <p>
 Here's another idea which you might use to build simple fetch quests and the
@@ -2160,7 +2160,7 @@ include https://campaignwiki.org/contrib/gnomeyland.txt
 1,Ice Devil
 % end
 
-<h2>Images</h2>
+<h2 id="images">Images</h2>
 
 <p>
 The default tables of <em>Hex Describe</em> use the <a
