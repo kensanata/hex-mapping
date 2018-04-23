@@ -3473,7 +3473,7 @@
 ;a monster threatening the village
 1,You shouldn't stray too far from the trails because this forest has been cursed by the presence of [2d4] *harpies* luring men into the depths of the forest and to their death with their magical singing.
 1,Deep in the forest there is a cave where the *ettin* [ettin] live. They are known for their fury and their appetite for human flesh.
-1,Hiding between the trees are the watchful eyes of [1d8 bugbears]. Bugbears are usually a bad sign for they are often employed as spies by the elves of the netherworld.
+1,Hiding between the trees are the watchful eyes of [1d8 bugbears]. Bugbears are usually a bad sign for they are often employed as spies by the elves of the netherworld. These carry amulets of passage bearing the [name for a clan of the netherworld elves] sigil.
 1,The camp of [1d8 bugbears] is hard to find. They hunt these woods at night and like to kill anybody that didn't make it back to the village during daytime.
 
 ;ettin
@@ -5694,6 +5694,50 @@
 1,Winter
 1,World
 1,Wyrm
+
+# there is but a single organisation of dark elves
+;name for a clan of the netherworld elves
+1,[netherworld elves]
+
+;netherworld elves
+1,[netherworld elf 1] [netherworld elf 2] of the [netherworld elf 3] [netherworld elf 4]
+1,[netherworld elf 1] [netherworld elf 2] of [adjective] [evil power]
+
+;netherworld elf 1
+1,Dark
+1,Poison
+1,Death
+1,Killer
+1,Blood
+1,Earth
+1,Black
+
+;netherworld elf 2
+1,Children
+1,Claw
+1,Stinger
+1,Kiss
+1,Servants
+
+;netherworld elf 3
+1,Spider
+1,Cave
+1,Underground
+1,Netherworld
+1,Vanaheim
+1,Muspelheim
+1,Niflheim
+1,Alfheim
+1,Svartalfheim
+1,[adjective]
+
+;netherworld elf 4
+1,Mother
+1,Queen
+1,Matriarchy
+1,Empress
+1,Flower
+1,Tree
 
 # note that elsewhere tables exist that refer to all the powers
 ;power
