@@ -3464,7 +3464,8 @@
 ;signs of human activity
 1,Tall trees cover this valley. Occasionally, you can see tree stumps so somebody must be logging these trees.
 1,There are many trails made by loggers, wood gatherers and swine herders leading to a village.
-1,There are many trees here have been cut back for many years. Clearly a sign of human activity.
+1,The trees along the trails through this forest have all been coppiced, i.e. cut down near the ground level in order to produce wood.
+1,The lack of branches and trees lying on the forest floor is a sign of regular wood gatherers.
 1,Within the forest are a few clearings with small cherry and plum tree orchards.
 1,Within the forest are a few clearings with small apple tree orchards.
 1,There is a clearing in this forest where an old statue of [power] still stands.
