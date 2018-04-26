@@ -2872,8 +2872,43 @@
 1,Flesh Eater
 
 ;ogre leader
-1,an *ogre mage* called [ogre]
+1,an *ogre mage* called [ogre mage]
 5,an *ogre* called [ogre]
+
+;ogre mage
+1,[ogre mage 1] [ogre mage 2]
+1,[ogre mage 3] [ogre mage 2] of [ogre mage 4]
+
+;ogre mage 1
+1,Blood
+1,Dream
+1,Fantastic
+1,Flying
+1,Mountain
+1,Nightmare
+1,Wind
+
+;ogre mage 2
+1,Lord
+1,Master
+1,Overlord
+1,Sorceror
+1,Witch
+
+;ogre mage 3
+1,Air
+1,Lightning
+1,Storm
+1,Thunder
+1,Wind
+
+;ogre mage 4
+1,Blood
+1,Death
+1,Desire
+1,the Mountains
+1,the Peaks
+1,the Wild
 
 ;ogres
 1,[1d5] more *ogres*
