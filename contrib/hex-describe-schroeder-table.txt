@@ -2963,10 +2963,6 @@
 1,Somebody dug a hole under one of the larger boulders.
 1,Sheltered behind one of the boulders and well hidden by some bushes there is a tent.
 
-;tower inhabitant
-1,[necromancer]
-1,[vivimancer]
-
 ;necromancer
 1,Here lives the *necromancer* [human] (level [1d3+4]), protected by [necromancer companions], in a tower. [necromancer tower]
 
@@ -3013,8 +3009,11 @@
 1,[wight leader]
 
 ;vivimancer
-1,Here lives the *vivimancer* [human] (level [1d3+4]), protected by [3d6] *myconids*, in a tower.
+1,Here lives the *vivimancer* [here human] (level [1d3+4]), protected by [3d6] *myconids*, in a tower. [alchemist job]
 1,Here is the tower of the *vivimancer* [human] (level [1d3+4]) with [3d6] [slimes]. [safe zone]
+
+;alchemist job
+1,[same human] is looking for [nearby magic plant].
 
 ;slimes
 1,*black puddings* in pools and pits
@@ -3022,9 +3021,9 @@
 1,*green slimes* which lurk under every ceiling
 
 ;safe zone
-1,A rickety bridge leads into the tower and to a small platform with a bed and the laboratory.
-1,Outside the tower, on some wooden stilts, is a small house with bedding and laboratory, all up there.
-1,The entire tower is surrounded by a ditch and a fence. Bedroom and laboratory are on the outside.
+1,A rickety bridge leads into the tower and to a small platform with a bed and the laboratory. The tower is not safe.
+1,Outside the tower, on some wooden stilts, is a small house with bedding and laboratory. The tower itself is not safe.
+1,The entire tower is surrounded by a ditch and a fence. Bedroom and laboratory are on the outside. The tower is not safe.
 
 ;some time ago
 1,[1d6] days ago
@@ -3466,7 +3465,7 @@
 ;swamp
 1,The river widens here and forms a large swamp. You need a guide and boats in order to pass through it.
 1,This bog is a labyrinth. You need a guide to find your way through it.
-1,This reed is home to a lot of [swamp animals]. Those who know how to find it can gather [magic plant].
+1,This reed is home to a lot of [swamp animals]. Those who know how to find it can gather [here magic plant].
 1,These wet land have been settled by a tribe of [6d6] *lizard people* led by [lizard leader] (HD [1d4+1]). The little village of mud huts is guarded by [lizard companions].
 1,This swamp is home to [5d8] *froglings* in a mud village guarded by [frogling companions].
 1,A ruined tower standing on a small island in this swamp is home to the *ettin* called [ettin].
