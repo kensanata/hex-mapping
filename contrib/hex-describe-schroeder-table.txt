@@ -831,10 +831,23 @@
 ;white mountain
 1,The air up here is cold. You can see the [name for white big mountains] looming up ahead.
 1,The snow fields beneath the [name for white big mountains] are impossible to cross without skis.
-1,There is a hidden meadow up here, protected by the [name for white big mountains].
+1,There is a hidden meadow up here, protected by the [name for white big mountains]. [ice monster lair]
 1,The glaciers flowing from the [name for white big mountains] need a local guide and ropes to cross.
 1,The glacier of [name for white big mountains] ends at a small lake [maybe an ice cave].
 1,A *white dragon* called [white dragon name] lives in a ruined mountain fortress guarding the approaches to the [name for white big mountains].
+
+;ice monster lair
+1,A *[here ice monster]* lives up here. [[same ice monster] lair]
+
+;ice monster
+1,gorgon
+1,ice hydra
+
+;gorgon lair
+1,A piece of the glacier has broken off and revealed an old temple of [good power], razed, defiled, and cursed with the presence of a gorgon. There are plenty of dead birds which have died due to the poisonous fumes.
+
+;ice hydra lair
+1,The glacier up here is the work of a hydra, a living manifestation of the ice realm.
 
 ;maybe an ice cave
 1,and it is bright blue and ice cold
@@ -3014,6 +3027,7 @@
 
 ;alchemist job
 1,[same human] is looking for [nearby magic plant].
+1,[same human] is looking for a [nearby ice monster] ice tooth.
 
 ;slimes
 1,*black puddings* in pools and pits
@@ -3830,6 +3844,13 @@
 
 ;town
 1,There is a town of [1d6x100] *humans* led by [human leader] who lives in a keep with [human retainer] and [human friends]. The [human houses] outside are protected by a town wall and the river. [And two secret societies feuding] There is [town feature] and a [name for temple]. [small [name for temple]]
+1,There is a town of [1d6x100] *humans* led by [human leader] who lives in a keep with [human retainer] and [human friends]. The [human houses] outside are protected by a town wall and the river. [And two secret societies feuding] An alchemist named [here human] lives here, selling a [potion] for 500gp each. [1d4+1] of these are currently for sale. [alchemist job] There is also a [name for temple]. [small [name for temple]]
+
+;potion
+1,potion of healing
+1,potion of flying
+1,potion of fire resistance
+1,potion of cold resistance
 
 ;name for temple
 1,temple dedicated to [power]
