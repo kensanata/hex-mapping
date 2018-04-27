@@ -995,7 +995,8 @@ sub closest {
     return pick($map_data, $table_data, 1, $coordinates, [], $key);
   }
   # the first one is the closest
-  return $globals->{$key}->{$coordinates[0]};
+  return $globals->{$key}->{$coordinates[0]}
+  . qq{ (e.g. <a href="#desc$coordinates[0]">$coordinates[0]</a>)};
 }
 
 =item distance
