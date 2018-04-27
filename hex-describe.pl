@@ -2115,7 +2115,7 @@ multiple times: once for the link target and once for the link text. Yeah, it's
 hack. But it works.
 </p>
 
-<h2 id="quests">Simple Quests</h2>
+<h2 id="quests">Simple Quests: here and nearby stuff</h2>
 
 <p>
 Here's another idea which you might use to build simple fetch quests and the
@@ -2237,6 +2237,56 @@ just as well have written <code>The village alchemist is looking for
 <p>
 Remember: "nearby X" and "here X" must match up.
 </p>
+
+<h2 id="here">Reuse: here and same</h2>
+
+<p>
+We said that if a references starts with the word "here" then the result of the
+table will get saved. This can be useful in itself. Thus, references that start
+with the word "same" will refer to such saved results. What follows is an
+example where we use "here" and "same" and "nearby" and nested references to
+pull it all together.
+</p>
+
+%= example begin
+0101 light-grey mountain
+0201 white mountain
+0301 white mountains
+0401 white mountain
+0501 light-grey mountain
+0601 light-green fir-forest
+0701 light-green fir-forest
+0801 light-grey mountain
+0901 white mountain
+1001 white mountains
+1101 white mountain
+1201 light-grey mountain
+1301 light-green village
+include https://campaignwiki.org/contrib/gnomeyland.txt
+
+;mountains
+1,[white mountain]
+
+;white mountain
+1,The air up here is cold.
+1,[ice monster lair]
+
+;ice monster lair
+1,A *[here ice monster]* lives up here. [[same ice monster] lair]
+
+;ice monster
+1,gorgon
+1,cryo-hydra
+
+;gorgon lair
+1,There is an old temple cursed with the presence of a gorgon.
+
+;cryo-hydra lair
+1,The glacier up here is the work of a hydra.
+
+;village
+1,The village alchemist is looking for the horn of a [nearby ice monster].
+% end
 
 <h2 id="images">Images</h2>
 
