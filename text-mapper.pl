@@ -103,8 +103,10 @@ package Line;
 use Class::Struct;
 
 struct Line => {
+		id => '$',
 		points => '@',
 		type => '$',
+		label => '$',
 		map => 'Mapper',
 	       };
 
@@ -168,10 +170,35 @@ sub svg {
     $path .= " L" . $current->partway($next, 0.7);
   }
 
+  my $id = $self->id;
   my $type = $self->type;
   my $attributes = $self->map->path_attributes($type);
-  my $data = "    <path $attributes d='$path'/>\n";
+  my $data = qq{    <path id="$id" $attributes d="$path"/>\n};
   $data .= $self->debug($closed) if $debug;
+  return $data;
+}
+
+sub svg_label {
+  my ($self) = @_;
+  return '' unless defined $self->label;
+  my $id = $self->id;
+  my $label = $self->label;
+  my $attributes = $self->map->label_attributes || "";
+  my $glow = $self->map->glow_attributes || "";
+  my $url = $self->map->url;
+  $url =~ s/\%s/url_encode($self->label)/e or $url .= url_encode($self->label) if $url;
+  # default is left, but if the line goes from right to left, then "left" means "upside down"
+  my $side = '';
+  if ($self->points->[1]->x < $self->points->[0]->x
+      or $#{$self->points} >= 2 and $self->points->[2]->x < $self->points->[0]->x) {
+    $side = ' side="right"';
+  }
+  my $data = qq{    <g>\n};
+  $data .= qq{      <text $attributes $glow><textPath$side href='#$id'>$label</textPath></text>\n>} if $glow;
+  $data .= qq{      <a xlink:href="$url">} if $url;
+  $data .= qq{      <text $attributes><textPath href='#$id'>$label</textPath></text>\n>};
+  $data .= qq{      </a>} if $url;
+  $data .= qq{    </g>\n};
   return $data;
 }
 
@@ -372,6 +399,7 @@ sub initialize {
 
 sub process {
   my $self = shift;
+  my $line_id = 0;
   foreach (@_) {
     if (/^(\d\d)(\d\d)(?:\s+([^"\r\n]+)?\s*(?:"(.+)"(?:\s+(\d+))?)?|$)/) {
       my $hex = Hex->new(x => $1, y => $2, map => $self);
@@ -381,9 +409,11 @@ sub process {
       $hex->type(\@types);
       push(@{$self->hexes}, $hex);
       push(@{$self->things}, $hex);
-    } elsif (/^(\d\d\d\d(?:-\d\d\d\d)+)\s+(\S+)/) {
+    } elsif (/^(\d\d\d\d(?:-\d\d\d\d)+)\s+(\S+)\s*(?:"(.+)")?/) {
       my $line = Line->new(map => $self);
       $line->type($2);
+      $line->label($3);
+      $line->id('line' . $line_id++);
       my @points = map { my $point = Point->new(x => substr($_, 0, 2),
 						y => substr($_, 2, 2));
 		       } split(/-/, $1);
@@ -588,6 +618,16 @@ sub svg_hexes {
   $doc .= qq{  </g>\n};
 }
 
+sub svg_line_labels {
+  my $self = shift;
+  my $doc = qq{  <g id="line_labels">\n};
+  foreach my $line (@{$self->lines}) {
+    $doc .= $line->svg_label();
+  }
+  $doc .= qq{  </g>\n};
+  return $doc;
+}
+
 sub svg_labels {
   my $self = shift;
   my $doc = qq{  <g id="labels">\n};
@@ -608,6 +648,7 @@ sub svg {
   $doc .= $self->svg_things(); # icons, lines
   $doc .= $self->svg_coordinates();
   $doc .= $self->svg_hexes();
+  $doc .= $self->svg_line_labels();
   $doc .= $self->svg_labels();
   $doc .= $self->license() ||'';
   $doc .= join("\n", @{$self->other()}) . "\n";
@@ -2082,10 +2123,10 @@ example with a 1pt stroke-width for the village.
     0201 grass village "Beachton"
     0202 sea "deep blue sea" 20
 
-You can also have lines connecting hexes. In order to better control
-the flow of these lines, you can provide multiple hexes through which
-these lines must pass. These lines can be used for borders, rivers or
-roads, for example.
+You can also have lines connecting hexes. In order to better control the flow of
+these lines, you can provide multiple hexes through which these lines must pass.
+You can append a label to these, too. These lines can be used for borders,
+rivers or roads, for example.
 
     text font-family="monospace" font-size="10pt"
     label font-family="sans-serif" font-size="12pt"
@@ -2102,7 +2143,7 @@ roads, for example.
     0201 grass village "Beachton"
     0202 sea "deep blue sea" 20
     border path attributes stroke="red" stroke-width="15" stroke-opacity="0.5" fill-opacity="0"
-    0002-0200 border
+    0002-0200 border "The Wall"
     road path attributes stroke="black" stroke-width="3" fill-opacity="0" stroke-dasharray="10 10"
     0000-0301 road
 
