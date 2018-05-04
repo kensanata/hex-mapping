@@ -161,19 +161,22 @@ any '/describe' => sub {
   my $c = shift;
   my $map = $c->param('map');
   my $load = $c->param('load');
-  my $svg = app->mode eq 'development' ? '' : get_post_data('https://campaignwiki.org/text-mapper/render', map => $map);
   my $url = $c->param('url');
+  my $labels = $c->param('labels');
   my $table;
   $table = get_data($url) if $url;
   $table ||= $c->param('table');
   $table ||= decode_utf8($seckler_table->slurp) if $load eq 'seckler';
   $table ||= decode_utf8($schroeder_table->slurp) if $load eq 'schroeder';
   init();
+  my $descriptions = describe_map(parse_map($map), parse_table($table));
+  $map = add_labels($map) if $labels;
+  my $svg = app->mode eq 'development' ? ''
+      : get_post_data('https://campaignwiki.org/text-mapper/render',
+		      map => $map);
   $c->render(template => 'description',
 	     svg => add_links($svg),
-	     descriptions => describe_map(
-	       parse_map($map),
-	       parse_table($table)));
+	     descriptions => $descriptions);
 };
 
 =item get /nomap
@@ -494,17 +497,15 @@ We use C<compute_missing_points> to find all the missing points on the line.
 
 =cut
 
-my $line_re = qr/^(\d\d\d\d(?:-\d\d\d\d)+)\s+(\S+)/;
+my $line_re = qr/^(\d\d\d\d(?:-\d\d\d\d)+)\s+(\S+)/m;
 
 sub parse_map_lines {
   my $map = shift;
   my @lines;
-  for my $hex (split(/\r?\n/, $map)) {
-    if ($hex =~ /$line_re/) {
-      my ($line, $type) = ($1, $2);
-      my @points = compute_missing_points(split(/-/, $line));
-      push(@lines, [$type, @points]);
-    }
+  while ($map =~ /$line_re/g) {
+    my ($line, $type) = ($1, $2);
+    my @points = compute_missing_points(split(/-/, $line));
+    push(@lines, [$type, @points]);
   }
   return \@lines;
 }
@@ -1052,6 +1053,42 @@ sub describe_map {
   return \%descriptions;
 }
 
+=item add_labels
+
+This function is used after generating the descriptions to add the new names of
+rivers and trails to the existing map.
+
+=cut
+
+sub add_labels {
+  my $map = shift;
+  $map =~ s/$line_re/get_label($1,$2)/ge;
+  return $map;
+}
+
+=item get_label
+
+This function returns the name of a line.
+
+=cut
+
+sub get_label {
+  my $map_line = shift;
+  my $type = shift;
+  my @hexes = split(/-/, $map_line);
+ LINE:
+  for my $line (@{$extra->{$hexes[0]}}) {
+    next unless $line->{type} eq $type;
+    for my $hex (@hexes) {
+      my @line = @{$line->{line}};
+      next LINE unless grep(/$hex/, @line);
+    }
+    my $label = $line->{name};
+    return qq{$map_line $type "$label"};
+  }
+  return qq{$map_line $type};
+}
+
 =item xy
 
 This is a helper function to turn "0101" into ("01", "01") which is equivalent
@@ -1326,6 +1363,13 @@ If you need the <%= link_to 'default map' => 'defaultmap' %>
 for anything, feel free to use it. It was generated using
 the <a href="https://campaignwiki.org/text-mapper/alpine">Alpine</a>
 generator.
+</p>
+
+<p>
+<label>
+%= check_box 'labels'
+Include labels. This will create a very busy map.
+</label>
 </p>
 
 <p>
