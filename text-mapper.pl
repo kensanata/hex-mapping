@@ -15,8 +15,9 @@
 
 package main;
 use Modern::Perl;
+use Mojo::Log;
 
-my $verbose = $ENV{VERBOSE};
+my $log = Mojo::Log->new;
 my $debug = $ENV{DEBUG};
 my $output;
 my $dx = 100;
@@ -841,16 +842,14 @@ sub member {
 }
 
 sub verbose {
-  return unless $verbose;
-  my $str = shift;
-  warn $str;
+  $log->info(shift);
 }
 
 sub place_major {
   my ($x, $y, $encounter) = @_;
   my $thing = one(@{$encounters{$encounter}});
   return unless $thing;
-  verbose("placing $thing ($encounter) at ($x,$y)\n");
+  verbose("placing $thing ($encounter) at ($x,$y)");
   my $hex = one(full_hexes($x, $y));
   $x += $hex->[0];
   $y += $hex->[1];
@@ -860,7 +859,7 @@ sub place_major {
   if ($encounter eq 'settlement') {
     if ($primary eq 'plains') {
       $color = one('light-soil', 'soil');
-      verbose(" " . $world{$coordinates} . " is $primary and was changed to $color\n");
+      verbose(" " . $world{$coordinates} . " is $primary and was changed to $color");
     }
     if ($primary ne 'plains' or member($thing, 'large-town', 'city')) {
       push(@needs_fields, [$x, $y]);
@@ -954,24 +953,24 @@ sub generate_region {
   for (1..9) {
     my $coordinates = pick_unassigned($x, $y, @region);
     $terrain = one($primary{$primary});
-    verbose(" primary   $coordinates => $terrain\n");
+    verbose(" primary   $coordinates => $terrain");
     $world{$coordinates} = $terrain;
   }
 
   for (1..6) {
     my $coordinates = pick_unassigned($x, $y, @region);
     $terrain =  one($secondary{$primary});
-    verbose(" secondary $coordinates => $terrain\n");
+    verbose(" secondary $coordinates => $terrain");
     $world{$coordinates} = $terrain;
   }
 
   for my $coordinates (pick_remaining($x, $y, @region)) {
     if (rand > 0.1) {
       $terrain = one($tertiary{$primary});
-      verbose(" tertiary  $coordinates => $terrain\n");
+      verbose(" tertiary  $coordinates => $terrain");
     } else {
       $terrain = one($wildcard{$primary});
-      verbose(" wildcard  $coordinates => $terrain\n");
+      verbose(" wildcard  $coordinates => $terrain");
     }
     $world{$coordinates} = $terrain;
   }
@@ -980,48 +979,52 @@ sub generate_region {
     my $random = rand 6;
     if ($random < 3) {
       $terrain = one($primary{$primary});
-      verbose("  halfhex primary   $coordinates => $terrain\n");
+      verbose("  halfhex primary   $coordinates => $terrain");
     } elsif ($random < 5) {
       $terrain = one($secondary{$primary});
-      verbose("  halfhex secondary $coordinates => $terrain\n");
+      verbose("  halfhex secondary $coordinates => $terrain");
     } else {
       $terrain = one($tertiary{$primary});
-      verbose("  halfhex tertiary  $coordinates => $terrain\n");
+      verbose("  halfhex tertiary  $coordinates => $terrain");
     }
     $world{$coordinates} = $terrain;
   }
 }
 
 sub seed_region {
-  my ($seeds, $primary) = @_;
-  my $hex = shift @$seeds;
-  verbose("seed_region (" . $hex->[0] . "," . $hex->[1] . ") with $primary\n");
-  generate_region($hex->[0], $hex->[1], $primary);
-  for my $seed (@$seeds) {
-    my $terrain;
+  my ($seeds, $terrain) = @_;
+  my $terrain_above;
+  for my $hex (@$seeds) {
+    verbose("seed_region (" . $hex->[0] . "," . $hex->[1] . ") with $terrain");
+    generate_region($hex->[0], $hex->[1], $terrain);
+    populate_region($hex, $terrain);
     my $random = rand 12;
+    # pick next terrain based on the previous one (to the left); or the one
+    # above if in the first column
+    my $next;
+    $terrain = $terrain_above if $hex->[0] == 1 and $terrain_above;
     if ($random < 6) {
-      $terrain = one($primary{$primary});
-      verbose("picked primary $terrain\n");
+      $next = one($primary{$terrain});
+      verbose("picked primary $next");
     } elsif ($random < 9) {
-      $terrain = one($secondary{$primary});
-      verbose("picked secondary $terrain\n");
+      $next = one($secondary{$terrain});
+      verbose("picked secondary $next");
     } elsif ($random < 11) {
-      $terrain = one($tertiary{$primary});
-      verbose("picked tertiary $terrain\n");
+      $next = one($tertiary{$terrain});
+      verbose("picked tertiary $next");
     } else {
-      $terrain = one($wildcard{$primary});
-      verbose("picked wildcard $terrain\n");
+      $next = one($wildcard{$terrain});
+      verbose("picked wildcard $next");
     }
-    die "Terrain lacks reverse_lookup: $terrain\n" unless $reverse_lookup{$terrain};
-    seed_region($seed, $reverse_lookup{$terrain});
+    $terrain_above = $terrain if $hex->[0] == 1;
+    die "Terrain lacks reverse_lookup: $next\n" unless $reverse_lookup{$next};
+    $terrain = $reverse_lookup{$next};
   }
-  populate_region($hex, $primary);
 }
 
 sub agriculture {
   for my $hex (@needs_fields) {
-    verbose("looking to plant fields near " . sprintf("%02d%02d", $hex->[0], $hex->[1]) . "\n");
+    verbose("looking to plant fields near " . sprintf("%02d%02d", $hex->[0], $hex->[1]));
     my $delta = [[[-1,  0], [ 0, -1], [+1,  0], [+1, +1], [ 0, +1], [-1, +1]],  # x is even
 		 [[-1, -1], [ 0, -1], [+1, -1], [+1,  0], [ 0, +1], [-1,  0]]]; # x is odd
     my @plains;
@@ -1031,9 +1034,9 @@ sub agriculture {
       my $coordinates = sprintf("%02d%02d", $x, $y);
       if ($world{$coordinates}) {
 	my ($color, $terrain) = split(' ', $world{$coordinates}, 2);
-	verbose("  $coordinates is " . $world{$coordinates} . " ie. " . $reverse_lookup{$world{$coordinates}} . "\n");
+	verbose("  $coordinates is " . $world{$coordinates} . " ie. " . $reverse_lookup{$world{$coordinates}});
 	if ($reverse_lookup{$world{$coordinates}} eq 'plains') {
-	  verbose("   $coordinates is a candidate\n");
+	  verbose("   $coordinates is a candidate");
 	  push(@plains, $coordinates);
 	}
       }
@@ -1041,43 +1044,23 @@ sub agriculture {
     next unless @plains;
     my $target = one(@plains);
     $world{$target} = one('light-soil fields', 'soil fields');
-    verbose(" $target planted with " . $world{$target} . "\n");
+    verbose(" $target planted with " . $world{$target});
   }
 }
 
 sub generate_map {
-  my $bw = shift;
+  my ($bw, $width, $height) = @_;
+  $width = 20 if not defined $width or $width < 1 or $width > 100;
+  $height = 10 if not defined $height or $height < 1 or $height > 100;
 
-  # random seeds
-
-  # for my $x (0..4) {
-  #   for my $y (0..3) {
-  #     generate_region($x * 5 + 1, $y * 5 + 1 + $x % 2 * 2,
-  # 		      $seed_terrain[rand @seed_terrain]);
-  #   }
-  # }
-
-  # use a spread from the center at [11, 11]
-  my $seeds = [[11, 11],
-	       [[6, 8],
-	        [[1, 6]],
-		[[6, 3],
-		 [[1,1]]]],
-	       [[11, 6],
-		[[11, 1]],
-		[[16, 3],
-		 [[21, 1]]]],
-	       [[16, 8],
-		[[21, 6]],
-		[[21, 11]]],
-	       [[16, 13],
-		[[21, 16]],
-		[[16, 18]]],
-	       [[11, 16],
-		[[6, 18]]],
-	       [[6, 13],
-		[[1, 16]],
-		[[1, 11]]]];
+  my $seeds;
+  for (my $y = 1; $y < $height + 2; $y += 5) {
+    for (my $x = 1; $x < $width + 2; $x += 5) {
+      # [1,1] [6,3], [11,1], [16,3]
+      my $y0 = $y + int(($x % 10) / 3);
+      push(@$seeds, [$x, $y0]);
+    }
+  }
 
   %world = (); # reinitialize!
 
@@ -1089,7 +1072,7 @@ sub generate_map {
   for my $coordinates (keys %world) {
     $coordinates =~ /(..)(..)/;
     delete $world{$coordinates} if $1 < 1 or $2 < 1;
-    delete $world{$coordinates} if $1 > 23 or $2 > 18;
+    delete $world{$coordinates} if $1 > $width or $2 > $height;
   }
 
   if ($bw) {
@@ -1853,25 +1836,31 @@ any '/render' => sub {
 get '/random' => sub {
   my $c = shift;
   my $bw = $c->param('bw');
-  $c->render(template => 'edit', map => Smale::generate_map($bw));
+  my $width = $c->param('width');
+  my $height = $c->param('height');
+  $c->render(template => 'edit', map => Smale::generate_map($bw, $width, $height));
 };
 
 get '/smale' => sub {
   my $c = shift;
   my $bw = $c->param('bw');
-  if ($c->stash('format') eq 'txt') {
-    $c->render(text => Smale::generate_map());
+  my $width = $c->param('width');
+  my $height = $c->param('height');
+  if ($c->stash('format')||'' eq 'txt') {
+    $c->render(text => Smale::generate_map(undef, $width, $height));
   } else {
     $c->render(template => 'edit',
-	       map => Smale::generate_map($bw));
+	       map => Smale::generate_map($bw, $width, $height));
   }
 };
 
 get '/smale/random' => sub {
   my $c = shift;
   my $bw = $c->param('bw');
+  my $width = $c->param('width');
+  my $height = $c->param('height');
   my $svg = Mapper->new()
-      ->initialize(Smale::generate_map($bw))
+      ->initialize(Smale::generate_map($bw, $width, $height))
       ->svg();
   $c->render(text => $svg, format => 'svg');
 };
@@ -1879,7 +1868,9 @@ get '/smale/random' => sub {
 get '/smale/random/text' => sub {
   my $c = shift;
   my $bw = $c->param('bw');
-  my $text = Smale::generate_map($bw);
+  my $width = $c->param('width');
+  my $height = $c->param('height');
+  my $text = Smale::generate_map($bw, $width, $height);
   $c->render(text => $text, format => 'txt');
 };
 
@@ -2401,6 +2392,15 @@ Click the submit button to generate the map itself. Or just keep reloading
 <%= link_to smalerandom => begin %>this link<% end %>.
 You'll find the map description in a comment within the SVG file.
 </p>
+%= form_for smale => begin
+<table>
+<tr><td>Width:</td><td>
+%= number_field width => 20
+</td></tr><tr><td>Height:</td><td>
+%= number_field height => 10
+</td></tr></table>
+%= submit_button
+% end
 <p>
 <%= link_to alpine => begin %>Alpine<% end %> will generate map data based on Alex
 Schroeder's algorithm that's trying to recreate a medieval Swiss landscape, with
