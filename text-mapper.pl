@@ -1100,6 +1100,7 @@ my $width = 20;
 my $height = 10;
 my $steepness = 3;
 my $peak = 10;
+my $bottom = 0;
 
 my $delta = [[[-1,  0], [ 0, -1], [+1,  0], [+1, +1], [ 0, +1], [-1, +1]],  # x is even
 	     [[-1, -1], [ 0, -1], [+1, -1], [+1,  0], [ 0, +1], [-1,  0]]]; # x is odd
@@ -1204,7 +1205,7 @@ sub altitude {
   }
   # go through the batch and add adjacent lower altitude hexes, if possible; the
   # hexes added are the next batch to look at
-  while (--$current_altitude > 0) {
+  while (--$current_altitude >= 0) {
     # warn "Altitude $current_altitude\n";
     my @next;
     for my $coordinates (@batch) {
@@ -1323,8 +1324,10 @@ sub lakes {
   my ($world, $altitude, $water) = @_;
   # any areas without water flow are lakes
   for my $coordinates (keys %$altitude) {
-    next if defined $water->{$coordinates};
-    $world->{$coordinates} = "water";
+    if ($altitude->{$coordinates} <= $bottom
+	or not defined $water->{$coordinates}) {
+      $world->{$coordinates} = "water";
+    }
   }
 }
 
@@ -1689,10 +1692,11 @@ sub generate {
 }
 
 sub generate_map {
-  $width = shift||$width;
-  $height = shift||$height;
-  $steepness = shift||$steepness;
-  $peak = shift||$peak;
+  $width = shift// $width;
+  $height = shift // $height;
+  $steepness = shift // $steepness;
+  $peak = shift // $peak;
+  $bottom = shift // $bottom;
   my $seed = shift||time;
   my $step = shift||0;
   
@@ -1887,6 +1891,7 @@ get '/alpine' => sub {
 					       $c->param('height'),
 					       $c->param('steepness'),
 					       $c->param('peak'),
+					       $c->param('bottom'),
 					       $c->param('seed')));
   } else {
     $c->render(template => 'edit',
@@ -1894,6 +1899,7 @@ get '/alpine' => sub {
 					      $c->param('height'),
 					      $c->param('steepness'),
 					      $c->param('peak'),
+					      $c->param('bottom'),
 					      $c->param('seed')));
   }
 };
@@ -1905,6 +1911,7 @@ get '/alpine/random' => sub {
 					   $c->param('height'),
 					   $c->param('steepness'),
 					   $c->param('peak'),
+					   $c->param('bottom'),
 					   $c->param('seed'),
 					   $c->param('step')))
       ->svg();
@@ -1917,6 +1924,7 @@ get '/alpine/random/text' => sub {
 				     $c->param('height'),
 				     $c->param('steepness'),
 				     $c->param('peak'),
+				     $c->param('bottom'),
 				     $c->param('seed'),
 				     $c->param('step'));
   $c->render(text => $text, format => 'txt');
@@ -1927,7 +1935,8 @@ get '/alpine/document' => sub {
   my @params = ($c->param('width'),
 		$c->param('height'),
 		$c->param('steepness'),
-		$c->param('peak'));
+		$c->param('peak'),
+		$c->param('bottom'));
   my $seed = $c->param('seed')||rand;
 
   # prepare a map for every step
@@ -2430,13 +2439,15 @@ You'll find the map description in a comment within the SVG file.
 <table>
 <tr><td>Width:</td><td>
 %= number_field width => 20, min => 5, max => 99
+</td><td>Bottom:</td><td>
+%= number_field bottom => 0, min => 0, max => 10
 </td><td>Steepness:</td><td>
 %= number_field steepness => 3, min => 1, max => 4
 </td></tr><tr><td>Height:</td><td>
 %= number_field height => 10, min => 5, max => 99
 </td><td>Peak:</td><td>
 %= number_field peak => 10, min => 7, max => 10
-</td></tr></table>
+</td><td></td></tr></table>
 %= submit_button
 % end
 
