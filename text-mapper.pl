@@ -1098,6 +1098,8 @@ use List::Util 'shuffle';
 
 my $width = 20;
 my $height = 10;
+my $steepness = 3;
+my $peak = 10;
 
 my $delta = [[[-1,  0], [ 0, -1], [+1,  0], [+1, +1], [ 0, +1], [-1, +1]],  # x is even
 	     [[-1, -1], [ 0, -1], [+1, -1], [+1,  0], [ 0, +1], [-1,  0]]]; # x is odd
@@ -1185,7 +1187,7 @@ sub flat {
 
 sub altitude {
   my ($world, $altitude) = @_;
-  my $current_altitude = 10;
+  my $current_altitude = $peak;
   my @batch;
   # place some peaks and put them in a batch
   for (1 .. int($width * $height / 20)) {
@@ -1206,8 +1208,10 @@ sub altitude {
     # warn "Altitude $current_altitude\n";
     my @next;
     for my $coordinates (@batch) {
-      # pick some random neighbors
-      for (1 .. 3) {
+      # pick some random neighbors based on steepness (allow fractions)
+      my $n = int($steepness);
+      $n++ if rand() < $steepness - $n;
+      for (1 .. $n) {
 	# try to find an empty neighbor; abort after six attempts
 	for (1 .. 6) {
 	  my $i = int(rand(6));
@@ -1687,6 +1691,8 @@ sub generate {
 sub generate_map {
   $width = shift||$width;
   $height = shift||$height;
+  $steepness = shift||$steepness;
+  $peak = shift||$peak;
   my $seed = shift||time;
   my $step = shift||0;
   
@@ -1879,11 +1885,15 @@ get '/alpine' => sub {
   if ($c->stash('format') eq 'txt') {
     $c->render(text => Schroeder::generate_map($c->param('width'),
 					       $c->param('height'),
+					       $c->param('steepness'),
+					       $c->param('peak'),
 					       $c->param('seed')));
   } else {
     $c->render(template => 'edit',
 	       map => Schroeder::generate_map($c->param('width'),
 					      $c->param('height'),
+					      $c->param('steepness'),
+					      $c->param('peak'),
 					      $c->param('seed')));
   }
 };
@@ -1893,6 +1903,8 @@ get '/alpine/random' => sub {
   my $svg = Mapper->new()
       ->initialize(Schroeder::generate_map($c->param('width'),
 					   $c->param('height'),
+					   $c->param('steepness'),
+					   $c->param('peak'),
 					   $c->param('seed'),
 					   $c->param('step')))
       ->svg();
@@ -1903,6 +1915,8 @@ get '/alpine/random/text' => sub {
   my $c = shift;
   my $text = Schroeder::generate_map($c->param('width'),
 				     $c->param('height'),
+				     $c->param('steepness'),
+				     $c->param('peak'),
 				     $c->param('seed'),
 				     $c->param('step'));
   $c->render(text => $text, format => 'txt');
@@ -1911,7 +1925,9 @@ get '/alpine/random/text' => sub {
 get '/alpine/document' => sub {
   my $c = shift;
   my @params = ($c->param('width'),
-		$c->param('height'));
+		$c->param('height'),
+		$c->param('steepness'),
+		$c->param('peak'));
   my $seed = $c->param('seed')||rand;
 
   # prepare a map for every step
@@ -2395,9 +2411,9 @@ You'll find the map description in a comment within the SVG file.
 %= form_for smale => begin
 <table>
 <tr><td>Width:</td><td>
-%= number_field width => 20
+%= number_field width => 20, min => 5, max => 99
 </td></tr><tr><td>Height:</td><td>
-%= number_field height => 10
+%= number_field height => 10, min => 5, max => 99
 </td></tr></table>
 %= submit_button
 % end
@@ -2413,9 +2429,13 @@ You'll find the map description in a comment within the SVG file.
 %= form_for alpine => begin
 <table>
 <tr><td>Width:</td><td>
-%= number_field width => 20
+%= number_field width => 20, min => 5, max => 99
+</td><td>Steepness:</td><td>
+%= number_field steepness => 3, min => 1, max => 4
 </td></tr><tr><td>Height:</td><td>
-%= number_field height => 10
+%= number_field height => 10, min => 5, max => 99
+</td><td>Peak:</td><td>
+%= number_field peak => 10, min => 7, max => 10
 </td></tr></table>
 %= submit_button
 % end
@@ -2441,10 +2461,19 @@ and edit it using
 
 <p>First, we pick a number of peaks and set their altitude to 10. Then we loop
 through all the altitudes from 10 down to 1 and for every hex we added in the
-previous run, we add three neighbors at a lower altitude, if possible. If our
-random growth missed any hexes, we just copy the height of a neighbor. If we
-can't find a suitable neighbor within a few tries, just make a hole in the
-ground (altitude 0).</p>
+previous run, we add 3 neighbors at a lower altitude, if possible. If our random
+growth missed any hexes, we just copy the height of a neighbor. If we can't find
+a suitable neighbor within a few tries, just make a hole in the ground (altitude
+0).</p>
+
+<p>The initial altitude of those peaks can be changed using the <em>peak</em>
+parameter. Please note that a <em>peak<em> smaller than 7 will result in no
+sources for rivers.</p>
+
+<p>The number of adjacent hexes at a lower altitude can be changed using the
+<em>steepness</em> parameter. Floating points are allowed. Please note that a
+steepness higher than 6 will have increasingly smaller effects as no hex can
+have more than 6 neighbors.</p>
 
 %== $map1
 
