@@ -1343,10 +1343,10 @@ __DATA__
 % title 'Hex Describe';
 <h1>Hex Describe</h1>
 <p>
-Describe a hex map using some random data. For a larger map, visit
-<a href="https://campaignwiki.org/text-mapper/">Text Mapper</a> and
-generate your own <em>Alpine</em> map with different width and height.
-Then come back here and paste the map into the text area below.
+Describe a hex map using some random data. For a larger map, visit <a
+href="https://campaignwiki.org/text-mapper/">Text Mapper</a> and generate your
+own map with different width and height. Then come back here and paste the map
+into the text area below.
 </p>
 <p>
 Load <%= link_to 'random Smale data' => 'loadrandomsmale' %>.
