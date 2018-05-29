@@ -1096,11 +1096,11 @@ use List::Util 'shuffle';
 
 # We're assuming that $width and $height have two digits (10 <= n <= 99).
 
-my $width = 20;
-my $height = 10;
-my $steepness = 3;
-my $peak = 10;
-my $bottom = 0;
+my $width;
+my $height;
+my $steepness;
+my $peak;
+my $bottom;
 
 my $delta = [[[-1,  0], [ 0, -1], [+1,  0], [+1, +1], [ 0, +1], [-1, +1]],  # x is even
 	     [[-1, -1], [ 0, -1], [+1, -1], [+1,  0], [ 0, +1], [-1,  0]]]; # x is odd
@@ -1692,11 +1692,12 @@ sub generate {
 }
 
 sub generate_map {
-  $width = shift// $width;
-  $height = shift // $height;
-  $steepness = shift // $steepness;
-  $peak = shift // $peak;
-  $bottom = shift // $bottom;
+  # The parameters turn into class variables.
+  $width = shift // 20;
+  $height = shift // 10;
+  $steepness = shift // 3;
+  $peak = shift // 10;
+  $bottom = shift // 0;
   my $seed = shift||time;
   my $step = shift||0;
   
@@ -1948,8 +1949,13 @@ get '/alpine/document' => sub {
     $c->stash("map$step" => $svg);
   };
 
-  $c->render(template => 'alpinedocument',
+  $c->render(template => 'alpine_document',
 	     seed => $seed);
+};
+
+get '/alpine/parameters' => sub {
+  my $c = shift;
+  $c->render(template => 'alpine_parameters');
 };
 
 get '/source' => sub {
@@ -2448,6 +2454,10 @@ You'll find the map description in a comment within the SVG file.
 </td><td>Peak:</td><td>
 %= number_field peak => 10, min => 7, max => 10
 </td><td></td></tr></table>
+<p>
+See the <%= link_to alpineparameters => begin %>documentation<% end %> for an
+explanation of what these parameters do.
+</p>
 %= submit_button
 % end
 
@@ -2455,7 +2465,56 @@ You'll find the map description in a comment within the SVG file.
 @@ render.svg.ep
 
 
-@@ alpinedocument.html.ep
+@@ alpine_parameters.html.ep
+% layout 'default';
+% title 'Alpine Parameters';
+<h1>Alpine Parameters</h1>
+
+<p>
+This page explains what the parameters for the <em>Alpine</em> map generation
+will do.
+</p>
+<p>
+The parameters <strong>width</strong> and <strong>height</strong> determine how
+big the map is.
+</p>
+<p>
+Example:
+<%= link_to url_for('alpinerandom')->query(height => 10, width => 15) => begin %>15×10 map<% end %>.
+</p>
+<p>
+When creating elevations, we surround each hex with a number of other hexes at
+one altitude level lower. The number of these surrounding lower levels is
+controlled by the <strong>steepness</strong> parameter (default 3). Lower means
+steeper. Fractions are allowed. Note that it doesn't make much sense to have a
+steepness over 6 because a hex can only have six neighbours.
+</p>
+<p>
+Examples:
+<%= link_to url_for('alpinerandom')->query(height => 10, width => 15, steepness => 0) => begin %>ice needles map<% end %>,
+<%= link_to url_for('alpinerandom')->query(height => 10, width => 15, steepness => 2) => begin %>steep mountains map<% end %>,
+<%= link_to url_for('alpinerandom')->query(height => 10, width => 15, steepness => 4) => begin %>big mountains map<% end %>
+</p>
+<p>
+The sea level is set to altitude 0. That's how you sometimes get a water hex at
+the edge of the map. You can simulate global warming and set it to something
+higher using the <strong>bottom</strong> parameter.
+</p>
+<p>
+Example:
+<%= link_to url_for('alpinerandom')->query(height => 10, width => 15, steepness => 2, bottom => 5) => begin %>steep mountains and higher water level map<% end %>
+</p>
+<p>
+You can also control how high the highest peaks will be using the <strong>peak</strong> parameter (default 10). Note that nothing special happens to a hex with an altitude above 10. It's still mountain peaks. Thus, setting the parameter to something higher than 10 just makes sure that there will be a lot of mountain peaks.
+</p>
+<p>
+Examples:
+<%= link_to url_for('alpinerandom')->query(height => 10, width => 15, peak => 11) => begin %>big mountains<% end %>,
+<%= link_to url_for('alpinerandom')->query(height => 10, width => 15, steepness => 3, bottom => 3, peak => 8) => begin %>old country<% end %>
+</p>
+
+
+@@ alpine_document.html.ep
 % layout 'default';
 % title 'Alpine Documentation';
 <h1>Alpine Map: How does it get created?</h1>
