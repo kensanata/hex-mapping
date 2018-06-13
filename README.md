@@ -34,7 +34,7 @@ Example input:
     0103 hill "bone hills"
     0104 forest
 
-Try it: https://campaignwiki.org/text-mapper
+[Try it](https://campaignwiki.org/text-mapper).
 
 ## Text Maps from the Command Line
 
@@ -135,7 +135,7 @@ intend to host the application yourself, use `perldoc hex-describe.pl`
 to get a more technical documentation based on the comments in the
 code.
 
-Try it: https://campaignwiki.org/hex-describe
+[Try it](https://campaignwiki.org/hex-describe).
 
 # Traveller Subsector Generator
 
@@ -154,7 +154,7 @@ It also takes the UWP of a sector or subsector and generates a map for
 you. If possible, it also adds communication and trade routes based on
 some heuristics.
 
-Try it: https://campaignwiki.org/traveller
+[Try it](https://campaignwiki.org/traveller).
 
 ## Subsectors from the Command Line
 
@@ -192,7 +192,7 @@ Example input:
     n-n O-. .
      n-"-" .
 
-Try it: https://alexschroeder.ch/old-school-hex
+[Try it](https://alexschroeder.ch/old-school-hex).
 
 # Monones
 
@@ -202,4 +202,4 @@ based on Amit Patel's post
 [Polygonal Map Generation for Games](http://www-cs-students.stanford.edu/~amitp/game-programming/polygon-map-generation/)
 (2010).
 
-https://campaignwiki.org/monones
+[Try it](https://campaignwiki.org/monones).
