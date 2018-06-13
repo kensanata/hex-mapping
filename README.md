@@ -203,3 +203,15 @@ based on Amit Patel's post
 (2010).
 
 [Try it](https://campaignwiki.org/monones).
+
+# Names
+
+This application generates a bunch of names based on a set of
+syllables. When you reload, it will generate a new set of syllables
+and a new set of names based on them. The effect is that these names
+all sound as if they're part of the same "language". This idea is
+based on the original Elite system name generator. One way to look at
+the relevant code would be
+[Text Elite](http://www.iancgbell.clara.net/elite/text/index.htm).
+
+[Try it](https://campaignwiki.org/names).
