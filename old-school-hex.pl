@@ -1,5 +1,5 @@
 #!/usr/bin/perl
-# Copyright (C) 2007-2013  Alex Schroeder <alex@gnu.org>
+# Copyright (C) 2007-2018  Alex Schroeder <alex@gnu.org>
 #
 # This program is free software: you can redistribute it and/or modify it under
 # the terms of the GNU General Public License as published by the Free Software
@@ -455,6 +455,7 @@ sub main {
   } elsif (path_info() eq '/source') {
     seek(DATA,0,0);
     undef $/;
+    print "Content-Type: text/plain\r\n\r\n";
     print <DATA>;
   } else {
     print_html();
