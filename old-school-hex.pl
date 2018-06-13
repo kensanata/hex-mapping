@@ -444,8 +444,8 @@ sub print_html {
 	 p(a({-href=>'http://www.alexschroeder.ch/wiki/About'},
 	     'Alex Schröder'),
 	   a({-href=>url() . '/source'}, 'Source'),
-	   a({-href=>'https://github.com/kensanata/hex-mapping'},
-	     'GitHub')),
+	   a({-href=>'https://alexschroeder.ch/cgit/hex-mapping/about/#old-school-hex'},
+	     'Git')),
 	 end_html());
 }
 

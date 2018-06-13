@@ -418,7 +418,7 @@ td, th {
 <a href="https://campaignwiki.org/monones">Monones</a>&#x2003;
 <%= link_to 'Help' => 'help' %>&#x2003;
 <%= link_to 'Source' => 'source' %>&#x2003;
-<a href="https://github.com/kensanata/hex-mapping/blob/master/monones.pl">GitHub</a>&#x2003;
+<a href="https://alexschroeder.ch/cgit/hex-mapping/about/#monones">Git</a>&#x2003;
 <a href="https://alexschroeder.ch/wiki/Contact">Alex Schroeder</a>
 </body>
 </html>

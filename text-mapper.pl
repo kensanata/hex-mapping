@@ -2186,7 +2186,7 @@ statement with an URL.
 
 You can find more files ("libraries") to include in the C<contrib>
 directory:
-L<https://github.com/kensanata/hex-mapping/tree/master/contrib>.
+L<https://alexschroeder.ch/cgit/hex-mapping/tree/contrib>.
 
 =head3 Large Areas
 
@@ -2665,7 +2665,7 @@ td, th {
 <a href="https://campaignwiki.org/text-mapper">Text Mapper</a>&#x2003;
 <%= link_to 'Help' => 'help' %>&#x2003;
 <%= link_to 'Source' => 'source' %>&#x2003;
-<a href="https://github.com/kensanata/hex-mapping/blob/master/text-mapper.pl">GitHub</a>&#x2003;
+<a href="https://alexschroeder.ch/cgit/hex-mapping/about/#text-mapper">Git</a>&#x2003;
 <a href="https://alexschroeder.ch/wiki/Contact">Alex Schroeder</a>
 </body>
 </html>

@@ -2405,7 +2405,7 @@ The tables contains material by the following people:
 
 <p>
 The icons are based on the
-<a href="https://github.com/kensanata/hex-mapping/tree/master/gnomeyland">Gnomeyland</a>
+<a href="https://alexschroeder.ch/cgit/hex-mapping/tree/gnomeyland">Gnomeyland</a>
 icons by Gregory B. MacKenzie.
 </p>
 
@@ -2457,7 +2457,7 @@ hr {
 <%= link_to 'Authors' => 'authors' %>&#x2003;
 <%= link_to 'Help' => 'help' %>&#x2003;
 <%= link_to 'Source' => 'source' %>&#x2003;
-<a href="https://github.com/kensanata/hex-mapping/blob/master/hex-describe.pl">GitHub</a>&#x2003;
+<a href="https://alexschroeder.ch/cgit/hex-mapping/about/#hex-describe">Git</a>&#x2003;
 <a href="https://alexschroeder.ch/wiki/Contact">Alex Schroeder</a>
 </body>
 </html>
