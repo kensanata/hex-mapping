@@ -451,7 +451,8 @@ sub print_html {
 
 sub main {
   if (param('map')) {
-    print_map(param('map'));
+    my $map = param('map');
+    print_map($map);
   } elsif (path_info() eq '/source') {
     seek(DATA,0,0);
     undef $/;
