@@ -8,6 +8,9 @@ This project collects the various tools I have used to work with hex
 maps. All of them are web applications (CGI scripts) written in Perl 5
 and the maps are always SVG documents.
 
+Bugs, feature requests, questions -- all sorts of questions: please
+see the [Software Wiki](https://alexschroeder.ch/software/Hex_Mapping).
+
 <!-- markdown-toc start - Don't edit this section. Run M-x markdown-toc-refresh-toc -->
 **Table of Contents**
 
