@@ -114,7 +114,10 @@ Mapper using the Smale algorithm.
 
 get '/load/random/smale' => sub {
   my $c = shift;
-  my $map = get_data('https://campaignwiki.org/text-mapper/smale/random/text');
+  my $seed = $c->param('seed');
+  my $url = 'https://campaignwiki.org/text-mapper/smale/random/text';
+  $url .= "?seed=$seed" if $seed;
+  my $map = get_data($url);
   $c->render(template => 'edit', map => $map, url=>'', table => '');
 };
 
@@ -127,7 +130,10 @@ Mapper using the Alpine algorithm.
 
 get '/load/random/alpine' => sub {
   my $c = shift;
-  my $map = get_data('https://campaignwiki.org/text-mapper/alpine/random/text');
+  my $seed = $c->param('seed');
+  my $url = 'https://campaignwiki.org/text-mapper/alpine/random/text';
+  $url .= "?seed=$seed" if $seed;
+  my $map = get_data($url);
   $c->render(template => 'edit', map => $map, url=>'', table => '');
 };
 
@@ -168,6 +174,65 @@ any '/describe' => sub {
   $table ||= $c->param('table');
   $table ||= decode_utf8($seckler_table->slurp) if $load eq 'seckler';
   $table ||= decode_utf8($schroeder_table->slurp) if $load eq 'schroeder';
+  init();
+  my $descriptions = describe_map(parse_map($map), parse_table($table));
+  $map = add_labels($map) if $labels;
+  my $svg = app->mode eq 'development' ? ''
+      : get_post_data('https://campaignwiki.org/text-mapper/render',
+		      map => $map);
+  $c->render(template => 'description',
+	     svg => add_links($svg),
+	     descriptions => $descriptions);
+};
+
+=item any /describe/random/smale
+
+This variant is for when you want to just keep reloading and getting different
+maps with different descriptions. Note, however, that you can pass a C<seed>
+parameter, which will get passed on to Text Mapper. This allows you to refer to
+an existing, random map.
+
+That is to say: the map described will be the same for a given seed, but the
+description generated will still be random!
+
+=cut
+    
+get '/describe/random/smale' => sub {
+  my $c = shift;
+  my $labels = $c->param('labels');
+  my $seed = $c->param('seed');
+  my $url = 'https://campaignwiki.org/text-mapper/smale/random/text';
+  $url .= "?seed=$seed" if $seed;
+  my $map = get_data($url);
+  my $table = decode_utf8($seckler_table->slurp);
+  init();
+  my $descriptions = describe_map(parse_map($map), parse_table($table));
+  $map = add_labels($map) if $labels;
+  my $svg = app->mode eq 'development' ? ''
+      : get_post_data('https://campaignwiki.org/text-mapper/render',
+		      map => $map);
+  $c->render(template => 'description',
+	     svg => add_links($svg),
+	     descriptions => $descriptions);
+};
+
+=item any /describe/random/alpine
+
+Same thing for a different algorithm. The important part is that you can pass a
+C<seed> parameter which will get passed on to Text Mapper. Remember: the map
+described will be the same for a given seed, but the description generated will
+still be random!
+
+=cut
+    
+get '/describe/random/alpine' => sub {
+  my $c = shift;
+  my $labels = $c->param('labels');
+  my $seed = $c->param('seed');
+  my $url = 'https://campaignwiki.org/text-mapper/alpine/random/text';
+  $url .= "?seed=$seed" if $seed;
+  my $map = get_data($url);
+  my $table = decode_utf8($seckler_table->slurp);
   init();
   my $descriptions = describe_map(parse_map($map), parse_table($table));
   $map = add_labels($map) if $labels;
