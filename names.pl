@@ -76,6 +76,15 @@ get '/' => sub {
   $c->render('name', digraphs => digraphs_string($digraphs), names => \@names);
 };
 
+
+get '/text' => sub {
+  my $c = shift;
+  my $digraphs = parse_digraphs($c->param('digraphs'));
+  $digraphs = compute_digraphs() unless $digraphs;
+  my @names = map { compute_name($digraphs) } (1 .. 20);
+  $c->render(text => join("\n", @names), format => 'text');
+};
+
 get '/help' => sub {
   my $c = shift;
   $c->render;
