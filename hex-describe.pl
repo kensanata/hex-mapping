@@ -232,7 +232,7 @@ get '/describe/random/alpine' => sub {
   my $url = 'https://campaignwiki.org/text-mapper/alpine/random/text';
   $url .= "?seed=$seed" if $seed;
   my $map = get_data($url);
-  my $table = decode_utf8($seckler_table->slurp);
+  my $table = decode_utf8($schroeder_table->slurp);
   init();
   my $descriptions = describe_map(parse_map($map), parse_table($table));
   $map = add_labels($map) if $labels;
