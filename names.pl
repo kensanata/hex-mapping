@@ -70,6 +70,8 @@ sub compute_name {
 
 get '/' => sub {
   my $c = shift;
+  my $seed = $c->param('seed');
+  srand($seed) if defined $seed;
   my $digraphs = parse_digraphs($c->param('digraphs'));
   $digraphs = compute_digraphs() unless $digraphs;
   my @names = map { compute_name($digraphs) } (1 .. 20);
@@ -79,6 +81,8 @@ get '/' => sub {
 
 get '/text' => sub {
   my $c = shift;
+  my $seed = $c->param('seed');
+  srand($seed) if defined $seed;
   my $digraphs = parse_digraphs($c->param('digraphs'));
   $digraphs = compute_digraphs() unless $digraphs;
   my @names = map { compute_name($digraphs) } (1 .. 20);
@@ -219,6 +223,20 @@ char pairs[] = "..LEXEGEZACEBISO"
 </pre>
 
 <p><%= link_to url_for("/")->query(digraphs=>"..lexegezacebisousesarmaindirea.eratenberalavetiedorquanteisrion") => begin %>Check it out<%= end %>.</p>
+
+<h2>Using it for other tools</h2>
+
+<p>You can use <code>/text</code> to get text output.</p>
+
+<p><%= link_to url_for("/text") => begin %>Check it out<%= end %>.
+
+<p>You can use the <code>digraphs</code> parameter to control the output.</p>
+
+<p><%= link_to url_for("/text")->query(digraphs=>"..lexegezacebisousesarmaindirea.eratenberalavetiedorquanteisrion") => begin %>Check it out<%= end %>.
+
+<p>You can use the <code>seed</code> parameter to create reproducible results.</p>
+
+<p><%= link_to url_for("/text")->query(digraphs=>"..lexegezacebisousesarmaindirea.eratenberalavetiedorquanteisrion", seed=>1) => begin %>Check it out<%= end %>.
 
 @@ layouts/default.html.ep
 <!DOCTYPE html>
