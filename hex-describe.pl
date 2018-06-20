@@ -191,7 +191,7 @@ provide a URL, a random map using the Smale algorithm will get used. The
 description will be generated using the Seckler tables.
 
 =cut
-    
+
 get '/describe/random/smale' => sub {
   my $c = shift;
   my $labels = $c->param('labels');
@@ -207,6 +207,7 @@ get '/describe/random/smale' => sub {
 		      map => $map);
   $c->render(template => 'description',
 	     svg => add_links($svg),
+	     url => $url,
 	     descriptions => $descriptions);
 };
 
@@ -231,6 +232,7 @@ get '/describe/random/alpine' => sub {
 		      map => $map);
   $c->render(template => 'description',
 	     svg => add_links($svg),
+	     url => $url,
 	     descriptions => $descriptions);
 };
 
@@ -1467,6 +1469,7 @@ Alternatively, just paste your tables here:
 % title 'Hex Describe';
 <h1>Hex Descriptions</h1>
 <div class="description">
+<!-- <%== $url %> -->
 %== $svg
 % for my $hex (sort keys %$descriptions) {
 <p>
