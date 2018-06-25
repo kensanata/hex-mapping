@@ -1100,10 +1100,8 @@ my $width;
 my $height;
 my $steepness;
 my $peak;
+my $peaks;
 my $bottom;
-
-my $delta = [[[-1,  0], [ 0, -1], [+1,  0], [+1, +1], [ 0, +1], [-1, +1]],  # x is even
-	     [[-1, -1], [ 0, -1], [+1, -1], [+1,  0], [ 0, +1], [-1,  0]]]; # x is odd
 
 sub xy {
   my $coordinates = shift;
@@ -1115,6 +1113,12 @@ sub coordinates {
   return sprintf("%02d%02d", $x, $y);
 }
 
+my $delta = [
+  # x is even
+  [[-1,  0], [ 0, -1], [+1,  0], [+1, +1], [ 0, +1], [-1, +1]],
+  # x is odd
+  [[-1, -1], [ 0, -1], [+1, -1], [+1,  0], [ 0, +1], [-1,  0]]];
+
 sub neighbor {
   # $hex is [x,y] or "0x0y" and $i is a number 0 .. 5
   my ($hex, $i) = @_;
@@ -1122,6 +1126,23 @@ sub neighbor {
   $hex = [xy($hex)] unless ref $hex;
   return ($hex->[0] + $delta->[$hex->[0] % 2]->[$i]->[0],
 	  $hex->[1] + $delta->[$hex->[0] % 2]->[$i]->[1]);
+}
+
+my $delta2 = [
+  # x is even
+  [[-2, +1], [-2,  0], [-2, -1], [-1, -1], [ 0, -2], [+1, -1],
+   [+2, -1], [+2,  0], [+2, +1], [+1, +2], [ 0, +2], [-1, +2]],
+  # x is odd
+  [[-2, +1], [-2,  0], [-2, -1], [-1, -2], [ 0, -2], [+1, -2],
+   [+2, -1], [+2,  0], [+2, +1], [+1, +1], [ 0, +2], [-1, +1]]];
+
+sub neighbor2 {
+  # $hex is [x,y] or "0x0y" and $i is a number 0 .. 11
+  my ($hex, $i) = @_;
+  die join(":", caller) . ": undefined direction for $hex\n" unless defined $i;
+  $hex = [xy($hex)] unless ref $hex;
+  return ($hex->[0] + $delta2->[$hex->[0] % 2]->[$i]->[0],
+	  $hex->[1] + $delta2->[$hex->[0] % 2]->[$i]->[1]);
 }
 
 sub legal {
@@ -1191,7 +1212,7 @@ sub altitude {
   my $current_altitude = $peak;
   my @batch;
   # place some peaks and put them in a batch
-  for (1 .. int($width * $height / 20)) {
+  for (1 .. $peaks) {
     # try to find an empty hex
     for (1 .. 6) {
       my $x = int(rand($width)) + 1;
@@ -1219,7 +1240,16 @@ sub altitude {
 	  my ($x, $y) = neighbor($coordinates, $i);
 	  next unless legal($x, $y);
 	  my $other = coordinates($x, $y);
-	  next if $altitude->{$other};
+	  # if this is taken, look further
+	  if ($altitude->{$other}) {
+	    $i = int(rand(12));
+	    ($x, $y) = neighbor2($coordinates, $i);
+	    next unless legal($x, $y);
+	    $other = coordinates($x, $y);
+	    # if this is also taken, try again
+	    next if $altitude->{$other};
+	  }
+	  warn "Neighbour of $coordinates: picked $other\n";
 	  # if we found an empty neighbor, set its altitude
 	  $altitude->{$other} = $current_altitude;
 	  push(@next, $other);
@@ -1696,6 +1726,7 @@ sub generate_map {
   $width = shift // 20;
   $height = shift // 10;
   $steepness = shift // 3;
+  $peaks = shift // int($width * $height / 20);
   $peak = shift // 10;
   $bottom = shift // 0;
   my $seed = shift||time;
@@ -1887,10 +1918,11 @@ get '/smale/random/text' => sub {
 
 get '/alpine' => sub {
   my $c = shift;
-  if ($c->stash('format') eq 'txt') {
+  if ($c->stash('format')||'' eq 'txt') {
     $c->render(text => Schroeder::generate_map($c->param('width'),
 					       $c->param('height'),
 					       $c->param('steepness'),
+					       $c->param('peaks'),
 					       $c->param('peak'),
 					       $c->param('bottom'),
 					       $c->param('seed')));
@@ -1899,6 +1931,7 @@ get '/alpine' => sub {
 	       map => Schroeder::generate_map($c->param('width'),
 					      $c->param('height'),
 					      $c->param('steepness'),
+					      $c->param('peaks'),
 					      $c->param('peak'),
 					      $c->param('bottom'),
 					      $c->param('seed')));
@@ -1911,6 +1944,7 @@ get '/alpine/random' => sub {
       ->initialize(Schroeder::generate_map($c->param('width'),
 					   $c->param('height'),
 					   $c->param('steepness'),
+					   $c->param('peaks'),
 					   $c->param('peak'),
 					   $c->param('bottom'),
 					   $c->param('seed'),
@@ -1924,6 +1958,7 @@ get '/alpine/random/text' => sub {
   my $text = Schroeder::generate_map($c->param('width'),
 				     $c->param('height'),
 				     $c->param('steepness'),
+				     $c->param('peaks'),
 				     $c->param('peak'),
 				     $c->param('bottom'),
 				     $c->param('seed'),
@@ -1936,6 +1971,7 @@ get '/alpine/document' => sub {
   my @params = ($c->param('width'),
 		$c->param('height'),
 		$c->param('steepness'),
+		$c->param('peaks'),
 		$c->param('peak'),
 		$c->param('bottom'));
   my $seed = $c->param('seed')||rand;
@@ -2447,13 +2483,15 @@ You'll find the map description in a comment within the SVG file.
 %= number_field width => 20, min => 5, max => 99
 </td><td>Bottom:</td><td>
 %= number_field bottom => 0, min => 0, max => 10
-</td><td>Steepness:</td><td>
-%= number_field steepness => 3, min => 1, max => 4
+</td><td>Peaks:</td><td>
+%= number_field peaks => 10, min => 0, max => 100
 </td></tr><tr><td>Height:</td><td>
 %= number_field height => 10, min => 5, max => 99
+</td><td>Steepness:</td><td>
+%= number_field steepness => 3, min => 1, max => 6
 </td><td>Peak:</td><td>
 %= number_field peak => 10, min => 7, max => 10
-</td><td></td></tr></table>
+</td></tr></table>
 <p>
 See the <%= link_to alpineparameters => begin %>documentation<% end %> for an
 explanation of what these parameters do.
@@ -2483,11 +2521,23 @@ Example:
 <%= link_to url_for('alpinerandom')->query(height => 10, width => 15) => begin %>15×10 map<% end %>.
 </p>
 <p>
+The number of peaks we start with is controlled by the <strong>peaks</strong>
+parameter (default is 5% of the hexes). Note that you need at least one peak in
+order to get any land at all.
+</p>
+<p>
+Examples:
+<%= link_to url_for('alpinerandom')->query(height => 10, width => 15, peaks => 1) => begin %>lonely mountain<% end %>,
+<%= link_to url_for('alpinerandom')->query(height => 10, width => 15, peaks => 2) => begin %>twin peaks<% end %>,
+<%= link_to url_for('alpinerandom')->query(height => 10, width => 15, peaks => 15) => begin %>here be glaciers<% end %>
+</p>
+<p>
 When creating elevations, we surround each hex with a number of other hexes at
 one altitude level lower. The number of these surrounding lower levels is
 controlled by the <strong>steepness</strong> parameter (default 3). Lower means
-steeper. Fractions are allowed. Note that it doesn't make much sense to have a
-steepness over 6 because a hex can only have six neighbours.
+steeper. Floating points are allowed. Please note that the maximum numbers of
+neighbors considered is the 6 immediate neighbors and the 12 neighbors one step
+away.
 </p>
 <p>
 Examples:
@@ -2505,7 +2555,11 @@ Example:
 <%= link_to url_for('alpinerandom')->query(height => 10, width => 15, steepness => 2, bottom => 5) => begin %>steep mountains and higher water level map<% end %>
 </p>
 <p>
-You can also control how high the highest peaks will be using the <strong>peak</strong> parameter (default 10). Note that nothing special happens to a hex with an altitude above 10. It's still mountain peaks. Thus, setting the parameter to something higher than 10 just makes sure that there will be a lot of mountain peaks.
+You can also control how high the highest peaks will be using the
+<strong>peak</strong> parameter (default 10). Note that nothing special happens
+to a hex with an altitude above 10. It's still mountain peaks. Thus, setting the
+parameter to something higher than 10 just makes sure that there will be a lot
+of mountain peaks.
 </p>
 <p>
 Examples:
@@ -2529,21 +2583,24 @@ and edit it using
 
 %== $map0
 
-<p>First, we pick a number of peaks and set their altitude to 10. Then we loop
-through all the altitudes from 10 down to 1 and for every hex we added in the
-previous run, we add 3 neighbors at a lower altitude, if possible. If our random
-growth missed any hexes, we just copy the height of a neighbor. If we can't find
-a suitable neighbor within a few tries, just make a hole in the ground (altitude
-0).</p>
+<p>First, we pick 10 peaks and set their altitude to 10. Then we loop through
+all the altitudes from 10 down to 1 and for every hex we added in the previous
+run, we add 3 neighbors at a lower altitude, if possible. We'll also consider
+neighbors one step away. If our random growth missed any hexes, we just copy the
+height of a neighbor. If we can't find a suitable neighbor within a few tries,
+just make a hole in the ground (altitude 0).</p>
+
+<p>The number of peaks can be changed using the <em>peaks</em> parameter. Please
+note that 0 <em>peaks</em> will result in no land mass.</p>
 
 <p>The initial altitude of those peaks can be changed using the <em>peak</em>
-parameter. Please note that a <em>peak<em> smaller than 7 will result in no
+parameter. Please note that a <em>peak</em> smaller than 7 will result in no
 sources for rivers.</p>
 
 <p>The number of adjacent hexes at a lower altitude can be changed using the
-<em>steepness</em> parameter. Floating points are allowed. Please note that a
-steepness higher than 6 will have increasingly smaller effects as no hex can
-have more than 6 neighbors.</p>
+<em>steepness</em> parameter. Floating points are allowed. Please note that the
+maximum numbers of neighbors considered is the 6 immediate neighbors and the 12
+neighbors one step away.</p>
 
 %== $map1
 
