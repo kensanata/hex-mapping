@@ -1,5 +1,5 @@
 #!/usr/bin/perl
-# Copyright (C) 2009-2017  Alex Schroeder <alex@gnu.org>
+# Copyright (C) 2009-2018  Alex Schroeder <alex@gnu.org>
 #
 # This program is free software: you can redistribute it and/or modify it under
 # the terms of the GNU General Public License as published by the Free Software
@@ -22,32 +22,88 @@ my $debug;
 
 ################################################################################
 
-package Traveller::System;
-use Class::Struct;
+package Traveller::Util;
+use Moose::Role;
+use Memoize;
 
-struct 'Traveller::System' => {
-  name => '$',
-  x => '$',
-  y => '$',
-  starport => '$',
-  size => '$',
-  atmosphere => '$',
-  temperature => '$',
-  hydro => '$',
-  population => '$',
-  government => '$',
-  law => '$',
-  tech => '$',
-  consulate => '$',
-  pirate => '$',
-  TAS => '$',
-  research => '$',
-  naval => '$',
-  scout => '$',
-  gasgiant => '$',
-  tradecodes => '$',
-  travelcode => '$',
-};
+# These functions work on things that have x and y members.
+
+sub in {
+  my $item = shift;
+  foreach (@_) {
+    return $item if $item == $_;
+  }
+}
+
+__PACKAGE__->meta->add_method(
+  nearby => memoize(
+    sub {
+      my ($start, $distance, $candidates) = @_;
+      $distance = 1 unless $distance; # default
+      my @result = ();
+      foreach my $candidate (@$candidates) {
+	next if $candidate == $start;
+	if (distance($start, $candidate) <= $distance) {
+	  push(@result, $candidate);
+	}
+      }
+      return @result;
+    }));
+
+__PACKAGE__->meta->add_method(
+  distance => memoize(
+    sub {
+      my ($from, $to) = @_;
+      my ($x1, $y1, $x2, $y2) = ($from->x, $from->y, $to->x, $to->y);
+      # transform the stupid Traveller coordinate system into a decent
+      # system with one axis tilted by 60°
+      $y1 = $y1 - POSIX::ceil($x1/2);
+      $y2 = $y2 - POSIX::ceil($x2/2);
+      return d($x1, $y1, $x2, $y2);
+    }));
+
+sub d {
+  my ($x1, $y1, $x2, $y2) = @_;
+  if ($x1 > $x2) {
+    # only consider moves from left to right and transpose start and
+    # end point to make it so
+    return d($x2, $y2, $x1, $y1);
+  } elsif ($y2>=$y1) {
+    # if it the move has a downwards component add Δx and Δy
+    return $x2-$x1 + $y2-$y1;
+  } else {
+    # else just take the larger of Δx and Δy
+    return $x2-$x1 > $y1-$y2 ? $x2-$x1 : $y1-$y2;
+  }
+}
+
+################################################################################
+
+package Traveller::System;
+use Moose;
+
+has 'name' => (is => 'rw', isa => 'Str');
+has 'x' => (is => 'rw', isa => 'Int');
+has 'y' => (is => 'rw', isa => 'Int');
+has 'starport' => (is => 'rw', isa => 'Str');
+has 'size' => (is => 'rw', isa => 'Str');
+has 'atmosphere' => (is => 'rw', isa => 'Str');
+has 'temperature' => (is => 'rw', isa => 'Str');
+has 'hydro' => (is => 'rw', isa => 'Str');
+has 'population' => (is => 'rw', isa => 'Str');
+has 'government' => (is => 'rw', isa => 'Str');
+has 'law' => (is => 'rw', isa => 'Str');
+has 'tech' => (is => 'rw', isa => 'Str');
+has 'consulate' => (is => 'rw', isa => 'Str');
+has 'pirate' => (is => 'rw', isa => 'Str');
+has 'TAS' => (is => 'rw', isa => 'Str');
+has 'research' => (is => 'rw', isa => 'Str');
+has 'naval' => (is => 'rw', isa => 'Str');
+has 'scout' => (is => 'rw', isa => 'Str');
+has 'gasgiant' => (is => 'rw', isa => 'Str');
+has 'tradecodes' => (is => 'rw', isa => 'Str');
+has 'travelcode' => (is => 'rw', isa => 'Str');
+has 'culture' => (is => 'rw', isa => 'Str');
 
 sub compute_name {
   my $self = shift;
@@ -323,6 +379,12 @@ sub str {
   $uwp .= sprintf("%7s", $bases);
   $uwp .= '  ' . $self->tradecodes;
   $uwp .= ' ' . $self->travelcode if $self->travelcode;
+  if ($self->culture) {
+    my $spaces = 20 - length($self->tradecodes);
+    $spaces -= 1 + length($self->travelcode) if $self->travelcode;
+    $uwp .= ' ' x $spaces;
+    $uwp .= '[' . $self->culture . ']';
+  }
   return $uwp;
 }
 
@@ -429,9 +491,15 @@ sub compute_tradecodes {
 ################################################################################
 
 package Traveller::Subsector;
-use Class::Struct;
+use List::Util qw(shuffle);
+use Moose;
 
-struct 'Traveller::Subsector' => { systems => '@' };
+with 'Traveller::Util';
+
+has 'systems' => (
+  is      => 'rw',
+  isa     => 'ArrayRef[Traveller::System]',
+  default => sub { [] });
 
 sub one {
   my $i = int(rand(scalar @_));
@@ -473,7 +541,46 @@ sub init {
       }
     }
   }
+  # Rename some systems: assume a jump-2 and a jump-1 culture per every
+  # subsector of 8×10×½ systems. Go through the list in random order.
+  my $culture = "001";
+  for my $system (shuffle(grep { rand(20) < 1 } @{$self->systems})) {
+    $self->spread($system, $self->compute_digraphs, $culture++, 1 + int(rand(2)), 1 + int(rand(3)));
+  }
   return $self;
+}
+
+sub spread {
+  my ($self, $system, $digraphs, $culture, $jump_distance, $jump_number) = @_;
+  # warn sprintf("%02d%02d %s %d %d\n", $system->x, $system->y, $culture, $jump_distance, $jump_number);
+  my $network = [$system];
+  $self->grow($system, $jump_distance, $jump_number, $network);
+  for my $other (@$network) {
+    $other->culture($culture);
+  }
+}
+
+sub grow {
+  my ($self, $system, $jump_distance, $jump_number, $network) = @_;
+  my @new_neighbours =
+      grep { not $_->culture or int(rand(2)) }
+      grep { not Traveller::Util::in($_, @$network) }
+  $self->neighbours($system, $jump_distance, $jump_number);
+  # for my $neighbour (@new_neighbours) {
+  #   warn sprintf(" added %02d%02d %d %d\n", $neighbour->x, $neighbour->y, $jump_distance, $jump_number);
+  # }
+  push(@$network, @new_neighbours);
+  if ($jump_number > 0) {
+    for my $neighbour (@new_neighbours) {
+      $self->grow($neighbour, $jump_distance, $jump_number - 1, $network);
+    }
+  }
+}
+
+sub neighbours {
+  my ($self, $system, $jump_distance, $jump_number) = @_;
+  my @neighbours = nearby($system, $jump_distance, $self->systems);
+  return @neighbours;
 }
 
 sub str {
@@ -488,29 +595,28 @@ sub str {
 ################################################################################
 
 package Traveller::Hex;
-use Class::Struct;
+use Moose;
 
-struct 'Traveller::Hex' => {
-  name => '$',
-  x => '$',
-  y => '$',
-  starport => '$',
-  size => '$',
-  population => '$',
-  consulate => '$',
-  pirate => '$',
-  TAS => '$',
-  research => '$',
-  naval => '$',
-  scout => '$',
-  gasgiant => '$',
-  code => '$',
-  url => '$',
-  map => 'Traveller::Mapper',
-  comm => '@',
-  trade => '%',
-  routes => '@',
-};
+has 'name' => (is => 'ro', isa => 'Str');
+has 'x' => (is => 'ro', isa => 'Int');
+has 'y' => (is => 'ro', isa => 'Int');
+has 'starport' => (is => 'ro', isa => 'Str');
+has 'size' => (is => 'ro', isa => 'Str');
+has 'population' => (is => 'ro', isa => 'Str');
+has 'consulate' => (is => 'rw', isa => 'Str');
+has 'pirate' => (is => 'rw', isa => 'Str');
+has 'TAS' => (is => 'rw', isa => 'Str');
+has 'research' => (is => 'rw', isa => 'Str');
+has 'naval' => (is => 'rw', isa => 'Str');
+has 'scout' => (is => 'rw', isa => 'Str');
+has 'gasgiant' => (is => 'rw', isa => 'Str');
+has 'code' => (is => 'ro', isa => 'Str');
+has 'url' => (is => 'rw', isa => 'Str');
+has 'map' => (is => 'rw', isa => 'Traveller::Mapper');
+has 'comm' => (is => 'rw', isa => 'ArrayRef', default => sub { [] });
+has 'trade' => (is => 'ro', isa => 'HashRef', default => sub { {} });
+has 'routes' => (is => 'rw', isa => 'ArrayRef', default => sub { [] });
+has 'culture' => (is => 'ro', isa => 'Str');
 
 sub base {
   my ($self, $key) = @_;
@@ -634,16 +740,14 @@ sub system_svg {
 ################################################################################
 
 package Traveller::Mapper;
-use Class::Struct;
-use Memoize;
+use Moose;
+with 'Traveller::Util';
 
-struct 'Traveller::Mapper' => {
-  hexes => '@',
-  routes => '@',
-  source => '$',
-  width => '$',
-  height => '$',
-};
+has 'hexes' => (is => 'rw', isa => 'ArrayRef[Traveller::Hex]', default => sub { [] });
+has 'routes' => (is => 'rw', isa => 'ArrayRef');
+has 'source' => (is => 'rw');
+has 'width' => (is => 'rw', isa => 'Int');
+has 'height' => (is => 'rw', isa => 'Int');
 
 my $example = q!Inedgeus     0101 D7A5579-8        G  Fl NI          A
 Geaan        0102 E66A999-7        G  Hi Wa          A
@@ -772,9 +876,23 @@ sub header {
         fill: none;
         stroke: black;
       }
+      #background {
+        fill: inherit;
+      }
+      #bg {
+        fill: inherit;
+      }
+      .culture0 { fill: #ffffff; }
+      .culture1 { fill: #fffff0; }
+      .culture2 { fill: #f0ffff; }
+      .culture3 { fill: #fff0ff; }
+      .culture4 { fill: #f5f5f5; }
+      .culture5 { fill: #fff0f0; }
+      .culture6 { fill: #f0f0ff; }
+      .culture7 { fill: #f0fff0; }
     ]]></style>
-    <polygon id="hex"
-             points="%s,%s %s,%s %s,%s %s,%s %s,%s %s,%s" />
+    <polygon id="hex" points="%s,%s %s,%s %s,%s %s,%s %s,%s %s,%s" />
+    <polygon id="bg" points="%s,%s %s,%s %s,%s %s,%s %s,%s %s,%s" />
   </defs>
   <rect fill="white" stroke="black" stroke-width="10" id="frame"
         x="%s" y="%s" width="%s" height="%s" />
@@ -785,10 +903,35 @@ EOT
 		 map { sprintf("%.3f", $_ * $scale) }
 		 # viewport
 		 -0.5, -0.5, 3 + ($self->width - 1) * 1.5, ($self->height + 1.5) * sqrt(3),
-		 # empty hex
+		 # empty hex, once for the backgrounds and once for the stroke
+		 @hex,
 		 @hex,
 		 # framing rectangle
 		 -0.5, -0.5, 3 + ($self->width - 1) * 1.5, ($self->height + 1.5) * sqrt(3));
+}
+
+sub background {
+  my $self = shift;
+  my $scale = 100;
+  my $doc;
+  my %culture;
+  for my $hex (@{$self->hexes}) {
+    $culture{$hex->x . $hex->y} = $hex->culture;
+  }
+  $doc .= join("\n",
+	       map {
+		 my $n = shift;
+		 my $x = int($_/$self->height+1);
+		 my $y = $_ % $self->height + 1;
+		 my $class = '0';
+		 my $n = sprintf('%02d%02d', $x, $y);
+		 $class = $culture{$n} % 7 + 1 if $culture{$n};
+		 my $svg = sprintf(qq{    <use xlink:href="#bg" x="%.3f" y="%.3f" class="culture$class"/>},
+				   (1 + ($x-1) * 1.5) * $scale,
+				   ($y - $x%2/2) * sqrt(3) * $scale);
+	       }
+	       (0 .. $self->width * $self->height - 1));
+  return $doc;
 }
 
 sub grid {
@@ -800,7 +943,7 @@ sub grid {
 		 my $n = shift;
 		 my $x = int($_/$self->height+1);
 		 my $y = $_ % $self->height + 1;
-		 my $svg = sprintf(qq{    <use xlink:href="#hex" x="%.3f" y="%.3f" />\n},
+		 my $svg = sprintf(qq{    <use xlink:href="#hex" x="%.3f" y="%.3f"/>\n},
 				   (1 + ($x-1) * 1.5) * $scale,
 				   ($y - $x%2/2) * sqrt(3) * $scale);
 		 $svg   .= sprintf(qq{    <text class="coordinates" x="%.3f" y="%.3f">}
@@ -871,12 +1014,22 @@ sub initialize {
     next unless $name;
     $self->width($x) if $x > $self->width;
     $self->height($y) if $y > $self->height;
-    my ($code) = /([AR])\s*$/;
-    $rest =~ s/([AR])\s*$// if $code; # strip base (if any) from the rest
-    my %trade = map { $_ => 1 }
-      grep(/^(Ag|As|Ba|De|Fl|Ga|Hi|Ht|IC|In|Lo|Lt|Na|NI|Po|Ri|Wa|Va)$/,
-	   split(' ', $rest));
-    $bases .= join('', grep(/^[PCTRNSG]$/, split(' ', $rest))); # lone bases
+    my @tokens = split(' ', $rest);
+    my %trade = map { $_ => 1 } grep(/^[A-Z][A-Za-z]$/, @tokens);
+    # culture would be the last one, and it's non-standard
+    my $culture;
+    if (@tokens) {
+      ($culture) = $tokens[$#tokens] =~ /\[(.*)\]\s*$/; # culture in square brackets at the end (non-standard!)
+      pop @tokens if $culture;
+    }
+    # alert code would be the last one, and it's standard
+    my $code;
+    if (@tokens) {
+      ($code) = $tokens[$#tokens] =~ /^([AR])$/;
+      pop @tokens if $code;
+    }
+    # with the alert out of the way, all remaining single letter tokens are lone bases (non-standard order)
+    $bases .= join('', grep(/^[PCTRNSG]$/, @tokens));
     # avoid uninitialized values warnings in the rest of the code
     map { $$_ //= '' } (\$size,
 			\$atmosphere,
@@ -895,14 +1048,16 @@ sub initialize {
 		       \$population,
 		       \$government,
 		       \$law);
-    my $hex = Traveller::Hex->new(name=>$name,
-		       x=>$x,
-		       y=>$y,
-		       starport=>$starport,
-		       population=>$population,
-		       size=>$size,
-		       code=>$code,
-		       trade=>\%trade);
+    my $hex = Traveller::Hex->new(
+      name => $name,
+      x => $x,
+      y => $y,
+      starport => $starport,
+      population => $population,
+      size => $size,
+      code => $code,
+      trade => \%trade,
+      culture  =>  $culture || '');
     $hex->url("$wiki$name") if $wiki;
     for my $base (split(//, $bases)) {
       $hex->base($base);
@@ -929,7 +1084,7 @@ sub communications {
   }
   # every system has a link to its neighbours
   foreach my $hex (@candidates) {
-    my @ar = $self->nearby($hex, 2, \@candidates);
+    my @ar = nearby($hex, 2, \@candidates);
     $hex->comm(\@ar);
   }
   # eliminate all but the best connections if the system has code
@@ -941,7 +1096,7 @@ sub communications {
       if (not $best
 	  or $other->starport lt $best->starport
 	  or $other->starport eq $best->starport
-	  and $self->distance($hex, $other) < $self->distance($hex, $best)) {
+	  and distance($hex, $other) < distance($hex, $best)) {
 	$best = $other;
       }
     }
@@ -967,7 +1122,7 @@ sub trade {
   foreach my $hex (@candidates) {
     my @routes;
     if ($hex->trade->{In} or $hex->trade->{Ht}) {
-      foreach my $other ($self->nearby($hex, 4, \@candidates)) {
+      foreach my $other (nearby($hex, 4, \@candidates)) {
 	if ($other->trade->{As}
 	    or $other->trade->{De}
 	    or $other->trade->{IC}
@@ -977,7 +1132,7 @@ sub trade {
 	}
       }
     } elsif ($hex->trade->{Hi} or $hex->trade->{Ri}) {
-      foreach my $other ($self->nearby($hex, 4, \@candidates)) {
+      foreach my $other (nearby($hex, 4, \@candidates)) {
 	if ($other->trade->{Ag}
 	    or $other->trade->{Ga}
 	    or $other->trade->{Wa}) {
@@ -1001,7 +1156,7 @@ sub edges {
       foreach my $end (@route) {
 	# keep everything unidirectional
 	next if exists $seen{$start}{$end} or exists $seen{$end}{$start};
-	push(@edges, [$start, $end, $self->distance($start,$end)]);
+	push(@edges, [$start, $end, distance($start,$end)]);
 	$seen{$start}{$end} = 1;
 	$start = $end;
       }
@@ -1057,7 +1212,7 @@ sub route {
   my ($self, $from, $to, $distance, $candidatesref, @seen) = @_;
   # my $indent = ' ' x (4-$distance);
   my @options;
-  foreach my $hex ($self->nearby($from, $distance < 2 ? $distance : 2, $candidatesref)) {
+  foreach my $hex (nearby($from, $distance < 2 ? $distance : 2, $candidatesref)) {
     push (@options, $hex) unless in($hex, @seen);
   }
   return unless @options and $distance;
@@ -1066,7 +1221,7 @@ sub route {
   }
   my @routes;
   foreach my $hex (@options) {
-    my @route = $self->route($hex, $to, $distance - $self->distance($from, $hex),
+    my @route = $self->route($hex, $to, $distance - distance($from, $hex),
 			     $candidatesref, @seen, $from);
     if (@route) {
       push(@routes, \@route);
@@ -1081,56 +1236,6 @@ sub route {
     }
   }
   return @shortest;
-}
-
-sub in {
-  my $item = shift;
-  foreach (@_) {
-    return $item if $item == $_;
-  }
-}
-
-sub nearby {
-  my ($self, $start, $distance, $candidatesref) = @_;
-  my @candidates = @$candidatesref;
-  $distance = 1 unless $distance; # default
-  my @result = ();
-  foreach my $hex (@candidates) {
-    next if $hex == $start;
-    if ($self->distance($start, $hex) <= $distance) {
-      push(@result, $hex);
-    }
-  }
-  return @result;
-}
-
-memoize('nearby');
-
-sub distance {
-  my ($self, $from, $to) = @_;
-  my ($x1, $y1, $x2, $y2) = ($from->x, $from->y, $to->x, $to->y);
-  # transform the stupid Traveller coordinate system into a decent
-  # system with one axis tilted by 60°
-  $y1 = $y1 - POSIX::ceil($x1/2);
-  $y2 = $y2 - POSIX::ceil($x2/2);
-  return d($x1, $y1, $x2, $y2);
-}
-
-memoize('distance');
-
-sub d {
-  my ($x1, $y1, $x2, $y2) = @_;
-  if ($x1 > $x2) {
-    # only consider moves from left to right and transpose start and
-    # end point to make it so
-    return d($x2, $y2, $x1, $y1);
-  } elsif ($y2>=$y1) {
-    # if it the move has a downwards component add Δx and Δy
-    return $x2-$x1 + $y2-$y1;
-  } else {
-    # else just take the larger of Δx and Δy
-    return $x2-$x1 > $y1-$y2 ? $x2-$x1 : $y1-$y2;
-  }
 }
 
 sub trade_svg {
@@ -1152,6 +1257,9 @@ sub trade_svg {
 sub svg {
   my ($self) = @_;
   my $data = $self->header;
+  $data .= qq{  <g id='background'>\n};
+  $data .= $self->background;
+  $data .= qq{  </g>\n\n};
   $data .= qq{  <g id='comm'>\n};
   foreach my $hex (@{$self->hexes}) {
     $data .= $hex->comm_svg();
@@ -1205,6 +1313,7 @@ sub text {
 package Traveller::Mapper::Classic;
 use Moose;
 extends 'Traveller::Mapper';
+with 'Traveller::Util';
 
 sub communications {
   # do nothing
@@ -1221,7 +1330,7 @@ sub trade {
   foreach my $hex (@candidates) {
     foreach my $other (@others) {
       next if $hex == $other;
-      my $d = $self->distance($hex, $other) - 1;
+      my $d = distance($hex, $other) - 1;
       next if $d > 3; # 0-4!
       my ($from, $to) = sort $hex->starport, $other->starport;
       my $target;
@@ -1664,7 +1773,7 @@ URL (optional):
 % layout 'default';
 % title 'Traveller Sector Generator';
 <h1>Traveller Sector Generator</h1>
-<p>Submit your UWP list, or generate a 
+<p>Submit your UWP list, or generate a
 <%= link_to url_for('random')->query(classic => $classic) => begin %>Random Subsector<% end %> or a
 <%= link_to url_for('random-sector')->query(classic => $classic) => begin %>Random Sector<% end %>.
 </p>
