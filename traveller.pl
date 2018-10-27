@@ -924,8 +924,8 @@ sub background {
 		 my $x = int($_/$self->height+1);
 		 my $y = $_ % $self->height + 1;
 		 my $class = '0';
-		 my $n = sprintf('%02d%02d', $x, $y);
-		 $class = $culture{$n} % 7 + 1 if $culture{$n};
+		 my $c = sprintf('%02d%02d', $x, $y);
+		 $class = $culture{$c} % 7 + 1 if $culture{$c};
 		 my $svg = sprintf(qq{    <use xlink:href="#bg" x="%.3f" y="%.3f" class="culture$class"/>},
 				   (1 + ($x-1) * 1.5) * $scale,
 				   ($y - $x%2/2) * sqrt(3) * $scale);
