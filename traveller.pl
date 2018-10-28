@@ -109,7 +109,7 @@ sub compute_name {
   my $self = shift;
   my $digraphs = shift;
   my $max = scalar(@$digraphs);
-  my $length = 4 + rand(5); # 4-8
+  my $length = 3 + rand(3); # length of name before adding one more
   my $name = '';
   while (length($name) < $length) {
     my $i = 2*int(rand($max/2));
