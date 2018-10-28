@@ -543,15 +543,19 @@ sub init {
   }
   # Rename some systems: assume a jump-2 and a jump-1 culture per every
   # subsector of 8×10×½ systems. Go through the list in random order.
-  my $culture = "001";
   for my $system (shuffle(grep { rand(20) < 1 } @{$self->systems})) {
-    $self->spread($system, $self->compute_digraphs, $culture++, 1 + int(rand(2)), 1 + int(rand(3)));
+    $self->spread(
+      $system,
+      $self->compute_digraphs,
+      1 + int(rand(2)),  # jump distance
+      1 + int(rand(3))); # jump number
   }
   return $self;
 }
 
 sub spread {
-  my ($self, $system, $digraphs, $culture, $jump_distance, $jump_number) = @_;
+  my ($self, $system, $digraphs, $jump_distance, $jump_number) = @_;
+  my $culture = $system->compute_name($digraphs);
   # warn sprintf("%02d%02d %s %d %d\n", $system->x, $system->y, $culture, $jump_distance, $jump_number);
   my $network = [$system];
   $self->grow($system, $jump_distance, $jump_number, $network);
@@ -883,14 +887,24 @@ sub header {
       #bg {
         fill: inherit;
       }
-      .culture0 { fill: #ffffff; }
-      .culture1 { fill: #fffff0; }
-      .culture2 { fill: #f0ffff; }
-      .culture3 { fill: #fff0ff; }
-      .culture4 { fill: #f5f5f5; }
-      .culture5 { fill: #fff0f0; }
-      .culture6 { fill: #f0f0ff; }
-      .culture7 { fill: #f0fff0; }
+      /* original culture */
+      .culture0 { fill: white; }
+      /* later cultures */
+      .culture1 { fill: #CEE2F5; }
+      .culture2 { fill: #E4F0FB; }
+      .culture3 { fill: #FDE3F3; }
+      .culture4 { fill: #F9CEE9; }
+      .culture5 { fill: #FFF4E6; }
+      .culture6 { fill: #FFEDD3; }
+      .culture7 { fill: #F7FEE5; }
+      .culture8 { fill: #E2FAAA; }
+      .culture9 { fill: #B6D2EC; }
+      .culture10 { fill: #FFE5C0; }
+      .culture11 { fill: #F3B7DD; }
+      .culture12 { fill: #F5F5F5; }
+      .culture13 { fill: #E0E0E0; }
+      .culture14 { fill: #FFFACD; }
+      .culture15 { fill: #EEE9BF; }
     ]]></style>
     <polygon id="hex" points="%s,%s %s,%s %s,%s %s,%s %s,%s %s,%s" />
     <polygon id="bg" points="%s,%s %s,%s %s,%s %s,%s %s,%s %s,%s" />
@@ -915,18 +929,26 @@ sub background {
   my $self = shift;
   my $scale = 100;
   my $doc;
-  my %culture;
+  my $colours = 15; # must match the number of colours in the CSS
+  my %id;
+  my %seen;
   for my $hex (@{$self->hexes}) {
-    $culture{$hex->x . $hex->y} = $hex->culture;
+    if ($hex->culture) {
+      my $coord = $hex->x . $hex->y;
+      if ($seen{$hex->culture}) {
+	$id{$coord} = $seen{$hex->culture};
+      } else {
+	$seen{$hex->culture} = $id{$coord} = int(rand($colours));
+      }
+    }
   }
   $doc .= join("\n",
 	       map {
 		 my $n = shift;
 		 my $x = int($_/$self->height+1);
 		 my $y = $_ % $self->height + 1;
-		 my $class = '0';
-		 my $c = sprintf('%02d%02d', $x, $y);
-		 $class = $culture{$c} % 7 + 1 if $culture{$c};
+		 my $coord = sprintf('%02d%02d', $x, $y);
+		 my $class = $id{$coord} || 0;
 		 my $svg = sprintf(qq{    <use xlink:href="#bg" x="%.3f" y="%.3f" class="culture$class"/>},
 				   (1 + ($x-1) * 1.5) * $scale,
 				   ($y - $x%2/2) * sqrt(3) * $scale);
