@@ -557,6 +557,7 @@ sub spread {
   $self->grow($system, $jump_distance, $jump_number, $network);
   for my $other (@$network) {
     $other->culture($culture);
+    $other->name($other->compute_name($digraphs));
   }
 }
 
