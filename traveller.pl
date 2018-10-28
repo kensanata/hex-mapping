@@ -745,6 +745,7 @@ sub system_svg {
 ################################################################################
 
 package Traveller::Mapper;
+use List::Util qw(shuffle);
 use Moose;
 with 'Traveller::Util';
 
@@ -929,7 +930,8 @@ sub background {
   my $self = shift;
   my $scale = 100;
   my $doc;
-  my $colours = 15; # must match the number of colours in the CSS
+  my @colours = shuffle(1..15); # must match the number of colours in the CSS
+  my $i = 0;
   my %id;
   my %seen;
   for my $hex (@{$self->hexes}) {
@@ -938,7 +940,8 @@ sub background {
       if ($seen{$hex->culture}) {
 	$id{$coord} = $seen{$hex->culture};
       } else {
-	$seen{$hex->culture} = $id{$coord} = int(rand($colours));
+	$seen{$hex->culture} = $id{$coord} = $colours[$i];
+	$i = ($i + 1) % @colours;
       }
     }
   }
