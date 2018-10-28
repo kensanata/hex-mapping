@@ -773,7 +773,7 @@ Sogeeran     0502 A200443-14  CT N G  Ht NI Va
 Aanbi        0503 E697102-7        G  Ga Lo          A
 Bemaat       0504 C643384-9   C R  G  Lo Po
 Diare        0505 A254430-11   TRN G  NI             A
-Esgeed       0507 A8B1579-11    RN G  Fl NI A        A
+Esgeed       0507 A8B1579-11    RN G  Fl NI          A
 Leonbi       0510 B365789-9    T  SG  Ag Ri          A
 Reisbeon     0604 C561526-8     R  G  NI
 Atcevein     0605 A231313-11  CT   G  Lo Po
