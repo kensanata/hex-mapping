@@ -891,21 +891,34 @@ sub header {
       /* original culture */
       .culture0 { fill: white; }
       /* later cultures */
-      .culture1 { fill: #CEE2F5; }
-      .culture2 { fill: #E4F0FB; }
-      .culture3 { fill: #FDE3F3; }
-      .culture4 { fill: #F9CEE9; }
-      .culture5 { fill: #FFF4E6; }
-      .culture6 { fill: #FFEDD3; }
-      .culture7 { fill: #F7FEE5; }
-      .culture8 { fill: #E2FAAA; }
-      .culture9 { fill: #B6D2EC; }
-      .culture10 { fill: #FFE5C0; }
-      .culture11 { fill: #F3B7DD; }
-      .culture12 { fill: #F5F5F5; }
-      .culture13 { fill: #E0E0E0; }
-      .culture14 { fill: #FFFACD; }
-      .culture15 { fill: #EEE9BF; }
+      .culture1  { fill: #d3d3d3; }
+      .culture2  { fill: #f5f5f5; }
+      .culture3  { fill: #ffd700; }
+      .culture4  { fill: #ffff00; }
+      .culture5  { fill: #fff0f5; }
+      .culture6  { fill: #eee0e5; }
+      .culture7  { fill: #ffe1ff; }
+      .culture8  { fill: #eed2ee; }
+      .culture9  { fill: #c6e2ff; }
+      .culture10 { fill: #fdf5e6; }
+      .culture11 { fill: #e0ffff; }
+      .culture12 { fill: #d1eeee; }
+      .culture13 { fill: #c5fff5; }
+      .culture14 { fill: #eeeee0; }
+      .culture15 { fill: #fff68f; }
+      .culture16 { fill: #eee685; }
+      .culture17 { fill: #fffacd; }
+      .culture18 { fill: #eee9bf; }
+      .culture19 { fill: #ffe7ba; }
+      .culture20 { fill: #ffefdb; }
+      .culture21 { fill: #ffe4e1; }
+      .culture22 { fill: #eed5d2; }
+      .culture23 { fill: #e6e6fa; }
+      .culture24 { fill: #f0ffff; }
+      .culture25 { fill: #c5ffd5; }
+      .culture26 { fill: #e6ffe6; }
+      .culture27 { fill: #d5ffc5; }
+      .culture28 { fill: #f5f5dc; }
     ]]></style>
     <polygon id="hex" points="%s,%s %s,%s %s,%s %s,%s %s,%s %s,%s" />
     <polygon id="bg" points="%s,%s %s,%s %s,%s %s,%s %s,%s %s,%s" />
@@ -930,7 +943,7 @@ sub background {
   my $self = shift;
   my $scale = 100;
   my $doc;
-  my @colours = shuffle(1..15); # must match the number of colours in the CSS
+  my @colours = shuffle(1..28); # must match the number of colours in the CSS
   my $i = 0;
   my %id;
   my %seen;
@@ -1664,16 +1677,16 @@ Na Non-Agricultural    ||+- Atmosphere
                        |+- Size
                        +- Starport
 <% } else { =%>
-                       ||||||| |
-Ag Agricultural        ||||||| |            In Industrial
-As Asteroid            ||||||| +- Tech      Lo Low Population
-Ba Barren              ||||||+- Law         Lt Low Technology
-De Desert              |||||+- Government   Na Non-Agricultural
-Fl Fluid Oceans        ||||+- Population    NI Non-Industrial
-Ga Garden              |||+- Hydro          Po Poor
-Hi High Population     ||+- Atmosphere      Ri Rich
-Ht High Technology     |+- Size             Wa Water World
-IC Ice-Capped          +- Starport          Va Vacuum
+                       ||||||| |       |
+Ag Agricultural        ||||||| |    Bases  In Industrial
+As Asteroid            ||||||| +- Tech     Lo Low Population
+Ba Barren              ||||||+- Law        Lt Low Technology
+De Desert              |||||+- Government  Na Non-Agricultural
+Fl Fluid Oceans        ||||+- Population   NI Non-Industrial
+Ga Garden              |||+- Hydro         Po Poor
+Hi High Population     ||+- Atmosphere     Ri Rich
+Ht High Technology     |+- Size            Wa Water World
+IC Ice-Capped          +- Starport         Va Vacuum
 
 Bases: Naval – Scout – Research – TAS – Consulate – Pirate – Gas Giant
 % }
