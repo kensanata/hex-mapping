@@ -669,10 +669,235 @@
 1,The green valley up here has some sheep and a *kid* called [human kid] guarding them.
 1,There is a cold pond up in this valley [cold lake].
 1,The upper valley is rocky and bare. [hill giants]
-1,Steep cliffs make progress practically impossible without climbing gear.
+1,Steep cliffs make progress practically impossible without climbing gear. [mountain secret]
 1,Nothing but gray rocks up here in the mountains.
 1,High up on on a ridge is an old elven tower made of green glass, [green tower].
 1,On one of the rock faces you can still see the markings of the old dwarf forge [dwarf forge]. [forge ruin]
+
+;mountain secret
+1,[way up], [a secret mountain thing]
+
+;way up
+1,[up here], [where it is high up]
+
+;up here
+1,Way up
+1,Up here
+1,Above these cliffs
+1,In the middle of a sheer cliff
+1,Amidst the stars
+1,Where the mountains touch the sky
+1,Where the clouds don't reach
+
+;where it is high up
+1,where the air is thin and cold
+1,where the ice king rules
+1,only reachable by flight
+1,where no bird dares to fly
+1,where the barrier between the worlds is fickle
+
+;a secret mountain thing
+1,there is an inscription on the rocks, each letter higher than three men standing on top of each other, proclaiming the power and glory of [wight leader], as well as the riches and treasures of [ancient capital] [capital epithet].
+1,a pair of *gryphons* is nesting. Agents of the [one of the secret societies] would pay 5000gp for their egg, they say.
+1,a cave leads into the lair of [ice devil], a [ice devil adjectives] *ice devil*, and his [ice devil companions] living in [ice devil lair]
+
+;ice devil adjectives
+1,terrible
+1,cruel
+1,powerful
+1,cursed
+1,banished
+1,vengeful
+1,capricious
+1,wrathful
+1,jealous
+
+;ice devil
+1,[devil name] the [ice devil epithet]
+
+;ice devil epithet
+1,Cold
+1,Lord of Ice
+1,Mountain Devil
+1,Ice Devil
+1,Eater of Souls
+1,Giver of Gifts
+1,Taker of Lives
+1,Crusher of Hope
+1,Master of Lies
+1,White
+1,Frozen
+
+;ice devil companions
+1,2d6 *ice wolves*
+1,4d6 *white gorillas*
+1,2d6 *four armed, white gorillas*
+1,pet *white dragon* [white dragon name]
+
+;ice devil lair
+1,a large ice cave with a mount of bones as big as a house upon which the devil has built his throne of ice and steel.
+1,[1d4+2] torture chambres full of racks, vats, ice baths, blades, needles, and worse. There are dead bodies everywhere.
+1,a pool of magical darkness where [3d4] insane ice trolls toil endlessly, expanding the halls of their master. From here, stairs lead up and up to the very top of the mountain. [ice devil castle]
+
+;ice devil castle
+1,A castle stands here, a construction of blue ice, cooled by the desolation of Jötunheim, for at the very top of its tower is a gateway into that realm of frost giants and eternal snow.
+1,Up here is an old ruin built by frost giants, haunted by the [1d4+1] spectres of their last inhabitants.
+1,Protected by an eternal snow storm, the lone Tower of [frost giant] was built here ages ago. The flowing inscriptions of moon silver runes set into the stone are spells of protection, of hiding, and of cold.
+1,A black pole of pain points towards the sky like a nail driven through the mountain. It is surrounded by the frozen carcasses of a thousand warriors, frozen as they lay dying, forever trying to reach that pole, hoping against all odds for release from their endless prison of cold, hard flesh.
+
+;devil name
+1,Adorján
+1,Ákos
+1,Álmos
+1,Andor
+1,Andris
+1,Antal
+1,Árpád
+1,Balázs
+1,Bálint
+1,Bandi
+1,Barna
+1,Barnabás
+1,Bartal
+1,Bartó
+1,Bartos
+1,Bátor
+1,Béla
+1,Bence
+1,Benedek
+1,Bernát
+1,Bertalan
+1,Bertók
+1,Boldizsár
+1,Dénes
+1,Dezsö
+1,Domonkos
+1,Donát
+1,Egyed
+1,Elek
+1,Enre
+1,Ernö
+1,Fabó
+1,Ferenc
+1,Feri
+1,Ferka
+1,Ferkó
+1,Fredek
+1,Frygyes
+1,Fülöp
+1,Gábor
+1,Gazsi
+1,Gergely
+1,Gergõ
+1,Géza
+1,Gyõzõ
+1,Gyula
+1,Gyuri
+1,Ignác
+1,Illés
+1,Imre
+1,Imrus
+1,Jancsi
+1,Jani
+1,János
+1,Jenci
+1,Jenõ
+1,Jóska
+1,Józsi
+1,Kálmán
+1,Karcsi
+1,Kázmér
+1,Kelemen
+1,Kolos
+1,Laci
+1,Lajos
+1,László
+1,Lázár
+1,Lecso
+1,Levente
+1,Levi
+1,Lörinc
+1,Miksa
+1,Mózes
+1,Nándor
+1,Ödi
+1,Orbán
+1,Pista
+1,Sami
+1,Sándor
+1,Sanyi
+1,Tibor
+1,Tiborc
+1,Tivadar
+1,Tódor
+1,Vida
+1,Vili
+1,Vilmos
+1,Virág
+1,Zoltán
+1,Zsiga
+1,Zsolt
+
+;ancient capital
+2,[ancient capital beginning][ancient capital end]
+1,[ancient capital beginning][ancient capital middle][ancient capital end]
+
+;ancient capital beginning
+1,A
+1,Bi
+1,Chei
+1,I
+1,Ja
+1,U
+1,Va
+1,Xa
+1,Y
+1,Zam
+
+;ancient capital middle
+1,bo
+1,fa
+1,fi
+1,la
+1,ma
+1,na
+1,ri
+1,ti
+
+;ancient capital end
+1,gua
+1,lach
+1,nn
+1,m
+1,diz
+1,la
+1,lan
+1,rran
+1,sa
+
+;capital epithet
+1,the [capital adjective]
+1,the twice [capital adjective]
+1,of the [capital verb] [capital object]
+
+;capital adjective
+1,Glorious
+1,Beautiful
+1,Righteous
+1,Powerful
+1,Strong
+
+;capital verb
+1,Hanging
+1,Shining
+1,Towering
+
+;capital object
+1,Gardens
+1,Fortress
+1,Walls
+1,Treasures
+1,Trees
 
 ;forge ruin
 1,The ruin is abandoned and dead. If you explore the ruins, you will soon find the *balor* demon who caused its downfall. It guards a portal to the realm of eternal fire, to Muspelheim.
@@ -3589,9 +3814,16 @@
 ;wight realm
 1,Abilard
 1,Erlechai
+1,Farlazzan
 1,Merlen
 1,Ouria
+1,Pichuhiatl
+1,Quddu
+1,Rajana
+1,Silah
+1,Trazadan
 1,Yzarria
+1,Zerrin
 
 ;goblins
 1,[6d10] *goblins* live here, led by [goblin].
@@ -3871,7 +4103,7 @@
 1,This goes back to the old rivalries between their respective leaders, [a boss] and [a boss].
 
 ;a boss
-1,[human] (level [1d4+2])
+1,the [human class] [human] (level [1d4+2])
 
 # make sure there are only 3 of them
 ;one of the secret societies
