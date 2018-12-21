@@ -216,7 +216,7 @@ get '/describe/random/smale' => sub {
 Same thing for a map using the Alpine algorithm and the Schroeder random tables.
 
 =cut
-    
+
 get '/describe/random/alpine' => sub {
   my $c = shift;
   my $labels = $c->param('labels');
@@ -1469,7 +1469,6 @@ Alternatively, just paste your tables here:
 % title 'Hex Describe';
 <h1>Hex Descriptions</h1>
 <div class="description">
-<!-- <%== $url %> -->
 %== $svg
 % for my $hex (sort keys %$descriptions) {
 <p>
