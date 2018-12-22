@@ -7764,7 +7764,7 @@
 
 ;10% magic item
 1,[magic item]
-9,
+9, 
 
 ;magic item
 1,A [potion].
@@ -7951,5 +7951,5 @@
 1,A magic dwarven shield +1
 
 ;wondrous item
-1,A pair of /nightvision/ goggles (60ft)
+1,A pair of *nightvision* goggles (60ft)
 1,An elven cloak (5 in 6 chance of hiding in the wilderness using magic camouflage when standing still)
