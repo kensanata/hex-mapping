@@ -749,7 +749,8 @@ sub parse_table {
     } elsif ($key and $line =~ /^(\d+),(.+)/) {
       $data->{$key}->{total} += $1;
       my %h = (count => $1, text => $2);
-      $h{text} =~ s/\*(.*?)\*/<strong>$1<\/strong>/g;
+      $h{text} =~ s/\*\*(.*?)\*\*/<strong>$1<\/strong>/g;
+      $h{text} =~ s/\*(.*?)\*/<em>$1<\/em>/g;
       push(@{$data->{$key}->{lines}}, \%h);
     }
   }
