@@ -746,7 +746,7 @@ sub parse_table {
   for my $line (split(/\r?\n/, $text)) {
     if ($line =~ /^;([^#\r\n]+)/) {
       $key = $1;
-    } elsif ($key and $line =~ /^(\d+),(.+)/) {
+    } elsif ($key and $line =~ /^(\d+),(.*)/) {
       $data->{$key}->{total} += $1;
       my %h = (count => $1, text => $2);
       $h{text} =~ s/\*\*(.*?)\*\*/<strong>$1<\/strong>/g;
