@@ -1249,7 +1249,7 @@ sub altitude {
 	    # if this is also taken, try again
 	    next if $altitude->{$other};
 	  }
-	  warn "Neighbour of $coordinates: picked $other\n";
+	  # warn "Neighbour of $coordinates: picked $other\n";
 	  # if we found an empty neighbor, set its altitude
 	  $altitude->{$other} = $current_altitude;
 	  push(@next, $other);
@@ -1514,7 +1514,7 @@ sub rivers {
       } else {
 	$flow->{$coordinates} = 1;
 	push(@$river, $other);
-      } 
+      }
     } else {
       # stop growing this river
       # warn "Stopped river: @$river\n" if grep(/0914/, @$river);
@@ -1695,7 +1695,7 @@ sub generate {
   # %flow indicates that there is actually a river in this hex
   my %flow;
   my @code = (
-    sub { flat($altitude); 
+    sub { flat($altitude);
 	  altitude($world, $altitude); }, # 1
     sub { mountains($world, $altitude); }, # 2
     sub { water($world, $altitude, $water); }, # 3
@@ -1731,7 +1731,7 @@ sub generate_map {
   $bottom = shift // 0;
   my $seed = shift||time;
   my $step = shift||0;
-  
+
   # For documentation purposes, I want to be able to set the pseudo-random
   # number seed using srand and rely on rand to reproduce the same sequence of
   # pseudo-random numbers for the same seed. The key point to remember is that
@@ -1740,7 +1740,7 @@ sub generate_map {
   # important, that wont do. We need to sort the keys. If we want the keys to be
   # pseudo-shuffled, use shuffle sort keys.
   srand($seed);
-  
+
   # keys for all hashes are coordinates such as "0101".
   # %world is the description with values such as "green forest".
   # %altitude is the altitude with values such as 3.
@@ -1752,7 +1752,7 @@ sub generate_map {
   # $step is how far we want map generation to go where 0 means all the way
   my (%world, %altitude, %water, @rivers, @settlements, @trails, @canyons);
   generate(\%world, \%altitude, \%water, \@rivers, \@settlements, \@trails, \@canyons, $step);
-  
+
   # when documenting or debugging, do this before collecting lines
   if ($step > 0) {
     # add a height label at the very end
@@ -1767,7 +1767,7 @@ sub generate_map {
     for my $coordinates (keys %world) {
       $world{$coordinates} =~ s/ arrow\d//;
     }
-  }    
+  }
 
   local $" = "-"; # list items separated by -
   my @lines;
@@ -1776,8 +1776,8 @@ sub generate_map {
   push(@lines, map { "@$_ river" } @rivers);
   push(@lines, map { "$_ trail" } @trails);
   push(@lines, "include https://campaignwiki.org/contrib/gnomeyland.txt");
-  
-  # when documenting or debugging, add some more lines at the end 
+
+  # when documenting or debugging, add some more lines at the end
   if ($step > 0) {
     # visualize height
     push(@lines,
