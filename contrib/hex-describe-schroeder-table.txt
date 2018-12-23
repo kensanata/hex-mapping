@@ -4195,7 +4195,7 @@
 1,The temple is an underground network of crypts with dozens of bone chambers. The bones of the dead are used walls, floor, and ceiling. They say that the Bone Road of the underworld is similarly made of all the bones of the restless dead. There they await the End of the World. The bone chambers are there to remind us that everything must pass.
 1,The temple is an underground labyrinth of tunnels with dozens of niches where warriors of old await the end of the world. Most of them are truly dead except for [1d8 mummies]. Down here in the cold darkness, somebody is always eager to whisper words of wisdom in exchange for gold and jewels intent on corrupting the world above. It is the hope for eternal life, of resurrection in this world, which brings people back again and again.
 1,Beneath the town, after descending into an old chamber via many stairs, is the temple: a black pit where the broken whispers of [1d8 wights] can be heard. Down there are the tunnels of madness. Behind the pit is a status of a naked man, fat and hairy, with the horns of a giant ram, served by satyrs and skeletons. This is the trickster demon lord, the only one capable of bringing back souls from the afterlife, or so they say.
-1,The temple is a burial mound with various secret crypts, each sealed and secured. Falling rocks, swinging blades, spiked pits, and hidden spears await the fools intent on disturbing the draugar, the restless dead, champions of old, warriors and sorcerers all, awakened and animated by the Earth Blood, waiting for their signal. When Fenrir devours the sun, the undead will smash their prison gates and it will be the of all that is good. The [1d4+1] crypts house [1d8 wights without a name] and [1d4 spectres].
+1,The temple is a burial mound with various secret crypts, each sealed and secured. Falling rocks, swinging blades, spiked pits, and hidden spears await the fools intent on disturbing the draugar, the restless dead, champions of old, warriors and sorcerers all, awakened and animated by the Earth Blood, waiting for their signal. When Fenrir devours the sun, the undead will smash their prison gates and it will be the end of all that is good. The [1d4+1] crypts house [1d8 wights without a name] and [1d4 spectres].
 
 ;1d4 spectres
 1,a **spectre** called [an old hero]
@@ -4240,12 +4240,12 @@
 1,The temple is a four storied windowless square tower. Inside a set of ladders leads to the roof. There's a lift with which to raise corpses to the roof. The roof itself is covered in broken bones. This is where the sky burial takes place. Meat boys and bone girls cut up the corpses and offer the remains of the dead to the vultures of Pazuzu.
 1,The temple stands right next to hanging tree. There must be at least a hundred crows, here. They say Pazuzu sees everything the crows see and thus the local priests are feared and everything that's secret has to happen in the dark of night.
 1,The temple stands on a rock needle about 100ft high with a rickety sequence of ladders leading up there. The four winged statue of the crow demon Pazuzu is hard to see in all the smoke produced by smoldering fires in iron pots hanging in all four corners of the temple. The temple is looked after by [1d6 tengus].
-1,The temple stands on a large rock about 20ft above the ground. Petitioners have to climb a rope hanging down over the edge. The temple also houses the **vulture demon** [pazuzu demon name] (HD 7 AC 2 1d6/1d10/1d10 F14 MV 15 ML 12; magic weapon required to hit)
+1,The temple stands on a large rock about 20ft above the ground. Petitioners have to climb a rope hanging down over the edge. The temple also houses the **vulture demon** [pazuzu demon name] ([vulture demon stats])
 1,The temple is a a roofed platform made of wood built on top of a large rock about 20ft high. The platform has been blasted by fire many times. Many skulls are hanging from the roof. There is a statue of the four winged god in each corner. Beneath it are the old runes spelling out the name Pazuzu. Whosoever utters his name three times will summon him. Pazuzu will be friendly and grant a wish, and take your soul (never to be resurrected again). To insult him will unleash an unholy blight dealing 20d6 damage to anybody within 10ft of the blasphemer; save vs. death for half damage.
 
 ;1d6 tengus
-1,the **tengu** master swordsman [tengu name] (HD 5+1 AC 6 1d8 F10 MV15 ML8)
-5,[1d5+1] **tengus** led by the master swordsman [tengu name] (HD 5+1 AC 6 1d8 F10 MV15 ML8)
+1,the **tengu** master swordsman [tengu name]: [tengu stats]
+5,[1d5+1] **tengus** led by the master swordsman [tengu name]: [tengu stats]
 
 ;tengu name
 1,[tengu 1] of [tengu 2]
@@ -4267,6 +4267,9 @@
 1,Death
 1,Relief
 1,Terrible Endings
+
+;tengu stats
+1,HD 5+1 AC 6 1d8 F10 MV 15 ML 8; flying
 
 ;pazuzu demon name
 1,The [special noun] of [pazuzu place]
@@ -7950,11 +7953,11 @@
 ;summoning
 1,the **valkyrie** [summoned valkyrie]: HD 6 AC 2 1d8+3 F6 MV 18; flying, only harmed by magic or magic weapons, wielding a sword of light +3
 1,the **troll** [summoned troll]: HD 6+1 AC 4 1d6/1d6/1d10 F6 MV 12; regenerate when slain unless burned or dissolved in acid
-1,the **shape changer** [summoned shape changer]: HD 4 AC 5 1d12 MV 9; *polymorph* at will; immune to *sleep* and *charm*
-1,the **hunter general** [summoned hunter general]: HD 6+1 AC 7 1d6 F6 MV 12; leading a *hundertschaft* one hundred **light infantery**: HD 1 AC 7 1d6 MV 12 ML 10
-1,the **minotaur** [summoned minotaur]: HD 6 AC 6 2d6 MV 12; *mesmerize* any listeners at will, i.e. listeners must save vs. spells or cease all hostilities and speak nothing but the truth; immune to *sleep* and *charm*
-1,the **vulture demon** [summoned vulture demon]: HD 8+1 AC 5 1d4/1d4/1d6/1d6/1d8 MV 18 ML 11; flying; only harmed by magic or magic weapons
-1,the **naga** [summoned naga]: HD 9 AC 7 1d8+*poison* MV 6; *fireball* (7d6) 3×/day; *charm person* at will; only harmed by magic or magic weapons
+1,the **shape changer** [summoned shape changer]: HD 4 AC 5 1d12 F8 MV 9; *polymorph* at will; immune to *sleep* and *charm*
+1,the **hunter general** [summoned hunter general]: HD 6+1 AC 7 1d6 F6 MV 12; leading a *hundertschaft* one hundred **light infantery**: HD 1 AC 7 1d6 F1 MV 12 ML 10
+1,the **minotaur** [summoned minotaur]: [minotaur stats]
+1,the **vulture demon** [summoned vulture demon]: [vulture demon stats]
+1,the **naga** [summoned naga]: [naga stats]
 1,a plague of **poisonous frogs** boiling up from lakes and ponds or raining down from the heavens; anybody caught in a storm of poisonous frogs must save vs. poison or die
 
 ;summoned valkyrie
@@ -7999,6 +8002,9 @@
 1,Truth Teller
 1,Spririt Guide
 
+;minotaur stats
+1,HD 6 AC 6 2d6 F6 MV 12; *mesmerize* any listeners at will, i.e. listeners must save vs. spells or cease all hostilities and speak nothing but the truth; immune to *sleep* and *charm*
+
 ;summoned hunter general
 1,[hunter general name], from Unugal, Marduk's hall in Midgard
 
@@ -8018,6 +8024,9 @@
 1,Baby Killer
 1,Child Eater
 
+;vulture demon stats
+1,HD 8+1 AC 5 1d4/1d4/1d6/1d6/1d8 F16 MV 18 ML 11; flying; only harmed by magic or magic weapons
+
 ;summoned naga
 1,[naga name], from Eiterhorg, Set's hall in Svartalfheim
 
@@ -8027,27 +8036,95 @@
 1,Crocodile Tears
 1,Coral Death
 
+;naga stats
+1,HD 9 AC 7 1d8+*poison* F18 MV 6; *fireball* (7d6) 3×/day; *charm person* at will; only harmed by magic or magic weapons
+
 ;magic weapon
-4,An elven sword +1. [elven inscription]
-2,A dwarven sword +2. [dwarven inscription]
-2,A silver dagger against were-creatures.
+4,An elven *sword* +1. [elven inscription]
+2,A dwarven *sword* +2. [dwarven inscription]
+2,A silver *dagger* against were-creatures.
 1,A magic *silver rune dagger* +1/+3 vs. were creatures.
 1,A magic *tongue dagger* +1 (a magic sticky tongue from its grip can pick up unguarded items within 2m).
 1,The ancient spear *Fur Hunter* +1/+3 vs. mammals (a relic of the old lizard wars).
 1,The sword *Dragonslayer* +1/+3 vs. dragons.
+1,The dwarven hammer *Ironslayer* +1/+3 vs. armoured, made by the legendary [dwarf] of [dwarf forge].
+1,The *sword of light* +3 (60ft), made in Asgard for the valkyrie [valkyrie name] (the sword rejects anybody who refuses to join three fights while carrying the sword).
+1,The *club of the slayer* +1/+3 vs. giants, blessed by Marduk.
+1,The black dagger *Kingslayer* +1/+3 in the surprise round, blessed by Set: a target hit in the surprise round must save vs. poison or die.
+1,A smoking, quivering *black arrow of death* +2, carrying the curse of Nergal, ready to take root in a target: if hit, save vs. death or die; the arrow's curse is lost when shot whether it hits or misses.
 
 ;magic armour
-1,A suit of magic elven plate armour +1. [elven inscription]
-1,A suit of magic dwarven plate armour +2. [dwarven inscription]
-1,A magic elven shield +1. [elven inscription]
-1,A magic dwarven shield +1. [dwarven inscription]
+4,A suit of magic elven *plate armour* +1. [elven inscription]
+2,A suit of magic dwarven *plate armour* +2. [dwarven inscription]
+2,A magic elven *shield* +1. [elven inscription]
+2,A magic dwarven *shield* +2. [dwarven inscription]
+1,A suit of magic elven *plate armour* +1 with scales of the red dragon [red dragon name], made by [elf].
+1,A suit of dwarven *plate armour* +1 with scales of the white dragon [white dragon name], made by [dwarf] of [dwarf forge].
+1,A *silver snake armlet* +1, blessed by Set.
 
 ;wondrous item
-1,A pair of *nightvision* goggles (60ft).
-1,Gloves of *strength* (strength 18).
-1,A ring of *invisibility*.
-1,A helmet of the *bull* (when charging into a fight, get an extra attack and on a hit, an opponent no larger than yourself is thrown to the ground such that your allies get a +4 to attack them).
-1,An elven cloak (5 in 6 chance of hiding in the wilderness using magic camouflage when standing still).
+1,A pair of *nightvision goggles* (60ft).
+1,A pair of *gloves of strength* (strength 18).
+1,A *ring of invisibility*.
+1,A *helmet of the bull* (when charging into a fight, get an extra attack and on a hit, an opponent no larger than yourself is thrown to the ground such that your allies get a +4 to attack them).
+1,An *elven cloak* (5 in 6 chance of hiding in the wilderness using magic camouflage when standing still).
+1,A *crystal of starlight* (60ft).
+1,A *compass of hell*, blessed by Hel (it has two pointers: one points to the nearest danger, the other to the nearest safe place).
+1,An *amulet of shape changing*, blessed by Loki ([animal shape]).
+1,A [magic horn].
+1,A *diadem of the slaver* (when targeted by a spell, it is redirected to a person within 10ft if you save vs. spells).
+1,The *ring of [tengu name]*, summons a tengu always willing to talk and offer advice ([tengu stats]); the ring's magic is lost when the tengu is killed.
+1,The *staff of [minotaur name]*, summons a minotaur always willing to talk and offer advice ([minotaur stats]); the staff's magic is lost when the minotaur is killed.
+1,The *flute of [naga name]*, summons a naga ready to whisper and corrupt in your name ([naga stats]); the flute's magic is lost when the naga is killed.
+1,A *flying carpet* (four people).
+1,[elemental prison]
+
+;magic horn
+2,*horn of the barbarians* (summons 3d6 random, battle crazy barbarians: HD 2 AC 7 1d8 F2 MV 12 ML 12)
+1,*horn of [wight realm]* (summons [1d8 wights]; when killed, they are released from their bond to the horn)
+1,*horn of the tengus* (summons [1d6 tengus]; when killed, they are released from their bond to the horn)
+1,*horn of [pazuzu demon name]* (summons a vulture demon from Vanaheim: [vulture demon stats])
+
+;elemental prison
+1,[elemental prison object] containing the elemental prison of [name for an elemental lord] called [[name for an elemental lord] name] ([stats for [name for an elemental lord]]).
+
+;elemental prison object
+1,A jar
+1,An oil lamp
+1,A necklace with a big gem set in silver
+
+;name for an elemental lord
+3,a jinn
+2,an ifrit
+1,a marid
+
+;a jinn name
+1,Builder of the Seven Towers
+1,White Beard of Wisdom
+1,Eye of the Storm
+1,Master of the Seven Winds
+
+;a marid name
+1,Tyranny of Water
+1,Flood at the End of Times
+1,Drowning of a Million Souls
+1,Slow Suffocation
+1,Eels Eating Your Eyes
+
+;an ifrit name
+1,Slow Burning Anger
+1,Consuming Flame of Hate
+1,Death of Eleven Cities
+1,Destroy and Rebuild
+
+;stats for a jinn
+1,HD 7+1 AC 5 2d8 F14 MV 24 ML 12 XP 700; *illusion*, *invisibility*, *gaseous form*, *whirlwind* and *creation* at will; only harmed by magic or magic weapons
+
+;stats for a marid
+1,HD 12 AC 1 3d6 F24 MV 24 ML 12 XP 1200; *water*, *fog*, *flood* and *destruction* at will; only harmed by magic or magic weapons
+
+;stats for an ifrit
+1,HD 10 AC 3 2d8 + 1d8 *fire* F20 MV 24 ML 12 XP 1000; *illusion*, permanent *living flame*, *invisibility*, *wall of fire* and *creation* at will; only harmed by magic or magic weapons
 
 ;dwarven inscription
 2,Dwarven runes say that it was forged by [dwarf] of [dwarf forge].
@@ -8060,3 +8137,9 @@
 2,Elven runes name the previous owner: [elf].
 1,Elven runes explain that it was forged in memory of [treant].
 1,Elven runes explain that it was forged to commemorate the slaying of the green dragon [green dragon name].
+
+;animal shape
+1,sea lion, allows you to swim
+1,vulture, allows you to fly
+1,horse, allows you to ride
+1,black cat, allows you to sneak
