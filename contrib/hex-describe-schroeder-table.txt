@@ -13,7 +13,7 @@
 
 ;grass
 1,The rolling grass stretches in all directions. In the distance, you can see some [cows].
-1,These grasslands are home to [1d4x10] **humans** led by [human]. They are all lightly armored and excellent horse archers. Their tents are protected by [human companions].
+1,These grasslands are home to [1d4x10] **humans** led by [human]. They are all lightly armored and excellent horse archers. Their tents are protected by [human companions]. [human treasure]
 1,These grasslands are home to [centaurs].
 
 ;centaurs
@@ -2594,7 +2594,7 @@
 1,The hill overlooking [name for forest/forest-hill/trees/fir-forest/firs] is the home of [1d8 treants]. They mostly stand around near [forest feature].
 1,There is a hill rising high above [name for forest/forest-hill/trees/fir-forest/firs] with a nice cave which offers shelter from the rain but is home to [1d4 bears].
 1,[5d8] dwarves have set up a small logging community, here in [name for forest/forest-hill/trees/fir-forest/firs]. They are led by [dwarf leader]. The camp is defended by [dwarven companions].
-1,The hills of [name for forest/forest-hill/trees/fir-forest/firs] are full of ancient ruins. On one of these hills right here you can find the foundations of an old keep. The walls are long gone but the cistern and the storage rooms below are still usable. [1d4x10] **bandits** led by [human] have made this their permament base. The camp is [human fort].
+1,The hills of [name for forest/forest-hill/trees/fir-forest/firs] are full of ancient ruins. On one of these hills right here you can find the foundations of an old keep. The walls are long gone but the cistern and the storage rooms below are still usable. [1d4x10] **bandits** led by [human] have made this their permament base. The camp is [human fort]. [human treasure]
 
 ;dwarven companions
 1,a palisade and wooden spikes
@@ -2799,7 +2799,7 @@
 1,Thrash
 
 ;orc leader
-1,[orc]<img src="[[redirect https://campaignwiki.org/face/redirect/alex/orc]]" alt="[same orc]" title="[same orc]" /> (HD [1d6+1])
+1,[orc]<img src="[[redirect https://campaignwiki.org/face/redirect/alex/orc]]" alt="[same orc]" title="[same orc]" /> (HD [name for 1d6+1])
 
 ;orc
 1,[orc food] [orc eat]
@@ -2879,7 +2879,13 @@
 1,Ripper
 
 ;orc treasure
-1,[20% 1d10 silver] [60% 1d8 gold] [40% 1d6 gems] [40% 1d6 jewelry] [10% magic item]
+1,[orc treasure context] [20% 1d10 silver] [60% 1d8 gold] [40% 1d6 gems] [40% 1d6 jewelry] [10% magic item] [5% per item type]
+
+;orc treasure context
+1,The orcish hoard looks like a garbage dump.
+1,The treasure chest is secured by a lock. Inside the chest are the sacred ancestral bones.
+1,The treasure chest under a statue of [evil power] has the two swords of war for this tribe.
+1,The hoard is hidden in a pit underneath the fireplace.
 
 ;abandoned mine
 1,It's basically a deep hole where a single miner would keep digging for coal.
@@ -3164,8 +3170,8 @@
 1,Hidden between some hills is a valley apparently full of thorn bushes. It hides a hamlet of [5d8] **halflings** led by [halfling leader].
 1,An old fort overlooking the woods has been taken over by a war party of [4d6] **hobgoblins** led by [hobgoblin] (HD 3+1). The fort is defended by [hobgoblin companions]. [old fort] [hobgoblin treasure]
 1,An abandoned watchtower on a promontory overlooking the drylands is home to [4d6] **hobgoblins** led by [hobgoblin] (HD 3+1). The approach is guarded by [hobgoblin companions]. [hobgoblin treasure]
-1,Up in these drylands, a massive fortress built by giants long ago is home to [1d6x10] **orcs** of the [evil tribe], led by [orc leader]. The fortress is [orc fort]
-1,Up here on these hills and overlooking the shrublands is a massive fortress built by giants long ago. It has been taken over by **humans** and now it is home to [1d4x10] bandits led by [human]. The fortress is [human fort].
+1,Up in these drylands, a massive fortress built by giants long ago is home to [1d6x10] **orcs** of the [evil tribe], led by [orc leader]. The fortress is [orc fort] [orc treasure]
+1,Up here on these hills and overlooking the shrublands is a massive fortress built by giants long ago. It has been taken over by **humans** and now it is home to [1d4x10] bandits led by [human]. The fortress is [human fort]. [human treasure]
 1,There are caves beneath these badlands. [caves]
 1,The dry lands up here are the hunting grounds of a **manticore** called [manticore] living in the ruins of an old tower.
 1,A **green dragon** named [green dragon name] lives at [hill name], one of the hills overlooking these shrublands.
@@ -3282,7 +3288,7 @@
 1,[cave use] The caves have been abandoned a long time ago.
 
 ;orcs
-1,[1d6x10] **orcs** led by [orc leader] live here.
+1,[1d6x10] **orcs** led by [orc leader] live here. [orc treasure]
 
 ;cave use
 1,The caves used to be an old mine.
@@ -4074,7 +4080,16 @@
 1,This is a fir forest.
 
 ;thorp
-1,There is a thorp of [1d4x10] **humans** led by [human]. The [human houses] are protected by [human companions].
+1,There is a thorp of [1d4x10] **humans** led by [human]. The [human houses] are protected by [human companions]. [human treasure]
+
+;human treasure
+1,[human treasure context] [20% 1d6 silver] [40% 1d12 gold] [60% 5d8 gems] [50% 5d8 jewelry] [25% magic item] [25% magic item] [25% magic item]
+
+;human treasure context
+1,Their treasure is hidden in a treasure chest buried beneath the fireplace.
+1,The treasure chamber is locked with a key.
+1,The treasure chest is hidden in the fish pond.
+1,The treasure is kept in the main hall.
 
 ;village
 2,There is a village of [5d6x10] **humans** led by [human leader] who lives in a small [name for village building] with [human retainer] and [human friends]. [small [name for village building]] The [human houses] outside are protected by [human companions] and a [human defense]. [And a secret society]
@@ -7727,44 +7742,60 @@
 1,Émilie
 
 ;20% 1d6 silver
-2,[1d6]000 silver coins.
-8, 
+1,[1d6]000 silver coins.
+4, 
 
 ;20% 1d10 silver
-2,[1d10]000 silver coins.
-8, 
+1,[1d10]000 silver coins.
+4, 
 
 ;30% 1d6 gold
 3,[1d6]000 gold coins.
 7, 
 
+;40% 1d12 gold
+2,[1d2]000 gold coins.
+3, 
+
 ;60% 1d8 gold
-6,[1d8]000 gold coins.
-4, 
+3,[1d8]000 gold coins.
+2, 
 
 ;20% 2d4 platinum
-2,[2d4]00 platinum coins.
-8, 
+1,[2d4]00 platinum coins.
+4, 
 
 ;20% 1d6 gems
-2,[1d6] gems.
-8, 
+1,[1d6] gems.
+4, 
 
 ;40% 1d6 gems
-4,[1d6] gems.
-6, 
+2,[1d6] gems.
+3, 
+
+;60% 5d8 gems
+3,[5d8] gems.
+2,
 
 ;20% 1d6 jewelry
-2,[1d6] jewelry.
-8, 
+1,[1d6] jewelry.
+4, 
 
 ;40% 1d6 jewelry
-4,[1d6] jewelry.
-6, 
+2,[1d6] jewelry.
+3, 
+
+;50% 5d8 jewelry
+1,[5d8] jewelry.
+1, 
 
 ;10% magic item
 1,[magic item]
 9, 
+
+;25% magic item
+1,[magic item]
+3,
 
 ;magic item
 1,A [potion].
@@ -7772,6 +7803,66 @@
 1,[magic weapon]
 1,[magic armour]
 1,[wondrous item]
+
+;name for 1d6+1
+1,[1d6+1]
+
+;5% per item type
+1,[[5% x [name for 1d6+1]] potion] [[5% x [name for 1d6+1]] scroll] [[5% x [name for 1d6+1]] magic weapon] [[5% x [name for 1d6+1]] magic armour] [[5% x [name for 1d6+1]] wondrous item]
+
+;5% x 2
+1,has
+9,no
+
+;5% x 3
+3,has
+17,no
+
+;5% x 4
+1,has
+4,no
+
+;5% x 5
+1,has
+3,no
+
+;5% x 6
+3,has
+7,no
+
+;5% x 7
+7,has
+20,no
+
+;has potion
+1,A [potion].
+
+;no potion
+1, 
+
+;has scroll
+1,A [scroll].
+
+;no scroll
+1, 
+
+;has magic weapon
+1,[magic weapon]
+
+;no magic weapon
+1, 
+
+;has magic armour
+1,[magic armour]
+
+;no magic armour
+1, 
+
+;has wondrous item
+1,[wondrous item]
+
+;no wondrous item
+1, 
 
 ;potion
 1,potion of *healing* (1d6+1, [name for a potion of healing])
@@ -7937,19 +8028,35 @@
 1,Coral Death
 
 ;magic weapon
-1,An elven sword +1
-1,A dwarven sword +2
-1,A silver dagger against were-creatures
-1,A magic *silver rune dagger* +1/+3 vs. were creatures
-1,A magic *tongue dagger* +1 (a magic sticky tongue from its grip can pick up unguarded items within 2m)
-1,An ancient *snake spear* +1/+3 vs. mammals (a relic of the old lizard wars)
+4,An elven sword +1. [elven inscription]
+2,A dwarven sword +2. [dwarven inscription]
+2,A silver dagger against were-creatures.
+1,A magic *silver rune dagger* +1/+3 vs. were creatures.
+1,A magic *tongue dagger* +1 (a magic sticky tongue from its grip can pick up unguarded items within 2m).
+1,The ancient spear *Fur Hunter* +1/+3 vs. mammals (a relic of the old lizard wars).
+1,The sword *Dragonslayer* +1/+3 vs. dragons.
 
 ;magic armour
-1,A suit of magic elven plate armour +1
-1,A suit of magic dwarven plate armour +2
-1,A magic elven shield +1
-1,A magic dwarven shield +1
+1,A suit of magic elven plate armour +1. [elven inscription]
+1,A suit of magic dwarven plate armour +2. [dwarven inscription]
+1,A magic elven shield +1. [elven inscription]
+1,A magic dwarven shield +1. [dwarven inscription]
 
 ;wondrous item
-1,A pair of *nightvision* goggles (60ft)
-1,An elven cloak (5 in 6 chance of hiding in the wilderness using magic camouflage when standing still)
+1,A pair of *nightvision* goggles (60ft).
+1,Gloves of *strength* (strength 18).
+1,A ring of *invisibility*.
+1,A helmet of the *bull* (when charging into a fight, get an extra attack and on a hit, an opponent no larger than yourself is thrown to the ground such that your allies get a +4 to attack them).
+1,An elven cloak (5 in 6 chance of hiding in the wilderness using magic camouflage when standing still).
+
+;dwarven inscription
+2,Dwarven runes say that it was forged by [dwarf] of [dwarf forge].
+2,Dwarven runes name the previous owner: [dwarf] of [dwarf forge].
+1,Dwarven runes say it was forged to commemorate the slaying of the white dragon [white dragon name].
+1,Dwarven runes say it was forged to commemorate the slaying of the red dragon [red dragon name].
+
+;elven inscription
+2,Elven runes say that it was forged by [elf].
+2,Elven runes name the previous owner: [elf].
+1,Elven runes explain that it was forged in memory of [treant].
+1,Elven runes explain that it was forged to commemorate the slaying of the green dragon [green dragon name].
