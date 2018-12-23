@@ -32,10 +32,39 @@
 1,**wisent**
 
 ;hill
-1,These hills are dry and forbidding. The only animals you can see are some **goats**.
-1,The hills are bare and the narrow creeks between them have dug deep channels. One of these channels is home to [some canyon wights].
-1,Deep ravines cut through these hills. A cave in one of those dry riverbeds is home to [giant scorpions].
-1,On one of these hills stands a ruined fortress currently occupied by [warlocks] serving [medusa], the medusa ruling these lands.
+1,The [name for hills] are dry and forbidding. The only animals you can see are some **goats**.
+1,The [name for hills] are bare and the narrow creeks between them have dug deep channels. One of these channels is home to [some canyon wights] ([wight stats]). During they day they lie in the flooded cellar of a ruined toll tower guarding a ford. [wight treasure]
+1,Deep ravines cut through the [name for hills]. A cave in one of those dry riverbeds is home to [giant scorpions] ([giant scorpion stats]).
+1,On one of the [name for hills] stands an old tower overlooking the lands below. This is the home of a **manticore** called [manticore].
+1,On one of the [name for hills] stands a ruined fortress currently occupied by [warlocks]. [warlock treasure] The fortress and its surrounding land is ruled by the **medusa** [medusa] ([medusa stats]). The courtyard and rooms are full of her petrified victims and the bones of the dead. [medusa treasure]
+
+;name for hills
+1,[hill 1a] [hill 2a] hills
+1,[hill 1b][hill 2b] hills
+
+;hill 1a
+1,Ancient
+1,Stone
+1,Cursed
+1,Blood
+1,Rolling
+1,Cold
+1,Wind
+1,Fay
+
+;hill 2a
+1,Barrow
+1,Mound
+
+;hill 1b
+1,Dry
+1,Old
+1,Blood
+1,Waste
+
+;hill 2b
+1,land
+1, Country
 
 ;medusa
 1,[medusa 1] [medusa 2]
@@ -52,13 +81,28 @@
 1,Mistress
 1,Lady
 
+;medusa treasure
+1,[10% 3d6 silver] [40% 1d6 gold] [40% 1d6 platinum] [20% 1d6 gems] [20% 1d6 jewelry] [30% magic item] [30% magic item] [30% magic item] [30% magic item]
+
+;medusa stats
+1,HD 4 AC 8 1d6 or *poison* F6 MV 9 ML 8 XP 400; *petrification*
+
 ;warlocks
-1,a **warlock** (level 5) and his **giant scorpion** mount
-5,[1d5+1] **warlocks** (level 5) and their **giant scorpion** mounts
+1,a **warlock** ([warlock stats]) and his **giant scorpion** mount ([giant scorpion stats])
+5,[1d5+1] **warlocks** ([warlock stats]) and their **giant scorpion** mounts ([giant scorpion stats])
+
+;warlock stats
+1,HD 4 → 5d4 AC 4/2 1d6 M5 MV 12 ML 9 XP 500; spells: *magic missile* (3×1d6+1), *shield* (reduces AC 9 to AC 4 in melee and AC 2 in ranged combat), *phantasmal force* (one or two of them use these illusions to split the party), *mirror image* (1d4 images to protect the caster), *lightning bolt* (5d6 damage, save vs. spells for half), each spell 1×/day
+
+;warlock treasure
+1,[30% 1d6 silver] [20% 1d6 gold] [20% 1d6 gems] [20% 1d6 jewelry] [20% magic item] [20% magic item] [20% magic item] [20% magic item] [20% magic item]
 
 ;giant scorpions
 1,a **giant scorpion**
 5,[1d5+1] **giant scorpions**
+
+;giant scorpion stats
+1,HD 4 AC 2 1d10/1d10/1d4 + *poison* F2 MV 15 ML 11 XP 400
 
 ;some canyon wights
 1,the **wight** [old name] [the necromaner] who surfaces from his watery grave every night and searches the canyon for fools to drown
@@ -665,14 +709,21 @@
 1,Wenhaf
 1,Ynyra
 
+;wight stats
+1,HD 3 AC 5 *drain* F3 MV 9 ML 12 XP 300; only harmed by magic or magic weapons; immune to *sleep* and *charm*
+
+;wight treasure
+1,[30% 1d4 silver] [30% 1d4 gold] [30% 1d8 gems] [20% 1d4 jewelry] [10% magic item]
+
 ;mountain
 1,The green valley up here has some sheep and a **kid** called [human kid] guarding them.
-1,There is a cold pond up in this valley [cold lake].
+1,Up here in the mountains lies lake [lake name]. [lake inhabitants]
 1,The upper valley is rocky and bare. [hill giants]
 1,Steep cliffs make progress practically impossible without climbing gear. [mountain secret]
 1,Nothing but gray rocks up here in the mountains.
 1,High up on on a ridge is an old elven tower made of green glass, [green tower].
 1,On one of the rock faces you can still see the markings of the old dwarf forge [dwarf forge]. [forge ruin]
+1,On one of a ridge of the [name for hills] stands a ruined fortress currently occupied by [warlocks]. [warlock treasure]</p><p>The fortress and its surrounding land is ruled by the **medusa** [medusa] ([medusa stats]). The courtyard and rooms are full of her petrified victims and the bones of the dead. [medusa treasure]
 
 ;mountain secret
 1,[way up], [a secret mountain thing]
@@ -698,7 +749,7 @@
 
 ;a secret mountain thing
 1,there is an inscription on the rocks, each letter higher than three men standing on top of each other, proclaiming the power and glory of [wight leader], as well as the riches and treasures of [ancient capital] [capital epithet].
-1,a pair of **gryphons** is nesting. Agents of the [one of the secret societies] would pay 5000gp for their egg, they say.
+1,a pair of **griffons** is nesting. Agents of the [one of the secret societies] would pay 5000gp for their egg, they say.
 1,a cave leads into the lair of [ice devil], a [ice devil adjectives] **ice devil**, and his [ice devil companions] living in [ice devil lair]
 
 ;ice devil adjectives
@@ -970,28 +1021,66 @@
 1,Jo
 1,Keg
 
-;cold lake
-4,but it's cold and nothing lives here
-1,and in it lives a **water spirit** called [undine]
-1,with [2d4] **turtle people** led by [turtle]
+;lake name
+1,[lake 1] [lake 2]
 
-;undine
-1,[undine 1] [undine 2]
+;lake 1
+1,Blue
+1,Green
+1,Black
+1,Deep
+1,Cold
+1,Icy
+1,Drowning
+1,Dead
 
-;undine 1
+;lake 2
+1,Dream
+1,Water
+1,Mere
+1,Mirror
+1,Hole
+1,Grave
+
+;lake inhabitants
+1,[2d20] **nixies** led by [nixie] ([nixie stats]) live here. [nixie treasure]
+1,[2d4] very polite **turtle people** led by [turtle] ([turtle people stats]) live here. [turtle people treasure]
+
+;nixie stats
+1,HD 1 AC 7 1d4 F1 MV 12 ML 6 XP 100; *charm*, *water breathing*
+
+;nixie treasure
+1,[30% 1d4 silver] [30% 1d4 gold] [30% 1d8 gems] [20% 1d4 jewelry] [10% magic item]
+
+;nixie
+6,[nixie 1] [nixie 2]
+1,Dahlia
+1,Lily
+1,Poppy
+1,Hawthorn
+1,Hyacinth
+1,Lotus
+
+;nixie 1
 1,Mountain
 1,Tears of
 1,Eyes of
 1,Sweet
 1,Eternal
 
-;undine 2
+;nixie 2
 1,Joy
 1,Sorrow
 1,Ice
 1,Sleep
 1,Dew
 1,Rain
+
+;turtle people stats
+1,HD 3 AC 2 1d8 F3 MV 6 ML 8 XP 300; *two attacks* when damaged
+
+;turtle people treasure
+1,[40% 1d6 silver] [10% 1d4 gold] [10% 1d6 gems] [10% 1d6 jewelry] [10% magic item]
 
 ;turtle
 1,Patience
@@ -1306,7 +1395,7 @@
 
 ;dwarves
 3,This is a small forge. [5d8] **dwarves** live and work here led by [dwarf leader]
-1,This is a legendary forge stronghold. [5d8x10] **dwarves** live and work here led by [dwarf leader] (level [1d4+8]). [3d6] families live here, each led by a clan elder (level [1d6+2])
+1,This is a legendary forge stronghold. [5d8x10] **dwarves** live and work here led by [dwarf leader] (level [1d4+8]). They are divided into [3d6] families, each led by a clan elder (level [1d6+2])
 
 ;dwarf leader
 1,[dwarf]<img src="[[redirect https://campaignwiki.org/face/redirect/alex/dwarf]]" alt="[same dwarf]" title="[same dwarf]"/>
@@ -2578,7 +2667,7 @@
 ;water
 1,A lake covering the ruins of an ancient town.
 1,A lake inhabited by [2d20] charming **nixies** and the same number of **giant fish** guarding their sea weed garden.
-1,A big lake [cold lake].
+1,[lake inhabitants]
 1,A tribe of [5d8] **froglings** in a mud village guarded by [frogling companions].
 
 ;frogling companions
@@ -2590,7 +2679,6 @@
 1,Small creeks have dug deep channels into [name for forest/forest-hill/trees/fir-forest/firs]. The going is tough.
 1,[name for forest/forest-hill/trees/fir-forest/firs] covers a few hills, here. One one them is inhabited by [1d6 ogres].
 1,These hills in [name for forest/forest-hill/trees/fir-forest/firs] belong to the [evil tribe], [1d6x10] **orcs** led by [orc leader]. Their fort is [orc fort] [orc treasure]
-1,On one of the hills of [name for forest/forest-hill/trees/fir-forest/firs] stands an old tower overlooking the lands below. This is the home of a **manticore** called [manticore].
 1,The hill overlooking [name for forest/forest-hill/trees/fir-forest/firs] is the home of [1d8 treants]. They mostly stand around near [forest feature].
 1,There is a hill rising high above [name for forest/forest-hill/trees/fir-forest/firs] with a nice cave which offers shelter from the rain but is home to [1d4 bears].
 1,[5d8] dwarves have set up a small logging community, here in [name for forest/forest-hill/trees/fir-forest/firs]. They are led by [dwarf leader]. The camp is defended by [dwarven companions].
@@ -7744,61 +7832,121 @@
 1,Ysolde
 1,Émilie
 
+;10% 3d6 silver
+1,[3d6]000 silver coins.
+9,
+
 ;20% 1d6 silver
 1,[1d6]000 silver coins.
-4, 
+4,
 
 ;20% 1d10 silver
 1,[1d10]000 silver coins.
-4, 
+4,
+
+;30% 1d4 silver
+3,[1d4]000 silver coins.
+7,
+
+;30% 1d6 silver
+3,[1d6]000 silver coins.
+7,
+
+;40% 1d6 silver
+2,[1d6]000 silver coins.
+3,
+
+;10% 1d4 gold
+1,[1d4]000 gold coins.
+9,
+
+;20% 1d6 gold
+1,[1d6]000 gold coins.
+4,
+
+;30% 1d4 gold
+3,[1d4]000 gold coins.
+7,
 
 ;30% 1d6 gold
 3,[1d6]000 gold coins.
-7, 
+7,
+
+;40% 1d6 gold
+2,[1d6]000 gold coins.
+3,
 
 ;40% 1d12 gold
-2,[1d2]000 gold coins.
-3, 
+2,[1d12]000 gold coins.
+3,
 
 ;60% 1d8 gold
 3,[1d8]000 gold coins.
-2, 
+2,
 
 ;20% 2d4 platinum
 1,[2d4]00 platinum coins.
-4, 
+4,
+
+;40% 1d6 platinum
+3,[1d6]00 platinum coins.
+3,
+
+;10% 1d6 gems
+1,[1d6] gems.
+9,
 
 ;20% 1d6 gems
 1,[1d6] gems.
-4, 
+4,
+
+;30% 1d8 gems
+3,[1d8] gems.
+7,
 
 ;40% 1d6 gems
 2,[1d6] gems.
-3, 
+3,
 
 ;60% 5d8 gems
 3,[5d8] gems.
 2,
 
+;10% 1d6 jewelry
+1,[1d6] jewelry.
+9,
+
+;20% 1d4 jewelry
+1,[1d4] jewelry.
+4,
+
 ;20% 1d6 jewelry
 1,[1d6] jewelry.
-4, 
+4,
 
 ;40% 1d6 jewelry
 2,[1d6] jewelry.
-3, 
+3,
 
 ;50% 5d8 jewelry
 1,[5d8] jewelry.
-1, 
+1,
 
 ;10% magic item
 1,[magic item]
-9, 
+9,
+
+;20% magic item
+1,[magic item]
+4,
 
 ;25% magic item
 1,[magic item]
 3,
+
+;30% magic item
+3,[magic item]
+7,
 
 ;magic item
 1,A [potion].
@@ -7841,31 +7989,31 @@
 1,A [potion].
 
 ;no potion
-1, 
+1,
 
 ;has scroll
 1,A [scroll].
 
 ;no scroll
-1, 
+1,
 
 ;has magic weapon
 1,[magic weapon]
 
 ;no magic weapon
-1, 
+1,
 
 ;has magic armour
 1,[magic armour]
 
 ;no magic armour
-1, 
+1,
 
 ;has wondrous item
 1,[wondrous item]
 
 ;no wondrous item
-1, 
+1,
 
 ;potion
 1,potion of *healing* (1d6+1, [name for a potion of healing])
@@ -7951,7 +8099,7 @@
 1,prayer of *protection of the moon* (8h, prevents were-creatures from approaching)
 
 ;summoning
-1,the **valkyrie** [summoned valkyrie]: HD 6 AC 2 1d8+3 F6 MV 18; flying, only harmed by magic or magic weapons, wielding a sword of light +3
+1,the **valkyrie** [summoned valkyrie]: HD 6 AC 2 1d8+3 F6 MV 18; flying; only harmed by magic or magic weapons; wielding a sword of light +3
 1,the **troll** [summoned troll]: HD 6+1 AC 4 1d6/1d6/1d10 F6 MV 12; regenerate when slain unless burned or dissolved in acid
 1,the **shape changer** [summoned shape changer]: HD 4 AC 5 1d12 F8 MV 9; *polymorph* at will; immune to *sleep* and *charm*
 1,the **hunter general** [summoned hunter general]: HD 6+1 AC 7 1d6 F6 MV 12; leading a *hundertschaft* one hundred **light infantery**: HD 1 AC 7 1d6 F1 MV 12 ML 10
@@ -8044,9 +8192,9 @@
 2,A dwarven *sword* +2. [dwarven inscription]
 2,A silver *dagger* against were-creatures.
 1,A magic *silver rune dagger* +1/+3 vs. were creatures.
-1,A magic *tongue dagger* +1 (a magic sticky tongue from its grip can pick up unguarded items within 2m).
-1,The ancient spear *Fur Hunter* +1/+3 vs. mammals (a relic of the old lizard wars).
-1,The sword *Dragonslayer* +1/+3 vs. dragons.
+1,A magic *tongue dagger* +1 (a magic sticky tongue from its grip can pick up unguarded items within 2m), blessed by Tsathoggua.
+1,The ancient spear *Fur Hunter* +1/+3 vs. mammals (a relic of the old lizard wars), blessed by Set.
+1,The sword *Dragonslayer* +1/+3 vs. dragons, blessed by Marduk.
 1,The dwarven hammer *Ironslayer* +1/+3 vs. armoured, made by the legendary [dwarf] of [dwarf forge].
 1,The *sword of light* +3 (60ft), made in Asgard for the valkyrie [valkyrie name] (the sword rejects anybody who refuses to join three fights while carrying the sword).
 1,The *club of the slayer* +1/+3 vs. giants, blessed by Marduk.
