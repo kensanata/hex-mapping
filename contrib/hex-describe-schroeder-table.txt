@@ -1193,20 +1193,20 @@
 1,Graves
 
 ;canyon
-1,[name for river] has dug itself a deep gorge.
-1,The gorge is wonderful and deep.
-1,Crossing the canyon requires climbing gear.
+1,</p><p>[name for river] has dug itself a deep gorge.
+1,</p><p>The gorge is wonderful and deep.
+1,</p><p>Crossing the canyon requires climbing gear.
 
 ;river-start river
-1,This is where the spring of [name for river] is.
-1,[name for river] starts here.
-1,The spring of [name for river] is a small pond beneath some trees.
-1,The spring of [name for river] can be found between some boulders.
-1,At the foot of a small hill, [name for river] makes its appearance.
+1,</p><p>This is where the spring of [name for river] is.
+1,</p><p>[name for river] starts here.
+1,</p><p>The spring of [name for river] is a small pond beneath some trees.
+1,</p><p>The spring of [name for river] can be found between some boulders.
+1,</p><p>At the foot of a small hill, [name for river] makes its appearance.
 
 ;river
-1,[name for river] flows through here.
-1,[name for river] runs through here.
+1,</p><p>[name for river] flows through here.
+1,</p><p>[name for river] runs through here.
 
 ;name for river
 5,[river 1] [river 2]
@@ -1244,23 +1244,23 @@
 1,Streamlet
 
 ;river-merge river
-1,[names for river] merge here.
+1,</p><p>[names for river] merge here.
 
 ;forest-hill trail
-1,[name for trail] winds its way along these hills.
-1,[name for trail] hugs the hills.
-1,[name for trail] crosses over the water below at [bridge name].
+1,</p><p>[name for trail] winds its way along these hills.
+1,</p><p>[name for trail] hugs the hills.
+1,</p><p>[name for trail] crosses over the water below at [bridge name].
 
 ;trail-start trail
-1,[name for trail] starts here.
-1,This is the beginning of [name for trail].
+1,</p><p>[name for trail] starts here.
+1,</p><p>This is the beginning of [name for trail].
 
 ;trail-merge trail
-1,[names for trail] meet here.
+1,</p><p>[names for trail] meet here.
 
 ;trail
-1,[name for trail] goes through here.
-1,[name for trail] leads through here.
+1,</p><p>[name for trail] goes through here.
+1,</p><p>[name for trail] leads through here.
 
 ;name for trail
 7,[trail 1] [trail 2]
@@ -4168,7 +4168,7 @@
 1,This is a fir forest.
 
 ;thorp
-1,There is a thorp of [1d4x10] **humans** led by [human]. The [human houses] are protected by [human companions]. [human treasure]
+1,</p><p>There is a thorp of [1d4x10] **humans** led by [human]. The [human houses] are protected by [human companions]. [human treasure]
 
 ;human treasure
 1,[human treasure context] [20% 1d6 silver] [40% 1d12 gold] [60% 5d8 gems] [50% 5d8 jewelry] [25% magic item] [25% magic item] [25% magic item]
@@ -4180,12 +4180,12 @@
 1,The treasure is kept in the main hall.
 
 ;village
-2,There is a village of [5d6x10] **humans** led by [human leader] who lives in a small [name for village building] with [human retainer] and [human friends]. [small [name for village building]] The [human houses] outside are protected by [human companions] and a [human defense]. [And a secret society]
-1,There is a village of [5d6x10] **humans** led by [human leader] who lives in a small [name for village building] with [human retainer] and [human friends]. [small [name for village building]] The [human houses] outside are protected by [human companions] and a [human defense]. [And a secret society] There is a [name for temple]. [small [name for temple]]
+2,</p><p>There is a village of [5d6x10] **humans** led by [human leader] who lives in a small [name for village building] with [human retainer] and [human friends]. [small [name for village building]]</p><p>The [human houses] outside are protected by [human companions] and a [human defense]. [And a secret society]
+1,</p><p>There is a village of [5d6x10] **humans** led by [human leader] who lives in a small [name for village building] with [human retainer] and [human friends]. [small [name for village building]]</p><p>The [human houses] outside are protected by [human companions] and a [human defense]. [And a secret society] There is a [name for temple]. [small [name for temple]]
 
 ;town
-1,There is a town of [1d6x100] **humans** led by [human leader] who lives in a keep with [human retainer] and [human friends]. The [human houses] outside are protected by a town wall and the river. [And two secret societies feuding] There is [town feature] and a [name for temple]. [small [name for temple]]
-1,There is a town of [1d6x100] **humans** led by [human leader] who lives in a keep with [human retainer] and [human friends]. The [human houses] outside are protected by a town wall and the river. [And two secret societies feuding] An alchemist named [here human] lives here, selling a [potion] for 500gp each. [1d4+1] of these are currently for sale. [alchemist job] There is also a [name for temple]. [small [name for temple]]
+1,</p><p>There is a town of [1d6x100] **humans** led by [human leader] who lives in a keep with [human retainer] and [human friends]. The [human houses] outside are protected by a town wall and the river. [And two secret societies feuding]</p><p>There is [town feature] and a [name for temple]. [small [name for temple]]
+1,</p><p>There is a town of [1d6x100] **humans** led by [human leader] who lives in a keep with [human retainer] and [human friends]. The [human houses] outside are protected by a town wall and the river. [And two secret societies feuding]</p><p>An alchemist named [here human] lives here, selling a [potion] for 500gp each. [1d4+1] of these are currently for sale. [alchemist job] There is also a [name for temple]. [small [name for temple]]
 
 ;name for temple
 1,temple dedicated to [power]
@@ -7893,20 +7893,24 @@
 3,
 
 ;10% 1d6 gems
-1,[1d6] gems.
-9,
+1,1 gem.
+5,[1d5+1] gems.
+54,
 
 ;20% 1d6 gems
-1,[1d6] gems.
-4,
+1,1 gem.
+5,[1d5+1] gems.
+24,
 
 ;30% 1d8 gems
-3,[1d8] gems.
-7,
+1,1 gem.
+7,[1d7+1] gems.
+19,
 
 ;40% 1d6 gems
-2,[1d6] gems.
-3,
+1,1 gem.
+5,[1d5+1] gems.
+9,
 
 ;60% 5d8 gems
 3,[5d8] gems.
@@ -8099,7 +8103,7 @@
 1,prayer of *protection of the moon* (8h, prevents were-creatures from approaching)
 
 ;summoning
-1,the **valkyrie** [summoned valkyrie]: HD 6 AC 2 1d8+3 F6 MV 18; flying; only harmed by magic or magic weapons; wielding a sword of light +3
+1,the **valkyrie** [summoned valkyrie]: HD 6 AC 2 1d8+3 F6 MV 18; flying; only harmed by magic or magic weapons; wielding a *long sword of light* +3
 1,the **troll** [summoned troll]: HD 6+1 AC 4 1d6/1d6/1d10 F6 MV 12; regenerate when slain unless burned or dissolved in acid
 1,the **shape changer** [summoned shape changer]: HD 4 AC 5 1d12 F8 MV 9; *polymorph* at will; immune to *sleep* and *charm*
 1,the **hunter general** [summoned hunter general]: HD 6+1 AC 7 1d6 F6 MV 12; leading a *hundertschaft* one hundred **light infantery**: HD 1 AC 7 1d6 F1 MV 12 ML 10
@@ -8188,27 +8192,37 @@
 1,HD 9 AC 7 1d8+*poison* F18 MV 6; *fireball* (7d6) 3×/day; *charm person* at will; only harmed by magic or magic weapons
 
 ;magic weapon
-4,An elven *sword* +1. [elven inscription]
-2,A dwarven *sword* +2. [dwarven inscription]
-2,A silver *dagger* against were-creatures.
+10,An elven *long sword* +1. [elven inscription]
+5,An elven *long bow* +1.
+5,A dwarven *short sword* +2. [dwarven inscription]
+2,A dwarven *crossbow* +2.
+2,A goblin assassin's *dagger* +1 with grip covered by rat's teeth and lizard skin.
+1,A goblin assassin's *short bow* +1 with plenty of notches along it's side.
+1,An orcish *zweihänder* +1/+3 vs. city dwellers, in the [orc sword tradition].
 1,A magic *silver rune dagger* +1/+3 vs. were creatures.
 1,A magic *tongue dagger* +1 (a magic sticky tongue from its grip can pick up unguarded items within 2m), blessed by Tsathoggua.
 1,The ancient spear *Fur Hunter* +1/+3 vs. mammals (a relic of the old lizard wars), blessed by Set.
-1,The sword *Dragonslayer* +1/+3 vs. dragons, blessed by Marduk.
+1,The long sword *Dragonslayer* +1/+3 vs. dragons, blessed by Marduk.
 1,The dwarven hammer *Ironslayer* +1/+3 vs. armoured, made by the legendary [dwarf] of [dwarf forge].
-1,The *sword of light* +3 (60ft), made in Asgard for the valkyrie [valkyrie name] (the sword rejects anybody who refuses to join three fights while carrying the sword).
+1,The *long sword of light* +3 (60ft), made in Asgard for the valkyrie [valkyrie name] (the sword rejects anybody who refuses to join three fights while carrying the sword).
 1,The *club of the slayer* +1/+3 vs. giants, blessed by Marduk.
 1,The black dagger *Kingslayer* +1/+3 in the surprise round, blessed by Set: a target hit in the surprise round must save vs. poison or die.
 1,A smoking, quivering *black arrow of death* +2, carrying the curse of Nergal, ready to take root in a target: if hit, save vs. death or die; the arrow's curse is lost when shot whether it hits or misses.
+1,The two handed *Icekiller* +3, forged by the frost giant [frost giant] in Jotunheim; when the blade is drawn, snow flakes form; when it is stuck into water, a layer of ice forms (10ft); when left unsheathed, a glacier will eventually form.
+1,The long sword *Swampfire* +1/+3 vs. runners, forged in the depths of Myrkheim by frogling priests of Tsathoggua; it eeks a phosphorous glowing liquid and smells of rotten eggs; when left unsheathed, everything around it becomes water logged and eventually turns into a swamp.
+1,The *trident of fishes* +1 gives you long, webbed toes and the ability to breathe under water when you step into it, and you can speak the language of fishes.
 
 ;magic armour
-4,A suit of magic elven *plate armour* +1. [elven inscription]
-2,A suit of magic dwarven *plate armour* +2. [dwarven inscription]
-2,A magic elven *shield* +1. [elven inscription]
-2,A magic dwarven *shield* +2. [dwarven inscription]
-1,A suit of magic elven *plate armour* +1 with scales of the red dragon [red dragon name], made by [elf].
-1,A suit of dwarven *plate armour* +1 with scales of the white dragon [white dragon name], made by [dwarf] of [dwarf forge].
+4,A suit of elven *plate armour* +1. [elven inscription]
+2,A suit of dwarven *plate armour* +2. [dwarven inscription]
+2,An elven *shield* +1. [elven inscription]
+2,A dwarven *shield* +2. [dwarven inscription]
+1,A suit of elven *plate armour of fire resistance* +1 made with scales of the red dragon [red dragon name] by [elf].
+1,A suit of dwarven *plate armour cold resistance* +1 made with scales of the white dragon [white dragon name] by [dwarf] of [dwarf forge].
 1,A *silver snake armlet* +1, blessed by Set.
+1,A black *plate armour of [evil power]* +3, inscribed with runes of fire spelling doom and despair.
+1,The *shield of the lion* +2: when you hit your opponent, it bites for an extra 1d6 damage.
+1,A black *plate armour of the dark lord* + 2, giving your voice a magical force, if you are not attacking: the person addressed must save vs. spells or obey a one-word command, if they understand.
 
 ;wondrous item
 1,A pair of *nightvision goggles* (60ft).
