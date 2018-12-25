@@ -3255,7 +3255,7 @@
 ;bushes
 1,Badlands full of shrubs and wild hedges. [loner]
 1,Dry lands full of tumbleweed and thorn bushes. [loner]
-1,Hidden between some hills is a valley apparently full of thorn bushes. It hides a hamlet of [5d8] **halflings** led by [halfling leader].
+1,Hidden between some hills is a valley apparently full of thorn bushes. It hides a hamlet of [5d8] **halflings** led by [halfling leader]. [halfling treasure]
 1,An old fort overlooking the woods has been taken over by a war party of [4d6] **hobgoblins** led by [hobgoblin] (HD 3+1). The fort is defended by [hobgoblin companions]. [old fort] [hobgoblin treasure]
 1,An abandoned watchtower on a promontory overlooking the drylands is home to [4d6] **hobgoblins** led by [hobgoblin] (HD 3+1). The approach is guarded by [hobgoblin companions]. [hobgoblin treasure]
 1,Up in these drylands, a massive fortress built by giants long ago is home to [1d6x10] **orcs** of the [evil tribe], led by [orc leader]. The fortress is [orc fort] [orc treasure]
@@ -3459,6 +3459,9 @@
 
 ;halfling leader
 1,[halfling] (level [1d6+1])
+
+;halfling treasure
+1,[30% 1d4 silver] [20% 1d4 gold] [30% 1d8 gems] [20% 1d4 jewelry] [10% magic item] [5% per item type]
 
 ;halfling
 1,[halfling name]<img src="[[redirect https://campaignwiki.org/face/redirect/alex/woman]]" alt="[same halfling name]" title="[same halfling name]"/>
@@ -7882,10 +7885,13 @@
 1,[1d6]000 gold coins.
 4,
 
+;20% 1d4 gold
+1,[1d4]000 gold coins.
+4,
+
 ;30% 1d4 gold
 3,[1d4]000 gold coins.
 7,
-
 ;30% 1d6 gold
 3,[1d6]000 gold coins.
 7,
