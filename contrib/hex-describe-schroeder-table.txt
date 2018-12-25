@@ -3299,7 +3299,11 @@
 1,Sheltered behind one of the boulders and well hidden by some bushes there is a tent.
 
 ;necromancer
-1,Here lives the **necromancer** [human] (level [1d3+4]), protected by [necromancer companions], in a tower. [necromancer tower]
+
+1,Here lives the necromancer **[human]** (level [name for 1d3+4]), protected by [necromancer companions], in a tower. [necromancer tower] [5% per item type for 1d3+4]
+
+;name for 1d3+4
+1,[1d3+4]
 
 ;necromancer companions
 1,[4d6] watchful **zombies**
@@ -3344,8 +3348,8 @@
 1,[wight leader]
 
 ;vivimancer
-1,Here lives the **vivimancer** [here human] (level [1d3+4]), protected by [3d6] **myconids**, in a tower. [alchemist job]
-1,Here is the tower of the **vivimancer** [human] (level [1d3+4]) with [3d6] [slimes]. [safe zone]
+1,Here lives the vivimancer **[here human]** (level [name for 1d3+4]), protected by [3d6] **myconids**, in a tower. [alchemist job] [5% per item type for 1d3+4]
+1,Here is the tower of the vivimancer **[human]** (level [name for 1d3+4]) with [3d6] [slimes]. [safe zone] [5% per item type for 1d3+4]
 
 ;alchemist job
 1,[same human] is looking for [nearby magic plant].
@@ -4167,33 +4171,37 @@
 1,The forest is cold and dark, full of firs.
 1,This is a fir forest.
 
-;thorp
-1,</p><p>There is a thorp of [1d4x10] **humans** led by [human]. The [human houses] are protected by [human companions]. [human treasure]
-
 ;human treasure
-1,[human treasure context] [20% 1d6 silver] [40% 1d12 gold] [60% 5d8 gems] [50% 5d8 jewelry] [25% magic item] [25% magic item] [25% magic item]
+1,[20% 1d6 silver] [40% 1d12 gold] [60% 5d8 gems] [50% 5d8 jewelry] [25% magic item] [25% magic item] [25% magic item]
 
-;human treasure context
-1,Their treasure is hidden in a treasure chest buried beneath the fireplace.
-1,The treasure chamber is locked with a key.
-1,The treasure chest is hidden in the fish pond.
-1,The treasure is kept in the main hall.
+;thorp
+1,</p><p>There is a thorp of [1d4x10] **humans** led by [human] the [human job]. The [human houses] are protected by [human companions]. [human treasure]
 
+# the second variant has a temple at the end
 ;village
-2,</p><p>There is a village of [5d6x10] **humans** led by [human leader] who lives in a small [name for village building] with [human retainer] and [human friends]. [small [name for village building]]</p><p>The [human houses] outside are protected by [human companions] and a [human defense]. [And a secret society]
-1,</p><p>There is a village of [5d6x10] **humans** led by [human leader] who lives in a small [name for village building] with [human retainer] and [human friends]. [small [name for village building]]</p><p>The [human houses] outside are protected by [human companions] and a [human defense]. [And a secret society] There is a [name for temple]. [small [name for temple]]
+1,</p><p>There is a village of [5d6x10] **humans**. The [human houses] are protected by [human companions] and a [human defense]. There is small **[name for village building]**. [small [name for village building]] [human treasure]</p><p>The [human leader] lives in the [name for village building]. [5% per item type for 1d2+8]</p><p>[human retainer]</p><p>[human friends]</p><p>[And a secret society]
+1,</p><p>There is a village of [5d6x10] **humans**. The [human houses] are protected by [human companions] and a [human defense]. There is small **[name for village building]**. [small [name for village building]] [human treasure]</p><p>The [human leader] lives in the [name for village building]. [5% per item type for 1d2+8]</p><p>[human retainer]</p><p>[human friends]</p><p>[And a secret society]</p><p>There is a [name for temple]. [small [name for temple]]
 
+# the first variant has a town feature, the other has an alchemist
 ;town
-1,</p><p>There is a town of [1d6x100] **humans** led by [human leader] who lives in a keep with [human retainer] and [human friends]. The [human houses] outside are protected by a town wall and the river. [And two secret societies feuding]</p><p>There is [town feature] and a [name for temple]. [small [name for temple]]
-1,</p><p>There is a town of [1d6x100] **humans** led by [human leader] who lives in a keep with [human retainer] and [human friends]. The [human houses] outside are protected by a town wall and the river. [And two secret societies feuding]</p><p>An alchemist named [here human] lives here, selling a [potion] for 500gp each. [1d4+1] of these are currently for sale. [alchemist job] There is also a [name for temple]. [small [name for temple]]
+1,</p><p>There is a town of [1d6x100] **humans**. The [human houses] are protected by a keep, a town wall and the river. [human treasure]</p><p>The [human leader] lives in the keep. [5% per item type for 1d2+8]</p><p>[human retainer]</p><p>[human friends]</p><p>[And two secret societies feuding]</p><p>There is a [name for temple]. [small [name for temple]]</p><p>There is also [town feature].
+1,</p><p>There is a town of [1d6x100] **humans**. The [human houses] are protected by a keep, a town wall and the river. [human treasure]</p><p>The [human leader] lives in the keep. [5% per item type for 1d2+8]</p><p>[human retainer]</p><p>[human friends]</p><p>[And two secret societies feuding]</p><p>There is a [name for temple]. [small [name for temple]]</p><p>An alchemist named **[here human]** lives here, selling a [potion] for 500gp each. [1d4+1] of these are currently for sale. [alchemist job]
+
+;human job
+1,smith
+1,miller
+1,carpenter
+1,owner of the largest pasture
+1,owner of largest cow herd
+1,owner of the most sheep
 
 ;name for temple
 1,temple dedicated to [power]
 
 ;And a secret society
 1,Luckily, no secret societies have established themselves, here.
-1,The local contact for the secret society of the [one of the secret societies] is [a boss].
-1,The secret society of the [one of the secret societies] has a representative, here: [a boss].
+1,The local contact for the secret society of the [one of the secret societies] is [a boss]. [5% per item type for 1d4+2]
+1,The secret society of the [one of the secret societies] has a representative, here: [a boss]. [5% per item type for 1d4+2]
 
 ;And two secret societies feuding
 1,[And a secret society]
@@ -4201,12 +4209,13 @@
 1,The secret societies of the [name for a secret society 2] and the [name for a secret society 3] are feuding in this town. [Their leaders are]
 
 ;Their leaders are
-1,They are led by [a boss] and [a boss], respectively.
-1,One is led by [a boss], the other by [a boss].
-1,This goes back to the old rivalries between their respective leaders, [a boss] and [a boss].
+1,One society is led by [a boss]. [5% per item type for 1d4+2] The other society is led by [a lesser boss]. [5% per item type for 1d4+1]
 
 ;a boss
-1,the [human class] [human] (level [1d4+2])
+1,the [human class] **[human]** (level [1d4+2])
+
+;a lesser boss
+1,the [human class] **[human]** (level [1d4+1])
 
 # make sure there are only 3 of them
 ;one of the secret societies
@@ -4215,11 +4224,11 @@
 1,[name for a secret society 3]
 
 ;name for a secret society 1
-1,[secret society]
+1,*[secret society]*
 ;name for a secret society 2
-1,[secret society]
+1,*[secret society]*
 ;name for a secret society 3
-1,[secret society]
+1,*[secret society]*
 
 # meaning the human has no class and isn't a priest
 # the result is also reused in the following tables
@@ -4228,7 +4237,7 @@
 1,keep
 
 ;small tower
-1,The tower is four stories high and has an entrance on the second level. A ladder leads up to it. Twenty large stones are stored on the roof. This should be enough to deter any peasant uprising.
+1,The tower is four stories high and has an entrance on the second level. A ladder leads up to it. Twenty large stones are stored on the roof. This should be enough to deter a peasant uprising.
 1,The massive round tower is three stories high and topped with a wooden section that feels like a comfortable tree house in peace time. The walls are thick and the main doors are reinforced with iron bands.
 
 ;small keep
@@ -4306,14 +4315,14 @@
 
 ;small temple dedicated to Nergal
 1,[small temple]
-1,The small temple here is actually a sick house. This is where the sick go to die. There is currently one old person here, [human name].
-1,The small temple here is actually a sick house. This is where the sick go to die. There are currently [1d3+1] old people here. The healthiest one is [human name].
-1,The small temple here is actually a charnel house. The sick and the dying are brought here and as the plague is currently active in the area, there are [3d6] sick people here. Many can no longer speak, but [human name] and [human name] will talk.
+1,The small temple here is actually a sick house. This is where the sick go to die. There is currently one old person here, **[human name]**.
+1,The small temple here is actually a sick house. This is where the sick go to die. There are currently [1d3+1] old people here. The healthiest one is **[human name]**.
+1,The small temple here is actually a charnel house. The sick and the dying are brought here and as the plague is currently active in the area, there are [3d6] sick people here. Many can no longer speak, but **[human name]** and **[human name]** will talk.
 1,The temple houses a traditional reed boat. This symbolizes the passage into the netherworld. Inscriptions on the wall describe sickness and death as the transition from the world of the living into the realm of Nergal. Behind the temple is the graveyard.
 1,The temple is a school of exorcism. All the dead belong to Nergal and to animate the dead is theft. The temple specialises in the finding and killing of [undead].
 1,The temple used to be a hospice but now most of the building is abandoned and sealed. Should the seal be broken, sickness and death awaits any trespassers. Poisonous molds. Deadly gases. Rotting diseases and blindness. The plague will return.
 1,The temple is a big feasting hall and a meeting place for the sisters and brothers of the hunt. They hunt vampires wherever they go and thus they all carry magical blades. Beneath the hall are fortified sleeping quarters. This is where the elders lock themselves away when the moon is full for they are all werewolves.
-1,The temple is an asylum for the demented and the old. Everything is quiet. [3d6] old people sit there, staring at you, unblinking. Their caretaker is [human name]. Nergal wants the living to forget the dead and the process starts right here, right now.
+1,The temple is an asylum for the demented and the old. Everything is quiet. [3d6] old people sit there, staring at you, unblinking. Their caretaker is **[human name]**. Nergal wants the living to forget the dead and the process starts right here, right now.
 
 ;undead
 1,zombies
@@ -4390,10 +4399,10 @@
 
 ;small temple dedicated to Hel
 1,[small temple]
-1,The temple is built for the old. There are no stairs. Everything is slow. [3d6] old people sit here, smiling and nodding. They are looked after by [human name].
-1,The temple is a witch coven, a labyrinth of tiny passages, low ceilings, confusing twists and turns, skulls, stuffed animals, and flickering candles. A group of [3d4] women run this place, led by [woman]. They say that on nights of the full moon these women fly through the air to visit remote farms and deliver the babies.
-1,The temple is a witch coven, a labyrinth of tiny passages, low ceilings, confusing twists and turns, skulls, stuffed animals, and flickering candles. A group of [3d4] women run this place, led by [woman]. They say that on nights of the full moon these women fly through the air to visit remote farms and steal the babies.
-1,The temple is built atop a nexus of Earth Blood, both channelling its energy and protecting the surface from its mutagenic power. Multiple circles of protection and seals of banning can be seen on the ground and on the standing stones throughout the area. [3d4] women care for this place, led by [woman].
+1,The temple is built for the old. There are no stairs. Everything is slow. [3d6] old people sit here, smiling and nodding. They are looked after by **[human name]**.
+1,The temple is a witch coven, a labyrinth of tiny passages, low ceilings, confusing twists and turns, skulls, stuffed animals, and flickering candles. A group of [3d4] women run this place, led by **[woman]**. They say that on nights of the full moon these women fly through the air to visit remote farms and deliver the babies.
+1,The temple is a witch coven, a labyrinth of tiny passages, low ceilings, confusing twists and turns, skulls, stuffed animals, and flickering candles. A group of [3d4] women run this place, led by **[woman]**. They say that on nights of the full moon these women fly through the air to visit remote farms and steal the babies.
+1,The temple is built atop a nexus of Earth Blood, both channelling its energy and protecting the surface from its mutagenic power. Multiple circles of protection and seals of banning can be seen on the ground and on the standing stones throughout the area. [3d4] women care for this place, led by **[woman]**.
 1,The temple is a warren dug into a hill. It smells of death. At the entrance, votive offerings have been placed on shelves. Most of these are small statues and dolls, prayers for recovery or peace in the afterlife, or people begging for guidance. Down below, however, when you reach the oldest layers of the settlement, a terrible secret is revealed: a big pit full of baby skeletons. [why baby skeletons]
 1,The temple is dug deep into the rocks below. Unbeknownst to most, the caves down here are inhabited by [1d4+2] trolls led by [troll]. Human bones are everywhere. [why trolls]
 
@@ -4406,7 +4415,7 @@
 ;why trolls
 1,These trolls are the secret protectors of the settlement. At night, they sneak out and take care of all their enemies.
 1,These trolls are the very trolls that helped the founders settle this area and their safety is part of a covenant as old as the settlement itself.
-1,These trolls are called the Children of Hel and they are sacred. their contact with the settlement being passed down from generation to generation. The current troll friend is [human name].
+1,These trolls are called the Children of Hel and they are sacred. their contact with the settlement being passed down from generation to generation. The current troll friend is **[human name]**.
 1,These trolls are the true priests of Hel.
 1,These trolls guard a secret passage to the realm of snow and black forests itself, to Niflheim. The gate to Niflheim itself at the end of this passage is further guarded by a [gate monster].
 
@@ -4420,10 +4429,10 @@
 1,[small temple]
 1,The temple lies on a hill and boasts a great hall, a long house, were beer is always to be had. The walls are full of weapons and shields of famous patrons, and there are wood carvings of the Freya's beautiful home in Asgard, the city of the gods, a realm all to itself.
 1,The temple lies at the edge of the settlement, under some oak trees and with fields in the back. A few standing stones show Freya in her various guises over the course of the year. Sowing, growing, harvesting, and fighting. There are [3d6] [boars or wolves] living in the vicinity. The building itself is a longhouse with a grass roof.
-1,The temple has a courtyard with the wooden statue of a wolf mother raising two human babies. The building is run by [2d6] midwives. Old [woman] is their spokeswoman. All the parents in this settlement know how much they owe these midwives, and they know it, too.
-1,The temple belongs to the local [shield maidens], a society of armed women sworn to protect each other and their community. There are [3d6] women led by [woman] living here and all are considered armed and dangerous by the locals.
-1,The local priests have turned their attention on the sick and as their reputation grew, so did the number of petitioners waiting outside their hall every morning. There are currently [2d4] priests under the guiding hand of [woman] tending the [3d10] sick and wounded.
-1,This temple is run by the she-wolf [woman]. She is always in the company of her **winter wolf**, a beast as large as a pony, with red eyes and fearsome fangs.
+1,The temple has a courtyard with the wooden statue of a wolf mother raising two human babies. The building is run by [2d6] midwives. Old **[woman]** is their spokeswoman. All the parents in this settlement know how much they owe these midwives, and they know it, too.
+1,The temple belongs to the local [shield maidens], a society of armed women sworn to protect each other and their community. There are [3d6] women led by **[woman]** living here and all are considered armed and dangerous by the locals.
+1,The local priests have turned their attention on the sick and as their reputation grew, so did the number of petitioners waiting outside their hall every morning. There are currently [2d4] priests under the guiding hand of **[woman]** tending the [3d10] sick and wounded.
+1,This temple is run by the she-wolf **[woman]**. She is always in the company of her **winter wolf**, a beast as large as a pony, with red eyes and fearsome fangs.
 
 ;boars or wolves
 1,**boars**
@@ -4438,11 +4447,11 @@
 
 ;small temple dedicated to Odin
 1,[small temple]
-1,The temple houses an 8ft high wooden statue of Odin wielding his magic spear. An old woman named [woman] takes care of the temple. She knows the power of runes and will cast the stones for you, should want to locate a loved one or find a dragon.
-1,The temple is actually a feast hall housing a small college of bards led by [human name]. During the day, they sing songs, practice balads, and compete in poetry. In the evening, the drink. All bards are expected to deliver a yearly donation for the upkeep of the college. Failure to do so results in being placed on a list. Should you need rescuing, they will contract a secret society to do that. Should you skip your obligation, they will contract a secret society to remedy that.
+1,The temple houses an 8ft high wooden statue of Odin wielding his magic spear. An old woman named **[woman]** takes care of the temple. She knows the power of runes and will cast the stones for you, should want to locate a loved one or find a dragon.
+1,The temple is actually a feast hall housing a small college of bards led by **[human name]**. During the day, they sing songs, practice balads, and compete in poetry. In the evening, the drink. All bards are expected to deliver a yearly donation for the upkeep of the college. Failure to do so results in being placed on a list. Should you need rescuing, they will contract a secret society to do that. Should you skip your obligation, they will contract a secret society to remedy that.
 1,The temple is also a famous school for birds of prey. They are trained here and then sold to nobility in far away regions. The rich merchants making this trip often need guards and thus a mercenary house was established here. [mercenary house]
-1,It was built generations ago atop a pool of Earth Blood by Wise [human name] in order to prevent its mutagenic power from corrupting the area. Many magic users and elves have come here over the years, drawn by the small eddies of magic energy still emanating from the sealed area: get one extra spell slot of your liking while you sleep nearby. [name for inn] was built next to the temple just for this.
-1,The temple functions welcomes all wanderers and homeless people, housing people for up to week for a gold piece per person. This is the [name for inn] run by [human name]. The common room has an entire altar built into it, including carved columns with eagles and ravens and showing Odin riding his eight legged horse over the rainbow bridge.
+1,It was built generations ago atop a pool of Earth Blood by Wise **[human name]** in order to prevent its mutagenic power from corrupting the area. Many magic users and elves have come here over the years, drawn by the small eddies of magic energy still emanating from the sealed area: get one extra spell slot of your liking while you sleep nearby. [name for inn] was built next to the temple just for this.
+1,The temple functions welcomes all wanderers and homeless people, housing people for up to week for a gold piece per person. This is the [name for inn] run by **[human name]**. The common room has an entire altar built into it, including carved columns with eagles and ravens and showing Odin riding his eight legged horse over the rainbow bridge.
 
 ;mercenary house
 1,The [mercenary house name 1] [mercenary house name 1] of [mercenary house name 2] is run by [human name] and consists of 6d6 mercenaries.
@@ -4511,15 +4520,13 @@
 ;small temple dedicated to Thor
 1,[small temple]
 1,The temple is in fact an altar built inside the village smith's forge. This is where the strongest villagers meet every seven-night to discuss their grievances and resolve their issues. Money changes hands, children are promised into apprenticeship and journeymen are welcomed into the village.
-1,The temple is an altar at the foot of a big rock. The top has been hit by lightning countless times. Next to the altar is the wrestling field. Every festival involves wrestling and old [human name] is the most proficient wrestler, here.
-1,The temple stands in the backyard of [human name] the chariot maker. Inside it is a life sized statue of Thor riding a chariot drawn by two giant goats. The chariot maker is rich and has buried all his gold beneath the chariot.
+1,The temple is an altar at the foot of a big rock. The top has been hit by lightning countless times. Next to the altar is the wrestling field. Every festival involves wrestling and old **[human name]** is the most proficient wrestler, here.
+1,The temple stands in the backyard of **[human name]** the chariot maker. Inside it is a life sized statue of Thor riding a chariot drawn by two giant goats. The chariot maker is rich and has buried all his gold beneath the chariot.
 1,The temple is one of the few places where they rise **giant goats**. There are currently [2d6] of these giant goats, here. The paintings beneath the roof show Thor riding hsi chariot pulled by his two famous goats. These giant goats are sold to [goat clients].
 
 ;goat clients
 1,dwarves
 1,highland farmers
-
-
 
 ;small temple dedicated to Mitra
 1,[small temple]
@@ -4528,7 +4535,7 @@
 1,The temple looks like a tower, except that it has a big window from the bottom to the roof. On the inside, there are no extra floors. The room is simply 50ft high. The strip of light from the window falls on one of three oath brother statues in here, each raising their right hand, each pointing three fingers towards the sky. This is the bond of loyalty that makes us strong.
 1,The temple has a door fit for a giant, but inside there is simply a strip of wooden flooring for petitioners to kneel and a big status of Mitra standing blindfolded in a sea of fire, holding the balance of justice in one hand and the sword of judgement in the other.
 1,A long set of winding stairs leads deep underground to a fiery pit. The fumes are intoxicating and the dreamy babbling of a woman's voice can be heard but her words make no sense to you. She is one of the eternal servants, gifted to the temple by her parents and bound to pass through the lake of fire into Muspelheim, the realm of Mitra, whence nobody has ever returned. This is of course true: the lake of fire is a one way gate to [a location in Muspelheim]. Most of these women eventually master the arcane arts of pyromancy.
-1,Deep within the bowels of the earth, a pool of Earth Blood is being kept at bay by circles of banishment and stasis and thus evil **gorgon** and its poison remains imprisoned while these seals last. The temple guards the entry to this underworld and the [2d6] priests [human name], the current head of the temple, inspect and improve their defences every year on the night of the winter solstice. The common folks just see the statues of the three oath brother statues here and come here to renew their bond with Mitra. They call themselves the Oath Keepers for this is what they do: the make bargains, here.
+1,Deep within the bowels of the earth, a pool of Earth Blood is being kept at bay by circles of banishment and stasis and thus evil **gorgon** and its poison remains imprisoned while these seals last. The temple guards the entry to this underworld and the [2d6] priests **[human name]**, the current head of the temple, inspect and improve their defences every year on the night of the winter solstice. The common folks just see the statues of the three oath brother statues here and come here to renew their bond with Mitra. They call themselves the Oath Keepers for this is what they do: the make bargains, here.
 
 ;a location in Muspelheim
 1,the [Muspelheim building] of [Muspelheim material] where [Muspelheim matriarch] [old names for women] rules
@@ -4566,7 +4573,7 @@
 1,The temple is actually nothing but a simple altar and a small statue, some food offerings, and a little hut where the caretakers of this temple lives.
 1,The temple is a tiny affair where new born babies are blessed and the dead are mourned and buried. There is a small spirit gate here which symbolises the passage to the next world. In the back is the graveyard full of name stones.
 1,The temple is basically a tiny spirit house with a small altar, some fruit, a cup of tea, and a small, unpainted statue carved in wood.
-1,The temple is the small courtyard with a stone altar, a little statue, and some flowers and twigs in a jar.
+1,The temple stands in the small courtyard and consists of a stone altar, a little statue, and some flowers and twigs in a jar.
 
 ;town feature
 1,a market
@@ -4590,31 +4597,42 @@
 1,river flowing around it
 
 ;human leader
-1,the [human class] [human] (level [1d2+8])
+1,[human class] **[human]** (level [name for 1d2+8])
+
+;name for 1d2+8
+1,[1d2+8]
 
 ;human retainer
-1,a retainer, the [human class] [human] (level [1d2+6])
+1,Their retainer is the [human class] **[human]** (level [name for 1d2+6]). [5% per item type for 1d2+6]
+
+;name for 1d2+6
+1,[1d2+6]
 
 ;retainer
 1,retainer
-1,subordinate
 1,second in command
 1,best friend
+1,companion
+1,partner
 
 ;human friends
-1,their [whip], the [human class] [human] (level [1d4+1])
-1,their two [aides], the [human class] [human] and the [human class] [human] (both level 5)
+1,Their [aide], the [human class] **[human]** (level [name for 1d4+1]), also lives here. [5% per item type for 1d4+1]
+1,They are served by two [aide]s. One is the [human class] **[human]** (level 5). [5% per item type for 5] The other is the [human class] **[human]** (level [name for 1d4+1]). [5% per item type for 1d4+1]
 
-;whip
+;name for 1d4+2
+1,[1d4+2]
+
+;name for 1d4+1
+1,[1d4+1]
+
+# must be able to create a plural by appending an s
+;aide
 1,whip
 1,slave master
 1,steward
 1,acolyte
-
-;aides
-1,aides
-1,subordinates
-1,henchmen
+1,aide
+1,subordinate
 
 ;human companions
 1,some sharpened stakes
@@ -7965,6 +7983,24 @@
 ;5% per item type
 1,[[5% x [name for 1d6+1]] potion] [[5% x [name for 1d6+1]] scroll] [[5% x [name for 1d6+1]] magic weapon] [[5% x [name for 1d6+1]] magic armour] [[5% x [name for 1d6+1]] wondrous item]
 
+;5% per item type for 1d2+8
+1,[[5% x [name for 1d2+8]] potion] [[5% x [name for 1d2+8]] scroll] [[5% x [name for 1d2+8]] magic weapon] [[5% x [name for 1d2+8]] magic armour] [[5% x [name for 1d2+8]] wondrous item]
+
+;5% per item type for 1d2+6
+1,[[5% x [name for 1d2+6]] potion] [[5% x [name for 1d2+6]] scroll] [[5% x [name for 1d2+6]] magic weapon] [[5% x [name for 1d2+6]] magic armour] [[5% x [name for 1d2+6]] wondrous item]
+
+;5% per item type for 1d4+2
+1,[[5% x [name for 1d4+2]] potion] [[5% x [name for 1d4+2]] scroll] [[5% x [name for 1d4+2]] magic weapon] [[5% x [name for 1d4+2]] magic armour] [[5% x [name for 1d4+2]] wondrous item]
+
+;5% per item type for 1d4+1
+1,[[5% x [name for 1d4+1]] potion] [[5% x [name for 1d4+1]] scroll] [[5% x [name for 1d4+1]] magic weapon] [[5% x [name for 1d4+1]] magic armour] [[5% x [name for 1d4+1]] wondrous item]
+
+;5% per item type for 1d3+4
+1,[[5% x [name for 1d3+4]] potion] [[5% x [name for 1d3+4]] scroll] [[5% x [name for 1d3+4]] magic weapon] [[5% x [name for 1d3+4]] magic armour] [[5% x [name for 1d3+4]] wondrous item]
+
+;5% per item type for 5
+1,[[5% x 5] potion] [[5% x 5] scroll] [[5% x 5] magic weapon] [[5% x 5] magic armour] [[5% x 5] wondrous item]
+
 ;5% x 2
 1,has
 9,no
@@ -7988,6 +8024,18 @@
 ;5% x 7
 7,has
 20,no
+
+;5% x 8
+2,has
+3,no
+
+;5% x 9
+9,has
+11,no
+
+;5% x 10
+1,has
+1,no
 
 ;has potion
 1,A [potion].
@@ -8206,7 +8254,7 @@
 1,The dwarven hammer *Ironslayer* +1/+3 vs. armoured, made by the legendary [dwarf] of [dwarf forge].
 1,The *long sword of light* +3 (60ft), made in Asgard for the valkyrie [valkyrie name] (the sword rejects anybody who refuses to join three fights while carrying the sword).
 1,The *club of the slayer* +1/+3 vs. giants, blessed by Marduk.
-1,The black dagger *Kingslayer* +1/+3 in the surprise round, blessed by Set: a target hit in the surprise round must save vs. poison or die.
+1,The black dagger *Kingslayer* +1/+3, blessed by Set: a target hit in the surprise round must save vs. poison or die.
 1,A smoking, quivering *black arrow of death* +2, carrying the curse of Nergal, ready to take root in a target: if hit, save vs. death or die; the arrow's curse is lost when shot whether it hits or misses.
 1,The two handed *Icekiller* +3, forged by the frost giant [frost giant] in Jotunheim; when the blade is drawn, snow flakes form; when it is stuck into water, a layer of ice forms (10ft); when left unsheathed, a glacier will eventually form.
 1,The long sword *Swampfire* +1/+3 vs. runners, forged in the depths of Myrkheim by frogling priests of Tsathoggua; it eeks a phosphorous glowing liquid and smells of rotten eggs; when left unsheathed, everything around it becomes water logged and eventually turns into a swamp.
@@ -8217,8 +8265,8 @@
 2,A suit of dwarven *plate armour* +2. [dwarven inscription]
 2,An elven *shield* +1. [elven inscription]
 2,A dwarven *shield* +2. [dwarven inscription]
-1,A suit of elven *plate armour of fire resistance* +1 made with scales of the red dragon [red dragon name] by [elf].
-1,A suit of dwarven *plate armour cold resistance* +1 made with scales of the white dragon [white dragon name] by [dwarf] of [dwarf forge].
+1,A suit of elven *plate armour of fire resistance* +1 made with scales of the red dragon [red dragon name], forged by [elf].
+1,A suit of dwarven *plate armour cold resistance* +1 made with scales of the white dragon [white dragon name], forged by [dwarf] of [dwarf forge].
 1,A *silver snake armlet* +1, blessed by Set.
 1,A black *plate armour of [evil power]* +3, inscribed with runes of fire spelling doom and despair.
 1,The *shield of the lion* +2: when you hit your opponent, it bites for an extra 1d6 damage.
@@ -8235,9 +8283,9 @@
 1,An *amulet of shape changing*, blessed by Loki ([animal shape]).
 1,A [magic horn].
 1,A *diadem of the slaver* (when targeted by a spell, it is redirected to a person within 10ft if you save vs. spells).
-1,The *ring of [tengu name]*, summons a tengu always willing to talk and offer advice ([tengu stats]); the ring's magic is lost when the tengu is killed.
-1,The *staff of [minotaur name]*, summons a minotaur always willing to talk and offer advice ([minotaur stats]); the staff's magic is lost when the minotaur is killed.
-1,The *flute of [naga name]*, summons a naga ready to whisper and corrupt in your name ([naga stats]); the flute's magic is lost when the naga is killed.
+1,The *ring of the tengu*, summons the tengu [tengu name], always willing to talk and offer advice ([tengu stats]); the ring's magic is lost when the tengu is killed.
+1,The *staff of the minotaur*, summons the minotaur [minotaur name], always willing to talk and offer advice ([minotaur stats]); the staff's magic is lost when the minotaur is killed.
+1,The *flute of the naga*, summons the naga [naga name], always ready to whisper and corrupt in your name ([naga stats]); the flute's magic is lost when the naga is killed.
 1,A *flying carpet* (four people).
 1,[elemental prison]
 
