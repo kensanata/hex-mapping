@@ -788,7 +788,7 @@
 ;ice devil lair
 1,a large ice cave with a mount of bones as big as a house upon which the devil has built his throne of ice and steel.
 1,[1d4+2] torture chambres full of racks, vats, ice baths, blades, needles, and worse. There are dead bodies everywhere.
-1,a pool of magical darkness where [3d4] insane ice trolls toil endlessly, expanding the halls of their master. From here, stairs lead up and up to the very top of the mountain. [ice devil castle]
+1,a pool of magical darkness where [3d4] insane **ice trolls** toil endlessly, expanding the halls of their master. From here, stairs lead up and up to the very top of the mountain.</p><p>[ice devil castle]
 
 ;ice devil castle
 1,A castle stands here, a construction of blue ice, cooled by the desolation of Jötunheim, for at the very top of its tower is a gateway into that realm of frost giants and eternal snow.
@@ -3376,7 +3376,7 @@
 1,[cave use] The caves are paintings of the [evil tribe] on the cave walls. [orcs]
 1,[cave use] The caves are filled with mushrooms and guarded by [myconids]
 1,[cave use] In winter, these caves are home to [1d4 bears].
-1,[cave use] The caves are inhabited by [1d8 trolls].
+1,[cave use] The caves are inhabited by [1d8 trolls]. [troll treasure]
 1,[cave use] The caves have been abandoned a long time ago.
 
 ;orcs
@@ -4075,7 +4075,7 @@
 1,[fir highlands] This fir forest is home to a pack of [3d6] **wolves**.
 1,[fir highlands] At dusk and dawn, you can sometimes see [boars].
 1,There is a cave in this fir forest housing the **ettin** called [ettin].
-1,[fir highlands] At the foot of [crag name], there is cave inhabited by [1d8 trolls].
+1,[fir highlands] At the foot of [crag name], there is cave inhabited by [1d8 trolls]. [troll treasure]
 1,[fir highlands] In this fir forest is a little campsite with [1d8 bugbears].
 1,[fir highlands] At night, the orcs of the [evil tribe] hunt these lands. [orcs] Their settlement is protected by a palisade and [orc fort]
 1,[fir highlands] There is an abandoned shrine to [power] up here. It is haunted by the **spectre** of [old name], the last priest who cared for it. The locals avoid it.
@@ -4158,6 +4158,9 @@
 1,Strong
 1,Fist
 1,Grey
+
+;troll treasure
+1,[20% 1d10 silver] [60% 1d8 gold] [40% 1d6 gems] [40% 1d6 jewelry] [10% magic item] [10% magic item] [10% magic item] [10% magic item]
 
 # These are the challenges facing adventurers starting out in a thorp!
 # A bit further away are the fir-forest hexes.
