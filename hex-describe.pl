@@ -2501,6 +2501,9 @@ td, th {
 .coordinates a {
   color: inherit;
 }
+.treasure {
+  background-color: #fffacd;
+}
 hr {
   clear: both;
 }

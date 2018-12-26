@@ -82,7 +82,7 @@
 1,Lady
 
 ;medusa treasure
-1,[10% 3d6 silver] [40% 1d6 gold] [40% 1d6 platinum] [20% 1d6 gems] [20% 1d6 jewelry] [30% magic item] [30% magic item] [30% magic item] [30% magic item]
+1,<span class="treasure">[10% 3d6 silver] [40% 1d6 gold] [40% 1d6 platinum] [20% 1d6 gems] [20% 1d6 jewelry] [30% magic item] [30% magic item] [30% magic item] [30% magic item]</span>
 
 ;medusa stats
 1,HD 4 AC 8 1d6 or *poison* F6 MV 9 ML 8 XP 400; *petrification*
@@ -95,7 +95,7 @@
 1,HD 4 → 5d4 AC 4/2 1d6 M5 MV 12 ML 9 XP 500; spells: *magic missile* (3×1d6+1), *shield* (reduces AC 9 to AC 4 in melee and AC 2 in ranged combat), *phantasmal force* (one or two of them use these illusions to split the party), *mirror image* (1d4 images to protect the caster), *lightning bolt* (5d6 damage, save vs. spells for half), each spell 1×/day
 
 ;warlock treasure
-1,[30% 1d6 silver] [20% 1d6 gold] [20% 1d6 gems] [20% 1d6 jewelry] [20% magic item] [20% magic item] [20% magic item] [20% magic item] [20% magic item]
+1,<span class="treasure">[30% 1d6 silver] [20% 1d6 gold] [20% 1d6 gems] [20% 1d6 jewelry] [20% magic item] [20% magic item] [20% magic item] [20% magic item] [20% magic item]</span>
 
 ;giant scorpions
 1,a **giant scorpion**
@@ -713,7 +713,7 @@
 1,HD 3 AC 5 *drain* F3 MV 9 ML 12 XP 300; only harmed by magic or magic weapons; immune to *sleep* and *charm*
 
 ;wight treasure
-1,[30% 1d4 silver] [30% 1d4 gold] [30% 1d8 gems] [20% 1d4 jewelry] [10% magic item]
+1,<span class="treasure">[30% 1d4 silver] [30% 1d4 gold] [30% 1d8 gems] [20% 1d4 jewelry] [10% magic item]</span>
 
 ;mountain
 1,The green valley up here has some sheep and a **kid** called [human kid] guarding them.
@@ -1050,7 +1050,7 @@
 1,HD 1 AC 7 1d4 F1 MV 12 ML 6 XP 100; *charm*, *water breathing*
 
 ;nixie treasure
-1,[30% 1d4 silver] [30% 1d4 gold] [30% 1d8 gems] [20% 1d4 jewelry] [10% magic item]
+1,<span class="treasure">[30% 1d4 silver] [30% 1d4 gold] [30% 1d8 gems] [20% 1d4 jewelry] [10% magic item]</span>
 
 ;nixie
 6,[nixie 1] [nixie 2]
@@ -1080,7 +1080,7 @@
 1,HD 3 AC 2 1d8 F3 MV 6 ML 8 XP 300; *two attacks* when damaged
 
 ;turtle people treasure
-1,[40% 1d6 silver] [10% 1d4 gold] [10% 1d6 gems] [10% 1d6 jewelry] [10% magic item]
+1,<span class="treasure">[40% 1d6 silver] [10% 1d4 gold] [10% 1d6 gems] [10% 1d6 jewelry] [10% magic item]</span>
 
 ;turtle
 1,Patience
@@ -2967,7 +2967,7 @@
 1,Ripper
 
 ;orc treasure
-1,[orc treasure context] [20% 1d10 silver] [60% 1d8 gold] [40% 1d6 gems] [40% 1d6 jewelry] [10% magic item] [5% per item type]
+1,<span class="treasure">[orc treasure context] [20% 1d10 silver] [60% 1d8 gold] [40% 1d6 gems] [40% 1d6 jewelry] [10% magic item] [5% per item type]</span>
 
 ;orc treasure context
 1,The orcish hoard looks like a garbage dump.
@@ -3255,7 +3255,7 @@
 ;bushes
 1,Badlands full of shrubs and wild hedges. [loner]
 1,Dry lands full of tumbleweed and thorn bushes. [loner]
-1,Hidden between some hills is a valley apparently full of thorn bushes. It hides a hamlet of [5d8] **halflings** led by [halfling leader]. [halfling treasure]
+1,Hidden between some hills is a valley apparently full of thorn bushes. It hides a hamlet of [halflings]
 1,An old fort overlooking the woods has been taken over by a war party of [4d6] **hobgoblins** led by [hobgoblin] (HD 3+1). The fort is defended by [hobgoblin companions]. [old fort] [hobgoblin treasure]
 1,An abandoned watchtower on a promontory overlooking the drylands is home to [4d6] **hobgoblins** led by [hobgoblin] (HD 3+1). The approach is guarded by [hobgoblin companions]. [hobgoblin treasure]
 1,Up in these drylands, a massive fortress built by giants long ago is home to [1d6x10] **orcs** of the [evil tribe], led by [orc leader]. The fortress is [orc fort] [orc treasure]
@@ -3300,7 +3300,7 @@
 
 ;necromancer
 
-1,Here lives the necromancer **[human]** (level [name for 1d3+4]), protected by [necromancer companions], in a tower. [necromancer tower] [5% per item type for 1d3+4]
+1,Here lives the necromancer **[human]** (level [name for 1d3+4]), protected by [necromancer companions], in a tower. [necromancer tower] <span class="treasure">[5% per item type for 1d3+4]</span>
 
 ;name for 1d3+4
 1,[1d3+4]
@@ -3348,8 +3348,8 @@
 1,[wight leader]
 
 ;vivimancer
-1,Here lives the vivimancer **[here human]** (level [name for 1d3+4]), protected by [3d6] **myconids**, in a tower. [alchemist job] [5% per item type for 1d3+4]
-1,Here is the tower of the vivimancer **[human]** (level [name for 1d3+4]) with [3d6] [slimes]. [safe zone] [5% per item type for 1d3+4]
+1,Here lives the vivimancer **[here human]** (level [name for 1d3+4]), protected by [3d6] **myconids**, in a tower. [alchemist job] <span class="treasure">[5% per item type for 1d3+4]</span>
+1,Here is the tower of the vivimancer **[human]** (level [name for 1d3+4]) with [3d6] [slimes]. [safe zone] <span class="treasure">[5% per item type for 1d3+4]</span>
 
 ;alchemist job
 1,[same human] is looking for [nearby magic plant].
@@ -3417,7 +3417,7 @@
 1,[1d5+1] **giant apes**
 
 ;hobgoblin treasure
-1,[20% 1d6 silver] [30% 1d6 gold] [20% 2d4 platinum] [20% 1d6 gems] [20% 1d6 jewelry]
+1,<span class="treasure">[20% 1d6 silver] [30% 1d6 gold] [20% 2d4 platinum] [20% 1d6 gems] [20% 1d6 jewelry]</span>
 
 ;green dragon name
 1,[green dragon 1] [dragon 2] [green dragon 3]
@@ -3457,11 +3457,20 @@
 1,Avarice
 1,Ambition
 
+;halflings
+1,[5d8] **halflings** led by [halfling leader]. [halfling treasure] [halfling troubles]
+
 ;halfling leader
 1,[halfling] (level [1d6+1])
 
 ;halfling treasure
-1,[30% 1d4 silver] [20% 1d4 gold] [30% 1d8 gems] [20% 1d4 jewelry] [10% magic item] [5% per item type]
+1,<span class="treasure">[30% 1d4 silver] [20% 1d4 gold] [30% 1d8 gems] [20% 1d4 jewelry] [10% magic item] [5% per item type]</span>
+
+;halfling troubles
+1,These halflings are wicked raiders, disappearing into the wilderness without leaving a trail.
+1,These halflings are cruel flesh eaters, like ravenous wolves they hunt and eat humans and elves alike.
+1,A curse has been killing their sheep and they fear starvation, soon enough.</p><p>Little do they know of the [witch]
+1,They hate and fear all outsiders. And what they fear most of all is that somebody would betray the location of their home.
 
 ;halfling
 1,[halfling name]<img src="[[redirect https://campaignwiki.org/face/redirect/alex/woman]]" alt="[same halfling name]" title="[same halfling name]"/>
@@ -3789,6 +3798,52 @@
 1,Vuldretrada
 1,Wymarc
 
+;witch
+1,**witch** [old names for women], [the witch], [witch goal]. [witch stats]. [harpy treasure]
+
+# make sure to not end in a space
+;the witch
+1,the Hag[witch of something]
+1,the Crone[witch of something]
+1,the Mother[witch of something]
+1,the Spinster[witch of something]
+1,the Man-Eater
+1,[witch bird]-Mother
+1,[witch bird]-Woman
+1,Queen of [witch bird]s
+1,Lady of the [witch bird]
+1,Lady Long Nails
+
+;witch of something
+1, of Hills
+1, of Cold Wind
+1, of Rain
+1, of Fog
+1, of Storm
+1, of Snow
+3,
+
+;witch bird
+1,Crow
+1,Raven
+1,Snake
+1,Black Cat
+1,Owl
+1,Rat
+1,Ferret
+
+;witch goal
+1,bent on exterminating all life around here.
+1,stealing children and raising them as her own
+1,who is who is cursing all men to a life of cowardice.
+1,who is stealing young men and taking their seed
+1,who is cursing sheep, cattle, and all the other tamed animals with the drowning sickness
+1,who is cursing all the young women of the land with infertility
+1,who is cursing all the young men of these lands with the drowning sickness
+
+;witch stats
+1,HD 5 AC 6 1d6/1d6 F5 MV 15 ML 7 XP 500; on a 20: magic water fills victim's lung, save vs. death or drown; *beautiful* (until kissed), *charm male*, *kiss of mind control* (24h), *invisibility*, *turn to fog*, *curse of water lungs* (save vs. death or drown in 1d6 days)
+
 ;hill name
 1,[hill 1] [hill 2]
 
@@ -3814,7 +3869,7 @@
 1,This reed is home to a lot of [swamp animals]. Those who know how to find it can gather [here magic plant].
 1,These wet land have been settled by a tribe of [6d6] **lizard people** led by [lizard leader] (HD [1d4+1]). The little village of mud huts is guarded by [lizard companions].
 1,This swamp is home to [5d8] **froglings** in a mud village guarded by [frogling companions].
-1,A ruined tower standing on a small island in this swamp is home to the **ettin** called [ettin].
+1,A ruined tower standing on a small island in this swamp is home to the **ettin** called [ettin]. [ettin treasure]
 1,In the old days, this bog was used to drown evil necromancers. [bog wights]
 1,On one of the islands of this swamp there is a huge mud mound. [goblins]
 
@@ -3877,10 +3932,13 @@
 1,There is a clearing in this forest where an old statue of [power] still stands.
 
 ;a monster threatening the village
-1,You shouldn't stray too far from the trails because this forest has been cursed by the presence of [2d4] **harpies** luring men into the depths of the forest and to their death with their magical singing.
-1,Deep in the forest there is a cave where the **ettin** [ettin] live. They are known for their fury and their appetite for human flesh.
-1,Hiding between the trees are the watchful eyes of [1d8 bugbears]. Bugbears are usually a bad sign for they are often employed as spies by the elves of the netherworld. These carry amulets of passage bearing the [name for a clan of the netherworld elves] sigil.
-1,The camp of [1d8 bugbears] is hard to find. They hunt these woods at night and like to kill anybody that didn't make it back to the village during daytime.
+1,You shouldn't stray too far from the trails because this forest has been cursed by the presence of [2d4] **harpies** luring men into the depths of the forest and to their death with their magical singing. [harpy treasure]
+1,Deep in the forest there is a cave where the **ettin** [ettin] live. They are known for their fury and their appetite for human flesh. [ettin treasure]
+1,Hiding between the trees are the watchful eyes of [1d8 bugbears]. [bugbear treasure] Bugbears are usually a bad sign for they are often employed as spies by the elves of the netherworld. These carry amulets of passage bearing the [name for a clan of the netherworld elves] sigil.
+1,The camp of [1d8 bugbears] is hard to find. [bugbear treasure] They hunt these woods at night and like to kill anybody that didn't make it back to the village during daytime.
+
+;harpy treasure
+1,<span class="treasure">[30% 1d6 silver] [20% 1d6 gems] [20% 1d6 jewelry] [10% magic item] [10% magic item]</span>
 
 ;ettin
 1,Bert and Bob
@@ -3889,6 +3947,9 @@
 1,Club and Nail
 1,Bone and Marrow
 1,Punch and Break
+
+;ettin treasure
+1,<span class="treasure">[50% 1d8 silver] [50% 2d6 gold] [20% 1d6 platinum] [30% 1d6 gems] [10% 1d4 jewelry] [10% magic item]</span>
 
 ;bog wights
 1,At night, [wight crawls]
@@ -4074,15 +4135,18 @@
 1,[fir highlands] The land up here is the hunting ground of a **manticore** called [manticore] living in the ruins of an old tower overlooking the area.
 1,[fir highlands] This fir forest is home to a pack of [3d6] **wolves**.
 1,[fir highlands] At dusk and dawn, you can sometimes see [boars].
-1,There is a cave in this fir forest housing the **ettin** called [ettin].
+1,There is a cave in this fir forest housing the **ettin** called [ettin]. [ettin treasure]
 1,[fir highlands] At the foot of [crag name], there is cave inhabited by [1d8 trolls]. [troll treasure]
-1,[fir highlands] In this fir forest is a little campsite with [1d8 bugbears].
+1,[fir highlands] In this fir forest is a little campsite with [1d8 bugbears]. [bugbear treasure]
 1,[fir highlands] At night, the orcs of the [evil tribe] hunt these lands. [orcs] Their settlement is protected by a palisade and [orc fort]
 1,[fir highlands] There is an abandoned shrine to [power] up here. It is haunted by the **spectre** of [old name], the last priest who cared for it. The locals avoid it.
 
 ;1d8 bugbears
 1,the **bugbear** [bugbear]
 7,[1d7+1] **bugbears** led by [bugbear] belonging to the [a bugbear band] band
+
+;bugbear treasure
+1,<span class="treasure">[20% 1d4 silver] [30% 1d4 gold] [30% 1d8 gems] [20% 1d4 jewelry] [10% magic item]</span>
 
 ;bugbear
 6,[bugbear 1] [bugbear 2]
@@ -4160,7 +4224,7 @@
 1,Grey
 
 ;troll treasure
-1,[20% 1d10 silver] [60% 1d8 gold] [40% 1d6 gems] [40% 1d6 jewelry] [10% magic item] [10% magic item] [10% magic item] [10% magic item]
+1,<span class="treasure">[20% 1d10 silver] [60% 1d8 gold] [40% 1d6 gems] [40% 1d6 jewelry] [10% magic item] [10% magic item] [10% magic item] [10% magic item]</span>
 
 # These are the challenges facing adventurers starting out in a thorp!
 # A bit further away are the fir-forest hexes.
@@ -4178,20 +4242,20 @@
 1,This is a fir forest.
 
 ;human treasure
-1,[20% 1d6 silver] [40% 1d12 gold] [60% 5d8 gems] [50% 5d8 jewelry] [25% magic item] [25% magic item] [25% magic item]
+1,<span class="treasure">[20% 1d6 silver] [40% 1d12 gold] [60% 5d8 gems] [50% 5d8 jewelry] [25% magic item] [25% magic item] [25% magic item]</span>
 
 ;thorp
 1,</p><p>There is a thorp of [1d4x10] **humans** led by [human] the [human job]. The [human houses] are protected by [human companions]. [human treasure]
 
 # the second variant has a temple at the end
 ;village
-1,</p><p>There is a village of [5d6x10] **humans**. The [human houses] are protected by [human companions] and a [human defense]. There is small **[name for village building]**. [small [name for village building]] [human treasure]</p><p>The [human leader] lives in the [name for village building]. [5% per item type for 1d2+8]</p><p>[human retainer]</p><p>[human friends]</p><p>[And a secret society]
-1,</p><p>There is a village of [5d6x10] **humans**. The [human houses] are protected by [human companions] and a [human defense]. There is small **[name for village building]**. [small [name for village building]] [human treasure]</p><p>The [human leader] lives in the [name for village building]. [5% per item type for 1d2+8]</p><p>[human retainer]</p><p>[human friends]</p><p>[And a secret society]</p><p>There is a [name for temple]. [small [name for temple]]
+1,</p><p>There is a village of [5d6x10] **humans**. The [human houses] are protected by [human companions] and a [human defense]. There is small **[name for village building]**. [small [name for village building]] [human treasure]</p><p>The [human leader] lives in the [name for village building]. <span class="treasure">[5% per item type for 1d2+8]</span></p><p>[human retainer]</p><p>[human friends]</p><p>[And a secret society]
+1,</p><p>There is a village of [5d6x10] **humans**. The [human houses] are protected by [human companions] and a [human defense]. There is small **[name for village building]**. [small [name for village building]] [human treasure]</p><p>The [human leader] lives in the [name for village building]. <span class="treasure">[5% per item type for 1d2+8]</span></p><p>[human retainer]</p><p>[human friends]</p><p>[And a secret society]</p><p>There is a [name for temple]. [small [name for temple]]
 
 # the first variant has a town feature, the other has an alchemist
 ;town
-1,</p><p>There is a town of [1d6x100] **humans**. The [human houses] are protected by a keep, a town wall and the river. [human treasure]</p><p>The [human leader] lives in the keep. [5% per item type for 1d2+8]</p><p>[human retainer]</p><p>[human friends]</p><p>[And two secret societies feuding]</p><p>There is a [name for temple]. [small [name for temple]]</p><p>There is also [town feature].
-1,</p><p>There is a town of [1d6x100] **humans**. The [human houses] are protected by a keep, a town wall and the river. [human treasure]</p><p>The [human leader] lives in the keep. [5% per item type for 1d2+8]</p><p>[human retainer]</p><p>[human friends]</p><p>[And two secret societies feuding]</p><p>There is a [name for temple]. [small [name for temple]]</p><p>An alchemist named **[here human]** lives here, selling a [potion] for 500gp each. [1d4+1] of these are currently for sale. [alchemist job]
+1,</p><p>There is a town of [1d6x100] **humans**. The [human houses] are protected by a keep, a town wall and the river. [human treasure]</p><p>The [human leader] lives in the keep. <span class="treasure">[5% per item type for 1d2+8]</span></p><p>[human retainer]</p><p>[human friends]</p><p>[And two secret societies feuding]</p><p>There is a [name for temple]. [small [name for temple]]</p><p>There is also [town feature].
+1,</p><p>There is a town of [1d6x100] **humans**. The [human houses] are protected by a keep, a town wall and the river. [human treasure]</p><p>The [human leader] lives in the keep. <span class="treasure">[5% per item type for 1d2+8]</span></p><p>[human retainer]</p><p>[human friends]</p><p>[And two secret societies feuding]</p><p>There is a [name for temple]. [small [name for temple]]</p><p>An alchemist named **[here human]** lives here, selling a [potion] for 500gp each. [1d4+1] of these are currently for sale. [alchemist job]
 
 ;human job
 1,smith
@@ -4206,8 +4270,8 @@
 
 ;And a secret society
 1,Luckily, no secret societies have established themselves, here.
-1,The local contact for the secret society of the [one of the secret societies] is [a boss]. [5% per item type for 1d4+2]
-1,The secret society of the [one of the secret societies] has a representative, here: [a boss]. [5% per item type for 1d4+2]
+1,The local contact for the secret society of the [one of the secret societies] is [a boss]. <span class="treasure">[5% per item type for 1d4+2]</span>
+1,The secret society of the [one of the secret societies] has a representative, here: [a boss]. <span class="treasure">[5% per item type for 1d4+2]</span>
 
 ;And two secret societies feuding
 1,[And a secret society]
@@ -4215,7 +4279,7 @@
 1,The secret societies of the [name for a secret society 2] and the [name for a secret society 3] are feuding in this town. [Their leaders are]
 
 ;Their leaders are
-1,One society is led by [a boss]. [5% per item type for 1d4+2] The other society is led by [a lesser boss]. [5% per item type for 1d4+1]
+1,One society is led by [a boss]. <span class="treasure">[5% per item type for 1d4+2]</span> The other society is led by [a lesser boss]. <span class="treasure">[5% per item type for 1d4+1]</span>
 
 ;a boss
 1,the [human class] **[human]** (level [1d4+2])
@@ -4327,7 +4391,7 @@
 1,The temple houses a traditional reed boat. This symbolizes the passage into the netherworld. Inscriptions on the wall describe sickness and death as the transition from the world of the living into the realm of Nergal. Behind the temple is the graveyard.
 1,The temple is a school of exorcism. All the dead belong to Nergal and to animate the dead is theft. The temple specialises in the finding and killing of [undead].
 1,The temple used to be a hospice but now most of the building is abandoned and sealed. Should the seal be broken, sickness and death awaits any trespassers. Poisonous molds. Deadly gases. Rotting diseases and blindness. The plague will return.
-1,The temple is a big feasting hall and a meeting place for the sisters and brothers of the hunt. They hunt vampires wherever they go and thus they all carry magical blades. Beneath the hall are fortified sleeping quarters. This is where the elders lock themselves away when the moon is full for they are all werewolves.
+1,The temple is a big feasting hall and a meeting place for the sisters and brothers of the hunt. They hunt vampires wherever they go and thus they all carry magical blades. Beneath the hall are fortified sleeping quarters. This is where the elders lock themselves away when the moon is full for they are all **werewolves**.
 1,The temple is an asylum for the demented and the old. Everything is quiet. [3d6] old people sit there, staring at you, unblinking. Their caretaker is **[human name]**. Nergal wants the living to forget the dead and the process starts right here, right now.
 
 ;undead
@@ -4609,7 +4673,7 @@
 1,[1d2+8]
 
 ;human retainer
-1,Their retainer is the [human class] **[human]** (level [name for 1d2+6]). [5% per item type for 1d2+6]
+1,Their retainer is the [human class] **[human]** (level [name for 1d2+6]). <span class="treasure">[5% per item type for 1d2+6]</span>
 
 ;name for 1d2+6
 1,[1d2+6]
@@ -4622,8 +4686,8 @@
 1,partner
 
 ;human friends
-1,Their [aide], the [human class] **[human]** (level [name for 1d4+1]), also lives here. [5% per item type for 1d4+1]
-1,They are served by two [aide]s. One is the [human class] **[human]** (level 5). [5% per item type for 5] The other is the [human class] **[human]** (level [name for 1d4+1]). [5% per item type for 1d4+1]
+1,Their [aide], the [human class] **[human]** (level [name for 1d4+1]), also lives here. <span class="treasure">[5% per item type for 1d4+1]</span>
+1,They are served by two [aide]s. One is the [human class] **[human]** (level 5). <span class="treasure">[5% per item type for 5]</span> The other is the [human class] **[human]** (level [name for 1d4+1]). <span class="treasure">[5% per item type for 1d4+1]</span>
 
 ;name for 1d4+2
 1,[1d4+2]
@@ -7860,6 +7924,10 @@
 1,[3d6]000 silver coins.
 9,
 
+;20% 1d4 silver
+1,[1d4]000 silver coins.
+4,
+
 ;20% 1d6 silver
 1,[1d6]000 silver coins.
 4,
@@ -7879,6 +7947,10 @@
 ;40% 1d6 silver
 2,[1d6]000 silver coins.
 3,
+
+;50% 1d8 silver
+1,[1d8]000 silver coins.
+1,
 
 ;10% 1d4 gold
 1,[1d4]000 gold coins.
@@ -7907,9 +7979,17 @@
 2,[1d12]000 gold coins.
 3,
 
+;50% 2d6 gold
+1,[2d6]000 gold coins.
+1,
+
 ;60% 1d8 gold
 3,[1d8]000 gold coins.
 2,
+
+;20% 1d6 platinum
+1,[1d6]00 platinum coins.
+4,
 
 ;20% 2d4 platinum
 1,[2d4]00 platinum coins.
@@ -7929,6 +8009,11 @@
 5,[1d5+1] gems.
 24,
 
+;30% 1d6 gems
+1,1 gem.
+5,[1d5+1] gems.
+14,
+
 ;30% 1d8 gems
 1,1 gem.
 7,[1d7+1] gems.
@@ -7942,6 +8027,10 @@
 ;60% 5d8 gems
 3,[5d8] gems.
 2,
+
+;10% 1d4 jewelry
+1,[1d4] jewelry.
+9,
 
 ;10% 1d6 jewelry
 1,[1d6] jewelry.
