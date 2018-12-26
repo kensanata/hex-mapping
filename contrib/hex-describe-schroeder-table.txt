@@ -2887,7 +2887,7 @@
 1,Thrash
 
 ;orc leader
-1,[orc]<img src="[[redirect https://campaignwiki.org/face/redirect/alex/orc]]" alt="[same orc]" title="[same orc]" /> (HD [name for 1d6+1])
+1,[orc]<img src="[[redirect https://campaignwiki.org/face/redirect/alex/orc]]" alt="[same orc]" title="[same orc]" /> (HD [name for 1d6+1])
 
 ;orc
 1,[orc food] [orc eat]
@@ -3256,8 +3256,8 @@
 1,Badlands full of shrubs and wild hedges. [loner]
 1,Dry lands full of tumbleweed and thorn bushes. [loner]
 1,Hidden between some hills is a valley apparently full of thorn bushes. It hides a hamlet of [halflings]
-1,An old fort overlooking the woods has been taken over by a war party of [4d6] **hobgoblins** led by [hobgoblin] (HD 3+1). The fort is defended by [hobgoblin companions]. [old fort] [hobgoblin treasure]
-1,An abandoned watchtower on a promontory overlooking the drylands is home to [4d6] **hobgoblins** led by [hobgoblin] (HD 3+1). The approach is guarded by [hobgoblin companions]. [hobgoblin treasure]
+1,An old fort overlooking the woods has been taken over by a war party of [4d6] **hobgoblins** led by [hobgoblin] (HD 3+1). The fort is defended by [hobgoblin companions]. [old fort] [hobgoblin treasure]
+1,An abandoned watchtower on a promontory overlooking the drylands is home to [4d6] **hobgoblins** led by [hobgoblin] (HD 3+1). The approach is guarded by [hobgoblin companions]. [hobgoblin treasure]
 1,Up in these drylands, a massive fortress built by giants long ago is home to [1d6x10] **orcs** of the [evil tribe], led by [orc leader]. The fortress is [orc fort] [orc treasure]
 1,Up here on these hills and overlooking the shrublands is a massive fortress built by giants long ago. It has been taken over by **humans** and now it is home to [1d4x10] bandits led by [human]. The fortress is [human fort]. [human treasure]
 1,There are caves beneath these badlands. [caves]
@@ -3867,7 +3867,7 @@
 1,The river widens here and forms a large swamp. You need a guide and boats in order to pass through it.
 1,This bog is a labyrinth. You need a guide to find your way through it.
 1,This reed is home to a lot of [swamp animals]. Those who know how to find it can gather [here magic plant].
-1,These wet land have been settled by a tribe of [6d6] **lizard people** led by [lizard leader] (HD [1d4+1]). The little village of mud huts is guarded by [lizard companions].
+1,These wet land have been settled by a tribe of [6d6] **lizard people** led by [lizard leader] (HD [name for 1d4+2]). The little village of mud huts is guarded by [lizard companions]. [lizard people treasure]
 1,This swamp is home to [5d8] **froglings** in a mud village guarded by [frogling companions].
 1,A ruined tower standing on a small island in this swamp is home to the **ettin** called [ettin]. [ettin treasure]
 1,In the old days, this bog was used to drown evil necromancers. [bog wights]
@@ -3917,6 +3917,9 @@
 1,a **giant lizard**
 5,[1d4+1] **giant wasps**
 5,[1d4+1] **giant lizards**
+
+;lizard people treasure
+1,<span class="treasure">[20% 1d6 silver] [20% 1d6 gold] [20% 1d6 platinum] [30% 1d8 gems] [20% 1d4 jewelry] [10% magic item] [5% per item type for 1d4+2]</span>
 
 # These are the monsters for larger villages
 ;trees
