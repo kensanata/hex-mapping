@@ -817,7 +817,7 @@ sub resolve_redirect {
 
 =item pick
 
-This fucntion picks the appropriate table given a particular word (usually a map
+This function picks the appropriate table given a particular word (usually a map
 feature such as "forest" or "river").
 
 This is where I<context> is implemented. Let's start with this hex:
@@ -833,8 +833,8 @@ dark-green", "village dark-green", "river dark-green" and "trail dark-green"
 before checking for "dark-green".
 
 If such a table exists in C<$table_data>, we call C<pick_description> to pick a
-text from the table and then we go through text and call C<describe> to resolve
-any table references in square brackets.
+text from the table and then we go through the text and call C<describe> to
+resolve any table references in square brackets.
 
 =cut
 
@@ -883,7 +883,8 @@ sub describe {
   my $level = shift;
   my $coordinates = shift;
   my $words = shift;
-  return '' if $level > 10;
+  $log->error("Recursion level $level exceeds 20!") if $level > 20;
+  return '' if $level > 20;
   %locals = () if $level == 1; # reset once per paragraph
   my @descriptions;
   for my $word (@$words) {
