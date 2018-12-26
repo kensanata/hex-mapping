@@ -2668,7 +2668,13 @@
 1,A lake covering the ruins of an ancient town.
 1,A lake inhabited by [2d20] charming **nixies** and the same number of **giant fish** guarding their sea weed garden.
 1,[lake inhabitants]
-1,A tribe of [5d8] **froglings** in a mud village guarded by [frogling companions].
+1,A tribe of [froglings]
+
+;froglings
+1,[5d8] **froglings** led by a priest of Tsathoggua: *lightning bolt* 2×/day (5d6, save vs. spells for half). [frogling treasure] The mud village built around the temple is guarded by [frogling companions].
+
+;frogling treasure
+1,<span class="treasure">[20% 1d6 silver] [40% 1d12 gold] [60% 5d8 gems] [50% 5d8 jewelry] [25% magic item] [25% magic item] [25% magic item]</span>
 
 ;frogling companions
 1,spear traps
@@ -3865,10 +3871,10 @@
 
 ;swamp
 1,The river widens here and forms a large swamp. You need a guide and boats in order to pass through it.
-1,This bog is a labyrinth. You need a guide to find your way through it.
+1,This bog is a labyrinth. You need a guide to find your way through it. If you don't, you will soon end up in the lands of the [witch]
 1,This reed is home to a lot of [swamp animals]. Those who know how to find it can gather [here magic plant].
 1,These wet land have been settled by a tribe of [6d6] **lizard people** led by [lizard leader] (HD [name for 1d4+2]). The little village of mud huts is guarded by [lizard companions]. [lizard people treasure]
-1,This swamp is home to [5d8] **froglings** in a mud village guarded by [frogling companions].
+1,This swamp is home to [froglings]
 1,A ruined tower standing on a small island in this swamp is home to the **ettin** called [ettin]. [ettin treasure]
 1,In the old days, this bog was used to drown evil necromancers. [bog wights]
 1,On one of the islands of this swamp there is a huge mud mound. [goblins]
@@ -3997,14 +4003,17 @@
 1,Zerrin
 
 ;goblins
-1,[6d10] **goblins** live here, led by [goblin].
-5,[6d10] **goblins** live here, led by [goblin]. The goblins have tamed [2d6] [goblin companions]. Goblins love to ride these into battle.
+1,[6d10] **goblins** live here, led by [goblin]. [goblin treasure]
+5,[6d10] **goblins** live here, led by [goblin]. The goblins have tamed [2d6] [goblin companions]. Goblins love to ride these into battle. [goblin treasure]
 
 ;goblin companions
 2,**giant wolves**
 1,**giant weasels**
 1,**giant spiders**
 1,**giant beetles**
+
+;goblin treasure
+1,<span class="treasure">[60% 1d8 silver] [30% 1d4 gold] [10% 1d4 platinum] [10% 1d6 gems] [10% 1d6 jewelry]</span>
 
 ;goblin
 1,[goblin 1] [goblin 2]
@@ -7955,6 +7964,10 @@
 1,[1d8]000 silver coins.
 1,
 
+;60% 1d8 silver
+3,[1d8]000 silver coins.
+2,
+
 ;10% 1d4 gold
 1,[1d4]000 gold coins.
 9,
@@ -7989,6 +8002,10 @@
 ;60% 1d8 gold
 3,[1d8]000 gold coins.
 2,
+
+;10% 1d4 platinum
+1,[1d4]00 platinum coins.
+9,
 
 ;20% 1d6 platinum
 1,[1d6]00 platinum coins.
@@ -8255,7 +8272,7 @@
 1,the **valkyrie** [summoned valkyrie]: HD 6 AC 2 1d8+3 F6 MV 18; flying; only harmed by magic or magic weapons; wielding a *long sword of light* +3
 1,the **troll** [summoned troll]: HD 6+1 AC 4 1d6/1d6/1d10 F6 MV 12; regenerate when slain unless burned or dissolved in acid
 1,the **shape changer** [summoned shape changer]: HD 4 AC 5 1d12 F8 MV 9; *polymorph* at will; immune to *sleep* and *charm*
-1,the **hunter general** [summoned hunter general]: HD 6+1 AC 7 1d6 F6 MV 12; leading a *hundertschaft* one hundred **light infantery**: HD 1 AC 7 1d6 F1 MV 12 ML 10
+1,the **hunter general** [summoned hunter general]: HD 6+1 AC 7 1d6 F6 MV 12; leading a *hundertschaft*: one hundred **light infantery**: HD 1 AC 7 1d6 F1 MV 12 ML 10
 1,the **minotaur** [summoned minotaur]: [minotaur stats]
 1,the **vulture demon** [summoned vulture demon]: [vulture demon stats]
 1,the **naga** [summoned naga]: [naga stats]
