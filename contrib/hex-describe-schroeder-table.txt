@@ -721,7 +721,7 @@
 1,The upper valley is rocky and bare. [hill giants]
 1,Steep cliffs make progress practically impossible without climbing gear. [mountain secret]
 1,Nothing but gray rocks up here in the mountains.
-1,High up on on a ridge is an old elven tower made of green glass, [green tower].
+1,High up on on a ridge is an old elven tower made of green glass, [green tower]
 1,On one of the rock faces you can still see the markings of the old dwarf forge [dwarf forge]. [forge ruin]
 1,On one of a ridge of the [name for hills] stands a ruined fortress currently occupied by [warlocks]. [warlock treasure]</p><p>The fortress and its surrounding land is ruled by the **medusa** [medusa] ([medusa stats]). The courtyard and rooms are full of her petrified victims and the bones of the dead. [medusa treasure]
 
@@ -783,7 +783,7 @@
 1,2d6 **ice wolves**
 1,4d6 **white gorillas**
 1,2d6 **four armed, white gorillas**
-1,pet **white dragon** [white dragon name]
+1,pet **white dragon** [white dragon name] ([white dragon stats])
 
 ;ice devil lair
 1,a large ice cave with a mount of bones as big as a house upon which the devil has built his throne of ice and steel.
@@ -954,17 +954,20 @@
 1,The ruin is abandoned and dead. If you explore the ruins, you will soon find the **balor** demon who caused its downfall. It guards a portal to the realm of eternal fire, to Muspelheim.
 1,The ruin has been settled by the [evil tribe], [1d6x10] **orcs** led by [orc leader]. [orc treasure]
 1,The ruin is full of broken machinery. In its depths, however, a **bronze golem** still wanders the halls.
-1,The ruin is now home to the **white dragon** [white dragon name].
+1,The ruin is now home to the **white dragon** [white dragon name] ([white dragon stats]). [dragon treasure]
 
 ;green tower
-1,long abandoned
-1,now inhabited by a **white dragon** called [white dragon name]
-1,and at the very top there is a lair of [2d8] very protective **griffons**
-1,currently the home of [gargoyles]
+1,long abandoned.
+1,now inhabited by a **white dragon** called [white dragon name] ([white dragon stats]). [dragon treasure]
+1,and at the very top there is a lair of [2d8] very protective **griffons**.
+1,currently the home of [gargoyles]. [gargoyle treasure]
 
 ;gargoyles
 1,a **gargoyle** named [gargoyle]
 5,[1d5+1] **gargoyles** led by [gargoyle]
+
+;gargoyle treasure
+1,<span class="treasure">[50% 1d8 silver] [20% 1d6 gems] [20% 1d6 jewelry] [20% magic item] [20% magic item]</span>
 
 ;gargoyle
 1,Stillness
@@ -979,8 +982,14 @@
 1,Dark
 1,Forever
 
+;dragon treasure
+1,<span class="treasure">[50% 1d6x10 gold] [30% 4d6 platinum] [50% 1d8x10 gems] [50% 1d8x10 jewelry] [20% magic item] [20% magic item] [20% magic item] [20% magic item] [20% magic item] [20% magic item] [20% magic item] [20% magic item]</span>
+
+;white dragon stats
+1,HD 6 AC 3 1d4/1d4/2d8 F6 ML 8 MV 24 XP 600; *ice* (as much as the dragon has hp left, save vs. dragon breath for half)
+
 ;white dragon name
-1,[white dragon 1] [dragon 2] [white dragon 3]
+1,*[white dragon 1] [dragon 2] [white dragon 3]*
 
 ;white dragon 1
 1,White
@@ -1148,7 +1157,7 @@
 1,There is a hidden meadow up here, protected by the [name for white big mountains]. [ice monster lair]
 1,The glaciers flowing from the [name for white big mountains] need a local guide and ropes to cross.
 1,The glacier of [name for white big mountains] ends at a small lake [maybe an ice cave].
-1,A **white dragon** called [white dragon name] lives in a ruined mountain fortress guarding the approaches to the [name for white big mountains].
+1,A **white dragon** called [white dragon name] lives in a ruined mountain fortress guarding the approaches to the [name for white big mountains] ([white dragon stats]). [dragon treasure]
 
 ;ice monster lair
 1,A **[here ice monster]** lives up here. [[same ice monster] lair]
@@ -1311,12 +1320,15 @@
 
 ;more mountains
 1,They are impossible to climb.
-1,Fissures lead into the depth of the mountain and in the warm chambers below there sleeps the **red dragon** [red dragon name].
+1,Fissures lead into the depth of the mountain and in the warm chambers below there sleeps the **red dragon** [red dragon name] ([red dragon stats]). [dragon treasure]
 1,The passes need a local guide to cross. [mountain people].
 1,A glacier fills the gap between these mountains.
 
+;red dragon stats
+1,HD 10 AC -1 1d8/1d8/4d8 F10 ML 10 MV 24 XP 1000; *fire* (as much as the dragon has hp left, save vs. dragon breath for half)
+
 ;red dragon name
-1,[red dragon 1] [dragon 2] [red dragon 3]
+1,*[red dragon 1] [dragon 2] [red dragon 3]*
 
 ;red dragon 1
 1,Red
@@ -1365,7 +1377,7 @@
 3,[1d4] **white bears**
 2,[2d4] **winter wolves**
 1,a **cryohydra**
-1,a **white dragon** named [white dragon name]
+1,a **white dragon** named [white dragon name] ([white dragon stats])
 1,a **spectre** of their ancient ice king
 
 ;dwarf forge
@@ -3277,7 +3289,7 @@
 1,Up here on these hills and overlooking the shrublands is a massive fortress built by giants long ago. It has been taken over by **humans** and now it is home to [1d4x10] bandits led by [human]. The fortress is [human fort]. [human treasure]
 1,There are caves beneath these badlands. [caves]
 1,The dry lands up here are the hunting grounds of a **manticore** called [manticore] living in the ruins of an old tower.
-1,A **green dragon** named [green dragon name] lives at [hill name], one of the hills overlooking these shrublands.
+1,A **green dragon** named [green dragon name] lives at [hill name], one of the hills overlooking these shrublands ([green dragon stats]). [dragon treasure]
 
 ;old fort
 1,On a pedestal outside the fort there is a withered statue of [power] overlooking the lands below.
@@ -3434,8 +3446,11 @@
 ;hobgoblin treasure
 1,<span class="treasure">[20% 1d6 silver] [30% 1d6 gold] [20% 2d4 platinum] [20% 1d6 gems] [20% 1d6 jewelry]</span>
 
+;green dragon stats
+1,HD 8 AC 1 1d6/1d6/2d8 F8 ML 9 MV 24 XP 1000; *poison* (if HD 4 or lower, save vs. poison or die; otherwise suffer 1/rd)
+
 ;green dragon name
-1,[green dragon 1] [dragon 2] [green dragon 3]
+1,*[green dragon 1] [dragon 2] [green dragon 3]*
 
 ;green dragon 1
 1,Green
@@ -8033,6 +8048,10 @@
 1,[2d4]00 platinum coins.
 4,
 
+;30% 4d6 platinum
+3,[4d6]00 platinum coins.
+7,
+
 ;40% 1d6 platinum
 2,[1d6]00 platinum coins.
 3,
@@ -8070,6 +8089,10 @@
 5,[1d5+1] gems.
 9,
 
+;50% 1d8x10 gems
+1,[1d8]0 gems.
+1,
+
 ;60% 5d8 gems
 3,[5d8] gems.
 2,
@@ -8100,6 +8123,10 @@
 
 ;50% 5d8 jewelry
 1,[5d8] jewelry.
+1,
+
+;50% 1d8x10 jewelry
+1,[1d8]0 jewelry.
 1,
 
 ;10% magic item
