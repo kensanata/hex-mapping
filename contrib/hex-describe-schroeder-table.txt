@@ -4156,15 +4156,40 @@
 1,[elf]<img src="[[redirect https://campaignwiki.org/face/redirect/alex/elf]]" alt="[same elf]" title="same elf"/>
 
 ;elf
-1,Longevity
-1,Sleepyflower
-1,Forestflute
-1,Waspheart
-1,Lushvalley
-1,Starlight
-1,Treefriend
-1,Moonlove
-1,Sunshine
+1,[elf 1] [elf 2]
+
+;elf 1
+1,Long
+1,Sleepy
+1,Forest
+1,Wasp
+1,Fox
+1,Owl
+1,Eagle
+1,Ice
+1,Snow
+1,Lush
+1,Star
+1,Tree
+1,Moon
+1,Sun
+1,Beautiful
+
+;elf 2
+1,Life
+1,Flower
+1,Flute
+1,Heart
+1,Valley
+1,Light
+1,Friend
+1,Love
+1,Sea
+1,Anger
+1,Harmony
+1,Song
+1,Melody
+1,Calling
 
 # These are the fir forests next to thorps
 ;fir-forest
