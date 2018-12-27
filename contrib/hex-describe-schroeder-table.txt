@@ -2704,7 +2704,7 @@
 ;forest-hill
 1,One of the hills has an old lookout from which you can see most of the [name for forest/forest-hill/trees/fir-forest/firs].
 1,Small creeks have dug deep channels into [name for forest/forest-hill/trees/fir-forest/firs]. The going is tough.
-1,[name for forest/forest-hill/trees/fir-forest/firs] covers a few hills, here. One one them is inhabited by [1d6 ogres].
+1,[name for forest/forest-hill/trees/fir-forest/firs] covers a few hills, here. One one them is inhabited by [1d6 ogres]. [ogre treasure]
 1,These hills in [name for forest/forest-hill/trees/fir-forest/firs] belong to the [evil tribe], [1d6x10] **orcs** led by [orc leader]. Their fort is [orc fort] [orc treasure]
 1,The hill overlooking [name for forest/forest-hill/trees/fir-forest/firs] is the home of [1d8 treants]. They mostly stand around near [forest feature].
 1,There is a hill rising high above [name for forest/forest-hill/trees/fir-forest/firs] with a nice cave which offers shelter from the rain but is home to [1d4 bears].
@@ -3220,6 +3220,9 @@
 ;1d8 shadows
 1,a **shadow**
 7,[1d7+1] **shadows**
+
+;ogre treasure
+1,<span class="treasure">[30% 1d6 silver] [20% 1d6 gems] [20% 1d4 jewelry] [10% magic item] [10% magic item]</span>
 
 ;1d6 ogres
 1,[ogre leader]
