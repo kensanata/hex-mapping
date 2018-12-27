@@ -1611,11 +1611,9 @@ sub bushes {
   my ($world, $altitude, $water) = @_;
   for my $coordinates (keys %$world) {
     if ($world->{$coordinates} !~ /mountain|hill|water|swamp|forest|firs|trees/) {
-      if ($altitude->{$coordinates} >= 7) {
-	$world->{$coordinates} = "light-grey bushes";
-      } else {
-	$world->{$coordinates} = "light-green bushes";
-      }
+      my $thing = rand() > 0.5 ? "bushes" : "hill";
+      my $colour = $altitude->{$coordinates} >= 7 ? "light-grey" : "light-green";
+      $world->{$coordinates} = "$colour $thing";
     }
   }
 }
