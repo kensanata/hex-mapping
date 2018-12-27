@@ -35,7 +35,7 @@
 1,The [name for hills] are dry and forbidding. The only animals you can see are some **goats**.
 1,The [name for hills] are bare and the narrow creeks between them have dug deep channels. One of these channels is home to [some canyon wights] ([wight stats]). During they day they lie in the flooded cellar of a ruined toll tower guarding a ford. [wight treasure]
 1,Deep ravines cut through the [name for hills]. A cave in one of those dry riverbeds is home to [giant scorpions] ([giant scorpion stats]).
-1,On one of the [name for hills] stands an old tower overlooking the lands below. This is the home of a **manticore** called [manticore].
+1,On one of the [name for hills] stands an old tower overlooking the lands below. This is the home of a **manticore** called [manticore]. [manticore treasure]
 1,On one of the [name for hills] stands a ruined fortress currently occupied by [warlocks]. [warlock treasure] The fortress and its surrounding land is ruled by the **medusa** [medusa] ([medusa stats]). The courtyard and rooms are full of her petrified victims and the bones of the dead. [medusa treasure]
 
 ;name for hills
@@ -3288,7 +3288,7 @@
 1,Up in these drylands, a massive fortress built by giants long ago is home to [1d6x10] **orcs** of the [evil tribe], led by [orc leader]. The fortress is [orc fort] [orc treasure]
 1,Up here on these hills and overlooking the shrublands is a massive fortress built by giants long ago. It has been taken over by **humans** and now it is home to [1d4x10] bandits led by [human]. The fortress is [human fort]. [human treasure]
 1,There are caves beneath these badlands. [caves]
-1,The dry lands up here are the hunting grounds of a **manticore** called [manticore] living in the ruins of an old tower.
+1,The dry lands up here are the hunting grounds of a **manticore** called [manticore] living in the ruins of an old tower. [manticore treasure]
 1,A **green dragon** named [green dragon name] lives at [hill name], one of the hills overlooking these shrublands ([green dragon stats]). [dragon treasure]
 
 ;old fort
@@ -3486,6 +3486,9 @@
 1,Hate
 1,Avarice
 1,Ambition
+
+;manticore treasure
+1,<span class="treasure">[10% 1d10 silver] [50% 1d8 gold] [40% 1d6 gems] [40% 1d6 jewelry] [10% magic item] [10% magic item]</span>
 
 ;halflings
 1,[5d8] **halflings** led by [halfling leader]. [halfling treasure] [halfling troubles]
@@ -4193,7 +4196,7 @@
 
 # These are the fir forests next to thorps
 ;fir-forest
-1,[fir highlands] The land up here is the hunting ground of a **manticore** called [manticore] living in the ruins of an old tower overlooking the area.
+1,[fir highlands] The land up here is the hunting ground of a **manticore** called [manticore] living in the ruins of an old tower overlooking the area. [manticore treasure]
 1,[fir highlands] This fir forest is home to a pack of [3d6] **wolves**.
 1,[fir highlands] At dusk and dawn, you can sometimes see [boars].
 1,There is a cave in this fir forest housing the **ettin** called [ettin]. [ettin treasure]
@@ -7981,6 +7984,10 @@
 1,Ysolde
 1,Émilie
 
+;10% 1d10 silver
+1,[1d10]000 silver coins.
+9,
+
 ;10% 3d6 silver
 1,[3d6]000 silver coins.
 9,
@@ -8048,6 +8055,10 @@
 ;40% 1d12 gold
 2,[1d12]000 gold coins.
 3,
+
+;50% 1d8 gold
+1,[1d8]000 gold coins.
+1,
 
 ;50% 2d6 gold
 1,[2d6]000 gold coins.
