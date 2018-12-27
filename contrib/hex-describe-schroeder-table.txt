@@ -2994,7 +2994,7 @@
 1,Ripper
 
 ;orc treasure
-1,<span class="treasure">[orc treasure context] [20% 1d10 silver] [60% 1d8 gold] [40% 1d6 gems] [40% 1d6 jewelry] [10% magic item] [5% per item type]</span>
+1,[orc treasure context] <span class="treasure">[20% 1d10 silver] [60% 1d8 gold] [40% 1d6 gems] [40% 1d6 jewelry] [10% magic item] [5% per item type]</span>
 
 ;orc treasure context
 1,The orcish hoard looks like a garbage dump.
