@@ -780,7 +780,7 @@
 1,Frozen
 
 ;ice devil companions
-1,2d6 **ice wolves**
+1,2d6 **winter wolves** ([winter wolf stats])
 1,4d6 **white gorillas**
 1,2d6 **four armed, white gorillas**
 1,pet **white dragon** [white dragon name] ([white dragon stats])
@@ -1349,7 +1349,7 @@
 
 ;mountain people
 1,[1d4 frost giants]
-1,[2d4] **winter wolves** live up here
+1,[2d4] **winter wolves** live up here ([winter wolf stats])
 1,There is a dwarven forge called [dwarf forge] up here. [dwarves]
 
 ;1d4 frost giants
@@ -1375,7 +1375,7 @@
 
 ;frost giant companions
 3,[1d4] **white bears**
-2,[2d4] **winter wolves**
+2,[2d4] **winter wolves** ([winter wolf stats])
 1,a **cryohydra**
 1,a **white dragon** named [white dragon name] ([white dragon stats])
 1,a **spectre** of their ancient ice king
@@ -2962,8 +2962,11 @@
 
 ;orc fort
 1,surrounded by spiked pit traps. [orc feature]
-1,guarded by a **boar**. [orc feature]
-4,guarded by [1d4+1] **boars**. [orc feature]
+1,guarded by a **boar** ([boar stats]). [orc feature]
+4,guarded by [1d4+1] **boars** ([boar stats]). [orc feature]
+
+;boar stats
+1,HD 3+1 AC 6 1d8 F1 MV 15 ML 9 XP 300
 
 ;orc feature
 1,Many skulls are on display.
@@ -4037,8 +4040,8 @@
 5,[6d10] **goblins** live here, led by [goblin]. The goblins have tamed [2d6] [goblin companions]. Goblins love to ride these into battle. [goblin treasure]
 
 ;goblin companions
-2,**giant wolves**
-1,**giant weasels**
+2,intelligent **giant wolves** ([giant wolf stats])
+1,**giant weasels** ([weasel stats])
 1,**giant spiders**
 1,**giant beetles**
 
@@ -4070,8 +4073,8 @@
 1,This part of [name for forest/forest-hill/trees/fir-forest/firs] is under the protection of [1d8 treants]. They mostly stand around near [forest feature].
 1,The trees of [name for forest/forest-hill/trees/fir-forest/firs] are full of spider webs, here. Anybody climbing the trees or travelling on their own will get attacked by [2d4] **giant spiders**.
 1,[2d12] **elves** led by [elf leader] (level [1d6+1]) have built their [elf dwelling] in [name for forest/forest-hill/trees/fir-forest/firs]. [elf companions]
-1,These trees are part of [name for forest/forest-hill/trees/fir-forest/firs]. A system of big tunnels is home to [1d6 weasels].
-1,At dusk and dawn, you can sometimes see [boars] in the [name for forest/forest-hill/trees/fir-forest/firs], here.
+1,These trees are part of [name for forest/forest-hill/trees/fir-forest/firs]. A system of big tunnels is home to [1d6 weasels] ([weasel stats]).
+1,At dusk and dawn, you can sometimes see [boars] in the [name for forest/forest-hill/trees/fir-forest/firs], here ([boar stats]).
 
 ;mushrooms
 1,The mushrooms are guarded by [myconids]
@@ -4128,13 +4131,19 @@
 1,Lake
 
 ;boars
-1,the guardian spirit of this forest, a **demon boar**
-25,a male **boar** seaching for food
-5, a group of [5d6] female **boars** and their young
+1,the guardian spirit of this forest, a **demon boar** ([demon boar stats])
+25,a male **boar** seaching for food ([boar stats])
+5, a group of [5d6] female **boars** and their young ([boar stats])
+
+;demon boar stats
+1,HD 9+1 AC 3 1d12 F9 MV 15 ML 9 XP 900; *charm person* 3×/day; *shape change* into human form at will; only harmed by magic, magic weapons or silver weapons
 
 ;1d6 weasels
 1,a **giant weasel**
 5,[1d5+1] **giant weasels**
+
+;weasel stats
+1,HD 5 AC 7 1d8 F3 MV 15 ML 8 XP 500
 
 ;1d8 treants
 1,the **treant** called [treant]
@@ -4155,8 +4164,8 @@
 1,The settlement is nearly impossible to spot from the ground level.
 1,At night, the settlement is illuminated by magic light.
 1,During the day, sweet music can be haird from the tree tops.
-1,The settlement is protected by a **giant weasel**.
-2,The settlement is protected by [1d2+1] **giant weasels**.
+1,The settlement is protected by a **giant weasel** ([weasel stats]).
+2,The settlement is protected by [1d2+1] **giant weasels** ([weasel stats]).
 
 ;elf leader
 1,[elf]<img src="[[redirect https://campaignwiki.org/face/redirect/alex/elf]]" alt="[same elf]" title="same elf"/>
@@ -4200,13 +4209,22 @@
 # These are the fir forests next to thorps
 ;fir-forest
 1,[fir highlands] The land up here is the hunting ground of a **manticore** called [manticore] living in the ruins of an old tower overlooking the area. [manticore treasure]
-1,[fir highlands] This fir forest is home to a pack of [3d6] **wolves**.
-1,[fir highlands] At dusk and dawn, you can sometimes see [boars].
+1,[fir highlands] This fir forest is home to a pack of [3d6] **wolves** ([wolf stats]).
+1,[fir highlands] At dusk and dawn, you can sometimes see [boars] ([boar stats]).
 1,There is a cave in this fir forest housing the **ettin** called [ettin]. [ettin treasure]
 1,[fir highlands] At the foot of [crag name], there is cave inhabited by [1d8 trolls]. [troll treasure]
 1,[fir highlands] In this fir forest is a little campsite with [1d8 bugbears]. [bugbear treasure]
 1,[fir highlands] At night, the orcs of the [evil tribe] hunt these lands. [orcs] Their settlement is protected by a palisade and [orc fort]
 1,[fir highlands] There is an abandoned shrine to [power] up here. It is haunted by the **spectre** of [old name], the last priest who cared for it. The locals avoid it.
+
+;wolf stats
+1,HD 2+1 AC 7 1d6 F1 MV 18 ML 6 XP 200
+
+;giant wolf stats
+1,HD 4+1 AC 6 1d8 F2 MV 15 ML 8 XP 400
+
+;winter wolf stats
+1,HD 5 AC 4 1d6 F5 MV 12 ML 9 XP 500: 2 in 6 chance that instead of biting, it breathes a *cloud of ice* (5d6); *see invisible*
 
 ;1d8 bugbears
 1,the **bugbear** [bugbear]
@@ -4298,8 +4316,8 @@
 ;firs
 1,[fir highlands] Sometimes you can see an elk.
 1,[fir highlands] Sometimes you can see some deer.
-1,[fir highlands] At dusk and dawn a pack of [3d6] **wolves** roam these lands.
-1,[fir highlands] At dusk and dawn, you can sometimes see [boars].
+1,[fir highlands] At dusk and dawn a pack of [3d6] **wolves** roam these lands ([wolf stats]).
+1,[fir highlands] At dusk and dawn, you can sometimes see [boars] ([boar stats]).
 
 ;fir highlands
 1,A few stunted firs grow in these highlands.
@@ -4572,8 +4590,8 @@
 1,This temple is run by the she-wolf **[woman]**. She is always in the company of her **winter wolf**, a beast as large as a pony, with red eyes and fearsome fangs.
 
 ;boars or wolves
-1,**boars**
-1,**wolves**
+1,**boars** ([boar stats])
+1,**wolves** ([wolf stats])
 
 ;shield maidens
 1,Shield Maidens
