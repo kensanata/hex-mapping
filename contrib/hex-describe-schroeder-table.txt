@@ -986,7 +986,7 @@
 1,<span class="treasure">[50% 1d6x10 gold] [30% 4d6 platinum] [50% 1d8x10 gems] [50% 1d8x10 jewelry] [20% magic item] [20% magic item] [20% magic item] [20% magic item] [20% magic item] [20% magic item] [20% magic item] [20% magic item]</span>
 
 ;white dragon stats
-1,HD 6 AC 3 1d4/1d4/2d8 F6 ML 8 MV 24 XP 600; *ice* (as much as the dragon has hp left, save vs. dragon breath for half)
+1,HD 6 AC 3 1d4/1d4/2d8 F6 MV 24 ML 8 XP 600; *ice* (as much as the dragon has hp left, save vs. dragon breath for half)
 
 ;white dragon name
 1,*[white dragon 1] [dragon 2] [white dragon 3]*
@@ -1325,7 +1325,7 @@
 1,A glacier fills the gap between these mountains.
 
 ;red dragon stats
-1,HD 10 AC -1 1d8/1d8/4d8 F10 ML 10 MV 24 XP 1000; *fire* (as much as the dragon has hp left, save vs. dragon breath for half)
+1,HD 10 AC -1 1d8/1d8/4d8 F10 MV 24 ML 10 XP 1000; *fire* (as much as the dragon has hp left, save vs. dragon breath for half)
 
 ;red dragon name
 1,*[red dragon 1] [dragon 2] [red dragon 3]*
@@ -3225,7 +3225,7 @@
 7,[1d7+1] **shadows**
 
 ;ogre treasure
-1,<span class="treasure">[30% 1d6 silver] [20% 1d6 gems] [20% 1d4 jewelry] [10% magic item] [10% magic item]</span>
+1,<span class="treasure">[30% 1d6 silver] [30% 1d6 gold] [20% 1d6 gems] [20% 1d4 jewelry] [10% magic item] [10% magic item]</span>
 
 ;1d6 ogres
 1,[ogre leader]
@@ -3310,8 +3310,8 @@
 
 ;human fort
 1,protected long stakes against charging
-1,protected by a **war dog**
-6,protected by [1d6+1] **war dogs**
+1,protected by a **war dog** ([wolf stats])
+6,protected by [1d6+1] **war dogs** ([wolf stats])
 
 ;loner
 1,At the foot of a hill you find a burned down cabin. This must have happened [some time ago].
@@ -3321,6 +3321,9 @@
 1,[some ruins] Here lives the **hermit** [human] (level 1) and a **puma**.
 1,[some ruins] Here lives the **hermit** [human] (level 1) and a **jaguar**.
 1,[some ruins] Here lives the **hermit** halfling [halfling] (level 1) with some sheep.
+
+;puma stats
+1,HD 3 AC 6 1d6 F1 MV 18 ML 6 XP 200
 
 ;some ruins
 1,On one of the hills you find an old two story watchtower.
@@ -3453,7 +3456,7 @@
 1,<span class="treasure">[20% 1d6 silver] [30% 1d6 gold] [20% 2d4 platinum] [20% 1d6 gems] [20% 1d6 jewelry]</span>
 
 ;green dragon stats
-1,HD 8 AC 1 1d6/1d6/2d8 F8 ML 9 MV 24 XP 1000; *poison* (if HD 4 or lower, save vs. poison or die; otherwise suffer 1/rd)
+1,HD 8 AC 1 1d6/1d6/2d8 F8 MV 24 ML 9 XP 1000; *poison* (if HD 4 or lower, save vs. poison or die; otherwise suffer 1/rd)
 
 ;green dragon name
 1,*[green dragon 1] [dragon 2] [green dragon 3]*
@@ -4791,8 +4794,8 @@
 
 ;human companions
 1,some sharpened stakes
-1,a **war dog**
-6,[1d6+1] **war dogs**
+1,a **war dog** ([wolf stats])
+6,[1d6+1] **war dogs** ([wolf stats])
 
 ;human class
 1,[magic user]
@@ -4819,8 +4822,8 @@
 1,mercenary
 
 ;human
-1,[man]<img src="[[redirect https://campaignwiki.org/face/redirect/alex/man]]" alt="[same man]" title="[same man]"/>
-1,[woman]<img src="[[redirect https://campaignwiki.org/face/redirect/alex/woman]]" alt="[same woman]" title="[same woman]"/>
+1,[man as human]<img src="[[redirect https://campaignwiki.org/face/redirect/alex/man]]" alt="[same human]" title="[same human]"/>
+1,[woman as human]<img src="[[redirect https://campaignwiki.org/face/redirect/alex/woman]]" alt="[same human]" title="[same human]"/>
 
 ;human name
 1,[man]
