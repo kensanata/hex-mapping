@@ -763,6 +763,7 @@ sub parse_table {
 	next if $subtable =~ /^names for (.*)/ and $data->{"name for $1"};
 	next if $subtable =~ /^adjacent hex$/; # experimental
 	next if $subtable =~ /^(?:same|here|nearby) (.*)/ and $data->{$1};
+	$subtable = $1 if $subtable =~ /^(.+) as (.+)/;
 	$log->error("Error in table $table: subtable $subtable is missing")
 	    unless $data->{$subtable};
       }
@@ -983,6 +984,12 @@ sub describe {
       next unless $text;
       $locals{$key} = $text;
       $globals->{$key}->{$coordinates} = $text;
+      push(@descriptions, $text);
+    } elsif (my ($key, $alias) = $word =~ /^(.+) as (.+)/) {
+      my $text = pick($map_data, $table_data, $level, $coordinates, $words, $key);
+      next unless $text;
+      $locals{$key} = $text;
+      $locals{$alias} = $text;
       push(@descriptions, $text);
     } else {
       my $text = pick($map_data, $table_data, $level, $coordinates, $words, $word);
@@ -1899,6 +1906,142 @@ fir-forest”; instead of “hill” use “light-grey hill” and “dust hill�
 “forest-mountains” use “green forest-mountains” and “grey forest-mountains”.
 </p>
 
+<h2 id="same">Reuse: same</h2>
+
+<p>
+Any result for a table gets saved locally so that it can get reused in the same
+hex. In the following example, <code>[ice monster]</code> results in either a
+gorgon or a cryo-hydra. <code>[same ice monster]</code> reuses that to generate
+an appropriate second sentence.
+</p>
+
+%= example begin
+0101 light-grey mountain
+0201 white mountain
+0301 white mountains
+0401 white mountain
+0501 light-grey mountain
+0601 light-green fir-forest
+0701 light-green fir-forest
+0801 light-grey mountain
+0901 white mountain
+1001 white mountains
+1101 white mountain
+1201 light-grey mountain
+1301 light-green village
+include https://campaignwiki.org/contrib/gnomeyland.txt
+
+;mountains
+1,[mountain]
+
+;mountain
+1,The air up here is cold.
+1,[ice monster lair]
+
+;ice monster lair
+1,A *[ice monster]* lives up here. The [same ice monster] is a scourge.
+
+;ice monster
+1,gorgon
+1,cryo-hydra
+% end
+
+<h2 id="alias">Alias</h2>
+
+<p>
+Sometimes you are going to generate some stuff and need to refer to elsewhere
+under a different name. In the following example, the monster is either a named
+gorgon or a named fate. If you want to reuse just the name, you need to alias
+it. The pattern “<em>something</em> as <em>something else</em>” is key, here.
+</p>
+
+%= example begin
+0101 light-grey mountain
+0201 white mountain
+0301 white mountains
+0401 white mountain
+0501 light-grey mountain
+0601 light-green fir-forest
+0701 light-green fir-forest
+0801 light-grey mountain
+0901 white mountain
+1001 white mountains
+1101 white mountain
+1201 light-grey mountain
+1301 light-green village
+include https://campaignwiki.org/contrib/gnomeyland.txt
+
+;mountains
+1,[mountain]
+
+;mountain
+1,The air up here is cold.
+1,[monster lair]
+
+;monster lair
+1,The [monster] lives up here. Who knows what [same monster name] really wants?
+
+;monster
+1,gorgon *[gorgon name as monster name]*
+1,fate *[fate name as monster name]*
+
+;gorgon name
+1,Stheno
+1,Euryale
+1,Medusa
+
+;fate name
+1,Clotho
+1,Lachesis
+1,Atropos
+% end
+
+<h2 id="indirection">Reuse: indirection</h2>
+
+<p>
+We can use an indirection to generate more specific text.
+Let's take the example above and let's use <code>[[same ice monster] lair]</code> to
+generate an appropriate lair: <code>[gorgon lair]</code> or <code>[cryo-hydraw
+lair]</code>.
+</p>
+
+%= example begin
+0101 light-grey mountain
+0201 white mountain
+0301 white mountains
+0401 white mountain
+0501 light-grey mountain
+0601 light-green fir-forest
+0701 light-green fir-forest
+0801 light-grey mountain
+0901 white mountain
+1001 white mountains
+1101 white mountain
+1201 light-grey mountain
+1301 light-green village
+include https://campaignwiki.org/contrib/gnomeyland.txt
+
+;mountains
+1,[mountain]
+
+;mountain
+1,The air up here is cold.
+1,[ice monster lair]
+
+;ice monster lair
+1,A *[ice monster]* lives up here. [[same ice monster] lair]
+
+;ice monster
+1,gorgon
+1,cryo-hydra
+
+;gorgon lair
+1,There is an old temple cursed with the presence of a gorgon.
+
+;cryo-hydra lair
+1,The glacier up here is the work of a hydra.
+% end
+
 <h2 id="naming_things">Naming Things</h2>
 
 <p>
@@ -2092,12 +2235,12 @@ A limitation of the current implementation is that when two trails or
 two rivers meet in a hex, only one of them will get mentioned.
 </p>
 
-<h2 id="reusing">Reusing Results</h2>
+<h2 id="indirection_again">Reuse: combining indirection and named features</h2>
 
 <p>
-Sometimes you want to use the entry picked from a table as the name of
-a table from which to pick an entry. Take a look at the following
-example:
+In this example, all the hexes forming a mountain range are either
+haunted or enchanted. Based on this, the encounters always come from
+the appropriate table.
 </p>
 
 %= example begin
@@ -2135,25 +2278,6 @@ include https://campaignwiki.org/contrib/gnomeyland.txt
 1,an angel
 1,a saint
 1,a hermit
-% end
-
-<p>
-In this example, all the hexes forming a mountain range are either
-haunted or enchanted. Based on this, the encounters always come from
-the appropriate table.
-</p>
-
-<p>
-This is how you can reuse results. Assume for example that you want to generate
-a character with random level, and add their hit points.
-</p>
-
-%= example begin
-;mu
-1,magic-user (level [name for mu level], hp [[name for mu level]d4])
-
-;name for mu level
-1,[1d10]
 % end
 
 <h2 id="adjacent">Adjacent Hexes</h2>
@@ -2342,14 +2466,12 @@ just as well have written <code>The village alchemist is looking for
 Remember: "nearby X" and "here X" must match up.
 </p>
 
-<h2 id="here">Reuse: here and same</h2>
+<h2 id="here">Reuse: here, same, and nearby</h2>
 
 <p>
 We said that if a references starts with the word "here" then the result of the
-table will get saved. This can be useful in itself. Thus, references that start
-with the word "same" will refer to such saved results. What follows is an
-example where we use "here" and "same" and "nearby" and nested references to
-pull it all together.
+table will get saved. What follows is an example where we use "here" and "same"
+and "nearby" and nested references to pull it all together.
 </p>
 
 %= example begin
