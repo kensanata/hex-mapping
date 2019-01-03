@@ -736,12 +736,13 @@ Would be:
 
 =cut
 
-my $dice_re = qr/^(\d+)d(\d+)(?:x(\d+))?(?:\+(\d+))?$/;
+my $dice_re = qr/^(?:(\d+)d(\d+)(?:x(\d+))?(?:\+(\d+))?|(\d+))(?: as (.+))?$/;
 
 sub parse_table {
   my $text = shift;
   $log->debug("parse_table: parsing " . length($text) . " characters");
   my $data = {};
+  my %aliases;
   my $key;
   for my $line (split(/\r?\n/, $text)) {
     if ($line =~ /^;([^#\r\n]+)/) {
@@ -752,17 +753,21 @@ sub parse_table {
       $h{text} =~ s/\*\*(.*?)\*\*/<strong>$1<\/strong>/g;
       $h{text} =~ s/\*(.*?)\*/<em>$1<\/em>/g;
       push(@{$data->{$key}->{lines}}, \%h);
+      for my $alias ($h{text} =~ /\[[^\[\]\n]* as ([^\[\]\n]*)\]/g) {
+	$aliases{$alias} = 1;
+      }
     }
   }
   # check tables
   for my $table (keys %$data) {
     for my $line (@{$data->{$table}->{lines}}) {
-      for my $subtable ($line->{text} =~ /\[([^\[\]\n]*?)\]/g) {
+      for my $subtable ($line->{text} =~ /\[([^\[\]\n]*)\]/g) {
 	next if $subtable =~ /$dice_re/;
 	next if $subtable =~ /^redirect https?:/;
 	next if $subtable =~ /^names for (.*)/ and $data->{"name for $1"};
 	next if $subtable =~ /^adjacent hex$/; # experimental
-	next if $subtable =~ /^(?:same|here|nearby) (.*)/ and $data->{$1};
+	next if $subtable =~ /^same (.*)/ and ($data->{$1} or $aliases{$1});
+	next if $subtable =~ /^(?:here|nearby) (.*)/ and $data->{$1};
 	$subtable = $1 if $subtable =~ /^(.+) as (.+)/;
 	$log->error("Error in table $table: subtable $subtable is missing")
 	    unless $data->{$subtable};
@@ -890,14 +895,19 @@ sub describe {
   my @descriptions;
   for my $word (@$words) {
     # valid dice rolls: 1d6, 1d6+1, 1d6x10, 1d6x10+1
-    if (my ($n, $d, $m, $p) = $word =~ /$dice_re/) {
+    if (my ($n, $d, $m, $p, $c, $alias) = $word =~ /$dice_re/) {
       my $r = 0;
-      for(my $i = 0; $i < $n; $i++) {
-	$r += int(rand($d)) + 1;
+      if ($c) {
+	$r = $c;
+      } else {
+	for(my $i = 0; $i < $n; $i++) {
+	  $r += int(rand($d)) + 1;
+	}
+	$r *= $m||1;
+	$r += $p||0;
       }
-      $r *= $m||1;
-      $r += $p||0;
       # $log->debug("rolling dice: $word = $r");
+      $locals{$alias} = $r if $alias;
       push(@descriptions, $r);
     } elsif ($word =~ /^name for a /) {
       # for global things like factions, dukes
@@ -976,7 +986,7 @@ sub describe {
       return "[$word]";
     } elsif ($word =~ /^same (.+)/) {
       return $locals{$1} if exists $locals{$1};
-      $log->error("[$word] is undefined");
+      $log->error("[$word] is undefined for $coordinates");
       return "";
     } elsif ($word =~ /^here (.+)/) {
       my $key = $1;
