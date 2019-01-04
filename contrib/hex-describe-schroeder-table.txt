@@ -39,7 +39,7 @@
 1,The [name for hills] are bare and the narrow creeks between them have dug deep channels. One of these channels is home to [some canyon wights] ([wight stats]). During they day they lie in the flooded cellar of a ruined toll tower guarding a ford. [dead treasure]
 1,Deep ravines cut through the [name for hills]. A cave in one of those dry riverbeds is home to [giant scorpions] ([giant scorpion stats]).
 1,On one of the [name for hills] stands an old tower overlooking the lands below. This is the home of a **manticore** called *[manticore]*. [robber treasure]
-1,On one of the [name for hills] stands a ruined fortress currently occupied by [warlocks]. [average treasure] The fortress and its surrounding land is ruled by the **medusa** *[medusa]* ([medusa stats]). The courtyard and rooms are full of her petrified victims and the bones of the dead. [terror treasure]
+1,On one of the [name for hills] stands a ruined fortress currently occupied by [warlocks]. [average treasure] The fortress and its surrounding land is ruled by the **medusa** *[medusa]* ([medusa stats]). The courtyard and rooms are full of her petrified victims and the bones of the dead. [luxurious context] [terror treasure]
 
 ;name for hills
 1,[hill 1a] [hill 2a] hills
@@ -717,7 +717,7 @@
 1,Nothing but gray rocks up here in the mountains.
 1,High up on on a ridge is an old elven tower made of green glass, [green tower]
 1,On one of the rock faces you can still see the markings of the old dwarf forge *[here dwarf forge]*. [forge ruin]
-1,On one of a ridge of the [name for hills] stands a ruined fortress currently occupied by [warlocks]. [average treasure]</p><p>The fortress and its surrounding land is ruled by the **medusa** *[medusa]* ([medusa stats]). The courtyard and rooms are full of her petrified victims and the bones of the dead. [terror treasure]
+1,On one of a ridge of the [name for hills] stands a ruined fortress currently occupied by [warlocks]. [average treasure]</p><p>The fortress and its surrounding land is ruled by the **medusa** *[medusa]* ([medusa stats]). The courtyard and rooms are full of her petrified victims and the bones of the dead. [luxurious context] [terror treasure]
 
 ;mountain secret
 1,[way up], [a secret mountain thing]
@@ -1434,7 +1434,7 @@
 1,father
 
 ;dwarves
-3,This is a small forge. [5d8] **dwarves** live and work here led by [dwarf leader] (level [1d6+2 as level]). [dwarven treasure]
+3,This is a small forge. [5d8] **dwarves** live and work here led by [dwarf leader] (level [1d6+2 as level]). [luxurious context] [dwarven treasure]
 1,This is a legendary forge stronghold. [5d8x10] **dwarves** live and work here led by [dwarf leader] (level [1d4+8 as level]). They are divided into [3d6] families, each led by a clan elder (level [1d6+2]). [dwarven stronghold treasure]
 
 ;name for 1d6+2
@@ -3084,7 +3084,7 @@
 1,A twisting passage leads down into a huge cave where they must have dug for gems.
 
 ;ruins of the ancients
-1,The degenerate survivors of the builders are [2d8] **ghouls** serving [evil power] ([ghoul stats]). Their rituals have summoned [1d8 shadows] ([shadow stats]). [dead treasure]
+1,The degenerate survivors of the builders are [2d8] **ghouls** serving [evil power] ([ghoul stats]). Their rituals have summoned [1d8 shadows] ([shadow stats]). [luxurious context] [dead treasure]
 1,Down here is a palace made of orange metals and green glass inhabited by [1d4 squid people]. At the center is a huge **brain** floating in a glass cylinder. [ancient treasure]
 1,All is deadly quiet but the dancing shadows on the walls are real. The light summons [1d8 shadows]. [terror treasure]
 
@@ -3367,8 +3367,8 @@
 1,Badlands full of shrubs and wild hedges. [loner]
 1,Dry lands full of tumbleweed and thorn bushes. [loner]
 1,Hidden between some hills is a valley apparently full of thorn bushes. It hides a hamlet of [halflings]
-1,An old fort overlooking the woods has been taken over by a war party of [4d6] **hobgoblins** ([hobgoblin stats]) led by *[hobgoblin]* (HD 3+1). The fort is defended by [hobgoblin companions]. [old fort] [robber treasure]
-1,An abandoned watchtower on a promontory overlooking the drylands is home to [4d6] **hobgoblins** ([hobgoblin stats]) led by *[hobgoblin]* (HD 3+1). The approach is guarded by [hobgoblin companions]. [robber treasure]
+1,An old fort overlooking the woods has been taken over by a war party of [4d6] **hobgoblins** ([hobgoblin stats]) led by *[hobgoblin]* (HD 3+1). The fort is defended by [hobgoblin companions]. [old fort] [luxurious context] [robber treasure]
+1,An abandoned watchtower on a promontory overlooking the drylands is home to [4d6] **hobgoblins** ([hobgoblin stats]) led by *[hobgoblin]* (HD 3+1). The approach is guarded by [hobgoblin companions]. [luxurious context] [robber treasure]
 1,Up in these drylands, a massive fortress built by giants long ago is home to the [evil tribe]. [orcs] The fortress is [orc fort]
 1,Up here on these hills and overlooking the shrublands is a massive fortress built by giants long ago. It has been taken over by **humans** and now it is home to [1d4x10] bandits ([human stats]) led by [human]. The fortress is [human fort]. [average treasure]
 1,There are caves beneath these badlands. [caves]
@@ -3413,7 +3413,7 @@
 1,Sheltered behind one of the boulders and well hidden by some bushes there is a tent.
 
 ;necromancer
-1,Here lives the **necromancer** [human] (level [1d3+4 as level]), protected by [necromancer companions], in a tower. [necromancer tower] [leader treasure for magic user]
+1,Here lives the **necromancer** [human] (level [1d3+4 as level]), protected by [necromancer companions], in a tower. [necromancer tower] [luxurious context] [leader treasure for magic user]
 
 ;name for 1d3+4
 1,[1d3+4]
@@ -3467,7 +3467,7 @@
 1,[wight leader]
 
 ;vivimancer
-1,Here lives the **vivimancer** [human] (level [1d3+4 as level]), protected by [3d6] **myconids**, in a tower. [alchemist job] [poor treasure] [leader treasure for magic user]
+1,Here lives the **vivimancer** [human] (level [1d3+4 as level]), protected by [3d6] **myconids**, in a tower. [alchemist job] [luxurious context] [poor treasure] [leader treasure for magic user]
 1,Here is the tower of the **vivimancer** [human] (level [1d3+4 as level]) with [3d6] [slimes]. [safe zone] [poor treasure] [leader treasure for magic user]
 
 ;alchemist job
@@ -4847,7 +4847,7 @@
 1,a toll bridge.
 1,a huge gallows with [2d8] hanged people hanging there as a dire warning.
 1,a chained **troll** ([troll stats]).
-1,a necropolis below the town, infested by [2d8] **ghouls** ([ghoul stats]). [dead treasure]
+1,a necropolis below the town, infested by [2d8] **ghouls** ([ghoul stats]). [luxurious context] [dead treasure]
 1,an alchemist named **[here human]** selling a [potion] for 500gp each. [1d4+1] of these are currently for sale. [alchemist job]
 
 ;human houses
@@ -8123,6 +8123,13 @@
 1,Émilie
 
 # Treasure stuff
+
+;luxurious context
+1,A few nice carpets cover the floor.
+1,Unused carpets rolled up and stacked up.
+1,A few gobelins cover the walls.
+1,Silk curtains and some paintings on the walls.
+1,Silver cutlery and beautiful wine glasses.
 
 ;dragon treasure
 1,<span class="treasure">[50% 1d6x10 gold] [30% 4d6 platinum] [50% 1d8x10 gems] [50% 1d8x10 jewelry] [20% magic item] [20% magic item] [20% magic item] [20% magic item] [20% magic item] [20% magic item] [20% magic item] [20% magic item]</span>
