@@ -4457,8 +4457,8 @@
 
 ;And a secret society
 1,Luckily, no secret societies have established themselves, here.
-1,The local contact for the secret society of the [one of the secret societies] is [a boss]. [leader treasure]
-1,The secret society of the [one of the secret societies] has a representative, here: [a boss]. [leader treasure]
+1,The local contact for the secret society of the [one of the secret societies] is [a boss]. [leader treasure for [same class]]
+1,The secret society of the [one of the secret societies] has a representative, here: [a boss]. [leader treasure for [same class]]
 
 ;And two secret societies feuding
 1,[And a secret society]
@@ -4466,7 +4466,7 @@
 1,The secret societies of the [name for a secret society 2] and the [name for a secret society 3] are feuding in this town. [Their leaders are]
 
 ;Their leaders are
-1,One society is led by [a boss]. [leader treasure] The other society is led by [a lesser boss]. [leader treasure]
+1,One society is led by [a boss]. [leader treasure for [same class]] The other society is led by [a lesser boss]. [leader treasure for [same class]]
 
 ;a boss
 1,the **[human class]** *[human]* (level [1d4+2 as level])
@@ -4883,8 +4883,8 @@
 1,partner
 
 ;human friends
-1,Their [aide], the **[human class]** *[human]* (level [1d4+1 as level]), also lives here. [leader treasure for [same human class]]
-1,They are served by two [aide]s. One is the **[human class]** *[human]* (level [5 as level]). [leader treasure] The other is the **[human class]** *[human]* (level [1d4+1 as level]). [leader treasure for [same human class]]
+1,Their [aide], the **[human class]** *[human]* (level [1d4+1 as level]), also lives here. [leader treasure for [same class]]
+1,They are served by two [aide]s. One is the **[human class]** *[human]* (level [5 as level]). [leader treasure] The other is the **[human class]** *[human]* (level [1d4+1 as level]). [leader treasure for [same class]]
 
 ;name for 1d4+2
 1,[1d4+2]
@@ -4906,9 +4906,13 @@
 1,a **war dog** ([wolf stats])
 6,[1d6+1] **war dogs** ([wolf stats])
 
+# this indirection allows us to reuse "magic user" or "fighter" for treasure
+;class
+1,magic user
+1,fighter
+
 ;human class
-1,[magic user]
-1,[fighter]
+1,[[class]]
 
 ;magic user
 1,sorceror
@@ -8854,8 +8858,14 @@
 ;wondrous item
 1,A pair of *nightvision goggles* (60ft).
 1,A pair of *gloves of strength* (strength 18).
-1,A *ring of invisibility*.
-1,A *helmet of the bull* (when charging into a fight, get an extra attack and on a hit, an opponent no larger than yourself is thrown to the ground such that your allies get a +4 to attack them).
+1,A *ring of invisibility* which turns you invisible until you attempt to harm somebody.
+1,A *ring of the bully* which allows you to shove anybody and anything within 60ft, and if this puts your victim in harm’s way then they must save vs. death or suffer the consequence.
+1,A *helmet of the bull*, grants an extra attack when charging into a fight on a hit, an opponent no larger than yourself is thrown to the ground such that your allies get a +4 to attack them.
+1,The *helmet of the dark lord* with smoke and red light dripping out of its visor grants the ability to tell when others within 10ft are lying.
+1,The *gloves of the dark lord* allows you to lift anybody no larger than yourself and strangle them: they must save vs. spells or held and suffer 1d6 damage.
+1,The *headband of karma* allows you to borrow luck from your future self: when rolling a d20, roll 2d20 and take the higher result, but before doing it again you need to pay your debt in a similar situation and roll 2d20 and take the lower result.
+1,The *necklace of dharma* allows you to borrow actions from your future self: act twice this round to do what needs to be done but skip the next round.
+1,The *amulet of the luck stealer* allows you to borrow luck from a willing person near you: when rolling a d20, roll 2d20 and take the higher result, but the next time they need to roll a d20 in a similar situation, they roll 2d20 and take the lower result.
 1,An *elven cloak* (5 in 6 chance of hiding in the wilderness using magic camouflage when standing still).
 1,A *crystal of starlight* (60ft).
 1,A *compass of hell*, blessed by Hel (it has two pointers: one points to the nearest danger, the other to the nearest safe place).
