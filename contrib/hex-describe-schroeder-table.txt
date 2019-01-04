@@ -732,7 +732,7 @@
 1,In the middle of a sheer cliff
 1,Amidst the stars
 1,Where the mountains touch the sky
-1,Where the clouds don't reach
+1,Where the clouds don’t reach
 
 ;where it is high up
 1,where the air is thin and cold
@@ -1238,8 +1238,8 @@
 
 ;name for river
 5,[river 1] [river 2]
-1,[old name]'s [river 2]
-1,[halfling name]'s [river 2]
+1,[old name]’s [river 2]
+1,[halfling name]’s [river 2]
 
 ;river 1
 1,Battle
@@ -1319,7 +1319,7 @@
 ;bridge name
 1,[bridge 1] [bridge 2] bridge
 1,the bridge of [power] the [special power]
-1,[power]'s bridge
+1,[power]’s bridge
 1,bridge of St. [old name]
 1,bridge of St. [an old hero]
 
@@ -1334,8 +1334,8 @@
 1,Smugglers
 1,Trade
 1,War
-1,King's
-1,Queen's
+1,King’s
+1,Queen’s
 
 ;more mountains
 1,They are impossible to climb.
@@ -1379,7 +1379,7 @@
 3,[1d3+1] **frost giants** led by *[frost giant]* live here ([frost giant stats]) with [frost giant companions] in a [frost giant lair]
 
 ;frost giant
-1,Winter's Bone
+1,Winter’s Bone
 1,Snow
 1,Ice
 1,Cold
@@ -3072,7 +3072,7 @@
 1,the void
 
 ;abandoned mine
-1,It's basically a deep hole where a single miner would keep digging for coal.
+1,It’s basically a deep hole where a single miner would keep digging for coal.
 1,This used to be a mine for a small family, digging for coal.
 1,This is a huge shaft leading down into blackness. At the bottom are the ruins of an underground building by the ancients.</p><p>[ruins of the ancients]
 1,A twisting passage leads down into a huge cave where they must have dug for gems.
@@ -3428,7 +3428,7 @@
 ;necromancer tower
 1,It is surrounded by a moat and inside the moat lives a **pyrohydra** chained to the foundations of the tower ([pyrohydra stats]).
 1,The stinking dungeons below the tower are filled with cells where a hundred people or more must have died over the years. A pit of rotten flesh and bones awaits all who die here.
-1,Below the tower is a conjuration room with a circle of protection. There's a book, here: [necronomicon].
+1,Below the tower is a conjuration room with a circle of protection. There’s a book, here: [necronomicon].
 1,It is surrounded by permanent darkness spells, and in the darkness lie spiked pits and poison trees, and [3d6] **shadow wolves**.
 
 ;necronomicon
@@ -3962,7 +3962,7 @@
 1,who is cursing all the young men of these lands with the drowning sickness
 
 ;witch stats
-1,HD 5 AC 6 1d6/1d6 F5 MV 15 ML 7 XP 500; on a 20: magic water fills victim's lung, save vs. death or drown; *beautiful* (until kissed), *charm male*, *kiss of mind control* (24h), *invisibility*, *turn to fog*, *curse of water lungs* (save vs. death or drown in 1d6 days)
+1,HD 5 AC 6 1d6/1d6 F5 MV 15 ML 7 XP 500; on a 20: magic water fills victim’s lung, save vs. death or drown; *beautiful* (until kissed), *charm male*, *kiss of mind control* (24h), *invisibility*, *turn to fog*, *curse of water lungs* (save vs. death or drown in 1d6 days)
 
 ;hill name
 1,[hill 1] [hill 2]
@@ -3974,7 +3974,7 @@
 1,Rocky
 1,Gold
 1,Iron
-1,Dead Man's
+1,Dead Man’s
 
 ;hill 2
 1,Cliff
@@ -3985,7 +3985,7 @@
 
 ;swamp
 1,The river widens here and forms a large swamp. You need a guide and boats in order to pass through. [giant fish] can be seen below the surface ([giant fish stats]).
-1,This bog is a labyrinth. You need a guide to find your way through it. If you don't, you will soon end up in the lands of the [witch]
+1,This bog is a labyrinth. You need a guide to find your way through it. If you don’t, you will soon end up in the lands of the [witch]
 1,This reed is home to a lot of [swamp animals]. Those who know how to find it can gather [here magic plant].
 1,These wet land have been settled by a tribe of [6d6] **lizard people** led by *[lizard leader]* (HD [1d4+2 as level]). [leader treasure] The little village of mud huts is guarded by [lizard companions]. [average treasure]
 1,This swamp is home to [froglings]
@@ -4056,10 +4056,10 @@
 1,There is a clearing in this forest where an old statue of [power] still stands.
 
 ;a monster threatening the village
-1,You shouldn't stray too far from the trails because this forest has been cursed by the presence of [2d4] **harpies** luring men into the depths of the forest and to their death with their magical singing. [terror treasure]
+1,You shouldn’t stray too far from the trails because this forest has been cursed by the presence of [2d4] **harpies** luring men into the depths of the forest and to their death with their magical singing. [terror treasure]
 1,Deep in the forest there is a cave where the **ettin** *[ettin]* live. They are known for their fury and their appetite for human flesh. [robber treasure]
 1,Hiding between the trees are the watchful eyes of [1d8 bugbears]. [scout treasure] Bugbears are usually a bad sign for they are often employed as spies by the elves of the netherworld. These carry amulets of passage bearing the [name for a clan of the netherworld elves] sigil.
-1,The camp of [1d8 bugbears] is hard to find. [scout treasure] They hunt these woods at night and like to kill anybody that didn't make it back to the village during daytime.
+1,The camp of [1d8 bugbears] is hard to find. [scout treasure] They hunt these woods at night and like to kill anybody that didn’t make it back to the village during daytime.
 
 ;ettin
 1,Bert and Bob
@@ -4423,7 +4423,7 @@
 
 ;fir highlands
 1,A few stunted firs grow in these highlands.
-1,It's colder up here and the forest is dominated by firs.
+1,It’s colder up here and the forest is dominated by firs.
 1,The firs cast long shadows in these lands.
 1,The forest is cold and dark, full of firs.
 1,This is a fir forest.
@@ -4482,7 +4482,7 @@
 ;name for a secret society 3
 1,*[secret society]*
 
-# meaning the human has no class and isn't a priest
+# meaning the human has no class and isn’t a priest
 # the result is also reused in the following tables
 ;name for village building
 1,tower
@@ -4503,7 +4503,7 @@
 1,An old stairway leads into the bowels of the earth where warm vapours make your head swim. Down here, the **spirit naga** [naga] will guide your hand, should you need her words. Spend an hour down here and any soul dedicated to Set will tell you of the past and the future for all time goes in circles and the big snake eats itself.
 1,Deep below, where the **spirit naga** [naga] guards the passages to Svartalfheim, pools of Earth Blood corrupt both the living and the dead. If you spend an hour here, your death warrant is sealed: slowly, you will die, or turn into an ettin, or a goblin, or some other dreadful creature.
 1,This is a snake pit, a breeding ground for [1d4 giant snakes] and vipers, a place dangerous to every warm blooded creature. And yet, the terror of these snakes also keeps bandits at bay and no orc will set foot near this place, such is the power of Set. They say that those with the secret knowledge can use snake poison to poison their blades and they say that all who serve the temple have done just that.
-1,The temple is a school for assassins. This is where you learn to sneak, to lie, to conceal, to poison, to stab, to strangle. Students learn the secrets of the garrote, of the hidden blade and of the crossbow. All of this is known and yet the farce continues: this is where the young ones learn discipline and strength, diligence and respect. It's a way to put food on the table, and it's a useful skill to have available if you're trying to get ahead.
+1,The temple is a school for assassins. This is where you learn to sneak, to lie, to conceal, to poison, to stab, to strangle. Students learn the secrets of the garrote, of the hidden blade and of the crossbow. All of this is known and yet the farce continues: this is where the young ones learn discipline and strength, diligence and respect. It’s a way to put food on the table, and it’s a useful skill to have available if you’re trying to get ahead.
 
 ;naga
 1,[naga 1] [naga 2] of [naga 3]
@@ -4592,8 +4592,8 @@
 ;small temple dedicated to Pazuzu
 1,[small temple]
 1,The temple is built like the aerie of a giant vulture into a cliff. A narrow stair winds itself through the rock from the base up 100ft to this nest. There, a stone vulture watches the buildings below. A great many small dolls adorn the shelves at the back. These are all the lost children.
-1,The temple is a four storied windowless square tower. Inside a set of ladders leads to the roof. There's a lift with which to raise corpses to the roof. The roof itself is covered in broken bones. This is where the sky burial takes place. Meat boys and bone girls cut up the corpses and offer the remains of the dead to the vultures of Pazuzu.
-1,The temple stands right next to hanging tree. There must be at least a hundred crows, here. They say Pazuzu sees everything the crows see and thus the local priests are feared and everything that's secret has to happen in the dark of night.
+1,The temple is a four storied windowless square tower. Inside a set of ladders leads to the roof. There’s a lift with which to raise corpses to the roof. The roof itself is covered in broken bones. This is where the sky burial takes place. Meat boys and bone girls cut up the corpses and offer the remains of the dead to the vultures of Pazuzu.
+1,The temple stands right next to hanging tree. There must be at least a hundred crows, here. They say Pazuzu sees everything the crows see and thus the local priests are feared and everything that’s secret has to happen in the dark of night.
 1,The temple stands on a rock needle about 100ft high with a rickety sequence of ladders leading up there. The four winged statue of the crow demon Pazuzu is hard to see in all the smoke produced by smoldering fires in iron pots hanging in all four corners of the temple. The temple is looked after by [1d6 tengus].
 1,The temple stands on a large rock about 20ft above the ground. Petitioners have to climb a rope hanging down over the edge. The temple also houses the **vulture demon** [pazuzu demon name] ([vulture demon stats])
 1,The temple is a a roofed platform made of wood built on top of a large rock about 20ft high. The platform has been blasted by fire many times. Many skulls are hanging from the roof. There is a statue of the four winged god in each corner. Beneath it are the old runes spelling out the name Pazuzu. Whosoever utters his name three times will summon him. Pazuzu will be friendly and grant a wish, and take your soul (never to be resurrected again). To insult him will unleash an unholy blight dealing 20d6 damage to anybody within 10ft of the blasphemer; save vs. death for half damage.
@@ -4689,7 +4689,7 @@
 
 ;small temple dedicated to Freya
 1,[small temple]
-1,The temple lies on a hill and boasts a great hall, a long house, where beer is always to be had. The walls are full of weapons and shields of famous patrons, and there are wood carvings of the Freya's beautiful home in Asgard, the city of the gods, a realm all to itself.
+1,The temple lies on a hill and boasts a great hall, a long house, where beer is always to be had. The walls are full of weapons and shields of famous patrons, and there are wood carvings of the Freya’s beautiful home in Asgard, the city of the gods, a realm all to itself.
 1,The temple lies at the edge of the settlement, under some oak trees and with fields in the back. A few standing stones show Freya in her various guises over the course of the year. Sowing, growing, harvesting, and fighting. There are [3d6] [boars or wolves] living in the vicinity. The building itself is a longhouse with a grass roof.
 1,The temple has a courtyard with the wooden statue of a wolf mother raising two human babies. The building is run by [2d6] midwives. Old **[woman]** is their spokeswoman. All the parents in this settlement know how much they owe these midwives, and they know it, too.
 1,The temple belongs to the local [shield maidens], a society of armed women sworn to protect each other and their community. There are [3d6] women led by **[woman]** living here and all are considered armed and dangerous by the locals.
@@ -4781,7 +4781,7 @@
 
 ;small temple dedicated to Thor
 1,[small temple]
-1,The temple is in fact an altar built inside the village smith's forge. This is where the strongest villagers meet every seven-night to discuss their grievances and resolve their issues. Money changes hands, children are promised into apprenticeship and journeymen are welcomed into the village.
+1,The temple is in fact an altar built inside the village smith’s forge. This is where the strongest villagers meet every seven-night to discuss their grievances and resolve their issues. Money changes hands, children are promised into apprenticeship and journeymen are welcomed into the village.
 1,The temple is an altar at the foot of a big rock. The top has been hit by lightning countless times. Next to the altar is the wrestling field. Every festival involves wrestling and old **[human name]** is the most proficient wrestler, here.
 1,The temple stands in the backyard of **[human name]** the chariot maker. Inside it is a life sized statue of Thor riding a chariot drawn by two giant goats. The chariot maker is rich and has buried all his gold beneath the chariot.
 1,The temple is one of the few places where they rise **giant goats**. There are currently [2d6] of these giant goats, here. The paintings beneath the roof show Thor riding hsi chariot pulled by his two famous goats. These giant goats are sold to [goat clients].
@@ -4793,10 +4793,10 @@
 ;small temple dedicated to Mitra
 1,[small temple]
 1,The temple stands on a little elevation, columns carrying a roof, and a stone altar in the middle, a smoking kettle containing the eternal flame that has been burning here ever since its foundation by [an old hero]. This sacred fire is the source for all the human fire in the valley.
-1,The temple is dug into a hill, leading into a small chamber, big enough to barely fit twenty men. There's a statue of a bull being stopped by Mitra herself. It is blackened by many years of blood and fire for the men swear to be like brothers of blood down here.
+1,The temple is dug into a hill, leading into a small chamber, big enough to barely fit twenty men. There’s a statue of a bull being stopped by Mitra herself. It is blackened by many years of blood and fire for the men swear to be like brothers of blood down here.
 1,The temple looks like a tower, except that it has a big window from the bottom to the roof. On the inside, there are no extra floors. The room is simply 50ft high. The strip of light from the window falls on one of three oath brother statues in here, each raising their right hand, each pointing three fingers towards the sky. This is the bond of loyalty that makes us strong.
 1,The temple has a door fit for a giant, but inside there is simply a strip of wooden flooring for petitioners to kneel and a big status of Mitra standing blindfolded in a sea of fire, holding the balance of justice in one hand and the sword of judgement in the other.
-1,A long set of winding stairs leads deep underground to a fiery pit. The fumes are intoxicating and the dreamy babbling of a woman's voice can be heard but her words make no sense to you. She is one of the eternal servants, gifted to the temple by her parents and bound to pass through the lake of fire into Muspelheim, the realm of Mitra, whence nobody has ever returned. This is of course true: the lake of fire is a one way gate to [a location in Muspelheim]. Most of these women eventually master the arcane arts of pyromancy.
+1,A long set of winding stairs leads deep underground to a fiery pit. The fumes are intoxicating and the dreamy babbling of a woman’s voice can be heard but her words make no sense to you. She is one of the eternal servants, gifted to the temple by her parents and bound to pass through the lake of fire into Muspelheim, the realm of Mitra, whence nobody has ever returned. This is of course true: the lake of fire is a one way gate to [a location in Muspelheim]. Most of these women eventually master the arcane arts of pyromancy.
 1,Deep within the bowels of the earth, a pool of Earth Blood is being kept at bay by circles of banishment and stasis and thus evil **gorgon** and its poison remains imprisoned while these seals last. The temple guards the entry to this underworld and the [2d6] priests **[human name]**, the current head of the temple, inspect and improve their defences every year on the night of the winter solstice. The common folks just see the statues of the three oath brother statues here and come here to renew their bond with Mitra. They call themselves the Oath Keepers for this is what they do: the make bargains, here.
 
 ;a location in Muspelheim
@@ -7825,7 +7825,7 @@
 1,Mélanie
 1,Mélissa
 1,Mía
-1,N'Dea
+1,N’Dea
 1,Nabihaumama
 1,Nadija
 1,Nadin
@@ -8646,11 +8646,11 @@
 1,Fight
 
 ;valkyrie home
-1,Sessrúmnir, Freya's hall in Asgard
-1,Valhalla, Odin's hall in Asgard
+1,Sessrúmnir, Freya’s hall in Asgard
+1,Valhalla, Odin’s hall in Asgard
 
 ;summoned troll
-1,[troll name], from Ejudnir, Hel's hall in Niflheim
+1,[troll name], from Ejudnir, Hel’s hall in Niflheim
 
 ;troll name
 1,Hunger
@@ -8659,7 +8659,7 @@
 1,Sickness
 
 ;summoned shape changer
-1,[shape changer name], from Utgard, Loki's hall in Jotunheim
+1,[shape changer name], from Utgard, Loki’s hall in Jotunheim
 
 ;shape changer name
 1,Quiet
@@ -8669,7 +8669,7 @@
 1,Father
 
 ;summoned minotaur
-1,*[minotaur name]*, from Eldivatn, Mitra's hall in Muspelheim
+1,*[minotaur name]*, from Eldivatn, Mitra’s hall in Muspelheim
 
 ;minotaur name
 1,Silence
@@ -8681,7 +8681,7 @@
 1,HD 6 AC 6 2d6 F6 MV 12; *mesmerize* any listeners at will, i.e. listeners must save vs. spells or cease all hostilities and speak nothing but the truth; immune to *sleep* and *charm*
 
 ;summoned hunter general
-1,[hunter general name], from Unugal, Marduk's hall in Midgard
+1,[hunter general name], from Unugal, Marduk’s hall in Midgard
 
 ;hunter general name
 1,Death
@@ -8690,7 +8690,7 @@
 1,Taker of Heads
 
 ;summoned vulture demon
-1,[vulture demon name], from Sandstein, Pazuzu's tower in Vanaheim
+1,[vulture demon name], from Sandstein, Pazuzu’s tower in Vanaheim
 
 ;vulture demon name
 1,Gangrene
@@ -8703,7 +8703,7 @@
 1,HD 8+1 AC 5 1d4/1d4/1d6/1d6/1d8 F16 MV 18 ML 11; flying; only harmed by magic or magic weapons
 
 ;summoned naga
-1,*[naga name]*, from Eiterhorg, Set's hall in Svartalfheim
+1,*[naga name]*, from Eiterhorg, Set’s hall in Svartalfheim
 
 ;naga name
 1,Sweet Stab
@@ -8719,9 +8719,9 @@
 5,An elven *long bow* +1.
 5,A dwarven *short sword* +2 with [dwarven inscription]
 2,A dwarven *crossbow* +2.
-2,A goblin assassin's black iron *crossbow* +1, decorated with the seven heads of Set.
-2,A goblin assassin's *dagger* +1 with grip covered by rat's teeth and lizard skin.
-1,A goblin assassin's *short bow* +1 with plenty of notches along it's side.
+2,A goblin assassin’s black iron *crossbow* +1, decorated with the seven heads of Set.
+2,A goblin assassin’s *dagger* +1 with grip covered by rats’ teeth and lizard skin.
+1,A goblin assassin’s *short bow* +1 with plenty of notches along its side.
 1,An orcish *zweihänder* +1/+3 vs. city dwellers, in the [orc sword tradition].
 1,An orcish *mace* +1 with [orcish runes].
 1,An orcish *mace* +1 marked with the runes of [evil power].
@@ -8729,7 +8729,7 @@
 1,A magic *tongue dagger* +1 (a magic sticky tongue from its grip can pick up unguarded items within 2m), blessed by Tsathoggua.
 1,The ancient spear *Fur Hunter* +1/+3 vs. mammals, a relic of the Old Lizard Wars, blessed by Set.
 1,The long sword *Moonfire* +1/+3 vs. lycanthropes, inscribed with silver runes of death and banishment, forged by the high inquisitors of *[wight realm]*.
-1,The long sword *Razorblade* +1/+3 vs. spell casters, forged by ancient machines in the Philosopher’s War.
+1,The long sword *Razorblade* +1/+3 vs. spell casters, forged by ancient machines in the Philosophers’ War.
 1,The angelic long sword *Angelfire* +1/+3 vs. undead, forged in Asgard by *[dwarf name]*.
 1,The long sword *Meteorstrike* +1/+3 vs. dragons, an old elven sword forged in the dragon wars.
 1,The long sword *Dragonslayer* +1/+3 vs. dragons, blessed by Marduk.
@@ -8737,7 +8737,7 @@
 1,A *long sword of light* +3 (60ft), made in Asgard for the valkyrie *[valkyrie name]* (the sword rejects anybody who refuses to join three fights while carrying the sword).
 1,The *club of the slayer* +1/+3 vs. giants, blessed by Marduk.
 1,The black dagger *Kingslayer* +1, blessed by Set: a target hit in the surprise round must save vs. poison or die.
-1,A smoking, quivering *black arrow of death* +2, carrying the curse of Nergal, ready to take root in a target: if hit, save vs. death or die; the arrow's curse is lost when shot whether it hits or misses.
+1,A smoking, quivering *black arrow of death* +2, carrying the curse of Nergal, ready to take root in a target: if hit, save vs. death or die; the arrow’s curse is lost when shot whether it hits or misses.
 1,The two handed *Icekiller* +3, forged by the frost giant *[frost giant]* in Jotunheim; when the blade is drawn, snow flakes form; when it is stuck into water, a layer of ice forms (10ft); when left unsheathed, a glacier will eventually form.
 1,The long sword *Swampfire* +1/+3 vs. runners, forged in the depths of Myrkheim by frogling priests of Tsathoggua; it eeks a phosphorous glowing liquid and smells of rotten eggs; when left unsheathed, everything around it becomes water logged and eventually turns into a swamp.
 1,The *trident of fishes* +1 gives you long, webbed toes and the ability to breathe under water when you step into it, and you can speak the language of fishes.
@@ -8793,9 +8793,9 @@
 1,An *amulet of shape changing*, blessed by Loki ([animal shape]).
 1,A [magic horn].
 1,A *diadem of the slaver* (when targeted by a spell, it is redirected to a person within 10ft if you save vs. spells).
-1,The *ring of the tengu*, summons the tengu [tengu name], always willing to talk and offer advice ([tengu stats]); the ring's magic is lost when the tengu is killed.
-1,The *staff of the minotaur*, summons the minotaur *[minotaur name]*, always willing to talk and offer advice ([minotaur stats]); the staff's magic is lost when the minotaur is killed.
-1,The *flute of the naga*, summons the naga *[naga name]*, always ready to whisper and corrupt in your name ([naga stats]); the flute's magic is lost when the naga is killed.
+1,The *ring of the tengu*, summons the tengu [tengu name], always willing to talk and offer advice ([tengu stats]); the ring’s magic is lost when the tengu is killed.
+1,The *staff of the minotaur*, summons the minotaur *[minotaur name]*, always willing to talk and offer advice ([minotaur stats]); the staff’s magic is lost when the minotaur is killed.
+1,The *flute of the naga*, summons the naga *[naga name]*, always ready to whisper and corrupt in your name ([naga stats]); the flute’s magic is lost when the naga is killed.
 1,A *flying carpet* (four people).
 1,[elemental prison]
 
