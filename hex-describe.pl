@@ -1502,6 +1502,22 @@ your chance of finding it is also just 1 in 6 per day.</p>
 users and elves that know the spell or have access to <em>read magic</em>; a
 <em>prayer</em> can be read by anyone.</p>
 
+<p><strong>Treasure</strong>: the value of a <em>gem</em> is determined by
+rolling a d20 and looking it up on the table; the value of <em>jewelry</em> is
+determined by rolling 3d6×100gp.</p>
+
+<table class="gems">
+<tr><th>1d20</th><th>Gem Value<th></tr>
+<tr><td>1–3</td><td>10<td></tr>
+<tr><td>4–6</td><td>20<td></tr>
+<tr><td>7–9</td><td>50<td></tr>
+<tr><td>10–12</td><td>75<td></tr>
+<tr><td>13–15</td><td>100<td></tr>
+<tr><td>16–17</td><td>250<td></tr>
+<tr><td>18–19</td><td>750<td></tr>
+<tr><td>20</td><td>1000<td></tr>
+</table>
+
 % for my $hex (sort keys %$descriptions) {
 <p>
 <%== $descriptions->{$hex}->{images} %>
@@ -2646,6 +2662,17 @@ td, th {
 }
 .coordinates a {
   color: inherit;
+}
+.gems {
+  position: absolute;
+  top:  20ex;
+  left: 90ex;
+}
+.gems tr {
+  font-size: smaller;
+}
+.gems td {
+  text-align: center;
 }
 .treasure {
   background-color: #fffacd;
