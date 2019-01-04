@@ -8771,7 +8771,7 @@
 1,The ancient spear *Fur Hunter* +1/+3 vs. mammals, a relic of the Old Lizard Wars, blessed by Set.
 1,The long sword *Moonfire* +1/+3 vs. lycanthropes, inscribed with silver runes of death and banishment, forged by the high inquisitors of *[wight realm]*.
 1,The long sword *Razorblade* +1/+3 vs. spell casters, forged by ancient machines in the Philosophers’ War.
-1,The angelic long sword *Angelfire* +1/+3 vs. undead, forged in Asgard by *[dwarf name]*.
+1,The holy long sword *Angelfire* +1/+3 vs. undead, forged in Asgard by *[dwarf name]*.
 1,The long sword *Meteorstrike* +1/+3 vs. dragons, an old elven sword forged in the dragon wars.
 1,The long sword *Dragonslayer* +1/+3 vs. dragons, blessed by Marduk.
 1,The dwarven hammer *Ironslayer* +1/+3 vs. armoured foes, made by the legendary *[dwarf]* of *[dwarf forge]*.

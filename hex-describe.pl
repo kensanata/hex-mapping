@@ -1498,6 +1498,10 @@ and 1 in 6 per night if you're not behind walls. If you're <em>looking for
 something</em> that isn't as obvious as a town or village built in plain sight,
 your chance of finding it is also just 1 in 6 per day.</p>
 
+<p><strong>Terminology</strong>: a <em>scroll</em> can only be read by magic
+users and elves that know the spell or have access to <em>read magic</em>; a
+<em>prayer</em> can be read by anyone.</p>
+
 % for my $hex (sort keys %$descriptions) {
 <p>
 <%== $descriptions->{$hex}->{images} %>
