@@ -13,13 +13,16 @@
 
 ;grass
 1,The rolling grass stretches in all directions. In the distance, you can see some [cows].
-1,These grasslands are home to [1d4x10] **humans** led by [human]. They are all lightly armored and excellent horse archers. Their tents are protected by [human companions]. [average treasure]
+1,These grasslands are home to [1d4x10] **humans** ([human stats]) led by [human]. They are all lightly armored and excellent horse archers. Their tents are protected by [human companions]. [average treasure]
 1,These grasslands are home to [centaurs].
 
+;human stats
+1,HD 1 AC 8 1d6 F1 MV 12 ML 7 XP 100
+
 ;centaurs
-1,the **centaur** [centaur]
-10,[1d19+1] **centaurs** led by [centaur]
-9,[1d19+1] drunken **centaurs** led by [centaur]
+1,the **centaur** *[centaur]*
+10,[1d19+1] **centaurs** led by *[centaur]*
+9,[1d19+1] drunken **centaurs** led by *[centaur]*
 
 ;centaur
 1,Fleetfoot
@@ -35,8 +38,8 @@
 1,The [name for hills] are dry and forbidding. The only animals you can see are some **goats**.
 1,The [name for hills] are bare and the narrow creeks between them have dug deep channels. One of these channels is home to [some canyon wights] ([wight stats]). During they day they lie in the flooded cellar of a ruined toll tower guarding a ford. [dead treasure]
 1,Deep ravines cut through the [name for hills]. A cave in one of those dry riverbeds is home to [giant scorpions] ([giant scorpion stats]).
-1,On one of the [name for hills] stands an old tower overlooking the lands below. This is the home of a **manticore** called [manticore]. [robber treasure]
-1,On one of the [name for hills] stands a ruined fortress currently occupied by [warlocks]. [average treasure] The fortress and its surrounding land is ruled by the **medusa** [medusa] ([medusa stats]). The courtyard and rooms are full of her petrified victims and the bones of the dead. [terror treasure]
+1,On one of the [name for hills] stands an old tower overlooking the lands below. This is the home of a **manticore** called *[manticore]*. [robber treasure]
+1,On one of the [name for hills] stands a ruined fortress currently occupied by [warlocks]. [average treasure] The fortress and its surrounding land is ruled by the **medusa** *[medusa]* ([medusa stats]). The courtyard and rooms are full of her petrified victims and the bones of the dead. [terror treasure]
 
 ;name for hills
 1,[hill 1a] [hill 2a] hills
@@ -89,7 +92,7 @@
 5,[1d5+1] **warlocks** ([warlock stats]) and their **giant scorpion** mounts ([giant scorpion stats])
 
 ;warlock stats
-1,HD 4 → 5d4 AC 4/2 1d6 M5 MV 12 ML 9 XP 500; spells: *magic missile* (3×1d6+1), *shield* (reduces AC 9 to AC 4 in melee and AC 2 in ranged combat), *phantasmal force* (one or two of them use these illusions to split the party), *mirror image* (1d4 images to protect the caster), *lightning bolt* (5d6 damage, save vs. spells for half), each spell 1×/day
+1,HD 4 → 5d4 AC 4/2 1d6 M5 MV 12 ML 9 XP 500; *magic missile* (3×1d6+1); *shield* (reduces AC 9 to AC 4 in melee and AC 2 in ranged combat); *phantasmal force* (one or two of them use these illusions to split the party); *mirror image* (1d4 images to protect the caster); *lightning bolt* (5d6 damage, save vs. spells for half)
 
 ;giant scorpions
 1,a **giant scorpion**
@@ -99,8 +102,8 @@
 1,HD 4 AC 2 1d10/1d10/1d4 + *poison* F2 MV 15 ML 11 XP 400
 
 ;some canyon wights
-1,the **wight** [old name] [the necromaner] who surfaces from his watery grave every night and searches the canyon for fools to drown
-1,[1d7+1] **wights** led by [old name] [the necromaner] who roam the canyons, looking for victims to drown and add to their undead posse
+1,the **wight** *[old name]* [the necromaner] who surfaces from his watery grave every night and searches the canyon for fools to drown
+1,[1d7+1] **wights** led by *[old name]* [the necromaner] who roam the canyons, looking for victims to drown and add to their undead posse
 
 ;the necromaner
 1,the Necromancer
@@ -707,14 +710,14 @@
 1,HD 3 AC 5 *drain* F3 MV 9 ML 12 XP 300; only harmed by magic or magic weapons; immune to *sleep* and *charm*
 
 ;mountain
-1,The green valley up here has some sheep and a **kid** called [human kid] guarding them.
+1,The green valley up here has some sheep and a **kid** called *[human kid]* guarding them.
 1,Up here in the mountains lies lake [lake name]. [lake inhabitants]
 1,The upper valley is rocky and bare. [hill giants]
 1,Steep cliffs make progress practically impossible without climbing gear. [mountain secret]
 1,Nothing but gray rocks up here in the mountains.
 1,High up on on a ridge is an old elven tower made of green glass, [green tower]
-1,On one of the rock faces you can still see the markings of the old dwarf forge [dwarf forge]. [forge ruin]
-1,On one of a ridge of the [name for hills] stands a ruined fortress currently occupied by [warlocks]. [average treasure]</p><p>The fortress and its surrounding land is ruled by the **medusa** [medusa] ([medusa stats]). The courtyard and rooms are full of her petrified victims and the bones of the dead. [terror treasure]
+1,On one of the rock faces you can still see the markings of the old dwarf forge *[here dwarf forge]*. [forge ruin]
+1,On one of a ridge of the [name for hills] stands a ruined fortress currently occupied by [warlocks]. [average treasure]</p><p>The fortress and its surrounding land is ruled by the **medusa** *[medusa]* ([medusa stats]). The courtyard and rooms are full of her petrified victims and the bones of the dead. [terror treasure]
 
 ;mountain secret
 1,[way up], [a secret mountain thing]
@@ -755,7 +758,7 @@
 1,jealous
 
 ;ice devil
-1,[devil name] the [ice devil epithet]
+1,*[devil name] the [ice devil epithet]*
 
 ;ice devil epithet
 1,Cold
@@ -783,7 +786,7 @@
 
 ;ice devil castle
 1,A castle stands here, a construction of blue ice, cooled by the desolation of Jötunheim, for at the very top of its tower is a gateway into that realm of frost giants and eternal snow.
-1,Up here is an old ruin built by frost giants, haunted by the [1d4+1] spectres of their last inhabitants.
+1,Up here is an old ruin built by frost giants, haunted by the [1d4+1] spectres of their last inhabitants ([spectre stats]). [ancient treasure]
 1,Protected by an eternal snow storm, the lone Tower of [frost giant] was built here ages ago. The flowing inscriptions of moon silver runes set into the stone are spells of protection, of hiding, and of cold.
 1,A black pole of pain points towards the sky like a nail driven through the mountain. It is surrounded by the frozen carcasses of a thousand warriors, frozen as they lay dying, forever trying to reach that pole, hoping against all odds for release from their endless prison of cold, hard flesh.
 
@@ -943,9 +946,12 @@
 
 ;forge ruin
 1,The ruin is abandoned and dead. If you explore the ruins, you will soon find the **balor** demon who caused its downfall. It guards a portal to the realm of eternal fire, to Muspelheim.
-1,The ruin has been settled by the [evil tribe], [1d6x10] **orcs** led by [orc leader]. [orc treasure]
-1,The ruin is full of broken machinery. In its depths, however, a **bronze golem** still wanders the halls.
+1,The ruin has been settled by the [evil tribe]. [orcs]
+1,The ruin is full of broken machinery. In its depths, however, a **bronze golem** still wanders the halls ([bronze golem stats]).
 1,The ruin is now home to the **white dragon** [white dragon name] ([white dragon stats]). [dragon treasure]
+
+;bronze golem stats
+1,HD 10 AC 0 3d10 MV 12 ML 12 XP 1000; when dealing damage to a bronze golem with a melee weapon, save vs. death or suffer 2d6 damage from molten metal splashes
 
 ;green tower
 1,long abandoned.
@@ -954,8 +960,8 @@
 1,currently the home of [gargoyles]. [poor treasure]
 
 ;gargoyles
-1,a **gargoyle** named [gargoyle]
-5,[1d5+1] **gargoyles** led by [gargoyle]
+1,a **gargoyle** named *[gargoyle]*
+5,[1d5+1] **gargoyles** led by *[gargoyle]*
 
 ;gargoyle
 1,Stillness
@@ -1037,8 +1043,8 @@
 1,Grave
 
 ;lake inhabitants
-1,[2d20] **nixies** led by [nixie] ([nixie stats]) live here. [poor treasure]
-1,[2d4] very polite **turtle people** led by [turtle] ([turtle people stats]) live here. [poor treasure]
+1,[2d20] **nixies** led by *[nixie]* live here ([nixie stats]). [poor treasure]
+1,[2d4] very polite **turtle people** led by *[turtle]* live here ([turtle people stats]). [poor treasure]
 
 ;nixie stats
 1,HD 1 AC 7 1d4 F1 MV 12 ML 6 XP 100; *charm*, *water breathing*
@@ -1080,8 +1086,11 @@
 1,Wait
 
 ;hill giants
-1,Some boulders have been assembled into a crude stone tower inhabited [2d4] **hill giants** led by [hill giant].
-1,The bellowing **hill giants** can be heard every day up here. [2d4] of them have built a barricade across the passes, here. They are led by [hill giant] but he insists visitors call him [hill giant title].
+1,Some boulders have been assembled into a crude stone tower inhabited [2d4] **hill giants** led by *[hill giant]* ([hill giant stats]). [rich treasure]
+1,The bellowing **hill giants** can be heard every day up here. [2d4] of them have built a barricade across the passes, here ([hill giant stats]). They are led by *[hill giant]* but he insists visitors call him [hill giant title]. [rich treasure]
+
+;hill giant stats
+1,HD 8 AC 4 2d6 F8 MV 12 ML 8 XP 800
 
 ;hill giant
 1,[hill giant 1] [hill giant 2]
@@ -1131,19 +1140,50 @@
 1,the Killer
 
 ;white mountain
-1,The air up here is cold. You can see the [name for white big mountains] looming up ahead.
+1,The air up here is cold. You can see the [name for white big mountains] looming up ahead. Small canyons and giant boulders provide shelter from the icy wind. [giant apes]
 1,The snow fields beneath the [name for white big mountains] are impossible to cross without skis.
 1,There is a hidden meadow up here, protected by the [name for white big mountains]. [ice monster lair]
 1,The glaciers flowing from the [name for white big mountains] need a local guide and ropes to cross.
-1,The glacier of [name for white big mountains] ends at a small lake [maybe an ice cave].
+1,The glacier of [name for white big mountains] ends at a small lake [maybe an ice cave]
 1,A **white dragon** called [white dragon name] lives in a ruined mountain fortress guarding the approaches to the [name for white big mountains] ([white dragon stats]). [dragon treasure]
 
+;giant apes
+1,A **giant ape** called *[giant ape name]* lives here ([giant ape stats]). [giant ape treasure]
+19,[1d19+1] **giant apes** led by *[giant ape name]* live here ([giant ape stats]). [giant ape treasure]
+
+;giant ape name
+1,[giant ape 1][giant ape 2]
+
+;giant ape 1
+1,Butt
+1,Round
+1,Iron
+1,Rock
+1,Double
+
+;giant ape 2
+1,kick
+1,fist
+1,face
+1,stomp
+
+;giant ape treasure
+1,Hidden away and protected from the elements there is a small temple of [power]. [poor treasure]
+
 ;ice monster lair
-1,A **[here ice monster]** lives up here. [[same ice monster] lair]
+1,A **[here ice monster]** lives up here [[same ice monster] stats]. [[same ice monster] lair] [terror treasure]
 
 ;ice monster
 1,gorgon
-1,ice hydra
+1,cryohydra
+
+;gorgon stats
+
+;cryohydra stats
+1,[1d8+4 as heads] heads, HD [same heads] (8hp per head) AC 5 1d10 per head F[same heads]MV 12 ML 9 XP is [same heads]00; whenever a head is lost, *two heads regrow* the next round (up to 12) unless the wound is cauterised using ice or fire (a melee attack with a torch will do);  *ice* (as much as the hydra has hp left, save vs. dragon breath for half); *poisonous blood* (cutting off a head with a melee weapon exposes the attacker to it: save vs. poison or die)
+
+;pyrohydra stats
+1,[1d8+4 as heads] heads, HD [same heads] (8hp per head) AC 5 1d10 per head F[same heads]MV 12 ML 9 XP is [same heads]00; whenever a head is lost, *two heads regrow* the next round (up to 12) unless the wound is cauterised using ice or fire (a melee attack with a torch will do);  *fire* (as much as the hydra has hp left, save vs. dragon breath for half); *poisonous blood* (cutting off a head with a melee weapon exposes the attacker to it: save vs. poison or die)
 
 ;gorgon lair
 1,A piece of the glacier has broken off and revealed an old temple of [good power], razed, defiled, and cursed with the presence of a gorgon. There are plenty of dead birds which have died due to the poisonous fumes.
@@ -1152,9 +1192,9 @@
 1,The glacier up here is the work of a hydra, a living manifestation of the ice realm.
 
 ;maybe an ice cave
-1,and it is bright blue and ice cold
-1,and there is an ice cave leading beneath the glacier
-1,and there is an ice cave inhabited by a **cryohydra**
+1,and it is bright blue and ice cold.
+1,and there is an ice cave leading into the glacier.
+1,and there is an ice cave inhabited by a **cryohydra** ([cryohydra stats]). [terror treasure]
 
 ;mountains
 1,These mountains are called the [name for white big mountains]. [more mountains]
@@ -1300,7 +1340,7 @@
 ;more mountains
 1,They are impossible to climb.
 1,Fissures lead into the depth of the mountain and in the warm chambers below there sleeps the **red dragon** [red dragon name] ([red dragon stats]). [dragon treasure]
-1,The passes need a local guide to cross. [mountain people].
+1,The passes need a local guide to cross. [mountain people]
 1,A glacier fills the gap between these mountains.
 
 ;red dragon stats
@@ -1327,13 +1367,16 @@
 1,the Sleeper
 
 ;mountain people
-1,[1d4 frost giants]
+1,[1d4 frost giants]. [rich treasure]
 1,[2d4] **winter wolves** live up here ([winter wolf stats])
-1,There is a dwarven forge called [dwarf forge] up here. [dwarves]
+1,There is a dwarven forge called *[here dwarf forge]* up here. [dwarves]
+
+;frost giant stats
+1,HD 10+1 AC 4 4d6 or 3d6 *ranged* F10 MV 12 ML 9 XP 1000; *stone shape* and *control weather* at will
 
 ;1d4 frost giants
-1,The **frost giant** [frost giant] lives here in a [frost giant lair] with [frost giant companions]
-3,[1d3+1] **frost giants** led by [frost giant] live here with [frost giant companions] in a [frost giant lair]
+1,The **frost giant** *[frost giant]* ([frost giant stats]) lives here in a [frost giant lair] with [frost giant companions]
+3,[1d3+1] **frost giants** led by *[frost giant]* live here ([frost giant stats]) with [frost giant companions] in a [frost giant lair]
 
 ;frost giant
 1,Winter's Bone
@@ -1355,9 +1398,9 @@
 ;frost giant companions
 3,[1d4] **white bears**
 2,[2d4] **winter wolves** ([winter wolf stats])
-1,a **cryohydra**
+1,a **cryohydra** ([cryohydra stats])
 1,a **white dragon** named [white dragon name] ([white dragon stats])
-1,a **spectre** of their ancient ice king
+1,a **spectre** of their ancient ice king ([spectre stats])
 
 ;dwarf forge
 1,[dwarf forge 0] [dwarf forge 1]
@@ -1392,7 +1435,7 @@
 1,[1d6+2]
 
 ;dwarf leader
-1,[dwarf]<img src="[[redirect https://campaignwiki.org/face/redirect/alex/dwarf]]" alt="[same dwarf]" title="[same dwarf]"/>
+1,*[dwarf]*<img src="[[redirect https://campaignwiki.org/face/redirect/alex/dwarf]]" alt="[same dwarf]" title="[same dwarf]"/>
 
 ;dwarf
 1,[dwarf 1] [dwarf 2a][dwarf 2b]
@@ -2668,18 +2711,41 @@
 1,HD 2 AC 7 1d6 F1 MV 12 ML 8 XP 200
 
 ;froglings
-1,[5d8] **froglings** led by a priest of Tsathoggua: *lightning bolt* 2×/day (5d6, save vs. spells for half). [poor treasure] The mud village built around the temple is guarded by [frogling companions].
+1,[5d8] **froglings** ([frogling stats]) led by *[frogling]*, a priest of Tsathoggua: *lightning bolt* 2×/day (5d6, save vs. spells for half). [poor treasure] The mud village built around the temple is guarded by [frogling companions].
+
+;frogling
+1,[frogling 1] [frogling 2]
+
+;frogling 1
+1,Far
+1,Long
+1,Great
+1,Big
+1,Wonder
+
+;frogling 2
+1,Jump
+1,Tongue
+1,Lick
+1,Eyes
+
+;frogling stats
+1,HD 1 AC 7 1d6 F1 MV 4 ML 6 XP 100; *surprise* on 1–5 in 6; *jump* into combat for double damage; *swim*
 
 ;frogling companions
 1,spear traps
-5,[1d5] **giant toads**
+1,a **giant toad** ([giant toad stats])
+4,[1d4+1] **giant toads** ([giant toad stats])
+
+;giant toad stats
+1,HD 4+1 AC 7 1d6 + *swallow* F2 MV 3 ML 6 XP 400; human children, elves, halflings and dwarves are swallowed when hit: save vs. death once per round or suffocate
 
 ;forest-hill
 1,One of the hills has an old lookout from which you can see most of the [name for forest/forest-hill/trees/fir-forest/firs].
 1,Small creeks have dug deep channels into [name for forest/forest-hill/trees/fir-forest/firs]. The going is tough.
-1,[name for forest/forest-hill/trees/fir-forest/firs] covers a few hills, here. One one them is inhabited by [1d6 ogres]. [robber treasure]
-1,These hills in [name for forest/forest-hill/trees/fir-forest/firs] belong to the [evil tribe], [1d6x10] **orcs** led by [orc leader]. [leader treasure] Their fort is [orc fort] [orc treasure]
-1,The hill overlooking [name for forest/forest-hill/trees/fir-forest/firs] is the home of [1d8 treants]. They mostly stand around near [forest feature].
+1,[name for forest/forest-hill/trees/fir-forest/firs] covers a few hills, here. One one them is inhabited by [1d6 ogres] ([ogre stats]). [robber treasure]
+1,These hills in [name for forest/forest-hill/trees/fir-forest/firs] belong to the [evil tribe]. [orcs] Their fort is [orc fort]
+1,The hill overlooking [name for forest/forest-hill/trees/fir-forest/firs] is the home of [1d8 treants] ([treant stats]). They mostly stand around near the [forest feature].
 1,There is a hill rising high above [name for forest/forest-hill/trees/fir-forest/firs] with a nice cave which offers shelter from the rain but is home to [1d4 bears].
 1,[5d8] **dwarves** have set up a small logging community, here in [name for forest/forest-hill/trees/fir-forest/firs]. They are led by [dwarf leader] (level [1d6+2 as level]). The camp is defended by [dwarven companions]. [dwarven treasure]
 1,The hills of [name for forest/forest-hill/trees/fir-forest/firs] are full of ancient ruins. On one of these hills right here you can find the foundations of an old keep. The walls are long gone but the cistern and the storage rooms below are still usable. [1d4x10] **bandits** led by [human] have made this their permament base. The camp is [human fort]. [average treasure]
@@ -2887,7 +2953,7 @@
 1,Thrash
 
 ;orc leader
-1,[orc]<img src="[[redirect https://campaignwiki.org/face/redirect/alex/orc]]" alt="[same orc]" title="[same orc]" /> (HD [1d6+1 as level])
+1,*[orc]*<img src="[[redirect https://campaignwiki.org/face/redirect/alex/orc]]" alt="[same orc]" title="[same orc]" /> (HD [1d6+1 as level])
 
 ;orc
 1,[orc food] [orc eat]
@@ -2947,7 +3013,7 @@
 1,[same orc] is a famous sword smith in the [orc sword tradition].
 
 ;orc sword tradition
-1,[orc sword 1] [orc sword 2] [orc sword 3] tradition
+1,*[orc sword 1] [orc sword 2] [orc sword 3]* tradition
 
 ;orc sword 1
 1,Two Handed
@@ -2973,10 +3039,31 @@
 1,[orc treasure context] [robber treasure]
 
 ;orc treasure context
-1,The orcish hoard looks like a garbage dump.
-1,The treasure chest is secured by a lock. Inside the chest are the sacred ancestral bones.
-1,The treasure chest under a statue of [evil power] has the two swords of war for this tribe.
-1,The hoard is hidden in a pit underneath the fireplace.
+1,Piles of rags and poles. Maybe old tents?
+1,Chests filled with polished, ancestral bones.
+1,A statue of [evil power] with [orcish runes].
+1,A hole filled with polished skulls.
+
+;orcish runes
+1,the orcish rune of [orcish rune 1]
+1,the orcish rune of [orcish rune 2]
+1,the orcish runes of [orcish rune 1] and [orcish rune 2]
+1,the orcish runes of [orcish rune 2] and [orcish rune 1]
+
+;orcish rune 1
+1,power
+1,strength
+1,blood
+1,death
+1,slavery
+
+;orcish rune 2
+1,dominance
+1,fear
+1,mercy
+1,violence
+1,forgiveness
+1,the void
 
 ;abandoned mine
 1,It's basically a deep hole where a single miner would keep digging for coal.
@@ -2994,7 +3081,7 @@
 3,[1d3+1] **squid people** led by [squid leader]
 
 ;squid leader
-1,[squid]<img src="[[redirect https://campaignwiki.org/face/redirect/alex/squid]]" alt="[same squid]" title="[same squid]"/>
+1,*[squid]*<img src="[[redirect https://campaignwiki.org/face/redirect/alex/squid]]" alt="[same squid]" title="[same squid]"/>
 
 ;squid
 1,[squid 1] [star name]
@@ -3201,6 +3288,9 @@
 1,[ogre leader]
 5,[ogre leader] leading [ogres]
 
+;ogre stats
+1,HD 4+1 AC 5 1d10 F4 MV 9 ML 10 XP 400
+
 ;ogre
 1,Pain
 1,Smash
@@ -3210,8 +3300,11 @@
 1,Flesh Eater
 
 ;ogre leader
-1,an **ogre mage** called [ogre mage]
-5,an **ogre** called [ogre]
+1,an **ogre mage** called *[ogre mage]* ([ogre mage stats])
+5,an **ogre** called *[ogre]*
+
+;ogre mage stats
+1,HD 6+1 AC 5 1d10 + 1d6 *fire* F6 MV 9 ML 10 XP 600; *fog*; *invisibility*; *snow storm* 3×/day for 6d6 damage up to 30ft., save vs. spells for half
 
 ;ogre mage
 1,[ogre mage 1] [ogre mage 2]
@@ -3250,7 +3343,7 @@
 
 ;ogres
 1,[1d5] more **ogres**
-1,[1d5] more **ogres** and [1d6x10] **orcs** of the [evil tribe]
+1,[1d5] more **ogres** and [1d6x10] **orcs** of the [evil tribe] ([orc stats])
 
 ;bush
 1,[bushes]
@@ -3259,12 +3352,12 @@
 1,Badlands full of shrubs and wild hedges. [loner]
 1,Dry lands full of tumbleweed and thorn bushes. [loner]
 1,Hidden between some hills is a valley apparently full of thorn bushes. It hides a hamlet of [halflings]
-1,An old fort overlooking the woods has been taken over by a war party of [4d6] **hobgoblins** led by [hobgoblin] (HD 3+1). The fort is defended by [hobgoblin companions]. [old fort] [robber treasure]
-1,An abandoned watchtower on a promontory overlooking the drylands is home to [4d6] **hobgoblins** led by [hobgoblin] (HD 3+1). The approach is guarded by [hobgoblin companions]. [robber treasure]
-1,Up in these drylands, a massive fortress built by giants long ago is home to [1d6x10] **orcs** of the [evil tribe], led by [orc leader]. The fortress is [orc fort] [orc treasure]
-1,Up here on these hills and overlooking the shrublands is a massive fortress built by giants long ago. It has been taken over by **humans** and now it is home to [1d4x10] bandits led by [human]. The fortress is [human fort]. [average treasure]
+1,An old fort overlooking the woods has been taken over by a war party of [4d6] **hobgoblins** ([hobgoblin stats]) led by *[hobgoblin]* (HD 3+1). The fort is defended by [hobgoblin companions]. [old fort] [robber treasure]
+1,An abandoned watchtower on a promontory overlooking the drylands is home to [4d6] **hobgoblins** ([hobgoblin stats]) led by *[hobgoblin]* (HD 3+1). The approach is guarded by [hobgoblin companions]. [robber treasure]
+1,Up in these drylands, a massive fortress built by giants long ago is home to the [evil tribe]. [orcs]. The fortress is [orc fort]
+1,Up here on these hills and overlooking the shrublands is a massive fortress built by giants long ago. It has been taken over by **humans** and now it is home to [1d4x10] bandits ([human stats]) led by [human]. The fortress is [human fort]. [average treasure]
 1,There are caves beneath these badlands. [caves]
-1,The dry lands up here are the hunting grounds of a **manticore** called [manticore] living in the ruins of an old tower. [robber treasure]
+1,The dry lands up here are the hunting grounds of a **manticore** called *[manticore]* living in the ruins of an old tower. [robber treasure]
 1,A **green dragon** named [green dragon name] lives at [hill name], one of the hills overlooking these shrublands ([green dragon stats]). [dragon treasure]
 
 ;old fort
@@ -3315,10 +3408,10 @@
 1,[4d6] watchful **zombies**
 1,[2d8] noble **ghouls**, decadent, immortal, foppish, and always hungry
 1,[2d6] **werewolves** in human disguise, welcoming, but rough
-1,[2d4] **hell hounds**
+1,[2d4] **hell hounds** ([hell hound stats])
 
 ;necromancer tower
-1,It is surrounded by a moat and inside the moat lives a **pyrohydra** chained to the foundations of the tower.
+1,It is surrounded by a moat and inside the moat lives a **pyrohydra** chained to the foundations of the tower ([pyrohydra stats]).
 1,The stinking dungeons below the tower are filled with cells where a hundred people or more must have died over the years. A pit of rotten flesh and bones awaits all who die here.
 1,Below the tower is a conjuration room with a circle of protection. There's a book, here: [necronomicon].
 1,It is surrounded by permanent darkness spells, and in the darkness lie spiked pits and poison trees, and [3d6] **shadow wolves**.
@@ -3379,14 +3472,17 @@
 
 ;caves
 1,[cave use] The caves are full of broken constructions, tiny ladders and walkways. [goblins]
-1,[cave use] The caves are paintings of the [evil tribe] on the cave walls. [orcs]
+1,[cave use] The caves have paintings of the [evil tribe] on the cave walls. [orcs]
 1,[cave use] The caves are filled with mushrooms and guarded by [myconids]
 1,[cave use] In winter, these caves are home to [1d4 bears].
 1,[cave use] The caves are inhabited by [1d8 trolls]. [robber treasure]
 1,[cave use] The caves have been abandoned a long time ago.
 
+;orc stats
+1,HD 1 AC 6 1d6 F1 MV 12 ML 8 XP 100
+
 ;orcs
-1,[1d6x10] **orcs** led by [orc leader] live here. [orc treasure]
+1,[1d6x10] **orcs** led by [orc leader] live here ([orc stats]). [orc treasure] [leader treasure]
 
 ;cave use
 1,The caves used to be an old mine.
@@ -3397,6 +3493,9 @@
 1,The strange caves look like an underground city built by the ancients.
 1,In these caves you can still find the ancient vats of an abandoned vivimancer lab.
 1,The caves are an ancient burial complex. There are thousands of dessicated corpses down here.
+
+;hobgoblin stats
+1,HD 1+1 AC 6 1d8 F1 MV 9 ML 8 XP 100
 
 ;hobgoblin
 1,[hobgoblin 1] of [hobgoblin 2]
@@ -3419,8 +3518,11 @@
 
 ;hobgoblin companions
 1,a small watchtower with an archer
-1,a **giant ape**
-1,[1d5+1] **giant apes**
+1,a **giant ape** ([giant ape stats])
+1,[1d5+1] **giant apes** ([giant ape stats])
+
+;giant ape stats
+1,HD 3 AC 7 1d6/1d6 F3 MV 12 ML 5 XP 300
 
 ;green dragon stats
 1,HD 8 AC 1 1d6/1d6/2d8 F8 MV 24 ML 9 XP 1000; *poison* (if HD 4 or lower, save vs. poison or die; otherwise suffer 1/rd)
@@ -3476,7 +3578,7 @@
 1,They hate and fear all outsiders. And what they fear most of all is that somebody would betray the location of their home.
 
 ;halfling
-1,[halfling name]<img src="[[redirect https://campaignwiki.org/face/redirect/alex/woman]]" alt="[same halfling name]" title="[same halfling name]"/>
+1,*[halfling name]*<img src="[[redirect https://campaignwiki.org/face/redirect/alex/woman]]" alt="[same halfling name]" title="[same halfling name]"/>
 
 ;halfling name
 1,[gothic names for men]
@@ -3802,7 +3904,7 @@
 1,Wymarc
 
 ;witch
-1,**witch** [old names for women], [the witch], [witch goal]. [witch stats]. [harpy treasure]
+1,**witch** *[old names for women]*, [the witch], [witch goal]. [witch stats]. [terror treasure]
 
 # make sure to not end in a space
 ;the witch
@@ -3867,14 +3969,18 @@
 1,Rock
 
 ;swamp
-1,The river widens here and forms a large swamp. You need a guide and boats in order to pass through it.
+1,The river widens here and forms a large swamp. You need a guide and boats in order to pass through. [giant fish] can be seen below the surface ([giant fish stats]).
 1,This bog is a labyrinth. You need a guide to find your way through it. If you don't, you will soon end up in the lands of the [witch]
 1,This reed is home to a lot of [swamp animals]. Those who know how to find it can gather [here magic plant].
 1,These wet land have been settled by a tribe of [6d6] **lizard people** led by [lizard leader] (HD [1d4+2 as level]). [leader treasure] The little village of mud huts is guarded by [lizard companions]. [average treasure]
 1,This swamp is home to [froglings]
-1,A ruined tower standing on a small island in this swamp is home to the **ettin** called [ettin]. [ettin treasure]
+1,A ruined tower standing on a small island in this swamp is home to the **ettin** called *[ettin]*. [robber treasure]
 1,In the old days, this bog was used to drown evil necromancers. [bog wights]
 1,On one of the islands of this swamp there is a huge mud mound. [goblins]
+
+;giant fish
+1,A **giant fish**
+7,[1d7+1] **giant fish**
 
 ;swamp animals
 1,birds
@@ -3935,13 +4041,10 @@
 1,There is a clearing in this forest where an old statue of [power] still stands.
 
 ;a monster threatening the village
-1,You shouldn't stray too far from the trails because this forest has been cursed by the presence of [2d4] **harpies** luring men into the depths of the forest and to their death with their magical singing. [harpy treasure]
-1,Deep in the forest there is a cave where the **ettin** [ettin] live. They are known for their fury and their appetite for human flesh. [ettin treasure]
-1,Hiding between the trees are the watchful eyes of [1d8 bugbears]. [bugbear treasure] Bugbears are usually a bad sign for they are often employed as spies by the elves of the netherworld. These carry amulets of passage bearing the [name for a clan of the netherworld elves] sigil.
-1,The camp of [1d8 bugbears] is hard to find. [bugbear treasure] They hunt these woods at night and like to kill anybody that didn't make it back to the village during daytime.
-
-;harpy treasure
-1,<span class="treasure">[30% 1d6 silver] [20% 1d6 gems] [20% 1d6 jewelry] [10% magic item] [10% magic item]</span>
+1,You shouldn't stray too far from the trails because this forest has been cursed by the presence of [2d4] **harpies** luring men into the depths of the forest and to their death with their magical singing. [terror treasure]
+1,Deep in the forest there is a cave where the **ettin** *[ettin]* live. They are known for their fury and their appetite for human flesh. [robber treasure]
+1,Hiding between the trees are the watchful eyes of [1d8 bugbears]. [scout treasure] Bugbears are usually a bad sign for they are often employed as spies by the elves of the netherworld. These carry amulets of passage bearing the [name for a clan of the netherworld elves] sigil.
+1,The camp of [1d8 bugbears] is hard to find. [scout treasure] They hunt these woods at night and like to kill anybody that didn't make it back to the village during daytime.
 
 ;ettin
 1,Bert and Bob
@@ -3951,15 +4054,12 @@
 1,Bone and Marrow
 1,Punch and Break
 
-;ettin treasure
-1,<span class="treasure">[50% 1d8 silver] [50% 2d6 gold] [20% 1d6 platinum] [30% 1d6 gems] [10% 1d4 jewelry] [10% magic item]</span>
-
 ;bog wights
 1,At night, [wight crawls] [dead treasure]
 
 ;wight crawls
-1,the **wight** [wight leader] crawls out of a wet grave and roams the land in search of followers.
-1,[1d7+1] **wights** led by [wight leader] crawl out of their wet graves and roam the land in search of more followers.
+1,the **wight** [wight leader] crawls out of a wet grave and roams the land in search of followers ([wight stats]).
+1,[1d7+1] **wights** led by [wight leader] crawl out of their wet graves and roam the land in search of more followers ([wight stats]).
 
 ;wight leader
 1,Old [wight name] of [wight realm]
@@ -3997,20 +4097,26 @@
 1,Zerrin
 
 ;goblins
-1,[6d10] **goblins** live here, led by [goblin]. [goblin treasure]
-5,[6d10] **goblins** live here, led by [goblin]. The goblins have tamed [2d6] [goblin companions]. Goblins love to ride these into battle. [goblin treasure]
+1,[6d10] **goblins** live here, led by [goblin] ([goblin stats]). [poor treasure]
+5,[6d10] **goblins** live here, led by [goblin] ([goblin stats]). The goblins have tamed [2d6] [goblin companions] Goblins love to ride these into battle. [poor treasure]
+
+;goblin stats
+1,HD 1-1 AC 6 1d6 F1 MV 6 ML 7 XP 100
+
+;giant spider stats
+1,HD 4 AC 6 1d6 + *paralysis* F2 MV 15 ML 7 XP 400; *climb*
+
+;giant beetle stats
+1,HD 4 AC 3 2d6 F2 MV 9 ML 9 XP 400
 
 ;goblin companions
-2,intelligent **giant wolves** ([giant wolf stats])
-1,**giant weasels** ([weasel stats])
-1,**giant spiders**
-1,**giant beetles**
-
-;goblin treasure
-1,<span class="treasure">[60% 1d8 silver] [30% 1d4 gold] [10% 1d4 platinum] [10% 1d6 gems] [10% 1d6 jewelry]</span>
+2,intelligent **giant wolves** ([giant wolf stats]).
+1,**giant weasels** ([weasel stats]).
+1,**giant spiders** ([giant spider stats]). 1 in 6 passages are **web traps**.
+1,**giant beetles** ([giant beetle stats]).
 
 ;goblin
-1,[goblin 1] [goblin 2]
+1,*[goblin 1] [goblin 2]*
 
 ;goblin 1
 1,Death
@@ -4031,8 +4137,8 @@
 ;forest
 1,This is the [name for forest/forest-hill/trees/fir-forest/firs] and there are no trails. Without a guide, you will get lost.
 1,The tall trees of [name for forest/forest-hill/trees/fir-forest/firs] and their dense canopy keep the sunlight away. Down here in the shade there are big mushrooms everywhere. [mushrooms]
-1,This part of [name for forest/forest-hill/trees/fir-forest/firs] is under the protection of [1d8 treants]. They mostly stand around near [forest feature].
-1,The trees of [name for forest/forest-hill/trees/fir-forest/firs] are full of spider webs, here. Anybody climbing the trees or travelling on their own will get attacked by [2d4] **giant spiders**.
+1,This part of [name for forest/forest-hill/trees/fir-forest/firs] is under the protection of [1d8 treants] ([treant stats]). They mostly stand around near the [forest feature].
+1,The trees of [name for forest/forest-hill/trees/fir-forest/firs] are full of spider webs, here. Anybody climbing the trees or travelling on their own will get attacked by [2d4] **giant spiders** ([giant spider stats]).
 1,[2d12] **elves** led by [elf leader] (level [1d6+1]) have built their [elf dwelling] in [name for forest/forest-hill/trees/fir-forest/firs]. [elf companions]
 1,These trees are part of [name for forest/forest-hill/trees/fir-forest/firs]. A system of big tunnels is home to [1d6 weasels] ([weasel stats]).
 1,At dusk and dawn, you can sometimes see [boars] in the [name for forest/forest-hill/trees/fir-forest/firs], here ([boar stats]).
@@ -4106,16 +4212,33 @@
 ;weasel stats
 1,HD 5 AC 7 1d8 F3 MV 15 ML 8 XP 500
 
+;treant stats
+1,HD 8 AC 2 2d6/2d6 F8 MV 6 ML 6 XP 800; *surprise* on 1–3 in 6; *animate trees* two trees each, using the same stats
+
 ;1d8 treants
 1,the **treant** called [treant]
-7,[1d7+1] **treants** led by the [treant]
+7,[1d7+1] **treants** led by [treant]
 
 ;treant
-1,Oldfather
-1,Birchwhip
-1,Rootstrong
-1,Mossman
-1,Coldwater
+1,*[treant 1] [treant 2]*
+
+;treant 1
+1,Old
+1,Oak
+1,Birch
+1,Fir
+1,Root
+1,Moss
+1,Trunk
+
+;treant 2
+1,Father
+1,Man
+1,Master
+1,Water
+1,Wood
+1,Forest
+1,Strong
 
 ;elf dwelling
 1,wooden tree palace
@@ -4169,14 +4292,14 @@
 
 # These are the fir forests next to thorps
 ;fir-forest
-1,[fir highlands] The land up here is the hunting ground of a **manticore** called [manticore] living in the ruins of an old tower overlooking the area. [robber treasure]
+1,[fir highlands] The land up here is the hunting ground of a **manticore** called *[manticore]* living in the ruins of an old tower overlooking the area. [robber treasure]
 1,[fir highlands] This fir forest is home to a pack of [3d6] **wolves** ([wolf stats]).
 1,[fir highlands] At dusk and dawn, you can sometimes see [boars] ([boar stats]).
-1,There is a cave in this fir forest housing the **ettin** called [ettin]. [ettin treasure]
+1,There is a cave in this fir forest housing the **ettin** called *[ettin]*. [robber treasure]
 1,[fir highlands] At the foot of [crag name], there is cave inhabited by [1d8 trolls]. [robber treasure]
-1,[fir highlands] In this fir forest is a little campsite with [1d8 bugbears]. [bugbear treasure]
+1,[fir highlands] In this fir forest is a little campsite with [1d8 bugbears]. [scout treasure]
 1,[fir highlands] At night, the orcs of the [evil tribe] hunt these lands. [orcs] Their settlement is protected by a palisade and [orc fort]
-1,[fir highlands] There is an abandoned shrine to [power] up here. It is haunted by the **spectre** of [old name], the last priest who cared for it. The locals avoid it.
+1,[fir highlands] There is an abandoned shrine to [power] up here. It is haunted by the **spectre** of *[old name]*, the last priest who cared for it ([spectre stats]). The locals avoid it. [ancient treasure]
 
 ;wolf stats
 1,HD 2+1 AC 7 1d6 F1 MV 18 ML 6 XP 200
@@ -4187,12 +4310,12 @@
 ;winter wolf stats
 1,HD 5 AC 4 1d6 F5 MV 12 ML 9 XP 500: 2 in 6 chance that instead of biting, it breathes a *cloud of ice* (5d6); *see invisible*
 
-;1d8 bugbears
-1,the **bugbear** [bugbear]
-7,[1d7+1] **bugbears** led by [bugbear] belonging to the [a bugbear band] band
+;hell hound stats
+1,HD 5 AC 4 1d6 F5 MV 12 ML 9 XP 500: 2 in 6 chance that instead of biting, it breathes *fire* (5d6); *see invisible*
 
-;bugbear treasure
-1,<span class="treasure">[20% 1d4 silver] [30% 1d4 gold] [30% 1d8 gems] [20% 1d4 jewelry] [10% magic item]</span>
+;1d8 bugbears
+1,the **bugbear** *[bugbear]*
+7,[1d7+1] **bugbears** led by *[bugbear]* belonging to the *[a bugbear band]* band
 
 ;bugbear
 6,[bugbear 1] [bugbear 2]
@@ -4258,8 +4381,8 @@
 1,Hill
 
 ;1d8 trolls
-1,a **troll** called [troll]
-7,[1d7+1] **trolls** led by [troll]
+1,a **troll** called *[troll]*
+7,[1d7+1] **trolls** led by *[troll]*
 
 ;troll
 1,Stone
@@ -4285,22 +4408,22 @@
 1,This is a fir forest.
 
 ;thorp
-1,</p><p>There is a thorp of [1d4x10] **humans** led by [human][human job]. The [human houses] are protected by [human companions]. [average treasure]
+1,</p><p>There is a thorp of [1d4x10] **humans** ([human stats]) led by [human][human job]. The [human houses] are protected by [human companions]. [average treasure]
 
 # the second variant has a temple at the end
 ;village
-1,</p><p>There is a village of [5d6x10] **humans**. The [human houses] are protected by [human companions] and a [human defense]. There is small **[name for village building]**. [small [name for village building]] [average treasure]</p><p>The [human leader] lives in the [name for village building]. [leader treasure]</p><p>[human retainer]</p><p>[human friends]</p><p>[And a secret society]
-1,</p><p>There is a village of [5d6x10] **humans**. The [human houses] are protected by [human companions] and a [human defense]. There is small **[name for village building]**. [small [name for village building]] [average treasure]</p><p>The [human leader] lives in the [name for village building]. [leader treasure]</p><p>[human retainer]</p><p>[human friends]</p><p>[And a secret society]</p><p>There is a [name for temple]. [small [name for temple]]
+1,</p><p>There is a village of [5d6x10] **humans** ([human stats]). The [human houses] are protected by [human companions] and a [human defense]. There is small **[name for village building]**. [small [name for village building]] [average treasure]</p><p>The [human leader] lives in the [name for village building]. [leader treasure]</p><p>[human retainer]</p><p>[human friends]</p><p>[And a secret society]
+1,</p><p>There is a village of [5d6x10] **humans** ([human stats]). The [human houses] are protected by [human companions] and a [human defense]. There is small **[name for village building]**. [small [name for village building]] [average treasure]</p><p>The [human leader] lives in the [name for village building]. [leader treasure]</p><p>[human retainer]</p><p>[human friends]</p><p>[And a secret society]</p><p>There is a [name for temple]. [small [name for temple]]
 
 # the first variant has a town feature, the other has an alchemist
 ;town
-1,</p><p>There is a town of [1d6x100] **humans**. The [human houses] are protected by a keep, a town wall and the river. [average treasure]</p><p>The [human leader] lives in the keep. [leader treasure]</p><p>[human retainer]</p><p>[human friends]</p><p>[And two secret societies feuding]</p><p>There is a [name for temple]. [small [name for temple]]</p><p>There is also [town feature].
-1,</p><p>There is a town of [1d6x100] **humans**. The [human houses] are protected by a keep, a town wall and the river. [average treasure]</p><p>The [human leader] lives in the keep. [leader treasure]</p><p>[human retainer]</p><p>[human friends]</p><p>[And two secret societies feuding]</p><p>There is a [name for temple]. [small [name for temple]]</p><p>An alchemist named **[here human]** lives here, selling a [potion] for 500gp each. [1d4+1] of these are currently for sale. [alchemist job]
+1,</p><p>There is a town of [1d6x100] **humans** ([human stats]). The [human houses] are protected by a keep, a town wall and the river. [average treasure]</p><p>The [human leader] lives in the keep. [leader treasure]</p><p>[human retainer]</p><p>[human friends]</p><p>[And two secret societies feuding]</p><p>There is a [name for temple]. [small [name for temple]]</p><p>There is also [town feature].
+1,</p><p>There is a town of [1d6x100] **humans** ([human stats]). The [human houses] are protected by a keep, a town wall and the river. [average treasure]</p><p>The [human leader] lives in the keep. [leader treasure]</p><p>[human retainer]</p><p>[human friends]</p><p>[And two secret societies feuding]</p><p>There is a [name for temple]. [small [name for temple]]</p><p>An alchemist named **[here human]** lives here, selling a [potion] for 500gp each. [1d4+1] of these are currently for sale. [alchemist job]
 
 ;human job
-1,the smith
-1,the miller
-1,the carpenter
+1, the smith
+1, the miller
+1, the carpenter
 1,, the owner of the largest pasture
 1,, the owner of largest cow herd
 1,, the owner of the most sheep
@@ -4322,10 +4445,10 @@
 1,One society is led by [a boss]. [leader treasure] The other society is led by [a lesser boss]. [leader treasure]
 
 ;a boss
-1,the [human class] **[human]** (level [1d4+2 as level])
+1,the **[human class]** *[human]* (level [1d4+2 as level])
 
 ;a lesser boss
-1,the [human class] **[human]** (level [1d4+1 as level])
+1,the **[human class]** *[human]* (level [1d4+1 as level])
 
 # make sure there are only 3 of them
 ;one of the secret societies
@@ -4400,9 +4523,12 @@
 1,[small temple]
 1,The temple is a simple mausoleum with a bone pit. The poor and foreign folks are brought here upon their death for it is said that in the hour of need the dead will rise and fight for us at the End of the World.
 1,The temple is an underground network of crypts with dozens of bone chambers. The bones of the dead are used walls, floor, and ceiling. They say that the Bone Road of the underworld is similarly made of all the bones of the restless dead. There they await the End of the World. The bone chambers are there to remind us that everything must pass.
-1,The temple is an underground labyrinth of tunnels with dozens of niches where warriors of old await the end of the world. Most of them are truly dead except for [1d8 mummies]. Down here in the cold darkness, somebody is always eager to whisper words of wisdom in exchange for gold and jewels intent on corrupting the world above. It is the hope for eternal life, of resurrection in this world, which brings people back again and again. [dead treasure]
-1,Beneath the town, after descending into an old chamber via many stairs, is the temple: a black pit where the broken whispers of [1d8 wights] can be heard. Down there are the tunnels of madness. Behind the pit is a status of a naked man, fat and hairy, with the horns of a giant ram, served by satyrs and skeletons. This is the trickster demon lord, the only one capable of bringing back souls from the afterlife, or so they say. [dead treasure]
-1,The temple is a burial mound with various secret crypts, each sealed and secured. Falling rocks, swinging blades, spiked pits, and hidden spears await the fools intent on disturbing the draugar, the restless dead, champions of old, warriors and sorcerers all, awakened and animated by the Earth Blood, waiting for their signal. When Fenrir devours the sun, the undead will smash their prison gates and it will be the end of all that is good. The [1d4+1] crypts house [1d8 wights without a name] and [1d4 spectres]. [dead treasure]
+1,The temple is an underground labyrinth of tunnels with dozens of niches where warriors of old await the end of the world. Most of them are truly dead except for [1d8 mummies] ([mummy stats]). Down here in the cold darkness, somebody is always eager to whisper words of wisdom in exchange for gold and jewels intent on corrupting the world above. It is the hope for eternal life, of resurrection in this world, which brings people back again and again. [dead treasure]
+1,Beneath the town, after descending into an old chamber via many stairs, is the temple: a black pit where the broken whispers of [1d8 wights] can be heard ([wight stats]). Down there are the tunnels of madness. Behind the pit is a status of a naked man, fat and hairy, with the horns of a giant ram, served by satyrs and skeletons. This is the trickster demon lord, the only one capable of bringing back souls from the afterlife, or so they say. [dead treasure]
+1,The temple is a burial mound with various secret crypts, each sealed and secured. Falling rocks, swinging blades, spiked pits, and hidden spears await the fools intent on disturbing the draugar, the restless dead, champions of old, warriors and sorcerers all, awakened and animated by the Earth Blood, waiting for their signal. When Fenrir devours the sun, the undead will smash their prison gates and it will be the end of all that is good. The [1d4+1] crypts house [1d8 wights without a name] ([wight stats])and [1d4 spectres] ([spectre stats]). [ancient treasure]
+
+;spectre stats
+1,HD 6 AC 2 1d8 + *drain* 2 levels F6 MV 15 ML 11 XP 600; only harmed by magic or magic weapons; immune to *sleep* and *charm*
 
 ;1d4 spectres
 1,a **spectre** called [an old hero]
@@ -4421,7 +4547,7 @@
 7,[1d7+1] **mummies** led by [an old hero]
 
 ;an old hero
-1,[old name] the [special adjective]
+1,*[old name] the [special adjective]*
 
 ;small temple dedicated to Nergal
 1,[small temple]
@@ -4455,7 +4581,7 @@
 5,[1d5+1] **tengus** led by the master swordsman [tengu name]: [tengu stats]
 
 ;tengu name
-1,[tengu 1] of [tengu 2]
+1,*[tengu 1] of [tengu 2]*
 
 ;tengu 1
 1,Blade
@@ -4514,7 +4640,7 @@
 1,The temple is a witch coven, a labyrinth of tiny passages, low ceilings, confusing twists and turns, skulls, stuffed animals, and flickering candles. A group of [3d4] women run this place, led by **[woman]**. They say that on nights of the full moon these women fly through the air to visit remote farms and steal the babies.
 1,The temple is built atop a nexus of Earth Blood, both channelling its energy and protecting the surface from its mutagenic power. Multiple circles of protection and seals of banning can be seen on the ground and on the standing stones throughout the area. [3d4] women care for this place, led by **[woman]**.
 1,The temple is a warren dug into a hill. It smells of death. At the entrance, votive offerings have been placed on shelves. Most of these are small statues and dolls, prayers for recovery or peace in the afterlife, or people begging for guidance. Down below, however, when you reach the oldest layers of the settlement, a terrible secret is revealed: a big pit full of baby skeletons. [why baby skeletons]
-1,The temple is dug deep into the rocks below. Unbeknownst to most, the caves down here are inhabited by [1d4+2] trolls led by [troll]. Human bones are everywhere. [why trolls]
+1,The temple is dug deep into the rocks below. Unbeknownst to most, the caves down here are inhabited by [1d4+2] trolls led by *[troll]*. Human bones are everywhere. [why trolls]
 
 ;why baby skeletons
 1,These are the victims of Earth Blood exposure.
@@ -4530,14 +4656,18 @@
 1,These trolls guard a secret passage to the realm of snow and black forests itself, to Niflheim. The gate to Niflheim itself at the end of this passage is further guarded by a [gate monster].
 
 ;gate monster
-1,**hydra**
-1,**chimera**
-1,three-headed **hell hound**
-1,three-headed **winter wolf**
+1,**cryohydra** ([cryohydra stats])
+1,**pyrohydra** ([cryohydra stats])
+1,**chimera** ([chimera stats])
+1,three-headed **hell hound** ([hell hound stats])
+1,three-headed **winter wolf** ([winter wolf stats])
+
+;chimera stats
+1,HD 6 AC 5 1d6/1d6/1d10/2d10 or *fire* F6 MV 9 ML 10 XP 600; *fire* (3×/day): as much as the chimera has hp left, save vs. dragon breath for half
 
 ;small temple dedicated to Freya
 1,[small temple]
-1,The temple lies on a hill and boasts a great hall, a long house, were beer is always to be had. The walls are full of weapons and shields of famous patrons, and there are wood carvings of the Freya's beautiful home in Asgard, the city of the gods, a realm all to itself.
+1,The temple lies on a hill and boasts a great hall, a long house, where beer is always to be had. The walls are full of weapons and shields of famous patrons, and there are wood carvings of the Freya's beautiful home in Asgard, the city of the gods, a realm all to itself.
 1,The temple lies at the edge of the settlement, under some oak trees and with fields in the back. A few standing stones show Freya in her various guises over the course of the year. Sowing, growing, harvesting, and fighting. There are [3d6] [boars or wolves] living in the vicinity. The building itself is a longhouse with a grass roof.
 1,The temple has a courtyard with the wooden statue of a wolf mother raising two human babies. The building is run by [2d6] midwives. Old **[woman]** is their spokeswoman. All the parents in this settlement know how much they owe these midwives, and they know it, too.
 1,The temple belongs to the local [shield maidens], a society of armed women sworn to protect each other and their community. There are [3d6] women led by **[woman]** living here and all are considered armed and dangerous by the locals.
@@ -4648,8 +4778,8 @@
 1,Deep within the bowels of the earth, a pool of Earth Blood is being kept at bay by circles of banishment and stasis and thus evil **gorgon** and its poison remains imprisoned while these seals last. The temple guards the entry to this underworld and the [2d6] priests **[human name]**, the current head of the temple, inspect and improve their defences every year on the night of the winter solstice. The common folks just see the statues of the three oath brother statues here and come here to renew their bond with Mitra. They call themselves the Oath Keepers for this is what they do: the make bargains, here.
 
 ;a location in Muspelheim
-1,the [Muspelheim building] of [Muspelheim material] where [Muspelheim matriarch] [old names for women] rules
-1,the [Muspelheim material] [Muspelheim building] where [Muspelheim matriarch] [old names for women] rules
+1,the [Muspelheim building] of [Muspelheim material] where [Muspelheim matriarch] *[old names for women]* rules
+1,the [Muspelheim material] [Muspelheim building] where [Muspelheim matriarch] *[old names for women]* rules
 
 ;Muspelheim building
 1,City
@@ -4707,13 +4837,13 @@
 1,river flowing around it
 
 ;human leader
-1,[human class] **[human]** (level [1d2+8 as level])
+1,**[human class]** *[human]* (level [1d2+8 as level])
 
 ;name for 1d2+8
 1,[1d2+8]
 
 ;human retainer
-1,Their retainer is the [human class] **[human]** (level [1d2+6 as level]). [leader treasure]
+1,Their retainer is the **[human class]** *[human]* (level [1d2+6 as level]). [leader treasure]
 
 ;name for 1d2+6
 1,[1d2+6]
@@ -4726,8 +4856,8 @@
 1,partner
 
 ;human friends
-1,Their [aide], the [human class] **[human]** (level [1d4+1 as level]), also lives here. [leader treasure]
-1,They are served by two [aide]s. One is the [human class] **[human]** (level [5 as level]). [leader treasure] The other is the [human class] **[human]** (level [1d4+1 as level]). [leader treasure]
+1,Their [aide], the **[human class]** *[human]* (level [1d4+1 as level]), also lives here. [leader treasure]
+1,They are served by two [aide]s. One is the **[human class]** *[human]* (level [5 as level]). [leader treasure] The other is the **[human class]** *[human]* (level [1d4+1 as level]). [leader treasure]
 
 ;name for 1d4+2
 1,[1d4+2]
@@ -4745,7 +4875,7 @@
 1,subordinate
 
 ;human companions
-1,some sharpened stakes
+1,sharpened stakes
 1,a **war dog** ([wolf stats])
 6,[1d6+1] **war dogs** ([wolf stats])
 
@@ -4769,13 +4899,14 @@
 
 ;fighter
 1,fighter
+1,warrior
 1,knight
+1,noble
 1,captain
-1,mercenary
 
 ;human
-1,[man as human]<img src="[[redirect https://campaignwiki.org/face/redirect/alex/man]]" alt="[same human]" title="[same human]"/>
-1,[woman as human]<img src="[[redirect https://campaignwiki.org/face/redirect/alex/woman]]" alt="[same human]" title="[same human]"/>
+1,*[man as human]*<img src="[[redirect https://campaignwiki.org/face/redirect/alex/man]]" alt="[same human]" title="[same human]"/>
+1,*[woman as human]*<img src="[[redirect https://campaignwiki.org/face/redirect/alex/woman]]" alt="[same human]" title="[same human]"/>
 
 ;human name
 1,[man]
@@ -8458,12 +8589,19 @@
 ;scroll
 1,scroll of *fog* (1km, within 10min, for 1h, visibility 10ft)
 1,scroll of *fire ball* (6d6, save vs. spells for half)
+1,scroll of *moving ice* (grow an ice bridge up to 30m long from existing snow or ice)
+1,scroll of *piercing steel* (sudden growth of a permanent iron spike 5m high, 4d6, save vs. spells for half)
 1,scroll of *unlocking doors* (unlocks and unbars a door up to 2m wide)
 1,scroll of *crashing gates* (destroy one door up to 20m wide)
 1,scroll of *bashing walls* (punch a hole 20m wide and deep into anything made of wood, earth or stone; living things, textiles, leather, metal, and all that are not affected)
 1,scroll of *live burial* (60ft, the earth opens up underneath a person, save vs. death to avoid getting pulled into the depths to certain death)
 1,prayer of *summoning* ([summoning])
 1,prayer of *protection of the moon* (8h, prevents were-creatures from approaching)
+1,prayer of *safety* (transports the reader and up to ten targets back to the last temple the reader entered)
+3,map to the ancestral shrine of [elf] in [adjacent hex] with the promise of [1d6]000 gold coins to be found
+2,map to the ancestral shrine of [dwarf] in [adjacent hex] with the promise of [1d10]000 gold coins to be found
+1,map to the burial mound of [wight leader] in [adjacent hex] with the promise of [1d12]000 gold coins to be found
+1,map to [2d6] jewels hidden in a secret compartment in the dwarven forge *[nearby dwarf forge]*
 
 ;summoning
 1,the **valkyrie** [summoned valkyrie]: HD 6 AC 2 1d8+3 F6 MV 18; flying; only harmed by magic or magic weapons; wielding a *long sword of light* +3
@@ -8509,7 +8647,7 @@
 1,Father
 
 ;summoned minotaur
-1,[minotaur name], from Eldivatn, Mitra's hall in Muspelheim
+1,*[minotaur name]*, from Eldivatn, Mitra's hall in Muspelheim
 
 ;minotaur name
 1,Silence
@@ -8543,7 +8681,7 @@
 1,HD 8+1 AC 5 1d4/1d4/1d6/1d6/1d8 F16 MV 18 ML 11; flying; only harmed by magic or magic weapons
 
 ;summoned naga
-1,[naga name], from Eiterhorg, Set's hall in Svartalfheim
+1,*[naga name]*, from Eiterhorg, Set's hall in Svartalfheim
 
 ;naga name
 1,Sweet Stab
@@ -8555,18 +8693,20 @@
 1,HD 9 AC 7 1d8+*poison* F18 MV 6; *fireball* (7d6) 3×/day; *charm person* at will; only harmed by magic or magic weapons
 
 ;magic weapon
-10,An elven *long sword* +1. [elven inscription]
+10,An elven *long sword* +1 with [elven inscription]
 5,An elven *long bow* +1.
-5,A dwarven *short sword* +2. [dwarven inscription]
+5,A dwarven *short sword* +2 with [dwarven inscription]
 2,A dwarven *crossbow* +2.
 2,A goblin assassin's *dagger* +1 with grip covered by rat's teeth and lizard skin.
 1,A goblin assassin's *short bow* +1 with plenty of notches along it's side.
 1,An orcish *zweihänder* +1/+3 vs. city dwellers, in the [orc sword tradition].
-1,A magic *silver rune dagger* +1/+3 vs. were creatures.
+1,An orcish *mace* +1 with [orcish runes].
+1,An orcish *mace* +1 marked with the runes of [evil power].
+1,A magic *silver rune dagger* +1/+3 vs. were-creatures.
 1,A magic *tongue dagger* +1 (a magic sticky tongue from its grip can pick up unguarded items within 2m), blessed by Tsathoggua.
 1,The ancient spear *Fur Hunter* +1/+3 vs. mammals (a relic of the old lizard wars), blessed by Set.
 1,The long sword *Dragonslayer* +1/+3 vs. dragons, blessed by Marduk.
-1,The dwarven hammer *Ironslayer* +1/+3 vs. armoured, made by the legendary [dwarf] of [dwarf forge].
+1,The dwarven hammer *Ironslayer* +1/+3 vs. armoured, made by the legendary *[dwarf]* of *[dwarf forge]*.
 1,The *long sword of light* +3 (60ft), made in Asgard for the valkyrie [valkyrie name] (the sword rejects anybody who refuses to join three fights while carrying the sword).
 1,The *club of the slayer* +1/+3 vs. giants, blessed by Marduk.
 1,The black dagger *Kingslayer* +1/+3, blessed by Set: a target hit in the surprise round must save vs. poison or die.
@@ -8576,12 +8716,12 @@
 1,The *trident of fishes* +1 gives you long, webbed toes and the ability to breathe under water when you step into it, and you can speak the language of fishes.
 
 ;magic armour
-4,A suit of elven *plate armour* +1. [elven inscription]
-2,A suit of dwarven *plate armour* +2. [dwarven inscription]
-2,An elven *shield* +1. [elven inscription]
-2,A dwarven *shield* +2. [dwarven inscription]
-1,A suit of elven *plate armour of fire resistance* +1 made with scales of the red dragon [red dragon name], forged by [elf].
-1,A suit of dwarven *plate armour cold resistance* +1 made with scales of the white dragon [white dragon name], forged by [dwarf] of [dwarf forge].
+4,A suit of elven *plate armour* +1 with [elven inscription]
+2,A suit of dwarven *plate armour* +2 with [dwarven inscription]
+2,An elven *shield* +1 with [elven inscription]
+2,A dwarven *shield* +2 with [dwarven inscription]
+1,A suit of elven *plate armour of fire resistance* +1 made with scales of the red dragon [red dragon name], forged by *[elf]*.
+1,A suit of dwarven *plate armour cold resistance* +1 made with scales of the white dragon [white dragon name], forged by *[dwarf]* of *[dwarf forge]*.
 1,A *silver snake armlet* +1, blessed by Set.
 1,A black *plate armour of [evil power]* +3, inscribed with runes of fire spelling doom and despair.
 1,The *shield of the lion* +2: when you hit your opponent, it bites for an extra 1d6 damage.
@@ -8626,19 +8766,19 @@
 1,A [magic horn].
 1,A *diadem of the slaver* (when targeted by a spell, it is redirected to a person within 10ft if you save vs. spells).
 1,The *ring of the tengu*, summons the tengu [tengu name], always willing to talk and offer advice ([tengu stats]); the ring's magic is lost when the tengu is killed.
-1,The *staff of the minotaur*, summons the minotaur [minotaur name], always willing to talk and offer advice ([minotaur stats]); the staff's magic is lost when the minotaur is killed.
-1,The *flute of the naga*, summons the naga [naga name], always ready to whisper and corrupt in your name ([naga stats]); the flute's magic is lost when the naga is killed.
+1,The *staff of the minotaur*, summons the minotaur *[minotaur name]*, always willing to talk and offer advice ([minotaur stats]); the staff's magic is lost when the minotaur is killed.
+1,The *flute of the naga*, summons the naga *[naga name]*, always ready to whisper and corrupt in your name ([naga stats]); the flute's magic is lost when the naga is killed.
 1,A *flying carpet* (four people).
 1,[elemental prison]
 
 ;magic horn
-2,*horn of the barbarians* (summons 3d6 random, battle crazy barbarians: HD 2 AC 7 1d8 F2 MV 12 ML 12)
-1,*horn of [wight realm]* (summons [1d8 wights]; when killed, they are released from their bond to the horn)
-1,*horn of the tengus* (summons [1d6 tengus]; when killed, they are released from their bond to the horn)
-1,*horn of [pazuzu demon name]* (summons a vulture demon from Vanaheim: [vulture demon stats])
+2,*horn of the barbarians* (summons 3d6 random, battle crazy barbarians: HD 2 AC 7 1d8 F2 MV 12 ML 12; when they are all killed in the same fight, they are released from their bond to the horn)
+1,*horn of [wight realm]* (summons [1d8 wights]: [wight stats]; when killed, they are released from their bond to the horn)
+1,*horn of the tengus* (summons [1d6 tengus]: [tengu stats]; when killed, they are released from their bond to the horn)
+1,*horn of [pazuzu demon name]* (summons a vulture demon from Vanaheim: [vulture demon stats]; when killed, they are released from their bond to the horn)
 
 ;elemental prison
-1,[elemental prison object] containing the elemental prison of [name for an elemental lord] called [[name for an elemental lord] name] ([stats for [name for an elemental lord]]).
+1,[elemental prison object] containing the elemental prison of [name for an elemental lord] called *[[name for an elemental lord] name]* ([stats for [name for an elemental lord]]).
 
 ;elemental prison object
 1,A jar
@@ -8679,16 +8819,16 @@
 1,HD 10 AC 3 2d8 + 1d8 *fire* F20 MV 24 ML 12 XP 1000; *illusion*, permanent *living flame*, *invisibility*, *wall of fire* and *creation* at will; only harmed by magic or magic weapons
 
 ;dwarven inscription
-2,Dwarven runes say that it was forged by [dwarf] of [dwarf forge].
-2,Dwarven runes name the previous owner: [dwarf] of [dwarf forge].
-1,Dwarven runes say it was forged to commemorate the slaying of the white dragon [white dragon name].
-1,Dwarven runes say it was forged to commemorate the slaying of the red dragon [red dragon name].
+2,dwarven runes naming its maker: *[dwarf]* of *[dwarf forge]*.
+2,dwarven runes naming the owner: *[dwarf]* of *[dwarf forge]*.
+1,dwarven runes commemorating the slaying of the white dragon [white dragon name].
+1,dwarven runes commemorating the slaying of the red dragon [red dragon name].
 
 ;elven inscription
-2,Elven runes say that it was forged by [elf].
-2,Elven runes name the previous owner: [elf].
-1,Elven runes explain that it was forged in memory of [treant].
-1,Elven runes explain that it was forged to commemorate the slaying of the green dragon [green dragon name].
+2,elven runes naming its maker: *[elf]*.
+2,elven runes naming its owner: *[elf]*.
+1,elven runes in memory of *[treant]*.
+1,elven runes commemorating the slaying of the green dragon [green dragon name].
 
 ;animal shape
 1,sea lion, allows you to swim
