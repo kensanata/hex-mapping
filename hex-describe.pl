@@ -766,7 +766,7 @@ sub parse_table {
 	next if $subtable =~ /^redirect https?:/;
 	next if $subtable =~ /^names for (.*)/ and $data->{"name for $1"};
 	next if $subtable =~ /^adjacent hex$/; # experimental
-	next if $subtable =~ /^same (.*)/ and ($data->{$1} or $aliases{$1});
+	next if $subtable =~ /^same (.*)/ and ($data->{$1} or $aliases{$1} or $1 eq 'adjacent hex');
 	next if $subtable =~ /^(?:here|nearby) (.*)/ and $data->{$1};
 	$subtable = $1 if $subtable =~ /^(.+) as (.+)/;
 	$log->error("Error in table $table: subtable $subtable is missing")
