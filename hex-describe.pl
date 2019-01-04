@@ -1489,6 +1489,12 @@ Alternatively, just paste your tables here:
 <h1>Hex Descriptions</h1>
 <div class="description">
 %== $svg
+
+<p><strong>Procedures</strong>: <em>random encounters</em> are 1 in 6 per day
+and 1 in 6 per night if you're not behind walls. If you're <em>looking for
+something</em> that isn't as obvious as a town or village built in plain sight,
+your chance of finding it is also just 1 in 6 per day.</p>
+
 % for my $hex (sort keys %$descriptions) {
 <p>
 <%== $descriptions->{$hex}->{images} %>
