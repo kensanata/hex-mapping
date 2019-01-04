@@ -3413,8 +3413,7 @@
 1,Sheltered behind one of the boulders and well hidden by some bushes there is a tent.
 
 ;necromancer
-
-1,Here lives the necromancer **[human]** (level [1d3+4 as level]), protected by [necromancer companions], in a tower. [necromancer tower] [leader treasure]
+1,Here lives the **necromancer** [human] (level [1d3+4 as level]), protected by [necromancer companions], in a tower. [necromancer tower] [leader treasure for magic user]
 
 ;name for 1d3+4
 1,[1d3+4]
@@ -3468,8 +3467,8 @@
 1,[wight leader]
 
 ;vivimancer
-1,Here lives the vivimancer **[here human]** (level [1d3+4 as level]), protected by [3d6] **myconids**, in a tower. [alchemist job] [poor treasure] [leader treasure]
-1,Here is the tower of the vivimancer **[human]** (level [1d3+4 as level]) with [3d6] [slimes]. [safe zone] [poor treasure] [leader treasure]
+1,Here lives the **vivimancer** [human] (level [1d3+4 as level]), protected by [3d6] **myconids**, in a tower. [alchemist job] [poor treasure] [leader treasure for magic user]
+1,Here is the tower of the **vivimancer** [human] (level [1d3+4 as level]) with [3d6] [slimes]. [safe zone] [poor treasure] [leader treasure for magic user]
 
 ;alchemist job
 1,[same human] is looking for [nearby magic plant].
@@ -4884,8 +4883,8 @@
 1,partner
 
 ;human friends
-1,Their [aide], the **[human class]** *[human]* (level [1d4+1 as level]), also lives here. [leader treasure]
-1,They are served by two [aide]s. One is the **[human class]** *[human]* (level [5 as level]). [leader treasure] The other is the **[human class]** *[human]* (level [1d4+1 as level]). [leader treasure]
+1,Their [aide], the **[human class]** *[human]* (level [1d4+1 as level]), also lives here. [leader treasure for [same human class]]
+1,They are served by two [aide]s. One is the **[human class]** *[human]* (level [5 as level]). [leader treasure] The other is the **[human class]** *[human]* (level [1d4+1 as level]). [leader treasure for [same human class]]
 
 ;name for 1d4+2
 1,[1d4+2]
@@ -8157,6 +8156,13 @@
 ;leader treasure
 1,<span class="treasure leader">[5% per item type]</span>
 
+# synonym such that we can have appropriate treasure for humans
+;leader treasure for fighter
+1,[leader treasure]
+
+;leader treasure for magic user
+1,<span class="treasure leader">[5% per item type for magic user]</span>
+
 ;10% 1d4 silver
 1,[1d4]000 silver coins.
 9,
@@ -8448,6 +8454,9 @@
 ;5% per item type
 1,[[5% x [same level]] potion] [[5% x [same level]] scroll] [[5% x [same level]] magic weapon] [[5% x [same level]] magic armour] [[5% x [same level]] wondrous item]
 
+;5% per item type for magic user
+1,[[5% x [same level]] potion] [[5% x [same level]] scroll] [[5% x [same level]] magic weapon for magic user] [[5% x [same level]] magic armour for magic user] [[5% x [same level]] wondrous item]
+
 ;5% x 2
 1,has
 9,no
@@ -8506,6 +8515,18 @@
 1,[magic armour]
 
 ;no magic armour
+1,
+
+;has magic weapon for magic user
+1,[magic weapon for magic user]
+
+;no magic weapon for magic user
+1,
+
+;has magic armour for magic user
+1,[magic armour for magic user]
+
+;no magic armour for magic user
 1,
 
 ;has wondrous item
@@ -8704,9 +8725,18 @@
 ;vulture demon name
 1,Gangrene
 1,Pestilence
-1,Corpse Eater
-1,Baby Killer
-1,Child Eater
+1,Black Bile
+3,[vulture demon 1] [vulture demon 2]
+
+;vulture demon 1
+1,Corpse
+1,Baby
+1,Child
+
+;vulture demon 2
+1,Eater
+1,Killer
+1,Shredder
 
 ;vulture demon stats
 1,HD 8+1 AC 5 1d4/1d4/1d6/1d6/1d8 F16 MV 18 ML 11; flying; only harmed by magic or magic weapons
@@ -8724,18 +8754,16 @@
 1,HD 9 AC 7 1d8+*poison* F18 MV 6; *fireball* (7d6) 3×/day; *charm person* at will; only harmed by magic or magic weapons
 
 ;magic weapon
+5,[magic weapon for magic user]
 10,An elven *long sword* +1 with [elven inscription]
 5,An elven *long bow* +1.
 5,A dwarven *short sword* +2 with [dwarven inscription]
 2,A dwarven *crossbow* +2.
 2,A goblin assassin’s black iron *crossbow* +1, decorated with the seven heads of Set.
-2,A goblin assassin’s *dagger* +1 with grip covered by rats’ teeth and lizard skin.
 1,A goblin assassin’s *short bow* +1 with plenty of notches along its side.
 1,An orcish *zweihänder* +1/+3 vs. city dwellers, in the [orc sword tradition].
 1,An orcish *mace* +1 with [orcish runes].
 1,An orcish *mace* +1 marked with the runes of [evil power].
-1,A magic *silver rune dagger* +1/+3 vs. were-creatures.
-1,A magic *tongue dagger* +1 (a magic sticky tongue from its grip can pick up unguarded items within 2m), blessed by Tsathoggua.
 1,The ancient spear *Fur Hunter* +1/+3 vs. mammals, a relic of the Old Lizard Wars, blessed by Set.
 1,The long sword *Moonfire* +1/+3 vs. lycanthropes, inscribed with silver runes of death and banishment, forged by the high inquisitors of *[wight realm]*.
 1,The long sword *Razorblade* +1/+3 vs. spell casters, forged by ancient machines in the Philosophers’ War.
@@ -8745,24 +8773,56 @@
 1,The dwarven hammer *Ironslayer* +1/+3 vs. armoured foes, made by the legendary *[dwarf]* of *[dwarf forge]*.
 1,A *long sword of light* +3 (60ft), made in Asgard for the valkyrie *[valkyrie name]* (the sword rejects anybody who refuses to join three fights while carrying the sword).
 1,The *club of the slayer* +1/+3 vs. giants, blessed by Marduk.
-1,The black dagger *Kingslayer* +1, blessed by Set: a target hit in the surprise round must save vs. poison or die.
 1,A smoking, quivering *black arrow of death* +2, carrying the curse of Nergal, ready to take root in a target: if hit, save vs. death or die; the arrow’s curse is lost when shot whether it hits or misses.
 1,The two handed *Icekiller* +3, forged by the frost giant *[frost giant]* in Jotunheim; when the blade is drawn, snow flakes form; when it is stuck into water, a layer of ice forms (10ft); when left unsheathed, a glacier will eventually form.
 1,The long sword *Swampfire* +1/+3 vs. runners, forged in the depths of Myrkheim by frogling priests of Tsathoggua; it eeks a phosphorous glowing liquid and smells of rotten eggs; when left unsheathed, everything around it becomes water logged and eventually turns into a swamp.
 1,The *trident of fishes* +1 gives you long, webbed toes and the ability to breathe under water when you step into it, and you can speak the language of fishes.
 1,The ancient war hammer *Earth Hammer* +3, made by *[orc]* in the Wars of the Landgrab: it can smash any structure built by man in three blows.
 
+;magic weapon for magic user
+5,An elven *dagger* +1 with [elven inscription]
+3,A goblin assassin’s *dagger* +1 with grip covered by rats’ teeth and lizard skin.
+2,A *dagger* +1 consecrated to [power].
+1,A *dagger* +1 with the pommel being a small talking head of [power] always there to recommend a violence course of action.
+1,A *dagger* +1 consecrated to [evil power] poisoning your thoughts with images of you stabbing anybody you are talking to.
+1,The dagger *Lifeblood* +1 which allows you to transfer the power of life by cutting somebody and having somebody else drink it.
+1,The dagger *Stonecutter* +1 which allows you to slowly cut through stone.
+1,A magic *tongue dagger* +1 with a sticky tongue wrapped around its grip which can pick up unguarded items within 2m, consecrated to Tsathoggua.
+3,A dwarven *dagger* +2 with [dwarven inscription]
+1,The dagger *Tin Opener* +1/+3 vs. armoured foes, with etchings on its blade showing a peasant stabbing a knight into the visor.
+1,The black dagger *Kingslayer* +1, blessed by Set: a target hit in the surprise round must save vs. poison or die.
+1,The dagger *Heart Eater* +1/+3 vs. humans, with etchings on its blade showing a human sacrifice.
+1,An elven *silver dagger* +1/+3 vs. devils.
+1,A magic *silver rune dagger* +1/+3 vs. were-creatures.
+
 ;magic armour
+3,[magic armour for magic user]
 4,A suit of elven *plate armour* +1 with [elven inscription]
 2,A suit of dwarven *plate armour* +2 with [dwarven inscription]
 2,An elven *shield* +1 with [elven inscription]
 2,A dwarven *shield* +2 with [dwarven inscription]
 1,A suit of elven *plate armour of fire resistance* +1 made with scales of the red dragon [red dragon name], forged by *[elf]*.
 1,A suit of dwarven *plate armour cold resistance* +1 made with scales of the white dragon [white dragon name], forged by *[dwarf]* of *[dwarf forge]*.
-1,A *silver snake armlet* +1, blessed by Set.
 1,A black *plate armour of [evil power]* +3, inscribed with runes of fire spelling doom and despair.
 1,The *shield of the lion* +2: when you hit your opponent, it bites for an extra 1d6 damage.
 1,A black *plate armour of the dark lord* + 2, giving your voice a magical force, if you are not attacking: the person addressed must save vs. spells or obey a one-word command, if they understand.
+
+;magic armour for magic user
+3,A pair of *silver armlets* +1 dedicated to [power].
+1,A pair of *golden armlets* +2 dedicated to [good power].
+1,A pair of *black iron broken manacles* +2 with fiendish runes dedicating its wearer to [evil power].
+1,Two sets of *black iron chains* +2 to wrap around your arms, with the runes of [evil power] on every link.
+3,A *silver diadem* +1 dedicated to [power].
+1,A *silver crown* +1 commemorating the immortal *[elf]*.
+1,A *golden diadem* +2 dedicated to [good power].
+1,A *golden crown* +2 commemorating the ascension of *[dwarf]* to the throne of *[dwarf forge]*.
+1,A *black iron crown* +2 proclaiming the wearer to be loyal slave of [evil power].
+1,A *black iron crown* +2 proclaiming the wearer to be [orc], king of kings.
+3,A *silver necklace* +1 dedicated to [power].
+1,A *golden necklace* +2 dedicated to [good power].
+1,A *black iron slave collar* +2 dedicating its wearer to [evil power].
+1,A *living silver tatoo* +1 dedicated to [good power].
+1,A *living black tatoo* +1 dedicating its wearer to [evil power].
 
 ;1d8 wondrous items
 1,[[1d8] wondrous items]
@@ -8809,7 +8869,7 @@
 1,[elemental prison]
 
 ;magic horn
-2,*horn of the barbarians* (summons 3d6 random, battle crazy barbarians: HD 2 AC 7 1d8 F2 MV 12 ML 12; when they are all killed in the same fight, they are released from their bond to the horn)
+2,*horn of the barbarians* (summons 3d6 random, battle crazy barbarians: HD 2 AC 7 1d8 F2 MV 12 ML 12; when they are all killed in the same fight they are released from their bond to the horn)
 1,*horn of [wight realm]* (summons [1d8 wights]: [wight stats]; when killed, they are released from their bond to the horn)
 1,*horn of the tengus* (summons [1d6 tengus]: [tengu stats]; when killed, they are released from their bond to the horn)
 1,*horn of [pazuzu demon name]* (summons a vulture demon from Vanaheim: [vulture demon stats]; when killed, they are released from their bond to the horn)
