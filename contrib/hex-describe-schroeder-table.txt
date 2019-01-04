@@ -1237,9 +1237,9 @@
 1,</p><p>[name for river] runs through here.
 
 ;name for river
-5,[river 1] [river 2]
-1,[old name]’s [river 2]
-1,[halfling name]’s [river 2]
+5,<span class="river">[river 1] [river 2]</span>
+1,<span class="river">[old name]’s [river 2]</span>
+1,<span class="river">[halfling name]’s [river 2]</span>
 
 ;river 1
 1,Battle
@@ -1291,9 +1291,9 @@
 1,</p><p>[name for trail] leads through here.
 
 ;name for trail
-7,[trail 1] [trail 2]
-2,Old [trail 1] [trail 2]
-1,[trail 1] [trail 1] [trail 2]
+7,<span class="trail">[trail 1] [trail 2]</span>
+2,<span class="trail">Old [trail 1] [trail 2]</span>
+1,<span class="trail">[trail 1] [trail 1] [trail 2]</span>
 
 ;trail 1
 1,Cattle
@@ -1317,11 +1317,11 @@
 1,Way
 
 ;bridge name
-1,[bridge 1] [bridge 2] bridge
-1,the bridge of [power] the [special power]
+1,the [bridge 1] [bridge 2] bridge
+1,the bridge of [special power]
 1,[power]’s bridge
-1,bridge of St. [old name]
-1,bridge of St. [an old hero]
+1,the bridge of St. [old name]
+1,the bridge of St. [an old hero]
 
 ;bridge 1
 1,Old
@@ -3434,7 +3434,7 @@
 ;necronomicon
 1,[the secrets of] [necromancy], author unknown
 1,[the secrets of] [necromancy], by [old name]
-1,[the secrets of] [necromancy], by [an old hero]
+1,[the secrets of] [necromancy], by *[an old hero]*
 
 ;the secrets of
 1,The Secret Life of
@@ -4550,12 +4550,12 @@
 1,HD 6 AC 2 1d8 + *drain* 2 levels F6 MV 15 ML 11 XP 600; only harmed by magic or magic weapons; immune to *sleep* and *charm*
 
 ;1d4 spectres
-1,a **spectre** called [an old hero]
-3,[1d3+1] **spectres** led by [an old hero]
+1,a **spectre** called *[an old hero]*
+3,[1d3+1] **spectres** led by *[an old hero]*
 
 ;1d8 wights
-1,a **wight** called [an old hero]
-7,[1d7+1] **wights** led by [an old hero]
+1,a **wight** called *[an old hero]*
+7,[1d7+1] **wights** led by *[an old hero]*
 
 ;1d8 wights without a name
 1,a **wight**
@@ -4565,11 +4565,11 @@
 1,HD 5+1 AC 6 1d12 F6 MV 6 ML 12 XP 500; anybody who sees them must save vs. paralysis or be *held*; only harmed by magic or magic weapons; immune to *sleep* and *charm*; always fail their saves vs. fire spells
 
 ;1d8 mummies
-1,a **mummy** called [an old hero]
-7,[1d7+1] **mummies** led by [an old hero]
+1,a **mummy** called *[an old hero]*
+7,[1d7+1] **mummies** led by *[an old hero]*
 
 ;an old hero
-1,*[old name] the [special adjective]*
+1,[old name] the [special adjective]
 
 ;small temple dedicated to Nergal
 1,[small temple]
@@ -4792,7 +4792,7 @@
 
 ;small temple dedicated to Mitra
 1,[small temple]
-1,The temple stands on a little elevation, columns carrying a roof, and a stone altar in the middle, a smoking kettle containing the eternal flame that has been burning here ever since its foundation by [an old hero]. This sacred fire is the source for all the human fire in the valley.
+1,The temple stands on a little elevation, columns carrying a roof, and a stone altar in the middle, a smoking kettle containing the eternal flame that has been burning here ever since its foundation by *[an old hero]*. This sacred fire is the source for all the human fire in the valley.
 1,The temple is dug into a hill, leading into a small chamber, big enough to barely fit twenty men. There’s a statue of a bull being stopped by Mitra herself. It is blackened by many years of blood and fire for the men swear to be like brothers of blood down here.
 1,The temple looks like a tower, except that it has a big window from the bottom to the roof. On the inside, there are no extra floors. The room is simply 50ft high. The strip of light from the window falls on one of three oath brother statues in here, each raising their right hand, each pointing three fingers towards the sky. This is the bond of loyalty that makes us strong.
 1,The temple has a door fit for a giant, but inside there is simply a strip of wooden flooring for petitioners to kneel and a big status of Mitra standing blindfolded in a sea of fire, holding the balance of justice in one hand and the sword of judgement in the other.

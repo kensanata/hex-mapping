@@ -2643,6 +2643,12 @@ td, th {
 .treasure {
   background-color: #fffacd;
 }
+.river {
+  background-color: #e0ffff;
+}
+.trail {
+  background-color: #f5f5dc;
+}
 hr {
   clear: both;
 }
