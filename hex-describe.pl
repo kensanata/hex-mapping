@@ -796,6 +796,7 @@ sub pick_description {
       return $line->{text};
     }
   }
+  $log->error("picked nothing");
   return '';
 }
 
@@ -862,7 +863,7 @@ sub pick {
       my $total = $table_data->{$key}->{total};
       my $lines = $table_data->{$key}->{lines};
       $text = pick_description($total, $lines);
-      # $log->debug("$coordinates: picked $text") if $coordinates eq "0109";
+      # $log->debug("$coordinates → $key → $text");
       $text =~ s/\[\[redirect (https:.*?)\]\]/
 		     app->mode eq 'development' ? '' : resolve_redirect($1)/ge;
       $text =~ s/\[([^][]*)\]/describe($map_data,$table_data,$level+1,$coordinates,[$1])/ge;
