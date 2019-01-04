@@ -3022,7 +3022,7 @@
 ;orc feature
 1,Many skulls are on display.
 1,At the back is an entrance to an abandoned mine. [abandoned mine]
-1,[same orc] is a famous sword smith in the [orc sword tradition].
+1,*[same orc]* is a famous sword smith in the [orc sword tradition].
 
 ;orc sword tradition
 1,*[orc sword 1] [orc sword 2] [orc sword 3]* tradition
@@ -3052,6 +3052,8 @@
 
 ;orc treasure context
 1,Piles of rags and poles. Maybe old tents?
+1,Broken siege engines and other weird machinery made of wood.
+1,A mix between a forge and an alchemy lab: stuffed lizards, skulls, garlic, but also an anvil, a hammer, sacks of coal.
 1,Chests filled with polished, ancestral bones.
 1,A statue of [evil power] with [orcish runes].
 1,A hole filled with polished skulls.
