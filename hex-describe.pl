@@ -895,7 +895,7 @@ sub describe {
   my @descriptions;
   for my $word (@$words) {
     # valid dice rolls: 1d6, 1d6+1, 1d6x10, 1d6x10+1
-    if (my ($n, $d, $m, $p, $c, $alias) = $word =~ /$dice_re/) {
+    if (my ($n, $d, $m, $p, $c, $save_as) = $word =~ /$dice_re/) {
       my $r = 0;
       if ($c) {
 	$r = $c;
@@ -907,7 +907,7 @@ sub describe {
 	$r += $p||0;
       }
       # $log->debug("rolling dice: $word = $r");
-      $locals{$alias} = $r if $alias;
+      $locals{$save_as} = $r if $save_as;
       push(@descriptions, $r);
     } elsif ($word =~ /^name for a /) {
       # for global things like factions, dukes
@@ -1225,7 +1225,7 @@ sub neighbours {
   $hex = [xy($hex)] unless ref $hex;
   for my $i (0 .. 5) {
     my $neighbour = neighbour($hex, $i);
-    $log->debug($neighbour);
+    # $log->debug($neighbour);
     push(@neighbours, $neighbour) if $map_data->{$neighbour};
   }
   return "..." unless @neighbours;
