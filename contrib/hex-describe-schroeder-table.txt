@@ -8620,10 +8620,13 @@
 1,prayer of *summoning* ([summoning])
 1,prayer of *protection of the moon* (8h, prevents were-creatures from approaching)
 1,prayer of *safety* (transports the reader and up to ten targets back to the last temple the reader entered)
-3,map to the ancestral shrine of [elf] in [adjacent hex] with the promise of [1d6]000 gold coins to be found
-2,map to the ancestral shrine of [dwarf] in [adjacent hex] with the promise of [1d10]000 gold coins to be found
-1,map to the burial mound of [wight leader] in [adjacent hex] with the promise of [1d12]000 gold coins to be found
+1,map to the hidden ancestral shrine of *[elf]* (in [link to adjacent hex]) with the promise of [1d6]000 gold coins to be found
+1,map to the hidden ancestral shrine of *[dwarf]* (in [link to adjacent hex]) with the promise of [1d10]000 gold coins to be found
+1,map to the hidden crypt of [wight leader] (in [link to adjacent hex]) with the promise of [1d12]000 gold coins to be found
 1,map to [2d6] jewels hidden in a secret compartment in the dwarven forge *[nearby dwarf forge]*
+
+;link to adjacent hex
+1,<a href="#desc[adjacent hex]">[same adjacent hex]</a>
 
 ;summoning
 1,the **valkyrie** [summoned valkyrie]: HD 6 AC 2 1d8+3 F6 MV 18; flying; only harmed by magic or magic weapons; wielding a *long sword of light* +3

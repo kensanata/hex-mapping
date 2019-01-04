@@ -980,7 +980,9 @@ sub describe {
       }
     } elsif ($word eq 'adjacent hex') {
       # experimental
-      return one(neighbours($map_data, $coordinates));
+      my $location = one(neighbours($map_data, $coordinates));
+      $locals{$word} = $location;
+      return $location;
     } elsif ($word =~ /^nearby (.+)/) {
       # skip on the first pass
       return "[$word]";
