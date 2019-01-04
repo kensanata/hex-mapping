@@ -743,8 +743,11 @@
 
 ;a secret mountain thing
 1,there is an inscription on the rocks, each letter higher than three men standing on top of each other, proclaiming the power and glory of [wight leader], as well as the riches and treasures of [ancient capital] [capital epithet].
-1,a pair of **griffons** is nesting. Agents of the [one of the secret societies] would pay 5000gp for their egg, they say.
+1,a pair of **griffons** is nesting ([griffon stats]). Agents of the [one of the secret societies] would pay 5000gp for their egg, they say.
 1,a cave leads into the lair of [ice devil], a [ice devil adjectives] **ice devil**, and his [ice devil companions] living in [ice devil lair]
+
+;griffon stats
+1,HD 4+1 AC 6 1d6/1d6/1d8 F4 MV 24 ML 10 XP 400
 
 ;ice devil adjectives
 1,terrible
@@ -956,8 +959,11 @@
 ;green tower
 1,long abandoned.
 1,now inhabited by a **white dragon** called [white dragon name] ([white dragon stats]). [dragon treasure]
-1,and at the very top there is a lair of [2d8] very protective **griffons**.
-1,currently the home of [gargoyles]. [poor treasure]
+1,and at the very top there is a lair of [2d8] very protective **griffons** ([griffon stats]).
+1,currently the home of [gargoyles] ([gargoyle stats]). [poor treasure]
+
+;gargoyle stats
+1,HD 4 AC 5 1d4/1d4/1d6 F8 MV 15 ML 11 XP 400; only harmed by magic or magic weapons
 
 ;gargoyles
 1,a **gargoyle** named *[gargoyle]*
@@ -3363,7 +3369,7 @@
 1,Hidden between some hills is a valley apparently full of thorn bushes. It hides a hamlet of [halflings]
 1,An old fort overlooking the woods has been taken over by a war party of [4d6] **hobgoblins** ([hobgoblin stats]) led by *[hobgoblin]* (HD 3+1). The fort is defended by [hobgoblin companions]. [old fort] [robber treasure]
 1,An abandoned watchtower on a promontory overlooking the drylands is home to [4d6] **hobgoblins** ([hobgoblin stats]) led by *[hobgoblin]* (HD 3+1). The approach is guarded by [hobgoblin companions]. [robber treasure]
-1,Up in these drylands, a massive fortress built by giants long ago is home to the [evil tribe]. [orcs]. The fortress is [orc fort]
+1,Up in these drylands, a massive fortress built by giants long ago is home to the [evil tribe]. [orcs] The fortress is [orc fort]
 1,Up here on these hills and overlooking the shrublands is a massive fortress built by giants long ago. It has been taken over by **humans** and now it is home to [1d4x10] bandits ([human stats]) led by [human]. The fortress is [human fort]. [average treasure]
 1,There are caves beneath these badlands. [caves]
 1,The dry lands up here are the hunting grounds of a **manticore** called *[manticore]* living in the ruins of an old tower. [robber treasure]
