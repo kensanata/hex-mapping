@@ -2674,7 +2674,7 @@ and towns.</p>
 <tr><th>Settlement</th><th>Forest</th><th>Altitudes</th><th>Number</th><th>Minimum Distance</th></tr>
 <tr><td>Thorp</td><td>fir-forest</td><td>6–7</td><td>10%</td><td>2</td></tr>
 <tr><td>Village</td><td>green forest</td><td>4–5</td><td>5%</td><td>5</td></tr>
-<tr><td>Thorp</td><td>dark-green forest</td><td>0–3</td><td>2.5%</td><td>10</td></tr>
+<tr><td>Town</td><td>dark-green forest</td><td>0–3</td><td>2.5%</td><td>10</td></tr>
 </table>
 
 %== $map12
