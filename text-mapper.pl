@@ -1972,7 +1972,7 @@ get '/alpine/document' => sub {
 		$c->param('peaks'),
 		$c->param('peak'),
 		$c->param('bottom'));
-  my $seed = $c->param('seed')||rand;
+  my $seed = $c->param('seed')||int(rand(1000000000));
 
   # prepare a map for every step
   for my $step (0 .. 13) {
@@ -1983,8 +1983,23 @@ get '/alpine/document' => sub {
     $c->stash("map$step" => $svg);
   };
 
+  # the documentation needs all the defaults of Schroeder::generate_map (but
+  # we'd like to use a smaller map because it is so slow)
+  my $width = $c->param('width') // 20;
+  my $height = $c->param('height') // 5; # instead of 10
+  my $steepness = $c->param('steepness') // 3;
+  my $peaks = $c->param('peaks') // int($width * $height / 20);
+  my $peak = $c->param('peak') // 10;
+  my $bottom = $c->param('bottom') // 0;
+
   $c->render(template => 'alpine_document',
-	     seed => $seed);
+	     seed => $seed,
+	     width => $width,
+	     height => $height,
+	     steepness => $steepness,
+	     peaks => $peaks,
+	     peak => $peak,
+	     bottom => $bottom);
 };
 
 get '/alpine/parameters' => sub {
@@ -2572,21 +2587,24 @@ Examples:
 <h1>Alpine Map: How does it get created?</h1>
 
 <p>How do we get to the following map?
-<%= link_to url_for('alpinedocument')->query(height => 5) => begin %>Reload<% end %>
+<%= link_to url_for('alpinedocument')->query(width => $width, height => $height, steepness => $steepness, peaks => $peaks, peak => $peak, bottom => $bottom) => begin %>Reload<% end %>
 to get a different one. If you like this particular map, bookmark
-<%= link_to url_for('alpinerandom')->query(height => 5, seed => $seed) => begin %>this link<% end %>,
+<%= link_to url_for('alpinerandom')->query(seed => $seed, width => $width, height => $height, steepness => $steepness, peaks => $peaks, peak => $peak, bottom => $bottom) => begin %>this link<% end %>,
 and edit it using
-<%= link_to url_for('alpine')->query(height => 5, seed => $seed) => begin %>this link<% end %>,
+<%= link_to url_for('alpine')->query(seed => $seed, width => $width, height => $height, steepness => $steepness, peaks => $peaks, peak => $peak, bottom => $bottom) => begin %>this link<% end %>,
 </p>
+
+
 
 %== $map0
 
-<p>First, we pick 10 peaks and set their altitude to 10. Then we loop through
-all the altitudes from 10 down to 1 and for every hex we added in the previous
-run, we add 3 neighbors at a lower altitude, if possible. We'll also consider
-neighbors one step away. If our random growth missed any hexes, we just copy the
-height of a neighbor. If we can't find a suitable neighbor within a few tries,
-just make a hole in the ground (altitude 0).</p>
+<p>First, we pick <%= $peaks %> peaks and set their altitude to <%= $peak %>.
+Then we loop through all the altitudes from <%= $peak %> down to 1 and for every
+hex we added in the previous run, we add <%= $steepness %> neighbors at a lower
+altitude, if possible. We'll also consider neighbors one step away. If our
+random growth missed any hexes, we just copy the height of a neighbor. If we
+can't find a suitable neighbor within a few tries, just make a hole in the
+ground (altitude 0).</p>
 
 <p>The number of peaks can be changed using the <em>peaks</em> parameter. Please
 note that 0 <em>peaks</em> will result in no land mass.</p>
@@ -2613,7 +2631,9 @@ coming our way, then it won't flow back. It has reached a dead end.</p>
 
 %== $map3
 
-<p>Any of the dead ends we found in the previous step are marked as lakes.</p>
+<p>Any of the dead ends we found in the previous step are marked as lakes.
+Anthing beneath an altitude of <%= $bottom %> is marked the same. This is
+considered to be the sea level.</p>
 
 %== $map4
 
