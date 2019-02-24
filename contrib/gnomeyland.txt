@@ -1,4 +1,4 @@
-# Gnomeyland Map Icons Copyright Gregory B. MacKenzie 2012, Alex Schroeder 2013-2016.
+# Gnomeyland Map Icons Copyright Gregory B. MacKenzie 2012, Alex Schroeder 2013-2019.
 # This work is licensed under the Creative Commons
 # Attribution-ShareAlike 3.0 Unported License. To view a copy of this
 # license, visit http://creativecommons.org/licenses/by-sa/3.0/.
@@ -115,3 +115,6 @@ dark-green attributes fill="#2d501a"
 <path id="cliff3" transform="rotate(180)" d="M-90,-17.3 l-8.7,-5 M-80,-34.6 l-8.7,-5 M-70,-52 l-8.7,-5 M-60,-69.3 l-8.7,-5" stroke="black" stroke-width="5px" fill="none"/>
 <path id="cliff4" transform="rotate(240)" d="M-90,-17.3 l-8.7,-5 M-80,-34.6 l-8.7,-5 M-70,-52 l-8.7,-5 M-60,-69.3 l-8.7,-5" stroke="black" stroke-width="5px" fill="none"/>
 <path id="cliff5" transform="rotate(300)" d="M-90,-17.3 l-8.7,-5 M-80,-34.6 l-8.7,-5 M-70,-52 l-8.7,-5 M-60,-69.3 l-8.7,-5" stroke="black" stroke-width="5px" fill="none"/>
+
+# lakes
+<ellipse id="lake" fill="#6ebae7" stroke="black" stroke-width="3" cx="0" cy="0" rx="45" ry="30"/>
