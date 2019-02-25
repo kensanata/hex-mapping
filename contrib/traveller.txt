@@ -25,13 +25,13 @@ F xml <text font-size="20pt" dy="-25px" font-family="Optima, Helvetica, sans-ser
 10 xml <circle r="21"/>
 
 # bases
-consulate xml <text font-size="20pt" dy="50px" dx="-100px" font-family="Optima, Helvetica, sans-serif" text-anchor="middle">■</text>
-tas xml <text font-size="20pt" dy="25px" dx="-125px" font-family="Optima, Helvetica, sans-serif" text-anchor="middle">☼</text>
-pirate xml <text font-size="20pt" dy="30px" dx="120px" font-family="Optima, Helvetica, sans-serif" text-anchor="middle">☠</text>
-research xml <text font-size="20pt" dy="-10px" dx="120px" font-family="Optima, Helvetica, sans-serif" text-anchor="middle">π</text>
-naval xml <text font-size="20pt" dy="-45px" dx="-100px" font-family="Optima, Helvetica, sans-serif" text-anchor="middle">★</text>
-gas xml <text font-size="20pt" dy="-40px" dx="90px" font-family="Optima, Helvetica, sans-serif" text-anchor="middle">◉</text>
-scout xml <text font-size="20pt" dy="-10px" dx="-125px" font-family="Optima, Helvetica, sans-serif" text-anchor="middle">▲</text>
+consulate xml <text font-size="20pt" dy="50px" dx="-45px" font-family="Optima, Helvetica, sans-serif" text-anchor="middle">■</text>
+tas xml <text font-size="20pt" dy="20px" dx="-70px" font-family="Optima, Helvetica, sans-serif" text-anchor="middle">☼</text>
+pirate xml <text font-size="20pt" dy="20px" dx="70px" font-family="Optima, Helvetica, sans-serif" text-anchor="middle">☠</text>
+research xml <text font-size="20pt" dy="-10px" dx="70px" font-family="Optima, Helvetica, sans-serif" text-anchor="middle">π</text>
+naval xml <text font-size="20pt" dy="-40px" dx="-45px" font-family="Optima, Helvetica, sans-serif" text-anchor="middle">★</text>
+gas xml <text font-size="20pt" dy="-40px" dx="45px" font-family="Optima, Helvetica, sans-serif" text-anchor="middle">◉</text>
+scout xml <text font-size="20pt" dy="-10px" dx="-70px" font-family="Optima, Helvetica, sans-serif" text-anchor="middle">▲</text>
 
 # alert status
 red xml <circle r="48" fill="red" opacity="0.3"/>
