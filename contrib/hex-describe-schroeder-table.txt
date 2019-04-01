@@ -8774,14 +8774,14 @@
 2,A dwarven *crossbow* +2.
 2,A goblin assassin’s black iron *crossbow* +1, decorated with the seven heads of Set.
 1,A goblin assassin’s *short bow* +1 with plenty of notches along its side.
-1,An orcish *zweihänder* +1/+3 vs. city dwellers, in the [orc sword tradition].
+1,An orcish *zweihänder* +1/+3 vs. city dwellers, in the [orc sword tradition].
 1,An orcish *mace* +1 with [orcish runes].
 1,An orcish *mace* +1 marked with the runes of [evil power].
 1,The ancient spear *Fur Hunter* +1/+3 vs. mammals, a relic of the Old Lizard Wars, blessed by Set.
-1,The long sword *Moonfire* +1/+3 vs. lycanthropes, inscribed with silver runes of death and banishment, forged by the high inquisitors of *[wight realm]*.
-1,The long sword *Razorblade* +1/+3 vs. spell casters, forged by ancient machines in the Philosophers’ War.
-1,The holy long sword *Angelfire* +1/+3 vs. undead, forged in Asgard by *[dwarf name]*.
-1,The long sword *Meteorstrike* +1/+3 vs. dragons, an old elven sword forged in the dragon wars.
+1,The long sword *Moonfire* +1/+3 vs. lycanthropes, inscribed with silver runes of death and banishment, forged by the high inquisitors of *[wight realm]*.
+1,The long sword *Razorblade* +1/+3 vs. spell casters, forged by ancient machines in the Philosophers’ War.
+1,The holy long sword *Angelfire* +1/+3 vs. undead, forged in Asgard by *[dwarf name]*.
+1,The long sword *Meteorstrike* +1/+3 vs. dragons, an old elven sword forged in the dragon wars.
 1,The long sword *Dragonslayer* +1/+3 vs. dragons, blessed by Marduk.
 1,The dwarven hammer *Ironslayer* +1/+3 vs. armoured foes, made by the legendary *[dwarf]* of *[dwarf forge]*.
 1,A *long sword of light* +3 (60ft), made in Asgard for the valkyrie *[valkyrie name]* (the sword rejects anybody who refuses to join three fights while carrying the sword).
@@ -8796,7 +8796,7 @@
 5,An elven *dagger* +1 with [elven inscription]
 3,A goblin assassin’s *dagger* +1 with grip covered by rats’ teeth and lizard skin.
 2,A *dagger* +1 consecrated to [power].
-1,A *dagger* +1 with the pommel being a small talking head of [power] always there to recommend a violence course of action.
+1,A *dagger* +1 with the pommel being a small talking head of [power] always there to recommend a violent course of action.
 1,A *dagger* +1 consecrated to [evil power] poisoning your thoughts with images of you stabbing anybody you are talking to.
 1,The dagger *Lifeblood* +1 which allows you to transfer the power of life by cutting somebody and having somebody else drink it.
 1,The dagger *Stonecutter* +1 which allows you to slowly cut through stone.
@@ -8818,7 +8818,7 @@
 1,A suit of dwarven *plate armour cold resistance* +1 made with scales of the white dragon [white dragon name], forged by *[dwarf]* of *[dwarf forge]*.
 1,A black *plate armour of [evil power]* +3, inscribed with runes of fire spelling doom and despair.
 1,The *shield of the lion* +2: when you hit your opponent, it bites for an extra 1d6 damage.
-1,A black *plate armour of the dark lord* + 2, giving your voice a magical force, if you are not attacking: the person addressed must save vs. spells or obey a one-word command, if they understand.
+1,A black *plate armour of the dark lord* + 2, giving your voice a magical force, if you are not attacking: the person addressed must save vs. spells or obey a one-word command, if they understand.
 
 ;magic armour for magic user
 3,A pair of *silver armlets* +1 dedicated to [power].
