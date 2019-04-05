@@ -3366,16 +3366,19 @@
 1,[bushes]
 
 ;bushes
-1,Badlands full of shrubs and wild hedges. [loner]
-1,Dry lands full of tumbleweed and thorn bushes. [loner]
+1,[badlands] [loner]
 1,Hidden between some hills is a valley apparently full of thorn bushes. It hides a hamlet of [halflings]
 1,An old fort overlooking the woods has been taken over by a war party of [4d6] **hobgoblins** ([hobgoblin stats]) led by *[hobgoblin]* (HD 3+1). The fort is defended by [hobgoblin companions]. [old fort] [luxurious context] [robber treasure]
 1,An abandoned watchtower on a promontory overlooking the drylands is home to [4d6] **hobgoblins** ([hobgoblin stats]) led by *[hobgoblin]* (HD 3+1). The approach is guarded by [hobgoblin companions]. [luxurious context] [robber treasure]
 1,Up in these drylands, a massive fortress built by giants long ago is home to the [evil tribe]. [orcs] The fortress is [orc fort]
 1,Up here on these hills and overlooking the shrublands is a massive fortress built by giants long ago. It has been taken over by **humans** and now it is home to [1d4x10] bandits ([human stats]) led by [human]. The fortress is [human fort]. [average treasure]
 1,There are caves beneath these badlands. [caves]
-1,The dry lands up here are the hunting grounds of a **manticore** called *[manticore]* living in the ruins of an old tower. [robber treasure]
+1,The dry lands up here are the hunting grounds of a **manticore** called *[manticore]* living in the ruins of an old tower. [robber treasure] [manticore companions]
 1,A **green dragon** named [green dragon name] lives at [hill name], one of the hills overlooking these shrublands ([green dragon stats]). [dragon treasure]
+
+;badlands
+1,Badlands full of shrubs and wild hedges.
+1,Dry lands full of tumbleweed and thorn bushes.
 
 ;old fort
 1,On a pedestal outside the fort there is a withered statue of [power] overlooking the lands below.
@@ -3586,6 +3589,12 @@
 1,Hate
 1,Avarice
 1,Ambition
+
+;manticore companions
+1,</p><p>At the foot of the tower there's a camp of [4d6] **hobgoblins** ([hobgoblin stats]) led by *[hobgoblin]* (HD 3+1). They are trying to recruit the manticore for their war. [robber treasure]
+1,</p><p>Beneath the tower is a warren of [6d10] **goblins**, led by [goblin] ([goblin stats]). [poor treasure] They will happily lead fools to the manticore's tower (and betray them).
+1,</p><p>Two of the buildings at the foot of the tower have been fixed up. [1d4x10] **bandits** led by [human] live here in an uneasy truce with the manticore.
+2,
 
 ;halflings
 1,[5d8] **halflings** led by [halfling leader]. [leader treasure] [average treasure] [halfling troubles]
