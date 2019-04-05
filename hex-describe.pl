@@ -428,7 +428,7 @@ sub get_data {
   $log->debug("get_data: $url");
   my $ua = Mojo::UserAgent->new;
   my $res = $ua->get($url)->result;
-  return $res->body if $res->is_success;
+  return decode_utf8($res->body) if $res->is_success;
   $log->error("get_data: " . $res->code . " " . $res->message);
 }
 
