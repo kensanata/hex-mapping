@@ -765,6 +765,7 @@ sub parse_table {
 	next if $subtable =~ /$dice_re/;
 	next if $subtable =~ /^redirect https?:/;
 	next if $subtable =~ /^names for (.*)/ and $data->{"name for $1"};
+	next if $subtable =~ /^capitalize (.*)/ and $data->{$1};
 	next if $subtable =~ /^adjacent hex$/; # experimental
 	next if $subtable =~ /^same (.*)/ and ($data->{$1} or $aliases{$1} or $1 eq 'adjacent hex');
 	next if $subtable =~ /^(?:here|nearby) (.*)/ and $data->{$1};
@@ -1004,6 +1005,12 @@ sub describe {
       $locals{$key} = $text;
       $locals{$alias} = $text;
       push(@descriptions, $text);
+    } elsif ($word =~ /^capitalize (.+)/) {
+      my $key = $1;
+      my $text = pick($map_data, $table_data, $level, $coordinates, $words, $key);
+      next unless $text;
+      $locals{$key} = $text;
+      push(@descriptions, ucfirst $text);
     } else {
       my $text = pick($map_data, $table_data, $level, $coordinates, $words, $word);
       next unless $text;
@@ -2551,6 +2558,30 @@ include https://campaignwiki.org/contrib/gnomeyland.txt
 
 ;village
 1,The village alchemist is looking for the horn of a [nearby ice monster].
+% end
+
+<h2 id="capitalization">Capitalization</h2>
+
+<p>
+Normally, case is unaffected. When you generate names by smashing words
+together, and you can't always say which table comes first, then you need
+capitalization. In the following example, <em>sindarin word</em> can be either
+in the middle of a name or at the beginning, so its capitalization varies.
+</p>
+
+%= example begin
+;elf
+1,[capitalize sindarin prefix][sindarin word][sindarin suffix]
+1,[capitalize sindarin word][sindarin suffix]
+
+;sindarin prefix
+1,al
+
+;sindarin word
+1,thaur
+
+;sindarin suffix
+1,ion
 % end
 
 <h2 id="images">Images</h2>
