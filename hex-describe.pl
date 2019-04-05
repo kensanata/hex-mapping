@@ -1,5 +1,5 @@
 #!/usr/bin/env perl
-# Copyright (C) 2018  Alex Schroeder <alex@gnu.org>
+# Copyright (C) 2018–2019  Alex Schroeder <alex@gnu.org>
 #
 # This program is free software: you can redistribute it and/or modify it under
 # the terms of the GNU General Public License as published by the Free Software
@@ -263,6 +263,52 @@ get '/nomap' => sub {
   my $table = $c->param('table');
   $c->render(template => 'nomap', input => $input, url => $url, table => $table);
 };
+
+=item /rules
+
+This lists all the rules we have and allows you to pick one.
+
+=cut
+
+get '/rules' => sub {
+  my $c = shift;
+  my $input = $c->param('input') || '';
+  my $url = $c->param('url');
+  my $table = $c->param('table');
+  $c->render(template => 'rules', input => $input, url => $url, table => $table);
+};
+
+post '/rules/list' => sub {
+  my $c = shift;
+  my $input = $c->param('input') || '';
+  my $load = $c->param('load');
+  my $url = $c->param('url');
+  my $table;
+  $table = get_data($url) if $url;
+  $table ||= $c->param('table');
+  $table ||= decode_utf8($seckler_table->slurp) if $load eq 'seckler';
+  $table ||= decode_utf8($schroeder_table->slurp) if $load eq 'schroeder';
+  $c->render(template => 'ruleslist',
+	     input => $input, url => $url, table => $table,
+	     rules => [keys %{parse_table($table)}]);
+} => 'ruleslist';
+
+
+any '/rule' => sub {
+  my $c = shift;
+  my $rule = $c->param('rule');
+  my $n = $c->param('n') || 10;
+  my $input = "[$rule]\n" x $n;
+  my $load = $c->param('load');
+  my $url = $c->param('url');
+  my $table;
+  $table = get_data($url) if $url;
+  $table ||= $c->param('table');
+  $table ||= decode_utf8($seckler_table->slurp) if $load eq 'seckler';
+  $table ||= decode_utf8($schroeder_table->slurp) if $load eq 'schroeder';
+  $c->render(template => 'text',
+	     descriptions => describe_text($input, parse_table($table)));
+} => 'rule';
 
 =item any /describe/text
 
@@ -1437,7 +1483,8 @@ into the text area below.
 <p>
 Load <%= link_to 'random Smale data' => 'loadrandomsmale' %>.
 Load <%= link_to 'random Alpine data' => 'loadrandomalpine' %>.
-Or use <%= link_to 'no map' => 'nomap' %>.
+Use <%= link_to 'no map' => 'nomap' %>.
+Explore <%= link_to 'rules' => 'rules' %>.
 </p>
 %= form_for describe => (method => 'POST') => begin
 %= text_area map => (cols => 60, rows => 15) => begin
@@ -1580,6 +1627,99 @@ Alternatively, just paste your tables here:
 <%= $table =%>
 % end
 %= end
+
+
+@@ rules.html.ep
+% layout 'default';
+% title 'Hex Describe (rules)';
+<h1>Hex Describe (rules)</h1>
+
+<p>
+First, we need to pick a random table from which to pull the rules. Click the
+submit button once you have made your choice.
+</p>
+
+%= form_for ruleslist => (method => 'POST') => begin
+
+<p>
+%= submit_button 'Submit', name => 'submit'
+</p>
+
+<p>
+% param load => 'schroeder' unless param 'load';
+<%= radio_button load => 'schroeder' %>
+<%= link_to 'Alex Schroeder' => 'schroedertable' %>
+(best for Alpine maps)
+<%= radio_button load => 'seckler' %>
+<%= link_to 'Peter Seckler' => 'secklertable' %>
+(best for Smale maps)
+</p>
+
+<p>
+If you have your own tables somewhere public (a pastebin, a public file at a
+file hosting service), you can provide the URL to your tables right here:
+</p>
+
+<p>
+Table URL:
+%= text_field url => $url
+
+<p>
+Alternatively, just paste your tables here:
+%= text_area table => (cols => 60, rows => 15) => begin
+<%= $table =%>
+% end
+%= end
+
+
+
+@@ ruleslist.html.ep
+% layout 'default';
+% title 'Hex Describe (list of rules)';
+<h1>Hex Describe (list of rules)</h1>
+
+<p>
+Pick one of the rules below and submit it.
+</p>
+
+%= form_for rule => (method => 'POST') => begin
+
+<p>
+% for my $rule (sort @$rules) {
+    <%= radio_button rule => $rule %><%== $rule %><br>
+% }
+</p>
+
+<p>
+%= submit_button 'Submit', name => 'submit'
+</p>
+
+<p>
+% param load => 'schroeder' unless param 'load';
+<%= radio_button load => 'schroeder' %>
+<%= link_to 'Alex Schroeder' => 'schroedertable' %>
+(best for Alpine maps)
+<%= radio_button load => 'seckler' %>
+<%= link_to 'Peter Seckler' => 'secklertable' %>
+(best for Smale maps)
+</p>
+
+<p>
+If you have your own tables somewhere public (a pastebin, a public file at a
+file hosting service), you can provide the URL to your tables right here:
+</p>
+
+<p>
+Table URL:
+%= text_field url => $url
+
+<p>
+Alternatively, just paste your tables here:
+%= text_area table => (cols => 60, rows => 15) => begin
+<%= $table =%>
+% end
+%= end
+
 
 
 @@ text.html.ep
