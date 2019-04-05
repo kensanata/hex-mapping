@@ -9323,12 +9323,13 @@
 
 ;colour
 1,red
-1,green
 1,orange
-1,rose
+1,yellow
 1,green
+2,indigo
 1,blue
 1,purple
+1,rose
 
 ;potion smell
 1,oranges
