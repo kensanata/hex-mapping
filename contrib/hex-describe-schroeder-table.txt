@@ -1051,6 +1051,7 @@
 ;lake inhabitants
 1,[2d20] **nixies** led by *[nixie]* live here ([nixie stats]). [poor treasure]
 1,[2d4] very polite **turtle people** led by *[turtle]* live here ([turtle people stats]). [poor treasure]
+1,[green tower in this lake]
 
 ;nixie stats
 1,HD 1 AC 7 1d4 F1 MV 12 ML 6 XP 100; *charm*, *water breathing*
@@ -1090,6 +1091,139 @@
 1,Peace
 1,Submit
 1,Wait
+
+;green tower in this lake
+1,A green glass tower has been built in this lake. [green tower name] [green tower connection]
+
+;green tower name
+1,The locals call it *[green tower simple name]*.
+1,In *[old elf ballad name]*, they call it *[green tower simple name]*.
+
+;green tower simple name
+1,The Green Tower
+1,The Glass Tower
+1,The Elf Ruin
+1,The Cursed Ruin
+1,[elf]'s Ruin
+1,[elf]'s Redoubt
+1,[elf]'s Last Stand
+1,The Needle
+1,The Nameless Tower
+
+;old elf ballad name
+1,The [old elf song] of [old elf ballad topic]
+
+;old elf song
+1,Song
+1,Ballad
+1,Lay
+1,Romance
+1,Story
+1,Tale
+1,Birth
+1,Death
+
+;old elf ballad topic
+1,Spring
+1,Summer
+1,Autumn
+1,Winter
+1,the Moon
+1,the Sun
+3,[elf animal] [elf place]
+3,[elf]
+2,[elf] & [elf]
+1,[elf] the [elf animal]
+1,[male elf] the [elf title]
+1,[female elf] the [elf title]
+1,[male noble elf]
+1,[female noble elf]
+
+;elf place
+1,Rock
+1,Mountain
+1,Hill
+1,Lake
+1,Fall
+1,River
+1,Wood
+1,Home
+1,Haven
+1,Vale
+1,Dale
+
+;elf animal
+1,Bear
+1,Eagle
+1,Falcon
+1,Fox
+1,Hawk
+1,Horse
+1,Magpie
+1,Nightingale
+1,Owl
+1,Wolf
+
+;elf animals
+1,Bears
+1,Eagles
+1,Falcons
+1,Foxes
+1,Hawks
+1,Horses
+1,Magpie
+1,Nightingales
+1,Owls
+1,Wolves
+
+;elf title
+1,Beautiful
+1,Sad
+1,Cruel
+
+;male noble elf
+1,[male elf], Lord of the [elf realm]
+1,[male elf], Lord of the [elf animal]
+1,Lord [male elf]
+1,King [male elf]
+1,King [male elf] of [elf animals]
+
+;female noble elf
+1,[female elf], Lady of the [elf realm]
+1,[female elf], Lady of the [elf animal]
+1,Lady [female elf]
+1,Queen [female elf]
+1,Queen [female elf] of [elf animals]
+
+;elf realm
+1,Sky
+1,Waters
+1,Lake
+1,River
+1,Wood
+1,Mountain
+1,Highlands
+1,Barrow
+
+;green tower connection
+1,There is no bridge but the tower's entrance is at the water level. [maybe there is a boat] [green tower underwater room]
+1,There's no visible entrance. Anybody taking a dive would find an underwater entrance. [maybe there is a boat] [green tower underwater room]
+
+;maybe there is a boat
+1,There is no boat to be found at the water's edge.
+1,Hidden between the reeds there is a small rowing boat.
+1,Hidden under some thorn bushes is a small canoe.
+1,Beneath the surface, you see a half-rotten rowing boat beyond repair.
+
+;green tower underwater room
+1,</p><p>In the murky darkness below lies the lair of [a water monster]
+
+;a water monster
+1,[2d20] **nixies** led by *[nixie]* ([nixie stats]). [poor treasure]
+1,[2d6] **sea serpents** ([sea serpent stats]).
+
+;sea serpent stats
+1,HD 6 AC 5 2d6 and 1d10 vs. ships F3 MV 15 ML 8 XP 600
 
 ;hill giants
 1,Some boulders have been assembled into a crude stone tower inhabited [2d4] **hill giants** led by *[hill giant]* ([hill giant stats]). [rich treasure]
@@ -4288,10 +4422,22 @@
 ;elf leader
 1,[elf]<img src="[[redirect https://campaignwiki.org/face/redirect/alex/elf]]" alt="[same elf]" title="same elf"/>
 
+# Not accounted for: Letter changes when combining words
+# http://sindarinlessons.weebly.com/37---how-to-make-names-1.html
+
 ;elf
+1,[male elf]
+1,[female elf]
+
+;male elf
 1,[capitalize sindarin prefix][sindarin word]
-1,[capitalize sindarin prefix][sindarin word][sindarin suffix]
-3,[capitalize sindarin word][sindarin suffix]
+1,[capitalize sindarin prefix][sindarin word][sindarin male suffix]
+3,[capitalize sindarin word][sindarin male suffix]
+
+;female elf
+1,[capitalize sindarin prefix][sindarin word]
+1,[capitalize sindarin prefix][sindarin word][sindarin female suffix]
+3,[capitalize sindarin word][sindarin female suffix]
 
 # https://realelvish.net/names/sindarin/woodelf/all/
 ;sindarin prefix
@@ -5005,13 +5151,35 @@
 1,urug
 1,urui
 
-;sindarin suffix
-1,eth
+;sindarin neutral suffix
+1,ben
+1,dil
+1,ndil
+1,or
+1,wi
+
+;sindarin female suffix
+5,[sindarin neutral suffix]
 1,iel
+1,iell
+1,ien
 1,il
+1,eth
+1,el
+1,wen
+
+# Not accounted for: "The suffix -dir can change to -nir. From
+# attested names, we know it does this after U and G, in Curunir (Curu
+# + -dir) and Dagnir (Dag + -dir). We also know that following D, L, N
+# and R it remains -dir, in Brandir (Brand + -dir), Hatholdir (Hathol
+# + -dir), Thorondir (Thoron + -dir) and Herdir (Hîr + -dir)."
+# http://sindarinlessons.weebly.com/38---how-to-make-names-2.html
+
+;sindarin male suffix
+5,[sindarin neutral suffix]
+1,dir
 1,ion
 1,on
-1,or
 
 # These are the fir forests next to thorps
 ;fir-forest
