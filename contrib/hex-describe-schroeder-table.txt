@@ -3102,48 +3102,47 @@
 1,*[orc]*<img src="[[redirect https://campaignwiki.org/face/redirect/alex/orc]]" alt="[same orc]" title="[same orc]" /> (HD [1d6+1 as level])
 
 ;orc
-1,[orc food] [orc eat]
-1,[orc weapon] [orc use]
-1,[orc is] [orc limb]
+1,[orc 1][orc 2]
 
-;orc food
-1,Pie
-1,Mushroom
-1,Fungus
-1,Grub
-1,Root
+;orc 1
+1,A
+1,Balc
+1,Bol
+1,Gol
+1,Gor
+1,Grish
+1,Lag
+1,Lug
+1,Mau
+1,Muz
+1,Orco
+1,Oth
+1,Rad
+1,Shag
+1,Sna
+1,Uf
+1,Ug
 
-;orc eat
-1,Friend
-1,Finder
-1,Eater
-
-;orc weapon
-1,Sword
-1,Spear
-1,Club
-1,Axe
-
-;orc use
-1,Arm
-1,Breaker
-1,Maker
-1,Thrower
-
-;orc is
-1,Strong
-1,Big
-1,Fearsome
-1,Loud
-1,Pig
-1,Long
-
-;orc limb
-1,Face
-1,Arm
-1,Snout
-1,Nostril
-1,Fang
+;orc 2
+1,bag
+1,bal
+1,bug
+1,dog
+1,duf
+1,dush
+1,fimbul
+1,g
+1,ga
+1,gash
+1,gol
+1,húr
+1,lúk
+1,meg
+1,nákh
+1,rat
+1,rod
+1,thak
+1,zog
 
 ;orc fort
 1,surrounded by spiked pit traps. [orc feature]
@@ -3197,6 +3196,7 @@
 1,the orcish rune of [orcish rune 2]
 1,the orcish runes of [orcish rune 1] and [orcish rune 2]
 1,the orcish runes of [orcish rune 2] and [orcish rune 1]
+2,the name of its orc maker, *[orc]*
 
 ;orcish rune 1
 1,power
@@ -3642,6 +3642,20 @@
 
 ;orcs
 1,[1d6x10] **orcs** led by [orc leader] live here ([orc stats]). [orc treasure] [leader treasure]
+
+;orc war
+1,The Resettlement
+1,The Uprising
+1,The War of the Wood
+1,The War of the Blood Tide
+1,The War of Pigs
+1,The Great Butchering
+1,The Great Revolt
+1,The Great Taking
+1,The Great Darkness
+1,The Years of the Flood
+1,The Year of Winter
+1,The Sunless Days
 
 ;cave use
 1,The caves used to be an old mine.
@@ -9644,6 +9658,8 @@
 1,An orcish *zweihänder* +1/+3 vs. city dwellers, in the [orc sword tradition].
 1,An orcish *mace* +1 with [orcish runes].
 1,An orcish *mace* +1 marked with the runes of [evil power].
+1,The orcish spear *Dog Impaler* +1/+3 vs. elves, created by *[orc]* in [orc war].
+1,The orcish sword *Monkey Slicer* +1/+3 vs. humans used by *[orc]* in [orc war].
 1,The ancient spear *Fur Hunter* +1/+3 vs. mammals, a relic of the Old Lizard Wars, blessed by Set.
 1,The long sword *Moonfire* +1/+3 vs. lycanthropes, inscribed with silver runes of death and banishment, forged by the high inquisitors of *[wight realm]*.
 1,The long sword *Razorblade* +1/+3 vs. spell casters, forged by ancient machines in the Philosophers’ War.
@@ -9683,9 +9699,11 @@
 2,A dwarven *shield* +2 with [dwarven inscription]
 1,A suit of elven *plate armour of fire resistance* +1 made with scales of the red dragon [red dragon name], forged by *[elf]*.
 1,A suit of dwarven *plate armour cold resistance* +1 made with scales of the white dragon [white dragon name], forged by *[dwarf]* of *[dwarf forge]*.
+1,An orcish *spiked plate armour* +1 forged by *[orc]*, preventing all sorts of wrestling and hugging by bears, cats, gorillas and the like
 1,A black *plate armour of [evil power]* +3, inscribed with runes of fire spelling doom and despair.
 1,The *shield of the lion* +2: when you hit your opponent, it bites for an extra 1d6 damage.
 1,A black *plate armour of the dark lord* + 2, giving your voice a magical force, if you are not attacking: the person addressed must save vs. spells or obey a one-word command, if they understand.
+1,A helmet with the gilded face mask of *[wight leader]* emanating an aura of fear, reducing enemy morale by 1.
 
 ;magic armour for magic user
 3,A pair of *silver armlets* +1 dedicated to [power].
