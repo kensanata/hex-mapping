@@ -910,6 +910,16 @@
 1,Zsiga
 1,Zsolt
 
+;a wight capital
+1,[name for a wight capital 1]
+1,[name for a wight capital 2]
+
+;name for a wight capital 1
+1,[ancient capital] [capital epithet]
+
+;name for a wight capital 2
+1,[ancient capital] [capital epithet]
+
 ;ancient capital
 2,[ancient capital beginning][ancient capital end]
 1,[ancient capital beginning][ancient capital middle][ancient capital end]
@@ -3627,7 +3637,7 @@
 1,Spirits
 1,Humans
 1,[old name]
-1,[wight leader]
+1,[an old wight leader]
 
 ;vivimancer
 1,Here lives the **vivimancer** [human] (level [1d3+4 as level]), protected by [3d6] **myconids**, in a tower. [alchemist job] [luxurious context] [poor treasure] [leader treasure for magic user]
@@ -4264,12 +4274,26 @@
 1,the **wight** [wight leader] crawls out of a wet grave and roams the land in search of followers ([wight stats]).
 1,[1d7+1] **wights** led by [wight leader] crawl out of their wet graves and roam the land in search of more followers ([wight stats]).
 
+;an old wight leader
+1,[name of a wight leader 1]
+1,[name of a wight leader 2]
+1,[name of a wight leader 3]
+
+;name of a wight leader 1
+1,[wight leader]
+
+;name of a wight leader 2
+1,[wight leader]
+
+;name of a wight leader 3
+1,[wight leader]
+
 ;wight leader
-1,Old *[wight name]* of *[wight realm]*
+1,*Old [wight name]* of *[wight realm]*
 1,*[wight name] the Terrible* of *[wight realm]*
 1,*[wight name] the Cruel* of *[wight realm]*
-1,King *[king wight]* of *[wight realm]*
-1,Queen *[queen wight]* of *[wight realm]*
+1,*King [king wight]* of *[wight realm]*
+1,*Queen [queen wight]* of *[wight realm]*
 
 ;wight name
 1,[king wight]
