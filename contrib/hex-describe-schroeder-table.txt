@@ -712,12 +712,36 @@
 ;mountain
 1,The green valley up here has some sheep and a **kid** called *[human kid]* guarding them.
 1,Up here in the mountains lies lake [lake name]. [lake inhabitants]
-1,The upper valley is rocky and bare. [hill giants]
+1,[mountain valley] [mountain monolith]
+1,[mountain valley] [hill giants]
 1,Steep cliffs make progress practically impossible without climbing gear. [mountain secret]
 1,Nothing but gray rocks up here in the mountains.
 1,High up on on a ridge is an old elven tower made of green glass, [green tower]
 1,On one of the rock faces you can still see the markings of the old dwarf forge *[here dwarf forge]*. [forge ruin]
 1,On one of a ridge of the [name for hills] stands a ruined fortress currently occupied by [warlocks]. [average treasure]</p><p>The fortress and its surrounding land is ruled by the **medusa** *[medusa]* ([medusa stats]). The courtyard and rooms are full of her petrified victims and the bones of the dead. [luxurious context] [terror treasure]
+
+;mountain valley
+1,The upper valley is rocky and bare.
+1,Up here, winters are cold not much grows here.
+1,The rocks up here are covered in grey and orange lichens.
+1,A few thorny bushes between the rocks are the only green patches up here.
+1,The sunny side of the valley is covered in pink splashes of *roseroot*.
+1,Up there are white patches of *edelweiss* growing between the rocks.
+
+;mountain monolith
+1,A [here monolith 1] stands here. In the weeks when the sky is clear and a full moon casts its silvery light onto the monolith's surface, silvery spirals can be seen. If you trace them with your finger, you are transported to a similar [nearby monolith 2].
+1,A [here monolith 2] stands here. In the weeks when the sky is clear and a full moon casts its silvery light onto the monolith's surface, silvery spirals can be seen. If you trace them with your finger, you are transported to a similar [nearby monolith 1].
+
+;monolith 1
+1,monolith
+
+;monolith 2
+1,monolith
+
+;monolith
+1,strange monolith
+1,grey monolith
+1,tall monolith
 
 ;mountain secret
 1,[way up], [a secret mountain thing]
@@ -742,7 +766,7 @@
 1,where the barrier between the worlds is fickle
 
 ;a secret mountain thing
-1,there is an inscription on the rocks, each letter higher than three men standing on top of each other, proclaiming the power and glory of [wight leader], as well as the riches and treasures of [ancient capital] [capital epithet].
+1,there is an inscription on the rocks, each letter higher than three men standing on top of each other, proclaiming the power and glory of [an old wight leader], as well as the riches and treasures of *[a wight capital]*.
 1,a pair of **griffons** is nesting ([griffon stats]). Agents of the [one of the secret societies] would pay 5000gp for their egg, they say.
 1,a cave leads into the lair of [ice devil], a [ice devil adjectives] **ice devil**, and his [ice devil companions] living in [ice devil lair]
 
