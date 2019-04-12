@@ -2917,12 +2917,221 @@
 ;forest-hill
 1,One of the hills has an old lookout from which you can see most of the [name for forest/forest-hill/trees/fir-forest/firs].
 1,Small creeks have dug deep channels into [name for forest/forest-hill/trees/fir-forest/firs]. The going is tough.
-1,[name for forest/forest-hill/trees/fir-forest/firs] covers a few hills, here. One one them is inhabited by [1d6 ogres] ([ogre stats]). [robber treasure]
-1,These hills in [name for forest/forest-hill/trees/fir-forest/firs] belong to the [evil tribe]. [orcs] Their fort is [orc fort]
+1,[name for forest/forest-hill/trees/fir-forest/firs] covers a few hills, here. [ogre hill]
+1,These [tree] hills in [name for forest/forest-hill/trees/fir-forest/firs] belong to the [evil tribe]. [orcs] Their fort is [orc fort]
 1,The hill overlooking [name for forest/forest-hill/trees/fir-forest/firs] is the home of [1d8 treants] ([treant stats]). They mostly stand around near the [forest feature].
 1,There is a hill rising high above [name for forest/forest-hill/trees/fir-forest/firs] with a nice cave which offers shelter from the rain but is home to [1d4 bears] ([bear stats]).
-1,[5d8] **dwarves** have set up a small logging community, here in [name for forest/forest-hill/trees/fir-forest/firs]. They are led by [dwarf leader] (level [1d6+2 as level]). The camp is defended by [dwarven companions]. [dwarven treasure]
+1,[5d8] **dwarves** have set up a small logging community, here in [name for forest/forest-hill/trees/fir-forest/firs]. The [tree] trees in the area have brought them here. They are led by [dwarf leader] (level [1d6+2 as level]). The camp is defended by [dwarven companions]. [dwarven treasure]
 1,The hills of [name for forest/forest-hill/trees/fir-forest/firs] are full of ancient ruins. On one of these hills right here you can find the foundations of an old keep. The walls are long gone but the cistern and the storage rooms below are still usable. [1d4x10] **bandits** led by [human] have made this their permament base. The camp is [human fort]. [average treasure]
+
+# tree names from http://blog.d4caltrops.com/2019/04/see-forest-for-trees.html
+
+;tree
+1,[tree 1][tree 2]
+
+;tree 1
+1,Arch
+1,Barn
+1,Barrel
+1,Beak
+1,Bishop
+1,Bitter
+1,Black
+1,Blood
+1,Blue
+1,Boat
+1,Bone
+1,Bridge
+1,Cart
+1,Cask
+1,Cat
+1,Cellar
+1,Checker
+1,Chest
+1,Cluster
+1,Coin
+1,Deer
+1,Devil
+1,Dog
+1,Drought
+1,Dry
+1,Dryad
+1,Dwarf
+1,Elf
+1,Fence
+1,Fire
+1,Fool
+1,Giant
+1,Gnome
+1,Grave
+1,Green
+1,Grey
+1,Hang
+1,Hawk
+1,Hermit
+1,High
+1,Hill
+1,Holy
+1,Horse
+1,Iron
+1,Kindle
+1,King
+1,Knight
+1,Lake
+1,Lion
+1,Lodge
+1,Long
+1,Lover
+1,Low
+1,Mage
+1,Mill
+1,Moon
+1,Nymph
+1,Ooze
+1,Paper
+1,Pawn
+1,Pin
+1,Pitch
+1,Pond
+1,Priest
+1,Quake
+1,Queen
+1,Rain
+1,Red
+1,Ripe
+1,Rod
+1,Rook
+1,Rot
+1,Shade
+1,Shag
+1,Shell
+1,Ship
+1,Silver
+1,Single
+1,Sour
+1,Spear
+1,Star
+1,Stink
+1,Strong
+1,Sugar
+1,Sun
+1,Swamp
+1,Sweet
+1,Sword
+1,Thick
+1,Tomb
+1,Tower
+1,Valley
+1,Weep
+1,Wet
+1,Wheel
+1,White
+1,Wolf
+1,Wrack
+1,Yellow
+1,Yoke
+
+;tree 2
+1,apple
+1,arm
+1,bane
+1,bare
+1,bark
+1,basket
+1,bean
+1,berry
+1,blind
+1,blister
+1,bole
+1,boon
+1,bough
+1,bracken
+1,bramble
+1,branch
+1,briar
+1,bud
+1,burl
+1,burn
+1,cap
+1,chock
+1,choke
+1,church
+1,clot
+1,club
+1,coat
+1,cone
+1,cover
+1,cradle
+1,crown
+1,crèche
+1,curl
+1,dapple
+1,den
+1,dye
+1,feast
+1,flower
+1,folly
+1,foot
+1,fruit
+1,gallow
+1,gorse
+1,gown
+1,grove
+1,guard
+1,hair
+1,haw
+1,heart
+1,hedge
+1,husk
+1,knee
+1,knob
+1,knot
+1,leaf
+1,limb
+1,lock
+1,mantle
+1,myrtle
+1,needle
+1,nest
+1,nut
+1,perch
+1,petal
+1,pip
+1,pith
+1,prickle
+1,rest
+1,rind
+1,rise
+1,root
+1,sap
+1,scale
+1,scrub
+1,sedge
+1,seed
+1,shield
+1,shingle
+1,shoot
+1,singer
+1,skin
+1,sleep
+1,sprig
+1,spur
+1,stalk
+1,thicket
+1,thorn
+1,tipped
+1,trunk
+1,warden
+1,warm
+1,watcher
+1,way
+1,weal
+1,wedge
+1,winter
+1,woe
+1,wood
+1,wound
+1,wreath
 
 ;dwarven companions
 1,a palisade and wooden spikes
@@ -3469,9 +3678,13 @@
 1,a **shadow**
 7,[1d7+1] **shadows**
 
+;ogre hill
+1,One hill is inhabited by [1d6 ogres] ([ogre stats]). [ogre lair] [robber treasure]
+
 ;1d6 ogres
 1,[ogre leader]
-5,[ogre leader] leading [ogres]
+1,[ogre leader] and their partner
+4,[ogre leader] leading [ogres]
 
 ;ogre stats
 1,HD 4+1 AC 5 1d10 F4 MV 9 ML 10 XP 400
@@ -3527,8 +3740,34 @@
 1,the Wild
 
 ;ogres
-1,[1d5] more **ogres**
-1,[1d5] more **ogres** and [1d6x10] **orcs** of the [evil tribe] ([orc stats])
+1,[1d4+1] more **ogres**
+1,[1d4+1] more **ogres** and [1d6x10] **orcs** of the [evil tribe] ([orc stats])
+
+;ogre lair
+1,The ogres have found a cave under some boulders where they have dug their lair. It's basically one stuffy room, with hundreds of bones.
+1,They dug a big cave into one of the hills, here. The roof is supported by many wooden columns. From the timbers along the roof hang wooden cages. [ogre prisoners]
+1,The trees cast deep shadows and in these dark places the ogres have dug pits with sharpened spikes and they have set traps to impale the careless. In the middle of this labyrinth of death they have tied together young trees and built a kind of cave, made of wood, surrounded by countless bones.
+1,Their lair is one of those old structures built by the giants of old: a fort made of huge slabs of stone overgrown with ancient trees, an covered area to protect them from the elements where they have built their nests, a deep hole to serve as their cesspit, a huge fireplace in the centre of it all.
+1,The hill top is a maze of trenches to allow them to move about unseen, small caves for them to spend the day protected by spiked pits, all access to this area protected by sharpened wooden stakes rammed into the ground to prevent anybody from storming it.
+
+;ogre prisoners
+1,All the cages are empty.
+1,The elf [elf] is the last survivor of his hunting party, [feeling terrible].
+1,The dwarf [dwarf] is the last survivor of his mining party, [feeling terrible].
+1,The halfling [halfling name] is the last survivor of his village, [feeling terrible].
+1,[1d5+1] goblins are the last survivors of their clan, [feeling terrible].
+
+;feeling terrible
+1,filthy and muted by grief
+1,begging for death or release
+1,toothless and broken
+1,mutilated and barely alive
+1,stubbornly clinging to life
+1,filled with undying hope
+1,softly humming a simple melody
+1,whispering words of madness
+1,crying silently
+1,blinded, helpless
 
 ;bush
 1,[bushes]
