@@ -298,7 +298,7 @@ get '/rules' => sub {
   $c->render(template => 'rules', input => $input, url => $url, table => $table);
 };
 
-post '/rules/list' => sub {
+any '/rules/list' => sub {
   my $c = shift;
   my $input = $c->param('input') || '';
   my ($url, $table) = get_table($c);
@@ -306,7 +306,6 @@ post '/rules/list' => sub {
 	     input => $input, url => $url, table => $table,
 	     rules => [keys %{parse_table($table)}]);
 } => 'ruleslist';
-
 
 any '/rule' => sub {
   my $c = shift;
