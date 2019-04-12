@@ -162,14 +162,8 @@ Pipe through C<lynx -stdin -dump -nolist> to get text instead of HTML.
 any '/describe' => sub {
   my $c = shift;
   my $map = $c->param('map');
-  my $load = $c->param('load');
-  my $url = $c->param('url');
   my $labels = $c->param('labels');
-  my $table;
-  $table = get_data($url) if $url;
-  $table ||= $c->param('table');
-  $table ||= decode_utf8($seckler_table->slurp) if $load eq 'seckler';
-  $table ||= decode_utf8($schroeder_table->slurp) if $load eq 'schroeder';
+  my $table = get_table($c);
   init();
   my $descriptions = describe_map(parse_map($map), parse_table($table));
   $map = add_labels($map) if $labels;
@@ -281,13 +275,7 @@ get '/rules' => sub {
 post '/rules/list' => sub {
   my $c = shift;
   my $input = $c->param('input') || '';
-  my $load = $c->param('load');
-  my $url = $c->param('url');
-  my $table;
-  $table = get_data($url) if $url;
-  $table ||= $c->param('table');
-  $table ||= decode_utf8($seckler_table->slurp) if $load eq 'seckler';
-  $table ||= decode_utf8($schroeder_table->slurp) if $load eq 'schroeder';
+  my ($url, $table) = get_table($c);
   $c->render(template => 'ruleslist',
 	     input => $input, url => $url, table => $table,
 	     rules => [keys %{parse_table($table)}]);
@@ -299,13 +287,7 @@ any '/rule' => sub {
   my $rule = $c->param('rule');
   my $n = $c->param('n') || 10;
   my $input = "[$rule]\n" x $n;
-  my $load = $c->param('load');
-  my $url = $c->param('url');
-  my $table;
-  $table = get_data($url) if $url;
-  $table ||= $c->param('table');
-  $table ||= decode_utf8($seckler_table->slurp) if $load eq 'seckler';
-  $table ||= decode_utf8($schroeder_table->slurp) if $load eq 'schroeder';
+  my $table = get_table($c);
   $c->render(template => 'text',
 	     descriptions => describe_text($input, parse_table($table)));
 } => 'rule';
@@ -327,13 +309,7 @@ Pipe through C<lynx -stdin -dump -nolist> to get text instead of HTML.
 any '/describe/text' => sub {
   my $c = shift;
   my $input = $c->param('input');
-  my $load = $c->param('load');
-  my $url = $c->param('url');
-  my $table;
-  $table = get_data($url) if $url;
-  $table ||= $c->param('table');
-  $table ||= decode_utf8($seckler_table->slurp) if $load eq 'seckler';
-  $table ||= decode_utf8($schroeder_table->slurp) if $load eq 'schroeder';
+  my $table = get_table($c);
   $c->render(template => 'text',
 	     descriptions => describe_text($input, parse_table($table)));
 };
@@ -462,6 +438,27 @@ sub get_post_data {
   }
   $log->error("get_post_data: $error");
   return "<p>There was an error when attempting to load the map ($error).</p>";
+}
+
+=item get_table
+
+This function gets a Mojolicious Controller object and looks for C<map>,
+C<load>, C<url> or C<table> parameters in order to determine the table data to
+use.
+
+=cut
+
+sub get_table {
+  my $c = shift;
+  my $load = $c->param('load');
+  my $url = $c->param('url');
+  my $table;
+  $table = get_data($url) if $url;
+  $table ||= $c->param('table');
+  $table ||= decode_utf8($seckler_table->slurp) if $load eq 'seckler';
+  $table ||= decode_utf8($schroeder_table->slurp) if $load eq 'schroeder';
+  return $url, $table if wantarray;
+  return $table;
 }
 
 =item add_links
