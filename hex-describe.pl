@@ -80,6 +80,7 @@ my $dir = app->config('default_dir');
 my $default_map = Mojo::File->new("$dir/hex-describe-default-map.txt");
 my $schroeder_table = Mojo::File->new("$dir/hex-describe-schroeder-table.txt");
 my $seckler_table = Mojo::File->new("$dir/hex-describe-seckler-table.txt");
+my $strom_table = Mojo::File->new("$dir/hex-describe-strom-table.txt");
 
 =head2 Entry Points
 
@@ -146,8 +147,8 @@ the images. When under development, we skip it.
 
 B<map> is the map, B<url> is the URL to an external table. If not provided,
 B<table> is the text of the table. If neither is provided, a table will be
-loaded based on the B<load> parameter. Current valid values are I<seckler> and
-I<schroeder>.
+loaded based on the B<load> parameter. Current valid values are I<seckler>,
+I<strom> and I<schroeder>.
 
 If we want to call this from the command line, we will need to request a map
 from Text Mapper, too.
@@ -218,6 +219,31 @@ get '/describe/random/alpine' => sub {
       || 'https://campaignwiki.org/text-mapper/alpine/random/text';
   my $map = get_data($url);
   my $table = decode_utf8($schroeder_table->slurp);
+  init();
+  my $descriptions = describe_map(parse_map($map), parse_table($table));
+  $map = add_labels($map) if $labels;
+  my $svg = app->mode eq 'development' ? ''
+      : get_post_data('https://campaignwiki.org/text-mapper/render',
+		      map => $map);
+  $c->render(template => 'description',
+	     svg => add_links($svg),
+	     url => $url,
+	     descriptions => $descriptions);
+};
+
+=item get /describe/random/strom
+
+Same thing for a map using the Smale algorithm and the Strom random tables.
+
+=cut
+
+get '/describe/random/strom' => sub {
+  my $c = shift;
+  my $labels = $c->param('labels');
+  my $url = $c->param('url')
+      || 'https://campaignwiki.org/text-mapper/smale/random/text';
+  my $map = get_data($url);
+  my $table = decode_utf8($strom_table->slurp);
   init();
   my $descriptions = describe_map(parse_map($map), parse_table($table));
   $map = add_labels($map) if $labels;
@@ -347,6 +373,17 @@ get '/seckler/table' => sub {
   $c->render(text => decode_utf8($seckler_table->slurp), format => 'txt');
 };
 
+=item get /strom/table
+
+This shows you the table by Matt Strom.
+
+=cut
+
+get '/strom/table' => sub {
+  my $c = shift;
+  $c->render(text => decode_utf8($strom_table->slurp), format => 'txt');
+};
+
 =item get /source
 
 This gets you the source code of Hex Describe in case the source repository is
@@ -457,6 +494,7 @@ sub get_table {
   $table ||= $c->param('table');
   $table ||= decode_utf8($seckler_table->slurp) if $load eq 'seckler';
   $table ||= decode_utf8($schroeder_table->slurp) if $load eq 'schroeder';
+  $table ||= decode_utf8($strom_table->slurp) if $load eq 'strom';
   return $url, $table if wantarray;
   return $table;
 }
@@ -1514,9 +1552,12 @@ What random tables should be used to generate the descriptions?
 % param load => 'schroeder' unless param 'load';
 <%= radio_button load => 'schroeder' %>
 <%= link_to 'Alex Schroeder' => 'schroedertable' %>
-(best for Alpine maps)
+(best for Alpine maps)<br>
 <%= radio_button load => 'seckler' %>
 <%= link_to 'Peter Seckler' => 'secklertable' %>
+(best for Smale maps)<br>
+<%= radio_button load => 'strom' %>
+<%= link_to 'Matt Strom' => 'stromtable' %>
 (best for Smale maps)
 </p>
 
@@ -1603,9 +1644,12 @@ What random tables should be used to generate the text?
 % param load => 'schroeder' unless param 'load';
 <%= radio_button load => 'schroeder' %>
 <%= link_to 'Alex Schroeder' => 'schroedertable' %>
-(best for Alpine maps)
+(best for Alpine maps)<br>
 <%= radio_button load => 'seckler' %>
 <%= link_to 'Peter Seckler' => 'secklertable' %>
+(best for Smale maps)<br>
+<%= radio_button load => 'strom' %>
+<%= link_to 'Matt Strom' => 'stromtable' %>
 (best for Smale maps)
 </p>
 
@@ -1646,9 +1690,12 @@ submit button once you have made your choice.
 % param load => 'schroeder' unless param 'load';
 <%= radio_button load => 'schroeder' %>
 <%= link_to 'Alex Schroeder' => 'schroedertable' %>
-(best for Alpine maps)
+(best for Alpine maps)<br>
 <%= radio_button load => 'seckler' %>
 <%= link_to 'Peter Seckler' => 'secklertable' %>
+(best for Smale maps)<br>
+<%= radio_button load => 'strom' %>
+<%= link_to 'Matt Strom' => 'stromtable' %>
 (best for Smale maps)
 </p>
 
@@ -1695,9 +1742,12 @@ Pick one of the rules below and submit it.
 % param load => 'schroeder' unless param 'load';
 <%= radio_button load => 'schroeder' %>
 <%= link_to 'Alex Schroeder' => 'schroedertable' %>
-(best for Alpine maps)
+(best for Alpine maps)<br>
 <%= radio_button load => 'seckler' %>
 <%= link_to 'Peter Seckler' => 'secklertable' %>
+(best for Smale maps)<br>
+<%= radio_button load => 'strom' %>
+<%= link_to 'Matt Strom' => 'stromtable' %>
 (best for Smale maps)
 </p>
 
