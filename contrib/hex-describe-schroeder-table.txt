@@ -5847,10 +5847,35 @@
 1,</p><p>[temple of chaos]
 
 ;temple of chaos
-1,In these water logged woods, a statue of [evil power] was built on top of a little hill. Around it, a few followers of [same evil power] have built a series of wooden huts and a sacrificial pit full of maggots and flies. [cultists]
+1,In these water logged woods, a statue of [disease power] was built on top of a little hill. Around it, his followers have built a series of wooden huts and a sacrificial pit full of carcasses, maggots and flies. The stench is overpowering. The humans pray for deliverance, for change, for a remaking of the world and the forest. [cultists]
+1,The water pools between the trees here are black and oily. Dead birds, dead fish, everywhere you look there are dead animals. Here is a mound of ash and bones, and standing on it a pillar of pain dedicated to [disease power]. Humans have gathered here, to worship and to pray. Their faces are ashen and their eyes infected, their tongue black. They pray for the world to end and to be remade, whole and new. [cultists]
+1,From the stagnant water rises a pyramid. It's bottom lies under the surface, but there is an opening further up. The waters around the pyramid harbour [1d6 crocodiles]. The boat is well hidden (1 in 6 chance per day and search party). Inside the pyramid is a sacrificial altar of Set, a [Set animal] pit, and the halls of the assassins in training, the Set acolytes. [cultists]
+1,The trees here are stunted and black, the water is grey and the air carries the smell of sulphur. Beneath the surface lie [undead guardians] waiting for anybody about to enter the water. The boat is well hidden (1 in 6 chance per day and search party). An island made of huge bones rises from the water. On it, necromancers have built a temple to Orcus, including an altar, a bone hall, a skull mound, and several small huts surrounding it all. [cultists]
+1,The trees here are painted with the blood of pigs and men. Carcasses full of maggots hang from hooks and the air is buzzing with flies. This is where a coven of witches has built an altar to Hel, the goddess of magic. They live in the wooden tree houses nearby. The area is guarded by [2d4] **hell hounds** ([hell hound stats]). [cultists led by a woman]
+
+;Set animal
+1,snake
+1,crocodile
+
+;1d6 crocodiles
+1,a **crocodile** ([crocodile stats])
+1,[1d5+1] **crocodiles** ([crocodile stats])
+
+;crocodile stats
+1,HD 6 AC 3 2d8 F3 MV 9 ML 8 XP 600; surprise on 1–5 in 6
+
+;undead guardians
+1,[4d6] **zombies** ([zombie stats])
+1,[3d10] **skeletons** ([skeleton stats])
+
+;skeleton stats
+1,HD 1 AC 7 2d10 F1 MV 6 ML 7 XP 100; immune to *sleep* and *charm*
 
 ;cultists
-1,[1d4x10] **cultists** ([human stats]) live here, like animals. [average treasure] They are led by their cult leader [human] (level [1d6+1 as level]). [leader treasure for magic user]
+1,[1d4x10] **cultists** ([human stats]) live here. [average treasure] They are led by their cult leader [human] (level [1d6+1 as level]). [leader treasure for magic user]
+
+;cultists led by a woman
+1,[1d4x10] **cultists** ([human stats]) live here. [average treasure] They are led by their cult leader [woman with portrait] (level [1d6+1 as level]). [leader treasure for magic user]
 
 ;thorp
 1,</p><p>There is a thorp of [1d4x10] **humans** ([human stats]) led by [human][human job]. The [human houses] are protected by [human companions]. [average treasure]
@@ -7881,9 +7906,12 @@
 ;evil power
 1,Set
 1,Orcus
+1,Hel
+2,[disease power]
+
+;disease power
 1,Nergal
 1,Pazuzu
-1,Hel
 
 ;good power
 1,Freya
