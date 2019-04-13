@@ -5803,6 +5803,43 @@
 1,The forest is cold and dark, full of firs.
 1,This is a fir forest.
 
+;law
+1,</p><p>A [temple of law].
+
+;temple of law
+1,On a peak nearby stands a statue of [good power], built by [ancients]. At the foot of the statue, a few followers of [same good power] have built a small temple consisting of a prayer hall, a sleeping hall, and [lawful temple feature] [monks or nuns]
+1,Between these mountains lies a hidden valley where the [name for a secret society 1] have built a temple dedicated to [good power]. The members of this secret society have erected a prayer hall, a sleeping hall, and [lawful temple feature] [monks or nuns]
+1,Between these mountains lies a hidden valley where the followers of [good power] have built a temple containing a prayer hall, a sleeping hall, and [lawful temple feature] [monks or nuns]
+
+;lawful temple feature
+1,a prayer machine.
+1,a prayer drum.
+1,a herbal garden known for its *[here magic plant]*.
+1,a small library dedicated to *St. [old name]* for travelling philosophers and sages. [maybe a sage]
+1,a small hospital dedicated to *St. [old name]*. There are currently [2d6] sick **humans** up here, hoping to recover up here in the clean, cold air of the mountains.
+1,a small hospice dedicated to *St. [old name]*. There are currently [1d6+1] terminally ill **humans** up here, all hoping to be closer to heaven if they die up here.
+
+;maybe a sage
+1,These days, there are no vistors.
+1,These days it is frequented by the [magic user] *[human]* (level [1d3+4 as level]). [leader treasure for magic user]
+
+;monks or nuns
+1,[1d4x10] **humans** ([human stats]) live up here. [average treasure] They are led by [abbot] (level [1d6+1 as level]). [leader treasure for magic user]
+2,[1d4x10] **men** ([human stats]) live up here. [average treasure] They are led by abbot [man with portrait] (level [1d6+1 as level]). [leader treasure for magic user]
+2,[1d4x10] **women** ([human stats]) live up here. [average treasure] They are led by abbess [woman with portrait] (level [1d6+1 as level]). [leader treasure for magic user]
+
+;abbot
+1,abbot [man with portrait]
+1,abbess [woman with portrait]
+
+;ancients
+1,giants
+1,elves
+1,dwarves
+
+;chaos
+1,</p><p>A [temple of chaos].
+
 ;thorp
 1,</p><p>There is a thorp of [1d4x10] **humans** ([human stats]) led by [human][human job]. The [human houses] are protected by [human companions]. [average treasure]
 
@@ -6306,7 +6343,13 @@
 1,captain
 
 ;human
+1,[man with portrait]
+1,[woman with portrait]
+
+;man with portrait
 1,*[man as human]*<img src="[[redirect https://campaignwiki.org/face/redirect/alex/man]]" alt="[same human]" title="[same human]"/>
+
+;woman with portrait
 1,*[woman as human]*<img src="[[redirect https://campaignwiki.org/face/redirect/alex/woman]]" alt="[same human]" title="[same human]"/>
 
 ;human name
@@ -7893,7 +7936,6 @@
 1,Lux
 1,Luís
 1,Lyan
-1,M
 1,Maaran
 1,Maddox
 1,Mads
@@ -8761,7 +8803,6 @@
 1,Evita
 1,Ewa
 1,Eya
-1,F
 1,Fabia
 1,Fabienne
 1,Fatima
@@ -9076,7 +9117,6 @@
 1,Lynna
 1,Léa
 1,Léonie
-1,M
 1,Maelyn
 1,Maeva
 1,Magali
