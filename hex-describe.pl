@@ -460,17 +460,16 @@ sub get_post_data {
   my $ua = Mojo::UserAgent->new;
   my $tx = $ua->post($url => form => \%data);
   my $error;
-  if ($tx->success) {
-    my $res = $ua->post($url => form => \%data)->result;
-    return $res->body if $res->is_success;
-    $error = $res->code . " " . $res->message;
-  } else {
-    my $err = $tx->error;
+  if (my $err = $tx->error) {
     if ($err->{code}) {
       $error = $err->{code} . " " . $err->{message};
     } else {
       $error = $err->{message};
     }
+  } else {
+    my $res = $ua->post($url => form => \%data)->result;
+    return $res->body if $res->is_success;
+    $error = $res->code . " " . $res->message;
   }
   $log->error("get_post_data: $error");
   return "<p>There was an error when attempting to load the map ($error).</p>";
