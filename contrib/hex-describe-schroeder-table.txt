@@ -5843,6 +5843,12 @@
 ;chaos
 1,</p><p>A [temple of chaos].
 
+;temple of chaos
+1,In these water logged woods, a statue of [evil power] was built on top of a little hill. Around it, a few followers of [same evil power] have built a series of wooden huts and a sacrificial pit full of maggots and flies. [cultists]
+
+;cultists
+1,[1d4x10] **cultists** ([human stats]) live here, like animals. [average treasure] They are led by their cult leader [human] (level [1d6+1 as level]). [leader treasure for magic user]
+
 ;thorp
 1,</p><p>There is a thorp of [1d4x10] **humans** ([human stats]) led by [human][human job]. The [human houses] are protected by [human companions]. [average treasure]
 
