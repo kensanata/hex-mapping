@@ -28,6 +28,7 @@
 0803 castle "castle"
 0804 law "law"
 0805 chaos "chaos"
+0806 swamp2 chaos "swamp2"
 0901 thorp "thorp"
 0902 village "village"
 0903 town "town"

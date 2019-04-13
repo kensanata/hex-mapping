@@ -1646,6 +1646,22 @@ sub settlements {
   for my $coordinates (@candidates) {
     $world->{$coordinates} =~ s/forest/trees town/;
   }
+  @candidates = shuffle sort grep { $world->{$_} =~ /white mountain\b/ } keys %$world;
+  @candidates = remove_closer_than(10, @candidates);
+  @candidates = @candidates[0 .. int($max/40 - 1)] if @candidates > $max/40;
+  push(@settlements, @candidates);
+  # warn "temples of law: @candidates\n";
+  for my $coordinates (@candidates) {
+    $world->{$coordinates} =~ s/white mountain\b/white mountain law/;
+  }
+  @candidates = shuffle sort grep { $world->{$_} =~ /swamp/ } keys %$world;
+  @candidates = remove_closer_than(10, @candidates);
+  @candidates = @candidates[0 .. int($max/40 - 1)] if @candidates > $max/40;
+  push(@settlements, @candidates);
+  # warn "temples of chaos: @candidates\n";
+  for my $coordinates (@candidates) {
+    $world->{$coordinates} =~ s/swamp/swamp2 chaos/;
+  }
   return @settlements;
 }
 
