@@ -3883,7 +3883,7 @@
 1,Here is the tower of the **vivimancer** [human] (level [1d3+4 as level]) with [3d6] [slimes]. [safe zone] [poor treasure] [leader treasure for magic user]
 
 ;alchemist job
-1,[same human] is looking for [nearby magic plant].
+1,[same human] is looking for *[nearby magic plant]*.
 1,[same human] is looking for a [nearby ice monster] ice tooth.
 
 ;slimes
@@ -4423,7 +4423,7 @@
 ;swamp
 1,The river widens here and forms a large swamp. You need a guide and boats in order to pass through. [giant fish] can be seen below the surface ([giant fish stats]).
 1,This bog is a labyrinth. You need a guide to find your way through it. If you don’t, you will soon end up in the lands of the [witch]
-1,This reed is home to a lot of [swamp animals]. Those who know how to find it can gather [here magic plant].
+1,This reed is home to a lot of [swamp animals]. Those who know how to find it can gather *[here magic plant]*.
 1,These wet land have been settled by a tribe of [6d6] **lizard people** led by *[lizard leader]* (HD [1d4+2 as level]). [leader treasure] The little village of mud huts is guarded by [lizard companions]. [average treasure]
 1,This swamp is home to [froglings]
 1,A ruined tower standing on a small island in this swamp is home to the **ettin** called *[ettin]*. [robber treasure]
@@ -5807,7 +5807,7 @@
 1,This is a fir forest.
 
 ;law
-1,</p><p>A [temple of law].
+1,</p><p>[temple of law].
 
 ;temple of law
 1,On a peak nearby stands a statue of [good power], built by [ancients]. At the foot of the statue, a few followers of [same good power] have built a small temple consisting of a prayer hall, a sleeping hall, and [lawful temple feature] [monks or nuns]
