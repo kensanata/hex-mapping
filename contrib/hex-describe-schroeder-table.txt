@@ -1374,7 +1374,7 @@
 1,These mountains are called the [name for white big mountains]. [more mountains]
 
 ;name for white big mountains
-1,[dreadful] [peaks]
+1,<span class="white mountains">[dreadful] [peaks]</span>
 
 ;dreadful
 1,Dire

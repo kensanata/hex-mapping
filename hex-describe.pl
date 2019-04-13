@@ -2892,15 +2892,22 @@ td, th {
 }
 .treasure {
   background-color: #fffacd;
+  padding: 2px 1px 0px 1px;
 }
 .river {
   background-color: #e0ffff;
+  padding: 2px 1px 0px 1px;
 }
 .trail {
   background-color: #f5f5dc;
+  padding: 2px 1px 0px 1px;
 }
 .forest {
   background-color: #c1ffc1;
+  padding: 2px 1px 0px 1px;
+}
+.mountains {
+  background-color: #e0e0e0;
 }
 hr {
   clear: both;
