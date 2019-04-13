@@ -2648,7 +2648,7 @@ dark-grey (altitude 5 and lower).</p>
 "flooding" lakes, looking for a way to the edge of the map. If we're lucky, our
 search will soon hit upon a sequence of arrows that leads to ever lower
 altitudes and to the edge of the map. An outlet! We start with all the hexes
-that don't have an arrow. For each one of those, we look its neighbors. These
+that don't have an arrow. For each one of those, we look at its neighbors. These
 are our initial candidates. We keep expanding our list of candidates as we add
 at neighbors of neighbors. At every step we prefer the lowest of these
 candidates. Once we have reached the edge of the map, we backtrack and change
