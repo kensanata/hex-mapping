@@ -2899,6 +2899,9 @@ td, th {
 .trail {
   background-color: #f5f5dc;
 }
+.forest {
+  background-color: #c1ffc1;
+}
 hr {
   clear: both;
 }

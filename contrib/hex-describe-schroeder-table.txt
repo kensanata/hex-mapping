@@ -2914,15 +2914,18 @@
 ;giant toad stats
 1,HD 4+1 AC 7 1d6 + *swallow* F2 MV 3 ML 6 XP 400; human children, elves, halflings and dwarves are swallowed when hit: save vs. death once per round or suffocate
 
+;forest name
+1,[name for forest/forest-hill/trees/fir-forest/firs/swamp/swamp2]
+
 ;forest-hill
-1,One of the hills has an old lookout from which you can see most of the [name for forest/forest-hill/trees/fir-forest/firs/swamp/swamp2].
-1,Small creeks have dug deep channels into [name for forest/forest-hill/trees/fir-forest/firs/swamp/swamp2]. The going is tough.
-1,[name for forest/forest-hill/trees/fir-forest/firs/swamp/swamp2] covers a few hills, here. [ogre hill]
-1,These [tree] hills in [name for forest/forest-hill/trees/fir-forest/firs/swamp/swamp2] belong to the [evil tribe]. [orcs] Their fort is [orc fort]
-1,The hill overlooking [name for forest/forest-hill/trees/fir-forest/firs/swamp/swamp2] is the home of [1d8 treants] ([treant stats]). They mostly stand around near the [forest feature].
-1,There is a hill rising high above [name for forest/forest-hill/trees/fir-forest/firs/swamp/swamp2] with a nice cave which offers shelter from the rain but is home to [1d4 bears] ([bear stats]).
-1,[5d8] **dwarves** have set up a small logging community, here in [name for forest/forest-hill/trees/fir-forest/firs/swamp/swamp2]. The [tree] trees in the area have brought them here. They are led by [dwarf leader] (level [1d6+2 as level]). The camp is defended by [dwarven companions]. [dwarven treasure]
-1,The hills of [name for forest/forest-hill/trees/fir-forest/firs/swamp/swamp2] are full of ancient ruins. On one of these hills right here you can find the foundations of an old keep. The walls are long gone but the cistern and the storage rooms below are still usable. [1d4x10] **bandits** led by [human] have made this their permament base. The camp is [human fort]. [average treasure]
+1,One of the hills has an old lookout from which you can see most of the [forest name].
+1,Small creeks have dug deep channels into [forest name]. The going is tough.
+1,[forest name] covers a few hills, here. [ogre hill]
+1,These [tree] hills in [forest name] belong to the [evil tribe]. [orcs] Their fort is [orc fort]
+1,The hill overlooking [forest name] is the home of [1d8 treants] ([treant stats]). They mostly stand around near the [forest feature].
+1,There is a hill rising high above [forest name] with a nice cave which offers shelter from the rain but is home to [1d4 bears] ([bear stats]).
+1,[5d8] **dwarves** have set up a small logging community, here in [forest name]. The [tree] trees in the area have brought them here. They are led by [dwarf leader] (level [1d6+2 as level]). The camp is defended by [dwarven companions]. [dwarven treasure]
+1,The hills of [forest name] are full of ancient ruins. On one of these hills right here you can find the foundations of an old keep. The walls are long gone but the cistern and the storage rooms below are still usable. [1d4x10] **bandits** led by [human] have made this their permament base. The camp is [human fort]. [average treasure]
 
 # tree names from http://blog.d4caltrops.com/2019/04/see-forest-for-trees.html
 
@@ -4421,14 +4424,14 @@
 1,Rock
 
 ;swamp
-1,The river widens here and forms a large swamp. You need a guide and boats in order to pass through the water-logged [name for forest/forest-hill/trees/fir-forest/firs/swamp/swamp2]. [giant fish] can be seen below the surface ([giant fish stats]).
-1,This swamp is a labyrinth of crisscrossing water ways cutting through the [name for forest/forest-hill/trees/fir-forest/firs/swamp/swamp2]. You need a guide to find your way through it. If you don’t, you will soon end up in the lands of the [witch]
-1,The [name for forest/forest-hill/trees/fir-forest/firs/swamp/swamp2] swamp is home to a lot of [swamp animals]. Those who know how to find it can gather *[here magic plant]*.
-1,The [name for forest/forest-hill/trees/fir-forest/firs/swamp/swamp2] here is flooded and has been settled by a tribe of [6d6] **lizard people** led by *[lizard leader]* (HD [1d4+2 as level]). [leader treasure] The little village of mud huts is guarded by [lizard companions]. [average treasure]
-1,The inundated [name for forest/forest-hill/trees/fir-forest/firs/swamp/swamp2] here is home to [froglings]
-1,A ruined tower standing on a small island in this part of the [name for forest/forest-hill/trees/fir-forest/firs/swamp/swamp2] swamp is home to the **ettin** called *[ettin]*. [robber treasure]
-1,In the old days, the stagnant pools of the [name for forest/forest-hill/trees/fir-forest/firs/swamp/swamp2] swamp was used to drown evil necromancers. [bog wights]
-1,On one of the islands of this [name for forest/forest-hill/trees/fir-forest/firs/swamp/swamp2] swamp there is a huge mud mound. [goblins]
+1,The river widens here and forms a large swamp. You need a guide and boats in order to pass through the water-logged [forest name]. [giant fish] can be seen below the surface ([giant fish stats]).
+1,This swamp is a labyrinth of crisscrossing water ways cutting through the [forest name]. You need a guide to find your way through it. If you don’t, you will soon end up in the lands of the [witch]
+1,The [forest name] swamp is home to a lot of [swamp animals]. Those who know how to find it can gather *[here magic plant]*.
+1,The [forest name] here is flooded and has been settled by a tribe of [6d6] **lizard people** led by *[lizard leader]* (HD [1d4+2 as level]). [leader treasure] The little village of mud huts is guarded by [lizard companions]. [average treasure]
+1,The inundated [forest name] here is home to [froglings]
+1,A ruined tower standing on a small island in this part of the [forest name] swamp is home to the **ettin** called *[ettin]*. [robber treasure]
+1,In the old days, the stagnant pools of the [forest name] swamp was used to drown evil necromancers. [bog wights]
+1,On one of the islands of this [forest name] swamp there is a huge mud mound. [goblins]
 
 ;swamp2
 1,[swamp]
@@ -4685,7 +4688,7 @@
 
 # These are the monsters for larger villages
 ;trees
-1,This is the [name for forest/forest-hill/trees/fir-forest/firs/swamp/swamp2]. [signs of human activity] [a monster threatening the village]
+1,This is the [forest name]. [signs of human activity] [a monster threatening the village]
 
 ;signs of human activity
 1,Tall trees cover this valley. Occasionally, you can see tree stumps so somebody must be logging these trees.
@@ -4805,18 +4808,18 @@
 1,Impaler
 
 ;forest
-1,This is the [name for forest/forest-hill/trees/fir-forest/firs/swamp/swamp2] and there are no trails. Without a guide, you will get lost.
-1,The tall trees of [name for forest/forest-hill/trees/fir-forest/firs/swamp/swamp2] and their dense canopy keep the sunlight away. Down here in the shade there are big mushrooms everywhere. [mushrooms]
-1,This part of [name for forest/forest-hill/trees/fir-forest/firs/swamp/swamp2] is under the protection of [1d8 treants] ([treant stats]). They mostly stand around near the [forest feature].
-1,The trees of [name for forest/forest-hill/trees/fir-forest/firs/swamp/swamp2] are full of spider webs, here. Anybody climbing the trees or travelling on their own will get attacked by [2d4] **giant spiders** ([giant spider stats]).
-1,[2d12] **elves** led by [elf leader] (level [1d6+1]) have built their [elf dwelling] in [name for forest/forest-hill/trees/fir-forest/firs/swamp/swamp2]. [elf companions]
-1,These trees are part of [name for forest/forest-hill/trees/fir-forest/firs/swamp/swamp2]. A system of big tunnels is home to [1d6 weasels] ([weasel stats]).
-1,At dusk and dawn, you can sometimes see [boars] in the [name for forest/forest-hill/trees/fir-forest/firs/swamp/swamp2], here ([boar stats]).
+1,This is the [forest name] and there are no trails. Without a guide, you will get lost.
+1,The tall trees of [forest name] and their dense canopy keep the sunlight away. Down here in the shade there are big mushrooms everywhere. [mushrooms]
+1,This part of [forest name] is under the protection of [1d8 treants] ([treant stats]). They mostly stand around near the [forest feature].
+1,The trees of [forest name] are full of spider webs, here. Anybody climbing the trees or travelling on their own will get attacked by [2d4] **giant spiders** ([giant spider stats]).
+1,[2d12] **elves** led by [elf leader] (level [1d6+1]) have built their [elf dwelling] in [forest name]. [elf companions]
+1,These trees are part of [forest name]. A system of big tunnels is home to [1d6 weasels] ([weasel stats]).
+1,At dusk and dawn, you can sometimes see [boars] in the [forest name], here ([boar stats]).
 
 ;mushrooms
 1,The mushrooms are guarded by [myconids]
 1,If eaten, [do something interesting]
-1,These mushrooms are actually the antennaes and horns for the big sleeping supermushroom [name for forest/forest-hill/trees/fir-forest/firs/swamp/swamp2] living beneath the forest. Around here, your sleep will be filled with mushroom dreams.
+1,These mushrooms are actually the antennaes and horns for the big sleeping supermushroom [forest name] living beneath the forest. Around here, your sleep will be filled with mushroom dreams.
 
 ;myconids
 1,[3d6] **myconids** ([myconid stats]). [poor treasure]
@@ -4839,7 +4842,7 @@
 1,heal 1d6+1. The locals assemble here after a fight to recuperate.
 
 ;name for forest/forest-hill/trees/fir-forest/firs/swamp/swamp2
-1,[forest 1] [forest 2]
+1,<span class="forest">[forest 1] [forest 2]</span>
 
 ;forest 1
 1,Dark
@@ -5800,11 +5803,11 @@
 1,[fir highlands] At dusk and dawn, you can sometimes see [boars] ([boar stats]).
 
 ;fir highlands
-1,A few stunted firs grow in these highlands.
-1,It’s colder up here and the forest is dominated by firs.
-1,The firs cast long shadows in these lands.
-1,The forest is cold and dark, full of firs.
-1,This is a fir forest.
+1,A few stunted firs grow in these highlands. This is the edge of the [forest name].
+1,It’s colder up here and the [forest name] is dominated by firs.
+1,The firs of [forest name] cast long shadows in these lands.
+1,The [forest name] is cold and dark, full of firs.
+1,The [forest name] reaches these highlands and slowly thins out.
 
 ;law
 1,</p><p>[temple of law]
@@ -5819,8 +5822,8 @@
 1,a prayer drum.
 1,a herbal garden known for its *[here magic plant]*.
 1,a small library dedicated to *St. [old name]* for travelling philosophers and sages. [maybe a sage]
-1,a small hospital dedicated to *St. [old name]*. There are currently [2d6] sick **humans** up here, hoping to recover up here in the clean, cold air of the mountains.
-1,a small hospice dedicated to *St. [old name]*. There are currently [1d6+1] terminally ill **humans** up here, all hoping to be closer to heaven if they die up here.
+1,a small hospital dedicated to *St. [old name]*. There are currently [2d6] sick **humans** up here, hoping to recover in the clean, cold air of the mountains.
+1,a small hospice dedicated to *St. [old name]*. There are currently [1d6+1] terminally ill **humans** up here, all hoping to be closer to heaven if they die.
 
 ;maybe a sage
 1,These days, there are no vistors.
