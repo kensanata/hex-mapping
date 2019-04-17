@@ -20,15 +20,74 @@
 1,HD 1 AC 8 1d6 F1 MV 12 ML 7 XP 100
 
 ;centaurs
-1,the **centaur** *[centaur]*
-10,[1d19+1] **centaurs** led by *[centaur]*
-9,[1d19+1] drunken **centaurs** led by *[centaur]*
+1,the **centaur** *[centaur]* ([centaur stats])
+10,[1d19+1] **centaurs** led by *[centaur]* ([centaur stats])
+9,[1d19+1] drunken **centaurs** led by *[centaur]* ([centaur stats])
+
+;centaur stats
+1,HD 4 AC 5 1d6/1d6/1d8 F4 MV 18 ML 8 XP 400
 
 ;centaur
-1,Fleetfoot
-1,Staggering Stag
-1,Prancing Horny
-1,Old Man
+1,[strange male name]
+
+# https://www.s-gabriel.org/names/guntram/franks.htm
+
+;strange name
+1,[strange male name]
+1,[strange female name]
+
+;strange male name
+3,[strange male name 1][strange male name 2]
+1,[strange male name short]
+
+;strange female name
+3,[strange male name 1][strange female name 2]
+2,[strange male name 1][strange male name 2]a
+
+;strange male name 1
+1,Adal
+1,Am
+1,Amal
+1,Balde
+1,Bert
+1,Child
+1,Chlodo
+1,Charde
+1,Gunde
+1,Sigi
+1,Theude
+
+;strange male name 2
+1,ger
+1,man
+1,mund
+1,ric
+1,sind
+1,hard
+1,bert
+1,brand
+1,gysil
+
+;strange male name short
+1,Adda
+1,Adzo
+1,Ardoin
+1,Atto
+1,Berto
+1,Dedo
+1,Dido
+1,Dodo
+1,Siggo
+1,Theo
+
+;strange female name 2
+1,burg
+1,gard
+1,gund
+1,hild
+1,lind
+1,swind
+1,trud
 
 ;cows
 1,**bison**
@@ -4808,22 +4867,33 @@
 1,Impaler
 
 ;forest
-1,This is the [forest name] and there are no trails. Without a guide, you will get lost.
-1,The tall trees of [forest name] and their dense canopy keep the sunlight away. Down here in the shade there are big mushrooms everywhere. [mushrooms]
-1,This part of [forest name] is under the protection of [1d8 treants] ([treant stats]). They mostly stand around near the [forest feature].
-1,The trees of [forest name] are full of spider webs, here. Anybody climbing the trees or travelling on their own will get attacked by [2d4] **giant spiders** ([giant spider stats]).
-1,[2d12] **elves** led by [elf leader] (level [1d6+1]) have built their [elf dwelling] in [forest name]. [elf companions]
-1,These trees are part of [forest name]. A system of big tunnels is home to [1d6 weasels] ([weasel stats]).
+1,This is the [forest name]. [easy to get lost] In the shadows of the [tree] trees live [centaurs].
+1,The tall [tree] trees of [forest name] and their dense canopy keep the sunlight away. [easy to get lost] Down here in the shade there are big mushrooms everywhere. [mushrooms]
+1,This part of [forest name] is under the protection of [1d8 treants] ([treant stats]). They mostly stand around near the [forest feature]. [easy to get lost]
+1,The [tree] trees of [forest name] are full of spider webs, here. [easy to get lost] Anybody climbing the trees or travelling on their own will get attacked by [2d4] **giant spiders** ([giant spider stats]).
+1,The forest here is deep and quiet. [easy to get lost] [2d12] **elves** led by [elf leader] (level [1d6+1 as level]) have built their [elf dwelling] in [forest name], [beautiful trees]. [leader treasure] [elf companions]
+1,These trees are part of [forest name]. [easy to get lost] A system of big tunnels is home to [1d6 weasels] ([weasel stats]).
 1,At dusk and dawn, you can sometimes see [boars] in the [forest name], here ([boar stats]).
+
+;beautiful trees
+1,where the [tree] trees stand tall
+1,where the sunlight filters through the [tree] trees
+1,where butterflies dance in the crowns of the [tree] trees
+
+;easy to get lost
+1,There are no trails. Without a guide, you will get lost on 1–2 in 6.
+1,They say that the trees here will try to lead you astray. Without a guide, you will get lost on 1–2 in 6.
+1,The narcotic vapours of the trees make people tired and careless. Without a guide, you will get lost on 1–2 in 6.
+1,The undergrowth is thick and thorny, leading to long detours. Without a guide, you will get lost on 1–2 in 6.
 
 ;mushrooms
 1,The mushrooms are guarded by [myconids]
 1,If eaten, [do something interesting]
-1,These mushrooms are actually the antennaes and horns for the big sleeping supermushroom [forest name] living beneath the forest. Around here, your sleep will be filled with mushroom dreams.
+1,These mushrooms are actually the antennaes and horns for a big sleeping super-mushroom living beneath the forest. Around here, your sleep will be filled with mushroom dreams.
 
 ;myconids
 1,[3d6] **myconids** ([myconid stats]). [poor treasure]
-1,[3d6] **myconids** watching their mushroom circle ([myconid stats]). [poor treasure] On nights of the full moon, or on a 1 in 6, the portal to the fey realms opens. If so, [2d12] **elves** led by [elf leader] (level [1d6+1]) will be visiting from [fey realm].
+1,[3d6] **myconids** watching their mushroom circle ([myconid stats]). [poor treasure] On nights of the full moon, or on a 1 in 6, the portal to the fey realms opens. If so, [2d12] **elves** led by [elf leader] (level [1d6+1 as level]) will be visiting from [fey realm]. [leader treasure]
 
 ;myconid stats
 1,HD 3 AC 8 – F3 MV 6 ML 7 XP 300; *read mind*, *dominate*, *knockout*, *gravity control* (3d8): save vs. spells to avoid; *silent message*
@@ -4923,12 +4993,12 @@
 ;elf companions
 1,The settlement is nearly impossible to spot from the ground level.
 1,At night, the settlement is illuminated by magic light.
-1,During the day, sweet music can be haird from the tree tops.
+1,During the day, sweet music can be heard from the tree tops.
 1,The settlement is protected by a **giant weasel** ([weasel stats]).
 2,The settlement is protected by [1d2+1] **giant weasels** ([weasel stats]).
 
 ;elf leader
-1,[elf]<img src="[[redirect https://campaignwiki.org/face/redirect/alex/elf]]" alt="[same elf]" title="same elf"/>
+1,*[elf]*<img src="[[redirect https://campaignwiki.org/face/redirect/alex/elf]]" alt="[same elf]" title="same elf"/>
 
 # Not accounted for: Letter changes when combining words
 # http://sindarinlessons.weebly.com/37---how-to-make-names-1.html
