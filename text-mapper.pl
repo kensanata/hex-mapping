@@ -17,8 +17,10 @@ package main;
 use Modern::Perl;
 use Mojo::Log;
 
-my $log = Mojo::Log->new;
-my $debug = $ENV{DEBUG};
+our $debug = $ENV{DEBUG};
+my $log = Mojo::Log->new(level => $debug ? 'debug' : 'warn');
+$log->debug("Debugging enabled");
+
 my $output;
 my $dx = 100;
 my $dy = 100*sqrt(3);
@@ -402,11 +404,16 @@ sub process {
   my $self = shift;
   my $line_id = 0;
   foreach (@_) {
-    if (/^(\d\d)(\d\d)(?:\s+([^"\r\n]+)?\s*(?:"(.+)"(?:\s+(\d+))?)?|$)/) {
+    if (/^(\d\d)(\d\d)\s+(.*)/) {
       my $hex = Hex->new(x => $1, y => $2, map => $self);
-      $hex->label($4);
-      $hex->size($5);
-      my @types = split(' ', $3); # at this point we don't know what they refer to
+      my $rest = $3;
+      my ($label) = $rest =~ /\"([^\"]+)\"/;
+      $hex->label($label);
+      $rest =~ s/\"[^\"]+\"//;
+      my @terms = split(/\s+/, $rest);
+      my @sizes = grep(/^(\d)$/, @terms);
+      $hex->size(shift(@sizes));
+      my @types = grep(!/^\d$/, @terms);
       $hex->type(\@types);
       push(@{$self->hexes}, $hex);
       push(@{$self->things}, $hex);
@@ -1287,7 +1294,6 @@ sub altitude {
 sub water {
   my ($world, $altitude, $water) = @_;
   # reset in case we run this twice
-  my $debug = 0;
   # go through all the hexes
   for my $coordinates (sort keys %$altitude) {
     # note preferred water flow by identifying lower lying neighbors
@@ -1305,18 +1311,18 @@ sub water {
       # don't point into loops
       my %loop = ($coordinates => 1, $other => 1);
       my $next = $other;
-      warn "Loop detection starting with $coordinates and $other\n" if $debug;
+      $log->debug("Loop detection starting with $coordinates and $other");
       while ($next) {
 	# no water flow known is also good;
-	warn "water for $next: $water->{$next}\n" if $debug;
+	$log->debug("water for $next: " . ($water->{$next} || "none"));
 	last unless defined $water->{$next};
 	($x, $y) = neighbor($next, $water->{$next});
 	# leaving the map is good
-	warn "legal for $next: " . legal($x, $y) . "\n" if $debug;
+	$log->debug("legal for $next: " . legal($x, $y));
 	last unless legal($x, $y);
 	$next = coordinates($x, $y);
 	# skip this neighbor if this is a loop
-	warn "is $next in a loop? $loop{$next}\n" if $debug;
+	$log->debug("is $next in a loop? " . ($loop{$next} || "no"));
 	next NEIGHBOR if $loop{$next};
 	$loop{$next} = 1;
       }
@@ -1325,7 +1331,7 @@ sub water {
 	  or $legal and $altitude->{$other} < $lowest) {
 	$lowest = $legal ? $altitude->{$other} : $altitude->{$coordinates};
 	$direction = $i;
-	warn "Set lowest to $lowest ($direction)\n" if $debug;
+	$log->debug("Set lowest to $lowest ($direction)");
       }
     }
     if (defined $direction) {
@@ -1410,14 +1416,14 @@ sub lowest_neighbor {
 
 sub flood {
   my ($world, $altitude, $water) = @_;
-  my $debug = 0;
   # backtracking information: $from = $flow{$to}
   my %flow;
   # allow easy skipping
   my %seen;
   # start with a list of hexes to look at; as always, keys is a source of
   # randomness that's independent of srand which is why we shuffle sort
-  my @lakes =  shuffle sort grep { not defined $water->{$_} } keys %$world;
+  my @lakes = shuffle sort grep { not defined $water->{$_} } keys %$world;
+  return unless @lakes;
   my $start = shift(@lakes);
   my @candidates = ($start);
   while (@candidates) {
@@ -1428,13 +1434,14 @@ sub flood {
     @candidates = sort {
       ($altitude->{$a}||0) <=> ($altitude->{$b}||0)
     } shuffle @candidates;
-    warn "Candidates @candidates\n" if $debug;
+    $log->debug("Candidates @candidates");
     my $coordinates;
     do {
       $coordinates = shift(@candidates);
-    } until not $seen{$coordinates};
+    } until not $coordinates or not $seen{$coordinates};
+    last unless $coordinates;
     $seen{$coordinates} = 1;
-    warn "Looking at $coordinates\n" if $debug;
+    $log->debug("Looking at $coordinates");
     my ($x, $y) = xy($coordinates);
     if (legal($x, $y)) {
       # if we're still on the map, check all the unknown neighbors
@@ -1442,26 +1449,26 @@ sub flood {
       for my $i (0 .. 5) {
 	my $to = coordinates(neighbor($from, $i));
 	next if $seen{$to};
-	warn "Adding $to to our candidates\n" if $debug;
+	$log->debug("Adding $to to our candidates");
 	$flow{$to} = $from;
 	# adding to the front as we keep pushing forward (I hope)
 	push(@candidates, $to);
       }
       next;
     }
-    warn "We left the map at $coordinates\n" if $debug;
+    $log->debug("We left the map at $coordinates");
     my $to = $coordinates;
     my $from = $flow{$to};
     while ($from) {
       my $i = direction($from, $to);
       if (not defined $water->{$from}
 	  or $water->{$from} != $i) {
-	warn "Arrow for $from now points to $to\n" if $debug;
+	$log->debug("Arrow for $from now points to $to");
 	$water->{$from} = $i;
 	$world->{$from} =~ s/arrow\d/arrow$i/
 	    or $world->{$from} .= " arrow$i";
       } else {
-	warn "Arrow for $from already points $to\n" if $debug;
+	$log->debug("Arrow for $from already points $to");
       }
       $to = $from;
       $from = $flow{$to};
@@ -1469,7 +1476,7 @@ sub flood {
     # pick the next lake
     do {
       $start = shift(@lakes);
-      warn "Next lake is $start\n" if $debug and $start;
+      $log->debug("Next lake is $start") if $start;
     } until not $start or not defined $water->{$start};
     last unless $start;
     %seen = %flow = ();
@@ -1531,13 +1538,12 @@ sub canyons {
   my $canyon = [];
   # remember which canyon flows through which hex
   my %seen;
-  my $debug = 0;
   for my $river (@$rivers) {
     my $last = $river->[0];
     my $current_altitude = $altitude->{$last};
-    warn "Looking at @$river ($current_altitude)\n" if $debug;
+    $log->debug("Looking at @$river ($current_altitude)");
     for my $coordinates (@$river) {
-      warn "Looking at $coordinates\n" if $debug;
+      $log->debug("Looking at $coordinates");
       if ($seen{$coordinates}) {
 	# the rest of this river was already looked at, so there is no need to
 	# do the rest of this river; if we're in a canyon, prepend it to the one
@@ -1545,22 +1551,22 @@ sub canyons {
 	if (@$canyon) {
 	  my @other = @{$seen{$coordinates}};
 	  if ($other[0] eq $canyon->[-1]) {
-	    warn "Canyon @$canyon of river @$river merging with @other at $coordinates\n" if $debug;
+	    $log->debug("Canyon @$canyon of river @$river merging with @other at $coordinates");
 	    unshift(@{$seen{$coordinates}}, @$canyon[0 .. @$canyon - 2]);
 	  } else {
-	    warn "Canyon @$canyon of river @$river stumbled upon existing canyon @other at $coordinates\n" if $debug;
+	    $log->debug("Canyon @$canyon of river @$river stumbled upon existing canyon @other at $coordinates");
 	    while (@other) {
 	      my $other = shift(@other);
 	      next if $other ne $coordinates;
 	      push(@$canyon, $other, @other);
 	      last;
 	    }
-	    warn "Canyon @$canyon\n" if $debug;
+	    $log->debug("Canyon @$canyon");
 	    push(@canyons, $canyon);
 	  }
 	  $canyon = [];
 	}
-	warn "We've seen the rest: @{$seen{$coordinates}}\n" if $debug;
+	$log->debug("We've seen the rest: @{$seen{$coordinates}}");
 	last;
       }
       # no canyons through water!
@@ -1570,15 +1576,15 @@ sub canyons {
 	# is the start of a canyon, prepend the last step
 	push(@$canyon, $last) unless @$canyon;
 	push(@$canyon, $coordinates);
-	warn "Growing canyon @$canyon\n" if $debug;
+	$log->debug("Growing canyon @$canyon");
 	$seen{$coordinates} = $canyon;
       } else {
 	# if we just left a canyon, append the current step
 	if (@$canyon) {
 	  push(@$canyon, $coordinates);
 	  push(@canyons, $canyon);
-	  warn "Looking at river @$river\n" if $debug;
-	  warn "Canyon @$canyon\n" if $debug;
+	  $log->debug("Looking at river @$river");
+	  $log->debug("Canyon @$canyon");
 	  $canyon = [];
 	  last;
 	}
@@ -1705,9 +1711,14 @@ sub cliffs {
 }
 
 sub generate {
-  my ($world, $altitude, $water, $rivers, $settlements, $trails, $canyons, $step) = @_;
-  # %flow indicates that there is actually a river in this hex
-  my %flow;
+  my ($cache, $step) = @_;
+
+  $cache ||= [{}, {}, {}, [], [], [], [], {}];
+  my ($world, $altitude, $water, $rivers, $settlements, $trails, $canyons, $flow) = @$cache;
+
+  # in order to be able to cache it all, there can be no local variables to store state!
+  # flow indicates that there is actually a river in this hex
+
   my @code = (
     sub { flat($altitude);
 	  altitude($world, $altitude); }, # 1
@@ -1716,10 +1727,10 @@ sub generate {
     sub { lakes($world, $altitude, $water); }, # 4
     sub { swamps($world, $altitude, $water); }, # 5
     sub { flood($world, $altitude, $water); }, # 6
-    sub { push(@$rivers, rivers($world, $altitude, $water, \%flow, 8));
-	  push(@$rivers, rivers($world, $altitude, $water, \%flow, 7)); }, # 7
+    sub { push(@$rivers, rivers($world, $altitude, $water, $flow, 8));
+	  push(@$rivers, rivers($world, $altitude, $water, $flow, 7)); }, # 7
     sub { push(@$canyons, canyons($world, $altitude, $rivers)); }, # 8
-    sub { forests($world, $altitude, \%flow); }, # 9
+    sub { forests($world, $altitude, $flow); }, # 9
     sub { bushes($world, $altitude, $water); }, # 10
     sub { cliffs($world, $altitude); }, # 11
     sub { push(@$settlements, settlements($world)); }, # 12
@@ -1727,12 +1738,19 @@ sub generate {
     # make sure you look at "prepare a map for every step" below if you change
     # this list
       );
-  # $step 0 runs all the code
-  my $i = 1;
-  while (@code) {
-    shift(@code)->();
-    return if $step == $i++;
+
+  # $step 0 runs all the code; otherwise assume it was all cached and just run
+  # the one step that's required
+  if ($step) {
+    $log->warn("executing step $step");
+    $code[$step - 1]->();
+  } else {
+     while (@code) {
+      $log->warn("quickly executing a step");
+      shift(@code)->();
+    };
   }
+  return $cache;
 }
 
 sub generate_map {
@@ -1744,7 +1762,9 @@ sub generate_map {
   $peak = shift // 10;
   $bottom = shift // 0;
   my $seed = shift||time;
+  my $url = shift;
   my $step = shift||0;
+  my $cache = shift;
 
   # For documentation purposes, I want to be able to set the pseudo-random
   # number seed using srand and rely on rand to reproduce the same sequence of
@@ -1755,6 +1775,9 @@ sub generate_map {
   # pseudo-shuffled, use shuffle sort keys.
   srand($seed);
 
+  # $step is how far we want map generation to go where 0 means all the way
+  $cache = generate($cache, $step);
+
   # keys for all hashes are coordinates such as "0101".
   # %world is the description with values such as "green forest".
   # %altitude is the altitude with values such as 3.
@@ -1763,32 +1786,31 @@ sub generate_map {
   # @rivers are the rivers with values such as ["0102", "0202"]
   # @settlements are are the locations of settlements such as "0101"
   # @trails are the trails connecting these with values as "0102-0202"
-  # $step is how far we want map generation to go where 0 means all the way
-  my (%world, %altitude, %water, @rivers, @settlements, @trails, @canyons);
-  generate(\%world, \%altitude, \%water, \@rivers, \@settlements, \@trails, \@canyons, $step);
+  my ($world, $altitude, $water, $rivers, $settlements, $trails, $canyons) = @$cache;
 
   # when documenting or debugging, do this before collecting lines
-  if ($step > 0) {
+  if ($step == 1) {
     # add a height label at the very end
     if ($step) {
-      for my $coordinates (keys %world) {
-	$world{$coordinates} .= qq{ "$altitude{$coordinates}"};
+      for my $coordinates (keys %$world) {
+	$world->{$coordinates} .= ' "' . $altitude->{$coordinates} . '"';
       }
     }
-  } else {
+  }
+  if ($step < 1 or $step > 8) {
     # remove arrows – these should not be rendered but they are because #arrow0
     # is present in other SVG files in the same document
-    for my $coordinates (keys %world) {
-      $world{$coordinates} =~ s/ arrow\d//;
+    for my $coordinates (keys %$world) {
+      $world->{$coordinates} =~ s/ arrow\d//;
     }
   }
 
   local $" = "-"; # list items separated by -
   my @lines;
-  push(@lines, map { $_ . " " . $world{$_} } sort keys %world);
-  push(@lines, map { "@$_ canyon" } @canyons);
-  push(@lines, map { "@$_ river" } @rivers);
-  push(@lines, map { "$_ trail" } @trails);
+  push(@lines, map { $_ . " " . $world->{$_} } sort keys %$world);
+  push(@lines, map { "@$_ canyon" } @$canyons);
+  push(@lines, map { "@$_ river" } @$rivers);
+  push(@lines, map { "$_ trail" } @$trails);
   push(@lines, "include https://campaignwiki.org/contrib/gnomeyland.txt");
 
   # when documenting or debugging, add some more lines at the end
@@ -1809,7 +1831,10 @@ sub generate_map {
   }
 
   push(@lines, "# Seed: $seed");
-  return join("\n", @lines);
+  push(@lines, "# Documentation: " . $url) if $url;
+  my $map = join("\n", @lines);
+  return $map, $cache if wantarray;
+  return $map;
 }
 
 package Mojolicious::Command::render;
@@ -1932,23 +1957,30 @@ get '/smale/random/text' => sub {
 
 get '/alpine' => sub {
   my $c = shift;
-  if ($c->stash('format')||'' eq 'txt') {
-    $c->render(text => Schroeder::generate_map($c->param('width'),
-					       $c->param('height'),
-					       $c->param('steepness'),
-					       $c->param('peaks'),
-					       $c->param('peak'),
-					       $c->param('bottom'),
-					       $c->param('seed')));
+  if ($c->stash('format') || '' eq 'txt') {
+    my $map = Schroeder::generate_map($c->param('width'),
+				      $c->param('height'),
+				      $c->param('steepness'),
+				      $c->param('peaks'),
+				      $c->param('peak'),
+				      $c->param('bottom'),
+				      $c->param('seed'));
+    $c->render(text => $map);
   } else {
+    # need to compute the seed here so that we can send along the URL
+    my $seed = $c->param('seed')||time;
+    my $url = $c->url_with('alpinedocument')
+	->query({seed => $seed})->to_abs;
+    my $map = Schroeder::generate_map($c->param('width'),
+				      $c->param('height'),
+				      $c->param('steepness'),
+				      $c->param('peaks'),
+				      $c->param('peak'),
+				      $c->param('bottom'),
+				      $seed,
+				      $url);
     $c->render(template => 'edit',
-	       map => Schroeder::generate_map($c->param('width'),
-					      $c->param('height'),
-					      $c->param('steepness'),
-					      $c->param('peaks'),
-					      $c->param('peak'),
-					      $c->param('bottom'),
-					      $c->param('seed')));
+	       map => $map);
   }
 };
 
@@ -1962,6 +1994,7 @@ get '/alpine/random' => sub {
 					   $c->param('peak'),
 					   $c->param('bottom'),
 					   $c->param('seed'),
+					   undef,
 					   $c->param('step')))
       ->svg();
   $c->render(text => $svg, format => 'svg');
@@ -1976,6 +2009,7 @@ get '/alpine/random/text' => sub {
 				     $c->param('peak'),
 				     $c->param('bottom'),
 				     $c->param('seed'),
+				     undef,
 				     $c->param('step'));
   $c->render(text => $text, format => 'txt');
 };
@@ -1990,9 +2024,10 @@ get '/alpine/document' => sub {
 		$c->param('bottom'));
   my $seed = $c->param('seed')||int(rand(1000000000));
 
-  # prepare a map for every step
-  for my $step (0 .. 13) {
-    my $map = Schroeder::generate_map(@params, $seed, $step);
+  # prepare a map for every step, but keep a cache
+  my ($map, $cache);
+  for my $step (1 .. 13) {
+    ($map, $cache) = Schroeder::generate_map(@params, $seed, undef, $step, $cache);
     my $svg = Mapper->new()->initialize($map)->svg;
     $svg =~ s/<\?xml version="1.0" encoding="UTF-8" standalone="no"\?>\n//g;
     # warn "Stashing map$step\n";
@@ -2612,7 +2647,7 @@ and edit it using
 
 
 
-%== $map0
+%== $map13
 
 <p>First, we pick <%= $peaks %> peaks and set their altitude to <%= $peak %>.
 Then we loop through all the altitudes from <%= $peak %> down to 1 and for every
@@ -2708,9 +2743,11 @@ and towns.</p>
 
 <table>
 <tr><th>Settlement</th><th>Forest</th><th>Altitudes</th><th>Number</th><th>Minimum Distance</th></tr>
-<tr><td>Thorp</td><td>fir-forest</td><td>6–7</td><td>10%</td><td>2</td></tr>
-<tr><td>Village</td><td>green forest</td><td>4–5</td><td>5%</td><td>5</td></tr>
-<tr><td>Town</td><td>dark-green forest</td><td>0–3</td><td>2.5%</td><td>10</td></tr>
+<tr><td>Thorp</td><td>fir-forest</td><td class="numeric">6–7</td><td class="numeric">10%</td><td class="numeric">2</td></tr>
+<tr><td>Village</td><td>green forest</td><td class="numeric">4–5</td><td class="numeric">5%</td><td class="numeric">5</td></tr>
+<tr><td>Town</td><td>dark-green forest</td><td class="numeric">0–3</td><td class="numeric">2.5%</td><td class="numeric">10</td></tr>
+<tr><td>Law</td><td>white mountain</td><td class="numeric">9</td><td class="numeric">2.5%</td><td class="numeric">10</td></tr>
+<tr><td>Chaos</td><td>swamp</td><td class="numeric">any</td><td class="numeric">2.5%</td><td class="numeric">10</td></tr>
 </table>
 
 %== $map12
@@ -2745,6 +2782,9 @@ td, th {
 }
 .example {
   font-size: smaller;
+}
+.numeric {
+  text-align: center;
 }
 % end
 <meta name="viewport" content="width=device-width">
