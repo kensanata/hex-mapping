@@ -326,6 +326,7 @@ sub to_id {
 any '/rule' => sub {
   my $c = shift;
   my $rule = $c->param('rule');
+  my $id = to_id($rule);
   my $n = $c->param('n') || 10;
   my $input = "[$rule]\n" x $n;
   my $table = get_table($c);
@@ -335,11 +336,13 @@ any '/rule' => sub {
     $c->render(template => 'text',
 	       load => undef,
 	       url => $c->param('url'), table => $c->param('table'),
-	       rule => $rule, id => to_id($rule),
+	       rule => $rule, id => $id,
 	       descriptions => $descriptions);
   } else {
+    my $load = $c->param('load');
     $c->render(template => 'text',
-	       load => $c->param('load'),
+	       link => $c->url_for('rule_show')->query(load => $load) . "#$id",
+	       load => $load,
 	       url => undef, table => undef,
 	       rule => $rule, id => to_id($rule),
 	       descriptions => $descriptions);
@@ -1831,7 +1834,7 @@ Pick one of the rules below and submit it.
 % if ($load and $rule) {
 <p>
 These results are based on the
-<%= link_to url_for('rule_show')->query(load => $load) . "#$id" => begin %><%= $rule %><% end %>
+<%= link_to $link => begin %><%= $rule %><% end %>
 table.
 </p>
 % }
