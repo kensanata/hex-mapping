@@ -37,7 +37,7 @@ use Mojo::UserAgent;
 use Mojo::URL;
 use Mojo::Log;
 use Mojo::File;
-use Mojo::Util qw(html_unescape);
+use Mojo::Util qw(html_unescape url_escape);
 use Mojo::ByteStream;
 use Array::Utils qw(intersect);
 use Encode qw/decode_utf8/;
@@ -302,10 +302,26 @@ any '/rules/list' => sub {
   my $c = shift;
   my $input = $c->param('input') || '';
   my ($url, $table) = get_table($c);
-  $c->render(template => 'ruleslist',
-	     input => $input, url => $url, table => $table,
-	     rules => [keys %{parse_table($table)}]);
+  # we cannot test for 'load' because a radiobutton is always selected
+  if ($c->param('url') or $c->param('table')) {
+    $c->render(template => 'ruleslist_post', input => $input,
+	       url => $url, table => $table,
+	       rules => [keys %{parse_table($table)}]);
+  } else {
+    $c->render(template => 'ruleslist_get',
+	       load => $c->param('load'),
+	       rules => [keys %{parse_table($table)}]);
+  }
 } => 'ruleslist';
+
+sub to_id {
+  $_ = shift;
+  return "" unless $_;
+  s/ /_/g;
+  s/[^0-9a-z_]//gi;
+  s/^(\d)/x$1/;
+  $_;
+}
 
 any '/rule' => sub {
   my $c = shift;
@@ -313,9 +329,49 @@ any '/rule' => sub {
   my $n = $c->param('n') || 10;
   my $input = "[$rule]\n" x $n;
   my $table = get_table($c);
-  $c->render(template => 'text',
-	     descriptions => describe_text($input, parse_table($table)));
+  my $descriptions = describe_text($input, parse_table($table));
+  # we cannot test for 'load' because a radiobutton is always selected
+  if ($c->param('url') or $c->param('table')) {
+    $c->render(template => 'text',
+	       load => undef,
+	       url => $c->param('url'), table => $c->param('table'),
+	       rule => $rule, id => to_id($rule),
+	       descriptions => $descriptions);
+  } else {
+    $c->render(template => 'text',
+	       load => $c->param('load'),
+	       url => undef, table => undef,
+	       rule => $rule, id => to_id($rule),
+	       descriptions => $descriptions);
+  }
 } => 'rule';
+
+any '/rule/show' => sub {
+  my $c = shift;
+  my $rule = $c->param('rule');
+  my $load = $c->param('load');
+  my $table = get_table($c);
+  $table =~ s!\r!!g;
+  $table =~ s!&!&amp;!gm;
+  $table =~ s!<!&lt;!gm;
+  $table =~ s!>!&gt;!gm;
+  $table =~ s!\[([^][\n]+)\]!"[<a href=\"#" . to_id($1) . "\">$1</a>]"!gme;
+  my $jump = 0;
+  if ($c->param('url') or $c->param('table')) {
+    $jump = 1;
+    $table =~ s!^;(.+)!";<strong><a id=\"" . to_id($1) . "\">$1</a></strong>"!gme;
+  } else {
+    $table =~ s!^;(.+)!";<strong><a id=\"" . to_id($1)
+		      . "\" href=\"" . $c->url_for('rule')->query(load => $load, rule => $1)
+		      . "\">$1</a></strong>"!gme;
+  }
+  $c->render(template => 'show',
+	     id => to_id($rule),
+	     rule => $rule,
+	     jump => $jump,
+	     load => $load,
+	     table => $table);
+} => 'rule_show';
 
 =item any /describe/text
 
@@ -335,7 +391,7 @@ any '/describe/text' => sub {
   my $c = shift;
   my $input = $c->param('input');
   my $table = get_table($c);
-  $c->render(template => 'text',
+  $c->render(template => 'text', load => undef,
 	     descriptions => describe_text($input, parse_table($table)));
 };
 
@@ -1715,7 +1771,20 @@ Alternatively, just paste your tables here:
 
 
 
-@@ ruleslist.html.ep
+@@ ruleslist_get.html.ep
+% layout 'default';
+% title 'Hex Describe (list of rules)';
+<h1>Hex Describe (list of rules)</h1>
+
+<p>
+% for my $rule (sort @$rules) {
+• <%= link_to url_for('rule')->query(rule => $rule, load => $load) => begin %><%= $rule %><% end %>
+% }
+</p>
+
+
+
+@@ ruleslist_post.html.ep
 % layout 'default';
 % title 'Hex Describe (list of rules)';
 <h1>Hex Describe (list of rules)</h1>
@@ -1728,42 +1797,30 @@ Pick one of the rules below and submit it.
 
 <p>
 % for my $rule (sort @$rules) {
-    <%= radio_button rule => $rule %><%== $rule %><br>
+    <%= radio_button rule => $rule %><%== $rule %>
 % }
 </p>
 
 <p>
 %= submit_button 'Submit', name => 'submit'
-</p>
-
-<p>
-% param load => 'schroeder' unless param 'load';
-<%= radio_button load => 'schroeder' %>
-<%= link_to 'Alex Schroeder' => 'schroedertable' %>
-(best for Alpine maps)<br>
-<%= radio_button load => 'seckler' %>
-<%= link_to 'Peter Seckler' => 'secklertable' %>
-(best for Smale maps)<br>
-<%= radio_button load => 'strom' %>
-<%= link_to 'Matt Strom' => 'stromtable' %>
-(best for Smale maps)
-</p>
-
-<p>
-If you have your own tables somewhere public (a pastebin, a public file at a
-file hosting service), you can provide the URL to your tables right here:
-</p>
-
-<p>
-Table URL:
-%= text_field url => $url
-
-<p>
-Alternatively, just paste your tables here:
-%= text_area table => (cols => 60, rows => 15) => begin
-<%= $table =%>
-% end
+%= hidden_field load => undef
+%= hidden_field url => $url
+%= hidden_field table => $table
 %= end
+
+
+
+@@ show.html.ep
+% layout 'default';
+% title 'Hex Describe (show table)';
+<h1>Hex Descriptions (show table)</h1>
+
+<pre>
+% if ($jump) {
+<a href="#<%= $id =%>">Jump to <%= $rule =%></a><br>
+% }
+%== $table
+</pre>
 
 
 
@@ -1771,6 +1828,28 @@ Alternatively, just paste your tables here:
 % layout 'default';
 % title 'Hex Describe (without a map)';
 <h1>Hex Descriptions (no map)</h1>
+% if ($load and $rule) {
+<p>
+These results are based on the
+<%= link_to url_for('rule_show')->query(load => $load) . "#$id" => begin %><%= $rule %><% end %>
+table.
+</p>
+% }
+% elsif (($url or $table) and $rule) {
+<p>
+These results are based on the <strong><%= $rule %></strong> table.
+</p>
+%= form_for rule_show => (method => 'POST') => begin
+<p>
+%= submit_button 'Check it out', name => 'submit'
+%= hidden_field load => undef
+%= hidden_field rule => $rule
+%= hidden_field url => $url
+%= hidden_field table => $table
+</p>
+%= end
+% }
+
 <div class="description">
 % for my $description (@$descriptions) {
 <p><%== $description->{images} %><%== $description->{html} %></p>
