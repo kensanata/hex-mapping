@@ -341,7 +341,7 @@ any '/rule' => sub {
   } else {
     my $load = $c->param('load');
     $c->render(template => 'text',
-	       link => $c->url_for('rule_show')->query(load => $load) . "#$id",
+	       link => $c->url_for('rule_show')->query(load => $load)->to_abs() . "#$id",
 	       load => $load,
 	       url => undef, table => undef,
 	       rule => $rule, id => to_id($rule),
