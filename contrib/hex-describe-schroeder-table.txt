@@ -6022,10 +6022,10 @@
 # the second variant has a temple at the end
 ;village
 1,</p><p>There is a village of [5d6x10] **humans** ([human stats]). The [human houses] are protected by [human companions] and a [human defense]. There is small **[name for village building]**. [small [name for village building]] [average treasure]</p><p>The [human leader] lives in the [name for village building]. [leader treasure]</p><p>[human retainer]</p><p>[human friends]</p><p>[And a secret society]
-1,</p><p>There is a village of [5d6x10] **humans** ([human stats]). The [human houses] are protected by [human companions] and a [human defense]. There is small **[name for village building]**. [small [name for village building]] [average treasure]</p><p>The [human leader] lives in the [name for village building]. [leader treasure]</p><p>[human retainer]</p><p>[human friends]</p><p>[And a secret society]</p><p>There is a [name for temple]. [small [name for temple]]
+1,</p><p>There is a village of [5d6x10] **humans** ([human stats]). The [human houses] are protected by [human companions] and a [human defense]. There is small **[name for village building]**. [small [name for village building]] [average treasure]</p><p>The [human leader] lives in the [name for village building]. [leader treasure]</p><p>[human retainer]</p><p>[human friends]</p><p>[And a secret society]</p><p>[temple]
 
 ;town
-1,</p><p>There is a town of [1d6x100] **humans** ([human stats]). The [human houses] are protected by a keep, a town wall and the river. [average treasure]</p><p>The [human leader] lives in the keep. [leader treasure]</p><p>[human retainer]</p><p>[human friends]</p><p>[And two secret societies feuding]</p><p>There is a [name for temple]. [small [name for temple]]</p><p>There is also [town feature]
+1,</p><p>There is a town of [1d6x100] **humans** ([human stats]). The [human houses] are protected by a keep, a town wall and the river. [average treasure]</p><p>The [human leader] lives in the keep. [leader treasure]</p><p>[human retainer]</p><p>[human friends]</p><p>[And two secret societies feuding]</p><p>[temple]</p><p>There is also [town feature]
 
 ;human job
 1, the smith
@@ -6035,8 +6035,8 @@
 1,, the owner of largest cow herd
 1,, the owner of the most sheep
 
-;name for temple
-1,temple dedicated to [power]
+;temple
+1,There is a temple dedicated to *[power]*. [small temple dedicated to [same power]]
 
 ;And a secret society
 1,Luckily, no secret societies have established themselves, here.
@@ -6298,7 +6298,7 @@
 ;small temple dedicated to Odin
 1,[small temple]
 1,The temple houses an 8ft high wooden statue of Odin wielding his magic spear. An old woman named **[woman]** takes care of the temple. She knows the power of runes and will cast the stones for you, should want to locate a loved one or find a dragon.
-1,The temple is actually a feast hall housing a small college of bards led by **[human name]**. During the day, they sing songs, practice balads, and compete in poetry. In the evening, the drink. All bards are expected to deliver a yearly donation for the upkeep of the college. Failure to do so results in being placed on a list. Should you need rescuing, they will contract a secret society to do that. Should you skip your obligation, they will contract a secret society to remedy that.
+1,The temple is actually a feast hall housing a small college of [3d6] bards led by **[human name]**. During the day, they sing songs, practice balads, and compete in poetry. In the evening, the drink. All bards are expected to deliver a yearly donation for the upkeep of the college. Failure to do so results in being placed on a list. Should you need rescuing, they will contract a secret society to do that. Should you skip your obligation, they will contract a secret society to remedy that.
 1,The temple is also a famous school for birds of prey. They are trained here and then sold to nobility in far away regions. The rich merchants making this trip often need guards and thus a mercenary house was established here. [mercenary house]
 1,It was built generations ago atop a pool of Earth Blood by Wise **[human name]** in order to prevent its mutagenic power from corrupting the area. Many magic users and elves have come here over the years, drawn by the small eddies of magic energy still emanating from the sealed area: get one extra spell slot of your liking while you sleep nearby. [name for inn] was built next to the temple just for this.
 1,The temple functions welcomes all wanderers and homeless people, housing people for up to week for a gold piece per person. This is the [name for inn] run by **[human name]**. The common room has an entire altar built into it, including carved columns with eagles and ravens and showing Odin riding his eight legged horse over the rainbow bridge.
@@ -6372,7 +6372,7 @@
 1,The temple is in fact an altar built inside the village smith’s forge. This is where the strongest villagers meet every seven-night to discuss their grievances and resolve their issues. Money changes hands, children are promised into apprenticeship and journeymen are welcomed into the village.
 1,The temple is an altar at the foot of a big rock. The top has been hit by lightning countless times. Next to the altar is the wrestling field. Every festival involves wrestling and old **[human name]** is the most proficient wrestler, here.
 1,The temple stands in the backyard of **[human name]** the chariot maker. Inside it is a life sized statue of Thor riding a chariot drawn by two giant goats. The chariot maker is rich and has buried all his gold beneath the chariot.
-1,The temple is one of the few places where they rise **giant goats**. There are currently [2d6] of these giant goats, here. The paintings beneath the roof show Thor riding his chariot pulled by his two famous goats. These giant goats are sold to [goat clients].
+1,The temple is one of the few places where they raise **giant goats**. There are currently [2d6] of these giant goats, here. The paintings beneath the roof show Thor riding his chariot pulled by his two famous goats. These giant goats are sold to [goat clients].
 
 ;goat clients
 1,dwarves
@@ -6388,8 +6388,8 @@
 1,Deep within the bowels of the earth, a pool of Earth Blood is being kept at bay by circles of banishment and stasis and thus evil **gorgon** and its poison remains imprisoned while these seals last. The temple guards the entry to this underworld and the [2d6] priests **[human name]**, the current head of the temple, inspect and improve their defences every year on the night of the winter solstice. The common folks just see the statues of the three oath brother statues here and come here to renew their bond with Mitra. They call themselves the *Oath Keepers* for this is what they do: the make their bargains, here.
 
 ;a location in Muspelheim
-1,the [Muspelheim building] of [Muspelheim material] where [Muspelheim matriarch] *[old names for women]* rules
-1,the [Muspelheim material] [Muspelheim building] where [Muspelheim matriarch] *[old names for women]* rules
+1,the *[Muspelheim building] of [Muspelheim material]* where [Muspelheim matriarch] *[old names for women]* rules
+1,the *[Muspelheim material] [Muspelheim building]* where [Muspelheim matriarch] *[old names for women]* rules
 
 ;Muspelheim building
 1,City
