@@ -1276,7 +1276,6 @@ sub describe_map {
   # add special rule for TOP key which the description template knows
   $descriptions{TOP} = process(describe($map_data, $table_data, 1,
 					'TOP', ['TOP']));
-  $log->warn($descriptions{TOP}->{html});
   resolve_nearby($map_data, $table_data, \%descriptions);
   return \%descriptions;
 }
