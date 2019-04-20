@@ -391,7 +391,10 @@ any '/describe/text' => sub {
   my $c = shift;
   my $input = $c->param('input');
   my $table = get_table($c);
-  $c->render(template => 'text', load => undef,
+  $c->render(template => 'text',
+	     load => undef,
+	     url => undef, table => undef,
+	     rule => undef, id => undef,
 	     descriptions => describe_text($input, parse_table($table)));
 };
 
