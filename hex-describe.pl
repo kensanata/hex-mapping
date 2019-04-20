@@ -1270,6 +1270,10 @@ sub describe_map {
     $descriptions{$coord} = process(describe($map_data, $table_data, 1,
 					     $coord, $map_data->{$coord}));
   }
+  # add special rule for TOP key which the description template knows
+  $descriptions{TOP} = process(describe($map_data, $table_data, 1,
+					'TOP', ['TOP']));
+  $log->warn($descriptions{TOP}->{html});
   resolve_nearby($map_data, $table_data, \%descriptions);
   return \%descriptions;
 }
@@ -1639,36 +1643,15 @@ Alternatively, just paste your tables here:
 <div class="description">
 %== $svg
 
-<p><strong>Procedures</strong>: <em>random encounters</em> are 1 in 6 per day
-and 1 in 6 per night if you're not behind walls. If you're <em>looking for
-something</em> that isn't as obvious as a town or village built in plain sight,
-your chance of finding it is also just 1 in 6 per day.</p>
-
-<p><strong>Terminology</strong>: a <em>scroll</em> can only be read by magic
-users and elves that know the spell or have access to <em>read magic</em>; a
-<em>prayer</em> can be read by anyone.</p>
-
-<p><strong>Treasure</strong>: the value of a <em>gem</em> is determined by
-rolling a d20 and looking it up on the table; the value of <em>jewelry</em> is
-determined by rolling 3d6×100gp.</p>
-
-<table class="gems">
-<tr><th>1d20</th><th>Gem Value<th></tr>
-<tr><td>1–3</td><td>10<td></tr>
-<tr><td>4–6</td><td>20<td></tr>
-<tr><td>7–9</td><td>50<td></tr>
-<tr><td>10–12</td><td>75<td></tr>
-<tr><td>13–15</td><td>100<td></tr>
-<tr><td>16–17</td><td>250<td></tr>
-<tr><td>18–19</td><td>750<td></tr>
-<tr><td>20</td><td>1000<td></tr>
-</table>
+% if ($descriptions->{TOP}) {
+<p>
+<%== $descriptions->{TOP}->{html} %>
+</p>
+%   delete $descriptions->{TOP};
+% }
 
 % for my $hex (sort keys %$descriptions) {
-<p>
-<%== $descriptions->{$hex}->{images} %>
-<strong class="coordinates" id="desc<%= $hex =%>"><a href="#hex<%= $hex =%>"><%= $hex =%></a></strong>:
-<%== $descriptions->{$hex}->{html} %>
+<p><%== $descriptions->{$hex}->{images} =%><strong class="coordinates" id="desc<%= $hex =%>"><a href="#hex<%= $hex =%>"><%= $hex =%></a></strong>: <%== $descriptions->{$hex}->{html} =%>
 </p>
 % }
 </div>
@@ -2958,15 +2941,15 @@ td, th {
 .coordinates a {
   color: inherit;
 }
-.gems {
+.sidebar {
   position: absolute;
   top:  20ex;
   left: 90ex;
 }
-.gems tr {
+.sidebar tr {
   font-size: smaller;
 }
-.gems td {
+.sidebar td {
   text-align: center;
 }
 .treasure {
