@@ -2202,6 +2202,49 @@ fir-forest”; instead of “hill” use “light-grey hill” and “dust hill�
 “forest-mountains” use “green forest-mountains” and “grey forest-mountains”.
 </p>
 
+<h2 id="introduction">Introduction</h2>
+
+<p>
+If you want an introduction for your map key, use the <code>TOP</code> rule:
+</p>
+
+%= example begin
+0101 hills
+0102 hills
+0103 hills
+
+;TOP
+1,This is the introduction.
+
+;hills
+1,The hills are covered in trees.
+1,An *orc* tribe is camping in a ruined watch tower.
+% end
+
+<p>
+You can take advantage of the CSS class <code>sidebar</code> for the
+introduction:
+</p>
+
+%= example begin
+0101 hills
+0102 hills
+0103 hills
+
+;TOP
+1,This is the introduction.&lt;/p&gt;&lt;p class="sidebar"&gt;And this is the sidebar!
+
+;hills
+1,The hills are covered in trees.
+1,An *orc* tribe is camping in a ruined watch tower.
+% end
+
+<p>
+As all the rule results are wrapped in a <code>p</code> element, you need to
+make sure that you're closing and opening them correctly in order to generate
+valid HTML.
+</p>
+
 <h2 id="same">Reuse: same</h2>
 
 <p>
