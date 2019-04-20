@@ -1,6 +1,32 @@
 # The default table
 # Written by Alex Schroeder and dedicated to the Public Domain
 
+; START
+1,[sand desert]
+1,[dust desert]
+# mountains
+1,[hill]
+1,[mountain]
+1,[white mountain]
+1,[mountains]
+1,[forest-hill]
+# green stuff
+1,[grass]
+1,[bush]
+1,[bushes]
+1,[firs]
+1,[fir-forest]
+1,[trees]
+1,[forest]
+1,[swamp]
+1,[water]
+# settlements
+1,[thorp]
+1,[village]
+1,[town]
+1,[law]
+1,[chaos]
+
 ;sand desert
 1,There is sand in every direction.
 1,The dunes make progress slow.
