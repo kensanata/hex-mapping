@@ -4801,7 +4801,7 @@
 1,The lack of branches and trees lying on the forest floor is a sign of regular wood gatherers.
 1,Within the forest are a few clearings with small cherry and plum tree orchards.
 1,Within the forest are a few clearings with small apple tree orchards.
-1,There is a clearing in this forest where an old statue of [power] still stands.
+1,There is a clearing in this forest where [an old statue] of [power] still stands.
 
 ;a monster threatening the village
 1,You shouldn’t stray too far from the trails because this forest has been cursed by the presence of [2d4] **harpies** luring men into the depths of the forest and to their death with their magical singing. [terror treasure]
@@ -5912,25 +5912,49 @@
 # These are the challenges facing adventurers starting out in a thorp!
 # A bit further away are the fir-forest hexes.
 ;firs
-1,[fir highlands] Sometimes you can see an elk.
-1,[fir highlands] Sometimes you can see some deer.
-1,[fir highlands] At dusk and dawn a pack of [3d6] **wolves** roam these lands ([wolf stats]).
-1,[fir highlands] At dusk and dawn, you can sometimes see [boars] ([boar stats]).
+1,[fir highlands] [signs of human activity in a fir-forest] Sometimes you can see an elk.
+1,[fir highlands] [signs of human activity in a fir-forest] Sometimes you can see some deer.
+1,[fir highlands] [signs of human activity in a fir-forest] At dusk and dawn a pack of [3d6] **wolves** roam these lands ([wolf stats]).
+1,[fir highlands] [signs of human activity in a fir-forest] At dusk and dawn, you can sometimes see [boars] ([boar stats]).
 
 ;fir highlands
-1,A few stunted firs grow in these highlands. This is the edge of the [forest name].
-1,It’s colder up here and the [forest name] is dominated by firs.
-1,The firs of [forest name] cast long shadows in these lands.
-1,The [forest name] is cold and dark, full of firs.
-1,The [forest name] reaches these highlands and slowly thins out.
+1,A few stunted [conifers] grow in these highlands. This is the edge of the [forest name].
+1,It’s colder up here and the [forest name] is dominated by [conifers].
+1,The [conifers] of [forest name] cast long shadows. The ground is full of their brown needles.
+1,The [forest name] is cold and dark up here. The ground is soft and covered in the needle-like leaves of [conifers].
+1,The [forest name] reaches these highlands and slowly thins out. A few [conifers] are the last ones to brave the snow at these altitudes.
+
+;conifers
+1,coniferous trees
+1,conifers
+1,firs
+1,pines
+1,larches
+1,spruces
+1,yews
+1,junipers
+1,hemlock
+
+;signs of human activity in a fir-forest
+1,Occasionally, you can see tree stumps so somebody must be logging these trees.
+1,There are a few trails leading towards a small settlement.
+1,The trees along the trails through this forest have all been coppiced, i.e. cut down near the ground level in order to produce wood.
+1,The lack of branches and trees lying on the forest floor is a sign of regular wood gatherers.
+1,There is a clearing with [an old statue] of *[power]* still standing.
+
+;an old statue
+1,an old statue
+1,a weathered statue
+1,a barely recognisable statue
+1,a moss covered statue
 
 ;law
 1,</p><p>[temple of law]
 
 ;temple of law
-1,On a peak nearby stands a statue of [good power], built by [ancients]. At the foot of the statue, a few followers of [same good power] have built a small temple consisting of a prayer hall, a sleeping hall, and [lawful temple feature] [monks or nuns]
-1,Between these mountains lies a hidden valley where the [name for a secret society 1] have built a temple dedicated to [good power]. The members of this secret society have erected a prayer hall, a sleeping hall, and [lawful temple feature] [monks or nuns]
-1,Between these mountains lies a hidden valley where the followers of [good power] have built a temple containing a prayer hall, a sleeping hall, and [lawful temple feature] [monks or nuns]
+1,On a peak nearby stands a statue of *[good power]*, built by [ancients]. At the foot of the statue, a few followers of [same good power] have built a small temple consisting of a prayer hall, a sleeping hall, and [lawful temple feature] [monks or nuns]
+1,Between these mountains lies a hidden valley where the [name for a secret society 1] have built a temple dedicated to *[good power]*. The members of this secret society have erected a prayer hall, a sleeping hall, and [lawful temple feature] [monks or nuns]
+1,Between these mountains lies a hidden valley where the followers of *[good power]* have built a temple containing a prayer hall, a sleeping hall, and [lawful temple feature] [monks or nuns]
 
 ;lawful temple feature
 1,a prayer machine.
