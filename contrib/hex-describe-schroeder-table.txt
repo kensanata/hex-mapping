@@ -38,9 +38,13 @@
 1,These white salt flats harbor as dead as dead can be.
 
 ;grass
-1,The rolling grass stretches in all directions. In the distance, you can see some [cows].
-1,These grasslands are home to [1d4x10] **humans** ([human stats]) led by [human]. They are all lightly armored and excellent horse archers. Their tents are protected by [human companions]. [average treasure]
+1,The rolling grass stretches in all directions. In the distance, you can see some **[cows]**.
+1,These grasslands are home to [horse archers]
 1,These grasslands are home to [centaurs].
+
+;horse archers
+1,[1d4x10] **humans** ([human stats]) led by [human]. They are hunters and gatherers, following the herds of *[cows]*, and they are also excellent *horse archers*. Their tents are protected by [human companions]. [average treasure]
+1,[1d4x10] **humans** ([human stats]) led by [human]. They keep [2d4x10] large *deer*. They are also excellent *horse archers*. Their tents are protected by [human companions]. [average treasure]
 
 ;human stats
 1,HD 1 AC 8 1d6 F1 MV 12 ML 7 XP 100
@@ -116,8 +120,8 @@
 1,trud
 
 ;cows
-1,**bison**
-1,**wisent**
+1,bison
+1,wisent
 
 ;hill
 1,The [name for hills] are dry and forbidding. The only animals you can see are some **goats**.
