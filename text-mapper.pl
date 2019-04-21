@@ -1813,11 +1813,9 @@ sub generate {
   # $step 0 runs all the code; otherwise assume it was all cached and just run
   # the one step that's required
   if ($step) {
-    $log->warn("executing step $step");
     $code[$step - 1]->();
   } else {
      while (@code) {
-      $log->warn("quickly executing a step");
       shift(@code)->();
     };
   }
