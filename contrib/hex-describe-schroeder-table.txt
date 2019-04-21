@@ -6413,12 +6413,6 @@
 1,General
 1,Duke
 
-;local nemesis
-1,Face Stealer
-1,End of Laughter
-1,Hunger Spirit
-1,
-
 ;small temple
 1,The temple is actually nothing but a simple altar and a small statue, some food offerings, and a little hut where the caretakers of this temple lives.
 1,The temple is a tiny affair where new born babies are blessed and the dead are mourned and buried. There is a small spirit gate here which symbolises the passage to the next world. In the back is the graveyard full of name stones.
