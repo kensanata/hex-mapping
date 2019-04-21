@@ -1743,25 +1743,30 @@ sub settlements {
 }
 
 sub trails {
-  my ($world, $altitude, $settlements) = @_;
+  my ($altitude, $settlements) = @_;
   # look for a neighbor that is as low as possible and nearby
   my %trails;
   my @from = shuffle @$settlements;
   my @to = shuffle @$settlements;
   for my $from (@from) {
-    my $best;
+    my ($best, $best_distance, $best_altitude);
     for my $to (@to) {
       next if $from eq $to;
-      if (distance($from, $to) <= 3
-	  and (not $best or $altitude->{$to} < $altitude->{$best})) {
+      my $distance = distance($from, $to);
+      $log->debug("Considering $from-$to: distance $distance, altitude " . $altitude->{$to});
+      if ($distance <= 3
+	  and (not $best_distance or $distance <= $best_distance)
+	  and (not $best or $altitude->{$to} < $best_altitude)) {
 	$best = $to;
+	$best_altitude = $altitude->{$best};
+	$best_distance = $distance;
       }
     }
     next if not $best;
     # skip if it already exists in the other direction
     next if $trails{"$best-$from"};
     $trails{"$from-$best"} = 1;
-    # warn "Trail $from-$best\n";
+    $log->debug("Trail $from-$best");
   }
   return keys %trails;
 }
@@ -1805,7 +1810,7 @@ sub generate {
     sub { bushes($world, $altitude, $water, $flow); }, # 10
     sub { cliffs($world, $altitude); }, # 11
     sub { push(@$settlements, settlements($world)); }, # 12
-    sub { push(@$trails, trails($world, $altitude, $settlements)); }, # 13
+    sub { push(@$trails, trails($altitude, $settlements)); }, # 13
     # make sure you look at "prepare a map for every step" below if you change
     # this list
       );
