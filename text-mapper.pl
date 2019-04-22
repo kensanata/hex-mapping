@@ -1680,7 +1680,9 @@ sub dry {
 
 sub bushes {
   my ($world, $altitude, $water, $flow) = @_;
-  for my $coordinates (keys %$world) {
+  # as always, keys is a source of randomness that's independent of srand which
+  # is why we sort
+  for my $coordinates (sort keys %$world) {
     if ($world->{$coordinates} !~ /mountain|hill|water|swamp|forest|firs|trees/) {
       my $thing = "bushes";
       my $rand = rand();
