@@ -617,8 +617,7 @@ Thus:
 
 B<%globals> is a hash of hashes of all the table lookups beginning with the word
 "here" per hex. In a second phase, all the references starting with the word
-"nearby" will be resolved using these. with the word "same". This doesn't work
-for references to adjacent hexes, dice rolls, or names. Here's an example:
+"nearby" will be resolved using these. Here's an example:
 
     ;ingredient
     1,fey moss
@@ -906,7 +905,7 @@ sub parse_table {
 	next if $subtable =~ /^capitalize (.*)/ and $data->{$1};
 	next if $subtable =~ /^adjacent hex$/; # experimental
 	next if $subtable =~ /^same (.*)/ and ($data->{$1} or $aliases{$1} or $1 eq 'adjacent hex');
-	next if $subtable =~ /^(?:here|nearby) (.*)/ and $data->{$1};
+	next if $subtable =~ /^(?:here|nearby|other) (.*)/ and $data->{$1};
 	$subtable = $1 if $subtable =~ /^(.+) as (.+)/;
 	$log->error("Error in table $table: subtable $subtable is missing")
 	    unless $data->{$subtable};
@@ -1123,7 +1122,7 @@ sub describe {
       my $location = one(neighbours($map_data, $coordinates));
       $locals{$word} = $location;
       return $location;
-    } elsif ($word =~ /^nearby (.+)/) {
+    } elsif ($word =~ /^(?:nearby|other) ./) {
       # skip on the first pass
       return "[$word]";
     } elsif ($word =~ /^same (.+)/) {
@@ -1256,6 +1255,46 @@ sub distance {
   }
 }
 
+=item resolve_other
+
+This is a second phase. We have nearly everything resolved except for references
+starting with the word "other" because these require all of the other data to
+be present. This modifies the third parameter, C<$descriptions>.
+
+=cut
+
+sub resolve_other {
+  my $map_data = shift;
+  my $table_data = shift;
+  my $descriptions = shift;
+  for my $coord (keys %$descriptions) {
+    $descriptions->{$coord}->{html} =~ s/\[other ([^][]*)\]/some_other($map_data,$table_data,$coord,$1)/ge;
+  }
+}
+
+=item some_other
+
+This picks some other instance of whatever we're looking for, irrespective of distance.
+
+=cut
+
+sub some_other {
+  my $map_data = shift;
+  my $table_data = shift;
+  my $coordinates = shift;
+  my $key = shift;
+  # make sure we don't pick the same location!
+  my @coordinates = grep !/$coordinates/, keys %{$globals->{$key}};
+  if (not @coordinates) {
+    $log->info("Did not find any other hex with $key");
+    return pick($map_data, $table_data, 1, $coordinates, [], $key);
+  }
+  # just pick a random one
+  my $other = one(@coordinates);
+  return $globals->{$key}->{$other}
+  . qq{ (e.g. <a href="#desc$other">$other</a>)};
+}
+
 =item describe_map
 
 This is one of the top entry points: it simply calls C<describe> for every hex
@@ -1277,6 +1316,7 @@ sub describe_map {
   $descriptions{TOP} = process(describe($map_data, $table_data, 1,
 					'TOP', ['TOP']));
   resolve_nearby($map_data, $table_data, \%descriptions);
+  resolve_other($map_data, $table_data, \%descriptions);
   return \%descriptions;
 }
 
@@ -2681,14 +2721,15 @@ multiple times: once for the link target and once for the link text. Yeah, it's
 hack. But it works.
 </p>
 
-<h2 id="quests">Simple Quests: here and nearby stuff</h2>
+<h2 id="quests">Simple Quests: here, nearby, other</h2>
 
 <p>
 Here's another idea which you might use to build simple fetch quests and the
 like. If a references starts with the word "here" then the result of the table
 will get saved. At the very end, when everything is else is done and there is a
 reference starts with the word "nearby" then the closest of these saved items
-will get used.
+will get used; and if there is a reference starts with the word "other" then
+some other of these saved items will get used.
 </p>
 
 %= example begin
@@ -2708,14 +2749,17 @@ will get used.
 include https://campaignwiki.org/contrib/gnomeyland.txt
 
 ;mountain
-2,It's cold up here.
 1,The [here ingredient] grows up here, if you know where to look.
+1,There is a [here moongate]. It connects to another [other moongate].
 
 ;mountains
 1,[mountain]
 
 ;fir-forest
 1,A forest grows up here.
+
+;moongate
+1,moongate
 
 ;village
 1,The village alchemist is looking for [nearby ingredient].

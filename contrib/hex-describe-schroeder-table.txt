@@ -833,14 +833,8 @@
 1,Up there are white patches of *edelweiss* growing between the rocks.
 
 ;mountain monolith
-1,A [here monolith 1] stands here. In the weeks when the sky is clear and a full moon casts its silvery light onto the monolith's surface, silvery spirals can be seen. If you trace them with your finger, you are transported to a similar [nearby monolith 2].
-1,A [here monolith 2] stands here. In the weeks when the sky is clear and a full moon casts its silvery light onto the monolith's surface, silvery spirals can be seen. If you trace them with your finger, you are transported to a similar [nearby monolith 1].
-
-;monolith 1
-1,monolith
-
-;monolith 2
-1,monolith
+1,A [here monolith] stands here. In the weeks when the sky is clear and a full moon casts its silvery light onto the monolith's surface, silvery spirals can be seen. If you trace them with your finger, you are transported to a similar [other monolith].
+1,A [here monolith] stands here. In the weeks when the sky is clear and a full moon casts its silvery light onto the monolith's surface, silvery spirals can be seen. If you trace them with your finger, you are transported to a similar [other monolith].
 
 ;monolith
 1,strange monolith
