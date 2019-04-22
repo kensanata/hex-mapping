@@ -2040,8 +2040,7 @@ get '/alpine' => sub {
   } else {
     # need to compute the seed here so that we can send along the URL
     my $seed = $c->param('seed')||time;
-    my $url = $c->url_with('alpinedocument')
-	->query({seed => $seed})->to_abs;
+    my $url = $c->url_with('alpinedocument')->query({seed => $seed})->to_abs;
     my $map = Schroeder::generate_map($c->param('width'),
 				      $c->param('height'),
 				      $c->param('steepness'),
@@ -2057,6 +2056,9 @@ get '/alpine' => sub {
 
 get '/alpine/random' => sub {
   my $c = shift;
+  # need to compute the seed here so that we can send along the URL
+  my $seed = $c->param('seed')||time;
+  my $url = $c->url_with('alpinedocument')->query({seed => $seed})->to_abs;
   my $svg = Mapper->new()
       ->initialize(Schroeder::generate_map($c->param('width'),
 					   $c->param('height'),
@@ -2065,7 +2067,7 @@ get '/alpine/random' => sub {
 					   $c->param('peak'),
 					   $c->param('bottom'),
 					   $c->param('seed'),
-					   undef,
+					   $url,
 					   $c->param('step')))
       ->svg();
   $c->render(text => $svg, format => 'svg');
