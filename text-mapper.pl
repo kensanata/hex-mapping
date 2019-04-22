@@ -517,8 +517,9 @@ sub svg_header {
 
     $header .= qq{     viewBox="$vx1 $vy1 $width $height">\n};
     $header .= qq{     <!-- min ($minx, $miny), max ($maxx, $maxy) -->\n};
+  } else {
+    $header .= qq{>\n}; # something is seriously wrong, though!
   }
-
   return $header;
 }
 
@@ -1787,10 +1788,9 @@ sub cliffs {
 }
 
 sub generate {
-  my ($cache, $step) = @_;
-
-  $cache ||= [{}, {}, {}, [], [], [], [], {}];
-  my ($world, $altitude, $water, $rivers, $settlements, $trails, $canyons, $flow) = @$cache;
+  my ($world, $altitude, $water, $rivers, $settlements, $trails, $canyons, $step) = @_;
+  # %flow indicates that there is actually a river in this hex
+  my $flow;
 
   # in order to be able to cache it all, there can be no local variables to store state!
   # flow indicates that there is actually a river in this hex
@@ -1815,16 +1815,13 @@ sub generate {
     # this list
       );
 
-  # $step 0 runs all the code; otherwise assume it was all cached and just run
-  # the one step that's required
-  if ($step) {
-    $code[$step - 1]->();
-  } else {
-     while (@code) {
-      shift(@code)->();
-    };
+  # $step 0 runs all the code; note that we can't simply cache those results
+  # because we need to start over with the same seed!
+  my $i = 1;
+  while (@code) {
+    shift(@code)->();
+    return if $step == $i++;
   }
-  return $cache;
 }
 
 sub generate_map {
@@ -1838,7 +1835,6 @@ sub generate_map {
   my $seed = shift||time;
   my $url = shift;
   my $step = shift||0;
-  my $cache = shift;
 
   # For documentation purposes, I want to be able to set the pseudo-random
   # number seed using srand and rely on rand to reproduce the same sequence of
@@ -1849,9 +1845,6 @@ sub generate_map {
   # pseudo-shuffled, use shuffle sort keys.
   srand($seed);
 
-  # $step is how far we want map generation to go where 0 means all the way
-  $cache = generate($cache, $step);
-
   # keys for all hashes are coordinates such as "0101".
   # %world is the description with values such as "green forest".
   # %altitude is the altitude with values such as 3.
@@ -1860,10 +1853,13 @@ sub generate_map {
   # @rivers are the rivers with values such as ["0102", "0202"]
   # @settlements are are the locations of settlements such as "0101"
   # @trails are the trails connecting these with values as "0102-0202"
-  my ($world, $altitude, $water, $rivers, $settlements, $trails, $canyons) = @$cache;
+  # $step is how far we want map generation to go where 0 means all the way
+  my ($world, $altitude, $water, $rivers, $settlements, $trails, $canyons) =
+      ({}, {}, {}, [], [], []);
+  generate($world, $altitude, $water, $rivers, $settlements, $trails, $canyons, $step);
 
   # when documenting or debugging, do this before collecting lines
-  if ($step == 1) {
+  if ($step > 0) {
     # add a height label at the very end
     if ($step) {
       for my $coordinates (keys %$world) {
@@ -1907,7 +1903,6 @@ sub generate_map {
   push(@lines, "# Seed: $seed");
   push(@lines, "# Documentation: " . $url) if $url;
   my $map = join("\n", @lines);
-  return $map, $cache if wantarray;
   return $map;
 }
 
@@ -2098,10 +2093,9 @@ get '/alpine/document' => sub {
 		$c->param('bottom'));
   my $seed = $c->param('seed')||int(rand(1000000000));
 
-  # prepare a map for every step, but keep a cache
-  my ($map, $cache);
+  # prepare a map for every step
   for my $step (1 .. 13) {
-    ($map, $cache) = Schroeder::generate_map(@params, $seed, undef, $step, $cache);
+    my $map = Schroeder::generate_map(@params, $seed, undef, $step);
     my $svg = Mapper->new()->initialize($map)->svg;
     $svg =~ s/<\?xml version="1.0" encoding="UTF-8" standalone="no"\?>\n//g;
     # warn "Stashing map$step\n";
