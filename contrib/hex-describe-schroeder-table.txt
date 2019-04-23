@@ -4810,6 +4810,40 @@
 1,Club and Nail
 1,Bone and Marrow
 1,Punch and Break
+1,Hammer and Anvil
+# by Whidou on Pluspora
+1,Finesse and Subtlety
+1,Nuts and Bolts
+1,Tooth and Nail
+1,Pain and Gain
+1,Crush and Wreak
+1,Skull and Bones
+1,Mortar and Pestle
+# by ktrey, also on Pluspora
+1,Left and Right
+1,Salt and Pepper
+1,Day and Night
+1,Ham and Eggs
+1,Wait and See
+1,Blessing and Curse
+1,Touch and Go
+1,Hide and Seek
+1,Sick and Tired
+1,Heart and Soul
+1,Before and After
+1,Show and Tell
+1,Look and Listen
+1,Now and Then
+1,Bend and Break
+1,Sticks and Stones
+1,Naughty and Nice
+1,Pins and Needles
+1,Stand and Deliver
+1,Speak and Spell
+1,Ball and Chain
+1,Bits and Pieces
+1,Thunder and Lightning
+1,Gin and Tonic
 
 ;bog wights
 1,At night, [wight crawls] [dead treasure]
