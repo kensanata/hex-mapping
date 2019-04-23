@@ -1386,9 +1386,9 @@ sub swamps {
     next if $altitude->{$coordinates} > $altitude->{$other};
     # if there was no lower neighbor, this is a swamp
     if ($altitude->{$coordinates} >= 6) {
-      $world->{$coordinates} =~ s/height\d+/dark-grey swamp/;
+      $world->{$coordinates} =~ s/height\d+/grey swamp/;
     } else {
-      $world->{$coordinates} =~ s/height\d+/green swamp/;
+      $world->{$coordinates} =~ s/height\d+/dark-grey swamp/;
     }
   }
 }
@@ -1490,7 +1490,7 @@ sub rivers {
   my ($world, $altitude, $water, $flow, $level) = @_;
   # $flow are the sources points of rivers, or 1 if a river flows through them
   my @growing = map {
-    $world->{$_} = "light-green forest-hill" unless $world->{$_} =~ /mountain|swamp|water/;
+    $world->{$_} = "light-grey forest-hill" unless $world->{$_} =~ /mountain|swamp|water/;
     # warn "Started a river at $_ ($altitude->{$_} == $level)\n";
     $flow->{$_} = [$_]
   } sort grep {
