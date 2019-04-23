@@ -1719,7 +1719,7 @@ sub bushes {
 }
 
 sub settlements {
-  my ($world) = @_;
+  my ($world, $flow) = @_;
   my @settlements;
   my $max = $height * $width;
   # do not match forest-hill
@@ -1731,14 +1731,14 @@ sub settlements {
     $world->{$coordinates} =~ s/fir-forest/firs thorp/
 	or $world->{$coordinates} =~ s/forest(?!-hill)/trees thorp/;
   }
-  @candidates = shuffle sort grep { $world->{$_} =~ /(?<!fir-)forest(?!-hill)/ } keys %$world;
+  @candidates = shuffle sort grep { $world->{$_} =~ /(?<!fir-)forest(?!-hill)/ and $flow->{$_}} keys %$world;
   @candidates = remove_closer_than(5, @candidates);
   @candidates = @candidates[0 .. int($max/20 - 1)] if @candidates > $max/20;
   push(@settlements, @candidates);
   for my $coordinates (@candidates) {
     $world->{$coordinates} =~ s/forest/trees village/;
   }
-  @candidates = shuffle sort grep { $world->{$_} =~ /(?<!fir-)forest(?!-hill)/ } keys %$world;
+  @candidates = shuffle sort grep { $world->{$_} =~ /(?<!fir-)forest(?!-hill)/ and $flow->{$_} } keys %$world;
   @candidates = remove_closer_than(10, @candidates);
   @candidates = @candidates[0 .. int($max/40 - 1)] if @candidates > $max/40;
   push(@settlements, @candidates);
@@ -1826,7 +1826,7 @@ sub generate {
     sub { forests($world, $altitude, $flow); },
     sub { bushes($world, $altitude, $water, $flow); },
     sub { cliffs($world, $altitude); },
-    sub { push(@$settlements, settlements($world)); },
+    sub { push(@$settlements, settlements($world, $flow)); },
     sub { push(@$trails, trails($altitude, $settlements)); },
     # make sure you look at "alpine_document.html.ep" if you change this list!
       );
@@ -2806,8 +2806,8 @@ shadow.</p>
 
 <p>Any hex <em>with a river</em> that flows towards a neighbor at the same
 altitude is insufficiently drained. These are marked as swamps. The background
-color of the swamp depends on the altitude: dark-grey if altitude 6 and higher,
-otherwise green.</p>
+color of the swamp depends on the altitude: grey if altitude 6 and higher,
+otherwise dark-grey.</p>
 
 %== shift(@$maps)
 
