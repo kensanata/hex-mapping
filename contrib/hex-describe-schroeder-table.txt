@@ -1359,7 +1359,11 @@
 
 ;hill giants
 1,Some boulders have been assembled into a crude stone tower inhabited [2d4] **hill giants** led by *[hill giant]* ([hill giant stats]). [rich treasure]
-1,The bellowing **hill giants** can be heard every day up here. [2d4] of them have built a barricade across the passes, here ([hill giant stats]). They are led by *[hill giant]* but he insists visitors call him [hill giant title]. [rich treasure]
+1,The bellowing **hill giants** can be heard every day up here. [2d4] of them have built a barricade across the passes, here ([hill giant stats]). They are led by [hill giant title] *[hill giant]*. [rich treasure]
+1,A giant fortress has been built here in ages past. It extends all along the mountain flank. The ruins are inhabited by their degenerate descendants, [2d4] **hill giants** led by *[hill giant]* ([hill giant stats]). [rich treasure]
+1,There is a huge wooden fort up here, built by **hill giants**. They must have cut down an entire forest to build it. It is huge. [2d4] of them live here, led by [hill giant title] *[hill giant]* ([hill giant stats]). [rich treasure]
+1,Here stands an old watchtower built by giants during the reign of [wight leader]. You can still find the runes of [same wight realm] on the old stones, but the [2d4] giants and their leader *[hill giant]* can't read and they don't care ([hill giant stats]). [rich treasure]
+1,Here lie the ruins of one of the old mountain fortresses built during the reign of [wight leader]. The big stone slab above the main entrance still says “[same wight realm]” in flaming letters! The [2d4] giants and their leader *[hill giant]* live amongst the ruins ([hill giant stats]). [rich treasure]
 
 ;hill giant stats
 1,HD 8 AC 4 2d6 F8 MV 12 ML 8 XP 800
@@ -1384,17 +1388,28 @@
 1,Squisher
 1,Thrower
 
+# used as "led by [hill giant title] *[hill giant]*."
 ;hill giant title
-1,King of the [hill giant thing]
-1,King of the [hill giant thing]
+1,King of the [hill giant place],
+1,Lord of the [hill giant place],
 1,[hill giant thing] Master
-1,former soldier of [foreign warlord]
+1,[foreign warlord]'s loyal servant,
+1,[foreign warlord]'s most trusted adviser,
+1,[foreign warlord]'s champion,
 
-;hill giant thing
+;hill giant place
 1,Hill
 1,Valley
+1,Stone
+1,Slab
+
+;hill giant thing
+2,[hill giant place]
 1,Tax
 1,Toll
+1,Gold
+1,Silver
+1,Tribute
 
 ;foreign warlord
 1,Ugra [warlord title]
