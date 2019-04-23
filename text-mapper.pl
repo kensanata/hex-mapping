@@ -1727,24 +1727,21 @@ sub settlements {
   @candidates = remove_closer_than(2, @candidates);
   @candidates = @candidates[0 .. int($max/10 - 1)] if @candidates > $max/10;
   push(@settlements, @candidates);
-  # warn "thorps: @candidates\n";
   for my $coordinates (@candidates) {
     $world->{$coordinates} =~ s/fir-forest/firs thorp/
 	or $world->{$coordinates} =~ s/forest(?!-hill)/trees thorp/;
   }
-  @candidates = shuffle sort grep { $world->{$_} =~ /forest(?!-hill)/ } keys %$world;
+  @candidates = shuffle sort grep { $world->{$_} =~ /(?<!fir-)forest(?!-hill)/ } keys %$world;
   @candidates = remove_closer_than(5, @candidates);
   @candidates = @candidates[0 .. int($max/20 - 1)] if @candidates > $max/20;
   push(@settlements, @candidates);
-  # warn "villages: @candidates\n";
   for my $coordinates (@candidates) {
     $world->{$coordinates} =~ s/forest/trees village/;
   }
-  @candidates = shuffle sort grep { $world->{$_} =~ /dark-green forest/ } keys %$world;
+  @candidates = shuffle sort grep { $world->{$_} =~ /(?<!fir-)forest(?!-hill)/ } keys %$world;
   @candidates = remove_closer_than(10, @candidates);
   @candidates = @candidates[0 .. int($max/40 - 1)] if @candidates > $max/40;
   push(@settlements, @candidates);
-  # warn "towns: @candidates\n";
   for my $coordinates (@candidates) {
     $world->{$coordinates} =~ s/forest/trees town/;
   }
@@ -1752,7 +1749,6 @@ sub settlements {
   @candidates = remove_closer_than(10, @candidates);
   @candidates = @candidates[0 .. int($max/40 - 1)] if @candidates > $max/40;
   push(@settlements, @candidates);
-  # warn "temples of law: @candidates\n";
   for my $coordinates (@candidates) {
     $world->{$coordinates} =~ s/white mountain\b/white mountain law/;
   }
@@ -1760,7 +1756,6 @@ sub settlements {
   @candidates = remove_closer_than(10, @candidates);
   @candidates = @candidates[0 .. int($max/40 - 1)] if @candidates > $max/40;
   push(@settlements, @candidates);
-  # warn "temples of chaos: @candidates\n";
   for my $coordinates (@candidates) {
     $world->{$coordinates} =~ s/swamp/swamp2 chaos/;
   }
