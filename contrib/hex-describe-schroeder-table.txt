@@ -6563,10 +6563,90 @@
 1,
 
 ;gerdana
-1,*The Book of the Sea* by Lady Gerdana
+1,*The Book of the Sea* by Lady Gerdana of Lagnabadalë
+
+;gerdana 1
+2,*charm person*
+2,*sleep*
+1,*lunar runes*
+
+;gerdana 2
+1,*true words*
+1,*eternal starlight*
+1,*glamour*
+
+;gerdana 3
+1,*lightning bolt*
+1,*water breathing*
+1,*wind barrier*
+
+;gerdana 4
+1,*decay*
+1,*flash flood*
+1,*shape change*
+
+;gerdana 5
+1,*lunar sailing*
+1,*summon living storm*
+
+;agrimach
+1,*The Book of the Dead* by Agrimach the necromancer
+
+;agrimach 1
+2,*aura of fear*
+2,*locate corpse*
+1,*read magic*
+
+;agrimach 2
+1,*hold person*
+1,*summon ghoul*
+1,*converse with corpse*
+
+;agrimach 3
+1,*limited shape shift*
+1,*animate dead*
+1,*immunity to fire*
+
+;agrimach 4
+1,*poison*
+1,*grafting*
+1,*death ray*
+
+;agrimach 5
+1,*raise dead*
+1,*cloud kill*
+
+;asphyx
+1,*The Book of the Mountain Witch* by Asphyx the aeromancer
+
+;asphyx 1
+2,*eagle eyes*
+2,*bird friendship*
+1,*feather fall*
+
+;asphyx 2
+1,*invisibility*
+1,*illusion*
+1,*levitation*
+
+;asphyx 3
+1,*lightning bolt*
+1,*gaseous form*
+1,*flying*
+
+;asphyx 4
+1,*like grass*
+1,*slipstream travel*
+1,*whirlwind*
+
+;asphyx 5
+1,*airstrike*
+1,*creation*
 
 ;spellbook
 1,gerdana
+1,agrimach
+1,asphyx
 
 # this allows us to use [same spellbook] later
 ;a famous spellbook
@@ -6601,6 +6681,9 @@
 
 ;spellbook 9
 1,1. [with [same spellbook] 1], [and [same spellbook] 1], [and [same spellbook] 1], 2. [with [same spellbook] 2], [and [same spellbook] 2], [and [same spellbook] 2], 3. [with [same spellbook] 3], [and [same spellbook] 3], [and [same spellbook] 3], 4. [with [same spellbook] 4], [and [same spellbook] 4], 5. [[same spellbook] 5]
+
+;spellbook 10
+1,1. [with [same spellbook] 1], [and [same spellbook] 1], [and [same spellbook] 1], 2. [with [same spellbook] 2], [and [same spellbook] 2], [and [same spellbook] 2], 3. [with [same spellbook] 3], [and [same spellbook] 3], [and [same spellbook] 3], 4. [with [same spellbook] 4], [and [same spellbook] 4], [and [same spellbook] 4], 5. [with [same spellbook] 5], [and [same spellbook] 5]
 
 ;gerdana 1
 2,*charm person*
