@@ -3067,6 +3067,8 @@ The tables contains material by the following people:
 <li><a href="http://random-generator.com/">Dave Younce</a></li>
 <li><a href="https://plus.google.com/103299975524461918112">Peter Seckler</a></li>
 <li><a href="https://iceandruin.blogspot.com/">Matt Strom</a>
+<li><a href="https://blog.d4caltrops.com/">Ktrey Parker</a>
+<li><a href="http://www.whidou.fr/">Whidou</a>
 </ul>
 
 <p>
