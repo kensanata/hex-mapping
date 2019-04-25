@@ -6594,7 +6594,7 @@
 
 ;agrimach 1
 2,*aura of fear*
-2,*locate corpse*
+1,*locate corpse*
 1,*read magic*
 
 ;agrimach 2
@@ -6620,8 +6620,8 @@
 1,*The Book of the Mountain Witch* by Asphyx the aeromancer
 
 ;asphyx 1
-2,*eagle eyes*
-2,*bird friendship*
+1,*eagle eyes*
+1,*bird friendship*
 1,*feather fall*
 
 ;asphyx 2
@@ -6647,6 +6647,39 @@
 1,gerdana
 1,agrimach
 1,asphyx
+
+;beryl
+1,*The Book of Darkness* by Beryl the sorceress
+
+;beryl 1
+2,*darkness*
+1,*detect magic*
+3,*charm person*
+
+;beryl 2
+1,*permanent darkness*
+1,*spider senses*
+1,*loud whispers*
+
+;beryl 3
+1,*artificial life*
+1,*shadow blast*
+1,*scrying*
+
+;beryl 4
+1,*curse*
+1,*shadow walking*
+1,*telekinesis*
+
+;beryl 5
+1,*possession*
+1,*transposition*
+
+;spellbook
+1,agrimach
+1,asphyx
+1,beryl
+1,gerdana
 
 # this allows us to use [same spellbook] later
 ;a famous spellbook
@@ -6684,30 +6717,6 @@
 
 ;spellbook 10
 1,1. [with [same spellbook] 1], [and [same spellbook] 1], [and [same spellbook] 1], 2. [with [same spellbook] 2], [and [same spellbook] 2], [and [same spellbook] 2], 3. [with [same spellbook] 3], [and [same spellbook] 3], [and [same spellbook] 3], 4. [with [same spellbook] 4], [and [same spellbook] 4], [and [same spellbook] 4], 5. [with [same spellbook] 5], [and [same spellbook] 5]
-
-;gerdana 1
-2,*charm person*
-2,*sleep*
-1,*lunar runes*
-
-;gerdana 2
-1,*true words*
-1,*eternal starlight*
-1,*glamour*
-
-;gerdana 3
-1,*lightning bolt*
-1,*water breathing*
-1,*wind barrier*
-
-;gerdana 4
-1,*decay*
-1,*flash flood*
-1,*shape change*
-
-;gerdana 5
-1,*lunar sailing*
-1,*summon living storm*
 
 # http://random-generator.com/index.php?title=Secret_Society_Title&action=edit
 # by Dave Younce
