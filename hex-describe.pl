@@ -3061,6 +3061,7 @@ The tables contains material by the following people:
 <li><a href="http://random-generator.com/">Mike Banks</a></li>
 <li><a href="http://random-generator.com/">Dave Younce</a></li>
 <li><a href="https://plus.google.com/103299975524461918112">Peter Seckler</a></li>
+<li><a href="https://iceandruin.blogspot.com/">Matt Strom</a>
 </ul>
 
 <p>
