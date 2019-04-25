@@ -1159,7 +1159,6 @@ sub describe {
 	last;
       }
       if (not $found) {
-	$log->info("Did not find a unique text for $key (@{$locals{$key}})");
 	push(@descriptions, "…");
       }
     } elsif ($word =~ /^here (.+)/) {
