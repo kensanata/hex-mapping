@@ -6009,7 +6009,7 @@
 
 ;maybe a sage
 1,These days, there are no vistors.
-1,These days it is frequented by the [magic user] *[human]* (level [1d3+4 as level]). [leader treasure for magic user]
+1,These days it is frequented by the [magic user] *[human]* (level [1d3+4 as level]). [spellbook for magic user] [leader treasure for magic user]
 
 ;monks or nuns
 1,[1d4x10] **humans** ([human stats]) live up here. [average treasure] They are led by [abbot] (level [1d6+1 as level]). [leader treasure for magic user]
@@ -6064,11 +6064,11 @@
 
 # the second variant has a temple at the end
 ;village
-1,</p><p>There is a village of [5d6x10] **humans** ([human stats]). The [human houses] are protected by [human companions] and a [human defense]. There is small **[name for village building]**. [small [name for village building]] [average treasure]</p><p>The [human leader] lives in the [name for village building]. [leader treasure]</p><p>[human retainer]</p><p>[human friends]</p><p>[And a secret society]
-1,</p><p>There is a village of [5d6x10] **humans** ([human stats]). The [human houses] are protected by [human companions] and a [human defense]. There is small **[name for village building]**. [small [name for village building]] [average treasure]</p><p>The [human leader] lives in the [name for village building]. [leader treasure]</p><p>[human retainer]</p><p>[human friends]</p><p>[And a secret society]</p><p>[temple]
+1,</p><p>There is a village of [5d6x10] **humans** ([human stats]). The [human houses] are protected by [human companions] and a [human defense]. There is small **[name for village building]**. [small [name for village building]] [average treasure]</p><p>The [human leader] lives in the [name for village building]. [spellbook for [same class]] [leader treasure]</p><p>[human retainer]</p><p>[human friends]</p><p>[And a secret society]
+1,</p><p>There is a village of [5d6x10] **humans** ([human stats]). The [human houses] are protected by [human companions] and a [human defense]. There is small **[name for village building]**. [small [name for village building]] [average treasure]</p><p>The [human leader] lives in the [name for village building]. [spellbook for [same class]] [leader treasure]</p><p>[human retainer]</p><p>[human friends]</p><p>[And a secret society]</p><p>[temple]
 
 ;town
-1,</p><p>There is a town of [1d6x100] **humans** ([human stats]). The [human houses] are protected by a keep, a town wall and the river. [average treasure]</p><p>The [human leader] lives in the keep. [leader treasure]</p><p>[human retainer]</p><p>[human friends]</p><p>[And two secret societies feuding]</p><p>[temple]</p><p>There is also [town feature]
+1,</p><p>There is a town of [1d6x100] **humans** ([human stats]). The [human houses] are protected by a keep, a town wall and the river. [average treasure]</p><p>The [human leader] lives in the keep. [spellbook for [same class]] [leader treasure]</p><p>[human retainer]</p><p>[human friends]</p><p>[And two secret societies feuding]</p><p>[temple]</p><p>There is also [town feature]
 
 ;human job
 1, the smith
@@ -6083,8 +6083,8 @@
 
 ;And a secret society
 1,Luckily, no secret societies have established themselves, here.
-1,The local contact for the secret society of the [one of the secret societies] is [a boss]. [leader treasure for [same class]]
-1,The secret society of the [one of the secret societies] has a representative, here: [a boss]. [leader treasure for [same class]]
+1,The local contact for the secret society of the [one of the secret societies] is [a boss]. [spellbook for [same class]] [leader treasure for [same class]]
+1,The secret society of the [one of the secret societies] has a representative, here: [a boss]. [spellbook for [same class]] [leader treasure for [same class]]
 
 ;And two secret societies feuding
 1,[And a secret society]
@@ -6092,7 +6092,7 @@
 1,The secret societies of the [name for a secret society 2] and the [name for a secret society 3] are feuding in this town. [Their leaders are]
 
 ;Their leaders are
-1,One society is led by [a boss]. [leader treasure for [same class]] The other society is led by [a lesser boss]. [leader treasure for [same class]]
+1,One society is led by [a boss]. [spellbook for [same class]] [leader treasure for [same class]] The other society is led by [a lesser boss]. [spellbook for [same class]] [leader treasure for [same class]]
 
 ;a boss
 1,the **[human class]** *[human]* (level [1d4+2 as level])
@@ -6490,7 +6490,7 @@
 1,[1d2+8]
 
 ;human retainer
-1,Their retainer is the **[human class]** *[human]* (level [1d2+6 as level]). [leader treasure]
+1,Their retainer is the **[human class]** *[human]* (level [1d2+6 as level]). [spellbook for [same class]] [leader treasure]
 
 ;name for 1d2+6
 1,[1d2+6]
@@ -6503,8 +6503,8 @@
 1,partner
 
 ;human friends
-1,Their [aide], the **[human class]** *[human]* (level [1d4+1 as level]), also lives here. [leader treasure for [same class]]
-1,They are served by two [aide]s. One is the **[human class]** *[human]* (level [5 as level]). [leader treasure] The other is the **[human class]** *[human]* (level [1d4+1 as level]). [leader treasure for [same class]]
+1,Their [aide], the **[human class]** *[human]* (level [1d4+1 as level]), also lives here. [spellbook for [same class]] [leader treasure for [same class]]
+1,They are served by two [aide]s. One is the **[human class]** *[human]* (level [5 as level]). [spellbook for [same class]] [leader treasure] The other is the **[human class]** *[human]* (level [1d4+1 as level]). [spellbook for [same class]] [leader treasure for [same class]]
 
 ;name for 1d4+2
 1,[1d4+2]
@@ -6537,23 +6537,12 @@
 ;magic user
 1,sorceror
 1,magic user
-1,necromancer
-1,vivimancer
-1,pyromancer
-1,cryomancer
-1,aquamancer
-1,aereomancer
-1,conjurer
-1,illusionist
-1,druid
-1,priest
+1,wizard
 
 ;fighter
 1,fighter
 1,warrior
 1,knight
-1,noble
-1,captain
 
 ;human
 1,[man with portrait]
@@ -6568,6 +6557,74 @@
 ;human name
 1,[man]
 1,[woman]
+
+;spellbook for fighter
+# no spells, obviously
+1,
+
+;gerdana
+1,*The Book of the Sea* by Lady Gerdana
+
+;spellbook
+1,gerdana
+
+# this allows us to use [same spellbook] later
+;a famous spellbook
+1,[[spellbook]]
+
+;spellbook for magic user
+1,The spells known are based on [a famous spellbook]: [spellbook [same level]].
+
+;spellbook 1
+1,1. [[same spellbook] 1]
+
+;spellbook 2
+1,1. [with [same spellbook] 1], [and [same spellbook] 1]
+
+;spellbook 3
+1,1. [with [same spellbook] 1], [and [same spellbook] 1], 2. [[same spellbook] 2]
+
+;spellbook 4
+1,1. [with [same spellbook] 1], [and [same spellbook] 1], 2. [with [same spellbook] 2], [and [same spellbook] 2]
+
+;spellbook 5
+1,1. [with [same spellbook] 1], [and [same spellbook] 1], 2. [with [same spellbook] 2], [and [same spellbook] 2], 3. [[same spellbook] 3]
+
+;spellbook 6
+1,1. [with [same spellbook] 1], [and [same spellbook] 1], 2. [with [same spellbook] 2], [and [same spellbook] 2], 3. [with [same spellbook] 3], [and [same spellbook] 3]
+
+;spellbook 7
+1,1. [with [same spellbook] 1], [and [same spellbook] 1], [and [same spellbook] 1], 2. [with [same spellbook] 2], [and [same spellbook] 2], 3. [with [same spellbook] 3], [and [same spellbook] 3], 4. [[same spellbook] 4]
+
+;spellbook 8
+1,1. [with [same spellbook] 1], [and [same spellbook] 1], [and [same spellbook] 1], 2. [with [same spellbook] 2], [and [same spellbook] 2], [and [same spellbook] 2], 3. [with [same spellbook] 3], [and [same spellbook] 3], 4. [with [same spellbook] 4], [and [same spellbook] 4]
+
+;spellbook 9
+1,1. [with [same spellbook] 1], [and [same spellbook] 1], [and [same spellbook] 1], 2. [with [same spellbook] 2], [and [same spellbook] 2], [and [same spellbook] 2], 3. [with [same spellbook] 3], [and [same spellbook] 3], [and [same spellbook] 3], 4. [with [same spellbook] 4], [and [same spellbook] 4], 5. [[same spellbook] 5]
+
+;gerdana 1
+2,*charm person*
+2,*sleep*
+1,*lunar runes*
+
+;gerdana 2
+1,*true words*
+1,*eternal starlight*
+1,*glamour*
+
+;gerdana 3
+1,*lightning bolt*
+1,*water breathing*
+1,*wind barrier*
+
+;gerdana 4
+1,*decay*
+1,*flash flood*
+1,*shape change*
+
+;gerdana 5
+1,*lunar sailing*
+1,*summon living storm*
 
 # http://random-generator.com/index.php?title=Secret_Society_Title&action=edit
 # by Dave Younce

@@ -42,6 +42,8 @@ use Mojo::ByteStream;
 use Array::Utils qw(intersect);
 use Encode qw/decode_utf8/;
 
+my $FS = "\x1e"; # The FS character is the RECORD SEPARATOR control char in ASCII
+
 =head2 Configuration
 
 As a Mojolicious application, it will read a config file called
@@ -1004,8 +1006,16 @@ sub pick {
       # $log->debug("$coordinates → $key → $text");
       $text =~ s/\[\[redirect (https:.*?)\]\]/
 		     app->mode eq 'development' ? '' : resolve_redirect($1)/ge;
-      $text =~ s/\[([^][]*)\]/describe($map_data,$table_data,$level+1,$coordinates,[$1])/ge;
-      $text =~ s/\[([^][]*)\]/describe($map_data,$table_data,$level+1,$coordinates,[$1])/ge;
+      # this makes sure we recursively resolve all references, in order, because
+      # we keep rescanning from the beginning
+      my $last = $text;
+      while ($text =~ s/\[([^][]*)\]/describe($map_data,$table_data,$level+1,$coordinates,[$1])/e) {
+	if ($last eq $text) {
+	  $log->error("Infinite loop: $text");
+	  last;
+	}
+	$last = $text;
+      };
       last;
     }
   }
@@ -1119,16 +1129,39 @@ sub describe {
       }
     } elsif ($word eq 'adjacent hex') {
       # experimental
-      my $location = one(neighbours($map_data, $coordinates));
+      my $location = $coordinates eq 'no map' ? 'somewhere' : one(neighbours($map_data, $coordinates));
       $locals{$word} = $location;
       return $location;
     } elsif ($word =~ /^(?:nearby|other) ./) {
       # skip on the first pass
-      return "[$word]";
+      return $FS . $word . $FS;
     } elsif ($word =~ /^same (.+)/) {
       return $locals{$1} if exists $locals{$1};
-      $log->error("[$word] is undefined for $coordinates");
+      $log->error("[$1] is undefined for $coordinates");
       return "";
+    } elsif ($word =~ /^with (.+)/) {
+      my $key = $1;
+      my $text = pick($map_data, $table_data, $level, $coordinates, $words, $key);
+      next unless $text;
+      $locals{$key} = [$text]; # start a new list
+      push(@descriptions, $text);
+    } elsif ($word =~ /^and (.+)/) {
+      my $key = $1;
+      my $found = 0;
+      # limited attempts to find a unique entry for an existing list (instead of
+      # modifying the data structures)
+      for (1 .. 10) {
+	my $text = pick($map_data, $table_data, $level, $coordinates, $words, $key);
+	next if not $text or grep { $text eq $_ } @{$locals{$key}};
+	push(@{$locals{$key}}, $text);
+	push(@descriptions, $text);
+	$found = 1;
+	last;
+      }
+      if (not $found) {
+	$log->info("Did not find a unique text for $key (@{$locals{$key}})");
+	push(@descriptions, "…");
+      }
     } elsif ($word =~ /^here (.+)/) {
       my $key = $1;
       my $text = pick($map_data, $table_data, $level, $coordinates, $words, $key);
@@ -1150,6 +1183,7 @@ sub describe {
       push(@descriptions, ucfirst $text);
     } else {
       my $text = pick($map_data, $table_data, $level, $coordinates, $words, $word);
+      # remember it's legitimate to have no result for a table
       next unless $text;
       $locals{$word} = $text;
       push(@descriptions, $text);
@@ -1196,7 +1230,7 @@ sub resolve_nearby {
   my $table_data = shift;
   my $descriptions = shift;
   for my $coord (keys %$descriptions) {
-    $descriptions->{$coord}->{html} =~ s/\[nearby ([^][]*)\]/closest($map_data,$table_data,$coord,$1)/ge;
+    $descriptions->{$coord}->{html} =~ s/${FS}nearby ([^][]*)${FS}/closest($map_data,$table_data,$coord,$1)/ge;
   }
 }
 
@@ -1268,7 +1302,7 @@ sub resolve_other {
   my $table_data = shift;
   my $descriptions = shift;
   for my $coord (keys %$descriptions) {
-    $descriptions->{$coord}->{html} =~ s/\[other ([^][]*)\]/some_other($map_data,$table_data,$coord,$1)/ge;
+    $descriptions->{$coord}->{html} =~ s/${FS}other ([^][]*)${FS}/some_other($map_data,$table_data,$coord,$1)/ge;
   }
 }
 
@@ -1412,7 +1446,7 @@ the map.
 sub neighbours {
   my $map_data = shift;
   my $hex = shift;
-  my  @neighbours;
+  my @neighbours;
   $hex = [xy($hex)] unless ref $hex;
   for my $i (0 .. 5) {
     my $neighbour = neighbour($hex, $i);
@@ -1564,7 +1598,8 @@ sub describe_text {
   for my $text (split(/\r?\n/, $input)) {
     # $log->debug("replacing lookups in $text");
     init();
-    $text =~ s/\[(.*?)\]/describe({},$table_data,1,"",[$1])/ge;
+    # recusion level 2 makes sure we don't reset %locals
+    $text =~ s/\[(.*?)\]/describe({},$table_data,2,"no map",[$1])/ge;
     push(@descriptions, process($text));
   }
   return \@descriptions;
@@ -2894,6 +2929,44 @@ include https://campaignwiki.org/contrib/gnomeyland.txt
 
 ;village
 1,The village alchemist is looking for the horn of a [nearby ice monster].
+% end
+
+<h2 id="lists">Lists of unique things: with, and</h2>
+
+<p>
+Sometimes you want to generate lists of unique things, for example a selection
+of spells for a scroll should not contain duplicates. Use "with" to start a new
+list and use "and" to add items from the same list to it.
+</p>
+
+%= example begin
+;scroll 1
+1,[spell 1]
+1,[with spell 1], [and spell 1]
+1,[with spell 1], [and spell 1], [and spell 1]
+
+;spell 1
+1,sleep
+1,charm person
+1,magic missile
+1,read magic
+% end
+
+<p>
+Any item being added to the list using "and" is picked 10 times. If no match can
+be found with 10 attempts, an ellipsis is added instead. In the following
+example, the scroll wants four unique spells but the list can only generate
+three different results. Clearly, this can't work.
+<p>
+
+%= example begin
+;impossible scroll
+1,[with spell 1], [and spell 1], [and spell 1], [and spell 1]
+
+;spell 1
+1,sleep
+1,charm person
+1,magic missile
 % end
 
 <h2 id="capitalization">Capitalization</h2>
