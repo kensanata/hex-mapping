@@ -1911,7 +1911,13 @@ These results are based on the <strong><%= $rule %></strong> table.
 % }
 
 <div class="description">
+% my $first = 1;
 % for my $description (@$descriptions) {
+% if (!$first and $description->{html} =~ /<p>/) {
+<hr>
+% } else {
+%   $first = 0;
+% }
 <p><%== $description->{images} %><%== $description->{html} %></p>
 % }
 </div>
