@@ -1519,6 +1519,23 @@
 1,</p><p>The spring of [name for river] can be found between some boulders.
 1,</p><p>At the foot of a small hill, [name for river] makes its appearance.
 
+;thorp river
+1,[river] [capitalize human prefix] *[human name]* has a small raft that can carry cattle and people across.
+1,[river] *[human name]* has a small raft that can carry cattle and people across.
+2,[river] There's a ford.
+
+;village river
+1,[river] [capitalize human prefix] *[human name]* owns the ferry boat that carries people across.
+1,[river] *[human name]* owns the ferry boat that carries people across.
+2,[river] There's a ford.
+1,[river] A rickety bridge has been built, here.
+
+;town river
+1,[river] [capitalize human prefix] *[human name]* owns the ferry boat that carries people across.
+1,[river] *[human name]* owns the ferry boat that carries people across.
+2,[river] A bridge has been built, here.
+1,[river] An old stone bridge connects the two sides.
+
 ;river
 1,</p><p>[name for river] flows through here.
 1,</p><p>[name for river] runs through here.
@@ -6577,6 +6594,14 @@
 ;human name
 1,[man]
 1,[woman]
+
+;human prefix
+1,old
+1,little
+1,big
+1,lazy
+1,weird
+1,crazy
 
 ;spellbook for fighter
 # no spells, obviously
