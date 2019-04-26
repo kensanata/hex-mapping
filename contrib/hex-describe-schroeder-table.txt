@@ -819,7 +819,7 @@
 1,[mountain valley] [mountain monolith]
 1,[mountain valley] [hill giants]
 1,Steep cliffs make progress practically impossible without climbing gear. [mountain secret]
-1,Nothing but gray rocks up here in the mountains.
+1,Somewhere up here between the cliffs there is a secret door. [secret door to the realm of the netherworld elves]
 1,High up on on a ridge is an old elven tower made of green glass, [green tower]
 1,On one of the rock faces you can still see the markings of the old dwarf forge *[here dwarf forge]*. [forge ruin]
 1,On one of a ridge of the [name for hills] stands a ruined fortress currently occupied by [warlocks]. [average treasure]</p><p>The fortress and its surrounding land is ruled by the **medusa** *[medusa]* ([medusa stats]). The courtyard and rooms are full of her petrified victims and the bones of the dead. [luxurious context] [terror treasure]
@@ -8419,6 +8419,28 @@
 1,Empress
 1,Flower
 1,Tree
+
+;secret door to the realm of the netherworld elves
+1,In the presence of an amulet of passage bearing the [name for a clan of the netherworld elves] sigil, the door glides opens and reveals stairs leading down to [lair of the netherworld elves]
+
+;lair of the netherworld elves
+1,the underground **Bastion of [elf]**. [gate of the netherworld elves]</p><p>[5d12] **elves** live here, led by [elf leader] (level [1d6+4 as level]). [spellbook for elves] [leader treasure]
+
+;gate of the netherworld elves
+1,The entrance of is protected by a chasm 100ft wide. A thin bridge without rails crosses the chasm. If you climb along the walls, this alerts the [2d4] **giant spiders** ([giant spider stats]) living in the chasm itself.
+1,The bronze gates lead to the eternal throne room of *[same elf]*, an ancient **spectre** that still sits here on a throne of [spectre throne shards] and [spectre throne bones] ([spectre stats]). [ancient treasure]
+
+;spectre throne shards
+1,steel blades
+1,iron nails
+1,broken lances
+1,chains of steel
+
+;spectre throne bones
+1,human skulls
+1,dragon bones
+1,a thousand horse skulls
+1,hundreds of elephant tusks
 
 # note that elsewhere tables exist that refer to all the powers
 ;power
