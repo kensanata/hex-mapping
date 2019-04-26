@@ -2007,8 +2007,9 @@ These results are based on the <strong><%= $rule %></strong> table.
 
 <div class="description">
 % my $first = 1;
+% my $sep = grep {$_->{html} =~ /<p>/} @$descriptions;
 % for my $description (@$descriptions) {
-% if (!$first and $description->{html} =~ /<p>/) {
+% if (!$first and $sep) {
 <hr>
 % } else {
 %   $first = 0;
