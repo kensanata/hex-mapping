@@ -1528,13 +1528,13 @@
 1,[river] [capitalize human prefix] *[human name]* owns the ferry boat that carries people across.
 1,[river] *[human name]* owns the ferry boat that carries people across.
 2,[river] There's a ford.
-1,[river] A rickety bridge has been built, here.
+1,[river] A rickety bridge has been built by the locals.
 
 ;town river
 1,[river] [capitalize human prefix] *[human name]* owns the ferry boat that carries people across.
 1,[river] *[human name]* owns the ferry boat that carries people across.
-2,[river] A bridge has been built, here.
-1,[river] An old stone bridge connects the two sides.
+2,[river] A toll bridge has been built, here.
+1,[river] An old stone bridge connects the two sides, with two small guard towers at both ends. There is a toll to be paid.
 
 ;river
 1,</p><p>[name for river] flows through here.
@@ -5891,7 +5891,7 @@
 1,[fir highlands] The land up here is the hunting ground of a **manticore** called *[manticore]* living in the ruins of an old tower overlooking the area. [robber treasure] [manticore companions]
 1,[fir highlands] This fir forest is home to a pack of [3d6] **wolves** ([wolf stats]).
 1,[fir highlands] At dusk and dawn, you can sometimes see [boars] ([boar stats]).
-1,There is a cave in this fir forest housing the **ettin** called *[ettin]*. [robber treasure]
+1,[fir highlands] There is a cave housing the **ettin** called *[ettin]*. [robber treasure]
 1,[fir highlands] At the foot of [crag name], there is cave inhabited by [1d8 trolls] ([troll stats]). [robber treasure]
 1,[fir highlands] In this fir forest is a little campsite with [1d8 bugbears]. [scout treasure]
 1,[fir highlands] At night, the orcs of the [evil tribe] hunt these lands. [orcs] Their settlement is protected by a palisade and [orc fort]
@@ -6502,8 +6502,6 @@
 1,The temple stands in the small courtyard and consists of a stone altar, a little statue, and some flowers and twigs in a jar.
 
 ;town feature
-1,a ferry.
-1,a toll bridge.
 1,a huge gallows with [2d8] hanged people hanging there as a dire warning.
 1,a chained **troll** ([troll stats]).
 1,a necropolis below the town, infested by [2d8] **ghouls** ([ghoul stats]). [luxurious context] [dead treasure]
