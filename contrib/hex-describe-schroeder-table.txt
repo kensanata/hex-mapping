@@ -1571,7 +1571,27 @@
 1,</p><p>This is the beginning of [name for trail].
 
 ;trail-merge trail
-1,</p><p>[names for trail] meet here.
+1,</p><p>[names for trail] meet here, [small landmark].
+
+;small landmark
+1,under the gallows
+1,under the hanging tree
+1,under the [tree] tree
+1,at the old *[wight realm]* milestone
+1,at the barrow of *[old name]*
+1,by the tanner's stinking vats
+1,near [hill name]
+1,behind [small landmark building]
+1,by the *[elf]* elf stone
+
+;small landmark building
+1,the old mill
+1,the old tower ruins
+1,the old abbey ruins
+1,the cesspit of farmer [human name]
+1,[human name]'s new mill
+1,the fish pond
+1,the haunted house
 
 ;trail
 1,</p><p>[name for trail] goes through here.
