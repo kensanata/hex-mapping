@@ -904,7 +904,7 @@ sub parse_table {
 	next if $subtable =~ /$dice_re/;
 	next if $subtable =~ /^redirect https?:/;
 	next if $subtable =~ /^names for (.*)/ and $data->{"name for $1"};
-	next if $subtable =~ /^capitalize (.*)/ and $data->{$1};
+	next if $subtable =~ /^(?:capitalize|normalize-sindarin) (.*)/ and $data->{$1};
 	next if $subtable =~ /^adjacent hex$/; # experimental
 	next if $subtable =~ /^same (.*)/ and ($data->{$1} or $aliases{$1} or $1 eq 'adjacent hex');
 	next if $subtable =~ /^(?:here|nearby|other) (.*)/ and $data->{$1};
@@ -1180,6 +1180,12 @@ sub describe {
       next unless $text;
       $locals{$key} = $text;
       push(@descriptions, ucfirst $text);
+    } elsif ($word =~ /^normalize-sindarin (.+)/) {
+      my $key = $1;
+      my $text = normalize_sindarin($key);
+      next unless $text;
+      $locals{$key} = $text;
+      push(@descriptions, $text);
     } else {
       my $text = pick($map_data, $table_data, $level, $coordinates, $words, $word);
       # remember it's legitimate to have no result for a table
@@ -1189,6 +1195,96 @@ sub describe {
     }
   }
   return join(' ', @descriptions);
+}
+
+=item normalize_sindarin
+
+As a special case, we can also do some post-processing of words according to
+some Sindarin rules.
+
+Based on:
+http://sindarinlessons.weebly.com/37---how-to-make-names-1.html
+http://sindarinlessons.weebly.com/38---how-to-make-names-2.html
+
+=cut
+
+sub normalize_sindarin {
+  my $original = shift;
+  my @words = split(' ', $original);
+  for my $i (0 .. $#words - 1) {
+    # change second word
+    $words[$i] =~ /r$/ and $words[$i+1] =~ s/^b/v/
+	or $words[$i+1] =~ s/^ch/h/
+	or $words[$i+1] =~ s/^c/g/
+	or $words[$i] =~ /[aeiou]l?$/ and $words[$i+1] =~ s/^d/dh/
+	or $words[$i+1] =~ s/^g//
+	or $words[$i] =~ /[aeiour]$/ and $words[$i+1] =~ s/^h/ch/
+	or $words[$i+1] =~ s/^lh/l/
+	or $words[$i] =~ /(lw|l)$/ and $words[$i+1] =~ s/^m/w/
+	or $words[$i+1] =~ s/^m/v/
+	or $words[$i] =~ /[aeiou]$/ and $words[$i+1] =~ s/^nd/nn/
+	or $words[$i+1] =~ s/^p/b/
+	or $words[$i+1] =~ s/^rh/r/
+	or $words[$i] =~ /l$/ and $words[$i+1] =~ s/^r/l/
+	or $words[$i+1] =~ s/^s/h/
+	or $words[$i+1] =~ s/^t/d/
+	or $words[$i+1] =~ s/^m?b(?!r)/m/
+	or $words[$i+1] =~ s/^n?d/n/;
+
+    # change first word
+    $words[$i+1] =~ /^[sh]/ and $words[$i] =~ s/b$/ph/
+	or $words[$i] =~ s/ch$/h/
+	or $words[$i+1] =~ /^h/ and $words[$i] =~ s/dh$/th/
+	or $words[$i+1] =~ /^[sh]/ and $words[$i] =~ s/d$/th/
+	or $words[$i+1] =~ /^([cg]|gl)/ and $words[$i] =~ s/dh$/d/
+	or $words[$i] =~ s/dh([mn]|th)$/$1/
+	or $words[$i+1] =~ /^[sh]/ and $words[$i] =~ s/g$/ch/
+	or $words[$i+1] =~ /^[^aeiou]/ and $words[$i] =~ s/ll$/l/
+	or $words[$i+1] =~ /^[aeioul]/ and $words[$i] =~ s/lt$/ll/
+	or $words[$i+1] =~ /^b/ and $words[$i] =~ s/lt$/l/
+	or $words[$i+1] =~ /^[bdltr]/ and $words[$i] =~ s/mp$/m/
+	or $words[$i+1] =~ /^r/ and $words[$i] ne 'aran' and $words[$i] =~ s/n$/dh/
+	or $words[$i+1] =~ /^l/ and $words[$i] =~ s/n$/l/
+	or $words[$i+1] =~ /^[bp]/ and $words[$i] =~ s/n$/m/
+	or $words[$i+1] =~ /^[bpm]/ and $words[$i] =~ s/nd$/m/
+	or $words[$i+1] =~ /^[^aeiou]/ and $words[$i] =~ s/nd$/n/
+	or $words[$i] =~ s/ol$/la/
+	or $words[$i+1] =~ /^[aeiou]/ and $words[$i] =~ s/s$/ss/
+	or $words[$i+1] =~ /^[lr]/ and $words[$i] =~ s/s$/th/
+	or $words[$i+1] =~ /^[cgf]/ and $words[$i] =~ s/st$/s/
+	or $words[$i+1] =~ /^[lr]/ and $words[$i] =~ s/st$/th/;
+
+    $words[$i+1] =~ s/aw$/of/
+	or $words[$i+1] =~ s/ll$/l/
+	or $words[$i+1] =~ s/lt$/l/
+	or $words[$i+1] =~ s/nd$/nn/
+	or $words[$i+1] =~ s/nw$/n/
+	or $words[$i+1] =~ s/mp$/m/
+	or $words[$i+1] =~ s/rn$/r/
+	or $words[$i+1] =~ s/st$/s/;
+
+    $words[$i+1] =~ s/au/o/;
+    $words[$i] =~ s/au/a/ if $words[$i+1] =~ /a/;
+    $words[$i] =~ s/au/o/;
+
+    $words[$i+1] =~ s/^e/ë/ if $words[$i] =~ /a$/;
+  }
+
+  my $word = join('', @words);
+  $word =~ tr/âêîôûŷ/aeioúi/;
+
+  $word =~ s/aa/a/g;
+  $word =~ s/ii/i/g;
+  $word =~ s/dd/d/g;
+  $word =~ s/nng/ng/g;
+
+  $word =~ s/([ug])dir$/$1nir/;
+  $word =~ s/([^aeiou])nnil$/$1nil/;
+
+  $word = ucfirst($word);
+
+  $log->debug("Sindarin normalize: $original → $word");
+  return $word;
 }
 
 =item process

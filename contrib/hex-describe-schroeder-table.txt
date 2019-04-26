@@ -5133,14 +5133,16 @@
 1,[female elf]
 
 ;male elf
-1,[capitalize sindarin prefix][sindarin word]
-1,[capitalize sindarin prefix][sindarin word][sindarin male suffix]
-3,[capitalize sindarin word][sindarin male suffix]
+1,[normalize-sindarin [sindarin prefix] [sindarin word]]
+1,[normalize-sindarin [sindarin word] [sindarin word] [sindarin male suffix]]
+1,[normalize-sindarin [sindarin prefix] [sindarin word] [sindarin male suffix]]
+3,[normalize-sindarin [sindarin word] [sindarin male suffix]]
 
 ;female elf
-1,[capitalize sindarin prefix][sindarin word]
-1,[capitalize sindarin prefix][sindarin word][sindarin female suffix]
-3,[capitalize sindarin word][sindarin female suffix]
+1,[normalize-sindarin [sindarin prefix] [sindarin word]]
+1,[normalize-sindarin [sindarin word] [sindarin word] [sindarin female suffix]]
+1,[normalize-sindarin [sindarin prefix] [sindarin word] [sindarin female suffix]]
+3,[normalize-sindarin [sindarin word] [sindarin female suffix]]
 
 # https://realelvish.net/names/sindarin/woodelf/all/
 ;sindarin prefix
