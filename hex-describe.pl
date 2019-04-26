@@ -714,7 +714,7 @@ following hex and river, we want to add "river" to the terrain features of 0101:
 
     0801-0802-0703-0602-0503-0402-0302-0201-0101-0100 river
 
-Adds the type "river" to the hex:
+The (virtual) result:
 
     0101 dark-green trees village river
 
@@ -723,7 +723,7 @@ where they meet (at 0302):
 
     0701-0601-0501-0401-0302-0201-0101-0100 river
 
-Adds the type "river-merge" to the hex:
+Again, the (virtual) result:
 
     0302 dark-green trees town river river-merge
 
