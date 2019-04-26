@@ -911,7 +911,7 @@
 
 ;ice devil castle
 1,A castle stands here, a construction of blue ice, cooled by the desolation of Jötunheim, for at the very top of its tower is a gateway into that realm of frost giants and eternal snow.
-1,Up here is an old ruin built by frost giants, haunted by the [1d4+1] spectres of their last inhabitants ([spectre stats]). [ancient treasure]
+1,Up here is an old ruin built by frost giants, haunted by the [1d4+1] **spectres** of their last inhabitants ([spectre stats]). [ancient treasure]
 1,Protected by an eternal snow storm, the lone Tower of [frost giant] was built here ages ago. The flowing inscriptions of moon silver runes set into the stone are spells of protection, of hiding, and of cold.
 1,A black pole of pain points towards the sky like a nail driven through the mountain. It is surrounded by the frozen carcasses of a thousand warriors, frozen as they lay dying, forever trying to reach that pole, hoping against all odds for release from their endless prison of cold, hard flesh.
 
@@ -1362,8 +1362,8 @@
 1,The bellowing **hill giants** can be heard every day up here. [2d4] of them have built a barricade across the passes, here ([hill giant stats]). They are led by [hill giant title] *[hill giant]*. [rich treasure]
 1,A giant fortress has been built here in ages past. It extends all along the mountain flank. The ruins are inhabited by their degenerate descendants, [2d4] **hill giants** led by *[hill giant]* ([hill giant stats]). [rich treasure]
 1,There is a huge wooden fort up here, built by **hill giants**. They must have cut down an entire forest to build it. It is huge. [2d4] of them live here, led by [hill giant title] *[hill giant]* ([hill giant stats]). [rich treasure]
-1,Here stands an old watchtower built by giants during the reign of [wight leader]. You can still find the runes of [same wight realm] on the old stones, but the [2d4] giants and their leader *[hill giant]* can't read and they don't care ([hill giant stats]). [rich treasure]
-1,Here lie the ruins of one of the old mountain fortresses built during the reign of [wight leader]. The big stone slab above the main entrance still says “[same wight realm]” in flaming letters! The [2d4] giants and their leader *[hill giant]* live amongst the ruins ([hill giant stats]). [rich treasure]
+1,Here stands an old watchtower built by giants during the reign of [wight leader]. You can still find the runes of [same wight realm] on the old stones, but the [2d4] **giants** and their leader *[hill giant]* can't read and they don't care ([hill giant stats]). [rich treasure]
+1,Here lie the ruins of one of the old mountain fortresses built during the reign of [wight leader]. The big stone slab above the main entrance still says “[same wight realm]” in flaming letters! The [2d4] **giants** and their leader *[hill giant]* live amongst the ruins ([hill giant stats]). [rich treasure]
 
 ;hill giant stats
 1,HD 8 AC 4 2d6 F8 MV 12 ML 8 XP 800
@@ -1428,11 +1428,27 @@
 
 ;white mountain
 1,The air up here is cold. You can see the [name for white big mountains] looming up ahead. Small canyons and giant boulders provide shelter from the icy wind. [giant apes]
-1,The snow fields beneath the [name for white big mountains] are impossible to cross without skis.
-1,There is a hidden meadow up here, protected by the [name for white big mountains]. [ice monster lair]
-1,The glaciers flowing from the [name for white big mountains] need a local guide and ropes to cross.
-1,The glacier of [name for white big mountains] ends at a small lake [maybe an ice cave]
+1,The [mountain obstacle] beneath the [name for white big mountains] are difficult to traverse. You need a guide and skis. The stone walls rising from the snow are home to a [cat style] [mountain cat].
+1,There is a hidden meadow up here, protected by the [name for white big mountains]. [giant apes]
+1,The glacier of [name for white big mountains] ends at a small lake. [ice monster lair]
 1,A **white dragon** called [white dragon name] lives in a ruined mountain fortress guarding the approaches to the [name for white big mountains] ([white dragon stats]). [dragon treasure]
+
+;mountain obstacle
+1,snow fields
+1,glaciers
+
+;cat style
+1,cautious
+1,curious
+1,ferocious
+1,furtive
+1,hungry
+1,murderous
+
+;mountain cat
+1,**mountain lion** (HD 3 AC 6 1d6 F1 MV 24 ML 7 XP 300)
+1,**snow leopard** (HD 4 AC 6 1d4/1d4/1d8 F2 MV 21 ML 8 XP 400)
+1,**snow tiger** (HD 6 AC 6 1d6/1d6/1d12 F3 MV 15 ML 9 XP 600)
 
 ;giant apes
 1,A **giant ape** called *[giant ape name]* lives here ([giant ape stats]). [giant ape treasure]
@@ -1458,7 +1474,15 @@
 1,Hidden away and protected from the elements there is a small temple of *[power]*. [poor treasure]
 
 ;ice monster lair
-1,A **[here ice monster]** lives up here [[same ice monster] stats]. [[same ice monster] lair] [terror treasure]
+2,A **[here ice monster]** lives up here ([[same ice monster] stats]). [[same ice monster] lair] [terror treasure]
+1,At night, damned souls rise from icy graves and walk across the ice on their feet, howling and crying. If approached, [1d6 wraiths] ([wraith stats]) turn their attention on you, trying pull you in the procession. If you manage to remain undetected and follow them to their resting places as morning comes, you can find what is left of their frozen bodies buried in the ice. [dead treasure]
+
+;1d6 wraiths
+1,a **wraith**
+7,[1d5+1] **wraiths**
+
+;wraith stats
+1,HD 4 AC 3 1d6 + *drain* F4 MV 24 ML 12 XP 400; only harmed by magic or magic weapons; immune to *sleep* and *charm*
 
 ;ice monster
 1,gorgon
@@ -1467,7 +1491,7 @@
 ;gorgon stats
 
 ;cryohydra stats
-1,[1d8+4 as heads] heads, HD [same heads] (8hp per head) AC 5 1d10 per head F[same heads]MV 12 ML 9 XP is [same heads]00; whenever a head is lost, *two heads regrow* the next round (up to 12) unless the wound is cauterised using ice or fire (a melee attack with a torch will do);  *ice* (as much as the hydra has hp left, save vs. dragon breath for half); *poisonous blood* (cutting off a head with a melee weapon exposes the attacker to it: save vs. poison or die)
+1,[1d8+4 as heads] heads, HD [same heads] (8hp per head) AC 5 1d10 per head F[same heads] MV 12 ML 9 XP [same heads]00; whenever a head is lost, *two heads regrow* the next round (up to 12) unless the wound is cauterised using ice or fire (a melee attack with a torch will do);  *ice* (as much as the hydra has hp left, save vs. dragon breath for half); *poisonous blood* (cutting off a head with a melee weapon exposes the attacker to it: save vs. poison or die)
 
 ;pyrohydra stats
 1,[1d8+4 as heads] heads, HD [same heads] (8hp per head) AC 5 1d10 per head F[same heads]MV 12 ML 9 XP is [same heads]00; whenever a head is lost, *two heads regrow* the next round (up to 12) unless the wound is cauterised using ice or fire (a melee attack with a torch will do);  *fire* (as much as the hydra has hp left, save vs. dragon breath for half); *poisonous blood* (cutting off a head with a melee weapon exposes the attacker to it: save vs. poison or die)
@@ -1477,11 +1501,6 @@
 
 ;ice hydra lair
 1,The glacier up here is the work of a hydra, a living manifestation of the ice realm.
-
-;maybe an ice cave
-1,and it is bright blue and ice cold.
-1,and there is an ice cave leading into the glacier.
-1,and there is an ice cave inhabited by a **cryohydra** ([cryohydra stats]). [terror treasure]
 
 ;mountains
 1,These mountains are called the [name for white big mountains]. [more mountains]
