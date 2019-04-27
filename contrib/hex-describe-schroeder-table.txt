@@ -8476,22 +8476,39 @@
 1,The entrance of is protected by a chasm 100ft wide. A thin bridge without rails crosses the chasm. If you climb along the walls, this alerts the [2d4] **giant spiders** ([giant spider stats]) living in the chasm itself.
 1,The bronze gates lead to the eternal throne room of *[same elf]*, an ancient **spectre** that still sits here on a throne of [spectre throne shards] and [spectre throne bones] ([spectre stats]). [ancient treasure] The elves live amongst the vaults and mausoleums of [same elf]'s servants and retainers, their sarcophagi serving as decorations and altars.
 1,This is the former dwarven forge [dwarf forge]. The bronze iris gate leads to the abandoned barracks and a maze of spiders webs by [2d4] **giant spiders** ([giant spider stats]). The main stair shaft leads from the barracks down to the core forge which is still operational.</p><p>The **fire giant** *[fire giant name]* ([fire giant stats]) works the forge. [rich treasure] [same fire giant name] is served by [2d8] **duergar** ([duergar stats]).</p><p>[dwarf forge taken over by netherworld elves]
-1,The iron gates lead into a cavern illuminated by a bluish light and dominated by a giant statue of *[evil power]* about 50ft high. The sacrificial altar is protected by a [guardian of [same evil power]]
+1,The iron gates lead into a cavern illuminated by a [evil light colour] light, dominated by a giant statue of *[evil power]* about 50ft high [giant statue standing somewhere]. The sacrificial altar is tended to by [guardian of [same evil power]]
+
+;evil light colour
+1,cold blue
+1,sickly green
+1,blood red
+
+;giant statue standing somewhere
+1,standing in a shallow pool of water
+1,surrounded by stone basins
+1,with water dripping down on it from the ceiling
+1,surrounded by trees carved out of stone
+1,on a mighty dais with many smaller statues of demons surrounding it
+1,surrounded by hundreds of small bronze statues of the various other aspects of [same evil power]
+1,surrounded by a ditch 10ft wide filled with water
+1,surrounded by a ditch 10ft wide filled with human bones
+1,surrounded by a ditch 10ft wide and 10ft deep full of sharpened spikes
+1,surrounded by a thousand spears bearing a humanoid skull
 
 ;guardian of Set
-1,**spirit naga** *[naga]* ([naga stats]) [terror treasure]
+1,a **spirit naga** *[naga]* ([naga stats]) [terror treasure]
 
 ;guardian of Orcus
-1,**spirit naga** *[naga]* ([naga stats]) [terror treasure]
+1,[1d8 wights] ([wight stats]) [dead treasure]
 
 ;guardian of Hel
-1,**demon boar** ([demon boar stats])
+1,a **demon boar** ([demon boar stats])
 
 ;guardian of Nergal
-1,**gorgon** ([gorgon stats]) [terror treasure]
+1,a **gorgon** ([gorgon stats]) [terror treasure]
 
 ;guardian of Pazuzu
-1,**vulture demon** *[pazuzu demon name]*: [vulture demon stats]
+1,a **vulture demon** *[pazuzu demon name]*: [vulture demon stats]
 
 ;dwarf forge taken over by netherworld elves
 1,The merchant alley has been taken over by the elves. The old lights have been dimmed. The buildings are painted black, ornamented with thorny plants of stone and iron.
