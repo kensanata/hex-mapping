@@ -1255,10 +1255,8 @@ sub normalize_sindarin {
 	or $words[$i+1] =~ /^[lr]/ and $words[$i] =~ s/st$/th/;
 
     $words[$i+1] =~ s/aw$/of/
-	or $words[$i+1] =~ s/ll$/l/
-	or $words[$i+1] =~ s/lt$/l/
-	or $words[$i+1] =~ s/nd$/nn/
-	or $words[$i+1] =~ s/nw$/n/
+	or $words[$i+1] =~ s/l[lt]$/l/
+	or $words[$i+1] =~ s/n[dw]$/n/
 	or $words[$i+1] =~ s/mp$/m/
 	or $words[$i+1] =~ s/rn$/r/
 	or $words[$i+1] =~ s/st$/s/;
