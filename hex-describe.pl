@@ -1273,9 +1273,11 @@ sub normalize_sindarin {
 
   $word =~ s/aa/a/g;
   $word =~ s/ii/i/g;
+  $word =~ s/ww/w/g;
   $word =~ s/dd/d/g;
   $word =~ s/nng/ng/g;
 
+  $word =~ s/sswi$/wi/;
   $word =~ s/([ug])dir$/$1nir/;
   $word =~ s/([^aeiou])nnil$/$1nil/;
 
