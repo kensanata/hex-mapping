@@ -1489,6 +1489,7 @@
 1,cryohydra
 
 ;gorgon stats
+1,HD 8 AC 7 2d6 F8 MV 12 ML 8 XP 800; *poison breath*
 
 ;cryohydra stats
 1,[1d8+4 as heads] heads, HD [same heads] (8hp per head) AC 5 1d10 per head F[same heads] MV 12 ML 9 XP [same heads]00; whenever a head is lost, *two heads regrow* the next round (up to 12) unless the wound is cauterised using ice or fire (a melee attack with a torch will do);  *ice* (as much as the hydra has hp left, save vs. dragon breath for half); *poisonous blood* (cutting off a head with a melee weapon exposes the attacker to it: save vs. poison or die)
@@ -1771,11 +1772,14 @@
 1,father
 
 ;dwarves
-3,This is a small forge. [5d8] **dwarves** live and work here led by [dwarf leader] (level [1d6+2 as level]). [luxurious context] [dwarven treasure]
-1,This is a legendary forge stronghold. [5d8x10] **dwarves** live and work here led by [dwarf leader] (level [1d4+8 as level]). They are divided into [3d6] families, each led by a clan elder (level [1d6+2]). [dwarven stronghold treasure]
+3,This is a small forge. [5d8] **dwarves** live and work here ([dwarf stats]) led by [dwarf leader] (level [1d6+2 as level]). [luxurious context] [dwarven treasure]
+1,This is a legendary forge stronghold. [5d8x10] **dwarves** live and work here ([dwarf stats]) led by [dwarf leader] (level [1d4+8 as level]). They are divided into [3d6] families, each led by a clan elder (level [1d6+2]). [dwarven stronghold treasure]
 
-;name for 1d6+2
-1,[1d6+2]
+;dwarf stats
+1,HD 1 AC 4 1d6 D1 MV 6 ML 8 XP 100
+
+;duergar stats
+1,[dwarf stats]; immune to fire
 
 ;dwarf leader
 1,*[dwarf]*<img src="[[redirect https://campaignwiki.org/face/redirect/alex/dwarf]]" alt="[same dwarf]" title="[same dwarf]"/>
@@ -3093,7 +3097,7 @@
 1,These [tree] hills in [forest name] belong to the [evil tribe]. [orcs] Their fort is [orc fort]
 1,The hill overlooking [forest name] is the home of [1d8 treants] ([treant stats]). They mostly stand around near the [forest feature].
 1,There is a hill rising high above [forest name] with a nice cave which offers shelter from the rain but is home to [1d4 bears] ([bear stats]).
-1,[5d8] **dwarves** have set up a small logging community, here in [forest name]. The [tree] trees in the area have brought them here. They are led by [dwarf leader] (level [1d6+2 as level]). The camp is defended by [dwarven companions]. [dwarven treasure]
+1,[5d8] **dwarves** ([dwarf stats]) have set up a small logging community, here in [forest name]. The [tree] trees in the area have brought them here. They are led by [dwarf leader] (level [1d6+2 as level]). The camp is defended by [dwarven companions]. [dwarven treasure]
 1,The hills of [forest name] are full of ancient ruins. On one of these hills right here you can find the foundations of an old keep. The walls are long gone but the cistern and the storage rooms below are still usable. [1d4x10] **bandits** led by [human] have made this their permament base. The camp is [human fort]. [average treasure]
 
 # tree names from http://blog.d4caltrops.com/2019/04/see-forest-for-trees.html
@@ -6189,8 +6193,8 @@
 1,[small temple]
 1,The temple is nothing but a pit in the earth with a stone ceiling and the statue of a giant snake in the back. In front of the snake there are burning candles and wooden poles with strings attached and at the end of every string is an accusation: names of villagers and their misdeed, the punishment requested, and counter claims, and peace offerings. This is where the elders decide upon blood money to be paid and punishments to be exacted.
 1,Between some rocks, a crack leads deeper into the earth and into a cave. There, a giant snake made of stone watches over all who pray to Set. A deep pit contains the polished bones of all who where killed in revenge for their misdeeds. There are always wooden accusation plates to be found naming bandits, thieves, murders, adulterers, and cowards who ran from a battle, deserting their village comrades. Will you take a plate and exact revenge in the name of Set?
-1,An old stairway leads into the bowels of the earth where warm vapours make your head swim. Down here, the **spirit naga** [naga] will guide your hand, should you need her words. Spend an hour down here and any soul dedicated to Set will tell you of the past and the future for all time goes in circles and the big snake eats itself.
-1,Deep below, where the **spirit naga** [naga] guards the passages to Svartalfheim, pools of Earth Blood corrupt both the living and the dead. If you spend an hour here, your death warrant is sealed: slowly, you will die, or turn into an ettin, or a goblin, or some other dreadful creature.
+1,An old stairway leads into the bowels of the earth where warm vapours make your head swim. Down here, the **spirit naga** *[naga]* will guide your hand, should you need her words ([naga stats]). Spend an hour down here and any soul dedicated to Set will tell you of the past and the future for all time goes in circles and the big snake eats itself.
+1,Deep below, where the **spirit naga** *[naga]* guards the passages to Svartalfheim ([naga stats]), pools of Earth Blood corrupt both the living and the dead. If you spend an hour here, your death warrant is sealed: slowly, you will die, or turn into an ettin, or a goblin, or some other dreadful creature.
 1,This is a snake pit, a breeding ground for [1d4 giant snakes] and vipers, a place dangerous to every warm blooded creature. And yet, the terror of these snakes also keeps bandits at bay and no orc will set foot near this place, such is the power of Set. They say that those with the secret knowledge can use snake poison to poison their blades and they say that all who serve the temple have done just that.
 1,The temple is a school for assassins. This is where you learn to sneak, to lie, to conceal, to poison, to stab, to strangle. Students learn the secrets of the garrote, of the hidden blade and of the crossbow. All of this is known and yet the farce continues: this is where the young ones learn discipline and strength, diligence and respect. It’s a way to put food on the table, and it’s a useful skill to have available if you’re trying to get ahead.
 
@@ -6322,9 +6326,13 @@
 1,Hell
 1,the [pazuzu place]
 1,the [pazuzu adjective] [pazuzu place]
-1,the Gods
-1,the Vanir
+1,the [old gods]
 1,Giants
+1,[pazuzu demon title]
+
+;old gods
+1,Gods
+1,Vanir
 
 ;pazuzu adjective
 1,Lead
@@ -6343,6 +6351,22 @@
 1,Netherworld
 1,Underworld
 1,Vanaheim
+
+;pazuzu demon title
+1,Gangrene
+1,Pestilence
+1,Black Bile
+3,the [vulture demon 1] [vulture demon 2]
+
+;vulture demon 1
+1,Corpse
+1,Baby
+1,Child
+
+;vulture demon 2
+1,Eater
+1,Killer
+1,Shredder
 
 ;small temple dedicated to Hel
 1,[small temple]
@@ -6486,7 +6510,7 @@
 1,The temple looks like a tower, except that it has a big window from the bottom to the roof. On the inside, there are no extra floors. The room is simply 50ft high. The strip of light from the window falls on one of three oath brother statues in here, each raising their right hand, each pointing three fingers towards the sky. This is the bond of loyalty that makes us strong.
 1,The temple has a door fit for a giant, but inside there is simply a strip of wooden flooring for petitioners to kneel and a big status of Mitra standing blindfolded in a sea of fire, holding the balance of justice in one hand and the sword of judgement in the other.
 1,A long set of winding stairs leads deep underground to a fiery pit. The fumes are intoxicating and the dreamy babbling of a woman’s voice can be heard but her words make no sense to you. She is one of the eternal servants, gifted to the temple by her parents and bound to pass through the lake of fire into Muspelheim, the realm of Mitra, whence nobody has ever returned. This is of course true: the lake of fire is a one way gate to [a location in Muspelheim]. Most of these women eventually master the arcane arts of pyromancy.
-1,Deep within the bowels of the earth, a pool of Earth Blood is being kept at bay by circles of banishment and stasis and thus evil **gorgon** and its poison remains imprisoned while these seals last. The temple guards the entry to this underworld and the [2d6] priests **[human name]**, the current head of the temple, inspect and improve their defences every year on the night of the winter solstice. The common folks just see the statues of the three oath brother statues here and come here to renew their bond with Mitra. They call themselves the *Oath Keepers* for this is what they do: the make their bargains, here.
+1,Deep within the bowels of the earth, a pool of Earth Blood is being kept at bay by circles of banishment and stasis and thus evil **gorgon** and its poison remains imprisoned while these seals last ([gorgon stats]). The temple guards the entry to this underworld and the [2d6] priests **[human name]**, the current head of the temple, inspect and improve their defences every year on the night of the winter solstice. The common folks just see the statues of the three oath brother statues here and come here to renew their bond with Mitra. They call themselves the *Oath Keepers* for this is what they do: the make their bargains, here.
 
 ;a location in Muspelheim
 1,the *[Muspelheim building] of [Muspelheim material]* where [Muspelheim matriarch] *[old names for women]* rules
@@ -8438,14 +8462,59 @@
 1,Tree
 
 ;secret door to the realm of the netherworld elves
-1,In the presence of an amulet of passage bearing the [name for a clan of the netherworld elves] sigil, the door glides opens and reveals stairs leading down to [lair of the netherworld elves]
+1,In the presence of an amulet of passage bearing the [name for a clan of the netherworld elves] sigil, the door glides opens and reveals stairs leading down to the underground [lair of the netherworld elves]
 
 ;lair of the netherworld elves
-1,the underground **Bastion of [elf]**. [gate of the netherworld elves]</p><p>[5d12] **elves** live here, led by [elf leader] (level [1d6+4 as level]). [spellbook for elves] [leader treasure]
+1,**[building of the netherworld elves] of [elf]**.</p><p>[gate of the netherworld elves]</p><p>[companions of the netherworld elves]</p><p>[5d12] **elves** live here, led by [elf leader] (level [1d6+4 as level]). [spellbook for elves] [leader treasure]
+
+;building of the netherworld elves
+1,Bastion
+1,Fortress
+1,Palace
 
 ;gate of the netherworld elves
 1,The entrance of is protected by a chasm 100ft wide. A thin bridge without rails crosses the chasm. If you climb along the walls, this alerts the [2d4] **giant spiders** ([giant spider stats]) living in the chasm itself.
-1,The bronze gates lead to the eternal throne room of *[same elf]*, an ancient **spectre** that still sits here on a throne of [spectre throne shards] and [spectre throne bones] ([spectre stats]). [ancient treasure]
+1,The bronze gates lead to the eternal throne room of *[same elf]*, an ancient **spectre** that still sits here on a throne of [spectre throne shards] and [spectre throne bones] ([spectre stats]). [ancient treasure] The elves live amongst the vaults and mausoleums of [same elf]'s servants and retainers, their sarcophagi serving as decorations and altars.
+1,This is the former dwarven forge [dwarf forge]. The bronze iris gate leads to the abandoned barracks and a maze of spiders webs by [2d4] **giant spiders** ([giant spider stats]). The main stair shaft leads from the barracks down to the core forge which is still operational.</p><p>The **fire giant** *[fire giant name]* ([fire giant stats]) works the forge. [rich treasure] [same fire giant name] is served by [2d8] **duergar** ([duergar stats]).</p><p>[dwarf forge taken over by netherworld elves]
+1,The iron gates lead into a cavern illuminated by a bluish light and dominated by a giant statue of *[evil power]* about 50ft high. The sacrificial altar is protected by a [guardian of [same evil power]]
+
+;guardian of Set
+1,**spirit naga** *[naga]* ([naga stats]) [terror treasure]
+
+;guardian of Orcus
+1,**spirit naga** *[naga]* ([naga stats]) [terror treasure]
+
+;guardian of Hel
+1,**demon boar** ([demon boar stats])
+
+;guardian of Nergal
+1,**gorgon** ([gorgon stats]) [terror treasure]
+
+;guardian of Pazuzu
+1,**vulture demon** *[pazuzu demon name]*: [vulture demon stats]
+
+;dwarf forge taken over by netherworld elves
+1,The merchant alley has been taken over by the elves. The old lights have been dimmed. The buildings are painted black, ornamented with thorny plants of stone and iron.
+1,The old storage caverns have been turned into a network of ropes and nets connecting elven houses that have been stuck the walls and ceilings like oversized swallow nests.
+1,The dwarven living quarters have turned into a warrens of dark tunnels full of secondary entrances, traps and secret doors.
+
+;fire giant name
+1,Baka
+1,Bragða
+1,Bruni
+1,Eldr
+1,Hatr
+1,Helviti
+1,Hiti
+1,Kynda
+1,Leiptr
+1,Ljós
+1,Stórr
+1,Sveiða
+1,Valla
+
+;fire giant stats
+1,HD 11+1 AC 4 5d6 or 3d6 *ranged* F11 MV 12 ML 9 XP 1100
 
 ;spectre throne shards
 1,steel blades
@@ -8458,6 +8527,10 @@
 1,dragon bones
 1,a thousand horse skulls
 1,hundreds of elephant tusks
+
+;companions of the netherworld elves
+1,The elves are protected by [1d8 bugbears] living like animals in small caves near the gate. [scout treasure]
+1,The central space around which the elven mansions have been built is a fungus garden. [3d6] **myconids** tend to it ([myconid stats]). [poor treasure]
 
 # note that elsewhere tables exist that refer to all the powers
 ;power
@@ -10743,35 +10816,13 @@
 1,Taker of Heads
 
 ;summoned vulture demon
-1,[vulture demon name], from Sandstein, Pazuzu’s tower in Vanaheim
-
-;vulture demon name
-1,Gangrene
-1,Pestilence
-1,Black Bile
-3,[vulture demon 1] [vulture demon 2]
-
-;vulture demon 1
-1,Corpse
-1,Baby
-1,Child
-
-;vulture demon 2
-1,Eater
-1,Killer
-1,Shredder
+1,[pazuzu demon name], from Sandstein, Pazuzu’s tower in Vanaheim
 
 ;vulture demon stats
 1,HD 8+1 AC 5 1d4/1d4/1d6/1d6/1d8 F16 MV 18 ML 11; flying; only harmed by magic or magic weapons
 
 ;summoned naga
-1,*[naga name]*, from Eiterhorg, Set’s hall in Svartalfheim
-
-;naga name
-1,Sweet Stab
-1,Revenge
-1,Crocodile Tears
-1,Coral Death
+1,*[naga]*, from Eiterhorg, Set’s hall in Svartalfheim
 
 ;naga stats
 1,HD 9 AC 7 1d8+*poison* F18 MV 6; *fireball* (7d6) 3×/day; *charm person* at will; only harmed by magic or magic weapons
@@ -10897,7 +10948,7 @@
 1,A *diadem of the slaver* (when targeted by a spell, it is redirected to a person within 10ft if you save vs. spells).
 1,The *ring of the tengu*, summons the tengu [tengu name], always willing to talk and offer advice ([tengu stats]); the ring’s magic is lost when the tengu is killed.
 1,The *staff of the minotaur*, summons the minotaur *[minotaur name]*, always willing to talk and offer advice ([minotaur stats]); the staff’s magic is lost when the minotaur is killed.
-1,The *flute of the naga*, summons the naga *[naga name]*, always ready to whisper and corrupt in your name ([naga stats]); the flute’s magic is lost when the naga is killed.
+1,The *flute of the naga*, summons the naga *[naga]*, always ready to whisper and corrupt in your name ([naga stats]); the flute’s magic is lost when the naga is killed.
 1,A *flying carpet* (four people).
 1,[elemental prison]
 
