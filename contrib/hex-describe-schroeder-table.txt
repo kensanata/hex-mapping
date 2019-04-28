@@ -8654,6 +8654,12 @@
 ;companions of the netherworld elves
 1,The elves are protected by [1d8 bugbears] living like animals in small caves near the gate. [scout treasure]
 1,The central space around which the elven mansions have been built is a fungus garden. [3d6] **myconids** tend to it ([myconid stats]). [poor treasure]
+1,The elves are served by [6d10] rat-like **goblins**, led by [goblin] ([goblin stats]). [poor treasure] Only dwarves or halflings can fight in the tiny tunnels these creatures use to move from place to place.
+1,The elves are served by [6d10] spider-like **goblins**, led by [goblin] ([goblin stats]). [poor treasure] Every ceiling, every dead end, every empty room has spider webs, bat bones, and worse. [maybe human prisoners of spider goblins]
+
+;maybe human prisoners of spider goblins
+1,In fact, the keep a prisoner in their central storage room, hanging helplessly in a cocoon, barely alive. This is [human name] who was captured a few days ago. The elves know nothing of it and wouldn't care if they knew.
+1,
 
 # note that elsewhere tables exist that refer to all the powers
 ;power
