@@ -1427,11 +1427,15 @@
 1,the Killer
 
 ;white mountain
-1,The air up here is cold. You can see the [name for white big mountains] looming up ahead. Small canyons and giant boulders provide shelter from the icy wind. [giant apes]
+1,The air up here is cold. You can see the [name for white big mountains] looming up ahead. Small canyons and giant boulders provide shelter from the icy wind. [giant apes] [small temple near giant apes]
 1,The [mountain obstacle] beneath the [name for white big mountains] are difficult to traverse. You need a guide and skis. The stone walls rising from the snow are home to a [cat style] [mountain cat].
-1,There is a hidden meadow up here, protected by the [name for white big mountains]. [giant apes]
+1,There is a hidden meadow up here, protected by the [name for white big mountains]. [giant apes] [small temple near giant apes]
 1,The glacier of [name for white big mountains] ends at a small lake. [ice monster lair]
 1,A **white dragon** called [white dragon name] lives in a ruined mountain fortress guarding the approaches to the [name for white big mountains] ([white dragon stats]). [dragon treasure]
+
+;small temple near giant apes
+1,
+1,Hidden away and protected from the elements there is a small temple of *[power]*.
 
 ;mountain obstacle
 1,snow fields
@@ -1446,13 +1450,13 @@
 1,murderous
 
 ;mountain cat
-1,**mountain lion** (HD 3 AC 6 1d6 F1 MV 24 ML 7 XP 300)
-1,**snow leopard** (HD 4 AC 6 1d4/1d4/1d8 F2 MV 21 ML 8 XP 400)
-1,**snow tiger** (HD 6 AC 6 1d6/1d6/1d12 F3 MV 15 ML 9 XP 600)
+1,**mountain lion** ([puma stats])
+1,**snow leopard** ([jaguar stats])
+1,**snow tiger** ([tiger stats])
 
 ;giant apes
-1,A **giant ape** called *[giant ape name]* lives here ([giant ape stats]). [giant ape treasure]
-19,[1d19+1] **giant apes** led by *[giant ape name]* live here ([giant ape stats]). [giant ape treasure]
+1,A **giant ape** called *[giant ape name]* lives here ([giant ape stats]). [poor treasure]
+19,[1d19+1] **giant apes** led by *[giant ape name]* live here ([giant ape stats]). [poor treasure]
 
 ;giant ape name
 1,[giant ape 1][giant ape 2]
@@ -1469,9 +1473,6 @@
 1,fist
 1,face
 1,stomp
-
-;giant ape treasure
-1,Hidden away and protected from the elements there is a small temple of *[power]*. [poor treasure]
 
 ;ice monster lair
 2,A **[here ice monster]** lives up here ([[same ice monster] stats]). [[same ice monster] lair] [terror treasure]
@@ -1498,7 +1499,7 @@
 1,[1d8+4 as heads] heads, HD [same heads] (8hp per head) AC 5 1d10 per head F[same heads]MV 12 ML 9 XP is [same heads]00; whenever a head is lost, *two heads regrow* the next round (up to 12) unless the wound is cauterised using ice or fire (a melee attack with a torch will do);  *fire* (as much as the hydra has hp left, save vs. dragon breath for half); *poisonous blood* (cutting off a head with a melee weapon exposes the attacker to it: save vs. poison or die)
 
 ;gorgon lair
-1,A piece of the glacier has broken off and revealed an old temple of [good power], razed, defiled, and cursed with the presence of a gorgon. There are plenty of dead birds which have died due to the poisonous fumes.
+1,A piece of the glacier has broken off and revealed an old temple of *[good power]*, razed, defiled, and cursed with the presence of a gorgon. There are plenty of dead birds which have died due to the poisonous fumes.
 
 ;ice hydra lair
 1,The glacier up here is the work of a hydra, a living manifestation of the ice realm.
@@ -3091,8 +3092,9 @@
 1,[name for forest/forest-hill/trees/fir-forest/firs/swamp/swamp2]
 
 ;forest-hill
-1,One of the hills has an old lookout from which you can see most of the [forest name].
-1,Small creeks have dug deep channels into [forest name]. The going is tough.
+1,One of the hills has an old lookout from which you can see most of the [forest name]. It is also [treant]'s favourite spot. The old **treant** loves to watch the sun set from here ([treant stats]).
+1,A steep hill rises from the forest and at its top stands an old statue of *[power]*, about 20ft tall. Who ever built this statue is long gone but the trail leading up to the statue looks well worn.
+1,Small creeks have dug deep channels into [forest name]. The going is tough. Some of the hidden valleys are very hard to reach. [giant apes] [small temple near giant apes]
 1,[forest name] covers a few hills, here. [ogre hill]
 1,These [tree] hills in [forest name] belong to the [evil tribe]. [orcs] Their fort is [orc fort]
 1,The hill overlooking [forest name] is the home of [1d8 treants] ([treant stats]). They mostly stand around near the [forest feature].
@@ -3607,7 +3609,7 @@
 1,Broken siege engines and other weird machinery made of wood.
 1,A mix between a forge and an alchemy lab: stuffed lizards, skulls, garlic, but also an anvil, a hammer, sacks of coal.
 1,Chests filled with polished, ancestral bones.
-1,A statue of [evil power] with [orcish runes].
+1,A statue of *[evil power]* with [orcish runes].
 1,A hole filled with polished skulls.
 
 ;orcish runes
@@ -3639,7 +3641,7 @@
 1,A twisting passage leads down into a huge cave where they must have dug for gems.
 
 ;ruins of the ancients
-1,The degenerate survivors of the builders are [2d8] **ghouls** serving [evil power] ([ghoul stats]). Their rituals have summoned [1d8 shadows] ([shadow stats]). [luxurious context] [dead treasure]
+1,The degenerate survivors of the builders are [2d8] **ghouls** serving *[evil power]* ([ghoul stats]). Their rituals have summoned [1d8 shadows] ([shadow stats]). [luxurious context] [dead treasure]
 1,Down here is a palace made of orange metals and green glass inhabited by [1d4 squid people]. At the center is a huge **brain** floating in a glass cylinder. [ancient treasure]
 1,All is deadly quiet but the dancing shadows on the walls are real. The light summons [1d8 shadows]. [terror treasure]
 
@@ -3964,9 +3966,9 @@
 1,Dry lands full of tumbleweed and thorn bushes.
 
 ;old fort
-1,On a pedestal outside the fort there is a withered statue of [power] overlooking the lands below.
+1,On a pedestal outside the fort there is a withered statue of *[power]* overlooking the lands below.
 1,There is [old fort passage] leading to a ditch filled with thorn bushes far below.
-1,There is [old fort passage] leading to a forgotten temple of [evil power].
+1,There is [old fort passage] leading to a forgotten temple of *[evil power]*.
 1,There is [old fort passage] leading to an old necropolis. There must be at least a thousand mummified corpses in all these niches and chambers.
 
 ;old fort passage
@@ -3984,12 +3986,18 @@
 1,[necromancer]
 1,[vivimancer]
 1,[some ruins] Here lives the **hermit** [human] (level 1).
-1,[some ruins] Here lives the **hermit** [human] (level 1) and a **puma**.
-1,[some ruins] Here lives the **hermit** [human] (level 1) and a **jaguar**.
+1,[some ruins] Here lives the **hermit** [human] (level 1) and a **puma** ([puma stats]).
+1,[some ruins] Here lives the **hermit** [human] (level 1) and a **jaguar** ([jaguar stats]).
 1,[some ruins] Here lives the **hermit** halfling [halfling] (level 1) with some sheep.
 
 ;puma stats
-1,HD 3 AC 6 1d6 F1 MV 18 ML 6 XP 200
+1,HD 3 AC 6 1d6 F1 MV 24 ML 7 XP 300
+
+;jaguar stats
+1,HD 4 AC 6 1d4/1d4/1d8 F2 MV 21 ML 8 XP 400
+
+;tiger stats
+1,HD 6 AC 6 1d6/1d6/1d12 F3 MV 15 ML 9 XP 600
 
 ;some ruins
 1,On one of the hills you find an old two story watchtower.
@@ -4602,12 +4610,18 @@
 1,The [forest name] swamp is home to a lot of [swamp animals]. Those who know how to find it can gather *[here magic plant]*.
 1,The [forest name] here is flooded and has been settled by a tribe of [6d6] **lizard people** led by *[lizard leader]* (HD [1d4+2 as level]). [leader treasure] The little village of mud huts is guarded by [lizard companions]. [average treasure]
 1,The inundated [forest name] here is home to [froglings]
-1,A ruined tower standing on a small island in this part of the [forest name] swamp is home to the **ettin** called *[ettin]*. [robber treasure]
+1,A ruined tower standing on a small island in this part of the [forest name] swamp is home to the **ettin** called *[ettin]*. [robber treasure] [ettin tower protection]
 1,In the old days, the stagnant pools of the [forest name] swamp was used to drown evil necromancers. [bog wights]
 1,On one of the islands of this [forest name] swamp there is a huge mud mound. [goblins]
 
 ;swamp2
 1,[swamp]
+
+;ettin tower protection
+1,The ettins have rammed long spikes into the water in order to deter any approach.
+1,Many trees bear the old signs of ettin rule: two skulls tied to a rope, slowly turning in the wind.
+1,The branches of many trees bear hanging corpses, warning signs for all the fools that would come and disturb the ettin peace.
+1,A straight path leads straight to the ettin tower. Further ahead, it passes under a big, dark tree. Anybody looking up will immediately see the hanging log trap set to swing down and smash everybody into the waters. On a 1–2 in 6, you are hit for 2d6 and pushed into a hole. With metal armour and no friends to pull you up, save vs. death or drown.
 
 ;giant fish
 1,A **giant fish**
@@ -4861,7 +4875,7 @@
 
 # These are the monsters for larger villages
 ;trees
-1,This is the [forest name]. [signs of human activity] [a monster threatening the village]
+1,This is the [forest name]. [signs of human activity]</p><p>[a monster threatening the village]
 
 ;signs of human activity
 1,Tall trees cover this valley. Occasionally, you can see tree stumps so somebody must be logging these trees.
@@ -4870,13 +4884,14 @@
 1,The lack of branches and trees lying on the forest floor is a sign of regular wood gatherers.
 1,Within the forest are a few clearings with small cherry and plum tree orchards.
 1,Within the forest are a few clearings with small apple tree orchards.
-1,There is a clearing in this forest where [an old statue] of [power] still stands.
+1,There is a clearing in this forest where [an old statue] of *[power]* still stands.
 
 ;a monster threatening the village
 1,You shouldn’t stray too far from the trails because this forest has been cursed by the presence of [2d4] **harpies** luring men into the depths of the forest and to their death with their magical singing. [terror treasure]
 1,Deep in the forest there is a cave where the **ettin** *[ettin]* live. They are known for their fury and their appetite for human flesh. [robber treasure]
 1,Hiding between the trees are the watchful eyes of [1d8 bugbears]. [scout treasure] Bugbears are usually a bad sign for they are often employed as spies by the elves of the netherworld. These carry amulets of passage bearing the [name for a clan of the netherworld elves] sigil.
 1,The camp of [1d8 bugbears] is hard to find. [scout treasure] They hunt these woods at night and like to kill anybody that didn’t make it back to the village during daytime.
+1,[orcs] They keep a low profile, living deep in the forest, but lone travellers, or fools that don't make it back to the village before sunset, or reckless idiots looking for trouble, they'll all find the orcs to be more than willing to kill.
 
 ;ettin
 1,Bert and Bob
@@ -5022,6 +5037,12 @@
 1,The forest here is deep and quiet. [easy to get lost] [2d12] **elves** led by [elf leader] (level [1d6+1 as level]) have built their [elf dwelling] in [forest name], [beautiful trees]. [spellbook for elves] [leader treasure] [elf companions]
 1,These trees are part of [forest name]. [easy to get lost] A system of big tunnels is home to [1d6 weasels] ([weasel stats]).
 1,At dusk and dawn, you can sometimes see [boars] in the [forest name], here.
+1,The forest has overgrown an old temple of *[power]*. Some of the walls still stand, and so do some of the columns, but the roof is gone and floor is wet. [old forest temple denizen]
+
+;old forest temple denizen
+1,In one corner, a wooden roof keeps a corner of the old temple dry. Here lives [human], an old **hermit**, and his pet **jaguar** ([jaguar stats]).
+1,In a dry corner of the ruin is the lair of [3d6] **wolves** ([wolf stats]) and [human], who ended up being raised by wolves after being abandoned by the parents.
+1,Between the [tree] trees growing all over the structure the ground is dry and solid. [giant apes]
 
 ;beautiful trees
 1,where the [tree] trees stand tall
@@ -5029,7 +5050,7 @@
 1,where butterflies dance in the crowns of the [tree] trees
 
 ;easy to get lost
-1,There are no trails. Without a guide, you will get lost on 1–2 in 6.
+1,Do not leave the trails. Without a guide, you will get lost on 1–2 in 6.
 1,They say that the trees here will try to lead you astray. Without a guide, you will get lost on 1–2 in 6.
 1,The narcotic vapours of the trees make people tired and careless. Without a guide, you will get lost on 1–2 in 6.
 1,The undergrowth is thick and thorny, leading to long detours. Without a guide, you will get lost on 1–2 in 6.
@@ -5918,7 +5939,7 @@
 1,[fir highlands] At the foot of [crag name], there is cave inhabited by [1d8 trolls] ([troll stats]). [robber treasure]
 1,[fir highlands] In this fir forest is a little campsite with [1d8 bugbears]. [scout treasure]
 1,[fir highlands] At night, the orcs of the [evil tribe] hunt these lands. [orcs] Their settlement is protected by a palisade and [orc fort]
-1,[fir highlands] There is an abandoned shrine to [power] up here. It is haunted by the **spectre** of *[old name]*, the last priest who cared for it ([spectre stats]). [ancient treasure]
+1,[fir highlands] There is an abandoned shrine to *[power]* up here. It is haunted by the **spectre** of *[old name]*, the last priest who cared for it ([spectre stats]). [ancient treasure]
 
 ;wolf stats
 1,HD 2+1 AC 7 1d6 F1 MV 18 ML 6 XP 200
