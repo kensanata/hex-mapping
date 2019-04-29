@@ -6126,11 +6126,11 @@
 
 # the second variant has a temple at the end
 ;village
-1,</p><p>There is a village of [5d6x10] **humans** ([human stats]). The [human houses] are protected by [human companions] and a [human defense]. There is small **[name for village building]**. [small [name for village building]] [average treasure]</p><p>The [human leader] lives in the [name for village building]. [spellbook for [same class]] [leader treasure]</p><p>[human retainer]</p><p>[human friends]</p><p>[And a secret society]
-1,</p><p>There is a village of [5d6x10] **humans** ([human stats]). The [human houses] are protected by [human companions] and a [human defense]. There is small **[name for village building]**. [small [name for village building]] [average treasure]</p><p>The [human leader] lives in the [name for village building]. [spellbook for [same class]] [leader treasure]</p><p>[human retainer]</p><p>[human friends]</p><p>[And a secret society]</p><p>[temple]
+1,</p><p>There is a village of [5d6x10] **humans** ([human stats]). The [human houses] are protected by [human companions] and a [human defense]. There is small **[name for village building]**. [small [name for village building]] [average treasure]</p><p>The [human leader] lives in the [name for village building]. [spellbook for [same class]] [leader treasure for [same class]]</p><p>[human retainer]</p><p>[human friends]</p><p>[And a secret society]
+1,</p><p>There is a village of [5d6x10] **humans** ([human stats]). The [human houses] are protected by [human companions] and a [human defense]. There is small **[name for village building]**. [small [name for village building]] [average treasure]</p><p>The [human leader] lives in the [name for village building]. [spellbook for [same class]] [leader treasure for [same class]]</p><p>[human retainer]</p><p>[human friends]</p><p>[And a secret society]</p><p>[temple]
 
 ;town
-1,</p><p>There is a town of [1d6x100] **humans** ([human stats]). The [human houses] are protected by a keep, a town wall and the river. [average treasure]</p><p>The [human leader] lives in the keep. [spellbook for [same class]] [leader treasure]</p><p>[human retainer]</p><p>[human friends]</p><p>[And two secret societies feuding]</p><p>[temple]</p><p>There is also [town feature]
+1,</p><p>There is a town of [1d6x100] **humans** ([human stats]). The [human houses] are protected by a keep, a town wall and the river. [average treasure]</p><p>The [human leader] lives in the keep. [spellbook for [same class]] [leader treasure for [same class]]</p><p>[human retainer]</p><p>[human friends]</p><p>[And two secret societies feuding]</p><p>[temple]</p><p>There is also [town feature]
 
 ;human job
 1, the smith
@@ -6570,7 +6570,7 @@
 1,[1d2+8]
 
 ;human retainer
-1,Their retainer is the **[human class]** *[human]* (level [1d2+6 as level]). [spellbook for [same class]] [leader treasure]
+1,Their retainer is the **[human class]** *[human]* (level [1d2+6 as level]). [spellbook for [same class]] [leader treasure for [same class]]
 
 ;name for 1d2+6
 1,[1d2+6]
@@ -6584,7 +6584,7 @@
 
 ;human friends
 1,Their [aide], the **[human class]** *[human]* (level [1d4+1 as level]), also lives here. [spellbook for [same class]] [leader treasure for [same class]]
-1,They are served by two [aide]s. One is the **[human class]** *[human]* (level [5 as level]). [spellbook for [same class]] [leader treasure] The other is the **[human class]** *[human]* (level [1d4+1 as level]). [spellbook for [same class]] [leader treasure for [same class]]
+1,They are served by two [aide]s. One is the **[human class]** *[human]* (level [5 as level]). [spellbook for [same class]] [leader treasure for [same class]] The other is the **[human class]** *[human]* (level [1d4+1 as level]). [spellbook for [same class]] [leader treasure for [same class]]
 
 ;name for 1d4+2
 1,[1d4+2]
@@ -11065,7 +11065,7 @@
 1,A *ring of the bully* which allows you to shove anybody and anything within 60ft, and if this puts your victim in harm’s way then they must save vs. death or suffer the consequence.
 1,A *helmet of the bull*, grants an extra attack when charging into a fight on a hit, an opponent no larger than yourself is thrown to the ground such that your allies get a +4 to attack them.
 1,The *helmet of the dark lord* with smoke and red light dripping out of its visor grants the ability to tell when others within 10ft are lying.
-1,The *gloves of the dark lord* allows you to lift anybody no larger than yourself and strangle them: they must save vs. spells or held and suffer 1d6 damage.
+1,The *gloves of the dark lord* allows you to lift anybody no larger than yourself and strangle them: they must save vs. spells or be held and suffer 1d6 damage.
 1,The *headband of karma* allows you to borrow luck from your future self: when rolling a d20, roll 2d20 and take the higher result, but before doing it again you need to pay your debt in a similar situation and roll 2d20 and take the lower result.
 1,The *necklace of dharma* allows you to borrow actions from your future self: act twice this round to do what needs to be done but skip the next round.
 1,The *amulet of the luck stealer* allows you to borrow luck from a willing person near you: when rolling a d20, roll 2d20 and take the higher result, but the next time they need to roll a d20 in a similar situation, they roll 2d20 and take the lower result.

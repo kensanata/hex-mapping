@@ -1019,6 +1019,7 @@ sub pick {
       last;
     }
   }
+  # $log->debug("$word → $text ") if $text;
   return $text;
 }
 
