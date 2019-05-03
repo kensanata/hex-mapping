@@ -199,7 +199,7 @@
 5,[1d5+1] **warlocks** ([warlock stats]) and their **giant scorpion** mounts ([giant scorpion stats])
 
 ;warlock stats
-1,HD 5 → 5d4 AC 4/2 1d6 M5 MV 12 ML 9 XP 500; *magic missile* (3×1d6+1); *shield* (reduces AC 9 to AC 4 in melee and AC 2 in ranged combat); *phantasmal force* (one or two of them use these illusions to split the party); *mirror image* (1d4 images to protect the caster); *lightning bolt* (5d6 damage, save vs. spells for half)
+1,HD 5 → 5d4 AC 4/2 1d6 M5 MV 12 ML 9 XP 500; *magic missile* (3×1d6+1); *shield* (reduces AC 9 to AC 4 in melee and AC 2 in ranged combat); *phantasmal force* (use illusions to split the party); *mirror image* (1d4 images to protect the caster); *lightning bolt* (5d6 damage, save vs. spells for half)
 
 ;giant scorpions
 1,a **giant scorpion**
@@ -1103,8 +1103,7 @@
 1,Trees
 
 ;forge ruin
-1,The ruin is abandoned and dead. If you explore the ruins, you will soon find the **balor** demon who caused its downfall ([balor stats]). It guards a portal to the realm of eternal fire, to Muspelheim. The orcs of the [evil tribe] serve it. [orcs]
-1,The ruin is abandoned and dead. If you explore the ruins, you will soon find the **balor** demon who caused its downfall ([balor stats]). It guards a portal to the realm of eternal fire, to Muspelheim. [balor servants]
+1,The ruin is abandoned and dead. If you explore the ruins, you will soon find the **balor** *[demon name]* who caused its downfall ([balor stats]). It guards a portal to the realm of eternal fire, to Muspelheim. [balor servants]
 1,The ruin has been settled by the [evil tribe]. [orcs]
 1,The ruin is full of broken machinery. In its depths, however, a **bronze golem** still wanders the halls ([bronze golem stats]).
 1,The ruin is now home to the **white dragon** [white dragon name] ([white dragon stats]). [dragon treasure]
@@ -6403,7 +6402,7 @@
 1,The temple is a four storied windowless square tower. Inside a set of ladders leads to the roof. There’s a lift with which to raise corpses to the roof. The roof itself is covered in broken bones. This is where the sky burial takes place. Meat boys and bone girls cut up the corpses and offer the remains of the dead to the vultures of Pazuzu.
 1,The temple stands right next to hanging tree. There must be at least a hundred crows, here. They say Pazuzu sees everything the crows see and thus the local priests are feared and everything that’s secret has to happen in the dark of night.
 1,The temple stands on a rock needle about 100ft high with a rickety sequence of ladders leading up there. The four winged statue of the crow demon Pazuzu is hard to see in all the smoke produced by smoldering fires in iron pots hanging in all four corners of the temple. The temple is looked after by [1d6 tengus].
-1,The temple stands on a large rock about 20ft above the ground. Petitioners have to climb a rope hanging down over the edge. The temple also houses the **vulture demon** *[pazuzu demon name]* ([vulture demon stats])
+1,The temple stands on a large rock about 20ft above the ground. Petitioners have to climb a rope hanging down over the edge. The temple also houses the **vulture demon** *[demon name]* ([vulture demon stats])
 1,The temple is a a roofed platform made of wood built on top of a large rock about 20ft high. The platform has been blasted by fire many times. Many skulls are hanging from the roof. There is a statue of the four winged god in each corner. Beneath it are the old runes spelling out the name Pazuzu. Whosoever utters his name three times will summon him. Pazuzu will be friendly and grant a wish, and take your soul (never to be resurrected again). To insult him will unleash an unholy blight dealing 20d6 damage to anybody within 10ft of the blasphemer; save vs. death for half damage.
 
 ;1d6 tengus
@@ -6434,7 +6433,7 @@
 ;tengu stats
 1,HD 5+1 AC 6 1d8 F10 MV 15 ML 8; flying
 
-;pazuzu demon name
+;demon name
 1,The [special noun] of [pazuzu place]
 
 ;pazuzu place
@@ -8686,7 +8685,7 @@
 1,In the presence of an amulet of passage bearing the [name for a clan of the netherworld elves] sigil, the door glides opens and reveals stairs leading down to the underground [lair of the netherworld elves]
 
 ;lair of the netherworld elves
-1,**[building of the netherworld elves] of [elf]**.</p><p>[gate of the netherworld elves]</p><p>[companions of the netherworld elves]</p><p>[5d12] **elves** live here, led by [elf leader] (level [1d6+4 as level]). [spellbook for elves] [leader treasure]
+1,*[building of the netherworld elves] of [elf]*.</p><p>[gate of the netherworld elves]</p><p>[companions of the netherworld elves]</p><p>[5d12] **elves** live here, led by [elf leader] (level [1d6+4 as level]). [spellbook for elves] [leader treasure]
 
 ;building of the netherworld elves
 1,Bastion
@@ -8729,7 +8728,7 @@
 1,a **gorgon** ([gorgon stats]) [terror treasure]
 
 ;guardian of Pazuzu
-1,a **vulture demon** *[pazuzu demon name]*: [vulture demon stats]
+1,a **vulture demon** *[demon name]*: [vulture demon stats]
 
 ;dwarf forge taken over by netherworld elves
 1,The merchant alley has been taken over by the elves. The old lights have been dimmed. The buildings are painted black, ornamented with thorny plants of stone and iron.
@@ -11084,7 +11083,7 @@
 1,Taker of Heads
 
 ;summoned vulture demon
-1,*[pazuzu demon name]*, from Sandstein, Pazuzu’s tower in Vanaheim
+1,*[demon name]*, from Sandstein, Pazuzu’s tower in Vanaheim
 
 ;vulture demon stats
 1,HD 8+1 AC 5 1d4/1d4/1d6/1d6/1d8 F16 MV 18 ML 11; flying; only harmed by magic or magic weapons
@@ -11224,7 +11223,7 @@
 2,*horn of the barbarians* (summons 3d6 random, battle crazy barbarians: HD 2 AC 7 1d8 F2 MV 12 ML 12; when they are all killed in the same fight they are released from their bond to the horn)
 1,*horn of [wight realm]* (summons [1d8 wights]: [wight stats]; when killed, they are released from their bond to the horn)
 1,*horn of the tengus* (summons [1d6 tengus]: [tengu stats]; when killed, they are released from their bond to the horn)
-1,*horn of [pazuzu demon name]* (summons a vulture demon from Vanaheim: [vulture demon stats]; when killed, they are released from their bond to the horn)
+1,*horn of [demon name]* (summons a vulture demon from Vanaheim: [vulture demon stats]; when killed, they are released from their bond to the horn)
 
 ;elemental prison
 1,[elemental prison object] containing the elemental prison of [name for an elemental lord] called *[[name for an elemental lord] name]* ([stats for [name for an elemental lord]]).
