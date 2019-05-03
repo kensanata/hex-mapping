@@ -196,7 +196,7 @@
 5,[1d5+1] **warlocks** ([warlock stats]) and their **giant scorpion** mounts ([giant scorpion stats])
 
 ;warlock stats
-1,HD 4 → 5d4 AC 4/2 1d6 M5 MV 12 ML 9 XP 500; *magic missile* (3×1d6+1); *shield* (reduces AC 9 to AC 4 in melee and AC 2 in ranged combat); *phantasmal force* (one or two of them use these illusions to split the party); *mirror image* (1d4 images to protect the caster); *lightning bolt* (5d6 damage, save vs. spells for half)
+1,HD 5 → 5d4 AC 4/2 1d6 M5 MV 12 ML 9 XP 500; *magic missile* (3×1d6+1); *shield* (reduces AC 9 to AC 4 in melee and AC 2 in ranged combat); *phantasmal force* (one or two of them use these illusions to split the party); *mirror image* (1d4 images to protect the caster); *lightning bolt* (5d6 damage, save vs. spells for half)
 
 ;giant scorpions
 1,a **giant scorpion**
@@ -10999,7 +10999,7 @@
 1,*[pazuzu demon name]*, from Sandstein, Pazuzu’s tower in Vanaheim
 
 ;vulture demon stats
-1,HD 8+1 AC 5 1d4/1d4/1d6/1d6/1d8 F16 MV 18 ML 11; flying; only harmed by magic or magic weapons
+1,HD 8+1 AC 5 1d4/1d4/1d6/1d6/1d8 F16 MV 18 ML 11; flying; only harmed by magic or magic weapons
 
 ;summoned naga
 1,*[naga]*, from Eiterhorg, Set’s hall in Svartalfheim
