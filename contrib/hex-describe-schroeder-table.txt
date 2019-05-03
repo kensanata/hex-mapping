@@ -7115,6 +7115,60 @@
 1,*hidden lands*
 1,*summon kraken*
 
+;ufala
+1,*The Book of Ursomancy* by Ufala One Eye
+
+;ufala 1
+2,*bear strength*
+1,*long sleep*
+2,*shadows*
+
+;ufala 2
+1,*bear shape*
+1,*permanent starlight*
+1,*shadow step*
+
+;ufala 3
+1,*breath of cold*
+1,*javelins of lightning*
+1,*laser eyes*
+
+;ufala 4
+1,*summon ursine soldier*
+1,*shadow passage*
+1,*spell warp*
+
+;ufala 5
+1,*flying bears*
+1,*ice gate*
+
+;xoralfona
+1,*The Book of Songs* by Xoralfona the wordsmith
+
+;xoralfona 1
+2,*calm*
+1,*empathy*
+1,*lies*
+
+;xoralfona 2
+1,*entrapment
+1,*mind blast*
+1,*speak*
+
+;xoralfona 3
+1,*exhaustion*
+1,*speak*
+1,*speed*
+
+;xoralfona 4
+1,*commune*
+1,*misdirection*
+1,*vanishing*
+
+;xoralfona 5
+1,*unbound*
+1,*world walk*
+
 ;ysabala
 1,*The Book of Pyromancy* by Ysabala Devilsdaughter
 
@@ -7170,33 +7224,6 @@
 1,*earthblood mastery*
 1,*stone growth*
 
-;xoralfona
-1,*The Book of Songs* by Xoralfona the wordsmith
-
-;xoralfona 1
-2,*calm*
-1,*empathy*
-1,*lies*
-
-;xoralfona 2
-1,*entrapment
-1,*mind blast*
-1,*speak*
-
-;xoralfona 3
-1,*exhaustion*
-1,*speak*
-1,*speed*
-
-;xoralfona 4
-1,*commune*
-1,*misdirection*
-1,*vanishing*
-
-;xoralfona 5
-1,*unbound*
-1,*world walk*
-
 ;spellbook
 1,agrimach
 1,asphyx
@@ -7207,6 +7234,7 @@
 1,jezembal
 1,moroson
 1,narga
+1,ufala
 1,wogan
 1,xoralfona
 1,ysabala
