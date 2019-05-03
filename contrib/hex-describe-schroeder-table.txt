@@ -7142,6 +7142,61 @@
 1,*fire proofing*
 1,*rain of fire*
 
+;zorkan
+1,*The Book of Geomancy* by Zorkan of Mount Whiterock
+
+;zorkan 1
+3,*flying stones*
+1,*magic message*
+2,*stone fist*
+
+;zorkan 2
+1,*speak with stones*
+1,*throw a rock*
+1,*golem craft*
+1,*raise stone*
+
+;zorkan 3
+1,*rock swim*
+1,*rock throwing*
+1,*stone skin*
+
+;zorkan 4
+1,*earth ship*
+1,*split the ground*
+1,*bury the living*
+
+;zorkan 5
+1,*earthblood mastery*
+1,*stone growth*
+
+;xoralfona
+1,*The Book of Songs* by Xoralfona the wordsmith
+
+;xoralfona 1
+2,*calm*
+1,*empathy*
+1,*lies*
+
+;xoralfona 2
+1,*entrapment
+1,*mind blast*
+1,*speak*
+
+;xoralfona 3
+1,*exhaustion*
+1,*speak*
+1,*speed*
+
+;xoralfona 4
+1,*commune*
+1,*misdirection*
+1,*vanishing*
+
+;xoralfona 5
+1,*unbound*
+1,*world walk*
+
 ;spellbook
 1,agrimach
 1,asphyx
@@ -7153,7 +7208,9 @@
 1,moroson
 1,narga
 1,wogan
+1,xoralfona
 1,ysabala
+1,zorkan
 3,[elf spellbook]
 
 ;elf spellbook
