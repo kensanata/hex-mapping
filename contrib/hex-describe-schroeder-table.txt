@@ -6201,6 +6201,7 @@
 ;name for village building
 1,tower
 1,keep
+1,manor house
 
 ;small tower
 1,The tower is four stories high and has an entrance on the second level. A ladder leads up to it. Twenty large stones are stored on the roof. This should be enough to deter a peasant uprising.
@@ -6209,6 +6210,10 @@
 ;small keep
 1,The keep consists of a square tower three stories high, a stable, a kennel, and a little courtyard enclosed by a strong wall. Inside the wall is a wooden walkway that allows guards to look over the wall and shoot anybody approaching.
 1,The keep consists of a gatehouse protecting the small courtyard and a square tower four stories high.
+
+;small manor house
+1,The manor house is a large, two story building made of stone, with no windows on the ground floor and small, arrow slit like windows above, and terrace up on the roof from which the surrounding land can be surveyed.
+1,The manor house is a large building connected to a walled courtyard with stables, barns and everything a rich land lord needs.
 
 ;small temple dedicated to Set
 1,[small temple]
