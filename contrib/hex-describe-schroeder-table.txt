@@ -5062,7 +5062,11 @@
 
 ;myconids
 1,[3d6] **myconids** ([myconid stats]). [poor treasure]
-1,[3d6] **myconids** watching their mushroom circle ([myconid stats]). [poor treasure] On nights of the full moon, or on a 1 in 6, the portal to the fey realms opens. If so, [2d12] **elves** led by [elf leader] (level [1d6+1 as level]) will be visiting from [fey realm]. [spellbook for elves] [leader treasure]
+1,[3d6] **myconids** watching their mushroom circle ([myconid stats]). [poor treasure] On nights of the full moon, or on a 1 in 6, the portal to [fey realm] opens. If so, [2d12] **elves** led by [elf leader] (level [1d6+1 as level]) will be visiting from [fey realm]. [spellbook for elves] [leader treasure]
+
+;fey realm
+,Alfheim
+,Svartalfheim
 
 ;myconid stats
 1,HD 3 AC 8 – F3 MV 6 ML 7 XP 300; *read mind*, *dominate*, *knockout*, *gravity control* (3d8): save vs. spells to avoid; *silent message*
