@@ -143,7 +143,10 @@
 1,The [name for hills] are bare and the narrow creeks between them have dug deep channels. One of these channels is home to [some canyon wights] ([wight stats]). During they day they lie in the flooded cellar of a ruined toll tower guarding a ford. [dead treasure]
 1,Deep ravines cut through the [name for hills]. A cave in one of those dry riverbeds is home to [giant scorpions] ([giant scorpion stats]).
 1,On one of the [name for hills] stands an old tower overlooking the lands below. This is the home of a **manticore** called *[manticore]*. [robber treasure]
-1,On one of the [name for hills] stands a ruined fortress currently occupied by [warlocks]. [average treasure] The fortress and its surrounding land is ruled by the **medusa** *[medusa]* ([medusa stats]). The courtyard and rooms are full of her petrified victims and the bones of the dead. [luxurious context] [terror treasure]
+1,On one of the [name for hills] stands [a warlock fortress]
+
+;a warlock fortress
+1,a ruined fortress currently occupied by [warlocks]. [average treasure]</p><p>The fortress and its surrounding land is ruled by the **medusa** *[medusa]* ([medusa stats]). The courtyard and rooms are full of her petrified victims and the bones of the dead. [luxurious context] [terror treasure]
 
 ;name for hills
 1,[hill 1a] [hill 2a] hills
@@ -815,14 +818,34 @@
 
 ;mountain
 1,The green valley up here has some sheep and a **kid** called *[human kid]* guarding them.
-1,Up here in the mountains lies lake [lake name]. [lake inhabitants]
+1,Up here in the mountains lies lake *[lake name]*. [lake inhabitants]
 1,[mountain valley] [mountain monolith]
 1,[mountain valley] [hill giants]
 1,Steep cliffs make progress practically impossible without climbing gear. [mountain secret]
 1,Somewhere up here between the cliffs there is a secret door. [secret door to the realm of the netherworld elves]
 1,High up on on a ridge is an old elven tower made of green glass, [green tower]
 1,On one of the rock faces you can still see the markings of the old dwarf forge *[here dwarf forge]*. [forge ruin]
-1,On one of a ridge of the [name for hills] stands a ruined fortress currently occupied by [warlocks]. [average treasure]</p><p>The fortress and its surrounding land is ruled by the **medusa** *[medusa]* ([medusa stats]). The courtyard and rooms are full of her petrified victims and the bones of the dead. [luxurious context] [terror treasure]
+1,The *Pass of [old name]* on the way to [name for white big mountains] is guarded by [a warlock fortress]
+1,[mountain orcs]
+
+;mountain orcs
+1,The valley up here is hard to find. This is where the orcs of the [evil tribe] raise [mountain orc animals] and make their [mountain orc product]. [orcs] Their village is [orc fort]
+
+;mountain orc animals
+1,mountain goats
+1,yaks
+
+;mountain orc product
+1,famous cheese
+1,green cheese
+1,spicy yogurt
+1,fermented yogurt
+1,fermented bean-curd
+1,famous iron rations
+1,waterproof woollen coats
+1,decorated silver drinking horns
+1,gruesome puppets made of their bones
+1,famous composite bows
 
 ;mountain valley
 1,The upper valley is rocky and bare.
@@ -1080,10 +1103,33 @@
 1,Trees
 
 ;forge ruin
-1,The ruin is abandoned and dead. If you explore the ruins, you will soon find the **balor** demon who caused its downfall. It guards a portal to the realm of eternal fire, to Muspelheim.
+1,The ruin is abandoned and dead. If you explore the ruins, you will soon find the **balor** demon who caused its downfall ([balor stats]). It guards a portal to the realm of eternal fire, to Muspelheim. The orcs of the [evil tribe] serve it. [orcs]
+1,The ruin is abandoned and dead. If you explore the ruins, you will soon find the **balor** demon who caused its downfall ([balor stats]). It guards a portal to the realm of eternal fire, to Muspelheim. [balor servants]
 1,The ruin has been settled by the [evil tribe]. [orcs]
 1,The ruin is full of broken machinery. In its depths, however, a **bronze golem** still wanders the halls ([bronze golem stats]).
 1,The ruin is now home to the **white dragon** [white dragon name] ([white dragon stats]). [dragon treasure]
+
+;balor stats
+1,HD 9+1 AC 4 1d6/2d6 F9 MV 12 ML 11; flying; *aura of fire* (anybody in melee takes automatic 1d6 fire damage); if the first attack with the flaming whip hits, the second attack with the flaming sword is at +4; only harmed by magic or magic weapons; immune to fire
+
+;balor servants
+1,The chambers around the fire gate are occupied by creates from the other side. [salamanders]
+1,The orcs of the [evil tribe] serve it. [orcs]
+
+;salamanders
+1,2d4 **salamanders** ([salamander stats]) live here, led by *[salamander]*. [terror treasure]
+
+;salamander stats
+1,HD 8 AC 2 1d4/1d4/1d8 F8 MV 12 ML 8 XP 800; *aura of fire* (anybody in melee takes automatic 1d6 fire damage); immune to fire; only harmed by magic or magic weapons; immune to *sleep* and *charm*
+
+;salamander
+1,Hot
+1,Melt
+1,Flow
+1,Lake
+1,Pit
+1,Pain
+1,Ash
 
 ;bronze golem stats
 1,HD 10 AC 0 3d10 MV 12 ML 12 XP 1000; when dealing damage to a bronze golem with a melee weapon, save vs. death or suffer 2d6 damage from molten metal splashes
@@ -3566,7 +3612,7 @@
 1,zog
 
 ;orc fort
-1,surrounded by spiked pit traps. [orc feature]
+1,surrounded by spiked pit traps (2d6). [orc feature]
 1,guarded by a **boar** ([boar stats]). [orc feature]
 4,guarded by [1d4+1] **boars** ([boar stats]). [orc feature]
 
@@ -3635,22 +3681,55 @@
 1,the void
 
 ;abandoned mine
-1,It’s basically a deep hole where a single miner would keep digging for coal.
-1,This used to be a mine for a small family, digging for coal.
+1,[abandoned coal mine]
+1,This must have been a pretty big operation. At least twenty or thirty people must been digging down here at one point.</p><p>The orc avoid the mine because a bunch of gnomes has settled here and extended the crawlspaces with even more tunnels. [gnomes] They resent intruders.
 1,This is a huge shaft leading down into blackness. At the bottom are the ruins of an underground building by the ancients.</p><p>[ruins of the ancients]
+
+;gnomes
+1,5d8 **gnomes** ([gnome stats]) led by *[gnome]* (HD 5) live here, looking for gems. [rich treasure] These caves are protected by [gnome companions]
+
+;gnome stats
+1,HD 1 AC 5 1d6 F1 MV 6 ML 8 XP 100; *speak with animals*, *stone talk* and *earth swim* at will
+
+;gnome companions
+# 1d6-1 badgers
+1,spiked pit traps (2d6)
+1,a **badger** ([weasel stats])
+4,[1d4+1] **badgers** ([weasel stats])
+
+;gnome
+1,[gnome 1] [gnome 2]
+
+;gnome 1
+1,Joy
+1,Happy
+1,Gift
+1,Ruby
+1,Diamond
+1,Sapphire
+1,Opal
+1,Beryl
+1,Pearl
+
+;gnome 2
+1,Ring
+1,Love
+1,Giver
+1,Finder
+
+;abandoned coal mine
+1,It’s basically a deep hole where a single miner would keep digging for coal.
+1,This was a small mine, maybe family operated, with space for three or four people digging for coal.
 1,A twisting passage leads down into a huge cave where they must have dug for gems.
 
 ;ruins of the ancients
-1,The degenerate survivors of the builders are [2d8] **ghouls** serving *[evil power]* ([ghoul stats]). Their rituals have summoned [1d8 shadows] ([shadow stats]). [luxurious context] [dead treasure]
-1,Down here is a palace made of orange metals and green glass inhabited by [1d4 squid people]. At the center is a huge **brain** floating in a glass cylinder. [ancient treasure]
+1,The degenerate survivors of the builders are [2d8] **ghouls** serving *[evil power]* ([ghoul stats]). Their rituals have summoned [1d8 shadows]. [luxurious context] [dead treasure]
+1,Down here is a palace made of orange metals and green glass inhabited by [1d4 squid people]. At the center of this palace is a huge **brain** floating in a glass cylinder ([brain stats]). [ancient treasure]
 1,All is deadly quiet but the dancing shadows on the walls are real. The light summons [1d8 shadows]. [terror treasure]
 
-;shadow stats
-1,HD 2 AC 7 1d4 + 1 *strenth* F2 MV 15 ML 8 XP 200; *surprise* on 1–5 in 6; only harmed by magic or magic weapons; immune to *sleep* and *charm*
-
 ;1d4 squid people
-1,the **squid person** [squid leader]
-3,[1d3+1] **squid people** led by [squid leader]
+1,the **squid person** [squid leader] ([squid person stats])
+3,[1d3+1] **squid people** led by [squid leader] ([squid person stats])
 
 ;squid leader
 1,*[squid]*<img src="[[redirect https://campaignwiki.org/face/redirect/alex/squid]]" alt="[same squid]" title="[same squid]"/>
@@ -3852,9 +3931,18 @@
 1,Zubenelhakrabi
 1,Zubeneshamali
 
+;squid person stats
+1,HD 5 AC 9 1d4 + *brains* MU5 MV 9 ML 9 XP 500; on their first hit, they simply deal their damage as they grapple with their arms and facial tentacles; on every subsequent hit, victims must save vs. death or have their brains destroyed by tentacles forcing their way through nostrils and eye sockets; *mind blast* (30ft cone, save vs. spells or be stunned for 1d4 rounds), *mind domination* (save vs. spells or submit to their telepathic commands), *mind reading* (save vs. spells or reveal all your intentions) at will
+
+;brain stats
+1,HD 11 AC 9 MU11 MV 0 ML 12 XP 1100;  *mind blast*, *mind domination*, *mind reading*, *aura of fear* (60ft, save vs. spells or cower in fear) at will
+
 ;1d8 shadows
-1,a **shadow**
-7,[1d7+1] **shadows**
+1,a **shadow** ([shadow stats])
+7,[1d7+1] **shadows** ([shadow stats])
+
+;shadow stats
+1,HD 2 AC 7 1d4 + 1 *strenth* F2 MV 15 ML 8 XP 200; *surprise* on 1–5 in 6; only harmed by magic or magic weapons; immune to *sleep* and *charm*
 
 ;ogre hill
 1,One hill is inhabited by [1d6 ogres] ([ogre stats]). [ogre lair] [robber treasure]
