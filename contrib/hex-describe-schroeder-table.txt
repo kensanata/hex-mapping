@@ -5177,19 +5177,23 @@
 1,[female elf]
 
 ;male elf
-1,[normalize-sindarin [sindarin prefix] [sindarin word]]
-1,[normalize-sindarin [sindarin word] [sindarin word] [sindarin male suffix]]
-1,[normalize-sindarin [sindarin prefix] [sindarin word] [sindarin male suffix]]
-3,[normalize-sindarin [sindarin word] [sindarin male suffix]]
+1,[normalize-elvish [elvish prefix] [elvish word]]
+1,[normalize-elvish [elvish prefix] [elvish male suffix]]
+# prefer short names
+# 1,[normalize-elvish [elvish word] [elvish word] [elvish male suffix]]
+# 1,[normalize-elvish [elvish prefix] [elvish word] [elvish male suffix]]
+3,[normalize-elvish [elvish word] [elvish male suffix]]
 
 ;female elf
-1,[normalize-sindarin [sindarin prefix] [sindarin word]]
-1,[normalize-sindarin [sindarin word] [sindarin word] [sindarin female suffix]]
-1,[normalize-sindarin [sindarin prefix] [sindarin word] [sindarin female suffix]]
-3,[normalize-sindarin [sindarin word] [sindarin female suffix]]
+1,[normalize-elvish [elvish prefix] [elvish word]]
+1,[normalize-elvish [elvish prefix] [elvish female suffix]]
+# prefer short names
+# 1,[normalize-elvish [elvish word] [elvish word] [elvish female suffix]]
+# 1,[normalize-elvish [elvish prefix] [elvish word] [elvish female suffix]]
+3,[normalize-elvish [elvish word] [elvish female suffix]]
 
 # https://realelvish.net/names/sindarin/woodelf/all/
-;sindarin prefix
+;elvish prefix
 1,achar
 1,adertha
 1,adleg
@@ -5330,7 +5334,7 @@
 1,trevad
 1,tuia
 
-;sindarin word
+;elvish word
 1,abonthen
 1,achad
 1,adan
@@ -5900,15 +5904,15 @@
 1,urug
 1,urui
 
-;sindarin neutral suffix
+;elvish neutral suffix
 1,ben
 1,dil
 1,ndil
 1,or
 1,wi
 
-;sindarin female suffix
-5,[sindarin neutral suffix]
+;elvish female suffix
+3,[elvish neutral suffix]
 1,iel
 1,iell
 1,ien
@@ -5917,15 +5921,8 @@
 1,el
 1,wen
 
-# Not accounted for: "The suffix -dir can change to -nir. From
-# attested names, we know it does this after U and G, in Curunir (Curu
-# + -dir) and Dagnir (Dag + -dir). We also know that following D, L, N
-# and R it remains -dir, in Brandir (Brand + -dir), Hatholdir (Hathol
-# + -dir), Thorondir (Thoron + -dir) and Herdir (Hîr + -dir)."
-# http://sindarinlessons.weebly.com/38---how-to-make-names-2.html
-
-;sindarin male suffix
-5,[sindarin neutral suffix]
+;elvish male suffix
+2,[elvish neutral suffix]
 1,dir
 1,ion
 1,on

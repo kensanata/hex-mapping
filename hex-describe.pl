@@ -904,7 +904,7 @@ sub parse_table {
 	next if $subtable =~ /$dice_re/;
 	next if $subtable =~ /^redirect https?:/;
 	next if $subtable =~ /^names for (.*)/ and $data->{"name for $1"};
-	next if $subtable =~ /^(?:capitalize|normalize-sindarin) (.*)/ and $data->{$1};
+	next if $subtable =~ /^(?:capitalize|normalize-elvish) (.*)/ and $data->{$1};
 	next if $subtable =~ /^adjacent hex$/; # experimental
 	next if $subtable =~ /^same (.*)/ and ($data->{$1} or $aliases{$1} or $1 eq 'adjacent hex');
 	next if $subtable =~ /^(?:here|nearby|other) (.*)/ and $data->{$1};
@@ -1181,9 +1181,9 @@ sub describe {
       next unless $text;
       $locals{$key} = $text;
       push(@descriptions, ucfirst $text);
-    } elsif ($word =~ /^normalize-sindarin (.+)/) {
+    } elsif ($word =~ /^normalize-elvish (.+)/) {
       my $key = $1;
-      my $text = normalize_sindarin($key);
+      my $text = normalize_elvish($key);
       next unless $text;
       $locals{$key} = $text;
       push(@descriptions, $text);
@@ -1198,94 +1198,40 @@ sub describe {
   return join(' ', @descriptions);
 }
 
-=item normalize_sindarin
+=item normalize_elvish
 
-As a special case, we can also do some post-processing of words according to
-some Sindarin rules.
-
-Based on:
+We do some post-processing of words, inspired by these two web pages, but using
+our own replacements.
 http://sindarinlessons.weebly.com/37---how-to-make-names-1.html
 http://sindarinlessons.weebly.com/38---how-to-make-names-2.html
 
 =cut
 
-sub normalize_sindarin {
+sub normalize_elvish {
   my $original = shift;
-  my @words = split(' ', $original);
-  for my $i (0 .. $#words - 1) {
-    # change second word
-    $words[$i] =~ /r$/ and $words[$i+1] =~ s/^b/v/
-	or $words[$i+1] =~ s/^ch/h/
-	or $words[$i+1] =~ s/^c/g/
-	or $words[$i] =~ /[aeiou]l?$/ and $words[$i+1] =~ s/^d/dh/
-	or $words[$i+1] =~ s/^g//
-	or $words[$i] =~ /[aeiour]$/ and $words[$i+1] =~ s/^h/ch/
-	or $words[$i+1] =~ s/^lh/l/
-	or $words[$i] =~ /(lw|l)$/ and $words[$i+1] =~ s/^m/w/
-	or $words[$i+1] =~ s/^m/v/
-	or $words[$i] =~ /[aeiou]$/ and $words[$i+1] =~ s/^nd/nn/
-	or $words[$i+1] =~ s/^p/b/
-	or $words[$i+1] =~ s/^rh/r/
-	or $words[$i] =~ /l$/ and $words[$i+1] =~ s/^r/l/
-	or $words[$i+1] =~ s/^s/h/
-	or $words[$i+1] =~ s/^t/d/
-	or $words[$i+1] =~ s/^m?b(?!r)/m/
-	or $words[$i+1] =~ s/^n?d/n/;
+  my $name = $original;
 
-    # change first word
-    $words[$i+1] =~ /^[sh]/ and $words[$i] =~ s/b$/ph/
-	or $words[$i] =~ s/ch$/h/
-	or $words[$i+1] =~ /^h/ and $words[$i] =~ s/dh$/th/
-	or $words[$i+1] =~ /^[sh]/ and $words[$i] =~ s/d$/th/
-	or $words[$i+1] =~ /^([cg]|gl)/ and $words[$i] =~ s/dh$/d/
-	or $words[$i] =~ s/dh([mn]|th)$/$1/
-	or $words[$i+1] =~ /^[sh]/ and $words[$i] =~ s/g$/ch/
-	or $words[$i+1] =~ /^[^aeiou]/ and $words[$i] =~ s/ll$/l/
-	or $words[$i+1] =~ /^[aeioul]/ and $words[$i] =~ s/lt$/ll/
-	or $words[$i+1] =~ /^b/ and $words[$i] =~ s/lt$/l/
-	or $words[$i+1] =~ /^[bdltr]/ and $words[$i] =~ s/mp$/m/
-	or $words[$i+1] =~ /^r/ and $words[$i] ne 'aran' and $words[$i] =~ s/n$/dh/
-	or $words[$i+1] =~ /^l/ and $words[$i] =~ s/n$/l/
-	or $words[$i+1] =~ /^[bp]/ and $words[$i] =~ s/n$/m/
-	or $words[$i+1] =~ /^[bpm]/ and $words[$i] =~ s/nd$/m/
-	or $words[$i+1] =~ /^[^aeiou]/ and $words[$i] =~ s/nd$/n/
-	or $words[$i] =~ s/ol$/la/
-	or $words[$i+1] =~ /^[aeiou]/ and $words[$i] =~ s/s$/ss/
-	or $words[$i+1] =~ /^[lr]/ and $words[$i] =~ s/s$/th/
-	or $words[$i+1] =~ /^[cgf]/ and $words[$i] =~ s/st$/s/
-	or $words[$i+1] =~ /^[lr]/ and $words[$i] =~ s/st$/th/;
+  $name =~ s/(.) \1/$1/g;
+  $name =~ s/d t/d/g;
+  $name =~ s/a ui/au/g;
+  $name =~ s/nd m/dhm/g;
+  $name =~ s/n?d w/dhw/g;
+  $name =~ s/^nd/d/;
+  $name =~ s/^ng/g/;
+  $name =~ s/th n?d/d/g;
 
-    $words[$i+1] =~ s/aw$/of/
-	or $words[$i+1] =~ s/l[lt]$/l/
-	or $words[$i+1] =~ s/n[dw]$/n/
-	or $words[$i+1] =~ s/mp$/m/
-	or $words[$i+1] =~ s/rn$/r/
-	or $words[$i+1] =~ s/st$/s/;
+  $name =~ s/ //g;
 
-    $words[$i+1] =~ s/au/o/;
-    $words[$i] =~ s/au/a/ if $words[$i+1] =~ /a/;
-    $words[$i] =~ s/au/o/;
+  $name =~ tr/âêîôûŷ/aeioúi/;
+  $name =~ s/ll$/l/;
+  $name =~ s/ben$/wen/g;
+  $name =~ s/bwi$/wi/;
+  $name =~ s/[^aeiouúi]ndil$/dil/g;
 
-    $words[$i+1] =~ s/^e/ë/ if $words[$i] =~ /a$/;
-  }
+  $name = ucfirst($name);
 
-  my $word = join('', @words);
-  $word =~ tr/âêîôûŷ/aeioúi/;
-
-  $word =~ s/aa/a/g;
-  $word =~ s/ii/i/g;
-  $word =~ s/ww/w/g;
-  $word =~ s/dd/d/g;
-  $word =~ s/nng/ng/g;
-
-  $word =~ s/sswi$/wi/;
-  $word =~ s/([ug])dir$/$1nir/;
-  $word =~ s/([^aeiou])nnil$/$1nil/;
-
-  $word = ucfirst($word);
-
-  $log->debug("Sindarin normalize: $original → $word");
-  return $word;
+  $log->debug("Elvish normalize: $original → $name");
+  return $name;
 }
 
 =item process
@@ -3077,22 +3023,40 @@ three different results. Clearly, this can't work.
 <p>
 Normally, case is unaffected. When you generate names by smashing words
 together, and you can't always say which table comes first, then you need
-capitalization. In the following example, <em>sindarin word</em> can be either
+capitalization. In the following example, <em>elvish word</em> can be either
 in the middle of a name or at the beginning, so its capitalization varies.
 </p>
 
 %= example begin
 ;elf
-1,[capitalize sindarin prefix][sindarin word][sindarin suffix]
-1,[capitalize sindarin word][sindarin suffix]
+1,[capitalize elvish prefix][elvish word][elvish suffix]
+1,[capitalize elvish word][elvish suffix]
 
-;sindarin prefix
+;elvish prefix
 1,al
 
-;sindarin word
+;elvish word
 1,thaur
 
-;sindarin suffix
+;elvish suffix
+1,ion
+% end
+
+Actually, there's a special function to normalize elvish... That's how much of a
+nerd I am.
+
+%= example begin
+;elf
+1,[normalize-elvish elvish prefix][elvish word][elvish suffix]
+1,[normalize-elvish elvish word][elvish suffix]
+
+;elvish prefix
+1,al
+
+;elvish word
+1,thaur
+
+;elvish suffix
 1,ion
 % end
 
