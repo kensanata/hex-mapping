@@ -4700,9 +4700,45 @@
 1,A ruined tower standing on a small island in this part of the [forest name] swamp is home to the **ettin** called *[ettin]*. [robber treasure] [ettin tower protection]
 1,In the old days, the stagnant pools of the [forest name] swamp was used to drown evil necromancers. [bog wights]
 1,On one of the islands of this [forest name] swamp there is a huge mud mound. [goblins]
+1,The [forest name] has turned into a black swamp and the smell of sulphur hangs in the air. A **black dragon** named [black dragon name] [black dragon activity] ([black dragon stats]). [dragon treasure] If you enter the water, you'll soon attract the attention of [1d6 crocodiles].
+1,The [forest name] has turned into a water logged swamp. You need a boat and a guide to navigate these waterways. If you travel on foot, you'll soon attract the attention of [1d6 crocodiles].
 
 ;swamp2
 1,[swamp]
+
+;black dragon activity
+1,has built its lair on huge pile of rotting plant material forming a steaming island in the warm water
+1,is hunting these waters, hiding in the water like a crocodile but vicious and greedy like only dragons are
+1,hunts the region, surveying the waterways from above and happy attack boats from the air
+
+;black dragon name
+1,*[black dragon 1] [black dragon 2] [black dragon 3]*
+
+;black dragon 1
+1,Acid
+1,Sulphuric
+1,Corroding
+1,Black
+1,Silent
+1,Great
+
+;black dragon 2
+1,Breath
+1,Hate
+1,Greed
+1,Snake
+1,Killer
+1,Dissolution
+
+;black dragon 3
+1,of the Swamp
+1,of Rot
+1,of Decay
+1,of the Backwaters
+1,of the Waters
+
+;black dragon stats
+1,HD 7 AC 2 1d6/1d6/2d10 F7 MV 24 ML 8 XP 700; *acid* (as much as the dragon has hp left, save vs. dragon breath for half)
 
 ;ettin tower protection
 1,The ettins have rammed long spikes into the water in order to deter any approach.
