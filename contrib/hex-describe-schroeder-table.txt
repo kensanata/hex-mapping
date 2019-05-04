@@ -6764,35 +6764,8 @@
 # no spells, obviously
 1,
 
-;gerdana
-1,*The Book of the Sea* by Lady Gerdana of Lagnabadalë
-
-;gerdana 1
-2,*charm person*
-2,*sleep*
-1,*lunar runes*
-
-;gerdana 2
-1,*true words*
-1,*eternal starlight*
-1,*glamour*
-
-;gerdana 3
-1,*lightning bolt*
-1,*water breathing*
-1,*wind barrier*
-
-;gerdana 4
-1,*decay*
-1,*flash flood*
-1,*shape change*
-
-;gerdana 5
-1,*lunar sailing*
-1,*summon living storm*
-
 ;agrimach
-1,*The Book of the Dead* by Agrimach the necromancer
+1,*The Book of the Dead* by <a href="https://alexschroeder.ch/pdfs/spellcasters/Agrimach.pdf">Agrimach</a> the necromancer
 
 ;agrimach 1
 2,*aura of fear*
@@ -6819,7 +6792,7 @@
 1,*cloud kill*
 
 ;asphyx
-1,*The Book of the Mountain Witch* by Asphyx the aeromancer
+1,*The Book of the Mountain Witch* by <a href="https://alexschroeder.ch/pdfs/spellcasters/Asphyx.pdf">Asphyx</a> the aeromancer
 
 ;asphyx 1
 1,*eagle eyes*
@@ -6846,7 +6819,7 @@
 1,*creation*
 
 ;beryl
-1,*The Book of Darkness* by Beryl the sorceress
+1,*The Book of Darkness* by <a href="https://alexschroeder.ch/pdfs/spellcasters/Beryl.pdf">Beryl</a> the sorceress
 
 ;beryl 1
 2,*darkness*
@@ -6873,7 +6846,7 @@
 1,*transposition*
 
 ;chana
-1,*The Book of the Water Dragon* by Chana the aquamancer
+1,*The Book of the Water Dragon* by <a href="https://alexschroeder.ch/pdfs/spellcasters/Chana.pdf">Chana</a> the aquamancer
 
 ;chana 1
 2,*charm person*
@@ -6900,7 +6873,7 @@
 1,*summon living storm*
 
 ;darsim
-1,*The Book of the Fist* by Darsim the muscle mage
+1,*The Book of the Fist* by <a href="https://alexschroeder.ch/pdfs/spellcasters/Darsim.pdf">Darsim</a> the muscle mage
 
 ;darsim 1
 2,*fist of air*
@@ -6927,7 +6900,7 @@
 1,*mastery of the nine realms*
 
 ;elam
-1,*The Book of Liminurgy* by Elam the recluse
+1,*The Book of Liminurgy* by <a href="https://alexschroeder.ch/pdfs/spellcasters/Elam.pdf">Elam</a> the recluse
 
 ;elam 1
 1,*lock*
@@ -6954,7 +6927,7 @@
 1,*realm*
 
 ;fiala
-1,*The Book of Dragons* by Fiala the hunter
+1,*The Book of Dragons* by <a href="https://alexschroeder.ch/pdfs/spellcasters/Fiala.pdf">Fiala</a> the hunter
 
 ;fiala 1
 1,*light foot*
@@ -6980,8 +6953,35 @@
 1,*moon blade*
 1,*moon barrier*
 
+;gerdana
+1,*The Book of the Sea* by Lady <a href="https://alexschroeder.ch/pdfs/spellcasters/Gerdana.pdf">Gerdana</a> of Lagnabadalë
+
+;gerdana 1
+2,*charm person*
+2,*sleep*
+1,*lunar runes*
+
+;gerdana 2
+1,*true words*
+1,*eternal starlight*
+1,*glamour*
+
+;gerdana 3
+1,*lightning bolt*
+1,*water breathing*
+1,*wind barrier*
+
+;gerdana 4
+1,*decay*
+1,*flash flood*
+1,*shape change*
+
+;gerdana 5
+1,*lunar sailing*
+1,*summon living storm*
+
 ;hadrael
-1,*The Book of Odin* by Hadrael the dragon-slayer
+1,*The Book of Odin* by <a href="https://alexschroeder.ch/pdfs/spellcasters/Hadrael.pdf">Hadrael</a> the dragon-slayer
 
 ;hadrael 1
 1,*detect magic*
@@ -7007,35 +7007,8 @@
 1,*hold monster*
 1,*time thief*
 
-;wogan
-1,*The Book of the Winter Wolf* by Wogan, Freya's Son
-
-;wogan 1
-1,*joyful dog*
-1,*locate creature*
-1,*wolf tongue*
-
-;wogan 2
-1,*night vision*
-1,*silent paws*
-1,*wolf howl*
-
-;wogan 3
-1,*ice gate*
-1,*werewolf*
-1,*wolf pack*
-
-;wogan 4
-1,*call of the wolf*
-1,*dreamtime*
-1,*to dust*
-
-;wogan 5
-1,*bone binding*
-1,*imprisonment*
-
 ;jezembal
-1,*The Book of Aquamancy* by Jezembal the Ice Queen
+1,*The Book of Aquamancy* by <a href="https://alexschroeder.ch/pdfs/spellcasters/Jezembal.pdf">Jezembal</a> the Ice Queen
 
 ;jezembal 1
 1,*ice wall*
@@ -7062,7 +7035,7 @@
 1,*ice castle*
 
 ;moroson
-1,*The Book of Armies* by Moroson the General
+1,*The Book of Armies* by <a href="https://alexschroeder.ch/pdfs/spellcasters/Moroson.pdf">Moroson</a> the General
 
 ;moroson 1
 2,*bolt of power*
@@ -7089,7 +7062,7 @@
 1,*melting walls*
 
 ;narga
-1,*The Book of the Sea Hag* by Narga the Pirate Queen of the South Seas
+1,*The Book of the Sea Hag* by <a href="https://alexschroeder.ch/pdfs/spellcasters/Narga.pdf">Narga</a> the Pirate Queen of the South Seas
 
 ;narga 1
 2,*siren song*
@@ -7116,7 +7089,7 @@
 1,*summon kraken*
 
 ;ufala
-1,*The Book of Ursomancy* by Ufala One Eye
+1,*The Book of Ursomancy* by <a href="https://alexschroeder.ch/pdfs/spellcasters/Ufala.pdf">Ufala</a> One Eye
 
 ;ufala 1
 2,*bear strength*
@@ -7142,8 +7115,35 @@
 1,*flying bears*
 1,*ice gate*
 
+;wogan
+1,*The Book of the Winter Wolf* by <a href="https://alexschroeder.ch/pdfs/spellcasters/Wogan.pdf">Wogan</a>, Freya's Son
+
+;wogan 1
+1,*joyful dog*
+1,*locate creature*
+1,*wolf tongue*
+
+;wogan 2
+1,*night vision*
+1,*silent paws*
+1,*wolf howl*
+
+;wogan 3
+1,*ice gate*
+1,*werewolf*
+1,*wolf pack*
+
+;wogan 4
+1,*call of the wolf*
+1,*dreamtime*
+1,*to dust*
+
+;wogan 5
+1,*bone binding*
+1,*imprisonment*
+
 ;xoralfona
-1,*The Book of Songs* by Xoralfona the wordsmith
+1,*The Book of Songs* by <a href="https://alexschroeder.ch/pdfs/spellcasters/Xoralfona.pdf">Xoralfona</a> the wordsmith
 
 ;xoralfona 1
 2,*calm*
@@ -7170,7 +7170,7 @@
 1,*world walk*
 
 ;ysabala
-1,*The Book of Pyromancy* by Ysabala Devilsdaughter
+1,*The Book of Pyromancy* by <a href="https://alexschroeder.ch/pdfs/spellcasters/Ysabala.pdf">Ysabala</a> Devilsdaughter
 
 ;ysabala 1
 3,*ball of fire*
@@ -7197,7 +7197,7 @@
 1,*rain of fire*
 
 ;zorkan
-1,*The Book of Geomancy* by Zorkan of Mount Whiterock
+1,*The Book of Geomancy* by <a href="https://alexschroeder.ch/pdfs/spellcasters/Zorkan.pdf">Zorkan</a> of Mount Whiterock
 
 ;zorkan 1
 3,*flying stones*
