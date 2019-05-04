@@ -1216,10 +1216,11 @@ sub normalize_elvish {
   $name =~ s/a ui/au/g;
   $name =~ s/nd m/dhm/g;
   $name =~ s/n?d w/dhw/g;
+  $name =~ s/r gw/rw/g;
   $name =~ s/^nd/d/;
   $name =~ s/^ng/g/;
   $name =~ s/th n?d/d/g;
-
+  $name =~ s/dh dr/dhr/g;
   $name =~ s/ //g;
 
   $name =~ tr/âêîôûŷ/aeioúi/;
@@ -1227,6 +1228,8 @@ sub normalize_elvish {
   $name =~ s/ben$/wen/g;
   $name =~ s/bwi$/wi/;
   $name =~ s/[^aeiouúi]ndil$/dil/g;
+  $name =~ s/ae/aë/g;
+  $name =~ s/ea/ëa/g;
 
   $name = ucfirst($name);
 
