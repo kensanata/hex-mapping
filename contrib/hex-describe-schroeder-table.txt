@@ -4726,7 +4726,7 @@
 ;black dragon activity
 1,has built its lair on huge pile of rotting plant material forming a steaming island in the warm water
 1,is hunting these waters, hiding in the water like a crocodile but vicious and greedy like only dragons are
-1,hunts the region, surveying the waterways from above and happy attack boats from the air
+1,hunts the region, surveying the waterways from above and attacking boats from the air
 
 ;black dragon name
 1,*[black dragon 1] [black dragon 2] [black dragon 3]*
