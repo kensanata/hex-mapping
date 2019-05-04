@@ -1535,7 +1535,7 @@
 1,cryohydra
 
 ;gorgon stats
-1,HD 8 AC 7 2d6 F8 MV 12 ML 8 XP 800; *poison breath*
+1,HD 8 AC 7 2d6 F8 MV 12 ML 8 XP 800; *poison breath* 30ft; *charge* into combat for double damage
 
 ;cryohydra stats
 1,[1d8+4 as heads] heads, HD [same heads] (8hp per head) AC 5 1d10 per head F[same heads] MV 12 ML 9 XP [same heads]00; whenever a head is lost, *two heads regrow* the next round (up to 12) unless the wound is cauterised using ice or fire (a melee attack with a torch will do);  *ice* (as much as the hydra has hp left, save vs. dragon breath for half); *poisonous blood* (cutting off a head with a melee weapon exposes the attacker to it: save vs. poison or die)
@@ -4691,20 +4691,37 @@
 1,Ridge
 1,Rock
 
+;swamp2
+1,[swamp]
+
 ;swamp
 1,The river widens here and forms a large swamp. You need a guide and boats in order to pass through the water-logged [forest name]. [giant fish] can be seen below the surface ([giant fish stats]).
 1,This swamp is a labyrinth of crisscrossing water ways cutting through the [forest name]. You need a guide to find your way through it. If you don’t, you will soon end up in the lands of the [witch]
 1,The [forest name] swamp is home to a lot of [swamp animals]. Those who know how to find it can gather *[here magic plant]*.
-1,The [forest name] here is flooded and has been settled by a tribe of [6d6] **lizard people** led by *[lizard leader]* (HD [1d4+2 as level]). [leader treasure] The little village of mud huts is guarded by [lizard companions]. [average treasure]
+1,The [forest name] here is flooded and has been settled by a tribe of [6d6] **lizard people** ([lizard people stats]) led by *[lizard leader]* (HD [1d4+2 as level]). [leader treasure] The little village of mud huts is guarded by [lizard companions]. [average treasure]
 1,The inundated [forest name] here is home to [froglings]
 1,A ruined tower standing on a small island in this part of the [forest name] swamp is home to the **ettin** called *[ettin]*. [robber treasure] [ettin tower protection]
 1,In the old days, the stagnant pools of the [forest name] swamp was used to drown evil necromancers. [bog wights]
 1,On one of the islands of this [forest name] swamp there is a huge mud mound. [goblins]
 1,The [forest name] has turned into a black swamp and the smell of sulphur hangs in the air. A **black dragon** named [black dragon name] [black dragon activity] ([black dragon stats]). [dragon treasure] If you enter the water, you'll soon attract the attention of [1d6 crocodiles].
 1,The [forest name] has turned into a water logged swamp. You need a boat and a guide to navigate these waterways. If you travel on foot, you'll soon attract the attention of [1d6 crocodiles].
+1,The swamp of [forest name] opens up somewhat and you can see the sky again. If you drink the water here, save vs. poison or spend the rest of the day vomiting. These lakes are home to [3d12] **swamp cranes** ([swamp crane stats]). Their dung is poisonous to most creatures on land.
+1,The stagnant waters of [forest name] are foul and smell of vomit. An abandoned temple of *[power]* stands here, half sunk. The acrid stench is overwhelming. On the small piece of solid ground rising above the water you can see [what you can see of the sunken temple] A **gorgon** has cursed this temple with its presence ([gorgon stats]). [terror treasure]
+1,The swamp of [forest name] seems to stretch forever. There's a wooden hut, here. Its inhabitant appears to be a hermit called [human]. In actual fact, however, this is a **doppelgänger** ([doppelgänger stats]). [poor treasure] It will try and see whether it can replace one of the party members and leave the area with them.
+1,A sulphur smell hangs over the swamp of [forest name]. The waterways eventually lead to a wooden fort rising out of the water, inhabited by [4d6] **hobgoblins** ([hobgoblin stats]) and led by *[hobgoblin]* (HD 3+1). The fort is defended by [hobgoblin companions]. [robber treasure]
+1,This section of the [forest name] swamp is a well known death trap. The trees are older, here. They remember every axe wielder, every ship builder, every carpenter, every fire maker, and they hate them with the hate of the primal forest. This section is home to [1d8 treants] ([treant stats]) who would like nothing better than to squash anybody capable of wielding tools.
 
-;swamp2
-1,[swamp]
+;doppelgänger stats
+1,HD 4 AC 5 1d12 F10 MV 9 ML 10 XP 400; *shape change* at will
+
+;what you can see of the sunken temple
+1,two columns commemorating the founding of this temple by *[old name]*.
+1,an arch welcoming pilgrims to the temple.
+1,a broken cupola. Inside it, you can still see a relief showing [same power] blessing the pilgrims.
+1,the old altar itself, and the old blood stone.
+
+;swamp crane stats
+1,HD 1 AC 7 1d4 F2 MV 18 ML 9 XP 100; shoots feathers like darts for 60ft until they roll a 1 for damage; from then on they attack with their beaks; afraid of loud rattling, drumming or bells ringing
 
 ;black dragon activity
 1,has built its lair on huge pile of rotting plant material forming a steaming island in the warm water
@@ -4977,6 +4994,9 @@
 1,Wort
 1,Wrack
 
+;lizard people stats
+1,HD 2+1 AC 5 1d8 F2 MV 12 ML 7 XP 200
+
 ;lizard leader
 1,Son of Set
 1,Egg Mother
@@ -4991,10 +5011,16 @@
 
 ;lizard companions
 2,spiked barriers
-1,a **giant wasp**
-1,a **giant lizard**
-5,[1d4+1] **giant wasps**
-5,[1d4+1] **giant lizards**
+1,a **giant wasp** ([giant wasp stats])
+1,a **giant lizard** ([giant lizard stats])
+5,[1d4+1] **giant wasps** ([giant wasp stats])
+5,[1d4+1] **giant lizards** ([giant lizard stats])
+
+;giant wasp stats
+1,HD 4+1 AC 5 1d6 + *poison* F2 MV 15 ML 9 XP 400; when stung, save vs. poison or die
+
+;giant lizard stats
+1,HD 4 AC 5 1d10 F3 MV 12 ML 7 XP 400
 
 # These are the monsters for larger villages
 ;trees
