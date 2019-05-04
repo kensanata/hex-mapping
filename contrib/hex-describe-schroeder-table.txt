@@ -4242,7 +4242,7 @@
 1,HD 3 AC 7 1d6/1d6 F3 MV 12 ML 5 XP 300
 
 ;green dragon stats
-1,HD 8 AC 1 1d6/1d6/2d8 F8 MV 24 ML 9 XP 1000; *poison* (if HD 4 or lower, save vs. poison or die; otherwise suffer 1/rd)
+1,HD 8 AC 1 1d6/1d6/3d8 F8 MV 24 ML 9 XP 1000; *poison* (if HD 4 or lower, save vs. poison or die; otherwise suffer 1/rd)
 
 ;green dragon name
 1,*[green dragon 1] [dragon 2] [green dragon 3]*
