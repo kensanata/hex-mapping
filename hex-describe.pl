@@ -44,6 +44,16 @@ use Encode qw/decode_utf8/;
 
 my $FS = "\x1e"; # The FS character is the RECORD SEPARATOR control char in ASCII
 
+my $hex_describe_url = app->mode eq 'development'
+    ? 'http://localhost:3000'
+    : 'https://campaignwiki.org/hex-describe';
+my $text_mapper_url = app->mode eq 'development'
+    ? 'http://localhost:3010'
+    : 'https://campaignwiki.org/text-mapper';
+my $face_generator_url = app->mode eq 'development'
+    ? 'http://localhost:3020'
+    : 'https://campaignwiki.org/face';
+
 =head2 Configuration
 
 As a Mojolicious application, it will read a config file called
@@ -117,7 +127,7 @@ Mapper using the Smale algorithm.
 
 get '/load/random/smale' => sub {
   my $c = shift;
-  my $url = 'https://campaignwiki.org/text-mapper/smale/random/text';
+  my $url = "$text_mapper_url/smale/random/text";
   my $map = get_data($url);
   $c->render(template => 'edit', map => $map, url=>'', table => '');
 };
@@ -131,21 +141,14 @@ Mapper using the Alpine algorithm.
 
 get '/load/random/alpine' => sub {
   my $c = shift;
-  my $url = 'https://campaignwiki.org/text-mapper/alpine/random/text';
+  my $url = "$text_mapper_url/alpine/random/text";
   my $map = get_data($url);
   $c->render(template => 'edit', map => $map, url=>'', table => '');
 };
 
 =item any /describe
 
-This is where the actual map is described. In development mode (when running the
-application using C<morbo>, for example, the map itself is not shown and image
-URLs are not used in order to save time. Plus, security considerations usually
-result in browsers not loading images from remote sites. When Hex Describe is
-installed on the same domain where
-L<Text Mapper|https://campaignwiki.org/text-mapper> and
-L<Face Generator|https://campaignwiki.org/face> are installed, then we can load
-the images. When under development, we skip it.
+This is where the actual map is described.
 
 B<map> is the map, B<url> is the URL to an external table. If not provided,
 B<table> is the text of the table. If neither is provided, a table will be
@@ -170,9 +173,7 @@ any '/describe' => sub {
   init();
   my $descriptions = describe_map(parse_map($map), parse_table($table));
   $map = add_labels($map) if $labels;
-  my $svg = app->mode eq 'development' ? ''
-      : get_post_data('https://campaignwiki.org/text-mapper/render',
-		      map => $map);
+  my $svg = get_post_data($text_mapper_url . '/render', map => $map);
   $c->render(template => 'description',
 	     svg => add_links($svg),
 	     descriptions => $descriptions);
@@ -192,16 +193,13 @@ description will be generated using the Seckler tables.
 get '/describe/random/smale' => sub {
   my $c = shift;
   my $labels = $c->param('labels');
-  my $url = $c->param('url')
-      || 'https://campaignwiki.org/text-mapper/smale/random/text';
+  my $url = $c->param('url') || "$text_mapper_url/smale/random/text";
   my $map = get_data($url);
   my $table = decode_utf8($seckler_table->slurp);
   init();
   my $descriptions = describe_map(parse_map($map), parse_table($table));
   $map = add_labels($map) if $labels;
-  my $svg = app->mode eq 'development' ? ''
-      : get_post_data('https://campaignwiki.org/text-mapper/render',
-		      map => $map);
+  my $svg = get_post_data("$text_mapper_url/render", map => $map);
   $c->render(template => 'description',
 	     svg => add_links($svg),
 	     url => $url,
@@ -217,16 +215,13 @@ Same thing for a map using the Alpine algorithm and the Schroeder random tables.
 get '/describe/random/alpine' => sub {
   my $c = shift;
   my $labels = $c->param('labels');
-  my $url = $c->param('url')
-      || 'https://campaignwiki.org/text-mapper/alpine/random/text';
+  my $url = $c->param('url') || "$text_mapper_url/alpine/random/text";
   my $map = get_data($url);
   my $table = decode_utf8($schroeder_table->slurp);
   init();
   my $descriptions = describe_map(parse_map($map), parse_table($table));
   $map = add_labels($map) if $labels;
-  my $svg = app->mode eq 'development' ? ''
-      : get_post_data('https://campaignwiki.org/text-mapper/render',
-		      map => $map);
+  my $svg = get_post_data("$text_mapper_url/render", map => $map);
   $c->render(template => 'description',
 	     svg => add_links($svg),
 	     url => $url,
@@ -242,16 +237,13 @@ Same thing for a map using the Smale algorithm and the Strom random tables.
 get '/describe/random/strom' => sub {
   my $c = shift;
   my $labels = $c->param('labels');
-  my $url = $c->param('url')
-      || 'https://campaignwiki.org/text-mapper/smale/random/text';
+  my $url = $c->param('url') || "$text_mapper_url/smale/random/text";
   my $map = get_data($url);
   my $table = decode_utf8($strom_table->slurp);
   init();
   my $descriptions = describe_map(parse_map($map), parse_table($table));
   $map = add_labels($map) if $labels;
-  my $svg = app->mode eq 'development' ? ''
-      : get_post_data('https://campaignwiki.org/text-mapper/render',
-		      map => $map);
+  my $svg = get_post_data("$text_mapper_url/render", map => $map);
   $c->render(template => 'description',
 	     svg => add_links($svg),
 	     url => $url,
@@ -951,6 +943,8 @@ sub resolve_redirect {
   # If you install this tool on a server using HTTPS, then some browsers will
   # make sure that including resources from other servers will not work.
   my $url = shift;
+  # Special case because table writers probably used the default face generator URL
+  $url =~ s!^https://campaignwiki\.org/face!$face_generator_url! if app->mode eq 'development';
   my $ua = Mojo::UserAgent->new;
   my $res = $ua->get($url)->result;
   if ($res->code == 301 or $res->code == 302) {
@@ -1004,8 +998,7 @@ sub pick {
       my $lines = $table_data->{$key}->{lines};
       $text = pick_description($total, $lines);
       # $log->debug("$coordinates → $key → $text");
-      $text =~ s/\[\[redirect (https:.*?)\]\]/
-		     app->mode eq 'development' ? '' : resolve_redirect($1)/ge;
+      $text =~ s/\[\[redirect (https:.*?)\]\]/resolve_redirect($1)/ge;
       # this makes sure we recursively resolve all references, in order, because
       # we keep rescanning from the beginning
       my $last = $text;
@@ -1256,8 +1249,7 @@ sub process {
     $i = 1 - $i;
   }
   return {
-    images => app->mode eq 'development'
-	? '' : '<span class="images">' . join('', @{$output[1]}) . '</span>',
+    images => '<span class="images">' . join('', @{$output[1]}) . '</span>',
     html => join('', @{$output[0]}),
   };
 }
@@ -3105,15 +3097,6 @@ same domain since <em>campaignwiki.org</em> is secured by HTTPS and I
 think most browsers will then refuse to load resources such as images
 from services that aren’t hosted on the same domain
 (<a href="https://en.wikipedia.org/wiki/Same-origin_policy">same-origin policy</a>).
-</p>
-
-<p>
-If you run the application yourself, the mode defaults to "development" and thus
-redirects will not be resolved (this prevents wasting time calling the face
-generator) and the images will be stripped from the output (such that not even
-the alt text is shown). In order have all that, switch the application mode to
-production. Running it from the command line, for example, provide the option
-<code>-m production</code>.
 </p>
 
 @@ authors.html.ep
