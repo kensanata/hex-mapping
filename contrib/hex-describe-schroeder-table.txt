@@ -4098,9 +4098,6 @@
 ;necromancer
 1,Here lives the **necromancer** [human] (level [1d3+4 as level]), protected by [necromancer companions], in a tower. [necromancer tower] [luxurious context] [leader treasure for magic user]
 
-;name for 1d3+4
-1,[1d3+4]
-
 ;necromancer companions
 1,[4d6] watchful **zombies** ([zombie stats])
 1,[2d8] noble **ghouls**, decadent, immortal, foppish, and always hungry ([ghoul stats])
@@ -6297,8 +6294,8 @@
 
 # the second variant has a temple at the end
 ;village
-1,</p><p>There is a village of [5d6x10] **humans** ([human stats]). The [human houses] are protected by [human companions] and a [human defense]. There is a small **[name for village building]**. [small [name for village building]] [average treasure]</p><p>The [human leader] lives in the [name for village building]. [spellbook for [same class]] [leader treasure for [same class]]</p><p>[human retainer]</p><p>[human friends]</p><p>[And a secret society]
-1,</p><p>There is a village of [5d6x10] **humans** ([human stats]). The [human houses] are protected by [human companions] and a [human defense]. There is a small **[name for village building]**. [small [name for village building]] [average treasure]</p><p>The [human leader] lives in the [name for village building]. [spellbook for [same class]] [leader treasure for [same class]]</p><p>[human retainer]</p><p>[human friends]</p><p>[And a secret society]</p><p>[temple]
+1,</p><p>There is a village of [5d6x10] **humans** ([human stats]). The [human houses] are protected by [human companions] and a [human defense]. There is a small *[village building]*. [small [same village building]] [average treasure]</p><p>The [human leader] lives in the [same village building]. [spellbook for [same class]] [leader treasure for [same class]]</p><p>[human retainer]</p><p>[human friends]</p><p>[And a secret society]
+1,</p><p>There is a village of [5d6x10] **humans** ([human stats]). The [human houses] are protected by [human companions] and a [human defense]. There is a small *[village building]*. [small [same village building]] [average treasure]</p><p>The [human leader] lives in the [same village building]. [spellbook for [same class]] [leader treasure for [same class]]</p><p>[human retainer]</p><p>[human friends]</p><p>[And a secret society]</p><p>[temple]
 
 ;town
 1,</p><p>There is a town of [1d6x100] **humans** ([human stats]). The [human houses] are protected by a keep, a town wall and the river. [average treasure]</p><p>The [human leader] lives in the keep. [spellbook for [same class]] [leader treasure for [same class]]</p><p>[human retainer]</p><p>[human friends]</p><p>[And two secret societies feuding]</p><p>[temple]</p><p>There is also [town feature]
@@ -6348,7 +6345,7 @@
 
 # meaning the human has no class and isn’t a priest
 # the result is also reused in the following tables
-;name for village building
+;village building
 1,tower
 1,keep
 1,manor house
@@ -6601,8 +6598,8 @@
 1,The temple houses an 8ft high wooden statue of Odin wielding his magic spear. An old woman named **[woman]** takes care of the temple. She knows the power of runes and will cast the stones for you, should want to locate a loved one or find a dragon.
 1,The temple is actually a feast hall housing a small college of [3d6] bards led by **[human name]**. During the day, they sing songs, practice balads, and compete in poetry. In the evening, the drink. All bards are expected to deliver a yearly donation for the upkeep of the college. Failure to do so results in being placed on a list. Should you need rescuing, they will contract a secret society to do that. Should you skip your obligation, they will contract a secret society to remedy that.
 1,The temple is also a famous school for birds of prey. They are trained here and then sold to nobility in far away regions. The rich merchants making this trip often need guards and thus a mercenary house was established here. [mercenary house]
-1,It was built generations ago atop a pool of Earth Blood by Wise **[human name]** in order to prevent its mutagenic power from corrupting the area. Many magic users and elves have come here over the years, drawn by the small eddies of magic energy still emanating from the sealed area: get one extra spell slot of your liking while you sleep nearby. [name for inn] was built next to the temple just for this.
-1,The temple functions welcomes all wanderers and homeless people, housing people for up to week for a gold piece per person. This is the [name for inn] run by **[human name]**. The common room has an entire altar built into it, including carved columns with eagles and ravens and showing Odin riding his eight legged horse over the rainbow bridge.
+1,It was built generations ago atop a pool of Earth Blood by Wise **[human name]** in order to prevent its mutagenic power from corrupting the area. Many magic users and elves have come here over the years, drawn by the small eddies of magic energy still emanating from the sealed area: get one extra spell slot of your liking while you sleep nearby. [inn] was built next to the temple just for this.
+1,The temple functions welcomes all wanderers and homeless people, housing people for up to week for a gold piece per person. This is the [inn] run by **[human name]**. The common room has an entire altar built into it, including carved columns with eagles and ravens and showing Odin riding his eight legged horse over the rainbow bridge.
 
 ;mercenary house
 1,The [mercenary house name 1] [mercenary house name 1] of [mercenary house name 2] is run by [human name] and consists of 6d6 mercenaries.
@@ -6642,7 +6639,7 @@
 1,Battle
 1,Killing
 
-;name for inn
+;inn
 1,[inn name 2] [inn name 1]
 1,[inn name 3] [inn name 2] [inn name 1]
 
@@ -6742,14 +6739,8 @@
 ;human leader
 1,**[human class]** *[human]* (level [1d2+8 as level])
 
-;name for 1d2+8
-1,[1d2+8]
-
 ;human retainer
 1,Their retainer is the **[human class]** *[human]* (level [1d2+6 as level]). [spellbook for [same class]] [leader treasure for [same class]]
-
-;name for 1d2+6
-1,[1d2+6]
 
 ;retainer
 1,retainer
@@ -6761,12 +6752,6 @@
 ;human friends
 1,Their [aide], the **[human class]** *[human]* (level [1d4+1 as level]), also lives here. [spellbook for [same class]] [leader treasure for [same class]]
 1,They are served by two [aide]s. One is the **[human class]** *[human]* (level [5 as level]). [spellbook for [same class]] [leader treasure for [same class]] The other is the **[human class]** *[human]* (level [1d4+1 as level]). [spellbook for [same class]] [leader treasure for [same class]]
-
-;name for 1d4+2
-1,[1d4+2]
-
-;name for 1d4+1
-1,[1d4+1]
 
 # must be able to create a plural by appending an s
 ;aide
@@ -10961,9 +10946,6 @@
 1,[magic armour]
 1,[wondrous item]
 
-;name for 1d6+1
-1,[1d6+1]
-
 ;5% per item type
 1,[[5% x [same level]] potion] [[5% x [same level]] scroll] [[5% x [same level]] magic weapon] [[5% x [same level]] magic armour] [[5% x [same level]] wondrous item]
 
@@ -11401,14 +11383,14 @@
 1,*horn of [demon name]* (summons a vulture demon from Vanaheim: [vulture demon stats]; when killed, they are released from their bond to the horn)
 
 ;elemental prison
-1,[elemental prison object] containing the elemental prison of [name for an elemental lord] called *[[name for an elemental lord] name]* ([stats for [name for an elemental lord]]).
+1,[elemental prison object] containing the elemental prison of [elemental lord] called *[[same elemental lord] name]* ([stats for [same elemental lord]]).
 
 ;elemental prison object
 1,A jar
 1,An oil lamp
 1,A necklace with a big gem set in silver
 
-;name for an elemental lord
+;elemental lord
 3,a jinn
 2,an ifrit
 1,a marid
