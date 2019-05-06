@@ -5192,6 +5192,8 @@
 1,In one corner, a wooden roof keeps a corner of the old temple dry. Here lives [human], an old **hermit**, and his pet **jaguar** ([jaguar stats]).
 1,In a dry corner of the ruin is the lair of [3d6] **wolves** ([wolf stats]) and [human], who ended up being raised by wolves after being abandoned by the parents.
 1,Between the [tree] trees growing all over the structure the ground is dry and solid. [giant apes]
+1,A dreadful *stench* hangs in the air. Beneath a big stone is an entrance into a cave full of decomposing corpses. Amidst the flies you see [2d6] wide-eyed and mute humans. Soon enough, however, they'll turn into **werwolves** and find you and kill you and bring you here and eat you ([werewolf stats]). [poor treasure]
+1,A dreadful *stench* hangs in the air. The cistern has turned into a charnel house. Bones and decomposing corpses cover the ground. It is very *cold* down here. This is the realm of [1d8 wights] ([wight stats]). [dead treasure]
 
 ;beautiful trees
 1,where the [tree] trees stand tall
