@@ -6365,7 +6365,7 @@
 1,schlepping a grain sacrifice to Local Lake Spirit
 1,dredging the Pond for missing child
 1,scrubbing/Sloshing - Village-wide Laundry day
-1,each capable of casting a single 1st level Magic-User Spell
+1,each capable of casting a single spell: *[random 1st level spell]*
 1,sharpening stakes and crude spears, sullenly
 1,eager to exchange a pouch of platinum for copper
 1,shuttering Windows and Locking Doors
@@ -7447,6 +7447,9 @@
 
 ;spellbook 10
 1,1. [with [same spellbook] 1], [and [same spellbook] 1], [and [same spellbook] 1], 2. [with [same spellbook] 2], [and [same spellbook] 2], [and [same spellbook] 2], 3. [with [same spellbook] 3], [and [same spellbook] 3], [and [same spellbook] 3], 4. [with [same spellbook] 4], [and [same spellbook] 4], [and [same spellbook] 4], 5. [with [same spellbook] 5], [and [same spellbook] 5]
+
+;random 1st level spell
+1,[[spellbook] 1], from [[same spellbook]]
 
 # http://random-generator.com/index.php?title=Secret_Society_Title&action=edit
 # by Dave Younce
