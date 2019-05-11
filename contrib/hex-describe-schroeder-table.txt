@@ -1822,7 +1822,7 @@
 1,This is a legendary forge stronghold. [5d8x10] **dwarves** live and work here ([dwarf stats]) led by [dwarf leader] (level [1d4+8 as level]). They are divided into [3d6] families, each led by a clan elder (level [1d6+2]). [dwarven stronghold treasure]
 
 ;dwarf stats
-1,HD 1 AC 4 1d6 D1 MV 6 ML 8 XP 100
+1,HD 1 AC 4 1d6 D1 MV 6 ML 8 XP 100
 
 ;duergar stats
 1,[dwarf stats]; immune to fire
@@ -5183,10 +5183,78 @@
 1,The tall [tree] trees of [forest name] and their dense canopy keep the sunlight away. [easy to get lost] Down here in the shade there are big mushrooms everywhere. [mushrooms]
 1,This part of [forest name] is under the protection of [1d8 treants] ([treant stats]). They mostly stand around near the [forest feature]. [easy to get lost]
 1,The [tree] trees of [forest name] are full of spider webs, here. [easy to get lost] Anybody climbing the trees or travelling on their own will get attacked by [2d4] **giant spiders** ([giant spider stats]).
-1,The forest here is deep and quiet. [easy to get lost] [2d12] **elves** led by [elf leader] (level [1d6+1 as level]) have built their [elf dwelling] in [forest name], [beautiful trees]. [spellbook for elves] [leader treasure] [elf companions]
+1,This part of the [forest name] is sometimes called [ettercap forest]. [ettercaps]
+1,The forest here is deep and quiet. [easy to get lost] [2d12] **elves** ([elf stats]) led by [elf leader] (level [1d6+1 as level]) have built their [elf dwelling] in [forest name], [beautiful trees]. [spellbook for elves] [leader treasure] [elf companions]
 1,These trees are part of [forest name]. [easy to get lost] A system of big tunnels is home to [1d6 weasels] ([weasel stats]).
 1,At dusk and dawn, you can sometimes see [boars] in the [forest name], here.
 1,The forest has overgrown an old temple of *[power]*. Some of the walls still stand, and so do some of the columns, but the roof is gone and floor is wet. [old forest temple denizen]
+
+;ettercap forest
+1,[spider word] [forest 2]
+1,[spider colour] [forest 2]
+1,[spider word] valley
+1,[spider colour] valley
+1,Valley of [spider word]s
+
+;spider word
+1,Web
+1,Spider
+1,Netting
+
+;spider colour
+1,Grey
+1,Silver
+
+;ettercaps
+1,[ettercap ground level]</p><p>[ettercap lair]</p><p>[ettercap trade]</p><p>[ettercap mother]
+
+;ettercap ground level
+1,Spider webs between the trees make progress impossible. Desiccated deer and birds hang in these nets. Touching these nets or setting them on fire attracts [2d4] **giant spiders** ([giant spider stats]).
+1,Between the gnarled roots of giant [tree] trees you see the opening of burrows large enough to be bear dens (at least [2d4] of them). If anybody passes within 20ft of such a hole, a **giant tarantula** ([giant spider stats]; *surprise* on 1–5 in 6) jumps out of the burrow and attacks.
+1,The ground rises and forms a little mound, here, promising a look at the surrounding land. But actually, a group of [2d4] **giant trapdoor spiders** ([giant spider stats]) have dug tunnels and pits around here. Anybody climbing the mound has a 1-2 in 6 chance of sliding and falling into a 20ft pit (2d6) and being beset by these spiders.
+
+;ettercap lair
+1,Up in the trees are [2d4] tree houses connected by several ropes. If you're not afraid of heights, you can easily walk from one to the other, feet on one rope and hands holding another one. The tree houses are home to [same 2d4] **ettercaps, spider-men ([ettercap stats]). [average treasure]
+
+;ettercap stats
+1,HD 5 AC 5 1d4/1d4/1d6 + *poison* F5 MV 12 ML 9 XP 500; *climb*; *poison*: when bit, save vs. poison or be paralysed for 2h
+
+;ettercap trade
+1,To reach the ettercap trading post, follow the single white strand that starts atop the lonely [tree] tree to the [direction], leading you safely from branch to branch above the forest floor to the ancient tree giant where the ettercaps have built a large platform with their shacks and their chests. [ettercap trading post]
+1,The ettercaps have created a landing pad up in the air where they discovered a passage to the world tree *Yggdrasil*. This is where they keep their chests of silken wares. [ettercap trading post] On nights of the full moon, or on a 1 in 6, the portal opens. [2d12] **elves** ([elf stats]) led by trade-captain [elf leader] (level [1d6+1 as level]). [spellbook for elves] [leader treasure] The elves are looking to buy silken wares or trade them for spells cast. [elven trade money] [elf travelling companions]
+
+;direction
+1,north
+1,east
+1,south
+1,west
+
+;ettercap trading post
+# about 9% of all trading posts have nothing to sell
+1,<span class="treasure">[70% 1d6 silk bales] [70% 2d6 silk ropes]</span>
+
+;elven trade money
+# about 21% of these traders have no cash and will trade spells instead
+1,<span class="treasure">[40% 1d6 gold] [30% 1d6 platinum] [30% 3d6 gems] [30% 3d6 jewelry]</span>
+
+;50% 1d6 silk bales
+1,A silk bale worth 500gp.
+5,[1d5+1] silk bales worth 500gp each.
+1,
+
+;50% 2d6 silk ropes
+1,[2d6] silk ropes, each worth 50gp.
+1,
+
+;ettercap mother
+1,Up above, where the giant branches form a wide canopy, the **brood mother** ([ettercap brood mother stats]) has laid her eggs, guarding them with her life, and ready to spend hers to feed the young ones when they hatch, ravenous and desperate.
+1,A bit further up is a beautiful tree house, colourful and decorated with trinkets and presents from all over. This is where the beautiful **araneina** *[old names for women]* lives, the immortal lover ([araneina stats]).
+
+;ettercap brood mother stats
+1,HD 9 AC 3 2d6 + *poison* F9 MV 3 ML 9 XP 900; *climb*; *poison*: when bit, save vs. poison or die
+
+;araneina stats
+1,HD 9 AC 9 1d6 + *poison* F9 MV 12 ML 9 XP 900; *climb*; *poison*: when bit, save vs. poison or die; *charm*: save vs. spells or fall madly in love with her; *glamour*: every hour in her company when not madly in love, save vs. spells to notice a flickering of her glamour revealing her eight eyes, or the spider legs growing out of her back
 
 ;old forest temple denizen
 1,In one corner, a wooden roof keeps a corner of the old temple dry. Here lives [human], an old **hermit**, and his pet **jaguar** ([jaguar stats]).
@@ -5213,18 +5281,22 @@
 
 ;myconids
 1,[3d6] **myconids** ([myconid stats]). [poor treasure]
-1,[3d6] **myconids** watching their mushroom circle ([myconid stats]). [poor treasure] On nights of the full moon, or on a 1 in 6, the portal to [fey realm] opens. If so, [2d12] **elves** led by [elf leader] (level [1d6+1 as level]) will be visiting from [fey realm]. [spellbook for elves] [leader treasure]
+1,[3d6] **myconids** watching their mushroom circle ([myconid stats]). [poor treasure] On nights of the full moon, or on a 1 in 6, the portal to [fey realm] opens. If so, [2d12] **elves** ([elf stats]) led by [elf leader] (level [1d6+1 as level]) will be visiting from [fey realm]. [spellbook for elves] [leader treasure] [elf travelling companions]
 
 ;fey realm
 ,Alfheim
 ,Svartalfheim
 
+;elf stats
+1,HD 1 HP 1d6 AC 5 1d6 or *spell* E1 MV 12 ML 10 XP 100; *spell*: pick a 1st circle spell from their leader's spellbook
+
+;elf travelling companions
+3,
+1,They are accompanied by a **weasel** ([weasel stats])
+2,They are accompanied by [1d2+1] **weasels** ([weasel stats])
+
 ;myconid stats
 1,HD 3 AC 8 – F3 MV 6 ML 7 XP 300; *read mind*, *dominate*, *knockout*, *gravity control* (3d8): save vs. spells to avoid; *silent message*
-
-;fey realm
-1,Alfheim
-1,Svartalfheim
 
 ;do something interesting
 1,save vs. poison or die. The locals use this to kill criminals.
@@ -8960,7 +9032,7 @@
 1,In the presence of an amulet of passage bearing the [name for a clan of the netherworld elves] sigil, the door glides opens and reveals stairs leading down to the underground [lair of the netherworld elves]
 
 ;lair of the netherworld elves
-1,*[building of the netherworld elves] of [elf]*.</p><p>[gate of the netherworld elves]</p><p>[companions of the netherworld elves]</p><p>[5d12] **elves** live here, led by [elf leader] (level [1d6+4 as level]). [spellbook for elves] [leader treasure]
+1,*[building of the netherworld elves] of [elf]*.</p><p>[gate of the netherworld elves]</p><p>[companions of the netherworld elves]</p><p>[5d12] **elves** live here ([elf stats]), led by [elf leader] (level [1d6+4 as level]). [spellbook for elves] [leader treasure]
 
 ;building of the netherworld elves
 1,Bastion
