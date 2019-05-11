@@ -4710,6 +4710,7 @@
 1,The swamp of [forest name] seems to stretch forever. There's a wooden hut, here. Its inhabitant appears to be a hermit called [human]. In actual fact, however, this is a **doppelgänger** ([doppelgänger stats]). [poor treasure] It will try and see whether it can replace one of the party members and leave the area with you.
 1,A sulphur smell hangs over the swamp of [forest name]. The waterways eventually lead to a wooden fort rising out of the water, inhabited by [4d6] **hobgoblins** ([hobgoblin stats]) and led by *[hobgoblin]* (HD 3+1). The fort is defended by [hobgoblin companions]. [robber treasure]
 1,This section of the [forest name] swamp is a well known death trap. The trees are older, here. They remember every axe wielder, every ship builder, every carpenter, every fire maker, and they hate them with the hate of the primal forest. These trees are protected by [1d8 treants] ([treant stats]) who would like nothing better than to squash anybody capable of wielding tools.
+1,[swamp ettercaps]
 
 ;doppelgänger stats
 1,HD 4 AC 5 1d12 F10 MV 9 ML 10 XP 400; *shape change* at will
@@ -5208,13 +5209,22 @@
 ;ettercaps
 1,[ettercap ground level]</p><p>[ettercap lair]</p><p>[ettercap trade]</p><p>[ettercap mother]
 
+;swamp ettercaps
+1,[ettercap lake]</p><p>[ettercap harbour]</p><p>The island itself is quite small. [ettercap lair]</p><p>[ettercap mother]
+
 ;ettercap ground level
 1,Spider webs between the trees make progress impossible. Desiccated deer and birds hang in these nets. Touching these nets or setting them on fire attracts [2d4] **giant spiders** ([giant spider stats]).
-1,Between the gnarled roots of giant [tree] trees you see the opening of burrows large enough to be bear dens (at least [2d4] of them). If anybody passes within 20ft of such a hole, a **giant tarantula** ([giant spider stats]; *surprise* on 1–5 in 6) jumps out of the burrow and attacks.
+1,Between the gnarled roots of giant [tree] trees you see the opening of burrows large enough to be bear dens (at least [2d4] of them). If anybody passes within 20ft of such a hole, a **giant tarantula** ([giant spider stats]; *surprise* on 1–5 in 6) jumps out of the burrow and attacks. When the fighting begins, the remaining spiders are attracted by the stomping.
 1,The ground rises and forms a little mound, here, promising a look at the surrounding land. But actually, a group of [2d4] **giant trapdoor spiders** ([giant spider stats]) have dug tunnels and pits around here. Anybody climbing the mound has a 1-2 in 6 chance of sliding and falling into a 20ft pit (2d6) and being beset by these spiders.
 
+;ettercap lake
+1,The trees open up and there's a small island up ahead, covered in giant trees shrouded in spiderwebs. There are dessicated birds and bats and bigger things (wyverns, young dragons, griffons?) caught in the web up there. If you're patient, you can see movement beneath the water as giant spiders dart out of their silken diving bells to kill fish. [2d4] **giant diving bell spiders** ([giant spider stats]; *swim*) live in this lake. It is not safe for swimming.
+1,The trees open up and there's a small island up ahead. Big silken strands connect the giant trees growing on that island with the trees growing along the lake's edge. From it, smaller strands hang down, filling the air and sinking into the water. During the day, you can see [2d4] **giant spiders** working these strange fishing lines ([giant spider stats]).
+1,The trees open up and there's a small island up ahead. Giant trees grow on that island. A sweet, musky flagrance of wisteria and roses fills the air. On these trees [2d4] **giant bolas spiders** hunt for prey ([giant spider stats]; *bola*: 30ft ranged attacks with a weighted *capture blob* of sticky silk on a line).
+
 ;ettercap lair
-1,Up in the trees are [2d4] tree houses connected by several ropes. If you're not afraid of heights, you can easily walk from one to the other, feet on one rope and hands holding another one. The tree houses are home to [same 2d4] **ettercaps, spider-men ([ettercap stats]). [average treasure]
+1,Up in the trees are some tree houses connected by several ropes. If you're not afraid of heights, you can easily walk from one to the other, feet on one rope and hands holding another one. The tree houses are home to [2d4] **ettercaps**, spider-men ([ettercap stats]). [average treasure]
+1,Up ahead is a rocky outcrop, about 100ft high, wrapped in spider webs. In the cracks of this rock live [2d4] **ettercaps**, spider-men ([ettercap stats]). [average treasure]
 
 ;ettercap stats
 1,HD 5 AC 5 1d4/1d4/1d6 + *poison* F5 MV 12 ML 9 XP 500; *climb*; *poison*: when bit, save vs. poison or be paralysed for 2h
@@ -5222,6 +5232,9 @@
 ;ettercap trade
 1,To reach the ettercap trading post, follow the single white strand that starts atop the lonely [tree] tree to the [direction], leading you safely from branch to branch above the forest floor to the ancient tree giant where the ettercaps have built a large platform with their shacks and their chests. [ettercap trading post]
 1,The ettercaps have created a landing pad up in the air where they discovered a passage to the world tree *Yggdrasil*. This is where they keep their chests of silken wares. [ettercap trading post] On nights of the full moon, or on a 1 in 6, the portal opens. [2d12] **elves** ([elf stats]) led by trade-captain [elf leader] (level [1d6+1 as level]). [spellbook for elves] [leader treasure] The elves are looking to buy silken wares or trade them for spells cast. [elven trade money] [elf travelling companions]
+
+;ettercap harbour
+1,There's a small pier at the island where the inhabitants like to trade. This is where they have their chests and shacks. [ettercap trading post]
 
 ;direction
 1,north
@@ -5237,14 +5250,14 @@
 # about 21% of these traders have no cash and will trade spells instead
 1,<span class="treasure">[40% 1d6 gold] [30% 1d6 platinum] [30% 3d6 gems] [30% 3d6 jewelry]</span>
 
-;50% 1d6 silk bales
-1,A silk bale worth 500gp.
-5,[1d5+1] silk bales worth 500gp each.
-1,
+;70% 1d6 silk bales
+12,A silk bale worth 500gp.
+60,[1d5+1] silk bales worth 500gp each.
+28,
 
-;50% 2d6 silk ropes
-1,[2d6] silk ropes, each worth 50gp.
-1,
+;70% 2d6 silk ropes
+7,[2d6] silk ropes, each worth 50gp.
+3,
 
 ;ettercap mother
 1,Up above, where the giant branches form a wide canopy, the **brood mother** ([ettercap brood mother stats]) has laid her eggs, guarding them with her life, and ready to spend hers to feed the young ones when they hatch, ravenous and desperate.
@@ -5284,8 +5297,8 @@
 1,[3d6] **myconids** watching their mushroom circle ([myconid stats]). [poor treasure] On nights of the full moon, or on a 1 in 6, the portal to [fey realm] opens. If so, [2d12] **elves** ([elf stats]) led by [elf leader] (level [1d6+1 as level]) will be visiting from [fey realm]. [spellbook for elves] [leader treasure] [elf travelling companions]
 
 ;fey realm
-,Alfheim
-,Svartalfheim
+1,Alfheim
+1,Svartalfheim
 
 ;elf stats
 1,HD 1 HP 1d6 AC 5 1d6 or *spell* E1 MV 12 ML 10 XP 100; *spell*: pick a 1st circle spell from their leader's spellbook
