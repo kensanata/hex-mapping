@@ -3146,6 +3146,7 @@
 1,There is a hill rising high above [forest name] with a nice cave which offers shelter from the rain but is home to [1d4 bears] ([bear stats]).
 1,[5d8] **dwarves** ([dwarf stats]) have set up a small logging community, here in [forest name]. The [tree] trees in the area have brought them here. They are led by [dwarf leader] (level [1d6+2 as level]). The camp is defended by [dwarven companions]. [dwarven treasure]
 1,The hills of [forest name] are full of ancient ruins. On one of these hills right here you can find the foundations of an old keep. The walls are long gone but the cistern and the storage rooms below are still usable. [1d4x10] **bandits** led by [human] have made this their permament base. The camp is [human fort]. [average treasure]
+1,[faerie witch]
 
 # tree names from http://blog.d4caltrops.com/2019/04/see-forest-for-trees.html
 
@@ -4672,7 +4673,89 @@
 1,who is cursing all the young men of these lands with the drowning sickness
 
 ;witch stats
-1,HD 5 AC 6 1d6/1d6 F5 MV 15 ML 7 XP 500; on a 20: magic water fills victim’s lung, save vs. death or drown; *beautiful* (until kissed), *charm male*, *kiss of mind control* (24h), *invisibility*, *turn to fog*, *curse of water lungs* (save vs. death or drown in 1d6 days)
+1,HD 5 AC 6 1d6/1d6 F5 MV 15 ML 7 XP 500; on a 20: magic water fills victim’s lung, save vs. death or drown; *beautiful* (until kissed), *charm male*, *kiss of mind control* (24h), *invisibility*, *turn to fog*, *curse of water lungs*: save vs. death or drown in 1d6 days
+
+;faerie witch
+1,Hidden deep in the forest lives *[old names for women]* the **witch**. She lives in a [witch cottage] [witch cottage door] [witch cottage other entry]</p><p>[witch cottage main room]</p><p>[same old names for women] is here ([witch stats]). She is working on [witch product]. [terror treasure]
+
+;witch product
+1,some poultice
+1,a [potion]
+
+;witch cottage
+1,gingerbread house smelling like the tastiest house you've ever smelled.
+1,walking house with giant chicken feet. There's a little ladder leading up to the entrance.
+1,walking house with giant crane feet. There's a little ladder leading up to the entrance.
+1,beautiful little house painted white surrounded by a little vegetable garden.
+
+;witch cottage door
+1,On the door is a nice big sign saying "Welcome!"
+1,On the door is a nice big sign saying "[same old names for women] bids you welcome!"
+1,The door is made of tiny, smiling baby faces, opening and closing their eyes, warm to the touch.
+1,The door is dazzling kaleidoscope of colourful pearls on strings and tiny bells a few feet deep.
+1,A fortified wooden door fit for a tower, but somebody drew a lot of tiny red hearts on it.
+
+;witch cottage other entry
+1,There's also a pretty big chimney that might provide an ingress.
+1,The chimney looks very small so that you'd have to be a child, a dwarf, or a halfling to enter that way.
+1,One of the windows looks big enough that one could imagine smashing it and climbing through it.
+1,The roof looks thatched with reeds, surely one could cut those ropes and go through the roof?
+1,
+
+;witch cottage main room
+1,The main room is [witch cottage decoration]. A cauldron is bubbling in the corner. [witch cottage cauldron] [witch prisoner] [witch thrall]
+
+;witch cottage decoration
+1,[things hanging from the ceiling], [things on the shelf], and [things on the table]
+
+;things hanging from the ceiling
+1,hung with stuffed monkey heads and bats
+1,hung with desiccated rats and a stuffed crocodile
+1,full of dried herbs hanging from the ceiling
+
+;things on the shelf
+1,there are snakes in glass bottles on the shelf
+1,on the shelves are spiders in glass bottles
+1,there is a butterfly collection on a shelf
+
+;things on the table
+1,human skulls piled onto each other on the table
+1,there is a dissected [thing to dissect] on a table
+
+;thing to dissect
+1,unrecognisable body
+1,bird of prey
+1,goblin
+1,dog
+1,cat
+
+;witch cottage cauldron
+1,The cauldron is covered with a lid. If you open it, roll for surprise. If you're surprised, you cannot help but shout in disgust as *[body parts]* bob up in the broth and disappear again.
+
+;body parts
+1,eyes
+1,fingers
+1,hundreds of [animals in a soup]
+
+;animals in a soup
+1,snails
+1,frogs
+1,rats
+
+;witch prisoner
+1,In a cage, hanging from the ceiling, [ettercap prisoner feeling], is [witch prisoner details]
+1,In a cage, standing near the fire, [ettercap prisoner feeling], is [witch prisoner details]
+1,
+
+;witch prisoner details
+1,the dwarf *[dwarf]*, the last survivor of their mining party.
+1,the halfling *[halfling name]* who was looking for place to set up their hermitage.
+2,*[human name]*, a child maybe [1d6+4] years old.
+
+;witch thrall
+1,*[human name]* the servant is cleaning the shelves, singing to themselves, dressed in rags.
+1,*[human name]* the servant is cleaning the floor, humming to themselves, dressed in rags.
+1,
 
 ;hill name
 1,[hill 1] [hill 2]
