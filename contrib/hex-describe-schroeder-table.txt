@@ -5244,7 +5244,7 @@
 
 ;ettercap trading post
 # about 9% of all trading posts have nothing to sell
-1,<span class="treasure">[70% 1d6 silk bales] [70% 2d6 silk ropes]</span>
+1,<span class="treasure">[70% 1d6 silk bales] [70% 2d6 silk ropes]</span> [50% dangerous spiders] [50% useful spiders]
 
 ;elven trade money
 # about 21% of these traders have no cash and will trade spells instead
@@ -5258,6 +5258,18 @@
 ;70% 2d6 silk ropes
 7,[2d6] silk ropes, each worth 50gp.
 3,
+
+;50% dangerous spiders
+1,a cage with a trained **giant huntsman spider** ([spider stats]; takes directions using tiny drumsticks)
+5,[1d5+1] cages with trained **giant huntsman spiders** ([spider stats]; takes directions using tiny drumsticks)
+1,a cage with a trained **giant spark spider** ([spider stats]; *spark*: once per fight, when hit or when hitting, 1d6 damage to the other party because of a big spark; takes directions using tiny drumsticks)
+5,[1d5+1] cages with trained **giant spark spiders** ([spider stats]; *spark*: once per fight, when hit or when hitting, 1d6 damage to the other party because of a big spark; takes directions using tiny drumsticks)
+12,
+
+;50% useful spiders
+1,a cage with a trained **giant wheel spider** ([spider stats]; takes directions using tiny drumsticks; can roll along the floor with the wind)
+5,[1d5+1] cages with trained **giant wheel spiders** ([spider stats]; takes directions using tiny drumsticks; can roll along the floor with the wind)
+6,
 
 ;ettercap mother
 1,Up above, where the giant branches form a wide canopy, the **brood mother** ([ettercap brood mother stats]) has laid her eggs, guarding them with her life, and ready to spend hers to feed the young ones when they hatch, ravenous and desperate.
