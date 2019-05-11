@@ -9135,7 +9135,7 @@
 1,The elves are served by [6d10] spider-like **goblins**, led by [goblin] ([goblin stats]). [poor treasure] Every ceiling, every dead end, every empty room has spider webs, bat bones, and worse. [maybe human prisoners of spider goblins]
 
 ;maybe human prisoners of spider goblins
-1,In fact, the keep a prisoner in their central storage room, hanging helplessly in a cocoon, barely alive. This is [human name] who was captured a few days ago. The elves know nothing of it and wouldn't care if they knew.
+1,In fact, they keep a prisoner in their central storage room, hanging helplessly in a cocoon, barely alive. This is [human name] who was captured a few days ago. The elves know nothing of it and wouldn't care if they knew.
 1,
 
 # note that elsewhere tables exist that refer to all the powers
