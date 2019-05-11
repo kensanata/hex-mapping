@@ -4017,9 +4017,11 @@
 
 ;ogre prisoners
 1,All the cages are empty.
-1,The elf [elf] is the last survivor of his hunting party, [feeling terrible].
-1,The dwarf [dwarf] is the last survivor of his mining party, [feeling terrible].
-1,The halfling [halfling name] is the last survivor of his village, [feeling terrible].
+1,The elf *[elf]* is the last survivor of their hunting party, [feeling terrible].
+1,The dwarf *[dwarf]* is the last survivor of their mining party, [feeling terrible].
+1,The halfling *[halfling name]* is the last survivor of their village, [feeling terrible].
+1,*[human name]* is the last survivor of a company of pilgrims, [feeling terrible].
+1,*[human name]* is the last survivor of a company of merchants, [feeling terrible].
 1,[1d5+1] goblins are the last survivors of their clan, [feeling terrible].
 
 ;feeling terrible
