@@ -5225,15 +5225,41 @@
 1,The trees open up and there's a small island up ahead. Giant trees grow on that island. A sweet, musky flagrance of wisteria and roses fills the air. On these trees [2d4] **giant bolas spiders** hunt for prey ([giant spider stats]; *bola*: 30ft ranged attacks with a weighted *capture blob* of sticky silk on a line).
 
 ;ettercap lair
-1,Up in the trees are some tree houses connected by several ropes. If you're not afraid of heights, you can easily walk from one to the other, feet on one rope and hands holding another one. The tree houses are home to [2d4] **ettercaps**, spider-men ([ettercap stats]). [average treasure]
-1,Up ahead is a rocky outcrop, about 100ft high, wrapped in spider webs. In the cracks of this rock live [2d4] **ettercaps**, spider-men ([ettercap stats]). [average treasure]
+1,Up in the trees are some tree houses connected by several ropes. If you're not afraid of heights, you can easily walk from one to the other, feet on one rope and hands holding another one. The tree houses are home to [2d4] **ettercaps**, spider-men ([ettercap stats]). [average treasure] [ettercap prisoners]
+1,Up ahead is a rocky outcrop, about 100ft high, wrapped in spider webs. In the cracks of this rock live [2d4] **ettercaps**, spider-men ([ettercap stats]). [average treasure] [ettercap prisoners]
 
 ;ettercap stats
 1,HD 5 AC 5 1d4/1d4/1d6 + *poison* F5 MV 12 ML 9 XP 500; *climb*; *poison*: when bit, save vs. poison or be paralysed for 2h
 
+;ettercap prisoners
+1,Hanging from the ceiling is a cocooned prisoner, [ettercap prisoner feeling]: [ettercap prisoner details]
+1,
+
+;ettercap prisoner feeling
+1,crying for help
+1,whimpering hopelessly
+1,struggling to free themselves
+1,sedated, with bloated eyes
+1,screaming, overcome by madness and fear
+
+;ettercap prisoner details
+1,The elf *[elf]* is the last survivor of their hunting party.
+1,The dwarf *[dwarf]* is the last survivor of their mining party passing through.
+1,The halfling *[halfling name]* used to live as a hermit not far from here and thought they knew the ettercaps.
+1,*[human name]* is the last survivor of a company of pilgrims.
+1,*[human name]* is the last survivor of a company of merchants.
+
 ;ettercap trade
 1,To reach the ettercap trading post, follow the single white strand that starts atop the lonely [tree] tree to the [direction], leading you safely from branch to branch above the forest floor to the ancient tree giant where the ettercaps have built a large platform with their shacks and their chests. [ettercap trading post]
 1,The ettercaps have created a landing pad up in the air where they discovered a passage to the world tree *Yggdrasil*. This is where they keep their chests of silken wares. [ettercap trading post] On nights of the full moon, or on a 1 in 6, the portal opens. [2d12] **elves** ([elf stats]) led by trade-captain [elf leader] (level [1d6+1 as level]). [spellbook for elves] [leader treasure] The elves are looking to buy silken wares or trade them for spells cast. [elven trade money] [elf travelling companions]
+1,The ettercaps have made contact with *phase spiders*, intelligent travellers of the nine realms. On a 1 in 6, a party of   [1d6 phase spiders] will show up tonight ([phase spider stats]). Nobody knows what they are up to but they are very interested in hearing stories about current events as well as local botany and zoology. In return, they bring fancy looking trinkets from unknown places.
+
+;1d6 phase spiders
+1,a **phase spider**
+1,[1d5+1] **phase spiders**
+
+;phase spider stats
+1,HD 7 AC 5 1d6/1d6/1d6 + *poison* F7 MV 12 ML 9 XP 700; *climb*; *poison*: when bit, save vs. poison or be paralysed for 2h; *telepathy*: save vs. spells to reject their contact; *realm travel*
 
 ;ettercap harbour
 1,There's a small pier at the island where the inhabitants like to trade. This is where they have their chests and shacks. [ettercap trading post]
