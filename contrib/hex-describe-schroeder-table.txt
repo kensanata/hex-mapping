@@ -5326,9 +5326,9 @@
 1,screaming, overcome by madness and fear
 
 ;ettercap prisoner details
-1,The elf *[elf]* is the last survivor of their hunting party.
-1,The dwarf *[dwarf]* is the last survivor of their mining party passing through.
-1,The halfling *[halfling name]* used to live as a hermit not far from here and thought they knew the ettercaps.
+1,the elf *[elf]* is the last survivor of their hunting party.
+1,the dwarf *[dwarf]* is the last survivor of their mining party passing through.
+1,the halfling *[halfling name]* used to live as a hermit not far from here and thought they knew the ettercaps.
 1,*[human name]* is the last survivor of a company of pilgrims.
 1,*[human name]* is the last survivor of a company of merchants.
 
