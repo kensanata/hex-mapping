@@ -5371,16 +5371,19 @@
 3,
 
 ;50% dangerous spiders
-1,a cage with a trained **giant huntsman spider** ([spider stats]; takes directions using tiny drumsticks)
-5,[1d5+1] cages with trained **giant huntsman spiders** ([spider stats]; takes directions using tiny drumsticks)
-1,a cage with a trained **giant spark spider** ([spider stats]; *spark*: once per fight, when hit or when hitting, 1d6 damage to the other party because of a big spark; takes directions using tiny drumsticks)
-5,[1d5+1] cages with trained **giant spark spiders** ([spider stats]; *spark*: once per fight, when hit or when hitting, 1d6 damage to the other party because of a big spark; takes directions using tiny drumsticks)
+1,a cage with a trained **giant huntsman spider** ([giant spider stats]; takes directions using tiny drumsticks)
+5,[1d5+1] cages with trained **giant huntsman spiders** ([giant spider stats]; takes directions using tiny drumsticks)
+1,a cage with a trained **giant spark spider** ([giant spider stats]; *spark*: once per fight, when hit or when hitting, 1d6 damage to the other party because of a big spark; takes directions using tiny drumsticks)
+5,[1d5+1] cages with trained **giant spark spiders** ([giant spider stats]; *spark*: once per fight, when hit or when hitting, 1d6 damage to the other party because of a big spark; takes directions using tiny drumsticks)
 12,
 
 ;50% useful spiders
-1,a cage with a trained **giant wheel spider** ([spider stats]; takes directions using tiny drumsticks; can roll along the floor with the wind)
-5,[1d5+1] cages with trained **giant wheel spiders** ([spider stats]; takes directions using tiny drumsticks; can roll along the floor with the wind)
+1,a cage with a trained **giant wheel spider** ([big spider stats]; takes directions using tiny drumsticks; can roll along the floor with the wind)
+5,[1d5+1] cages with trained **giant wheel spiders** ([big spider stats]; takes directions using tiny drumsticks; can roll along the floor with the wind)
 6,
+
+;big spider stats
+1,HD 1-1 AC 7 1d6 + *paralysis* F1 MV 15 ML 7 XP 100; *climb*
 
 ;ettercap mother
 1,Up above, where the giant branches form a wide canopy, the **brood mother** ([ettercap brood mother stats]) has laid her eggs, guarding them with her life, and ready to spend hers to feed the young ones when they hatch, ravenous and desperate.
