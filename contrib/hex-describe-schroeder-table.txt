@@ -6375,16 +6375,17 @@
 1,hawking superstitious wind-chimes/mobiles
 1,about to burn/just burnt a Witch
 1,heavily taxed, to the point of destitution
-1,advertising a Bounty on a local deaf and toothless Giant
+1,advertising a bounty on a local deaf and toothless Giant
 1,hoping to marry off eligible bachelors
 1,all whistling the same, terribly infectious tune
 1,hysterically laughing at a dead horse
 1,anxiously awaiting rainfall, last one was a doozy
 1,need a wizard to banish town's imaginary curse
 1,asking you to repeat everything. Everyone hard of hearing?
-1,infertile and desperate, bargaining with local Fey
-1,assisting the Priest as they bless Holy Water
-1,laying the cornerstone of a new church
+1,infertile and desperate, bargaining with local fey
+# assisting the Priest as they bless Holy Water
+# changed church to temple
+1,laying the cornerstone of a new temple
 1,attempting to halt a runaway Ox plowing the streets
 1,lugging buckets to fill a large boiling cauldron
 1,averting their eyes as you approach for at least an hour
@@ -6403,46 +6404,46 @@
 1,offering free room/board for help with harvest
 1,brandishing lit torches, even during the day
 1,only speaking in questions. Why?
-1,burning Books with a focus on Religious Texts
-1,painting Evil-Eye protection symbols on all doors
+1,burning books with a focus on religious texts
+1,painting evil-eye protection symbols on all doors
 1,carrying around the skulls of their favorite ancestor
 1,paying handsomely to help dye fabrics
 1,carting refuse to a smoldering trash pit that smells lovely
-1,poking a caged “werewolf” (Sad Gnoll) with sticks
-1,celebrating the birthday of a dead local hero
+1,poking a caged “werewolf” (a sad gnoll) with sticks
+1,celebrating the birthday of a dead local hero named [old name]
 1,preparing burlap-booted geese for market
 1,charing prayer scrolls for ashes to waft in the breeze
-1,pretty sure the party are Faerie Folk
+1,pretty sure the party are faerie folk
 1,color-blind and dressed in tacky tatterdemalion attire
 1,raising the bounty on a local sheep rustler
 1,constantly complaining about an odor that you can't smell
-1,raking Gravel to upgrade the roads
-1,constructing a giant wicker Wyvern Effigy
+1,raking gravel to upgrade the roads
+1,constructing a giant wicker wyvern effigy
 1,recovering from a plague and keep a wide berth
-1,coping with the aftermath of a Tornado
+1,coping with the aftermath of a tempest
 1,reeling from a recent landshark ambush
-1,crowning an ugly, horrifyingly corpulent sow Queen
+1,crowning an ugly, horrifyingly corpulent sow queen
 1,re-furrowing the zig-zag irrigation canals
 1,dancing wildly to a piper's poorly played tune
 1,re-thatching roofs and sweeping stoops
 1,dealing with a building that just caught fire
 1,returning with a catch of fish. One’s a whopper
 1,desperately in need of a smith to shoe their single horse
-1,roasting a Huge Dire Boar for a Town-wide Feast
+1,roasting a huge boar for a town-wide feast
 1,digging a new well and swearing up a storm
-1,ruled by an Ivory Golem who speaks once weekly
+1,ruled by an ivory golem who speaks once per week
 1,discussing a stone tower that sprouted in the field last week
-1,running to fetch priest from the next village over
+1,running to fetch a priest from the next village
 1,dragging sledges of firewood and furniture to burn
-1,schlepping a grain sacrifice to Local Lake Spirit
-1,dredging the Pond for missing child
-1,scrubbing/Sloshing - Village-wide Laundry day
+1,schlepping a grain sacrifice to the local lake spirit
+1,dredging the pond for missing child
+1,scrubbing/sloshing: it's laundry day
 1,each capable of casting a single spell: *[random 1st level spell]*
 1,sharpening stakes and crude spears, sullenly
 1,eager to exchange a pouch of platinum for copper
-1,shuttering Windows and Locking Doors
+1,shuttering windows and locking doors
 1,electing a new magistrate (ballot by blade)
-1,somberly stoking a Funeral Pyre
+1,somberly stoking a funeral pyre
 1,erecting a windmill, architecturally precarious
 1,splashing water on everyone for a local festival
 1,eschewers of metal and highly worked goods
@@ -6457,20 +6458,22 @@
 1,tending to a very pregnant sacred cow
 1,forming pleasingly uniform mudbricks in molds
 1,throwing stones at a travelling peddler
-1,genuflecting obsequiously and calling you “Lord/Lady”
+1,genuflecting obsequiously and calling you “lord" or "lady”
 1,towing a large boat through town
-1,gesturing for Silence whenever spoken to
-1,watching a Fire Breather entertaining children
+1,gesturing for silence whenever spoken to
+1,watching a fire breather entertaining children
 1,getting hoodwinked by a lumber merchant
 1,trying to gird necks with floral/garlic garlands
-1,ready to sacrifice their dozen eldest to a local Wight
-1,very tall and broad, claim it's Troll-blood
+1,ready to sacrifice their dozen eldest to a local wight
+1,very tall and broad, claim it's troll-blood
 1,giving away as many surplus tuber crops as they can
 1,wantonly smashing pottery and crockery
-1,hanging colorful pennants/flags for an upcoming festival
+1,hanging colorful pennants and flags for an upcoming festival
 1,wary from a charlatan who sold them snake-oil
 1,hauling loamy compost to their fallow fields
 1,wearing their clothing inside out and backwards
+# and others
+1,choosing the child to be sacrificed to the dragon
 
 ;thorp
 1,</p><p>There is a thorp of [1d4x10] **humans** ([human stats]) led by [human][human job]. The [human houses] are protected by [human companions]. [average treasure] These village-folk are [thorp activity].
