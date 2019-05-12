@@ -6378,7 +6378,7 @@
 1,These satyrs seeking to convince all the married women of the nearby settlement to leave their homes. Half have already fled into the forest laughing and singing. They really don't want to come back and the [3d6] **satyrs** will support them ([satyr stats]).
 1,These satyrs demand weekly tribute in the form of the finest vintages of wine from the nearby settlement, but all the cellars have already been drained dry and the grape harvests are months away. Every day, the [3d6] **satyrs** grow more impatient and rowdy ([satyr stats]).
 1,These satyrs roam the roads of the nearby settlement, covering the walls of houses with rude graffiti and profane writings. They jab and jeer at anybody doing honest work and corrupt the young ones with wines and charms. And yet, nobody dares to stop the [3d6] **satyrs** ([satyr stats]).
-1,These satyrs just won’t leave. They’re polite and nice enough, but it’s so hard to get work done with all the drunken louts in the square all day long. Hospitality is wearing thin, but these [3d6] **satyrs** are intent on staying ([satyr stats]).
+1,These satyrs just won’t leave the nearby settlement. They’re polite and nice enough, but it’s so hard to get work done with all the drunken louts in the square all day long. Hospitality is wearing thin, but these [3d6] **satyrs** are intent on staying ([satyr stats]).
 
 ;satyr stats
 1,HD 5 AC 7 1d6 F5 MV 9 ML 7 XP 500; *party tunes*: when playing the flute, anybody listening must save vs. spells or join the party; *chill-out tunes*: when playing the flute, anybody listening must save vs. spells fall into a magical slumber; only harmed by magic, magic weapons or silver weapons
