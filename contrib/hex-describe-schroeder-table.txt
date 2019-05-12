@@ -5335,7 +5335,7 @@
 1,The forest here is deep and quiet. [easy to get lost] [2d12] **elves** ([elf stats]) led by [elf leader] (level [1d6+1 as level]) have built their [elf dwelling] in [forest name], [beautiful trees]. [spellbook for elves] [leader treasure] [elf companions]
 1,These trees are part of [forest name]. [easy to get lost] A system of big tunnels is home to [1d6 weasels] ([weasel stats]).
 1,At dusk and dawn, you can sometimes see [boars] in the [forest name], here.
-1,The forest has overgrown an old temple of *[power]*. Some of the walls still stand, and so do some of the columns, but the roof is gone and floor is wet. [old forest temple denizen]
+1,The [forest name] has overgrown an old temple of *[power]*. Some of the walls still stand, and so do some of the columns, but the roof is gone and floor is wet. [old forest temple denizen]
 
 ;ettercap forest
 1,[spider word] [forest 2]
@@ -5589,8 +5589,11 @@
 ;weasel stats
 1,HD 5 AC 7 1d8 F3 MV 15 ML 8 XP 500
 
+;animated tree stats
+1,HD 8 AC 2 2d6/2d6 F8 MV 6
+
 ;treant stats
-1,HD 8 AC 2 2d6/2d6 F8 MV 6 ML 6 XP 800; *surprise* on 1–3 in 6; *animate trees* two trees each, using the same stats
+1,[animated tree stats] ML 6 XP 800; *surprise* on 1–3 in 6; *animate trees* two trees each, using the same stats
 
 ;1d8 treants
 1,the **treant** called [treant]
@@ -6389,7 +6392,7 @@
 1,ion
 1,on
 
-# These are the fir forests next to thorps
+# These are the fir forests next to thorps (thorps themselves are firs)
 ;fir-forest
 1,[fir highlands] The land up here is the hunting ground of a **manticore** called *[manticore]* living in the ruins of an old tower overlooking the area. [robber treasure] [manticore companions]
 1,[fir highlands] This fir forest is home to a pack of [3d6] **wolves** ([wolf stats]).
@@ -6400,6 +6403,34 @@
 1,[fir highlands] At night, the orcs of the [evil tribe] hunt these lands. [orcs] Their settlement is protected by a palisade and [orc fort]
 1,[fir highlands] There is an abandoned shrine to *[power]* up here. It is haunted by the **spectre** of *[old name]*, the last priest who cared for it ([spectre stats]). [ancient treasure]
 1,[fir highlands] If you wander into these woods, you'll soon hear laughter and revelling. [satyr threat]
+1,[fir highlands] [druids]
+
+;druids
+1,[druid warning sign] [druid] [druid goal] [druid terror] [druid allies]
+
+;druid
+1,The **druid** *[old names for men]* rules this land, having freed himself from the shackles of civilisation, living like a wild beast in a hovel ([druid stats]).
+1,The **druid** *[old names for women]* rules this land, having freed herself from the shackles of civilisation, living like a wild beast in a hovel ([druid stats]).
+
+;druid stats
+1,HD 9 AC 7 1d6 F9 MV 12 ML 9 XP 900; *heat metal*; *tree travel*; *animate tree* (3×/day): [animated tree stats]; *limited shape change* into a bear: [bear stats]
+
+;druid warning sign
+1,The trees carry warnings: human skulls dangling from ropes, finger bones on threads, rattling in the wind.
+
+;druid goal
+1,</p><p>All they want is to drive away all the humans for they bring their walls, their squalid houses, and their diseases into this glorious wilderness.
+1,</p><p>All they want is to kill all the humans that have been cutting down trees with their iron weapons, their iron armour, their bonfires and their torches.
+
+;druid terror
+1,High up in the trees a small number of wooden cages hold dead bodies and [druid prisoners], [ettercap prisoner feeling].
+
+;druid prisoners
+1,a **prisoner** called [human name]
+5,[1d5+1] **prisoners** led by [human name]
+
+;druid allies
+1,</p><p>The druids have found powerful allies in the forest: [1d8 treants] ([treant stats]).
 
 ;satyr threat
 1,These satyrs seeking to convince all the married women of the nearby settlement to leave their homes. Half have already fled into the forest laughing and singing. They really don't want to come back and the [3d6] **satyrs** will support them ([satyr stats]).
