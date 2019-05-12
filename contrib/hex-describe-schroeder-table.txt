@@ -4687,6 +4687,12 @@
 1,*walking house* with giant chicken feet. There's a little ladder leading up to the entrance.
 1,*walking house* with giant crane feet. There's a little ladder leading up to the entrance.
 1,*beautiful little house* painted white surrounded by a little vegetable garden.
+1,*walking house* on hairy crab legs. A rope ladder leads up to the entrance.
+1,large hollowed out mushroom that's been turned into a *cozy looking hovel*.
+1,rustic logger's cabin that's been recently repaired.
+1,low stone hut, covered in sweet-smelling vine blossoms
+1,quaint little chalet with a very sharply pointed roof.
+1,a narrow timber framed cottage with contrasting brown and cream colours
 
 ;witch cottage door
 1,On the door is a nice big sign saying "Welcome!"
@@ -4736,11 +4742,20 @@
 1,eyes
 1,fingers
 1,hundreds of [animals in a soup]
+1,tongues
+1,toes
+1,teeth
 
 ;animals in a soup
 1,snails
 1,frogs
 1,rats
+1,bird skulls
+1,toads
+1,newts
+1,snakelets
+1,locusts
+1,tarantulas
 
 ;witch prisoner
 1,</p><p>In a cage, hanging from the ceiling, [ettercap prisoner feeling], is [witch prisoner details]
