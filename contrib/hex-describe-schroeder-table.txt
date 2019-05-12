@@ -6426,8 +6426,8 @@
 1,High up in the trees a small number of wooden cages hold dead bodies and [druid prisoners], [ettercap prisoner feeling].
 
 ;druid prisoners
-1,a **prisoner** called [human name]
-5,[1d5+1] **prisoners** led by [human name]
+1,a **prisoner** called *[human name]*
+5,[1d5+1] **prisoners** led by *[human name]*
 
 ;druid allies
 1,</p><p>The druids have found powerful allies in the forest: [1d8 treants] ([treant stats]).
