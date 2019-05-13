@@ -142,7 +142,7 @@
 1,The [name for hills] are dry and forbidding. The only animals you can see are some **goats**.
 1,The [name for hills] are bare and the narrow creeks between them have dug deep channels. One of these channels is home to [some canyon wights] ([wight stats]). During they day they lie in the flooded cellar of a ruined toll tower guarding a ford. [dead treasure]
 1,Deep ravines cut through the [name for hills]. A cave in one of those dry riverbeds is home to [giant scorpions] ([giant scorpion stats]).
-1,On one of the [name for hills] stands an old tower overlooking the lands below. This is the home of a **manticore** called *[manticore]*. [robber treasure]
+1,On one of the [name for hills] stands an old tower overlooking the lands below. This is the home of a **manticore** called *[manticore]* ([manticore stats]). [robber treasure]
 1,On one of the [name for hills] stands [a warlock fortress]
 
 ;a warlock fortress
@@ -4048,7 +4048,7 @@
 1,Up in these drylands, a massive fortress built by giants long ago is home to the [evil tribe]. [orcs] The fortress is [orc fort]
 1,Up here on these hills and overlooking the shrublands is a massive fortress built by giants long ago. It has been taken over by **humans** and now it is home to [1d4x10] bandits ([human stats]) led by [human]. The fortress is [human fort]. [average treasure]
 1,There are caves beneath these badlands. [caves]
-1,The dry lands up here are the hunting grounds of a **manticore** called *[manticore]* living in the ruins of an old tower. [robber treasure] [manticore companions]
+1,The dry lands up here are the hunting grounds of a **manticore** called *[manticore]* living in the ruins of an old tower ([manticore stats]). [robber treasure] [manticore companions]
 1,A **green dragon** named [green dragon name] lives at [hill name], one of the hills overlooking these shrublands ([green dragon stats]). [dragon treasure]
 
 ;badlands
@@ -4290,6 +4290,9 @@
 1,</p><p>Beneath the tower is a warren of [6d10] **goblins**, led by [goblin] ([goblin stats]). [poor treasure] They will happily lead fools to the manticore's tower (and betray them).
 1,</p><p>Two of the buildings at the foot of the tower have been fixed up. [1d4x10] **bandits** led by [human] live here in an uneasy truce with the manticore.
 2,
+
+;manticore stats
+1,HD 6+1 AC 4 1d6/1d6/1d10 or *spikes* F6 MV 18 ML 9 XP 600; 24 *spikes* (60ft, 1d6), up to 6/rd
 
 ;halflings
 1,[5d8] **halflings** led by [halfling leader]. [leader treasure] [average treasure] [halfling troubles]
@@ -5336,6 +5339,52 @@
 1,These trees are part of [forest name]. [easy to get lost] A system of big tunnels is home to [1d6 weasels] ([weasel stats]).
 1,At dusk and dawn, you can sometimes see [boars] in the [forest name], here.
 1,The [forest name] has overgrown an old temple of *[power]*. Some of the walls still stand, and so do some of the columns, but the roof is gone and floor is wet. [old forest temple denizen]
+1,There's a little stream here, making its way through the [forest name], wrapping itself around a beautiful, big, old tree. [dryad]
+
+;dryad
+1,This is a [tree] tree, inhabited by a **dryad** of the same name: *[same tree]* ([dryad stats]). [dryad lover]
+
+;dryad stats
+1,HD 4 AC 7 1d6 F8 MV 12 ML 6 XP 400; *charm*, *sleep*, *speak with plants*, *tree travel*, *animate tree* (3×/day): [animated tree stats]
+
+;dryad lover
+2,At the foot of the tree lies a human skeleton. She is looking for a new lover!
+1,She's crying because her lover [man] (a level [1d6+1 as level] [human class]) just left her. Bring him back, she implores you!
+1,She's coy and flirtatious because she knows full well that her lover [man] (a level [1d6+1 as level] [human class]) is bound to show up any minute now. Oh how she loves to see those peacocks fight! [spellbook for [same class]] [leader treasure for [same class]]
+1,She's sad and melancholy for it seems that both her lovers have learned of each other. There's the [lover type] *[man]* (a level [1d6+1 as level] [human class]), and she loves him dearly. [spellbook for [same class]] [leader treasure for [same class]] But there's also the [lover type] *[man]* (a level [1d6+1 as level] [human class]), and she loves him just as much! [spellbook for [same class]] [leader treasure for [same class]]
+1,She sends her lover [man] (a level [1d6+1 as level] [human class]) to deal with you. [spellbook for [same class]] [leader treasure for [same class]]
+1,She's happy to see you and will trade a kiss for a little help: somebody needs to take care of the annoying [forest monster]
+
+;lover type
+1,experienced
+1,hot headed
+1,flamboyant
+1,scheming
+1,cheerful
+1,lustful
+1,lusty
+1,happy
+1,mad
+1,coy
+1,shy
+1,cute
+1,curious
+1,gregarious
+1,well-travelled
+
+;forest monster
+1,**manticore** *[manticore]* ([manticore stats]). [robber treasure]
+1,**bear** *[bear]* ([bear stats])
+1,[1d4x10] **bandits** led by [human]. [average treasure]
+1,[6d10] **goblins** live here, led by [goblin] ([goblin stats]). [poor treasure]
+
+;bear
+1,Honey Sweet
+1,Bee Friend
+1,Tree Grappler
+1,Jaws
+1,Mighty Jaw
+1,Iron Claw
 
 ;ettercap forest
 1,[spider word] [forest 2]
@@ -6394,7 +6443,7 @@
 
 # These are the fir forests next to thorps (thorps themselves are firs)
 ;fir-forest
-1,[fir highlands] The land up here is the hunting ground of a **manticore** called *[manticore]* living in the ruins of an old tower overlooking the area. [robber treasure] [manticore companions]
+1,[fir highlands] The land up here is the hunting ground of a **manticore** called *[manticore]* living in the ruins of an old tower overlooking the area ([manticore stats]). [robber treasure] [manticore companions]
 1,[fir highlands] This fir forest is home to a pack of [3d6] **wolves** ([wolf stats]).
 1,[fir highlands] At dusk and dawn, you can sometimes see [boars] ([boar stats]).
 1,[fir highlands] There is a cave housing the **ettin** called *[ettin]*. [robber treasure]
