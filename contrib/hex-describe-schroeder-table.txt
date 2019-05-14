@@ -6533,7 +6533,7 @@
 1,This is one of the truly wild places.
 1,This place is holy to Odin's *Wild Hunt*.
 1,These trees are holy to the druids.
-1,This is hallowed ground to the druits.
+1,This is hallowed ground to the druids.
 
 ;druid circle
 1,a rough circle of upright builders as tall as an ogre, hewn centuries ago by hands long since forgotten.
