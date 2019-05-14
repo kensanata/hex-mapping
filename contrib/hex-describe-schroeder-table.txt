@@ -6455,8 +6455,14 @@
 1,[fir highlands] [druids]
 
 ;druids
-1,[druid warning sign] Here stands [druid circle] Local legends have named this place *[druid circle name]*. [druid allies] [druid trails]
-1,[druid warning sign] At last you reach [druid circle] Local legends have named this place *[druid circle name]*. [druid allies] [druid trails]
+1,[druid warning sign] Here stands [druid circle] [the locals call it] *[druid circle name]*. [druid allies] [druid trails]
+1,[druid warning sign] At last you reach [druid circle] [the locals call it] *[druid circle name]*. [druid allies] [druid trails]
+
+;the locals call this place
+1,Local legends have named this place
+1,In the old days, they called it
+1,In *[old elf ballad name]*, this place was called
+1,In *The Travels of [old name]*, this place was called
 
 ;druid trails
 1,</p><p>A [druid path] north to [druid larder].</p><p>Another [druid path] heads south to [druid camp]. [druid] [druid goal] [druid terror]
@@ -6516,11 +6522,18 @@
 5,are [1d5+1] **prisoners** led by *[human name]*
 
 ;druid allies
-1,</p><p>The druids have found powerful allies in the forest: [1d8 treants] ([treant stats]).
-1,</p><p>The woods around here are patrolled by the druids' pack: [3d6] **wolves** ([wolf stats]).
-1,</p><p>The druids are protected by [1d4 bears] ([bear stats]).
-1,</p><p>The druids have found unruly allies in the forest: [centaurs].
-1,</p><p>The druids know everything that moves in this part of the forest for the **crows** act as their eyes and ears. They're everywhere!
+1,</p><p>[druid cause] The druids have found powerful allies in the forest: [1d8 treants] ([treant stats]).
+1,</p><p>[druid cause] The woods around here are patrolled by the druids' pack: [3d6] **wolves** ([wolf stats]).
+1,</p><p>[druid cause] The druids are protected by [1d4 bears] ([bear stats]).
+1,</p><p>[druid cause] The druids have found unruly allies in the forest: [centaurs].
+1,</p><p>[druid cause] The druids know everything that moves in this part of the forest for the **crows** act as their eyes and ears. They're everywhere!
+
+;druid cause
+1,This place is sacred to the druids.
+1,This is one of the truly wild places.
+1,This place is holy to Odin's *Wild Hunt*.
+1,These trees are holy to the druids.
+1,This is hallowed ground to the druits.
 
 ;druid circle
 1,a rough circle of upright builders as tall as an ogre, hewn centuries ago by hands long since forgotten.
