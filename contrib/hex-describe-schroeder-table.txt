@@ -6455,31 +6455,185 @@
 1,[fir highlands] [druids]
 
 ;druids
-1,[druid warning sign] [druid] [druid goal] [druid terror] [druid allies]
+1,[druid warning sign] Here stands [druid circle] Local legends have named this place *[druid circle name]*. [druid allies] [druid trails]
+1,[druid warning sign] At last you reach [druid circle] Local legends have named this place *[druid circle name]*. [druid allies] [druid trails]
+
+;druid trails
+1,</p><p>A [druid path] north to [druid larder].</p><p>Another [druid path] heads south to [druid camp]. [druid] [druid goal] [druid terror]
+1,</p><p>A [druid path] south to [druid camp]. [druid] [druid goal] [druid terror]</p><p>Another [druid path] east to [druid larder].
+1,</p><p>A [druid path] west to [druid larder].</p><p>Another [druid path] north to [druid camp]. [druid] [druid goal] [druid terror]
+1,</p><p>A [druid path] uphill to [druid camp]. [druid] [druid goal] [druid terror]</p><p>Another [druid path] into a ravine where there one may find [druid larder].
+
+;druid larder
+1,a small overhang, from which carcasses of deer hang by braided vines
+1,a disused bear den, stacked high with marrow-rich bones
+1,several woven baskets, hanging from trees and filled to the brim with ripe and ready to eat [berries]
+1,a crude wooden rack, constructed of thorny branches, with [fish] impaled on the thorns and drying in the sun
+
+;druid camp
+1,a clearing dominated by a series of rough bearskin tents
+1,several crude lean-tos
+1,a clearing dominated by a large fire pit and tons of dead branches and boughs stacked haphazardly
+1,a natural overhang, gouged into a low cliff side
+1,an unnatural seeming hill, surrounded by sharpened stakes
 
 ;druid
-1,The **druid** *[old names for men]* rules this land, having freed himself from the shackles of civilisation, living like a wild beast in a hovel ([druid stats]).
-1,The **druid** *[old names for women]* rules this land, having freed herself from the shackles of civilisation, living like a wild beast in a hovel ([druid stats]).
+1,The **druid** *[old names for men]* has freed himself from the shackles of civilisation and lives here like a wild beast in a hovel ([druid stats]).
+1,The **druid** *[old names for women]* has freed herself from the shackles of civilisation and lives here like a wild beast in a hovel ([druid stats]).
 
 ;druid stats
 1,HD 9 AC 7 1d6 F9 MV 12 ML 9 XP 900; *heat metal*; *tree travel*; *animate tree* (3×/day): [animated tree stats]; *limited shape change* into a bear: [bear stats]
 
 ;druid warning sign
 1,The trees carry warnings: human skulls dangling from ropes, finger bones on threads, rattling in the wind.
+1,Scattered throughout the forest are macabre structures built of bones and twigs.
+1,Deep furrows, glistening red with blood are gouged within the trunks of trees here.
+1,It seems that no birds sing in this part of the woods, every twig and branch seems to snap beneath your feet, betraying you.
+1,Thorny vines cling to your clothing and the low branches of saplings seem to whip toward faces at every available opportunity.
+1,A patch of cleared ground, devoid of grasses and plants, is surrounded by small boulders and bones.
+1,An eerie keening and rattling sound echoes through the wood. Looking up, you see human bones high up in the branches, acting like wind-chimes.
 
 ;druid goal
 1,</p><p>All they want is to drive away all the humans for they bring their walls, their squalid houses, and their diseases into this glorious wilderness.
 1,</p><p>All they want is to kill all the humans that have been cutting down trees with their iron weapons, their iron armour, their bonfires and their torches.
+1,</p><p>All they desire is to rouse the ancient wood and to expanded its borders. Let it re-take the cultivated lands that it once dominated.
+1,</p><p>All they want is to unite the sylvan creatures and take back what is theirs: let the villages burn!
+1,</p><p>All they desire is for the old order to return: hunter and hunted, predator and prey. They see the humans growing soft and fat with their domestication and agriculture, and this makes them prey.
+1,</p><p>All they desire is the perfect, sublime, and chaotic beauty of nature, where nothing is ever uniform for long and entropy reins supreme. Let there be upheaval and change.
 
 ;druid terror
 1,High up in the trees a small number of wooden cages hold dead bodies and [druid prisoners], [ettercap prisoner feeling].
+1,Lashed to several spiny barked trees are a few corpses and [druid prisoners], [ettercap prisoner feeling].
+1,Paralyzed by herbal concoctions and arranged on stone slabs for sacrifice [are druid prisoners].
+1,Sedated with powerful venom and bound inside a giant dry wicker effigy [are druid prisoners].
 
 ;druid prisoners
 1,a **prisoner** called *[human name]*
 5,[1d5+1] **prisoners** led by *[human name]*
 
+;are druid prisoners
+1,is a **prisoner** called *[human name]*
+5,are [1d5+1] **prisoners** led by *[human name]*
+
 ;druid allies
 1,</p><p>The druids have found powerful allies in the forest: [1d8 treants] ([treant stats]).
+1,</p><p>The woods around here are patrolled by the druids' pack: [3d6] **wolves** ([wolf stats]).
+1,</p><p>The druids are protected by [1d4 bears] ([bear stats]).
+1,</p><p>The druids have found unruly allies in the forest: [centaurs].
+1,</p><p>The druids know everything that moves in this part of the forest for the **crows** act as their eyes and ears. They're everywhere!
+
+;druid circle
+1,a rough circle of upright builders as tall as an ogre, hewn centuries ago by hands long since forgotten.
+1,concentric rings of squat, white stone that isn’t normally found in this area.
+1,a large, granite slab, draped across and resting precariously on top of three tapered upright boulders.
+1,a series of moss and lichen covered pillars of living rock, a bit worn and weathered but still impressive in size.
+1,a row of roughly torso shaped stones, tall as a horse, spaced evenly along a low ridge.
+1,five flat topped, squarish boulders covered in scratches and gouges. They would seem natural if it weren’t for the careful and almost reverent landscaping trimming the grasses around them.
+
+;druid circle name
+1,The Merry Maidens
+1,The Old Men
+1,The Goathenge
+1,The Giant’s Teeth
+1,The Dancers
+1,The Petrified Giants
+
+;druid path
+1,[druid path decoration] [druid path description]
+
+;druid path decoration
+1,barely visible and overgrown
+1,leaf-strewn
+1,bone-littered
+1,heavily-thorned
+1,deeply furrowed
+1,[berry]-bush lined
+
+;berry
+1,ripe [berry1] [berry2]
+1,unripe [berry1] [berry2]
+1,mostly-eaten [berry1] [berry2]
+
+;berries
+1,[berry1] [berry3]
+
+;berry1
+1,Blue
+1,Tar
+1,Goose
+1,Cloud
+1,Thimble
+1,Choke
+
+;berry2
+1,Cherry
+1,Berry
+1,Grape
+1,Currant
+1,Plum
+
+;berry3
+1,Cherries
+1,Berries
+1,Grapes
+1,Currants
+1,Plums
+
+;fish
+1, [fish1] [fish2] [fish type]
+
+;fish1
+1,Long
+1,Brown
+1,Brook
+1,Small
+1,Thread
+1,Red
+1,Short
+1,Yellow
+1,Striped
+1,White
+
+;fish2
+1,Nose
+1,Fin
+1,Gill
+1,Mouth
+1,Ear
+1,Face
+1,Eye
+1,Throat
+
+;fish type
+1,Trout
+1,Salmon
+1,Eels
+1,Catfish
+1,Shad
+1,Carp
+1,Gar
+1,Bass
+1,Perch
+1,Bloater
+1,Pike
+
+;druid path description
+1,[path 1] [path 2]
+
+;path 1
+1,path 
+1,game-trail 
+1,track 
+1,passage 
+1,path 
+
+;path 2
+1,winds
+1,leads
+1,meanders
+1,slithers
+1,twists
+1,weaves
 
 ;satyr threat
 1,These satyrs seeking to convince all the married women of the nearby settlement to leave their homes. Half have already fled into the forest laughing and singing. They really don't want to come back and the [3d6] **satyrs** will support them ([satyr stats]).
