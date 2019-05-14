@@ -340,6 +340,24 @@ any '/rule' => sub {
   }
 } => 'rule';
 
+any '/rule/markdown' => sub {
+  my $c = shift;
+  my $rule = $c->param('rule');
+  my $n = $c->param('n') || 10;
+  my $input = "[$rule]\n" x $n;
+  my $table = get_table($c);
+  my $descriptions = describe_text($input, parse_table($table));
+  my @paragraphs = map {
+    my $text = $_->{html};
+    $text =~ s!</?strong>!**!g;
+    $text =~ s!</?em>!*!g;
+    $text =~ s!</p><p>!\n\n!g;
+    $text;
+  } @$descriptions;
+  my $text = join("\n" . '-' x 72 . "\n", @paragraphs);
+  $c->render(text => $text, format => 'txt');
+} => 'rule_md';
+
 any '/rule/show' => sub {
   my $c = shift;
   my $rule = $c->param('rule');
