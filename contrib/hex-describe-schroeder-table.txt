@@ -6459,7 +6459,7 @@
 1,[druid warning sign] Here stands [druid circle] [the locals call it] *[druid circle name]*. [druid allies] [druid trails]
 1,[druid warning sign] At last you reach [druid circle] [the locals call it] *[druid circle name]*. [druid allies] [druid trails]
 
-;the locals call this place
+;the locals call it
 1,Local legends have named this place
 1,In the old days, they called it
 1,In *[old elf ballad name]*, this place was called
