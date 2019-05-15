@@ -6808,12 +6808,12 @@
 1,an abrupt end with [1d2+1] [worker ants] who are digging a new [ant tunnel type].
 
 ;giant ant treasure room
-1, a [ant tunnel desc] [ant room type] where lying forgotten are [1d5+1] rough gold nuggets worth 50gp each.
+1, a [ant tunnel desc] [ant room type] where lying forgotten are <span class="treasure">[1d5+1] rough gold nuggets worth 50gp each</span>.
 1, a [ant tunnel desc] [ant room type] where the ants have neatly stacked inedible objects. Among the these are [with inorganic objects], [and inorganic objects], and [and inorganic objects] resting against the [same ant tunnel desc] walls here.
 
 ;inorganic objects
 1,a suit of plate mail armor
-1,a locked iron strong box containing [1d6]00 sp
+1,a locked iron strong box containing <span class="treasure">[1d6]00sp</span>
 1,the iron rim of a wagon wheel 
 1,a rusty tower shield
 1,a large empty clay amphora
