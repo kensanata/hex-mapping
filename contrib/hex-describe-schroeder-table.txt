@@ -5340,6 +5340,7 @@
 1,At dusk and dawn, you can sometimes see [boars] in the [forest name], here.
 1,The [forest name] has overgrown an old temple of *[power]*. Some of the walls still stand, and so do some of the columns, but the roof is gone and floor is wet. [old forest temple denizen]
 1,There's a little stream here, making its way through the [forest name], wrapping itself around a beautiful, big, old tree. [dryad]
+1,The [forest name] is full of rustling and bustling sounds as **giant ants** can be seen scurrying back and forth along invisible trails and up and down the giant [tree] trees. [giant ant lair]
 
 ;dryad
 1,This is a [tree] tree, inhabited by a **dryad** of the same name: *[same tree]* ([dryad stats]). [dryad lover]
@@ -6647,6 +6648,181 @@
 1,slithers
 1,twists
 1,weaves
+
+;giant ant lair
+1,Rising from the earth ahead is a dome-shaped [giant ant mound]. It is the size of a small hill. The area around it has been stripped completely devoid of plant life, and not even a single blade of grass grows. There are [1d3+1] well-worn pathways, about as wide as a deer-trail, that radiate down from the summit in different directions. [20% ant here]</p><p>Sloping sharply downward the entrance leads to a large open area with smoother walls. [50% ants here] From this cavern, there is a [ant tunnels] sloping downward to the [with directions] and another [ant tunnels] that slopes [and directions].</p><p>The first passageway leads to [with giant ant area]</p><p>The second main passageway terminates at [and giant ant area]</p>
+
+;giant ant mound
+1,pile constructed of [with giant ant materials] and [and giant ant materials]
+1,mound made out of [with giant ant materials] and [and giant ant materials]
+1,rise consisting of [with giant ant materials] and [and giant ant materials]
+
+;giant ant materials
+1,dirt clods
+1,head-sized stones
+1,baked clay lumps
+1,bits of bone shards
+1,arm-length branch sections
+1,pine needles with twigs
+
+;20% ant here
+10,A giant [giant ant] is carrying [giant ant food] in its mandibles here.
+10,A giant [giant ant] is dragging [giant ant food] with its mandibles here.
+80,
+
+;50% ants here
+50,[1d4+1] giant [giant ants] are standing guard against intruders.
+50,
+
+;giant ant stats
+1,HD 4+1 AC 5 1d10 F2 MV 15 ML 9 XP 400; *acid spray* 1×/h: anybody within 20ft takes 2d6, save vs. poison for half
+
+;giant ant
+4,**giant worker ant** ([giant ant stats]; *busy*: tries to avoid fights unless alarmed)
+2,**giant warrior ant** ([giant ant stats]; *irascible*: attacks anything that's out of place)
+1,[special ant]
+# note plural form below!
+
+;giant ants
+4,[worker ants]
+2,[warrior ants]
+1,[special ants]
+# note singular form above!
+
+;worker ants
+1,**giant worker ants** ([giant ant stats]; *busy*: tries to avoid fights unless alarmed)
+
+;warrior ants
+1,**giant warrior ants** ([giant ant stats]; *irascible*: attacks anything that's out of place)
+
+;special ant
+1,**giant bombardier ant** ([giant ant stats]; *more acid*: can spray cone of corrosive acids for 3d6, save vs. dragon breath for half)
+1,**giant suicide ant** ([giant ant stats]; *suicide: in a ball of fire for 5d6, save vs. dragon breath for half)
+1,**giant trap jaw ant** ([giant ant stats]; *hold*: holds on after a bite and continues to deal damage, no additional to-hit rolls required)
+1,**giant door headed ant** ([giant ant stats]; *huge head*: can block tunnels using head)
+1,**giant weaver ant** ([giant ant stats]; *sticky*: sticky saliva to immobilise victims reduced to 0hp; *camouflage*: surprise on 1–4 in 6)
+1,**giant honey pot ant** ([giant ant stats]; *honey*: swollen abdomen filled with delicious sugary liquid worth 100gp)
+# note plural form below!
+
+;special ants
+1,**giant bombardier ants** ([giant ant stats]; *acid*: can spray cone of corrosive acids for 3d6)
+1,**giant suicide ants** ([giant ant stats]; *suicide: explodes as a fireball for 5d6)
+1,**giant trap jaw ants** ([giant ant stats]; *hold*: holds on after a bite and continues to deal damage, no additional to-hit rolls required)
+1,**giant door headed ants** ([giant ant stats]; *huge head*: can block tunnels using head)
+1,**giant weaver ants** ([giant ant stats]; *sticky*: sticky saliva to immobilise victims reduced to 0hp; *camouflage*: surprise on 1–4 in 6)
+1,[honey pot ants]
+# note singular form above!
+
+;honey pot ants
+1,**giant honey pot ants** ([giant ant stats]; *honey*: swollen abdomen filled with delicious sugary liquid worth 100gp)
+
+;giant ant food
+1,a pile of leafy branches
+1,a *deer* carcass
+1,a *boar* carcass
+1,a dead *horse*
+1,a partially gnawed *sheep*
+1,a dead giant *[bugs]*
+1,the body of a *goblin*
+1,a dead *giant ant* from a rival colony
+
+;bugs
+1,grasshopper
+1,bee
+1,spider
+1,fly
+1,caterpillar
+
+;directions
+1,north
+1,southeast
+1,west
+1,south
+1,northwest
+1,east
+1,northeast
+1,southwest
+
+;ant tunnels
+1,[ant tunnel desc] [ant tunnel type]
+
+;ant tunnel desc
+1,wide
+1,narrow
+1,bone-littered
+1,rock-strewn
+1,gravelly
+1,strangely uniform
+1,muddy
+1,fire-baked
+1,fungi-covered
+
+;ant tunnel type
+1,passage
+1,tunnel
+1,shaft
+1,burrow
+1,tube
+
+;ant room type
+1,chamber
+1,alcove
+1,cavity
+1,and damp grotto
+1,and bean shaped room
+1,and deep pit
+1,cavern
+
+;giant ant area
+3,[giant ant larder]
+2,[giant ant new excavations]
+1,[giant ant egg room]
+1,[giant ant fungal garden]
+1,[giant ant treasure room]
+1,[giant ant queen chamber]
+
+;giant ant larder
+1,a [ant tunnel desc] [ant room type] that smells strongly of death and decay. Stored here for future meals are [giant ant larder contents]. The floor is bloodstained. [50% ants here]
+1,a [ant tunnel desc] [ant room type] that is remarkably well-kept and clean. There are [giant ant larder contents] and yet another [ant tunnels] that slopes [and directions], it leads to [and giant ant area] [50% ants here]
+1,a [ant tunnel desc] [ant room type] obviously used for storage. [50% ants here] Among the contents are [giant ant larder contents].
+
+;giant ant larder contents
+1,[1d4+1] dead *deer*, and the dry husks that are recognizable as those of [1d4+1] *giant [bugs]s*
+1,[1d2+1] paralyzed *giant [bugs]s* and a *boar* carcass
+1,only a few ([1d2+2]) gnawed *goblin* carcasses and [inorganic objects], the giant ants are probably hungry
+1,[1d6+2] bloated [honey pot ants], clinging to the ceiling with distended abdomens full of amber colored fluid
+
+;giant ant egg room
+1,a [ant tunnel desc] [ant room type] that contains [1d5+1] enormous oval tapered eggs about the size of small hay-bales. [50% ants here] The eggs are being tended to by [1d4+1] [worker ants].
+1,a [ant tunnel desc] [ant room type] that houses [1d2+1] **larval ants** the size of goats. [50% ants here] The larval ants are being fed by [1d2+1] [worker ants] with [giant ant food].
+
+;giant ant queen chamber
+1,a [ant tunnel desc] [ant room type] dominated by a gargantuan **queen ant** with a pulsating abdomen. [1d6+1] [with giant ants] and [1d6+2] [with giant ants] scurry to the Queen's defense.
+1,a [ant tunnel desc] [ant room type] full of chittering sounds. Here lounges a massive **queen ant** with a pulsating purple abdomen, laying eggs. [1d6+1] [with giant ants] and [1d6+2] [and giant ants] scurry to the queen's defense.
+
+;giant ant fungal garden
+1, a [ant tunnel desc] [ant room type] that smells of damp leaf mold. Several tall, alien shaped stalactites here are covered with furry clumps of brightly colored fungus. [20% ant here]
+1, a [ant tunnel desc] [ant room type] featuring towering mushrooms, taller than a man. The air has a thick, earthy smell. [20% ant here]
+
+;giant ant new excavations
+1,an abrupt end with [1d2+1] [worker ants] who are digging a new [ant tunnel type].
+
+;giant ant treasure room
+1, a [ant tunnel desc] [ant room type] where lying forgotten are [1d5+1] rough gold nuggets worth 50gp each.
+1, a [ant tunnel desc] [ant room type] where the ants have neatly stacked inedible objects. Among the these are [with inorganic objects], [and inorganic objects], and [and inorganic objects] resting against the [same ant tunnel desc] walls here.
+
+;inorganic objects
+1,a suit of plate mail armor
+1,a locked iron strong box containing [1d6]00 sp
+1,the iron rim of a wagon wheel 
+1,a rusty tower shield
+1,a large empty clay amphora
+1,the marble head of a statue of a dwarf
+1,a bundle of iron pitons
+1,a grappling hook
+1,a large bottle of wine (still corked)
+1,a scroll case lined with tin
+1,a steel mace
 
 ;satyr threat
 1,These satyrs seeking to convince all the married women of the nearby settlement to leave their homes. Half have already fled into the forest laughing and singing. They really don't want to come back and the [3d6] **satyrs** will support them ([satyr stats]).

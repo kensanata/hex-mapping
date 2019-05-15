@@ -625,7 +625,7 @@ rolls, or names. Here's an example:
 
 Thus:
 
-    $locals->{man} eq "Alex"
+    $locals{man} eq "Alex"
 
 B<%globals> is a hash of hashes of all the table lookups beginning with the word
 "here" per hex. In a second phase, all the references starting with the word
@@ -644,7 +644,7 @@ Some of the forest hexes will have one of the two possible ingredients and the
 village alchemist will want one of the nearby ingredients. Currently, there is a
 limitation in place: we can only resolve the references starting with the word
 "nearby" when everything else is done. This means that at that point, references
-starting with the word "same" will no longer work since C<$locals> will no
+starting with the word "same" will no longer work since C<%locals> will no
 longer be set.
 
 Thus:
@@ -917,7 +917,7 @@ sub parse_table {
 	next if $subtable =~ /^(?:capitalize|normalize-elvish) (.*)/ and $data->{$1};
 	next if $subtable =~ /^adjacent hex$/; # experimental
 	next if $subtable =~ /^same (.*)/ and ($data->{$1} or $aliases{$1} or $1 eq 'adjacent hex');
-	next if $subtable =~ /^(?:here|nearby|other) (.*)/ and $data->{$1};
+	next if $subtable =~ /^(?:here|nearby|other|with|and) (.*)/ and $data->{$1};
 	$subtable = $1 if $subtable =~ /^(.+) as (.+)/;
 	$log->error("Error in table $table: subtable $subtable is missing")
 	    unless $data->{$subtable};
@@ -1164,6 +1164,10 @@ sub describe {
       # modifying the data structures)
       for (1 .. 10) {
 	my $text = pick($map_data, $table_data, $level, $coordinates, $words, $key);
+	if (ref $locals{$key} ne 'ARRAY') {
+	  $log->error("Lost local values for the list with '[$word]'");
+	  last;
+	}
 	next if not $text or grep { $text eq $_ } @{$locals{$key}};
 	push(@{$locals{$key}}, $text);
 	push(@descriptions, $text);
