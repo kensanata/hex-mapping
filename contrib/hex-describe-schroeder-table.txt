@@ -6650,7 +6650,8 @@
 1,weaves
 
 ;giant ant lair
-1,Rising from the earth ahead is a dome-shaped [giant ant mound]. It is the size of a small hill. The area around it has been stripped completely devoid of plant life, and not even a single blade of grass grows. There are [1d3+1] well-worn pathways, about as wide as a deer-trail, that radiate down from the summit in different directions. [20% ant here]</p><p>Sloping sharply downward the entrance leads to a large open area with smoother walls. [50% ants here] From this cavern, there is a [ant tunnels] sloping downward to the [with directions] and another [ant tunnels] that slopes [and directions].</p><p>The first passageway leads to [with giant ant area]</p><p>The second main passageway terminates at [and giant ant area]</p>
+1,Rising from the earth ahead is a dome-shaped [giant ant mound]. It is the size of a small hill. The area around it has been stripped completely devoid of plant life, and not even a single blade of grass grows. There are [1d3+1] well-worn pathways, about as wide as a deer-trail, that radiate down from the summit in different directions. [20% ant here]</p><p>Sloping sharply downward the entrance leads to a large open area with smoother walls. [50% ants here] From this cavern, there is a [ant tunnels] sloping downward to the [with directions] and another [ant tunnels] that slopes [and directions].</p><p>The first passageway leads to [giant ant area]</p><p>The second passageway goes much further down and the air gets hot and humid. It leads to [giant ant queen chamber].</p>
+1,Rising from the earth ahead is a dome-shaped [giant ant mound]. It is the size of a small hill. The area around it has been stripped completely devoid of plant life, and not even a single blade of grass grows. There are [1d3+1] well-worn pathways, about as wide as a deer-trail, that radiate down from the summit in different directions. [20% ant here]</p><p>Sloping sharply downward the entrance leads to a large open area with smoother walls. [50% ants here] From this cavern, there are three options: [ant tunnels] sloping downward to the [with directions], [ant tunnels] sloping [and directions], and, [ant tunnels] sloping [and directions].</p><p>The first passageway leads to [with giant ant area]</p><p>The second main passageway terminates at [and giant ant area]</p><p>The third passageway descends for a fair bit and the air gets hot and humid. It leads to [giant ant queen chamber].</p>
 
 ;giant ant mound
 1,pile constructed of [with giant ant materials] and [and giant ant materials]
@@ -6779,7 +6780,6 @@
 1,[giant ant egg room]
 1,[giant ant fungal garden]
 1,[giant ant treasure room]
-1,[giant ant queen chamber]
 
 ;giant ant larder
 1,a [ant tunnel desc] [ant room type] that smells strongly of death and decay. Stored here for future meals are [giant ant larder contents]. The floor is bloodstained. [50% ants here]
@@ -6797,8 +6797,8 @@
 1,a [ant tunnel desc] [ant room type] that houses [1d2+1] **larval ants** the size of goats. [50% ants here] The larval ants are being fed by [1d2+1] [worker ants] with [giant ant food].
 
 ;giant ant queen chamber
-1,a [ant tunnel desc] [ant room type] dominated by a gargantuan **queen ant** with a pulsating abdomen. [1d6+1] [with giant ants] and [1d6+2] [with giant ants] scurry to the Queen's defense.
-1,a [ant tunnel desc] [ant room type] full of chittering sounds. Here lounges a massive **queen ant** with a pulsating purple abdomen, laying eggs. [1d6+1] [with giant ants] and [1d6+2] [and giant ants] scurry to the queen's defense.
+1,a [ant tunnel desc] [ant room type] dominated by a gargantuan **queen ant** with a pulsating abdomen. [1d6+1] [with giant ants] and [1d6+2] [with giant ants] scurry to the queen's defense. The queen's <span class="treasure">*royal jelly* is worth 5000gp to an alchemist</span>.
+1,a [ant tunnel desc] [ant room type] full of chittering sounds. Here lounges a massive **queen ant** with a pulsating purple abdomen, laying eggs. [1d6+1] [with giant ants] and [1d6+2] [and giant ants] scurry to the queen's defense. The queen's <span class="treasure">*royal jelly* is worth 5000gp to an alchemist</span>.
 
 ;giant ant fungal garden
 1, a [ant tunnel desc] [ant room type] that smells of damp leaf mold. Several tall, alien shaped stalactites here are covered with furry clumps of brightly colored fungus. [20% ant here]
