@@ -6675,6 +6675,10 @@
 50,[1d4+1] giant [giant ants] are standing guard against intruders.
 50,
 
+;20% myconids
+1,[3d6] **myconids** ([myconid stats]) live here, in peaceful coexistence with the ants. [poor treasure]
+4,
+
 ;giant ant stats
 1,HD 4+1 AC 5 1d10 F2 MV 15 ML 9 XP 400; *acid spray* 1×/h: anybody within 20ft takes 2d6, save vs. poison for half
 
@@ -6782,9 +6786,9 @@
 1,[giant ant treasure room]
 
 ;giant ant larder
-1,a [ant tunnel desc] [ant room type] that smells strongly of death and decay. Stored here for future meals are [giant ant larder contents]. The floor is bloodstained. [50% ants here]
-1,a [ant tunnel desc] [ant room type] that is remarkably well-kept and clean. There are [giant ant larder contents] and yet another [ant tunnels] that slopes [and directions], it leads to [and giant ant area] [50% ants here]
-1,a [ant tunnel desc] [ant room type] obviously used for storage. [50% ants here] Among the contents are [giant ant larder contents].
+1,a [ant tunnel desc] [ant room type] that smells strongly of death and decay. Stored here for future meals are [giant ant larder contents]. The floor is bloodstained. [50% ants here] [20% myconids]
+1,a [ant tunnel desc] [ant room type] that is remarkably well-kept and clean. There are [giant ant larder contents] and yet another [ant tunnels] that slopes [and directions], it leads to [and giant ant area] [50% ants here] [20% myconids]
+1,a [ant tunnel desc] [ant room type] obviously used for storage. [50% ants here] Among the contents are [giant ant larder contents]. [20% myconids]
 
 ;giant ant larder contents
 1,[1d4+1] dead *deer*, and the dry husks that are recognizable as those of [1d4+1] *giant [bugs]s*
