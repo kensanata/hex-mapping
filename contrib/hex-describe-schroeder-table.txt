@@ -6650,8 +6650,8 @@
 1,weaves
 
 ;giant ant lair
-1,Rising from the earth ahead is a dome-shaped [giant ant mound]. It is the size of a small hill. The area around it has been stripped completely devoid of plant life, and not even a single blade of grass grows. There are [1d3+1] well-worn pathways, about as wide as a deer-trail, that radiate down from the summit in different directions. [20% ant here]</p><p>Sloping sharply downward the entrance leads to a large open area with smoother walls. [50% ants here] From this cavern, there is a [ant tunnels] sloping downward to the [with directions] and another [ant tunnels] that slopes [and directions].</p><p>The first passageway leads to [with giant ant area]</p><p>The second passageway goes much further down and the air gets hot and humid. It leads to [giant ant queen chamber].</p>
-1,Rising from the earth ahead is a dome-shaped [giant ant mound]. It is the size of a small hill. The area around it has been stripped completely devoid of plant life, and not even a single blade of grass grows. There are [1d3+1] well-worn pathways, about as wide as a deer-trail, that radiate down from the summit in different directions. [20% ant here]</p><p>Sloping sharply downward the entrance leads to a large open area with smoother walls. [50% ants here] From this cavern, there are three options: [ant tunnels] sloping downward to the [with directions], [ant tunnels] sloping [and directions], and, [ant tunnels] sloping [and directions].</p><p>The first passageway leads to [with giant ant area]</p><p>The second main passageway terminates at [and giant ant area]</p><p>The third passageway descends for a fair bit and the air gets hot and humid. It leads to [giant ant queen chamber].</p>
+1,Rising from the earth ahead is a dome-shaped [giant ant mound]. It is the size of a small hill. The area is devoid of plant life. There are [1d3+1] well-worn pathways, about as wide as a deer-trail, that radiate down from the summit in different directions. [20% ant here]</p><p>Sloping sharply downward the entrance leads to a large open area with smoother walls. [50% ants here] From this cavern, there is a [ant tunnels] sloping downward to the [with directions] and another [ant tunnels] that slopes [and directions].</p><p>The first passageway leads to [[with giant ant area]]</p><p>The second passageway goes much further down and the air gets hot and humid. It leads to [giant ant queen chamber].</p>
+1,Rising from the earth ahead is a dome-shaped [giant ant mound]. It is the size of a small hill. The area is brown and bare. Nothing green remains. There are [1d3+1] well-worn pathways, about as wide as a deer-trail, that radiate down from the summit in different directions. [20% ant here]</p><p>Sloping sharply downward the entrance leads to a large open area with smoother walls. [50% ants here] From this cavern, there are three options: a [ant tunnels] sloping downward to the [with directions], a [ant tunnels] sloping [and directions], and a [ant tunnels] sloping [and directions].</p><p>The first passageway leads to [[with giant ant area]]</p><p>The second main passageway terminates at [[and giant ant area]]</p><p>The third passageway descends for a fair bit and the air gets hot and humid. It leads to [giant ant queen chamber].</p>
 
 ;giant ant mound
 1,pile constructed of [with giant ant materials] and [and giant ant materials]
@@ -6779,15 +6779,16 @@
 1,cavern
 
 ;giant ant area
-3,[giant ant larder]
-2,[giant ant new excavations]
-1,[giant ant egg room]
-1,[giant ant fungal garden]
-1,[giant ant treasure room]
+# these are table names that need looking up again!
+3,giant ant larder
+2,giant ant new excavations
+1,giant ant egg room
+1,giant ant fungal garden
+1,giant ant treasure room
 
 ;giant ant larder
 1,a [ant tunnel desc] [ant room type] that smells strongly of death and decay. Stored here for future meals are [giant ant larder contents]. The floor is bloodstained. [50% ants here] [20% myconids]
-1,a [ant tunnel desc] [ant room type] that is remarkably well-kept and clean. There are [giant ant larder contents] and yet another [ant tunnels] that slopes [and directions], it leads to [and giant ant area] [50% ants here] [20% myconids]
+1,a [ant tunnel desc] [ant room type] that is remarkably well-kept and clean. There are [giant ant larder contents].</p><p>From here, another [ant tunnels] slopes [and directions], leading to [[and giant ant area]] [50% ants here] [20% myconids]
 1,a [ant tunnel desc] [ant room type] obviously used for storage. [50% ants here] Among the contents are [giant ant larder contents]. [20% myconids]
 
 ;giant ant larder contents
@@ -6809,7 +6810,7 @@
 1, a [ant tunnel desc] [ant room type] featuring towering mushrooms, taller than a man. The air has a thick, earthy smell. [20% ant here]
 
 ;giant ant new excavations
-1,an abrupt end with [1d2+1] [worker ants] who are digging a new [ant tunnel type].
+1,an abrupt end with [1d2+1] [worker ants] digging a new [ant tunnel type].
 
 ;giant ant treasure room
 1, a [ant tunnel desc] [ant room type] where lying forgotten are <span class="treasure">[1d5+1] rough gold nuggets worth 50gp each</span>.
