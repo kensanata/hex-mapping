@@ -1164,10 +1164,8 @@ sub describe {
       # modifying the data structures)
       for (1 .. 10) {
 	my $text = pick($map_data, $table_data, $level, $coordinates, $words, $key);
-	if (ref $locals{$key} ne 'ARRAY') {
-	  $log->error("Lost local values for the list with '[$word]'");
-	  last;
-	}
+	$log->warn("[and $key] is used before [with $key] is done") if ref $locals{$key} ne 'ARRAY';
+	$locals{$key} = [$text] if ref $locals{$key} ne 'ARRAY';
 	next if not $text or grep { $text eq $_ } @{$locals{$key}};
 	push(@{$locals{$key}}, $text);
 	push(@descriptions, $text);
