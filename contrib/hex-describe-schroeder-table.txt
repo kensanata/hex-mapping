@@ -5447,7 +5447,7 @@
 1,[rp] [tool mat] buttons 
 1,[tool mat] chess [chess piece]
 1,[condition desc] [tool mat] [vessel desc] 
-1,chunk of [other plant mat] 
+1,chunk of [plant mat]
 1,[rp] [body part desc]
 1,[rp] corks
 1,[condition desc] [tool mat] pipe
@@ -5669,7 +5669,7 @@
 1,ivory
 1,walrus tusk
 
-;other plant mat
+;plant mat
 1,algae
 1,fungus
 1,moss
