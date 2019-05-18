@@ -1319,7 +1319,7 @@ sub closest {
   }
   # the first one is the closest
   return $globals->{$key}->{$coordinates[0]}
-  . qq{ (e.g. <a href="#desc$coordinates[0]">$coordinates[0]</a>)};
+  . qq{ (<a href="#desc$coordinates[0]">$coordinates[0]</a>)};
 }
 
 =item distance
@@ -1391,7 +1391,7 @@ sub some_other {
   # just pick a random one
   my $other = one(@coordinates);
   return $globals->{$key}->{$other}
-  . qq{ (e.g. <a href="#desc$other">$other</a>)};
+  . qq{ (<a href="#desc$other">$other</a>)};
 }
 
 =item describe_map
