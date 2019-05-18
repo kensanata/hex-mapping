@@ -7832,6 +7832,319 @@
 ;cultists led by a woman
 1,[1d4x10] **cultists** ([human stats]) live here. [average treasure] They are led by their cult leader [woman with portrait] (level [1d6+1 as level]). [leader treasure for magic user]
 
+#NOTE: no space to create proper compounds, spaces are present in some second halves for some variety
+;village name
+80,[village name1][village name2]
+20,[human name][village name3]
+10,[old name][village name3]
+
+;village name1
+1,Sweet
+1,Beaver
+1,Clear
+1,Fair
+1,Brimble
+1,Mule
+1,Arrow
+1,Ash
+1,Grain
+1,Lone
+1,Wool
+1,Hill
+1,Fair
+1,Puckle
+1,Upper
+1,Plump
+1,Patch
+1,Pole
+1,Climp
+1,Mamble
+1,Thrump
+1,Wet
+1,Papple
+1,Barton
+1,Rings
+1,Rags
+1,Bitter
+1,Abbots
+1,Earls
+1,Bishop
+1,Wolf
+1,Bear
+1,Fox
+1,Est
+1,Nor
+1,Sud
+1,Sut
+1,West
+1,Lower
+1,Upper
+1,Over
+1,Under
+1,Bush
+1,Bracken
+1,Green
+1,Red
+1,Blue
+1,Cold
+1,Hungry
+1,Deer
+1,Game
+1,White
+1,Dark
+1,Black
+1,Light
+1,Aber
+1,Acc
+1,Grim
+1,Ten
+1,Sel
+1,Cros
+1,Form
+1,Rug
+1,Wether
+1,Lock
+1,Dol
+1,Drum
+1,Dun
+1,Eccle
+1,Fin
+1,Inver
+1,Knock
+1,Lang
+1,Low
+1,Pit
+1,Pol
+1,Porth
+1,Tree
+1,Wet
+1,Crux
+1,Hock
+1,Holly
+1,Wim
+1,Fin
+1,Huth
+1,Clee
+1,Mal
+1,Stock
+1,Bridge
+1,Scrab
+1,Sheep
+1,Mon
+1,Wey
+1,Ling
+1,Barn
+1,Goud
+1,Horn
+1,Abin
+1,Din
+1,Chip
+1,Bright
+1,Rose
+1,Aber
+1,Cough
+1,Elder
+1,Goat
+1,Hound
+1,Horse
+1,Kine
+1,Sand
+1,Worm
+1,Witch
+1,Sun
+1,Spring
+1,Skull
+1,Hen
+1,Duck
+1,Heart
+1,Fever
+1,Narrow
+
+;village name2
+1, Abbey
+1, Elms
+1, Grove
+1, Oaks
+1, Prairie
+1, Rith
+1, Township
+1, Tye
+1,acre
+1,aroc
+1,ast
+1,auct
+1,avon
+1,axe
+1,batch
+1,beck
+1,bek
+1,benham
+1,berry
+1,born
+1,borne
+1,borough
+1,bost
+1,bridge
+1,brook
+1,burg
+1,burn
+1,bury
+1,by
+1,caster
+1,chantry
+1,cheap
+1,chester
+# 1,church
+1,coma
+1,cott
+1,crag
+1,creek
+1,crest
+1,cross
+1,crossing
+1,dell
+1,ditch
+1,esk
+1,ferry
+1,field
+1,firth
+1,fold
+1,force
+1,forth
+1,foss
+1,fridd
+1,gardens
+1,gardens
+1,gate
+1,gill
+1,glyn
+1,grene
+1,ham
+1,hampton
+1,hirst
+1,holm
+1,hope
+1,howe
+1,hurst
+1,inch
+1,keep
+1,keld
+1,keth
+1,kin
+1,land
+1,leaves
+1,ley
+1,lick
+1,lough
+1,marva
+1,mill
+1,more
+1,mouth
+1,orne
+1,pan
+1,parva
+1,pley
+1,puddle
+1,quarry
+1,ridge
+1,rill
+1,rock
+1,sand
+1,sbury
+1,scree
+1,shaw
+1,shrine
+1,sland
+1,soil
+1,spring
+1,step
+1,stige
+1,stone
+1,stow
+1,sweep
+1,temple
+1,toga
+1,ton
+1,topia
+1,tote
+1,town
+1,ton
+1,union
+1,vale
+1,valley
+1,vay
+1,veney
+1,vista
+1,wall
+1,wardine
+1,waters
+1,well
+1,wich
+1,wick
+1,worth
+1,worthy
+1,wyke
+1,eye
+1,castle
+1,marsh
+1,moor
+1,fen
+1,burr
+
+;village name3
+1,'s Bridge
+1,'s Crawl
+1,'s Farm
+1,'s Ferry
+1,'s Green
+1,'s Haven
+1,'s Hole
+1,'s Hunt
+1,'s Keep
+1,'s Knee
+1,'s Manor
+1,'s Mill
+1,'s Pit
+1,'s Rest
+1,'s Retreat
+1,'s Steps
+1,'s Stone
+1,'s Wall
+1,'s Tomb
+1,'s Bed
+1,'s Crossing
+1,'s Cross
+1,'s Tor
+1,'s Bell
+1,'s Way
+1,'s Grove
+1,'s Tree
+1,'s Abbey
+1,'s Mine
+1,'s Quarry
+1,'s Stand
+1,'s Falls
+1,'s Glen
+1,'s Glade
+1,'s Wood
+1,'s Creek
+1,'s Runnel
+1,'s River
+1,'s Bane
+1,'s Door
+1,'s Wood
+1,'s Grave
+1,'s Hill
+1,'s Tree
+1,'s Orchard
+1,'s Field
+1,'s Meadow
+1,'s Forest
+1,'s Hovel
+1,'s Hut
+1,'s Home
+1,'s Toll
+
 ;thorp activity
 # https://blog.d4caltrops.com/2019/05/these-village-folk-are-d100-table.html
 1,able to heal broken bones/burns with a touch (or 1 HP)
@@ -7939,15 +8252,15 @@
 1,choosing the child to be sacrificed to the dragon
 
 ;thorp
-1,</p><p>There is a thorp of [1d4x10] **humans** ([human stats]) led by [human][human job]. The [human houses] are protected by [human companions]. [average treasure] These village-folk are [thorp activity].
+1,</p><p>This is *[village name]*, a thorp of [1d4x10] **humans** ([human stats]) led by [human][human job]. The [human houses] are protected by [human companions]. [average treasure] These village-folk are [thorp activity].
 
 # the second variant has a temple at the end
 ;village
-1,</p><p>There is a village of [5d6x10] **humans** ([human stats]). The [human houses] are protected by [human companions] and a [human defense]. There is a small *[village building]*. [small [same village building]] [average treasure]</p><p>The [human leader] lives in the [same village building]. [spellbook for [same class]] [leader treasure for [same class]]</p><p>[human retainer]</p><p>[human friends]</p><p>[And a secret society]
-1,</p><p>There is a village of [5d6x10] **humans** ([human stats]). The [human houses] are protected by [human companions] and a [human defense]. There is a small *[village building]*. [small [same village building]] [average treasure]</p><p>The [human leader] lives in the [same village building]. [spellbook for [same class]] [leader treasure for [same class]]</p><p>[human retainer]</p><p>[human friends]</p><p>[And a secret society]</p><p>[temple]
+1,</p><p>This is *[village name]*, a village of [5d6x10] **humans** ([human stats]). The [human houses] are protected by [human companions] and a [human defense]. There is a small *[village building]*. [small [same village building]] [average treasure]</p><p>The [human leader] lives in the [same village building]. [spellbook for [same class]] [leader treasure for [same class]]</p><p>[human retainer]</p><p>[human friends]</p><p>[And a secret society]
+1,</p><p>This is *[village name]*, a village of [5d6x10] **humans** ([human stats]). The [human houses] are protected by [human companions] and a [human defense]. There is a small *[village building]*. [small [same village building]] [average treasure]</p><p>The [human leader] lives in the [same village building]. [spellbook for [same class]] [leader treasure for [same class]]</p><p>[human retainer]</p><p>[human friends]</p><p>[And a secret society]</p><p>[temple]
 
 ;town
-1,</p><p>There is a town of [1d6x100] **humans** ([human stats]). The [human houses] are protected by a keep, a town wall and the river. [average treasure]</p><p>The [human leader] lives in the keep. [spellbook for [same class]] [leader treasure for [same class]]</p><p>[human retainer]</p><p>[human friends]</p><p>[And two secret societies feuding]</p><p>[temple]</p><p>There is also [town feature]
+1,</p><p>This is *[village name]*, a town of [1d6x100] **humans** ([human stats]). The [human houses] are protected by a keep, a town wall and the river. [average treasure]</p><p>The [human leader] lives in the keep. [spellbook for [same class]] [leader treasure for [same class]]</p><p>[human retainer]</p><p>[human friends]</p><p>[And two secret societies feuding]</p><p>[temple]</p><p>There is also [town feature]
 
 ;human job
 1, the smith
