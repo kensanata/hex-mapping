@@ -1419,9 +1419,7 @@ sub resolve_later {
   for my $coord (keys %$descriptions) {
     while ($descriptions->{$coord}->{html} =~ /${FS}later ([^][]*)${FS}/) {
       my $words = $1;
-      $log->debug("Resolving later references: $words");
       my ($ref) = $words =~ m!( \(<a href=".*">.*</a>\))!;
-      $log->debug("Reference: $ref");
       $ref //= ''; # but why should it ever be empty?
       my $key = $words;
       my $re = quotemeta($ref);
@@ -1432,7 +1430,7 @@ sub resolve_later {
 	  s/${FS}later $re${FS}/describe($map_data,$table_data,1,$coord,[$key]) . $ref or '…'/ge;
       if (not $result) {
 	$log->error("Could not resolve later reference in '$words'");
-	last;
+	last; # avoid infinite loops!
       }
     }
   }
