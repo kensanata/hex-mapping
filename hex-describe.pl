@@ -3211,6 +3211,8 @@ td, th {
   position: absolute;
   top:  20ex;
   left: 90ex;
+  width: auto;
+  border: none;
 }
 .sidebar tr {
   font-size: smaller;
