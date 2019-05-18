@@ -4637,7 +4637,7 @@
 1,Wymarc
 
 ;witch
-1,**witch** *[old names for women]*, [the witch], [witch goal]. [witch stats]. [terror treasure]
+1,**witch** *[here old names for women as witch]*, [the witch], [witch goal]. [witch stats]. [terror treasure]
 
 # make sure to not end in a space
 ;the witch
@@ -4683,7 +4683,7 @@
 1,HD 5 AC 6 1d6/1d6 F5 MV 15 ML 7 XP 500; on a 20: magic water fills victim’s lung, save vs. death or drown; *beautiful* (until kissed), *charm male*, *kiss of mind control* (24h), *invisibility*, *turn to fog*, *curse of water lungs*: save vs. death or drown in 1d6 days
 
 ;faerie witch
-1,Hidden deep in the forest is a [witch cottage] [witch cottage door] [witch cottage other entry]</p><p>[witch cottage main room]</p><p>This house belongs to [old names for women] the **witch** ([witch stats]). She is working on [witch product]. [terror treasure] [witch annex]
+1,Hidden deep in the forest is a [witch cottage] [witch cottage door] [witch cottage other entry]</p><p>[witch cottage main room]</p><p>This house belongs to [here old names for women as witch] the **witch** ([witch stats]). She is working on [witch product]. [terror treasure] [witch annex]
 
 ;witch product
 1,some poultice
@@ -7252,6 +7252,18 @@
 1,[1d4+1] **druid acolytes** are wrestling with each other, trying to learn the ways of the bear; the highest initiate is *[old names for men]* ([druid acolyte stats]).
 1,[1d4+1] **druid acolytes** are mixing berries and bark into a blue pulp; the highest initiate is *[old names for men]* ([druid acolyte stats]).
 1,[1d4+1] **druid acolytes** are practising staff fighting; the highest initiate is *[old names for men]* ([druid acolyte stats]).
+1,[1d4+1] **druid acolytes** are disemboweling a pure white deer to scrutinize the entrails for prophetic signs.
+1,[1d4+1] **druid acolytes** are roughly shaping a large boulder with primitive hammer stones.
+1,[1d4+1] **druid acolytes** are scattering offerings of fermented meat for their unkindness of **ravens**.
+1,[1d4+1] **druid acolytes** are gouging a sigil into the turf using shallow ditches dug with flint hand tools.
+1,[1d4+1] **druid acolytes** are savaging their weakest member with thorned switches to teach them the pecking order of the pack.
+1,[1d4+1] **druid acolytes** are lugging dead-fall branches to construct a massive bonfire.
+1,[1d4+1] **druid acolytes** are intently weaving [wicker desc] baskets and mats.
+1,[1d4+1] **druid acolytes** are frenetically dancing while passing venomous **serpents** back and forth.
+1,[1d4+1] **druid acolytes** are distributing sacred, hallucinogenic toadstools amongst themselves.
+1,[1d4+1] **druid acolytes** are sketching a battle plan in the dirt with fire-sharpened sticks. They intend to destroy *[nearby village name]*.
+1,[1d4+1] **druid acolytes** are sketching a battle plan in the dirt with fire-sharpened sticks. They intend to destroy the witch *[nearby witch]*.
+1,[1d4+1] **druid acolytes** are mending the torn wing of a majestic **eagle** who was shot with an arrow.
 
 ;druid acolyte stats
 1,HD 3 AC 7 1d6 + 1d6 *crushing staff* F3 MV 12 ML 9 XP 300; *heat metal*; *crushing staff*
@@ -8511,9 +8523,9 @@
 ;small temple dedicated to Hel
 1,[small temple]
 1,The temple is built for the old. There are no stairs. Everything is slow. [3d6] old people sit here, smiling and nodding. They are looked after by **[human name]**.
-1,The temple is a witch coven, a labyrinth of tiny passages, low ceilings, confusing twists and turns, skulls, stuffed animals, and flickering candles. A group of [3d4] women run this place, led by **[woman]**. They say that on nights of the full moon these women fly through the air to visit remote farms and deliver the babies.
-1,The temple is a witch coven, a labyrinth of tiny passages, low ceilings, confusing twists and turns, skulls, stuffed animals, and flickering candles. A group of [3d4] women run this place, led by **[woman]**. They say that on nights of the full moon these women fly through the air to visit remote farms and steal the babies.
-1,The temple is built atop a nexus of Earth Blood, both channelling its energy and protecting the surface from its mutagenic power. Multiple circles of protection and seals of banning can be seen on the ground and on the standing stones throughout the area. [3d4] women care for this place, led by **[woman]**.
+1,The temple is a witch coven, a labyrinth of tiny passages, low ceilings, confusing twists and turns, skulls, stuffed animals, and flickering candles. A group of [3d4] **women** run this place, led by *[here woman as witch]*. They say that on nights of the full moon these women fly through the air to visit remote farms and deliver the babies.
+1,The temple is a witch coven, a labyrinth of tiny passages, low ceilings, confusing twists and turns, skulls, stuffed animals, and flickering candles. A group of [3d4] **women** run this place, led by *[here woman as witch]*. They say that on nights of the full moon these women fly through the air to visit remote farms and steal the babies.
+1,The temple is built atop a nexus of Earth Blood, both channelling its energy and protecting the surface from its mutagenic power. Multiple circles of protection and seals of banning can be seen on the ground and on the standing stones throughout the area. [3d4] **women** care for this place, led by *[here woman as witch]*.
 1,The temple is a warren dug into a hill. It smells of death. At the entrance, votive offerings have been placed on shelves. Most of these are small statues and dolls, prayers for recovery or peace in the afterlife, or people begging for guidance. Down below, however, when you reach the oldest layers of the settlement, a terrible secret is revealed: a big pit full of baby skeletons. [why baby skeletons]
 1,The temple is dug deep into the rocks below. Unbeknownst to most, the caves down here are inhabited by [1d4+2] trolls led by *[troll]* ([troll stats]). [robber treasure] Human bones are everywhere. [why trolls]
 
