@@ -3046,6 +3046,50 @@ include https://campaignwiki.org/contrib/gnomeyland.txt
 1,The village alchemist is looking for the horn of a [nearby ice monster].
 % end
 
+<h2 id="later">Delayed nested lookup: later</h2>
+
+<p>
+We can make this even more elaborate, by delaying nested lookups. Here's the use
+case: we want to create fetch quests for relics from nearby temples. Since we
+want nearby temples we already know that we'll be using "nearby" to delay the
+lookup of the temple. In addition to that, though, we need to delay the lookup
+of our relic, if we want the relic to match the temple!
+</p>
+
+%= example begin
+0101 law
+0201 law
+0301 empty
+0401 empty
+0501 empty
+0601 village
+0701 empty
+0801 empty
+0901 empty
+1001 empty
+1101 empty
+include https://campaignwiki.org/contrib/gnomeyland.txt
+
+;law
+1,Here stands a temple of [here power].
+
+;power
+1,Thor
+1,Odin
+
+;village
+1,The priest is looking for a [relic].
+
+;relic
+1,[later relic of [nearby power]]
+
+;relic of Thor
+1,hammer of Thor
+
+;relic of Odin
+1,eye patch of Odin
+% end
+
 <h2 id="lists">Lists of unique things: with, and</h2>
 
 <p>
