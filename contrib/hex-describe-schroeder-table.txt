@@ -7217,7 +7217,7 @@
 1,In *The Travels of [old name]*, this place was called
 
 ;druid trails
-1,</p><p>A [druid path] north to [druid larder]. [maybe druid acolytes]</p><p>Another [druid path] heads south to [druid camp]. [druid] [druid acolytes] [druid goal] [druid terror]
+1,</p><p>A [druid path] north to [druid larder]. [maybe druid acolytes]</p><p>Another [druid path] south to [druid camp]. [druid] [druid acolytes] [druid goal] [druid terror]
 1,</p><p>A [druid path] south to [druid camp]. [druid] [druid acolytes] [druid goal] [druid terror]</p><p>Another [druid path] east to [druid larder]. [maybe druid acolytes]
 1,</p><p>A [druid path] west to [druid larder]. [maybe druid acolytes]</p><p>Another [druid path] north to [druid camp]. [druid] [druid acolytes] [druid goal] [druid terror]
 1,</p><p>A [druid path] uphill to [druid camp]. [druid] [druid acolytes] [druid goal] [druid terror]</p><p>Another [druid path] into a ravine where there one may find [druid larder]. [maybe druid acolytes]
@@ -7413,6 +7413,7 @@
 1,slithers
 1,twists
 1,weaves
+1,heads
 
 ;giant ant lair
 1,Rising from the earth ahead is a dome-shaped [giant ant mound]. It is the size of a small hill. The area is devoid of plant life. There are [1d3+1] well-worn pathways, about as wide as a deer-trail, that radiate down from the summit in different directions. [20% ant here]</p><p>Sloping sharply downward the entrance leads to a large open area with smoother walls. [50% ants here] From this cavern, there is a [ant tunnels] sloping downward to the [with directions] and another [ant tunnels] that slopes [and directions].</p><p>The first passageway leads to [[with giant ant area]]</p><p>The second passageway goes much further down and the air gets hot and humid. It leads to [giant ant queen chamber].</p>

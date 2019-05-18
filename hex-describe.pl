@@ -923,7 +923,7 @@ sub parse_table {
 	next if $subtable =~ /^(?:capitalize|normalize-elvish) (.*)/ and $data->{$1};
 	next if $subtable =~ /^adjacent hex$/; # experimental
 	next if $subtable =~ /^same (.*)/ and ($data->{$1} or $aliases{$1} or $1 eq 'adjacent hex');
-	next if $subtable =~ /^(?:here|nearby|other|with|and) (.+?)( as (.+))?$/ and $data->{$1};
+	next if $subtable =~ /^(?:here|nearby|other|later|with|and) (.+?)( as (.+))?$/ and $data->{$1};
 	$subtable = $1 if $subtable =~ /^(.+) as (.+)/;
 	$log->error("Error in table $table: subtable $subtable is missing")
 	    unless $data->{$subtable};
@@ -1150,7 +1150,7 @@ sub describe {
       my $location = $coordinates eq 'no map' ? 'somewhere' : one(neighbours($map_data, $coordinates));
       $locals{$word} = $location;
       return $location;
-    } elsif ($word =~ /^(?:nearby|other) ./) {
+    } elsif ($word =~ /^(?:nearby|other|later) ./) {
       # skip on the first pass
       return $FS . $word . $FS;
     } elsif ($word =~ /^same (.+)/) {
@@ -1183,12 +1183,14 @@ sub describe {
       if (not $found) {
 	push(@descriptions, "…");
       }
-    } elsif ($word =~ /^here (.+)/) {
-      my $key = $1;
+    } elsif ($word =~ /^here (.+?)(?: as (.+))?$/) {
+      my ($key, $alias) = ($1, $2);
       my $text = pick($map_data, $table_data, $level, $coordinates, $words, $key);
       next unless $text;
       $locals{$key} = $text;
+      $locals{$alias} = $text if $alias;
       $globals->{$key}->{$coordinates} = $text;
+      $globals->{$alias}->{$coordinates} = $text if $alias;
       push(@descriptions, $text);
     } elsif (my ($key, $alias) = $word =~ /^(.+) as (.+)/) {
       my $text = pick($map_data, $table_data, $level, $coordinates, $words, $key);
@@ -1295,7 +1297,8 @@ sub resolve_nearby {
   my $table_data = shift;
   my $descriptions = shift;
   for my $coord (keys %$descriptions) {
-    $descriptions->{$coord}->{html} =~ s/${FS}nearby ([^][]*)${FS}/closest($map_data,$table_data,$coord,$1)/ge;
+    $descriptions->{$coord}->{html} =~
+	s/${FS}nearby ([^][${FS}]*)${FS}/closest($map_data,$table_data,$coord,$1) or '…'/ge;
   }
 }
 
@@ -1319,7 +1322,7 @@ sub closest {
   }
   # the first one is the closest
   return $globals->{$key}->{$coordinates[0]}
-  . qq{ (<a href="#desc$coordinates[0]">$coordinates[0]</a>)};
+  . qq{ (<a href="#desc$coordinates[0]">$coordinates[0]</a>)}; # see resolve_later!
 }
 
 =item distance
@@ -1367,7 +1370,8 @@ sub resolve_other {
   my $table_data = shift;
   my $descriptions = shift;
   for my $coord (keys %$descriptions) {
-    $descriptions->{$coord}->{html} =~ s/${FS}other ([^][]*)${FS}/some_other($map_data,$table_data,$coord,$1)/ge;
+    $descriptions->{$coord}->{html} =~
+	s/${FS}other ([^][]*)${FS}/some_other($map_data,$table_data,$coord,$1) or '…'/ge;
   }
 }
 
@@ -1391,7 +1395,47 @@ sub some_other {
   # just pick a random one
   my $other = one(@coordinates);
   return $globals->{$key}->{$other}
-  . qq{ (<a href="#desc$other">$other</a>)};
+  . qq{ (<a href="#desc$other">$other</a>)}; # see resolve_later!
+}
+
+
+=item resolve_later
+
+This is a second phase. We have nearly everything resolved except for references
+starting with the word "later" because these require all of the other data to be
+present. This modifies the third parameter, C<$descriptions>. Use this for
+recursive lookup involving "nearby" and "other".
+
+This also takes care of hex references introduced by "nearby" and "other". This
+is also why we need to take extra care to call C<quotemeta> on various strings
+we want to search and replace: these hex references contain parenthesis!
+
+=cut
+
+sub resolve_later {
+  my $map_data = shift;
+  my $table_data = shift;
+  my $descriptions = shift;
+  for my $coord (keys %$descriptions) {
+    while ($descriptions->{$coord}->{html} =~ /${FS}later ([^][]*)${FS}/) {
+      my $words = $1;
+      $log->debug("Resolving later references: $words");
+      my ($ref) = $words =~ m!( \(<a href=".*">.*</a>\))!;
+      $log->debug("Reference: $ref");
+      $ref //= ''; # but why should it ever be empty?
+      my $key = $words;
+      my $re = quotemeta($ref);
+      $key =~ s/$re// if $ref;
+      $log->debug("Key: $key");
+      $re = quotemeta($words);
+      my $result = $descriptions->{$coord}->{html} =~
+	  s/${FS}later $re${FS}/describe($map_data,$table_data,1,$coord,[$key]) . $ref or '…'/ge;
+      if (not $result) {
+	$log->error("Could not resolve later reference in '$words'");
+	last;
+      }
+    }
+  }
 }
 
 =item describe_map
@@ -1416,6 +1460,7 @@ sub describe_map {
 					'TOP', ['TOP']));
   resolve_nearby($map_data, $table_data, \%descriptions);
   resolve_other($map_data, $table_data, \%descriptions);
+  resolve_later($map_data, $table_data, \%descriptions);
   return \%descriptions;
 }
 
