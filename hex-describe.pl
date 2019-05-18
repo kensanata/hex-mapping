@@ -893,6 +893,7 @@ sub parse_table {
   my $data = {};
   my %aliases;
   my $key;
+  my $words = "[^\[\]\n]*";
   for my $line (split(/\r?\n/, $text)) {
     if ($line =~ /^;([^#\r\n]+)/) {
       $key = $1;
@@ -902,7 +903,12 @@ sub parse_table {
       $h{text} =~ s/\*\*(.*?)\*\*/<strong>$1<\/strong>/g;
       $h{text} =~ s/\*(.*?)\*/<em>$1<\/em>/g;
       push(@{$data->{$key}->{lines}}, \%h);
-      for my $alias ($h{text} =~ /\[[^\[\]\n]* as ([^\[\]\n]*)\]/g) {
+      # [foo as bar]
+      for my $alias ($h{text} =~ /\[$words as ($words)\]/g) {
+	$aliases{$alias} = 1;
+      }
+      # [foo [baz] quux as bar] (one level of indirection allowed
+      for my $alias ($h{text} =~ /\[$words\[$words\]$words as ($words)\]/g) {
 	$aliases{$alias} = 1;
       }
     }
@@ -910,14 +916,14 @@ sub parse_table {
   # check tables
   for my $table (keys %$data) {
     for my $line (@{$data->{$table}->{lines}}) {
-      for my $subtable ($line->{text} =~ /\[([^\[\]\n]*)\]/g) {
+      for my $subtable ($line->{text} =~ /\[($words)\]/g) {
 	next if $subtable =~ /$dice_re/;
 	next if $subtable =~ /^redirect https?:/;
 	next if $subtable =~ /^names for (.*)/ and $data->{"name for $1"};
 	next if $subtable =~ /^(?:capitalize|normalize-elvish) (.*)/ and $data->{$1};
 	next if $subtable =~ /^adjacent hex$/; # experimental
 	next if $subtable =~ /^same (.*)/ and ($data->{$1} or $aliases{$1} or $1 eq 'adjacent hex');
-	next if $subtable =~ /^(?:here|nearby|other|with|and) (.*)/ and $data->{$1};
+	next if $subtable =~ /^(?:here|nearby|other|with|and) (.+?)( as (.+))?$/ and $data->{$1};
 	$subtable = $1 if $subtable =~ /^(.+) as (.+)/;
 	$log->error("Error in table $table: subtable $subtable is missing")
 	    unless $data->{$subtable};
@@ -1151,14 +1157,15 @@ sub describe {
       return $locals{$1} if exists $locals{$1};
       $log->error("[$1] is undefined for $coordinates");
       return "";
-    } elsif ($word =~ /^with (.+)/) {
-      my $key = $1;
+    } elsif ($word =~ /^with (.+?)(?: as (.+))?$/) {
+      my ($key, $alias) = ($1, $2);
       my $text = pick($map_data, $table_data, $level, $coordinates, $words, $key);
       next unless $text;
       $locals{$key} = [$text]; # start a new list
+      $locals{$alias} = $text if $alias;
       push(@descriptions, $text);
-    } elsif ($word =~ /^and (.+)/) {
-      my $key = $1;
+    } elsif ($word =~ /^and (.+?)(?: as (.+))?$/) {
+      my ($key, $alias) = ($1, $2);
       my $found = 0;
       # limited attempts to find a unique entry for an existing list (instead of
       # modifying the data structures)
@@ -1169,6 +1176,7 @@ sub describe {
 	next if not $text or grep { $text eq $_ } @{$locals{$key}};
 	push(@{$locals{$key}}, $text);
 	push(@descriptions, $text);
+	$locals{$alias} = $text if $alias;
 	$found = 1;
 	last;
       }
@@ -3161,10 +3169,30 @@ textarea {
   width: 100%;
 }
 table {
-  padding-bottom: 1em;
+  width: 100%;
+  white-space: nowrap;
+  border: 1px solid #696969;
+  border-collapse: collapse;
+}
+tr.head {
+  background-color: #ccc;
+  font-weight: bold;
+}
+tr.odd {
+  background-color: #eee;
+}
+tr.even {
+}
+tr.end {
+  font-weight: bold;
+  background-color: #ccc;
 }
 td, th {
-  padding-right: 0.5em;
+  padding: 5pt 5pt 2pt 5pt;
+  text-align: left;
+}
+.center, tr.end * {
+    text-align: center;
 }
 .example {
   font-size: smaller;
