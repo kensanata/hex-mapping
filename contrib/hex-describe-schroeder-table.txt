@@ -5454,7 +5454,7 @@
 1,[length desc] of [metal mat] wire 
 1,dead [small animal type]
 1,live [small animal type]
-1,ear ([skull desc])
+1,[skull desc] ear
 1,rabbit's foot
 1,[rp] edible leaves
 1,[rp] [small bird type] eggshells
@@ -5615,7 +5615,7 @@
 1,bird
 1,mammal
 1,reptile
-1,humanoid ([skull desc])
+1,[skull desc]
 1,fish
 
 ;rp
@@ -5730,7 +5730,7 @@
 1,vegetable
 
 ;skull desc
-1,jermlaine
+1,orc
 1,pixie
 1,sprite 
 1,elf
