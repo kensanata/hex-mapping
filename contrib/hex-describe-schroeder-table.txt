@@ -4784,7 +4784,7 @@
 1,her *chest of replenishing curses*. The inscription reads: "Do not open!" Opening the chest releases all her stored curses. Anybody interested in the chest must save vs. spells or be cursed by one of the following: 1. *weakness* (strength 3); 2. *shakes* (dexterity 3); 3. *wheezing cough* (constitution 3); 4. *stupidity* (intelligence 3); 5. *foolishness* (wisdom 3); 6. *foul tongue* (charisma 3); 7. *sloth* (every odd roll on a d20 is an automatic fail); 8. *lunacy* (whenever you see dogs or wolves, drop everything you are carrying, howl like mad and run for the woods to live with your kin); 9. *paranoia* (do not trust your friends, not accept their help, do not help them); 10. *swan* (turn into a swan); 11. *frog* (turn into a frog); 12. *martyrdom* (take blows for everybody, sacrifice yourself if possible).
 1,soul-dead lover in a cage. This is *[man]*, his mind long gone, his hairless body tortured and nursed back to life so many times it has achieved a waxy sheen.
 1,a terrible mobile of baby skulls and rib cages, artfully arranged and carefully balanced such that the slightest whiff sets it in motion, the hollow knocking of the tiny skulls producing a soothing rhythm.
-1,a small altar of *[evil power]*, surrounded by a hundred *eternal candles* and the names of three demons inscribed on blood soaked paper. They all owe her a boon for babies trafficked: *[demon name]*, *[demon name]*, and *[demon name]* ([vulture demon stats]).
+1,a small altar of *[here evil power as tempel power]*, surrounded by a hundred *eternal candles* and the names of three demons inscribed on blood soaked paper. They all owe her a boon for babies trafficked: *[demon name]*, *[demon name]*, and *[demon name]* ([vulture demon stats]).
 1,her *guard broom*, a strong willed broom that will attack intruders and raise a ruckus ([animate object stats]).
 
 ;animate object stats
@@ -5331,7 +5331,19 @@
 1,Impaler
 
 ;goblin town entrance
-1,A giant **black tree** stands here ([treant stats]; *hold person*, *charm person*, *animate dead*). Upon reciting the mantra "[goblin passphrase]," the tree will step aside and reveal the entrance to an underground *goblin town*.</p><p>[goblin town]
+1,A giant **black tree** stands here. This is the *[goblin king]* ([treant stats]; *hold person*, *charm person*, *animate dead*). Upon reciting the mantra "[goblin passphrase]," the tree will step aside and reveal the entrance to an underground *goblin town*.</p><p>[goblin town]
+
+;goblin king
+1,Alder King
+1,Forest King
+1,King of the Wild
+1,Queen of Darkness
+1,Horned Queen
+1,Old King
+1,Old Queen
+1,Old One
+1,True King
+1,True Queen
 
 ;goblin passphrase
 1,goblins rule the world
@@ -5465,7 +5477,10 @@
 1,*You can do it if you really want!*
 
 ;goblin market
-1,The goblins have the following wares for sale:</p><table><tr class="head"><th>Item</th><th>Upsell</th><th class="center">Price</th></tr><tr><td>[goblin junk]</td><td>[with goblin upsell]</td><td class="center">[junk price]</tr><tr class="odd"><td>[goblin junk]</td><td>[and goblin upsell]</td><td class="center">[junk price]</tr><tr><td>[goblin junk]</td><td>[and goblin upsell]</td><td class="center">[junk price]</tr><tr class="odd"><td>[goblin junk]</td><td>[and goblin upsell]</td><td class="center">[junk price]</tr><tr><td>[goblin junk]</td><td>[goblin upsell]</td><td class="center">[junk price]</tr><tr class="odd"><td>[goblin junk]</td><td>[with goblin upsell]</td><td class="center">[junk price]</tr><tr><td>[goblin junk]</td><td>[and goblin upsell]</td><td class="center">[junk price]</tr><tr class="end"><td colspan=3>[goblin closing pitch]</td></table><p>The *useful* stuff requires contacts.
+1,The goblins have the following wares for sale:</p><table><tr class="head"><th>Item</th><th>Upsell</th><th class="center">Price</th></tr><tr><td>[goblin junk]</td><td>[with goblin upsell]</td><td class="center">[junk price]</tr><tr class="odd"><td>[goblin junk]</td><td>[and goblin upsell]</td><td class="center">[junk price]</tr><tr><td>[goblin junk]</td><td>[and goblin upsell]</td><td class="center">[junk price]</tr><tr class="odd"><td>[goblin junk]</td><td>[and goblin upsell]</td><td class="center">[junk price]</tr><tr><td>[goblin junk]</td><td>[goblin upsell]</td><td class="center">[junk price]</tr><tr class="odd"><td>[goblin junk]</td><td>[with goblin upsell]</td><td class="center">[junk price]</tr><tr><td>[goblin junk]</td><td>[and goblin upsell]</td><td class="center">[junk price]</tr><tr class="end"><td colspan=3>[goblin closing pitch]</td></table><p>The *useful* stuff requires contacts. [goblin patron]
+
+;goblin patron
+1,Big lord *[goblin]* is looking to increase the prestige of the *[same evil power]* temple and is looking for a special relic: the [relic]. Bring it here and *[goblin]*  will give you a little trinket they recently acquired: [magic item]
 
 ;goblin junk
 1,[rp] apple cores
@@ -7744,9 +7759,9 @@
 1,</p><p>[temple of law]
 
 ;temple of law
-1,On a peak nearby stands a statue of *[good power]*, built by [ancients]. At the foot of the statue, a few followers of [same good power] have built a small temple consisting of a prayer hall, a sleeping hall, and [lawful temple feature] [monks or nuns]
-1,Between these mountains lies a hidden valley where the [name for a secret society 1] have built a temple dedicated to *[good power]*. The members of this secret society have erected a prayer hall, a sleeping hall, and [lawful temple feature] [monks or nuns]
-1,Between these mountains lies a hidden valley where the followers of *[good power]* have built a temple containing a prayer hall, a sleeping hall, and [lawful temple feature] [monks or nuns]
+1,On a peak nearby stands a statue of *[here good power as tempel power]*, built by [ancients]. At the foot of the statue, a few followers of [same good power] have built a small temple consisting of a prayer hall, a sleeping hall, and [lawful temple feature] [monks or nuns]
+1,Between these mountains lies a hidden valley where the [name for a secret society 1] have built a temple dedicated to *[here good power as tempel power]*. The members of this secret society have erected a prayer hall, a sleeping hall, and [lawful temple feature] [monks or nuns]
+1,Between these mountains lies a hidden valley where the followers of *[here good power as tempel power]* have built a temple containing a prayer hall, a sleeping hall, and [lawful temple feature] [monks or nuns]
 
 ;lawful temple feature
 1,a prayer machine.
@@ -7778,11 +7793,19 @@
 1,</p><p>[temple of chaos]
 
 ;temple of chaos
-1,In these water logged woods, a statue of *[disease power]* was built on top of a little hill. Around it, his followers have built a series of wooden huts and a sacrificial pit full of carcasses, maggots and flies. The stench is overpowering. The humans pray for deliverance, for change, for a remaking of the world and the forest. [cultists]
-1,The water pools between the trees here are black and oily. Dead birds, dead fish, everywhere you look there are dead animals. Here is a mound of ash and bones, and standing on it a pillar of pain dedicated to *[disease power]*. Humans have gathered here, to worship and to pray. Their faces are ashen and their eyes infected, their tongue black. They pray for the world to end and to be remade, whole and new. [cultists]
-1,From the stagnant water rises a pyramid. It's bottom lies under the surface, but there is an opening further up. The waters around the pyramid harbour [1d6 crocodiles]. The boat is well hidden (1 in 6 chance per day and search party). Inside the pyramid is a sacrificial altar of *Set*, a [Set animal] pit, and the halls of the assassins in training, the Set acolytes. [cultists]
-1,The trees here are stunted and black, the water is grey and the air carries the smell of sulphur. Beneath the surface lie [undead guardians] waiting for anybody about to enter the water. The boat is well hidden (1 in 6 chance per day and search party). An island made of huge bones rises from the water. On it, necromancers have built a temple to *Orcus*, including an altar, a bone hall, a skull mound, and several small huts surrounding it all. [cultists]
-1,The trees here are painted with the blood of pigs and men. Carcasses full of maggots hang from hooks and the air is buzzing with flies. This is where a coven of witches has built an altar to *Hel*, the goddess of magic. They live in the wooden tree houses nearby. The area is guarded by [2d4] **hell hounds** ([hell hound stats]). [cultists led by a woman]
+1,In these water logged woods, a statue of *[here disease power as tempel power]* was built on top of a little hill. Around it, his followers have built a series of wooden huts and a sacrificial pit full of carcasses, maggots and flies. The stench is overpowering. The humans pray for deliverance, for change, for a remaking of the world and the forest. [cultists]
+1,The water pools between the trees here are black and oily. Dead birds, dead fish, everywhere you look there are dead animals. Here is a mound of ash and bones, and standing on it a pillar of pain dedicated to *[here disease power as tempel power]*. Humans have gathered here, to worship and to pray. Their faces are ashen and their eyes infected, their tongue black. They pray for the world to end and to be remade, whole and new. [cultists]
+1,From the stagnant water rises a pyramid. It's bottom lies under the surface, but there is an opening further up. The waters around the pyramid harbour [1d6 crocodiles]. The boat is well hidden (1 in 6 chance per day and search party). Inside the pyramid is a sacrificial altar of *[here Set as tempel power]*, a [Set animal] pit, and the halls of the assassins in training, the Set acolytes. [cultists]
+1,The trees here are stunted and black, the water is grey and the air carries the smell of sulphur. Beneath the surface lie [undead guardians] waiting for anybody about to enter the water. The boat is well hidden (1 in 6 chance per day and search party). An island made of huge bones rises from the water. On it, necromancers have built a temple to *[here Orcus as tempel power]*, including an altar, a bone hall, a skull mound, and several small huts surrounding it all. [cultists]
+1,The trees here are painted with the blood of pigs and men. Carcasses full of maggots hang from hooks and the air is buzzing with flies. This is where a coven of witches has built an altar to *[here Hel as tempel power]*, the goddess of magic. They live in the wooden tree houses nearby. The area is guarded by [2d4] **hell hounds** ([hell hound stats]). [cultists led by a woman]
+
+# these are necessary because of the aliasing
+;Set
+1,Set
+;Orcus
+1,Orcus
+;Hel
+1,Hel
 
 ;Set animal
 1,snake
@@ -10596,6 +10619,27 @@
 1,Watchful
 1,Patient
 1,Wise
+
+;relic
+1,[later relic of [nearby tempel power]]
+;relic of Set
+1,seven headed silver snake amulet of *Set*
+;relic of Orcus
+1,goat headed miniature silver mace of *Orcus*
+;relic of Hel
+1,three headed war dog amulet of *Hel*
+;relic of Nergal
+1,small dancing skeleton puppet of *Nergal*
+;relic of Pazuzu
+1,small four winged vulture demon statuette of *Pazuzu*
+;relic of Freya
+1,small dark wood wolf sculpture dedicated to *Freya*
+;relic of Odin
+1,legendary eye patch of *Odin* containing the *truth gem*
+;relic of Thor
+1,small silver hammer amulet of *Thor*
+;relic of Mitra
+1,magic *fire stone* of *Mitra*
 
 ;man
 1,Aaron
