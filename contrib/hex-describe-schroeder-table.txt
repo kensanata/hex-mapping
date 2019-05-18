@@ -3141,7 +3141,7 @@
 1,A steep hill rises from the forest and at its top stands an old statue of *[power]*, about 20ft tall. Who ever built this statue is long gone but the trail leading up to the statue looks well worn.
 1,Small creeks have dug deep channels into [forest name]. The going is tough. Some of the hidden valleys are very hard to reach. [giant apes] [small temple near giant apes]
 1,[forest name] covers a few hills, here. [ogre hill]
-1,These [tree] hills in [forest name] belong to the *[evil tribe]* tribe. [orcs] Their fort is [orc fort]
+1,These [tree] hills in [forest name] belong to the *[evil tribe]* tribe. [orcs] Their fort is [orc fort] [orc plans]
 1,The hill overlooking [forest name] is the home of [1d8 treants] ([treant stats]). They mostly stand around near the [forest feature].
 1,There is a hill rising high above [forest name] with a nice cave which offers shelter from the rain but is home to [1d4 bears] ([bear stats]).
 1,[5d8] **dwarves** ([dwarf stats]) have set up a small logging community, here in [forest name]. The [tree] trees in the area have brought them here. They are led by [dwarf leader] (level [1d6+2 as level]). The camp is defended by [dwarven companions]. [dwarven treasure]
@@ -3680,6 +3680,10 @@
 1,forgiveness
 1,the void
 
+;orc plans
+1,These orcs are looking for allies to go to war against [nearby village name].
+1,
+
 ;abandoned mine
 1,[abandoned coal mine]
 1,This must have been a pretty big operation. At least twenty or thirty people must been digging down here at one point.</p><p>The orc avoid the mine because a bunch of gnomes has settled here and extended the crawlspaces with even more tunnels. [gnomes] They resent intruders.
@@ -4045,7 +4049,7 @@
 1,Hidden between some hills is a valley apparently full of thorn bushes. It hides a hamlet of [halflings]
 1,An old fort overlooking the woods has been taken over by a war party of [4d6] **hobgoblins** ([hobgoblin stats]) led by *[hobgoblin]* (HD 3+1). The fort is defended by [hobgoblin companions]. [old fort] [luxurious context] [robber treasure]
 1,An abandoned watchtower on a promontory overlooking the drylands is home to [4d6] **hobgoblins** ([hobgoblin stats]) led by *[hobgoblin]* (HD 3+1). The approach is guarded by [hobgoblin companions]. [luxurious context] [robber treasure]
-1,Up in these drylands, a massive fortress built by giants long ago is home to the *[evil tribe]* tribe. [orcs] The fortress is [orc fort]
+1,Up in these drylands, a massive fortress built by giants long ago is home to the *[evil tribe]* tribe. [orcs] The fortress is [orc fort] [orc plans]
 1,Up here on these hills and overlooking the shrublands is a massive fortress built by giants long ago. It has been taken over by **humans** and now it is home to [1d4x10] bandits ([human stats]) led by [human]. The fortress is [human fort]. [average treasure]
 1,There are caves beneath these badlands. [caves]
 1,The dry lands up here are the hunting grounds of a **manticore** called *[manticore]* living in the ruins of an old tower ([manticore stats]). [robber treasure] [manticore companions]
@@ -4178,8 +4182,8 @@
 
 ;caves
 1,[cave use] The caves are full of broken constructions, tiny ladders and walkways. [goblins]
-1,[cave use] The caves have paintings of the *[evil tribe]* tribe on the cave walls. [orcs]
-1,[cave use] The caves are filled with mushrooms and guarded by [myconids]
+1,[cave use] The caves have paintings of the *[evil tribe]* tribe on the cave walls. [orcs] [orc plans]
+1,[cavee use] The caves are filled with mushrooms and guarded by [myconids]
 1,[cave use] In winter, these caves are home to [1d4 bears] ([bear stats]).
 1,[cave use] The caves are inhabited by [1d8 trolls] ([troll stats]). [robber treasure]
 1,[cave use] The caves have been abandoned a long time ago.
@@ -7217,7 +7221,7 @@
 1,[fir highlands] There is a cave housing the **ettin** called *[ettin]*. [robber treasure]
 1,[fir highlands] At the foot of [crag name], there is cave inhabited by [1d8 trolls] ([troll stats]). [robber treasure]
 1,[fir highlands] In this fir forest is a little campsite with [1d12 bugbears] ([bugbear stats]). [scout treasure]
-1,[fir highlands] At night, the orcs of the *[evil tribe]* tribe hunt these lands. [orcs] Their settlement is protected by a palisade and [orc fort]
+1,[fir highlands] At night, the orcs of the *[evil tribe]* tribe hunt these lands. [orcs] Their settlement is protected by a palisade and [orc fort] [orc plans]
 1,[fir highlands] There is an abandoned shrine to *[power]* up here. It is haunted by the **spectre** of *[old name]*, the last priest who cared for it ([spectre stats]). [ancient treasure]
 1,[fir highlands] If you wander into these woods, you'll soon hear laughter and revelling. [satyr threat]
 1,[fir highlands] [druids]
@@ -7834,9 +7838,9 @@
 
 #NOTE: no space to create proper compounds, spaces are present in some second halves for some variety
 ;village name
-80,[village name1][village name2]
-20,[human name][village name3]
-10,[old name][village name3]
+80,*[village name1][village name2]*
+20,*[human name][village name3]*
+10,*[old name][village name3]*
 
 ;village name1
 1,Sweet
@@ -8252,15 +8256,15 @@
 1,choosing the child to be sacrificed to the dragon
 
 ;thorp
-1,</p><p>This is *[village name]*, a thorp of [1d4x10] **humans** ([human stats]) led by [human][human job]. The [human houses] are protected by [human companions]. [average treasure] These village-folk are [thorp activity].
+1,</p><p>This is [here village name], a thorp of [1d4x10] **humans** ([human stats]) led by [human][human job]. The [human houses] are protected by [human companions]. [average treasure] These village-folk are [thorp activity].
 
 # the second variant has a temple at the end
 ;village
-1,</p><p>This is *[village name]*, a village of [5d6x10] **humans** ([human stats]). The [human houses] are protected by [human companions] and a [human defense]. There is a small *[village building]*. [small [same village building]] [average treasure]</p><p>The [human leader] lives in the [same village building]. [spellbook for [same class]] [leader treasure for [same class]]</p><p>[human retainer]</p><p>[human friends]</p><p>[And a secret society]
-1,</p><p>This is *[village name]*, a village of [5d6x10] **humans** ([human stats]). The [human houses] are protected by [human companions] and a [human defense]. There is a small *[village building]*. [small [same village building]] [average treasure]</p><p>The [human leader] lives in the [same village building]. [spellbook for [same class]] [leader treasure for [same class]]</p><p>[human retainer]</p><p>[human friends]</p><p>[And a secret society]</p><p>[temple]
+1,</p><p>This is [here village name], a village of [5d6x10] **humans** ([human stats]). The [human houses] are protected by [human companions] and a [human defense]. There is a small *[village building]*. [small [same village building]] [average treasure]</p><p>The [human leader] lives in the [same village building]. [spellbook for [same class]] [leader treasure for [same class]]</p><p>[human retainer]</p><p>[human friends]</p><p>[And a secret society]
+1,</p><p>This is [here village name], a village of [5d6x10] **humans** ([human stats]). The [human houses] are protected by [human companions] and a [human defense]. There is a small *[village building]*. [small [same village building]] [average treasure]</p><p>The [human leader] lives in the [same village building]. [spellbook for [same class]] [leader treasure for [same class]]</p><p>[human retainer]</p><p>[human friends]</p><p>[And a secret society]</p><p>[temple]
 
 ;town
-1,</p><p>This is *[village name]*, a town of [1d6x100] **humans** ([human stats]). The [human houses] are protected by a keep, a town wall and the river. [average treasure]</p><p>The [human leader] lives in the keep. [spellbook for [same class]] [leader treasure for [same class]]</p><p>[human retainer]</p><p>[human friends]</p><p>[And two secret societies feuding]</p><p>[temple]</p><p>There is also [town feature]
+1,</p><p>This is [here village name], a town of [1d6x100] **humans** ([human stats]). The [human houses] are protected by a keep, a town wall and the river. [average treasure]</p><p>The [human leader] lives in the keep. [spellbook for [same class]] [leader treasure for [same class]]</p><p>[human retainer]</p><p>[human friends]</p><p>[And two secret societies feuding]</p><p>[temple]</p><p>There is also [town feature]
 
 ;human job
 1, the smith
