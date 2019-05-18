@@ -829,7 +829,7 @@
 1,[mountain orcs]
 
 ;mountain orcs
-1,The valley up here is hard to find. This is where the orcs of the [evil tribe] raise [mountain orc animals] and make their [mountain orc product]. [orcs] Their village is [orc fort]
+1,The valley up here is hard to find. This is where the orcs of the *[evil tribe]* tribe raise [mountain orc animals] and make their [mountain orc product]. [orcs] Their village is [orc fort]
 
 ;mountain orc animals
 1,mountain goats
@@ -1104,7 +1104,7 @@
 
 ;forge ruin
 1,The ruin is abandoned and dead. If you explore the ruins, you will soon find the **balor** *[demon name]* who caused its downfall ([balor stats]). It guards a portal to the realm of eternal fire, to Muspelheim. [balor servants]
-1,The ruin has been settled by the [evil tribe]. [orcs]
+1,The ruin has been settled by the *[evil tribe]* tribe. [orcs]
 1,The ruin is full of broken machinery. In its depths, however, a **bronze golem** still wanders the halls ([bronze golem stats]).
 1,The ruin is now home to the **white dragon** [white dragon name] ([white dragon stats]). [dragon treasure]
 
@@ -1113,7 +1113,7 @@
 
 ;balor servants
 1,The chambers around the fire gate are occupied by creates from the other side. [salamanders]
-1,The orcs of the [evil tribe] serve it. [orcs]
+1,The orcs of the *[evil tribe]* tribe serve it. [orcs]
 
 ;salamanders
 1,2d4 **salamanders** ([salamander stats]) live here, led by *[salamander]*. [terror treasure]
@@ -3141,7 +3141,7 @@
 1,A steep hill rises from the forest and at its top stands an old statue of *[power]*, about 20ft tall. Who ever built this statue is long gone but the trail leading up to the statue looks well worn.
 1,Small creeks have dug deep channels into [forest name]. The going is tough. Some of the hidden valleys are very hard to reach. [giant apes] [small temple near giant apes]
 1,[forest name] covers a few hills, here. [ogre hill]
-1,These [tree] hills in [forest name] belong to the [evil tribe]. [orcs] Their fort is [orc fort]
+1,These [tree] hills in [forest name] belong to the *[evil tribe]* tribe. [orcs] Their fort is [orc fort]
 1,The hill overlooking [forest name] is the home of [1d8 treants] ([treant stats]). They mostly stand around near the [forest feature].
 1,There is a hill rising high above [forest name] with a nice cave which offers shelter from the rain but is home to [1d4 bears] ([bear stats]).
 1,[5d8] **dwarves** ([dwarf stats]) have set up a small logging community, here in [forest name]. The [tree] trees in the area have brought them here. They are led by [dwarf leader] (level [1d6+2 as level]). The camp is defended by [dwarven companions]. [dwarven treasure]
@@ -3376,9 +3376,9 @@
 # by Mike Banks
 
 ;evil tribe
-1,*[evil tribe adjective] [evil tribe body part] [evil tribe body part action]* tribe
-1,*[evil tribe adjective] [evil tribe noun]* tribe
-1,*[evil tribe body part]-[evil tribe body part action]* tribe
+1,[evil tribe adjective] [evil tribe body part] [evil tribe body part action]
+1,[evil tribe adjective] [evil tribe noun]
+1,[evil tribe body part]-[evil tribe body part action]
 
 ;evil tribe adjective
 7,[evil tribe condition]
@@ -4007,7 +4007,7 @@
 
 ;ogres
 1,[1d4+1] more **ogres**
-1,[1d4+1] more **ogres** and [1d6x10] **orcs** of the [evil tribe] ([orc stats])
+1,[1d4+1] more **ogres** and [1d6x10] **orcs** of the *[evil tribe]* tribe ([orc stats])
 
 ;ogre lair
 1,The ogres have found a cave under some boulders where they have dug their lair. It's basically one stuffy room, with hundreds of bones.
@@ -4045,7 +4045,7 @@
 1,Hidden between some hills is a valley apparently full of thorn bushes. It hides a hamlet of [halflings]
 1,An old fort overlooking the woods has been taken over by a war party of [4d6] **hobgoblins** ([hobgoblin stats]) led by *[hobgoblin]* (HD 3+1). The fort is defended by [hobgoblin companions]. [old fort] [luxurious context] [robber treasure]
 1,An abandoned watchtower on a promontory overlooking the drylands is home to [4d6] **hobgoblins** ([hobgoblin stats]) led by *[hobgoblin]* (HD 3+1). The approach is guarded by [hobgoblin companions]. [luxurious context] [robber treasure]
-1,Up in these drylands, a massive fortress built by giants long ago is home to the [evil tribe]. [orcs] The fortress is [orc fort]
+1,Up in these drylands, a massive fortress built by giants long ago is home to the *[evil tribe]* tribe. [orcs] The fortress is [orc fort]
 1,Up here on these hills and overlooking the shrublands is a massive fortress built by giants long ago. It has been taken over by **humans** and now it is home to [1d4x10] bandits ([human stats]) led by [human]. The fortress is [human fort]. [average treasure]
 1,There are caves beneath these badlands. [caves]
 1,The dry lands up here are the hunting grounds of a **manticore** called *[manticore]* living in the ruins of an old tower ([manticore stats]). [robber treasure] [manticore companions]
@@ -4178,7 +4178,7 @@
 
 ;caves
 1,[cave use] The caves are full of broken constructions, tiny ladders and walkways. [goblins]
-1,[cave use] The caves have paintings of the [evil tribe] on the cave walls. [orcs]
+1,[cave use] The caves have paintings of the *[evil tribe]* tribe on the cave walls. [orcs]
 1,[cave use] The caves are filled with mushrooms and guarded by [myconids]
 1,[cave use] In winter, these caves are home to [1d4 bears] ([bear stats]).
 1,[cave use] The caves are inhabited by [1d8 trolls] ([troll stats]). [robber treasure]
@@ -5342,7 +5342,9 @@
 1,we are all goblins
 
 ;goblin town
-1,The goblin town has three factions: the *[[with goblin town companions as g1] name as g1name]*, the *[[and goblin town companions as g2] name as g2name]*, and the *[[and goblin town companions as g3] name as g3name]*.</p><p>The *[same g1name]* live in the upper parts of town, near the entrance. [goblin town faction] [[same g1]]</p><p>The *[same g2name]* faction live in the middle part town, around the temple of *[evil power]*. [goblin town faction] [[same g2]]</p><p>The *[same g3name]* faction controls access to the [goblin town water], and the goblin *market*. [goblin town faction] [[same g3]]</p><p>[goblin market]
+1,The goblin town has two factions: the *[[with goblin town companions as g1] name as g1name]* and the *[[and goblin town companions as g2] name as g2name]*.</p><p>The *[same g1name]* live in the upper parts of town, near the temple of *[evil power]*. [goblin town faction] [[same g1]]</p><p>The *[same g2name]* faction controls access to the [goblin town water], and the goblin *market*. [goblin town faction] [[same g2]]</p><p>[goblin market]
+2,The goblin town has three factions: the *[[with goblin town companions as g1] name as g1name]*, the *[[and goblin town companions as g2] name as g2name]*, and the *[[and goblin town companions as g3] name as g3name]*.</p><p>The *[same g1name]* live in the upper parts of town, near the entrance. [goblin town faction] [[same g1]]</p><p>The *[same g2name]* faction live in the middle part town, around the temple of *[evil power]*. [goblin town faction] [[same g2]]</p><p>The *[same g3name]* faction controls access to the [goblin town water], and the goblin *market*. [goblin town faction] [[same g3]]</p><p>[goblin market]
+1,The goblin town has four factions: the *[[with goblin town companions as g1] name as g1name]*, the *[[and goblin town companions as g2] name as g2name]*, the *[[and goblin town companions as g3] name as g3name]*, and the *[[and goblin town companions as g4] name as g4name]*.</p><p>The *[same g1name]* live in the upper parts of town, near the entrance. [goblin town faction] [[same g1]]</p><p>The *[same g2name]* faction live in the middle part town, around the temple of *[evil power]*. [goblin town faction] [[same g2]]</p><p>The *[same g4name]* faction live below the *[same evil power]* temple and run a *fight pit*. [goblin town faction] [[same g2]]</p><p>[goblin fight pit]</p><p>The *[same g3name]* faction controls access to the [goblin town water], and the goblin *market*. [goblin town faction] [[same g3]]</p><p>[goblin market]
 
 ;goblin town companions
 1,goblin town failures
@@ -5428,8 +5430,42 @@
 ;goblin town beetles
 1,[goblin town animal relation] [3d6] **giant beetles** ([giant beetle stats]).
 
+;goblin fight pit
+1,*[goblin]* is the pit master around here. The current stable of teams:</p><table><tr class="head"><th>Team</th><th>Members</th></tr><tr><td>*[goblin fight team name]*</td><td>[goblin fight team]</td></tr><tr class="odd"><td>*[goblin fight team name]*</td><td>[goblin fight team]</td></tr><tr><td>*[goblin fight team name]*</td><td>[goblin fight team]</td></tr><tr class="odd"><td>*[goblin fight team name]*</td><td>[goblin fight team]</td></tr><tr><td>*[goblin fight team name]*</td><td>[goblin fight team]</td></tr><tr class="odd"><td>*[goblin fight team name]*</td><td>[goblin fight team]</td></tr><tr class="end"><tr><td>*[goblin fight team name]*</td><td>[goblin fight team]</td></tr><tr class="end"><td colspan=2>[goblin closing fight pitch]</td></tr></table><p>Stats:</p><ul><li>**ogres** ([ogre stats])<li>**ogre mages** ([ogre mage stats])<li>**orcs** ([orc stats])<li>**trolls** ([troll stats])</ul><p>Betting usually starts at a 1:5 rate for the players and gets adjusted based on past performance. Thus, after four wins in a row the odds arrive at 1:1 and the players are excluded from further fighting.
+
+;goblin fight team name
+1,Team [evil tribe]
+1,Kings of the [evil tribe]
+1,[evil tribe] Gang
+1,[evil tribe] Bastards
+1,[evil tribe] Clowns
+1,[evil tribe] Murder Gang
+1,[evil tribe] Murder Hobos
+1,[evil tribe] Bashers
+1,[evil tribe] Cooperative
+
+;goblin fight team
+3,[3d6] **goblins** led by *[goblin]*
+2,[2d6] **goblins** and [2d6] **orcs** led by *[orc]*
+2,[3d4] **goblins** and *[ogre]* the **ogre**
+1,[3d4] **goblins** and *[ogre mage]* the **ogre mage**
+1,[3d4] **goblins** and *[troll]* the **troll**
+1,[1d4+1] **trolls** led by *[troll]*
+1,[3d6] **orcs** led by *[orc]*
+
+;goblin closing fight pitch
+1,*May the force be with you!*
+1,*Smart fight, smart death!*
+1,*Fight well, leave a good looking corpse!*
+1,*No problem that cannot be solved by violence!*
+1,*Violence is life!*
+1,*Goblins in a rut deal an awesome cut!*
+1,*Strength in numbers!*
+1,*Keep your enemies close, keep your team mates closer!*
+1,*You can do it if you really want!*
+
 ;goblin market
-1,The goblins have the following wares for sale:</p><table><tr class="head"><th>Item</th><th>Upsell</th><th class="center">Price</th></tr><tr><td>[goblin junk]</td><td>[with goblin upsell]</td><td class="center">[junk price]</tr><tr class="odd"><td>[goblin junk]</td><td>[and goblin upsell]</td><td class="center">[junk price]</tr><tr><td>[goblin junk]</td><td>[and goblin upsell]</td><td class="center">[junk price]</tr><tr class="odd"><td>[goblin junk]</td><td>[and goblin upsell]</td><td class="center">[junk price]</tr><tr><td>[goblin junk]</td><td>[goblin upsell]</td><td class="center">[junk price]</tr><tr class="odd"><td>[goblin junk]</td><td>[with goblin upsell]</td><td class="center">[junk price]</tr><tr><td>[goblin junk]</td><td>[and goblin upsell]</td><td class="center">[junk price]</tr><tr class="end"><td colspan=3>[goblin closing pitch]</td></table>
+1,The goblins have the following wares for sale:</p><table><tr class="head"><th>Item</th><th>Upsell</th><th class="center">Price</th></tr><tr><td>[goblin junk]</td><td>[with goblin upsell]</td><td class="center">[junk price]</tr><tr class="odd"><td>[goblin junk]</td><td>[and goblin upsell]</td><td class="center">[junk price]</tr><tr><td>[goblin junk]</td><td>[and goblin upsell]</td><td class="center">[junk price]</tr><tr class="odd"><td>[goblin junk]</td><td>[and goblin upsell]</td><td class="center">[junk price]</tr><tr><td>[goblin junk]</td><td>[goblin upsell]</td><td class="center">[junk price]</tr><tr class="odd"><td>[goblin junk]</td><td>[with goblin upsell]</td><td class="center">[junk price]</tr><tr><td>[goblin junk]</td><td>[and goblin upsell]</td><td class="center">[junk price]</tr><tr class="end"><td colspan=3>[goblin closing pitch]</td></table><p>The *useful* stuff requires contacts.
 
 ;goblin junk
 1,[rp] apple cores
@@ -7165,7 +7201,7 @@
 1,[fir highlands] There is a cave housing the **ettin** called *[ettin]*. [robber treasure]
 1,[fir highlands] At the foot of [crag name], there is cave inhabited by [1d8 trolls] ([troll stats]). [robber treasure]
 1,[fir highlands] In this fir forest is a little campsite with [1d12 bugbears] ([bugbear stats]). [scout treasure]
-1,[fir highlands] At night, the orcs of the [evil tribe] hunt these lands. [orcs] Their settlement is protected by a palisade and [orc fort]
+1,[fir highlands] At night, the orcs of the *[evil tribe]* tribe hunt these lands. [orcs] Their settlement is protected by a palisade and [orc fort]
 1,[fir highlands] There is an abandoned shrine to *[power]* up here. It is haunted by the **spectre** of *[old name]*, the last priest who cared for it ([spectre stats]). [ancient treasure]
 1,[fir highlands] If you wander into these woods, you'll soon hear laughter and revelling. [satyr threat]
 1,[fir highlands] [druids]
