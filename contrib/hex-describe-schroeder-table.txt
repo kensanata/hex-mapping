@@ -5294,6 +5294,7 @@
 ;goblins
 1,[6d10] **goblins** live here, led by [goblin] ([goblin stats]). [poor treasure]
 5,[6d10] **goblins** live here, led by [goblin] ([goblin stats]). The goblins have tamed [2d6] [goblin companions] Goblins love to ride these into battle. [poor treasure]
+1,[goblin town entrance]
 
 ;goblin stats
 1,HD 1-1 AC 6 1d6 F1 MV 6 ML 7 XP 100
@@ -5328,6 +5329,720 @@
 1,King
 1,Basher
 1,Impaler
+
+;goblin town entrance
+1,A giant **black tree** stands here ([treant stats]; *hold person*, *charm person*, *animate dead*). Upon reciting the mantra "[goblin passphrase]," the tree will step aside and reveal the entrance to an underground *goblin town*.</p><p>[goblin town]
+
+;goblin passphrase
+1,goblins rule the world
+1,I bow my head in shame
+1,I kneel beneath the goblin gods
+1,goblins rule for ever
+1,goblins rule for ever and ever
+1,we are all goblins
+
+;goblin town
+1,The goblin town has three factions: the *[[with goblin town companions as g1] name as g1name]*, the *[[and goblin town companions as g2] name as g2name]*, and the *[[and goblin town companions as g3] name as g3name]*.</p><p>The *[same g1name]* live in the upper parts of town, near the entrance. [goblin town faction] [[same g1]]</p><p>The *[same g2name]* faction live in the middle part town, around the temple of *[evil power]*. [goblin town faction] [[same g2]]</p><p>The *[same g3name]* faction controls access to the [goblin town water], and the goblin *market*. [goblin town faction] [[same g3]]</p><p>[goblin market]
+
+;goblin town companions
+1,goblin town failures
+1,goblin town wolves
+1,goblin town weasels
+1,goblin town spiders
+1,goblin town beetles
+
+;goblin town failures name
+1,Loosers
+1,Desperados
+1,Haters
+
+;goblin town wolves name
+1,Wolf [goblin animal activity]
+1,Grey Wolf [goblin animal activity]
+1,Black Wolf [goblin animal activity]
+
+;goblin town weasels name
+1,Weasel [goblin animal activity]
+1,Blood Weasel [goblin animal activity]
+1,Brown Weasel [goblin animal activity]
+
+;goblin town spiders name
+1,Spider [goblin animal activity]
+1,Eight Legged [goblin animal activity]
+1,Silk [goblin animal activity]
+
+;goblin town beetles name
+1,Beetle [goblin animal activity]
+1,Panzer [goblin animal activity]
+1,Plate [goblin animal activity]
+
+;goblin animal activity
+1,Lovers
+1,Riders
+1,Friends
+1,Knights
+1,Hunters
+1,Slaves
+
+;goblin town faction
+1,[6d10] **goblins**, led by [goblin] the [goblin title] ([goblin stats]). [poor treasure]
+
+;goblin title
+1,ranger
+1,assassin
+1,killer
+1,man-eater
+1,skull-rider
+1,princeling of evil
+1,king of kings
+1,great
+1,king of thieves
+1,shadow
+
+;goblin town water
+1,old *cisterns* built by giants
+1,underground *lake*
+1,underground *river*
+1,*mud baths*
+1,*hot springs*
+
+;goblin town animal relation
+1,They have tamed
+1,They have subjugated
+1,They have befriended
+1,They live together with
+1,Some of them are bonded for life with
+
+;goblin town failures
+1,They failed to tame any giant animals and for this they are forever ridiculed by the other goblin factions.
+
+;goblin town wolves
+1,[goblin town animal relation] [3d6] intelligent **giant wolves** ([giant wolf stats]).
+
+;goblin town weasels
+1,[goblin town animal relation] [3d6] **giant weasels** ([weasel stats]).
+
+;goblin town spiders
+1,[goblin town animal relation] [3d6] **giant spiders** ([giant spider stats]).
+
+;goblin town beetles
+1,[goblin town animal relation] [3d6] **giant beetles** ([giant beetle stats]).
+
+;goblin market
+1,The goblins have the following wares for sale:</p><table><tr class="head"><th>Item</th><th>Upsell</th><th class="center">Price</th></tr><tr><td>[goblin junk]</td><td>[with goblin upsell]</td><td class="center">[junk price]</tr><tr class="odd"><td>[goblin junk]</td><td>[and goblin upsell]</td><td class="center">[junk price]</tr><tr><td>[goblin junk]</td><td>[and goblin upsell]</td><td class="center">[junk price]</tr><tr class="odd"><td>[goblin junk]</td><td>[and goblin upsell]</td><td class="center">[junk price]</tr><tr><td>[goblin junk]</td><td>[goblin upsell]</td><td class="center">[junk price]</tr><tr class="odd"><td>[goblin junk]</td><td>[with goblin upsell]</td><td class="center">[junk price]</tr><tr><td>[goblin junk]</td><td>[and goblin upsell]</td><td class="center">[junk price]</tr><tr class="end"><td colspan=3>[goblin closing pitch]</td></table>
+
+;goblin junk
+1,[rp] apple cores
+1,[clump desc] of [clump mat]
+1,dried [food berries prefix]berries ([rp] [wicker desc] baskets)
+1,fresh [food berries prefix]berries ([rp] [wicker desc] baskets)
+1,ripe [food berries prefix]berries ([rp] [wicker desc] baskets)
+1,[rp] [bone type] bones
+1,empty [glass desc] bottle 
+1,empty [metal mat] flask
+1,[condition desc] [metal mat] [metal jewelry]
+1,[condition desc] [glass desc] glass shards 
+1,[glass desc] glass beads 
+1,[tool mat] butter knife
+1,[rp] [tool mat] buttons 
+1,[tool mat] chess [chess piece]
+1,[condition desc] [tool mat] [vessel desc] 
+1,chunk of [other plant mat] 
+1,[rp] [body part desc]
+1,[rp] corks
+1,[condition desc] [tool mat] pipe
+1,[length desc] of [metal mat] wire 
+1,dead [small animal type]
+1,live [small animal type]
+1,ear ([skull desc])
+1,rabbit's foot
+1,[rp] edible leaves
+1,[rp] [small bird type] eggshells
+1,[rp] [small reptile type] eggshells
+1,[rp] [small bird type] eggs
+1,[rp] [small reptile type] eggs 
+1,[rp] feet of [string desc] on a [tool mat] spool
+1,fish scales
+1,[small reptile type] scales
+1,[rp] [metal mat] fishing hooks
+1,[stone mat] shard
+1,foot of [string desc]
+1,[tool mat] fork
+1,[glass desc] glass vial 
+1,handful of [handful mat]
+1,[cloth desc] pouch of [handful mat] 
+1,incense cones/sticks
+1,fragrant herbs
+1,[metal mat] arrowhead
+1,[metal mat] spearhead
+1,[skull desc] skull
+1,[condition desc] [tool mat] ladle
+1,[length desc] [hide mat] cord
+1,[length desc] of [string desc]
+1,little [condition desc] [tool mat] box 
+1,[lock pick desc] lock pick 
+1,[rp] morel mushrooms
+1,[rp] vanilla beans
+1,[rp] cinnamon sticks
+1,morsel of meat
+1,strip of jerky
+1,mummified [skull desc] finger
+1,mummified [skull desc] toe
+1,[metal mat] nails 
+1,[metal mat] tacks
+1,[rp] [nuts desc] 
+1,palm fronds
+1,pine needles
+1,cedar shavings
+1,[cloth desc] [cloth mat] cloth patch
+1,[2d12] pebbles
+1,[2d12] flower petals 
+1,[2d12] dried flowers
+1,piece of [horn mat]
+1,piece of charcoal
+1,piece of [fruit desc] 
+1,piece of [wood desc] [wood mat] tree bark 
+1,[rp] pieces of candy/sweets
+1,pinch of salt
+1,[rp] plum pits
+1,[rp] pine cones
+1,[rp] shards of coconut shell
+1,[rp] cherry stones 
+1,[metal mat] metal shavings
+1,powdered [stone mat]
+1,powdered [metal mat]
+1,[tool mat] flute
+1,[tool mat] harmonica
+1,[rp] roots 
+1,[rp] bulbs 
+1,scrap of [cloth mat] 
+1,seven dried herbs or spices
+1,[tool mat] sewing needles
+1,[tool mat] pins
+1,[condition desc] [tool mat] hand mirror
+1,[condition desc] [tool mat] hairbrush 
+1,[tool mat] comb
+1,[only desc] [pair item] 
+1,[metal mat] skeleton key
+1,[skin mat] skin 
+1,small chunk of cheese
+1,small [bone type] fossil 
+1,[rp] seashells
+1,[condition desc] [tool mat] knife
+1,small pumice stone
+1,small shard of petrified wood
+1,[cloth desc] [cloth mat] handkerchief
+1,[cloth desc] [cloth mat] bandanna
+1,[cloth desc] [cloth mat] rags 
+1,[cloth desc] [cloth mat] scarf
+1,[cloth desc] [cloth mat] shawl
+1,some [fruit desc] peels/rinds
+1,[tool mat] spool 
+1,[condition desc] [tool mat] spoon 
+1,[food desc] heel of bread
+1,[food desc] biscuits
+1,[food desc] crackers 
+1,[tool mat] stamp
+1,[tool mat] seal
+1,[metal mat] seal
+1,quill
+1,nib pen
+1,chalk pieces
+1,stub of a candle 
+1,[rp] candle wicks
+1,[tool mat] thimble
+1,tiny [metal mat] bell 
+1,tiny ingot of [metal mat] 
+1,tiny [metal mat] figurine
+1,[rp] pieces of torn [paper mat] ([paper desc])
+1,[wood mat] twigs/kindling
+1,slivers of [wood mat] wood
+1,two [tool mat] dice
+1,unworked strap of [hide mat]
+1,[hide mat] belt 
+1,[tool mat] whistle 
+
+
+;wood desc
+1,rough
+1,poorly painted
+1,termite-ridden
+1,smooth-sanded
+1,varnished
+1,colorful
+
+;wood mat
+1,birch
+1,oak
+1,pine
+1,yew
+1,cherry
+1,mahogany
+1,teak
+1,elm
+1,alder
+
+;cloth desc
+1,colorful
+1,woven
+1,quilted
+1,patchwork
+1,florid
+1,soiled
+
+;cloth mat
+1,linen
+1,wool
+1,silk
+1,burlap
+1,cotton
+1,lace
+
+;wicker desc
+1,woven
+1,rattan
+1,grass
+1,reed
+1,coiled rush
+1,tree bark
+1,wicker
+1,vine
+1,patterned
+1,straw
+1,[hide mat]
+
+;bone type
+1,bird
+1,mammal
+1,reptile
+1,humanoid ([skull desc])
+1,fish
+
+;rp
+1,[1d2+1]
+1,[1d3+1]
+1,[1d4+1]
+1,[1d6+1]
+1,[1d8+1]
+1,[1d10+1]
+1,[1d12+1]
+
+;glass desc
+1,amber
+1,green
+1,crystal glass
+1,cobalt blue
+1,cloudy
+
+;metal mat
+15,tin
+10,copper
+10,bronze
+10,brass
+10,iron
+10,zinc
+10,nickel
+10,pewter
+10,lead
+5,[precious metal mat]
+
+;precious metal mat
+75,silver
+10,gold
+5,platinum
+5,electrum
+5,mithril
+
+;tool mat
+1,bone
+1,clay
+1,wood
+1,horn
+1,[metal mat]
+
+;horn mat
+1,antler 
+1,bull horn
+1,goat horn
+1,ram horn
+1,rhinoceros horn
+1,ivory
+1,walrus tusk
+
+;other plant mat
+1,algae
+1,fungus
+1,moss
+1,lichen
+
+;clump desc
+1,small ball
+1,lump
+1,fist-sized glob
+1,clump
+1,chunk
+1,wad
+1,gob
+1,pinch
+
+;clump mat
+1,wax
+1,brimstone
+1,sand
+1,mud
+1,feathers
+1,scraps of fur
+1,hair
+1,tree sap
+1,tar 
+1,resin
+
+;stone mat
+1,greenstone
+1,flint
+1,shale
+1,chert
+1,obsidian
+
+;string desc
+1,thread
+1,string
+1,twine
+1,yarn
+1,ribbon
+
+;handful mat
+1,barley
+1,couscous
+1,oats
+1,rice
+1,dried peppers
+1,peppercorns
+1,flour
+1,grain
+1,spelt
+1,[seed desc] seeds 
+
+;seed desc
+1,flower
+1,fruit
+1,tree 
+1,vegetable
+
+;skull desc
+1,jermlaine
+1,pixie
+1,sprite 
+1,elf
+1,goblin
+1,human
+1,dwarf
+1,gnome
+1,gnoll
+
+;lock pick desc
+1,elfnose
+1,faeriefork
+1,spiderlimb
+1,wyverntail
+
+;nuts desc
+1,acorns
+1,cashews
+1,pecans
+1,walnuts
+1,hazelnuts
+1,almonds
+
+;fruit desc
+1,apple
+1,melon
+1,orange
+1,pear
+1,lemon
+1,lime
+1,peach
+1,apricot
+1,plum
+
+;skin mat
+1,[small mammal type]
+1,[small amphibian type]
+1,snake
+1,lizard
+
+;paper desc
+1,notes
+1,drawings
+1,rude jokes
+1,love letters
+1,treasure map
+1,siege engine plans
+1,castle blueprints
+1,fragmentary ramblings
+1,ransom note
+1,deed
+1,promissory note
+1,legal contract
+1,bearer bond
+1,partial alchemical formula
+1,rune rubbings
+1,recipe
+1,dungeon map
+
+;paper mat
+1,vellum
+1,papyrus
+1,parchment
+
+;hide mat
+3,leather
+1,bear hide
+1,buckskin
+1,rawhide
+1,pigskin
+1,calfskin
+1,alligator hide
+1,goat hide
+1,eel-skin
+
+;metal jewelry
+1,bracelet
+1,buckle
+1,brooch
+1,clasp
+1,fibula
+1,earring
+1,necklace
+1,pendant
+1,tiara
+1,anklet
+1,band
+1,bangle
+1,chain
+1,charm
+1,choker
+1,locket
+1,hair pin
+1,hat pin
+1,ring
+1,medallion
+
+;chess piece
+1,pawn
+1,knight
+1,bishop
+1,rook
+1,queen
+1,king
+
+;vessel desc
+1,cup
+1,mug
+1,stein
+1,beaker
+1,goblet
+1,grail
+1,chalice
+1,bowl
+1,teacup
+1,bowl
+1,dish
+1,urn
+1,saucer
+1,crock
+1,tureen
+1,plate
+1,platter
+
+;condition desc
+1,broken
+1,chipped
+1,crude
+1,simple
+1,shoddy
+1,inferior
+1,gaudy
+
+;body part desc
+1,claws
+1,fingernails
+1,toenails
+1,[skull desc] teeth
+
+;length desc
+1,[rp] cubits
+1,one foot
+1,[1d6+1] feet
+
+;small animal type
+1,amphibian ([small amphibian type])
+1,arthropod ([small arthropod type])
+1,mammal ([small mammal type])
+1,reptile ([small reptile type])
+1,bird ([small bird type])
+1,fish
+
+;small amphibian type
+1,frog
+1,toad
+1,newt
+1,salamander
+
+;small arthropod type
+1,crab
+1,crayfish
+1,insect
+1,scorpion
+1,spider
+
+;small bird type
+1,finch
+1,sparrow
+1,robin
+1,cardinal
+1,starling
+1,wren
+1,dove
+1,wood pigeon
+1,blackbird
+1,woodpecker
+
+;small mammal type
+1,bat
+1,shrew
+1,mouse
+1,vole
+1,rabbit
+1,rat
+
+;small reptile type
+1,lizard
+1,snake
+1,tortoise
+1,turtle
+
+;only desc
+1,single
+1,lonely
+1,orphan
+1,solitary
+1,stray
+1,unwed
+
+;pair item
+1,[cloth mat] glove
+1,[cloth mat] mitten
+1,[cloth mat] sock
+1,[cloth mat] slipper
+1,[metal mat] cuff-link
+1,[metal mat] earring
+1,[tool mat] knitting needle
+1,[cloth mat] stocking
+1,[hide mat] glove
+1,[hide mat] mitten
+1,[hide mat] shoe
+1,[wicker desc] sandal
+1,[hide mat] boot
+
+;food desc
+1, stale
+1, fresh
+1, inedible
+1, tasty
+1, sweet
+1, salty
+
+;food berries prefix
+1,cran
+1,mul
+1,black
+1,blue
+1,straw
+1,goose
+1,huckle
+1,bunch
+1,cloud
+1,edler
+1,rasp
+1,bay
+1,bil
+1,boysen
+1,crow
+1,dew
+1,lingon
+1,marion
+1,nanny
+1,pine
+
+;junk price
+5,[rp] [money mat] pieces 
+1,[rp]0 [money mat] pieces 
+
+;money mat
+50,copper
+30,silver
+10,electrum
+9,gold
+1,platinum 
+
+;goblin closing pitch
+1,*All Sales Are Final*
+1,*We Do Not Have Exact Change*
+1,*Caveat Emptor*
+1,*Not Responsible for Lost Children*
+1,*You Break It, You Buy It*
+1,*No Returns*
+1,*Ask About Our Frequent Buyer Discounts*
+1,*We No Longer Accept Coupons*
+1,*Can't find what you're looking for? Just Ask!*
+1,*Thank you for shopping with us!*
+
+;goblin upsell
+1, *“lucky”*
+1, *“handy”*
+1, *“magical”*
+1, *“guaranteed”*
+1, *“definitely not cursed”*
+1, *“sacred”*
+1, *“fine”*
+1, *“cheap!”*
+1, *“a steal!”*
+1, *“not stolen”*
+1, *“useful”*
+1, *“timeless”*
+1, *“essential”*
+1, *“indispensable”*
+1, *“convenient”*
+1, *“imported!”*
+1, *“very rare!”*
+1, *“one-of-a-kind!”*
+1, *“enchanted”*
+1, *“ensorcelled”*
+1, *“belonged to a saint”*
+1, *“quality craftsmanship”*
+1, *“don't make 'em like this anymore”*
+1, *“just got 'em in”*
+1, *“from a reliable source”*
+1, *“wholesale price!”*
+1, *“found in a dragon hoard!”*
+1, *“fresh from a Wizard's tower”*
+1, *“a bargain!”*
+1, *“low-cost”*
+1, *“record low price”*
+1, *“on sale!”*
+1, *“have it for a song!”*
+1, *“cut-rate”*
+1, *“easy on the belt-pouch”*
+1, *“just marked down!”*
+1, *“valuable”*
+1, *“well-loved”*
+1, *“cherished”*
+1, *“home-made!”*
+1, *“hand-crafted!”*
+1, *“all natural!”*
+1, *“vintage!”*
+1, *“antique!”*
 
 ;forest
 1,This is the [forest name]. [easy to get lost] In the shadows of the [tree] trees live [centaurs].
