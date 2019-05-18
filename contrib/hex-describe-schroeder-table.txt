@@ -7217,10 +7217,24 @@
 1,In *The Travels of [old name]*, this place was called
 
 ;druid trails
-1,</p><p>A [druid path] north to [druid larder].</p><p>Another [druid path] heads south to [druid camp]. [druid] [druid goal] [druid terror]
-1,</p><p>A [druid path] south to [druid camp]. [druid] [druid goal] [druid terror]</p><p>Another [druid path] east to [druid larder].
-1,</p><p>A [druid path] west to [druid larder].</p><p>Another [druid path] north to [druid camp]. [druid] [druid goal] [druid terror]
-1,</p><p>A [druid path] uphill to [druid camp]. [druid] [druid goal] [druid terror]</p><p>Another [druid path] into a ravine where there one may find [druid larder].
+1,</p><p>A [druid path] north to [druid larder]. [maybe druid acolytes]</p><p>Another [druid path] heads south to [druid camp]. [druid] [druid acolytes] [druid goal] [druid terror]
+1,</p><p>A [druid path] south to [druid camp]. [druid] [druid acolytes] [druid goal] [druid terror]</p><p>Another [druid path] east to [druid larder]. [maybe druid acolytes]
+1,</p><p>A [druid path] west to [druid larder]. [maybe druid acolytes]</p><p>Another [druid path] north to [druid camp]. [druid] [druid acolytes] [druid goal] [druid terror]
+1,</p><p>A [druid path] uphill to [druid camp]. [druid] [druid acolytes] [druid goal] [druid terror]</p><p>Another [druid path] into a ravine where there one may find [druid larder]. [maybe druid acolytes]
+
+;maybe druid acolytes
+2,[druid acolytes]
+1,
+
+;druid acolytes
+1,The **druid acolyte** *[old names for men]* is nearly ready for the test ([druid acolyte stats]).
+1,[1d4+1] **druid acolytes** are painting each other with blue patterns; the highest initiate is *[old names for men]* ([druid acolyte stats]).
+1,[1d4+1] **druid acolytes** are wrestling with each other, trying to learn the ways of the bear; the highest initiate is *[old names for men]* ([druid acolyte stats]).
+1,[1d4+1] **druid acolytes** are mixing berries and bark into a blue pulp; the highest initiate is *[old names for men]* ([druid acolyte stats]).
+1,[1d4+1] **druid acolytes** are practising staff fighting; the highest initiate is *[old names for men]* ([druid acolyte stats]).
+
+;druid acolyte stats
+1,HD 3 AC 7 1d6 + 1d6 *crushing staff* F3 MV 12 ML 9 XP 300; *heat metal*; *crushing staff*
 
 ;druid larder
 1,a small overhang, from which carcasses of deer hang by braided vines
