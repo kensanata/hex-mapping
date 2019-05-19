@@ -923,7 +923,7 @@ sub parse_table {
 	next if $subtable =~ /^(?:capitalize|normalize-elvish) (.*)/ and $data->{$1};
 	next if $subtable =~ /^adjacent hex$/; # experimental
 	next if $subtable =~ /^same (.*)/ and ($data->{$1} or $aliases{$1} or $1 eq 'adjacent hex');
-	next if $subtable =~ /^(?:here|nearby|other|later|with|and) (.+?)( as (.+))?$/ and $data->{$1};
+	next if $subtable =~ /^(?:here|nearby|other|later|with|and|save|store) (.+?)( as (.+))?$/ and $data->{$1};
 	$subtable = $1 if $subtable =~ /^(.+) as (.+)/;
 	$log->error("Error in table $table: subtable $subtable is missing")
 	    unless $data->{$subtable};
@@ -1183,6 +1183,17 @@ sub describe {
       if (not $found) {
 	push(@descriptions, "…");
       }
+    } elsif ($word =~ /^save (.+?)(?: as (.+))?$/) {
+      my ($key, $alias) = ($1, $2);
+      my $text = pick($map_data, $table_data, $level, $coordinates, $words, $key);
+      next unless $text;
+      $locals{$key} = $text;
+      $locals{$alias} = $text if $alias;
+      # no description
+    } elsif ($word =~ /^store (.+) as (.+)$/) {
+      my ($text, $alias) = ($1, $2);
+      $locals{$alias} = $text;
+      # no description
     } elsif ($word =~ /^here (.+?)(?: as (.+))?$/) {
       my ($key, $alias) = ($1, $2);
       my $text = pick($map_data, $table_data, $level, $coordinates, $words, $key);
@@ -2042,6 +2053,27 @@ How do you get started writing a table for <em>Hex Describe</em>? This
 page is my attempt at writing a tutorial.
 </p>
 
+<ul>
+<li><a href="#basics">The Basics</a></li>
+<li><a href="#context">Context</a></li>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#same">Reuse: same</a></li>
+<li><a href="#alias">Alias: as</a></li>
+<li><a href="#save">No output: save and store</a></li>
+<li><a href="#indirection">Reuse: indirection</a></li>
+<li><a href="#naming_things">Naming Things</a></li>
+<li><a href="#naming_features">Naming Features</a></li>
+<li><a href="#indirection_again">Reuse: combining indirection and named features</a></li>
+<li><a href="#adjacent">Adjacent Hexes</a></li>
+<li><a href="#links">Linking to Other Hexes</a></li>
+<li><a href="#quests">Simple Quests: here, nearby, other</a></li>
+<li><a href="#here">Reuse: here, same, and nearby</a></li>
+<li><a href="#later">Delayed nested lookup: later</a></li>
+<li><a href="#lists">Lists of unique things: with, and</a></li>
+<li><a href="#capitalization">Capitalization</a></li>
+<li><a href="#images">Images</a></li>
+</ul>
+
 <h2 id="basics">The Basics</h2>
 
 <p>
@@ -2474,7 +2506,7 @@ include https://campaignwiki.org/contrib/gnomeyland.txt
 1,cryo-hydra
 % end
 
-<h2 id="alias">Alias</h2>
+<h2 id="alias">Alias: as</h2>
 
 <p>
 Sometimes you are going to generate some stuff and need to refer to elsewhere
@@ -2523,6 +2555,42 @@ include https://campaignwiki.org/contrib/gnomeyland.txt
 1,Lachesis
 1,Atropos
 % end
+
+<h2 id="save">No output: save and store</h2>
+
+<p>
+Sometimes you need to write a lot of things that depend on the results of
+previous tables. In order to make this easier, there are two keywords that store
+things without producing any output.
+</p>
+
+%= example begin
+;temple
+3,[save evil power as power] This is a ruined temple. [gate] [statue]
+1,[store Thor as power] This is a temple. [gate] [statue]
+
+# no temples for Odin and Freya
+;good power
+1,Odin
+1,Freya
+1,Thor
+
+;evil power
+1,Orcus
+1,Set
+1,Pazuzu
+
+;gate
+1,The gate is inscribed with the *[same power]* rune.
+
+;statue
+1,The statue of *[same power]* dominates the courtyard.
+% end
+
+<p>
+All of this would have been possible without "save" and "store", but it would
+have been more difficult.
+</p>
 
 <h2 id="indirection">Reuse: indirection</h2>
 
