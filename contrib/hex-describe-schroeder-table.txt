@@ -6191,11 +6191,14 @@
 1,The trees open up and there's a small island up ahead. Giant trees grow on that island. A sweet, musky flagrance of wisteria and roses fills the air. On these trees [2d4] **giant bolas spiders** hunt for prey ([giant spider stats]; *bola*: 30ft ranged attacks with a weighted *capture blob* of sticky silk on a line).
 
 ;ettercap lair
-1,Up in the trees are some tree houses connected by several ropes. If you're not afraid of heights, you can easily walk from one to the other, feet on one rope and hands holding another one. The tree houses are home to [2d4] **ettercaps** led by *[ettercap name]* ([ettercap stats]). [average treasure] [ettercap prisoners]
-1,Up ahead is a rocky outcrop, about 100ft high, wrapped in spider webs. In the cracks of this rock live [2d4] **ettercaps** led by *[ettercap name]* ([ettercap stats]). [average treasure] [ettercap prisoners]
+1,Up in the trees are some tree houses connected by several ropes. If you're not afraid of heights, you can easily walk from one to the other, feet on one rope and hands holding another one. The tree houses are home to [2d4] **ettercaps** led by [ettercap with portrait] ([ettercap stats]). [average treasure] [ettercap prisoners]
+1,Up ahead is a rocky outcrop, about 100ft high, wrapped in spider webs. In the cracks of this rock live [2d4] **ettercaps** led by [ettercap with portrait] ([ettercap stats]). [average treasure] [ettercap prisoners]
 
 ;ettercap stats
 1,HD 5 AC 5 1d4/1d4/1d6 + *poison* F5 MV 12 ML 9 XP 500; *climb*; *poison*: when bit, save vs. poison or be paralysed for 2h
+
+;ettercap with portrait
+1,*[ettercap name]*<img src="[[redirect https://campaignwiki.org/face/redirect/alex/spider]]" alt="[same ettercap name]" title="[same ettercap name]"/>
 
 ;ettercap name
 1,[spider name 1] [spider name 2]
