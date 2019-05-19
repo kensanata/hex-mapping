@@ -2589,7 +2589,13 @@ things without producing any output.
 
 <p>
 All of this would have been possible without "save" and "store", but it would
-have been more difficult.
+have been more difficult and error prone. You would have had to determine
+"power" as part of the "gate" table, and then you'd use [same power] in the
+"statue" table. But if you then changed the other of [gate] and [statue], you'd
+have to remember that. If you did not, then you'd run into the strange problem
+that you're using [same power] before using [power]. In order to make this less
+likely, determine the important local results beforehand and then write your
+actual entries without worrying about the order of things.
 </p>
 
 <h2 id="indirection">Reuse: indirection</h2>
