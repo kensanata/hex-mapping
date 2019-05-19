@@ -3143,7 +3143,7 @@
 1,[forest name] covers a few hills, here. [ogre hill]
 1,These [tree] hills in [forest name] belong to the *[evil tribe]* tribe. [orcs] Their fort is [orc fort] [orc plans]
 1,The hill overlooking [forest name] is the home of [1d8 treants] ([treant stats]). They mostly stand around near the [forest feature].
-1,There is a hill rising high above [forest name] with a nice cave which offers shelter from the rain but is home to [1d4 bears] ([bear stats]).
+1,There is a hill rising high above [forest name] with a nice cave which offers shelter from the rain. [den]
 1,[5d8] **dwarves** ([dwarf stats]) have set up a small logging community, here in [forest name]. The [tree] trees in the area have brought them here. They are led by [dwarf leader] (level [1d6+2 as level]). The camp is defended by [dwarven companions]. [dwarven treasure]
 1,The hills of [forest name] are full of ancient ruins. On one of these hills right here you can find the foundations of an old keep. The walls are long gone but the cistern and the storage rooms below are still usable. [1d4x10] **bandits** led by [human] have made this their permament base. The camp is [human fort]. [average treasure]
 1,[faerie witch]
@@ -3361,13 +3361,6 @@
 1,a palisade and wooden spikes
 1,a **war bear** ([war bear stats])
 4,[1d5+1] **war bears** ([war bear stats])
-
-;1d4 bears
-1,an angry, male **bear** ([bear stats])
-1,a small family of [1d3+1] **bears** ([bear stats])
-
-;bear stats
-1,HD 4 AC 6 1d4/1d4/1d6 + *hug* F2 MV 12 ML 5 XP 400; when both claws hit, their *bear hug* deals an extra 2d8
 
 ;war bear stats
 1,HD 4 AC 4 1d4/1d4/1d6 + *hug* F2 MV 12 ML 5 XP 400; when both claws hit, their *bear hug* deals an extra 2d8
@@ -4184,7 +4177,7 @@
 1,[cave use] The caves are full of broken constructions, tiny ladders and walkways. [goblins]
 1,[cave use] The caves have paintings of the *[evil tribe]* tribe on the cave walls. [orcs] [orc plans]
 1,[cavee use] The caves are filled with mushrooms and guarded by [myconids]
-1,[cave use] In winter, these caves are home to [1d4 bears] ([bear stats]).
+1,[cave use] [den]
 1,[cave use] The caves are inhabited by [1d8 trolls] ([troll stats]). [robber treasure]
 1,[cave use] The caves have been abandoned a long time ago.
 
@@ -6100,6 +6093,156 @@
 1, *“vintage!”*
 1, *“antique!”*
 
+# dens are caves in the ground with some monsters of a particular type
+
+;den
+3,[cave entrance] The cave is home to [[den type]], [den mood] ([[same den type] stats]). [cave content] [den name]
+
+;den type
+3,bear
+1,owlbear
+1,giant lizard
+
+;bear
+1,[1d4 bears]
+
+;1d4 bears
+1,a male **bear**
+3,a small family of [1d3+1] **bears**
+
+;bear stats
+1,HD 4 AC 6 1d4/1d4/1d6 + *hug* F2 MV 12 ML 5 XP 400; when both claws hit, their *bear hug* deals an extra 2d8
+
+;owlbear
+1,[1d4 owlbears]
+
+;1d4 owlbears
+1,a male **owlbear**
+3,a small family of [1d3+1] **owlbears**
+
+;owlbear stats
+1,HD 5 AC 6 1d6/1d6/1d8 + *hug* F2 MV 12 ML 9 XP 500; when both claws hit, their *bear hug* deals an extra 2d8
+
+;giant lizard
+1,[1d4 giant lizards]
+
+;1d4 giant lizards
+1,a **giant lizard**
+3,a nest of [1d3+1] **giant lizards**
+
+;cave entrance
+1,A small cave has been dug into the ground, the entrance itself is [entrance description].
+1,A tunnel leads into the hillside. Timber supporting the ceiling is a sign that this used to be a small mine. People used to dig here for [mine content], in the old days.
+
+;mine content
+# https://en.wikipedia.org/wiki/Roman_metallurgy#Sources_of_ore
+2,gold
+4,silver
+3,copper
+1,tin
+1,lead
+1,iron
+1,mercury
+3,coal
+
+;entrance description
+1,covered in moss
+1,flecked with strange inclusions
+1,caked in dried blood
+1,draped with cobwebs
+
+;cave content
+1,The cave is [cave description]. [cave annex]
+
+;cave description
+1,littered with the bones of previous victims, mainly [victims]
+1,covered in leaves blown in by the wind
+1,riddled with small pools and puddles of stangant water
+1,punctuated with a few blunt and bumpy stalagmites
+
+;victims
+4,deer
+3,rodents
+2,humans
+1,halflings
+1,birds
+
+;cave annex
+30,At the back, there is a narrow gap, too large for the [same den type] to squeeze through.
+70,
+
+;small prisoner
+1,The **dwarf** *[dwarf name]* is hiding here, [den prisoner state].
+1,The **halfling** *[halfing name]* is hiding here, [den prisoner state].
+
+;den prisoner state
+1,having barely escaped
+1,dying of dehydration
+1,nearly starved to death
+1,shivering with a fever
+1,humming madly
+1,cowering in fear
+
+;den name
+1,The people from *[nearby village name]* call this the [den cave] of *[[same den type] name]*.
+
+;den cave
+1,cave
+1,hollow
+1,hole
+1,burrow
+1,maw
+
+;bear name
+1,Old Honeypaws
+1,Berry Stealer
+1,Tent Wrecker
+1,The Fisher
+1,Scar Snout
+1,Blood Paw
+1,Big Teeth
+1,Red Claw
+1,Iron Claw
+1,Honey Sweet
+1,Bee Friend
+1,Tree Grappler
+1,Jaws
+1,Mighty Jaw
+
+;owlbear name
+1,Night Stalker
+1,The Owl King
+1,Mad Mom Lizzy
+1,Mad Papa John
+1,Sheep Killer
+
+;giant lizard name
+1,Sharp Scales
+1,The Sheep Taker
+1,Bone Sucker
+1,Baby Dragon
+1,Night Stealer
+1,Goatbane
+1,Sun Worshipper
+
+;den mood
+1,hungry
+1,tired from dragging home [den kill] to feed her young
+1,sated, after gorging herself on [den kill]
+1,wounded after recently defending its territory from an interloper.
+1,on edge due to the mating season
+
+;den kill
+1,a doe carcass
+1,a three-point buck
+1,a wild boar
+1,a wild sheep
+1,a mountain goat
+1,someone's hapless horse
+1,a halfling
+1,a man
+1,a woman
+
 ;forest
 1,This is the [forest name]. [easy to get lost] In the shadows of the [tree] trees live [centaurs].
 1,The tall [tree] trees of [forest name] and their dense canopy keep the sunlight away. [easy to get lost] Down here in the shade there are big mushrooms everywhere. [mushrooms]
@@ -6146,17 +6289,9 @@
 
 ;forest monster
 1,**manticore** *[manticore]* ([manticore stats]). [robber treasure]
-1,**bear** *[bear]* ([bear stats])
+1,**bear** *[bear name]* ([bear stats])
 1,[1d4x10] **bandits** led by [human]. [average treasure]
 1,[6d10] **goblins** live here, led by [goblin] ([goblin stats]). [poor treasure]
-
-;bear
-1,Honey Sweet
-1,Bee Friend
-1,Tree Grappler
-1,Jaws
-1,Mighty Jaw
-1,Iron Claw
 
 ;ettercap forest
 1,[spider word] [forest 2]
