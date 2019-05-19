@@ -6307,7 +6307,7 @@
 
 ;ettercap mother
 1,Up above, where the giant branches form a wide canopy, the **brood mother** ([ettercap brood mother stats]) has laid her eggs, guarding them with her life, and ready to spend hers to feed the young ones when they hatch, ravenous and desperate.
-1,A bit further up is a beautiful tree house, colourful and decorated with trinkets and presents from all over. This is where the beautiful **araneina** *[old names for women]* lives, the immortal lover ([araneina stats]).
+1,A bit further up is a colourful tree house decorated with trinkets and presents from all over. This is where the beautiful **araneina** *[old names for women]* lives, the immortal lover ([araneina stats]).
 
 ;ettercap brood mother stats
 1,HD 9 AC 3 2d6 + *poison* F9 MV 3 ML 9 XP 900; *climb*; *poison*: when bit, save vs. poison or die
