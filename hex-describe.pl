@@ -885,7 +885,7 @@ Would be:
 
 =cut
 
-my $dice_re = qr/^(?:(\d+)d(\d+)(?:x(\d+))?(?:([+-]\d+))?|(\d+))(?: as (.+))?$/;
+my $dice_re = qr/^(save )?(?:(\d+)d(\d+)(?:x(\d+))?(?:([+-]\d+))?|(\d+))(?: as (.+))?$/;
 
 sub parse_table {
   my $text = shift;
@@ -1062,7 +1062,7 @@ sub describe {
   my @descriptions;
   for my $word (@$words) {
     # valid dice rolls: 1d6, 1d6+1, 1d6x10, 1d6x10+1
-    if (my ($n, $d, $m, $p, $c, $save_as) = $word =~ /$dice_re/) {
+    if (my ($just_save, $n, $d, $m, $p, $c, $save_as) = $word =~ /$dice_re/) {
       my $r = 0;
       if ($c) {
 	$r = $c;
@@ -1075,7 +1075,7 @@ sub describe {
       }
       # $log->debug("rolling dice: $word = $r");
       $locals{$save_as} = $r if $save_as;
-      push(@descriptions, $r);
+      push(@descriptions, $r) unless $just_save;
     } elsif ($word =~ /^name for a /) {
       # for global things like factions, dukes
       my $name = $names{$word};
