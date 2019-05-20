@@ -1154,9 +1154,10 @@ sub describe {
       # skip on the first pass
       return $FS . $word . $FS;
     } elsif ($word =~ /^same (.+)/) {
+      return $locals{$1}->[0] if exists $locals{$1} and ref($locals{$1}) eq 'ARRAY';
       return $locals{$1} if exists $locals{$1};
       $log->error("[$1] is undefined for $coordinates");
-      return "";
+      return "…";
     } elsif ($word =~ /^with (.+?)(?: as (.+))?$/) {
       my ($key, $alias) = ($1, $2);
       my $text = pick($map_data, $table_data, $level, $coordinates, $words, $key);
