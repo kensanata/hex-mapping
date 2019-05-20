@@ -823,7 +823,7 @@
 1,[mountain valley] [hill giants]
 1,Steep cliffs make progress practically impossible without climbing gear. [mountain secret]
 1,Somewhere up here between the cliffs there is a secret door. [secret door to the realm of the netherworld elves]
-1,High up on on a ridge is an old elven tower made of green glass, [green tower]
+1,[green tower in the mountains]
 1,On one of the rock faces you can still see the markings of the old dwarf forge *[here dwarf forge]*. [forge ruin]
 1,The *Pass of [old name]* on the way to [name for white big mountains] is guarded by [a warlock fortress]
 1,[mountain orcs]
@@ -1132,6 +1132,9 @@
 
 ;bronze golem stats
 1,HD 10 AC 0 3d10 MV 12 ML 12 XP 1000; when dealing damage to a bronze golem with a melee weapon, save vs. death or suffer 2d6 damage from molten metal splashes
+
+;green tower in the mountains
+1,High up on on a ridge is an old elven tower made of green glass, [green tower]
 
 ;green tower
 1,long abandoned.
