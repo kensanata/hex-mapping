@@ -8935,461 +8935,461 @@
 1,*The Book of the Dead* by <a href="https://alexschroeder.ch/pdfs/spellcasters/Agrimach.pdf">Agrimach</a> the necromancer
 
 ;agrimach 1
-2,*aura of fear*
-1,*locate corpse*
-1,*read magic*
+2,aura of fear
+1,locate corpse
+1,read magic
 
 ;agrimach 2
-1,*hold person*
-1,*summon ghoul*
-1,*converse with corpse*
+1,hold person
+1,summon ghoul
+1,converse with corpse
 
 ;agrimach 3
-1,*limited shape shift*
-1,*animate dead*
-1,*immunity to fire*
+1,limited shape shift
+1,animate dead
+1,immunity to fire
 
 ;agrimach 4
-1,*poison*
-1,*grafting*
-1,*death ray*
+1,poison
+1,grafting
+1,death ray
 
 ;agrimach 5
-1,*raise dead*
-1,*cloud kill*
+1,raise dead
+1,cloud kill
 
 ;asphyx
 1,*The Book of the Mountain Witch* by <a href="https://alexschroeder.ch/pdfs/spellcasters/Asphyx.pdf">Asphyx</a> the aeromancer
 
 ;asphyx 1
-1,*eagle eyes*
-1,*bird friendship*
-1,*feather fall*
+1,eagle eyes
+1,bird friendship
+1,feather fall
 
 ;asphyx 2
-1,*invisibility*
-1,*illusion*
-1,*levitation*
+1,invisibility
+1,illusion
+1,levitation
 
 ;asphyx 3
-1,*lightning bolt*
-1,*gaseous form*
-1,*flying*
+1,lightning bolt
+1,gaseous form
+1,flying
 
 ;asphyx 4
-1,*like grass*
-1,*slipstream travel*
-1,*whirlwind*
+1,like grass
+1,slipstream travel
+1,whirlwind
 
 ;asphyx 5
-1,*airstrike*
-1,*creation*
+1,airstrike
+1,creation
 
 ;beryl
 1,*The Book of Darkness* by <a href="https://alexschroeder.ch/pdfs/spellcasters/Beryl.pdf">Beryl</a> the sorceress
 
 ;beryl 1
-2,*darkness*
-1,*detect magic*
-3,*charm person*
+2,darkness
+1,detect magic
+3,charm person
 
 ;beryl 2
-1,*permanent darkness*
-1,*spider senses*
-1,*loud whispers*
+1,permanent darkness
+1,spider senses
+1,loud whispers
 
 ;beryl 3
-1,*artificial life*
-1,*shadow blast*
-1,*scrying*
+1,artificial life
+1,shadow blast
+1,scrying
 
 ;beryl 4
-1,*curse*
-1,*shadow walking*
-1,*telekinesis*
+1,curse
+1,shadow walking
+1,telekinesis
 
 ;beryl 5
-1,*possession*
-1,*transposition*
+1,possession
+1,transposition
 
 ;chana
 1,*The Book of the Water Dragon* by <a href="https://alexschroeder.ch/pdfs/spellcasters/Chana.pdf">Chana</a> the aquamancer
 
 ;chana 1
-2,*charm person*
-1,*song of the water dragons*
-1,*water walking*
+2,charm person
+1,song of the water dragons
+1,water walking
 
 ;chana 2
-1,*speak with skulls*
-1,*speed*
-1,*bone casting*
+1,speak with skulls
+1,speed
+1,bone casting
 
 ;chana 3
-1,*water breathing*
-1,*wind barrier*
-1,*lightning bolt*
+1,water breathing
+1,wind barrier
+1,lightning bolt
 
 ;chana 4
-1,*drowning*
-1,*flash flood*
-1,*dragon tongue*
+1,drowning
+1,flash flood
+1,dragon tongue
 
 ;chana 5
-1,*raise dead*
-1,*summon living storm*
+1,raise dead
+1,summon living storm
 
 ;darsim
 1,*The Book of the Fist* by <a href="https://alexschroeder.ch/pdfs/spellcasters/Darsim.pdf">Darsim</a> the muscle mage
 
 ;darsim 1
-2,*fist of air*
-1,*jump*
-1,*shield*
+2,fist of air
+1,jump
+1,shield
 
 ;darsim 2
-1,*one thousand fists*
-1,*focus*
-1,*protection from cold*
+1,one thousand fists
+1,focus
+1,protection from cold
 
 ;darsim 3
-1,*ground strike*
-1,*cancellation*
-1,*paralysing punch*
+1,ground strike
+1,cancellation
+1,paralysing punch
 
 ;darsim 4
-1,*shatter*
-1,*binding touch*
-1,*slow time*
+1,shatter
+1,binding touch
+1,slow time
 
 ;darsim 5
-1,*fist of death*
-1,*mastery of the nine realms*
+1,fist of death
+1,mastery of the nine realms
 
 ;elam
 1,*The Book of Liminurgy* by <a href="https://alexschroeder.ch/pdfs/spellcasters/Elam.pdf">Elam</a> the recluse
 
 ;elam 1
-1,*lock*
-1,*extra pocket*
-2,*charm person*
+1,lock
+1,extra pocket
+2,charm person
 
 ;elam 2
-1,*door*
-1,*extra room*
-1,*visiting the afterlife*
+1,door
+1,extra room
+1,visiting the afterlife
 
 ;elam 3
-1,*passage*
-1,*gaseous form*
-1,*teleportation trap*
+1,passage
+1,gaseous form
+1,teleportation trap
 
 ;elam 4
-1,*mirror passage*
-1,*summoning gate*
-1,*fortification*
+1,mirror passage
+1,summoning gate
+1,fortification
 
 ;elam 5
-1,*portal*
-1,*realm*
+1,portal
+1,realm
 
 ;fiala
 1,*The Book of Dragons* by <a href="https://alexschroeder.ch/pdfs/spellcasters/Fiala.pdf">Fiala</a> the hunter
 
 ;fiala 1
-1,*light foot*
-2,*sleep*
-1,*water walking*
+1,light foot
+2,sleep
+1,water walking
 
 ;fiala 2
-1,*far seeing*
-1,*flaming sword*
-1,*invisibility*
+1,far seeing
+1,flaming sword
+1,invisibility
 
 ;fiala 3
-1,*haste*
-1,*breathing*
-1,*flaming arrows*
+1,haste
+1,breathing
+1,flaming arrows
 
 ;fiala 4
-1,*blade storm*
-1,*earth blow*
-1,*magic shield*
+1,blade storm
+1,earth blow
+1,magic shield
 
 ;fiala 5
-1,*moon blade*
-1,*moon barrier*
+1,moon blade
+1,moon barrier
 
 ;gerdana
 1,*The Book of the Sea* by Lady <a href="https://alexschroeder.ch/pdfs/spellcasters/Gerdana.pdf">Gerdana</a> of Lagnabadalë
 
 ;gerdana 1
-2,*charm person*
-2,*sleep*
-1,*lunar runes*
+2,charm person
+2,sleep
+1,lunar runes
 
 ;gerdana 2
-1,*true words*
-1,*eternal starlight*
-1,*glamour*
+1,true words
+1,eternal starlight
+1,glamour
 
 ;gerdana 3
-1,*lightning bolt*
-1,*water breathing*
-1,*wind barrier*
+1,lightning bolt
+1,water breathing
+1,wind barrier
 
 ;gerdana 4
-1,*decay*
-1,*flash flood*
-1,*shape change*
+1,decay
+1,flash flood
+1,shape change
 
 ;gerdana 5
-1,*lunar sailing*
-1,*summon living storm*
+1,lunar sailing
+1,summon living storm
 
 ;hadrael
 1,*The Book of Odin* by <a href="https://alexschroeder.ch/pdfs/spellcasters/Hadrael.pdf">Hadrael</a> the dragon-slayer
 
 ;hadrael 1
-1,*detect magic*
-2,*sleep*
-1,*restore faith*
+1,detect magic
+2,sleep
+1,restore faith
 
 ;hadrael 2
-1,*speak with animals*
-1,*hold person*
-1,*silence*
+1,speak with animals
+1,hold person
+1,silence
 
 ;hadrael 3
-1,*speed*
-1,*fly*
-1,*dispel magic*
+1,speed
+1,fly
+1,dispel magic
 
 ;hadrael 4
-1,*plant growth*
+1,plant growth
 1,*shape change* (to a dragon: AC 0 1d8/1d8/3d10)
-1,*wait*
+1,wait
 
 ;hadrael 5
-1,*hold monster*
-1,*time thief*
+1,hold monster
+1,time thief
 
 ;jezembal
 1,*The Book of Aquamancy* by <a href="https://alexschroeder.ch/pdfs/spellcasters/Jezembal.pdf">Jezembal</a> the Ice Queen
 
 ;jezembal 1
-1,*ice wall*
-1,*icicles*
-1,*wave*
+1,ice wall
+1,icicles
+1,wave
 
 ;jezembal 2
-1,*energy*
-1,*frozen path*
-1,*tentacles*
+1,energy
+1,frozen path
+1,tentacles
 
 ;jezembal 3
-1,*ice storm*
-1,*water breathing*
-1,*water way*
+1,ice storm
+1,water breathing
+1,water way
 
 ;jezembal 4
-1,*flash flood*
-1,*frozen slumber*
-1,*part water*
+1,flash flood
+1,frozen slumber
+1,part water
 
 ;jezembal 5
-1,*ice bridge*
-1,*ice castle*
+1,ice bridge
+1,ice castle
 
 ;moroson
 1,*The Book of Armies* by <a href="https://alexschroeder.ch/pdfs/spellcasters/Moroson.pdf">Moroson</a> the General
 
 ;moroson 1
-2,*bolt of power*
-1,*protection from harm*
-2,*voice of the ruler*
+2,bolt of power
+1,protection from harm
+2,voice of the ruler
 
 ;moroson 2
-1,*chariot of fire*
-1,*club of law*
-1,*eyes of the overlord*
+1,chariot of fire
+1,club of law
+1,eyes of the overlord
 
 ;moroson 3
-1,*lightning bolt*
-1,*protection from hail*
-1,*wings of god*
+1,lightning bolt
+1,protection from hail
+1,wings of god
 
 ;moroson 4
-1,*sun chariot*
-1,*voice of the master*
-1,*wall of fire*
+1,sun chariot
+1,voice of the master
+1,wall of fire
 
 ;moroson 5
-1,*eyes of truth*
-1,*melting walls*
+1,eyes of truth
+1,melting walls
 
 ;narga
 1,*The Book of the Sea Hag* by <a href="https://alexschroeder.ch/pdfs/spellcasters/Narga.pdf">Narga</a> the Pirate Queen of the South Seas
 
 ;narga 1
-2,*siren song*
-1,*needles and puppets*
-1,*water walking*
+2,siren song
+1,needles and puppets
+1,water walking
 
 ;narga 2
-1,*beauty*
-1,*long kiss*
-1,*speak with skulls*
+1,beauty
+1,long kiss
+1,speak with skulls
 
 ;narga 3
-1,*invisible claws*
-1,*curse of drowning*
-1,*sea of fog*
+1,invisible claws
+1,curse of drowning
+1,sea of fog
 
 ;narga 4
-1,*like leaves*
-1,*river travel*
-1,*sorcerous fumes*
+1,like leaves
+1,river travel
+1,sorcerous fumes
 
 ;narga 5
-1,*hidden lands*
-1,*summon kraken*
+1,hidden lands
+1,summon kraken
 
 ;ufala
 1,*The Book of Ursomancy* by <a href="https://alexschroeder.ch/pdfs/spellcasters/Ufala.pdf">Ufala</a> One Eye
 
 ;ufala 1
-2,*bear strength*
-1,*long sleep*
-2,*shadows*
+2,bear strength
+1,long sleep
+2,shadows
 
 ;ufala 2
-1,*bear shape*
-1,*permanent starlight*
-1,*shadow step*
+1,bear shape
+1,permanent starlight
+1,shadow step
 
 ;ufala 3
-1,*breath of cold*
-1,*javelins of lightning*
-1,*laser eyes*
+1,breath of cold
+1,javelins of lightning
+1,laser eyes
 
 ;ufala 4
-1,*summon ursine soldier*
-1,*shadow passage*
-1,*spell warp*
+1,summon ursine soldier
+1,shadow passage
+1,spell warp
 
 ;ufala 5
-1,*flying bears*
-1,*ice gate*
+1,flying bears
+1,ice gate
 
 ;wogan
 1,*The Book of the Winter Wolf* by <a href="https://alexschroeder.ch/pdfs/spellcasters/Wogan.pdf">Wogan</a>, Freya's Son
 
 ;wogan 1
-1,*joyful dog*
-1,*locate creature*
-1,*wolf tongue*
+1,joyful dog
+1,locate creature
+1,wolf tongue
 
 ;wogan 2
-1,*night vision*
-1,*silent paws*
-1,*wolf howl*
+1,night vision
+1,silent paws
+1,wolf howl
 
 ;wogan 3
-1,*ice gate*
-1,*werewolf*
-1,*wolf pack*
+1,ice gate
+1,werewolf
+1,wolf pack
 
 ;wogan 4
-1,*call of the wolf*
-1,*dreamtime*
-1,*to dust*
+1,call of the wolf
+1,dreamtime
+1,to dust
 
 ;wogan 5
-1,*bone binding*
-1,*imprisonment*
+1,bone binding
+1,imprisonment
 
 ;xoralfona
 1,*The Book of Songs* by <a href="https://alexschroeder.ch/pdfs/spellcasters/Xoralfona.pdf">Xoralfona</a> the wordsmith
 
 ;xoralfona 1
-2,*calm*
-1,*empathy*
-1,*lies*
+2,calm
+1,empathy
+1,lies
 
 ;xoralfona 2
 1,*entrapment
-1,*mind blast*
-1,*speak*
+1,mind blast
+1,speak
 
 ;xoralfona 3
-1,*exhaustion*
-1,*speak*
-1,*speed*
+1,exhaustion
+1,speak
+1,speed
 
 ;xoralfona 4
-1,*commune*
-1,*misdirection*
-1,*vanishing*
+1,commune
+1,misdirection
+1,vanishing
 
 ;xoralfona 5
-1,*unbound*
-1,*world walk*
+1,unbound
+1,world walk
 
 ;ysabala
 1,*The Book of Pyromancy* by <a href="https://alexschroeder.ch/pdfs/spellcasters/Ysabala.pdf">Ysabala</a> Devilsdaughter
 
 ;ysabala 1
-3,*ball of fire*
-1,*fire resistance*
-2,*flame cloak*
+3,ball of fire
+1,fire resistance
+2,flame cloak
 
 ;ysabala 2
-1,*firetrap*
-1,*flaming blade*
-1,*illusion*
+1,firetrap
+1,flaming blade
+1,illusion
 
 ;ysabala 3
-1,*feasting*
-1,*fireball*
-1,*flame arrows*
+1,feasting
+1,fireball
+1,flame arrows
 
 ;ysabala 4
-1,*summoning a lord of fire*
-1,*wall of fire*
-1,*wellness*
+1,summoning a lord of fire
+1,wall of fire
+1,wellness
 
 ;ysabala 5
-1,*fire proofing*
-1,*rain of fire*
+1,fire proofing
+1,rain of fire
 
 ;zorkan
 1,*The Book of Geomancy* by <a href="https://alexschroeder.ch/pdfs/spellcasters/Zorkan.pdf">Zorkan</a> of Mount Whiterock
 
 ;zorkan 1
-3,*flying stones*
-1,*magic message*
-2,*stone fist*
+3,flying stones
+1,magic message
+2,stone fist
 
 ;zorkan 2
-1,*speak with stones*
-1,*throw a rock*
-1,*golem craft*
-1,*raise stone*
+1,speak with stones
+1,throw a rock
+1,golem craft
+1,raise stone
 
 ;zorkan 3
-1,*rock swim*
-1,*rock throwing*
-1,*stone skin*
+1,rock swim
+1,rock throwing
+1,stone skin
 
 ;zorkan 4
-1,*earth ship*
-1,*split the ground*
-1,*bury the living*
+1,earth ship
+1,split the ground
+1,bury the living
 
 ;zorkan 5
-1,*earthblood mastery*
-1,*stone growth*
+1,earthblood mastery
+1,stone growth
 
 ;spellbook
 1,agrimach
@@ -9427,37 +9427,37 @@
 1,The spells known are based on [a famous spellbook]: [spellbook [same level]].
 
 ;spellbook 1
-1,1. [[same spellbook] 1]
+1,1. *[[same spellbook] 1]*
 
 ;spellbook 2
-1,1. [with [same spellbook] 1], [and [same spellbook] 1]
+1,1. *[with [same spellbook] 1]*, *[and [same spellbook] 1]*
 
 ;spellbook 3
-1,1. [with [same spellbook] 1], [and [same spellbook] 1], 2. [[same spellbook] 2]
+1,1. *[with [same spellbook] 1]*, *[and [same spellbook] 1]*, 2. *[[same spellbook] 2]*
 
 ;spellbook 4
-1,1. [with [same spellbook] 1], [and [same spellbook] 1], 2. [with [same spellbook] 2], [and [same spellbook] 2]
+1,1. *[with [same spellbook] 1]*, *[and [same spellbook] 1]*, 2. *[with [same spellbook] 2]*, *[and [same spellbook] 2]*
 
 ;spellbook 5
-1,1. [with [same spellbook] 1], [and [same spellbook] 1], 2. [with [same spellbook] 2], [and [same spellbook] 2], 3. [[same spellbook] 3]
+1,1. *[with [same spellbook] 1]*, *[and [same spellbook] 1]*, 2. *[with [same spellbook] 2]*, *[and [same spellbook] 2]*, 3. *[[same spellbook] 3]*
 
 ;spellbook 6
-1,1. [with [same spellbook] 1], [and [same spellbook] 1], 2. [with [same spellbook] 2], [and [same spellbook] 2], 3. [with [same spellbook] 3], [and [same spellbook] 3]
+1,1. *[with [same spellbook] 1]*, *[and [same spellbook] 1]*, 2. *[with [same spellbook] 2]*, *[and [same spellbook] 2]*, 3. *[with [same spellbook] 3]*, *[and [same spellbook] 3]*
 
 ;spellbook 7
-1,1. [with [same spellbook] 1], [and [same spellbook] 1], [and [same spellbook] 1], 2. [with [same spellbook] 2], [and [same spellbook] 2], 3. [with [same spellbook] 3], [and [same spellbook] 3], 4. [[same spellbook] 4]
+1,1. *[with [same spellbook] 1]*, *[and [same spellbook] 1]*, *[and [same spellbook] 1]*, 2. *[with [same spellbook] 2]*, *[and [same spellbook] 2]*, 3. *[with [same spellbook] 3]*, *[and [same spellbook] 3]*, 4. *[[same spellbook] 4]*
 
 ;spellbook 8
-1,1. [with [same spellbook] 1], [and [same spellbook] 1], [and [same spellbook] 1], 2. [with [same spellbook] 2], [and [same spellbook] 2], [and [same spellbook] 2], 3. [with [same spellbook] 3], [and [same spellbook] 3], 4. [with [same spellbook] 4], [and [same spellbook] 4]
+1,1. *[with [same spellbook] 1]*, *[and [same spellbook] 1]*, *[and [same spellbook] 1]*, 2. *[with [same spellbook] 2]*, *[and [same spellbook] 2]*, *[and [same spellbook] 2]*, 3. *[with [same spellbook] 3]*, *[and [same spellbook] 3]*, 4. *[with [same spellbook] 4]*, *[and [same spellbook] 4]*
 
 ;spellbook 9
-1,1. [with [same spellbook] 1], [and [same spellbook] 1], [and [same spellbook] 1], 2. [with [same spellbook] 2], [and [same spellbook] 2], [and [same spellbook] 2], 3. [with [same spellbook] 3], [and [same spellbook] 3], [and [same spellbook] 3], 4. [with [same spellbook] 4], [and [same spellbook] 4], 5. [[same spellbook] 5]
+1,1. *[with [same spellbook] 1]*, *[and [same spellbook] 1]*, *[and [same spellbook] 1]*, 2. *[with [same spellbook] 2]*, *[and [same spellbook] 2]*, *[and [same spellbook] 2]*, 3. *[with [same spellbook] 3]*, *[and [same spellbook] 3]*, *[and [same spellbook] 3]*, 4. *[with [same spellbook] 4]*, *[and [same spellbook] 4]*, 5. *[[same spellbook] 5]*
 
 ;spellbook 10
-1,1. [with [same spellbook] 1], [and [same spellbook] 1], [and [same spellbook] 1], 2. [with [same spellbook] 2], [and [same spellbook] 2], [and [same spellbook] 2], 3. [with [same spellbook] 3], [and [same spellbook] 3], [and [same spellbook] 3], 4. [with [same spellbook] 4], [and [same spellbook] 4], [and [same spellbook] 4], 5. [with [same spellbook] 5], [and [same spellbook] 5]
+1,1. *[with [same spellbook] 1]*, *[and [same spellbook] 1]*, *[and [same spellbook] 1]*, 2. *[with [same spellbook] 2]*, *[and [same spellbook] 2]*, *[and [same spellbook] 2]*, 3. *[with [same spellbook] 3]*, *[and [same spellbook] 3]*, *[and [same spellbook] 3]*, 4. *[with [same spellbook] 4]*, *[and [same spellbook] 4]*, *[and [same spellbook] 4]*, 5. *[with [same spellbook] 5]*, *[and [same spellbook] 5]*
 
 ;random 1st level spell
-1,[[spellbook] 1], from [[same spellbook]]
+1,*[[spellbook] 1]*, from [[same spellbook]]
 
 # http://random-generator.com/index.php?title=Secret_Society_Title&action=edit
 # by Dave Younce
