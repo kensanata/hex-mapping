@@ -6252,12 +6252,57 @@
 1,This part of [forest name] is under the protection of [1d8 treants] ([treant stats]). They mostly stand around near the [forest feature]. [easy to get lost]
 1,The [tree] trees of [forest name] are full of spider webs, here. [easy to get lost] Anybody climbing the trees or travelling on their own will get attacked by [2d4] **giant spiders** ([giant spider stats]).
 1,This part of the [forest name] is sometimes called [ettercap forest]. [ettercaps]
-1,The forest here is deep and quiet. [easy to get lost] [2d12] **elves** ([elf stats]) led by [elf leader] (level [1d6+1 as level]) have built their [elf dwelling] in [forest name], [beautiful trees]. [spellbook for elves] [leader treasure] [elf companions]
+1,The forest here is deep and quiet. [easy to get lost] [wood elves]
 1,These trees are part of [forest name]. [easy to get lost] A system of big tunnels is home to [1d6 weasels] ([weasel stats]).
 1,At dusk and dawn, you can sometimes see [boars] in the [forest name], here.
 1,The [forest name] has overgrown an old temple of *[power]*. Some of the walls still stand, and so do some of the columns, but the roof is gone and floor is wet. [old forest temple denizen]
 1,There's a little stream here, making its way through the [forest name], wrapping itself around a beautiful, big, old tree. [dryad]
 1,The [forest name] is full of rustling and bustling sounds as **giant ants** can be seen scurrying back and forth along invisible trails and up and down the giant [tree] trees. [giant ant lair]
+
+;wood elves
+1,[save 1d6+1 as level][save spellbook for elves][elf clade name], [2d12] **elves** ([elf stats]) led by [elf leader] (level [same level]) have built their [elf dwelling] in [forest name], [beautiful trees]. [same spellbook for elves] [leader treasure] [elf companions]
+
+;elf clade name
+1,These are the [clade name for [same [same spellbook] 1]]
+# for debugging: (based on [same spellbook] → *[same [same spellbook] 1]*).
+
+# these names are based on the first level spells of [elf spellbook]
+# charm person
+# detect magic
+# light foot
+# lunar runes
+# restore faith
+# sleep
+# water walking
+;clade name for charm person
+1,elves of the *Voice*
+1,*Soothing Singers*
+1,*Melody Dancers*
+;clade name for detect magic
+1,elves of the *Piercing Eye*
+1,*True Seeing* elves
+1,elves of the *Third Eye*
+1,*Second Face
+;clade name for light foot
+1,*Silent Hunters*
+1,*Hunter Killers*
+;clade name for lunar runes
+1,*Wise Ones*
+1,*Learned Ones*
+1,*Lunar Sisters*
+1,*Moon Clade*
+;clade name for restore faith
+1,*Healing Hand*
+1,*Forever Elves*
+1,*Quiet Touch*
+;clade name for sleep
+1,*Silent Ones*
+1,*Quiet Killer*
+1,*Dream Walkers*
+;clade name for water walking
+1,*Water Runners*
+1,*Light Runners*
+1,*Air Dancers*
 
 ;dryad
 1,This is a [tree] tree, inhabited by a **dryad** of the same name: *[same tree]* ([dryad stats]). [dryad lover]
