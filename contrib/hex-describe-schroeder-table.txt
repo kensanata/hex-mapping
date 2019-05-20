@@ -6260,10 +6260,10 @@
 1,The [forest name] is full of rustling and bustling sounds as **giant ants** can be seen scurrying back and forth along invisible trails and up and down the giant [tree] trees. [giant ant lair]
 
 ;wood elves
-1,[save 1d6+1 as level][save spellbook for elves][elf clade name], [2d12] **elves** ([elf stats]) led by [elf leader] (level [same level]) have built their [elf dwelling] in [forest name], [beautiful trees]. [same spellbook for elves] [leader treasure] [elf companions]
+1,[save 1d6+1 as level][save spellbook for elves][elf clade name], [2d12] **elves** ([elf stats]) led by [elf leader] (level [same level]). [same spellbook for elves] [leader treasure]</p><p>These elves have built their [elf dwelling] in [forest name], [beautiful trees]. [elf companions]
 
 ;elf clade name
-1,These are the [clade name for [same [same spellbook] 1]]
+1,This forest belongs to the [clade name for [same [same spellbook] 1]]
 # for debugging: (based on [same spellbook] → *[same [same spellbook] 1]*).
 
 # these names are based on the first level spells of [elf spellbook]
@@ -6282,7 +6282,7 @@
 1,elves of the *Piercing Eye*
 1,*True Seeing* elves
 1,elves of the *Third Eye*
-1,*Second Face
+1,*Second Face*
 ;clade name for light foot
 1,*Silent Hunters*
 1,*Hunter Killers*
