@@ -1131,7 +1131,7 @@
 1,Ash
 
 ;bronze golem stats
-1,HD 10 AC 0 3d10 MV 12 ML 12 XP 1000; when dealing damage to a bronze golem with a melee weapon, save vs. death or suffer 2d6 damage from molten metal splashes
+1,HD 10 AC 0 3d10 MV 12 ML 12 XP 1000; immune to *arrows*, immune to *poison*; immune to *spells*; when dealing damage to a bronze golem with a melee weapon, save vs. death or suffer 2d6 damage from molten metal splashes
 
 ;green tower in the mountains
 1,High up on on a ridge is an old elven tower made of green glass, [green tower]
@@ -6260,10 +6260,10 @@
 1,The [forest name] is full of rustling and bustling sounds as **giant ants** can be seen scurrying back and forth along invisible trails and up and down the giant [tree] trees. [giant ant lair]
 
 ;wood elves
-1,[save 1d6+1 as level][save spellbook for elves][elf clade name], [2d12] **elves** ([elf stats]) led by [elf leader] (level [same level]). [same spellbook for elves] [leader treasure]</p><p>These elves have built their [elf dwelling] in [forest name], [beautiful trees]. [elf companions]
+1,[save 1d6+1 as level][save spellbook for elves] Elves have built their [elf dwelling] in [forest name], [beautiful trees]. [elf environment] [elf companions]</p><p>[elf clade name], [2d12] **elves** ([elf stats]) led by [elf leader] (level [same level]). [same spellbook for elves] [leader treasure]
 
 ;elf clade name
-1,This forest belongs to the [clade name for [same [same spellbook] 1]]
+1,This the home of the [clade name for [same [same spellbook] 1]]
 # for debugging: (based on [same spellbook] → *[same [same spellbook] 1]*).
 
 # these names are based on the first level spells of [elf spellbook]
@@ -6437,7 +6437,7 @@
 
 ;ettercap trade
 1,To reach the ettercap trading post, follow the single white strand that starts atop the lonely [tree] tree to the [direction], leading you safely from branch to branch above the forest floor to the ancient tree giant where the ettercaps have built a large platform with their shacks and their chests. [ettercap trading post]
-1,The ettercaps have created a landing pad up in the air where they discovered a passage to the world tree *Yggdrasil*. This is where they keep their chests of silken wares. [ettercap trading post] On nights of the full moon, or on a 1 in 6, the portal opens. [2d12] **elves** ([elf stats]) led by trade-captain [elf leader] (level [1d6+1 as level]). [spellbook for elves] [leader treasure] The elves are looking to buy silken wares or trade them for spells cast. [elven trade money] [elf travelling companions]
+1,The ettercaps have created a landing pad up in the air where they discovered a passage to the world tree *Yggdrasil*. This is where they keep their chests of silken wares. [ettercap trading post] On nights of the full moon, or on a 1 in 6, the portal opens. [save 1d6+1 as level][save spellbook for elves][2d12] **elves** ([elf stats]) led by trade-captain [elf leader] (level [same level]). [same spellbook for elves] [leader treasure] The elves are looking to buy silken wares or trade them for spells cast. [elven trade money] [elf travelling companions]
 1,The ettercaps have made contact with *phase spiders*, intelligent travellers of the nine realms. On a 1 in 6, a party of   [1d6 phase spiders] will show up tonight ([phase spider stats]). Nobody knows what they are up to but they are very interested in hearing stories about current events as well as local botany and zoology. In return, they bring fancy looking trinkets from unknown places.
 
 ;1d6 phase spiders
@@ -6523,14 +6523,16 @@
 
 ;myconids
 1,[3d6] **myconids** ([myconid stats]). [poor treasure]
-1,[3d6] **myconids** watching their mushroom circle ([myconid stats]). [poor treasure] On nights of the full moon, or on a 1 in 6, the portal to [fey realm] opens. If so, [2d12] **elves** ([elf stats]) led by [elf leader] (level [1d6+1 as level]) will be visiting from [fey realm]. [spellbook for elves] [leader treasure] [elf travelling companions]
+1,[3d6] **myconids** watching their mushroom circle ([myconid stats]). [poor treasure] On nights of the full moon, or on a 1 in 6, the portal to [fey realm] opens. [save 1d6+1 as level][save spellbook for elves]If so, [2d12] **elves** ([elf stats]) led by [elf leader] (level [same  level]) will be visiting from [fey realm]. [same spellbook for elves] [leader treasure] [elf travelling companions]
 
 ;fey realm
 1,Alfheim
 1,Svartalfheim
 
 ;elf stats
-1,HD 1 HP 1d6 AC 5 1d6 or *spell* E1 MV 12 ML 10 XP 100; *spell*: pick a 1st circle spell from their leader's spellbook
+# This requires the establishment a [spellbook for elves]. Typically you'd use it like this:
+# [save 1d6+1 as level][save spellbook for elves][2d12] **elves** ([elf stats]) led by [elf leader] ([same level]). [same spellbook for elves] [leader treasure]
+1,HD 1 HP 1d6 AC 5 1d6 or *spell* E1 MV 12 ML 10 XP 100; *spell*: *[same [same spellbook] 1]* 1×/day
 
 ;elf travelling companions
 3,
@@ -6632,11 +6634,53 @@
 1,network of hanging bridges and little tree houses
 
 ;elf companions
+# 1d6-3 weasels
+1,</p><p>The elves also keep a **giant weasel** as their mount and pet ([weasel stats]).
+2,</p><p>The elves also keep a [1d2+1] **giant weasels** as their mounts and pets ([weasel stats]).
+3,
+
+;elf environment
 1,The settlement is nearly impossible to spot from the ground level.
 1,At night, the settlement is illuminated by magic light.
 1,During the day, sweet music can be heard from the tree tops.
-1,The settlement is protected by a **giant weasel** ([weasel stats]).
-2,The settlement is protected by [1d2+1] **giant weasels** ([weasel stats]).
+1,Dangling upside-down from the larger branches of the [tree] trees is a small colony of [1d6+1] **giant bats** ([giant bat stats]). They are easily disturbed and once awake their cries surely alert the elves.
+1,The settlement thrives in symbiosis with a hive of [1d6+1] **giant bees** ([giant beetle stats]).
+1,Patrolling the leaf litter, is a small pack of [1d2+1] **blink dogs** guarding the elves to repay an ancient debt ([wolf stats]; *intelligent*; *blinking*: can only be hit on an *even* roll of the d20).
+1,As agile and silent in the branches as they are on the forest floor, the settlements perimeters are patrolled by [1d2+1] **giant ocelots** ([jaguar stats]).
+1,Installed strategically throughout the settlement are [1d2+1], mostly stationary **wood golem archers** ([wood golem stats]). Each can instantaneously sprout new arrows from their ligneous bodies.
+# for reference see here: https://www.flickr.com/photos/waldopepper/46335454624/
+1,Sentinels in the skies above and surprisingly agile fliers, [1d2+1] **griffons** ([griffon stats]) are fully capable of narrow dives through the leafy canopy and navigating the branches and boughs of the [tree] trees.
+1,A parliament of [1d4+1] **giant owls** ([owl stats]) nests nearby and will defend their elven friends to the death.
+# 1,A single, small **roc** can sometimes be seen scouting above.
+# giant eagles/birds of prey seem to fit with elves, but larger versions of smaller birds (like Butcher Birds, Kingfishers, and Jays could be neat)
+1,Gifted with effective camouflage that conceals as they cling to the larger [tree] trunks, [1d4+1] **giant geckos** watch for any trespassers ([giant lizard stats]).
+1,Typically found lounging on larger [tree] branches and blending in with the massive vines are [1d6+1] **giant pythons**, trained to immobilise any interlopers ([giant snake stats]). They only kill their victims if others continue attacking them.
+1,A bloom of [3d6] **sprites** are never far from this settlement and can often serve as an early warning system by delaying any intruders with their pranks and mischief ([sprite stats]).
+1,Ancient guardians from a forgotten time, [1d2+1] **crystal living statues** stand silent guard over the settlement ([stone golem stats]).
+1,The very trees themselves often leap to the settlement's defense thanks to the efforts of [1d2+1] befriendet **treants** ([treant stats]).
+1,The settlement has cultivated deliberate gardens of **shrieking fungus** whose piercing cries are quick to alert them of any invaders.
+1,Throughout the leaf litter are innocuous looking **puffball mushrooms** that, if inadvertently pierced or damaged emit clouds of slumber spores.
+1,The elves have chosen this site well, for [1d3+1] of their tree-homes are inhabited by **dryads** whose beguiling magics often transforms potential foe to fast friend ([dryad stats]).
+1,Scores of innocuous **song birds** are quick to betray the presence of any infiltrators with their loud, screeching warning songs.
+1,The air is filled the sweet, intoxicating fragrance of *honeysuckle* vines that weave throughout the branches and bushes.
+1,It's easy to feel watched in this part of the wood, as every [tree] tree trunk features a stern looking **face**.
+1,There are quite a few skeletons lying under the trees. The reason being the lush brambles here concealing blood-sucking **vampiric vines**: If you make camp, save vs. spells or die overnight as they immobilise you and suck you dry.
+1,Touching any tree here without whispering the secret elven words of soothing is not advised, as one could be stuck fast by the quick flowing, impossibly **sticky sap**.
+
+;giant bat stats
+1,HD 4 AC 6 1d8 F2 MV 12 ML 6 XP 400; *echolocation*
+
+;wood golem stats
+1,HD 2 AC 7 1d8 MV 12 ML 12 XP 200; immune to *arrows*, immune to *poison*; immune to *spells*
+
+;owl stats
+1,HD 3 AC 6 1d4/1d4/1d6 F1 MV 15 ML 5 XP 300; when both claws hit, may carry halflings and dwarves up for a bit before dropping them again for 1d6 falling damage.
+
+;sprite stats
+1,HD 1 AC 7 1d4 F1 MV 12 ML 6 XP 100; *entanglement*: save vs. spells or unable to move for an hour; *illusion*; *sleep*
+
+;stone golem stats
+1,HD 9 AC 1 3d6 MV 12 ML 12 XP 900; immune to *arrows*, immune to *poison*; immune to *spells*
 
 ;elf leader
 1,*[elf]*<img src="[[redirect https://campaignwiki.org/face/redirect/alex/elf]]" alt="[same elf]" title="same elf"/>
@@ -8533,7 +8577,7 @@
 1,Between some rocks, a crack leads deeper into the earth and into a cave. There, a giant snake made of stone watches over all who pray to Set. A deep pit contains the polished bones of all who where killed in revenge for their misdeeds. There are always wooden accusation plates to be found naming bandits, thieves, murders, adulterers, and cowards who ran from a battle, deserting their village comrades. Will you take a plate and exact revenge in the name of Set?
 1,An old stairway leads into the bowels of the earth where warm vapours make your head swim. Down here, the **spirit naga** *[naga]* will guide your hand, should you need her words ([naga stats]). Spend an hour down here and any soul dedicated to Set will tell you of the past and the future for all time goes in circles and the big snake eats itself.
 1,Deep below, where the **spirit naga** *[naga]* guards the passages to Svartalfheim ([naga stats]), pools of Earth Blood corrupt both the living and the dead. If you spend an hour here, your death warrant is sealed: slowly, you will die, or turn into an ettin, or a goblin, or some other dreadful creature.
-1,This is a snake pit, a breeding ground for [1d4 giant snakes] and vipers, a place dangerous to every warm blooded creature. And yet, the terror of these snakes also keeps bandits at bay and no orc will set foot near this place, such is the power of Set. They say that those with the secret knowledge can use snake poison to poison their blades and they say that all who serve the temple have done just that.
+1,This is a snake pit, a breeding ground for [1d4 giant snakes] and [1d8 snakes], a place dangerous to every warm blooded creature. And yet, the terror of these snakes also keeps bandits at bay and no orc will set foot near this place, such is the power of Set. They say that those with the secret knowledge can use snake poison to poison their blades and they say that all who serve the temple have done just that.
 1,The temple is a school for assassins. This is where you learn to sneak, to lie, to conceal, to poison, to stab, to strangle. Students learn the secrets of the garrote, of the hidden blade and of the crossbow. All of this is known and yet the farce continues: this is where the young ones learn discipline and strength, diligence and respect. It’s a way to put food on the table, and it’s a useful skill to have available if you’re trying to get ahead.
 
 ;naga
@@ -8566,8 +8610,18 @@
 1,Death
 
 ;1d4 giant snakes
-1,a **giant snake**
-3,[1d3+1] **giant snakes**
+1,a **giant snake** ([giant snake stats])
+3,[1d3+1] **giant snakes** ([giant snake stats])
+
+;giant snake stats
+1,HD 5 AC 6 2d6 + *constrict* F3 MV 9 ML 8 XP 500; *constrict*: when hit, victims are *helpless* and every round there after, roll on the *death & dismemberment* table
+
+;1d8 snakes
+1,a **snake** ([snake stats])
+3,[1d7+1] **snakes** ([snake stats])
+
+;snake stats
+1,HD 2 AC 6 1d4 + *poison* F1 MV 9 ML 7 XP 200; *poison*: when bitten, save vs. poison or die
 
 ;small temple dedicated to Orcus
 1,[small temple]
@@ -11013,7 +11067,7 @@
 1,In the presence of an amulet of passage bearing the [name for a clan of the netherworld elves] sigil, the door glides opens and reveals stairs leading down to the underground [lair of the netherworld elves]
 
 ;lair of the netherworld elves
-1,*[building of the netherworld elves] of [elf]*.</p><p>[gate of the netherworld elves]</p><p>[companions of the netherworld elves]</p><p>[5d12] **elves** live here ([elf stats]), led by [elf leader] (level [1d6+4 as level]). [spellbook for elves] [leader treasure]
+1,*[building of the netherworld elves] of [elf]*.</p><p>[gate of the netherworld elves]</p><p>[companions of the netherworld elves]</p><p>[save 1d6+4 as level][save spellbook for elves][5d12] **elves** live here ([elf stats]), led by [elf leader] (level [same level]). [same spellbook for elves] [leader treasure]
 
 ;building of the netherworld elves
 1,Bastion
