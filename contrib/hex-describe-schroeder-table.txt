@@ -3107,7 +3107,10 @@
 1,HD 2 AC 7 1d6 F1 MV 12 ML 8 XP 200
 
 ;froglings
-1,[5d8] **froglings** ([frogling stats]) led by *[frogling]*, a priest of Tsathoggua: *lightning bolt* 2×/day (5d6, save vs. spells for half). [poor treasure] The mud village built around the temple is guarded by [frogling companions].
+1,[5d8] **froglings** ([frogling stats]) led by *[frogling with portrait]*, a priest of Tsathoggua: *lightning bolt* 2×/day (5d6, save vs. spells for half). [poor treasure] The mud village built around the temple is guarded by [frogling companions].
+
+;frogling with portrait
+1,*[frogling]*<img src="[[redirect https://campaignwiki.org/face/redirect/alex/frog]]" alt="[same frogling]" title="[same frogling]"/>
 
 ;frogling
 1,[frogling 1] [frogling 2]
