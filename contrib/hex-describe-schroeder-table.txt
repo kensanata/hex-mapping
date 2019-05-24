@@ -9012,10 +9012,10 @@
 1,[woman with portrait]
 
 ;man with portrait
-1,*[man as human]*<img src="[[redirect https://campaignwiki.org/face/redirect/alex/man]]" alt="[same human]" title="[same human]"/>
+1,*[man as human name]*<img src="[[redirect https://campaignwiki.org/face/redirect/alex/man]]" alt="[same human name]" title="[same human name]"/>
 
 ;woman with portrait
-1,*[woman as human]*<img src="[[redirect https://campaignwiki.org/face/redirect/alex/woman]]" alt="[same human]" title="[same human]"/>
+1,*[woman as human name]*<img src="[[redirect https://campaignwiki.org/face/redirect/alex/woman]]" alt="[same human name]" title="[same human name]"/>
 
 ;human name
 1,[man]
