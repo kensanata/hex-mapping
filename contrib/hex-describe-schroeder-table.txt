@@ -6535,7 +6535,7 @@
 ;elf stats
 # This requires the establishment a [spellbook for elves]. Typically you'd use it like this:
 # [save 1d6+1 as level][save spellbook for elves][2d12] **elves** ([elf stats]) led by [elf leader] ([same level]). [same spellbook for elves] [leader treasure]
-1,HD 1 HP 1d6 AC 5 1d6 or *spell* E1 MV 12 ML 10 XP 100; *spell*: *[same [same spellbook] 1]* 1×/day
+1,HD 1 HP 1d6 AC 5 1d6 or *[same [same spellbook] 1]* 1×/day E1 MV 12 ML 10 XP 100
 
 ;elf travelling companions
 3,
@@ -6686,7 +6686,7 @@
 1,HD 9 AC 1 3d6 MV 12 ML 12 XP 900; immune to *arrows*, immune to *poison*; immune to *spells*
 
 ;elf leader
-1,*[elf]*<img src="[[redirect https://campaignwiki.org/face/redirect/alex/elf]]" alt="[same elf]" title="same elf"/>
+1,*[elf]*<img src="[[redirect https://campaignwiki.org/face/redirect/alex/elf]]" alt="[same elf]" title="[same elf]"/>
 
 # Not accounted for: Letter changes when combining words
 # http://sindarinlessons.weebly.com/37---how-to-make-names-1.html
