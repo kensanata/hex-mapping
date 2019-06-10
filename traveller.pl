@@ -856,16 +856,6 @@ sub header {
         stroke: #afeeee; /* pale turquoise */
         fill: none;
       }
-      line.d1 {
-        stroke-width: 6pt;
-        stroke: #ff6347; /* tomato */
-        fill: none;
-      }
-      line.d2 {
-        stroke-width: 6pt;
-        stroke: #1b998b; /* jungle green */
-        fill: none;
-      }
       .code {
         opacity: 0.3;
       }
