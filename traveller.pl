@@ -883,8 +883,8 @@ sub header {
       /* later cultures */
       .culture1  { fill: #d3d3d3; }
       .culture2  { fill: #f5f5f5; }
-      .culture3  { fill: #ffd700; }
-      .culture4  { fill: #ffff00; }
+      .culture3  { fill: #eaeaea; }
+      .culture4  { fill: #fffeb0; }
       .culture5  { fill: #fff0f5; }
       .culture6  { fill: #eee0e5; }
       .culture7  { fill: #ffe1ff; }
