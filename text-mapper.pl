@@ -1356,14 +1356,12 @@ sub altitude {
       for (1 .. $n) {
 	# try to find an empty neighbor; abort after six attempts
 	for (1 .. 6) {
-	  my $i = $self->random_neighbor();
-	  my ($x, $y) = $self->neighbor($coordinates, $i);
+	  my ($x, $y) = $self->neighbor($coordinates, $self->random_neighbor());
 	  next unless $self->legal($x, $y);
 	  my $other = coordinates($x, $y);
 	  # if this is taken, look further
 	  if ($altitude->{$other}) {
-	    $i = int(rand(12));
-	    ($x, $y) = $self->neighbor2($coordinates, $i);
+	    ($x, $y) = $self->neighbor2($coordinates, $self->random_neighbor2());
 	    next unless $self->legal($x, $y);
 	    $other = coordinates($x, $y);
 	    # if this is also taken, try again
@@ -2048,6 +2046,8 @@ sub neighbors2 { 0 .. 11 }
 
 sub random_neighbor { int(rand(6)) }
 
+sub random_neighbor2 { int(rand(12)) }
+
 my $delta_hex = [
   # x is even
   [[-1,  0], [ 0, -1], [+1,  0], [+1, +1], [ 0, +1], [-1, +1]],
@@ -2128,6 +2128,8 @@ sub neighbors2 { 0 .. 7 }
 
 sub random_neighbor { int(rand(4)) }
 
+sub random_neighbor2 { int(rand(8)) }
+
 my $delta_square = [[-1,  0], [ 0, -1], [+1,  0], [ 0, +1]];
 
 sub neighbor {
@@ -2149,6 +2151,7 @@ sub neighbor2 {
   # $hex is [x,y] or "0x0y" and $i is a number 0 .. 7
   my ($hex, $i) = @_;
   die join(":", caller) . ": undefined direction for $hex\n" unless defined $i;
+  die join(":", caller) . ": direction $i not supported for square $hex\n" if $i > 7;
   $hex = [$self->xy($hex)] unless ref $hex;
   return ($hex->[0] + $delta_square2->[$i]->[0],
 	  $hex->[1] + $delta_square2->[$i]->[1]);
