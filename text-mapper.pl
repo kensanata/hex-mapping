@@ -1,5 +1,5 @@
 #!/usr/bin/env perl
-# Copyright (C) 2009-2017  Alex Schroeder <alex@gnu.org>
+# Copyright (C) 2009-2019  Alex Schroeder <alex@gnu.org>
 #
 # This program is free software: you can redistribute it and/or modify it under
 # the terms of the GNU General Public License as published by the Free Software
@@ -21,9 +21,20 @@ our $debug = $ENV{DEBUG};
 my $log = Mojo::Log->new(level => $debug ? 'debug' : 'warn');
 $log->debug("Debugging enabled");
 
-my $output;
 my $dx = 100;
 my $dy = 100*sqrt(3);
+
+sub url_encode {
+  my $str = shift;
+  return '' unless $str;
+  utf8::encode($str); # turn to byte string
+  my @letters = split(//, $str);
+  my %safe = map {$_ => 1} ('a' .. 'z', 'A' .. 'Z', '0' .. '9', '-', '_', '.', '!', '~', '*', "'", '(', ')', '#');
+  foreach my $letter (@letters) {
+    $letter = sprintf("%%%02x", ord($letter)) unless $safe{$letter};
+  }
+  return join('', @letters);
+}
 
 package Point;
 
@@ -39,66 +50,8 @@ sub equal {
 
 sub coordinates {
   my ($self, $precision) = @_;
-  if (wantarray) {
-    return $self->x, $self->y;
-  } else {
-    return $self->x . "," . $self->y;
-  }
-}
-
-sub pixels {
-  my ($self) = @_;
-  my ($x, $y) = ($self->x * $dx * 3/2, $self->y * $dy - $self->x % 2 * $dy/2);
-  if (wantarray) {
-    return ($x, $y);
-  } else {
-    return sprintf("%.1f,%.1f", $x, $y);
-  }
-}
-
-# Brute forcing the "next" step by trying all the neighbors. The
-# connection data to connect to neighbouring hexes.
-#
-# Example Map             Index for the array
-#
-#      0201                      2
-#  0102    0302               1     3
-#      0202    0402
-#  0103    0303               6     4
-#      0203    0403              5
-#  0104    0304
-#
-#  Note that the arithmetic changes when x is odd.
-
-sub one_step_to {
-  my ($self, $other) = @_;
-  my $delta = [[[-1,  0], [ 0, -1], [+1,  0], [+1, +1], [ 0, +1], [-1, +1]],  # x is even
-	       [[-1, -1], [ 0, -1], [+1, -1], [+1,  0], [ 0, +1], [-1,  0]]]; # x is odd
-  my ($min, $best);
-  for my $i (0 .. 5) {
-    # make a new guess
-    my ($x, $y) = ($self->x + $delta->[$self->x % 2]->[$i]->[0],
-		   $self->y + $delta->[$self->x % 2]->[$i]->[1]);
-    my $d = ($other->x - $x) * ($other->x - $x)
-          + ($other->y - $y) * ($other->y - $y);
-    if (!defined($min) || $d < $min) {
-      $min = $d;
-      $best = Point->new(x => $x, y => $y);
-    }
-  }
-  return $best;
-}
-
-sub partway {
-  my ($self, $other, $q) = @_;
-  my ($x1, $y1) = $self->pixels;
-  my ($x2, $y2) = $other->pixels;
-  $q ||= 1;
-  if (wantarray) {
-    return $x1 + ($x2 - $x1) * $q, $y1 + ($y2 - $y1) * $q;
-  } else {
-    return sprintf("%.1f,%.1f", $x1 + ($x2 - $x1) * $q, $y1 + ($y2 - $y1) * $q);
-  }
+  return $self->x, $self->y if wantarray;
+  return $self->x . "," . $self->y;
 }
 
 package Line;
@@ -119,12 +72,21 @@ sub compute_missing_points {
   my $current = $self->points($i++);
   my @result = ($current);
   while ($self->points($i)) {
-    $current = $current->one_step_to($self->points($i));
+    $current = $self->one_step($current, $self->points($i));
     push(@result, $current);
     $i++ if $current->equal($self->points($i));
   }
 
   return @result;
+}
+
+sub partway {
+  my ($self, $from, $to, $q) = @_;
+  my ($x1, $y1) = $self->pixels($from);
+  my ($x2, $y2) = $self->pixels($to);
+  $q ||= 1;
+  return $x1 + ($x2 - $x1) * $q, $y1 + ($y2 - $y1) * $q if wantarray;
+  return sprintf("%.1f,%.1f", $x1 + ($x2 - $x1) * $q, $y1 + ($y2 - $y1) * $q);
 }
 
 sub svg {
@@ -141,15 +103,15 @@ sub svg {
       $current = $points[$i];
       $next = $points[$i+1];
       if (!$path) {
-	my $a = $current->partway($next, 0.3);
-	my $b = $current->partway($next, 0.5);
-	my $c = $points[$#points-1]->partway($current, 0.7);
-	my $d = $points[$#points-1]->partway($current, 0.5);
+	my $a = $self->partway($current, $next, 0.3);
+	my $b = $self->partway($current, $next, 0.5);
+	my $c = $self->partway($points[$#points-1], $current, 0.7);
+	my $d = $self->partway($points[$#points-1], $current, 0.5);
 	$path = "M$d C$c $a $b";
       } else {
 	# continue curve
-	my $a = $current->partway($next, 0.3);
-	my $b = $current->partway($next, 0.5);
+	my $a = $self->partway($current, $next, 0.3);
+	my $b = $self->partway($current, $next, 0.5);
 	$path .= " S$a $b";
       }
     }
@@ -159,18 +121,18 @@ sub svg {
       $next = $points[$i+1];
       if (!$path) {
 	# line from a to b; control point a required for following S commands
-	my $a = $current->partway($next, 0.3);
-	my $b = $current->partway($next, 0.5);
+	my $a = $self->partway($current, $next, 0.3);
+	my $b = $self->partway($current, $next, 0.5);
 	$path = "M$a C$b $a $b";
       } else {
 	# continue curve
-	my $a = $current->partway($next, 0.3);
-	my $b = $current->partway($next, 0.5);
+	my $a = $self->partway($current, $next, 0.3);
+	my $b = $self->partway($current, $next, 0.5);
 	$path .= " S$a $b";
       }
     }
     # end with a little stub
-    $path .= " L" . $current->partway($next, 0.7);
+    $path .= " L" . $self->partway($current, $next, 0.7);
   }
 
   my $id = $self->id;
@@ -212,14 +174,14 @@ sub debug {
   for my $i (0 .. $#points - 1) {
     $current = $points[$i];
     $next = $points[$i+1];
-    $data .= circle($current->pixels, 15, $i++);
-    $data .= circle($current->partway($next, 0.3), 3, 'a');
-    $data .= circle($current->partway($next, 0.5), 5, 'b');
-    $data .= circle($current->partway($next, 0.7), 3, 'c');
+    $data .= circle($self->pixels($current), 15, $i++);
+    $data .= circle($self->partway($current, $next, 0.3), 3, 'a');
+    $data .= circle($self->partway($current, $next, 0.5), 5, 'b');
+    $data .= circle($self->partway($current, $next, 0.7), 3, 'c');
   }
-  $data .= circle($next->pixels, 15, $#points);
+  $data .= circle($self->pixels($next), 15, $#points);
 
-  my ($x, $y) = $points[0]->pixels; $y += 30;
+  my ($x, $y) = $self->pixels($points[0]); $y += 30;
   $data .= "<text fill='#000' font-size='20pt' "
     . "text-anchor='middle' dominant-baseline='central' "
     . "x='$x' y='$y'>closed</text>"
@@ -237,18 +199,87 @@ sub circle {
   return "$data\n";
 }
 
+package Line::Hex;
+
+use parent -norequire, 'Line';
+
+sub pixels {
+  my ($self, $point) = @_;
+  my ($x, $y) = ($point->x * $dx * 3/2, $point->y * $dy - $point->x % 2 * $dy/2);
+  return ($x, $y) if wantarray;
+  return sprintf("%.1f,%.1f", $x, $y);
+}
+
+# Brute forcing the "next" step by trying all the neighbors. The
+# connection data to connect to neighboring hexes.
+#
+# Example Map             Index for the array
+#
+#      0201                      2
+#  0102    0302               1     3
+#      0202    0402
+#  0103    0303               6     4
+#      0203    0403              5
+#  0104    0304
+#
+#  Note that the arithmetic changes when x is odd.
+
+sub one_step {
+  my ($self, $from, $to) = @_;
+  my $delta = [[[-1,  0], [ 0, -1], [+1,  0], [+1, +1], [ 0, +1], [-1, +1]],  # x is even
+	       [[-1, -1], [ 0, -1], [+1, -1], [+1,  0], [ 0, +1], [-1,  0]]]; # x is odd
+  my ($min, $best);
+  for my $i (0 .. 5) {
+    # make a new guess
+    my ($x, $y) = ($from->x + $delta->[$from->x % 2]->[$i]->[0],
+		   $from->y + $delta->[$from->x % 2]->[$i]->[1]);
+    my $d = ($to->x - $x) * ($to->x - $x)
+          + ($to->y - $y) * ($to->y - $y);
+    if (!defined($min) || $d < $min) {
+      $min = $d;
+      $best = Point->new(x => $x, y => $y);
+    }
+  }
+  return $best;
+}
+
+package Line::Square;
+
+use parent -norequire, 'Line';
+
+sub pixels {
+  my ($self, $point) = @_;
+  my ($x, $y) = ($point->x * $dy, $point->y * $dy);
+  return ($x, $y) if wantarray;
+  return sprintf("%d,%d", $x, $y);
+}
+
+sub one_step {
+  my ($self, $from, $to) = @_;
+  my ($min, $best);
+  my $dx = $to->x - $from->x;
+  my $dy = $to->y - $from->y;
+  if (abs($dx) >= abs($dy)) {
+    my $x = $from->x + ($dx > 0 ? 1 : -1);
+    return Point->new(x => $x, y => $from->y);
+  } else {
+    my $y = $from->y + ($dy > 0 ? 1 : -1);
+    return Point->new(x => $from->x, y => $y);
+  }
+}
+
 package Hex;
 
 use Class::Struct;
 
 struct Hex => {
-	       x => '$',
-	       y => '$',
-	       type => '$',
-	       label => '$',
-	       size => '$',
-	       map => 'Mapper',
-	      };
+  x => '$',
+  y => '$',
+  type => '$',
+  label => '$',
+  size => '$',
+  map => 'Mapper',
+};
 
 sub str {
   my $self = shift;
@@ -262,7 +293,7 @@ sub corners {
   return @hex;
 }
 
-sub svg_hex {
+sub svg_region {
   my ($self, $attributes) = @_;
   my $x = $self->x * $dx * 3/2;
   my $y = $self->y * $dy - $self->x % 2 * $dy/2;
@@ -301,18 +332,6 @@ sub svg_coordinates {
   return $data;
 }
 
-sub url_encode {
-  my $str = shift;
-  return '' unless $str;
-  utf8::encode($str); # turn to byte string
-  my @letters = split(//, $str);
-  my %safe = map {$_ => 1} ('a' .. 'z', 'A' .. 'Z', '0' .. '9', '-', '_', '.', '!', '~', '*', "'", '(', ')', '#');
-  foreach my $letter (@letters) {
-    $letter = sprintf("%%%02x", ord($letter)) unless $safe{$letter};
-  }
-  return join('', @letters);
-}
-
 sub svg_label {
   my ($self, $url) = @_;
   return '' unless defined $self->label;
@@ -342,13 +361,101 @@ sub svg_label {
   return $data;
 }
 
+package Square;
+
+use Class::Struct;
+
+struct Square => {
+  x => '$',
+  y => '$',
+  type => '$',
+  label => '$',
+  size => '$',
+  map => 'Mapper',
+};
+
+sub str {
+  my $self = shift;
+  return '(' . $self->x . ',' . $self->y . ')';
+}
+
+sub svg_region {
+  my ($self, $attributes) = @_;
+  my $x = ($self->x - 0.5) * $dy;
+  my $y = ($self->y - 0.5) * $dy; # square!
+  my $id = "square" . $self->x . $self->y;
+  return qq{    <rect id="$id" $attributes x="$x" y="$y" width="$dy" height="$dy" />\n}
+}
+
+sub svg {
+  my $self = shift;
+  my $x = $self->x;
+  my $y = $self->y;
+  my $data = '';
+  for my $type (@{$self->type}) {
+    $data .= sprintf(qq{    <use x="%d" y="%d" xlink:href="#%s" />\n},
+		     $x * $dy,
+		     $y * $dy, # square
+		     $type);
+  }
+  return $data;
+}
+
+sub svg_coordinates {
+  my $self = shift;
+  my $x = $self->x;
+  my $y = $self->y;
+  my $data = '';
+  $data .= qq{    <text text-anchor="middle"};
+  $data .= sprintf(qq{ x="%d" y="%d"},
+		   $x * $dy,
+		   ($y - 0.4) * $dy); # square
+  $data .= ' ';
+  $data .= $self->map->text_attributes || '';
+  $data .= '>';
+  $data .= sprintf(qq{%02d.%02d}, $x, $y);
+  $data .= qq{</text>\n};
+  return $data;
+}
+
+sub svg_label {
+  my ($self, $url) = @_;
+  return '' unless defined $self->label;
+  my $attributes = $self->map->label_attributes;
+  if ($self->size) {
+    if (not $attributes =~ s/\bfont-size="\d+pt"/'font-size="' . $self->size . 'pt"'/e) {
+      $attributes .= ' font-size="' . $self->size . '"';
+    }
+  }
+  $url =~ s/\%s/url_encode($self->label)/e or $url .= url_encode($self->label) if $url;
+  my $x = $self->x;
+  my $y = $self->y;
+  my $data = sprintf(qq{    <g><text text-anchor="middle" x="%d" y="%d" %s %s>}
+                     . $self->label
+                     . qq{</text>},
+                     $x  * $dy,
+		     ($y + 0.4) * $dy, # square
+                     $attributes ||'',
+		     $self->map->glow_attributes ||'');
+  $data .= qq{<a xlink:href="$url">} if $url;
+  $data .= sprintf(qq{<text text-anchor="middle" x="%d" y="%d" %s>}
+		   . $self->label
+		   . qq{</text>},
+		   $x * $dy,
+		   ($y + 0.4) * $dy, # square
+		   $attributes ||'');
+  $data .= qq{</a>} if $url;
+  $data .= qq{</g>\n};
+  return $data;
+}
+
 package Mapper;
 
 use Class::Struct;
 use LWP::UserAgent;
 
 struct Mapper => {
-		  hexes => '@',
+		  regions => '@',
 		  attributes => '%',
 		  defs => '@',
 		  map => '$',
@@ -405,20 +512,20 @@ sub process {
   my $line_id = 0;
   foreach (@_) {
     if (/^(\d\d)(\d\d)\s+(.*)/) {
-      my $hex = Hex->new(x => $1, y => $2, map => $self);
+      my $region = $self->make_region(x => $1, y => $2, map => $self);
       my $rest = $3;
       my ($label) = $rest =~ /\"([^\"]+)\"/;
-      $hex->label($label);
+      $region->label($label);
       $rest =~ s/\"[^\"]+\"//;
       my @terms = split(/\s+/, $rest);
       my @sizes = grep(/^(\d)$/, @terms);
-      $hex->size(shift(@sizes));
+      $region->size(shift(@sizes));
       my @types = grep(!/^\d$/, @terms);
-      $hex->type(\@types);
-      push(@{$self->hexes}, $hex);
-      push(@{$self->things}, $hex);
+      $region->type(\@types);
+      push(@{$self->regions}, $region);
+      push(@{$self->things}, $region);
     } elsif (/^(\d\d\d\d(?:-\d\d\d\d)+)\s+(\S+)\s*(?:"(.+)")?/) {
-      my $line = Line->new(map => $self);
+      my $line = $self->make_line(map => $self);
       $line->type($2);
       $line->label($3);
       $line->id('line' . $line_id++);
@@ -497,22 +604,20 @@ sub svg_header {
 };
 
   my ($minx, $miny, $maxx, $maxy);
-  foreach my $hex (@{$self->hexes}) {
-    $minx = $hex->x if not defined($minx);
-    $maxx = $hex->x if not defined($maxx);
-    $miny = $hex->y if not defined($miny);
-    $maxy = $hex->y if not defined($maxy);
-    $minx = $hex->x if $minx > $hex->x;
-    $maxx = $hex->x if $maxx < $hex->x;
-    $miny = $hex->y if $miny > $hex->y;
-    $maxy = $hex->y if $maxy < $hex->y;
+  foreach my $region (@{$self->regions}) {
+    $minx = $region->x if not defined($minx);
+    $maxx = $region->x if not defined($maxx);
+    $miny = $region->y if not defined($miny);
+    $maxy = $region->y if not defined($maxy);
+    $minx = $region->x if $minx > $region->x;
+    $maxx = $region->x if $maxx < $region->x;
+    $miny = $region->y if $miny > $region->y;
+    $maxy = $region->y if $maxy < $region->y;
   }
 
   if (defined($minx) and defined($maxx) and defined($miny) and defined($maxy)) {
 
-    my ($vx1, $vy1, $vx2, $vy2) =
-        map { int($_) } ($minx * $dx * 3/2 - $dx - 60, ($miny - 1.0) * $dy - 50,
-                         $maxx * $dx * 3/2 + $dx + 60, ($maxy + 0.5) * $dy + 100);
+    my ($vx1, $vy1, $vx2, $vy2) = $self->viewbox($minx, $miny, $maxx, $maxy);
     my ($width, $height) = ($vx2 - $vx1, $vy2 - $vy1);
 
     $header .= qq{     viewBox="$vx1 $vy1 $width $height">\n};
@@ -528,10 +633,10 @@ sub svg_defs {
   # All the definitions are included by default.
   my $doc = "  <defs>\n";
   $doc .= "    " . join("\n    ", @{$self->defs}) if @{$self->defs};
-  # collect hex types from attributess and paths in case the sets don't overlap
+  # collect region types from attributess and paths in case the sets don't overlap
   my %types = ();
-  foreach my $hex (@{$self->hexes}) {
-    foreach my $type (@{$hex->type}) {
+  foreach my $region (@{$self->regions}) {
+    foreach my $type (@{$region->type}) {
       $types{$type} = 1;
     }
   }
@@ -551,15 +656,14 @@ sub svg_defs {
       if ($path && !$attributes) {
 	$doc .= qq{      <path $glow_attributes d='$path' />\n}
       }
-      # hex with shapes get a hex around them, eg. plains and grass
+      # region with attributes get a shape (square or hex), eg. plains and grass
       if ($attributes) {
-	my $points = join(" ", map {
-	  sprintf("%.1f,%.1f", $_->[0], $_->[1]) } Hex::corners());
-	$doc .= qq{      <polygon $attributes points='$points' />\n}
-      };
-      # the shape
+	$doc .= "      " . $self->shape($attributes) . "\n";
+      }
+      # and now the attributes themselves the shape itself
+      if ($path) {
       $doc .= qq{      <path $path_attributes d='$path' />\n}
-	if $path;
+      }
       # close
       $doc .= qq{    </g>\n};
     } else {
@@ -600,8 +704,8 @@ sub svg_things {
 sub svg_coordinates {
   my $self = shift;
   my $doc = qq{  <g id="coordinates">\n};
-  foreach my $hex (@{$self->hexes}) {
-    $doc .= $hex->svg_coordinates();
+  foreach my $region (@{$self->regions}) {
+    $doc .= $region->svg_coordinates();
   }
   $doc .= qq{  </g>\n};
   return $doc;
@@ -617,12 +721,12 @@ sub svg_lines {
   return $doc;
 }
 
-sub svg_hexes {
+sub svg_regions {
   my ($self) = @_;
-  my $doc = qq{  <g id="hexes">\n};
+  my $doc = qq{  <g id="regions">\n};
   my $attributes = $self->attributes('default') || qq{fill="none"};
-  foreach my $hex (@{$self->hexes}) {
-    $doc .= $hex->svg_hex($attributes);
+  foreach my $region (@{$self->regions}) {
+    $doc .= $region->svg_region($attributes);
   }
   $doc .= qq{  </g>\n};
 }
@@ -640,8 +744,8 @@ sub svg_line_labels {
 sub svg_labels {
   my $self = shift;
   my $doc = qq{  <g id="labels">\n};
-  foreach my $hex (@{$self->hexes}) {
-    $doc .= $hex->svg_label($self->url);
+  foreach my $region (@{$self->regions}) {
+    $doc .= $region->svg_label($self->url);
   }
   $doc .= qq{  </g>\n};
   return $doc;
@@ -656,7 +760,7 @@ sub svg {
   $doc .= $self->svg_lines();
   $doc .= $self->svg_things(); # icons, lines
   $doc .= $self->svg_coordinates();
-  $doc .= $self->svg_hexes();
+  $doc .= $self->svg_regions();
   $doc .= $self->svg_line_labels();
   $doc .= $self->svg_labels();
   $doc .= $self->license() ||'';
@@ -671,10 +775,66 @@ sub svg {
 
   # source code
   $doc .= "<!-- Source\n" . $self->map() . "\n-->\n";
-  $doc .= "<!-- Output\n" . $output . "\n-->\n" if $output;
   $doc .= qq{</svg>\n};
 
   return $doc;
+}
+
+package Mapper::Hex;
+
+use parent -norequire, 'Mapper';
+
+sub make_region {
+  my $self = shift;
+  return Hex->new(@_);
+}
+
+sub make_line {
+  my $self = shift;
+  return Line::Hex->new(@_);
+}
+
+sub shape {
+  my $self = shift;
+  my $attributes = shift;
+  my $points = join(" ", map {
+    sprintf("%.1f,%.1f", $_->[0], $_->[1]) } Hex::corners());
+  return qq{<polygon $attributes points='$points' />};
+}
+
+sub viewbox {
+  my $self = shift;
+  my ($minx, $miny, $maxx, $maxy) = @_;
+  map { int($_) } ($minx * $dx * 3/2 - $dx - 60, ($miny - 1.0) * $dy - 50,
+		   $maxx * $dx * 3/2 + $dx + 60, ($maxy + 0.5) * $dy + 100);
+}
+
+package Mapper::Square;
+
+use parent -norequire, 'Mapper';
+
+sub make_region {
+  my $self = shift;
+  return Square->new(@_);
+}
+
+sub make_line {
+  my $self = shift;
+  return Line::Square->new(@_);
+}
+
+sub shape {
+  my $self = shift;
+  my $attributes = shift;
+  my $half = $dy / 2;
+  return qq{<rect $attributes x="-$half" y="-$half" width="$dy" height="$dy" />};
+}
+
+sub viewbox {
+  my $self = shift;
+  my ($minx, $miny, $maxx, $maxy) = @_;
+  map { int($_) } (($minx - 1) * $dy, ($miny - 1) * $dy,
+		   ($maxx + 1) * $dy, ($maxy + 1) * $dy);
 }
 
 package Smale;
@@ -1101,6 +1261,10 @@ sub generate_map {
 package Schroeder;
 use Modern::Perl;
 use List::Util 'shuffle';
+use Class::Struct;
+
+# Currently empty
+struct Schroeder => {};
 
 # We're assuming that $width and $height have two digits (10 <= n <= 99).
 
@@ -1112,6 +1276,7 @@ my $peaks;
 my $bottom;
 
 sub xy {
+  my $self = shift;
   my $coordinates = shift;
   return (substr($coordinates, 0, 2), substr($coordinates, 2));
 }
@@ -1121,79 +1286,24 @@ sub coordinates {
   return sprintf("%02d%02d", $x, $y);
 }
 
-my $delta = [
-  # x is even
-  [[-1,  0], [ 0, -1], [+1,  0], [+1, +1], [ 0, +1], [-1, +1]],
-  # x is odd
-  [[-1, -1], [ 0, -1], [+1, -1], [+1,  0], [ 0, +1], [-1,  0]]];
-
-sub neighbor {
-  # $hex is [x,y] or "0x0y" and $i is a number 0 .. 5
-  my ($hex, $i) = @_;
-  die join(":", caller) . ": undefined direction for $hex\n" unless defined $i;
-  $hex = [xy($hex)] unless ref $hex;
-  return ($hex->[0] + $delta->[$hex->[0] % 2]->[$i]->[0],
-	  $hex->[1] + $delta->[$hex->[0] % 2]->[$i]->[1]);
-}
-
-my $delta2 = [
-  # x is even
-  [[-2, +1], [-2,  0], [-2, -1], [-1, -1], [ 0, -2], [+1, -1],
-   [+2, -1], [+2,  0], [+2, +1], [+1, +2], [ 0, +2], [-1, +2]],
-  # x is odd
-  [[-2, +1], [-2,  0], [-2, -1], [-1, -2], [ 0, -2], [+1, -2],
-   [+2, -1], [+2,  0], [+2, +1], [+1, +1], [ 0, +2], [-1, +1]]];
-
-sub neighbor2 {
-  # $hex is [x,y] or "0x0y" and $i is a number 0 .. 11
-  my ($hex, $i) = @_;
-  die join(":", caller) . ": undefined direction for $hex\n" unless defined $i;
-  $hex = [xy($hex)] unless ref $hex;
-  return ($hex->[0] + $delta2->[$hex->[0] % 2]->[$i]->[0],
-	  $hex->[1] + $delta2->[$hex->[0] % 2]->[$i]->[1]);
-}
-
 sub legal {
+  my $self = shift;
   my ($x, $y) = @_;
-  ($x, $y) = xy($x) if not defined $y;
+  ($x, $y) = $self->xy($x) if not defined $y;
   return @_ if $x > 0 and $x <= $width and $y > 0 and $y <= $height;
 }
 
-sub distance {
-  my ($x1, $y1, $x2, $y2) = @_;
-  if (@_ == 2) {
-    ($x1, $y1, $x2, $y2) = map { xy($_) } @_;
-  }
-  # transform the coordinate system into a decent system with one axis tilted by
-  # 60°
-  $y1 = $y1 - POSIX::ceil($x1/2);
-  $y2 = $y2 - POSIX::ceil($x2/2);
-  if ($x1 > $x2) {
-    # only consider moves from left to right and transpose start and
-    # end point to make it so
-    my ($t1, $t2) = ($x1, $y1);
-    ($x1, $y1) = ($x2, $y2);
-    ($x2, $y2) = ($t1, $t2);
-  }
-  if ($y2>=$y1) {
-    # if it the move has a downwards component add Δx and Δy
-    return $x2-$x1 + $y2-$y1;
-  } else {
-    # else just take the larger of Δx and Δy
-    return $x2-$x1 > $y1-$y2 ? $x2-$x1 : $y1-$y2;
-  }
-}
-
 sub remove_closer_than {
+  my $self = shift;
   my ($limit, @hexes) = @_;
   my @filtered;
  HEX:
   for my $hex (@hexes) {
-    my ($x1, $y1) = xy($hex);
+    my ($x1, $y1) = $self->xy($hex);
     # check distances with all the hexes already in the list
     for my $existing (@filtered) {
-      my ($x2, $y2) = xy($existing);
-      my $distance = distance($x1, $y1, $x2, $y2);
+      my ($x2, $y2) = $self->xy($existing);
+      my $distance = $self->distance($x1, $y1, $x2, $y2);
       # warn "Distance between $x1$y1 and $x2$y2 is $distance\n";
       next HEX if $distance < $limit;
     }
@@ -1204,6 +1314,7 @@ sub remove_closer_than {
 }
 
 sub flat {
+  my $self = shift;
   # initialize the altitude map; this is required so that we have a list of
   # legal hex coordinates somewhere
   my ($altitude) = @_;
@@ -1216,6 +1327,7 @@ sub flat {
 }
 
 sub altitude {
+  my $self = shift;
   my ($world, $altitude) = @_;
   my $current_altitude = $peak;
   my @batch;
@@ -1244,20 +1356,20 @@ sub altitude {
       for (1 .. $n) {
 	# try to find an empty neighbor; abort after six attempts
 	for (1 .. 6) {
-	  my $i = int(rand(6));
-	  my ($x, $y) = neighbor($coordinates, $i);
-	  next unless legal($x, $y);
+	  my $i = $self->random_neighbor();
+	  my ($x, $y) = $self->neighbor($coordinates, $i);
+	  next unless $self->legal($x, $y);
 	  my $other = coordinates($x, $y);
 	  # if this is taken, look further
 	  if ($altitude->{$other}) {
 	    $i = int(rand(12));
-	    ($x, $y) = neighbor2($coordinates, $i);
-	    next unless legal($x, $y);
+	    ($x, $y) = $self->neighbor2($coordinates, $i);
+	    next unless $self->legal($x, $y);
 	    $other = coordinates($x, $y);
 	    # if this is also taken, try again
 	    next if $altitude->{$other};
 	  }
-	  # warn "Neighbour of $coordinates: picked $other\n";
+	  # warn "Neighbor of $coordinates: picked $other\n";
 	  # if we found an empty neighbor, set its altitude
 	  $altitude->{$other} = $current_altitude;
 	  push(@next, $other);
@@ -1275,8 +1387,8 @@ sub altitude {
       # warn "identified a hex that was skipped: $coordinates\n";
       # try to find a suitable neighbor
       for (1 .. 6) {
-	my ($x, $y) = neighbor($coordinates, int(rand(6)));
-	next unless legal($x, $y);
+	my ($x, $y) = $self->neighbor($coordinates, $self->random_neighbor());
+	next unless $self->legal($x, $y);
 	my $other = coordinates($x, $y);
 	next unless defined $altitude->{$other};
 	$altitude->{$coordinates} = $altitude->{$other};
@@ -1293,6 +1405,7 @@ sub altitude {
 }
 
 sub water {
+  my $self = shift;
   my ($world, $altitude, $water) = @_;
   # reset in case we run this twice
   # go through all the hexes
@@ -1301,9 +1414,9 @@ sub water {
     my ($lowest, $direction);
     # look at neighbors in random order
   NEIGHBOR:
-    for my $i (shuffle 0 .. 5) {
-      my ($x, $y) = neighbor($coordinates, $i);
-      my $legal = legal($x, $y);
+    for my $i (shuffle $self->neighbors()) {
+      my ($x, $y) = $self->neighbor($coordinates, $i);
+      my $legal = $self->legal($x, $y);
       my $other = coordinates($x, $y);
       # my $debug = $coordinates eq "1004" && $other eq "0904";
       next if $legal and $altitude->{$other} > $altitude->{$coordinates};
@@ -1317,10 +1430,10 @@ sub water {
 	# no water flow known is also good;
 	$log->debug("water for $next: " . ($water->{$next} || "none"));
 	last unless defined $water->{$next};
-	($x, $y) = neighbor($next, $water->{$next});
+	($x, $y) = $self->neighbor($next, $water->{$next});
 	# leaving the map is good
-	$log->debug("legal for $next: " . legal($x, $y));
-	last unless legal($x, $y);
+	$log->debug("legal for $next: " . $self->legal($x, $y));
+	last unless $self->legal($x, $y);
 	$next = coordinates($x, $y);
 	# skip this neighbor if this is a loop
 	$log->debug("is $next in a loop? " . ($loop{$next} || "no"));
@@ -1344,6 +1457,7 @@ sub water {
 }
 
 sub mountains {
+  my $self = shift;
   my ($world, $altitude) = @_;
   # place the types
   for my $coordinates (keys %$altitude) {
@@ -1358,6 +1472,7 @@ sub mountains {
 }
 
 sub lakes {
+  my $self = shift;
   my ($world, $altitude, $water) = @_;
   # any areas without water flow are lakes
   for my $coordinates (keys %$altitude) {
@@ -1369,6 +1484,7 @@ sub lakes {
 }
 
 sub swamps {
+  my $self = shift;
   # any area with water flowing to a neighbor at the same altitude is a swamp
   my ($world, $altitude, $water, $flow) = @_;
  HEX:
@@ -1377,10 +1493,10 @@ sub swamps {
     next if $world->{$coordinates} =~ /water|swamp/;
     # swamps require a river
     next unless $flow->{$coordinates};
-    # look at the neighbour the water would flow to
-    my ($x, $y) = neighbor($coordinates, $water->{$coordinates});
+    # look at the neighbor the water would flow to
+    my ($x, $y) = $self->neighbor($coordinates, $water->{$coordinates});
     # skip if water flows off the map
-    next unless legal($x, $y);
+    next unless $self->legal($x, $y);
     my $other = coordinates($x, $y);
     # skip if water flows downhill
     next if $altitude->{$coordinates} > $altitude->{$other};
@@ -1394,29 +1510,15 @@ sub swamps {
 }
 
 sub direction {
+  my $self = shift;
   my ($from, $to) = @_;
-  for my $i (0 .. 5) {
-    return $i if $to eq coordinates(neighbor($from, $i));
+  for my $i ($self->neighbors()) {
+    return $i if $to eq coordinates($self->neighbor($from, $i));
   }
-}
-
-sub lowest_neighbor {
-  my ($altitude, $lake, $coordinates) = @_;
-  my $lowest;
-  my @candidates;
-  for my $i (shuffle 0 .. 5) {
-    my ($x, $y) = neighbor($coordinates, $i);
-    next unless legal($x, $y);
-    my $other = coordinates($x, $y);
-    next if $lake->{$other};
-    next if defined $lowest and $altitude->{$lowest} < $altitude->{$other};
-    $lowest = $other;
-  }
-  # warn "lowest neighbor of $coordinates is $lowest\n" if $coordinates eq "1703";
-  return $lowest;
 }
 
 sub flood {
+  my $self = shift;
   my ($world, $altitude, $water) = @_;
   # backtracking information: $from = $flow{$to}
   my %flow;
@@ -1444,12 +1546,12 @@ sub flood {
     last unless $coordinates;
     $seen{$coordinates} = 1;
     $log->debug("Looking at $coordinates");
-    my ($x, $y) = xy($coordinates);
-    if (legal($x, $y)) {
+    my ($x, $y) = $self->xy($coordinates);
+    if ($self->legal($x, $y)) {
       # if we're still on the map, check all the unknown neighbors
       my $from = $coordinates;
-      for my $i (0 .. 5) {
-	my $to = coordinates(neighbor($from, $i));
+      for my $i ($self->neighbors()) {
+	my $to = coordinates($self->neighbor($from, $i));
 	next if $seen{$to};
 	$log->debug("Adding $to to our candidates");
 	$flow{$to} = $from;
@@ -1462,7 +1564,7 @@ sub flood {
     my $to = $coordinates;
     my $from = $flow{$to};
     while ($from) {
-      my $i = direction($from, $to);
+      my $i = $self->direction($from, $to);
       if (not defined $water->{$from}
 	  or $water->{$from} != $i) {
 	$log->debug("Arrow for $from now points to $to");
@@ -1487,6 +1589,7 @@ sub flood {
 }
 
 sub rivers {
+  my $self = shift;
   my ($world, $altitude, $water, $flow, $level) = @_;
   # $flow are the sources points of rivers, or 1 if a river flows through them
   my @growing = map {
@@ -1496,10 +1599,11 @@ sub rivers {
   } sort grep {
     $altitude->{$_} == $level and not $flow->{$_}
   } keys %$altitude;
-  return grow_rivers(\@growing, $water, $flow);
+  return $self->grow_rivers(\@growing, $water, $flow);
 }
 
 sub grow_rivers {
+  my $self = shift;
   my ($growing, $water, $flow) = @_;
   my @rivers;
   while (@$growing) {
@@ -1511,7 +1615,7 @@ sub grow_rivers {
     my $coordinates = $river->[-1];
     my $end = 1;
     if (defined $water->{$coordinates}) {
-      my $other = coordinates(neighbor($coordinates, $water->{$coordinates}));
+      my $other = coordinates($self->neighbor($coordinates, $water->{$coordinates}));
       die "Adding $other leads to an infinite loop in river @$river\n" if grep /$other/, @$river;
       # if we flowed into a hex with a river
       if (ref $flow->{$other}) {
@@ -1539,6 +1643,7 @@ sub grow_rivers {
 }
 
 sub canyons {
+  my $self = shift;
   my ($world, $altitude, $rivers) = @_;
   my @canyons;
   # using a reference to an array so that we can leave pointers in the %seen hash
@@ -1605,17 +1710,18 @@ sub canyons {
 }
 
 sub wet {
+  my $self = shift;
   # a hex is wet if there is a river, a swamp or a forest within 2 hexes
   my ($coordinates, $world, $flow) = @_;
-  for my $i (0 .. 5) {
-    my ($x, $y) = neighbor($coordinates, $i);
-    # next unless legal($x, $y);
+  for my $i ($self->neighbors()) {
+    my ($x, $y) = $self->neighbor($coordinates, $i);
+    # next unless $self->legal($x, $y);
     my $other = coordinates($x, $y);
     return 0 if $flow->{$other};
   }
-  for my $i (0 .. 11) {
-    my ($x, $y) = neighbor2($coordinates, $i);
-    # next unless legal($x, $y);
+  for my $i ($self->neighbors2()) {
+    my ($x, $y) = $self->neighbor2($coordinates, $i);
+    # next unless $self->legal($x, $y);
     my $other = coordinates($x, $y);
     return 0 if $flow->{$other};
   }
@@ -1623,17 +1729,18 @@ sub wet {
 }
 
 sub grow_forest {
+  my $self = shift;
   my ($coordinates, $world, $altitude) = @_;
   my @candidates = ($coordinates);
-  for my $i (0 .. 5) {
-    my ($x, $y) = neighbor($coordinates, $i);
-    next unless legal($x, $y);
+  for my $i ($self->neighbors()) {
+    my ($x, $y) = $self->neighbor($coordinates, $i);
+    next unless $self->legal($x, $y);
     my $other = coordinates($x, $y);
     push(@candidates, $other) if $world->{$other} !~ /mountain|hill|water|swamp/;
   }
-  for my $i (0 .. 11) {
-    my ($x, $y) = neighbor2($coordinates, $i);
-    next unless legal($x, $y);
+  for my $i ($self->neighbors2()) {
+    my ($x, $y) = $self->neighbor2($coordinates, $i);
+    next unless $self->legal($x, $y);
     my $other = coordinates($x, $y);
     push(@candidates, $other) if $world->{$other} !~ /mountain|hill|water|swamp/;
   }
@@ -1651,27 +1758,29 @@ sub grow_forest {
 }
 
 sub forests {
+  my $self = shift;
   my ($world, $altitude, $flow) = @_;
   # empty hexes with a river flowing through them are forest filled valleys
   for my $coordinates (keys %$flow) {
     if ($world->{$coordinates} !~ /mountain|hill|water|swamp/) {
-      grow_forest($coordinates, $world, $altitude);
+      $self->grow_forest($coordinates, $world, $altitude);
     }
   }
 }
 
 sub dry {
+  my $self = shift;
   # a hex is dry if there is no river within 2 hexes of it
   my ($coordinates, $flow) = @_;
-  for my $i (0 .. 5) {
-    my ($x, $y) = neighbor($coordinates, $i);
-    # next unless legal($x, $y);
+  for my $i ($self->neighbors()) {
+    my ($x, $y) = $self->neighbor($coordinates, $i);
+    # next unless $self->legal($x, $y);
     my $other = coordinates($x, $y);
     return 0 if $flow->{$other};
   }
-  for my $i (0 .. 11) {
-    my ($x, $y) = neighbor2($coordinates, $i);
-    # next unless legal($x, $y);
+  for my $i ($self->neighbors2()) {
+    my ($x, $y) = $self->neighbor2($coordinates, $i);
+    # next unless $self->legal($x, $y);
     my $other = coordinates($x, $y);
     return 0 if $flow->{$other};
   }
@@ -1679,6 +1788,7 @@ sub dry {
 }
 
 sub bogs {
+  my $self = shift;
   my ($world, $altitude, $water, $flow) = @_;
  HEX:
   for my $coordinates (keys %$altitude) {
@@ -1686,10 +1796,10 @@ sub bogs {
     next if $altitude->{$coordinates} != 7;
     # don't turn lakes into bogs
     next if $world->{$coordinates} =~ /water/;
-    # look at the neighbour the water would flow to
-    my ($x, $y) = neighbor($coordinates, $water->{$coordinates});
+    # look at the neighbor the water would flow to
+    my ($x, $y) = $self->neighbor($coordinates, $water->{$coordinates});
     # skip if water flows off the map
-    next unless legal($x, $y);
+    next unless $self->legal($x, $y);
     my $other = coordinates($x, $y);
     # skip if water flows downhill
     next if $altitude->{$coordinates} > $altitude->{$other};
@@ -1699,6 +1809,7 @@ sub bogs {
 }
 
 sub bushes {
+  my $self = shift;
   my ($world, $altitude, $water, $flow) = @_;
   # as always, keys is a source of randomness that's independent of srand which
   # is why we sort
@@ -1719,12 +1830,13 @@ sub bushes {
 }
 
 sub settlements {
+  my $self = shift;
   my ($world, $flow) = @_;
   my @settlements;
   my $max = $height * $width;
   # do not match forest-hill
   my @candidates = shuffle sort grep { $world->{$_} =~ /\b(fir-forest|forest(?!-hill))\b/ } keys %$world;
-  @candidates = remove_closer_than(2, @candidates);
+  @candidates = $self->remove_closer_than(2, @candidates);
   @candidates = @candidates[0 .. int($max/10 - 1)] if @candidates > $max/10;
   push(@settlements, @candidates);
   for my $coordinates (@candidates) {
@@ -1732,28 +1844,28 @@ sub settlements {
 	or $world->{$coordinates} =~ s/forest(?!-hill)/trees thorp/;
   }
   @candidates = shuffle sort grep { $world->{$_} =~ /(?<!fir-)forest(?!-hill)/ and $flow->{$_}} keys %$world;
-  @candidates = remove_closer_than(5, @candidates);
+  @candidates = $self->remove_closer_than(5, @candidates);
   @candidates = @candidates[0 .. int($max/20 - 1)] if @candidates > $max/20;
   push(@settlements, @candidates);
   for my $coordinates (@candidates) {
     $world->{$coordinates} =~ s/forest/trees village/;
   }
   @candidates = shuffle sort grep { $world->{$_} =~ /(?<!fir-)forest(?!-hill)/ and $flow->{$_} } keys %$world;
-  @candidates = remove_closer_than(10, @candidates);
+  @candidates = $self->remove_closer_than(10, @candidates);
   @candidates = @candidates[0 .. int($max/40 - 1)] if @candidates > $max/40;
   push(@settlements, @candidates);
   for my $coordinates (@candidates) {
     $world->{$coordinates} =~ s/forest/trees town/;
   }
   @candidates = shuffle sort grep { $world->{$_} =~ /white mountain\b/ } keys %$world;
-  @candidates = remove_closer_than(10, @candidates);
+  @candidates = $self->remove_closer_than(10, @candidates);
   @candidates = @candidates[0 .. int($max/40 - 1)] if @candidates > $max/40;
   push(@settlements, @candidates);
   for my $coordinates (@candidates) {
     $world->{$coordinates} =~ s/white mountain\b/white mountain law/;
   }
   @candidates = shuffle sort grep { $world->{$_} =~ /swamp/ } keys %$world;
-  @candidates = remove_closer_than(10, @candidates);
+  @candidates = $self->remove_closer_than(10, @candidates);
   @candidates = @candidates[0 .. int($max/40 - 1)] if @candidates > $max/40;
   push(@settlements, @candidates);
   for my $coordinates (@candidates) {
@@ -1763,6 +1875,7 @@ sub settlements {
 }
 
 sub trails {
+  my $self = shift;
   my ($altitude, $settlements) = @_;
   # look for a neighbor that is as low as possible and nearby
   my %trails;
@@ -1772,7 +1885,7 @@ sub trails {
     my ($best, $best_distance, $best_altitude);
     for my $to (@to) {
       next if $from eq $to;
-      my $distance = distance($from, $to);
+      my $distance = $self->distance($from, $to);
       $log->debug("Considering $from-$to: distance $distance, altitude " . $altitude->{$to});
       if ($distance <= 3
 	  and (not $best_distance or $distance <= $best_distance)
@@ -1792,42 +1905,49 @@ sub trails {
 }
 
 sub cliffs {
+  my $self = shift;
   my ($world, $altitude) = @_;
+  my @neighbors = $self->neighbors();
   # hexes with altitude difference bigger than 1 have cliffs
   for my $coordinates (keys %$world) {
-    for my $i (0 .. 5) {
-      my ($x, $y) = neighbor($coordinates, $i);
-      next unless legal($x, $y);
+    for my $i (@neighbors) {
+      my ($x, $y) = $self->neighbor($coordinates, $i);
+      next unless $self->legal($x, $y);
       my $other = coordinates($x, $y);
       if ($altitude->{$coordinates} - $altitude->{$other} >= 2) {
-	$world->{$coordinates} .= " cliff$i";
+	if (@neighbors == 6) {
+	  $world->{$coordinates} .= " cliff$i";
+	} else { # square
+	  $world->{$coordinates} .= " cliffs$i";
+	}
       }
     }
   }
 }
 
 sub generate {
+  my $self = shift;
   my ($world, $altitude, $water, $rivers, $settlements, $trails, $canyons, $step) = @_;
   # %flow indicates that there is actually a river in this hex
   my $flow = {};
 
   my @code = (
-    sub { flat($altitude);
-	  altitude($world, $altitude); },
-    sub { mountains($world, $altitude); },
-    sub { water($world, $altitude, $water); },
-    sub { lakes($world, $altitude, $water); },
-    sub { flood($world, $altitude, $water); },
-    sub { bogs($world, $altitude, $water, $flow); },
-    sub { push(@$rivers, rivers($world, $altitude, $water, $flow, 8));
-	  push(@$rivers, rivers($world, $altitude, $water, $flow, 7)); },
-    sub { push(@$canyons, canyons($world, $altitude, $rivers)); },
-    sub { swamps($world, $altitude, $water, $flow); },
-    sub { forests($world, $altitude, $flow); },
-    sub { bushes($world, $altitude, $water, $flow); },
-    sub { cliffs($world, $altitude); },
-    sub { push(@$settlements, settlements($world, $flow)); },
-    sub { push(@$trails, trails($altitude, $settlements)); },
+    sub { $self->flat($altitude);
+	  $self->altitude($world, $altitude); },
+    sub { $self->mountains($world, $altitude); },
+    sub { $self->water($world, $altitude, $water); },
+    sub { $self->lakes($world, $altitude, $water); },
+    sub { $self->flood($world, $altitude, $water); },
+    sub { $self->bogs($world, $altitude, $water, $flow); },
+    sub { push(@$rivers, $self->rivers($world, $altitude, $water, $flow, 8));
+	  push(@$rivers, $self->rivers($world, $altitude, $water, $flow, 7)); },
+    sub { push(@$canyons, $self->canyons($world, $altitude, $rivers)); },
+    sub { $self->swamps($world, $altitude, $water, $flow); },
+    sub { $self->forests($world, $altitude, $flow); },
+    sub { $self->bushes($world, $altitude, $water, $flow); },
+    sub { $self->cliffs($world, $altitude); },
+    sub { push(@$settlements, $self->settlements($world, $flow)); },
+    sub { push(@$trails, $self->trails($altitude, $settlements)); },
     # make sure you look at "alpine_document.html.ep" if you change this list!
       );
 
@@ -1841,6 +1961,7 @@ sub generate {
 }
 
 sub generate_map {
+  my $self = shift;
   # The parameters turn into class variables.
   $width = shift // 20;
   $height = shift // 10;
@@ -1872,7 +1993,7 @@ sub generate_map {
   # $step is how far we want map generation to go where 0 means all the way
   my ($world, $altitude, $water, $rivers, $settlements, $trails, $canyons) =
       ({}, {}, {}, [], [], [], []);
-  generate($world, $altitude, $water, $rivers, $settlements, $trails, $canyons, $step);
+  $self->generate($world, $altitude, $water, $rivers, $settlements, $trails, $canyons, $step);
 
   # when documenting or debugging, do this before collecting lines
   if ($step > 0) {
@@ -1908,18 +2029,148 @@ sub generate_map {
 	   qq{height$_ attributes fill="rgb($n,$n,$n)"};
 	 } (0 .. 10));
     # visualize water flow
-    push(@lines,
-	 qq{<marker id="arrow" markerWidth="6" markerHeight="6" refX="6" refY="3" orient="auto"><path d="M6,0 V6 L0,3 Z" style="fill: black;" /></marker>},
-	 map {
-	   my $angle = 60 * $_;
-	   qq{<path id="arrow$_" transform="rotate($angle)" d="M-11.5,-5.8 L11.5,5.8" style="stroke: black; stroke-width: 3px; fill: none; marker-start: url(#arrow);"/>},
-	 } (0 .. 5));
+    push(@lines, $self->arrows());
   }
 
   push(@lines, "# Seed: $seed");
   push(@lines, "# Documentation: " . $url) if $url;
   my $map = join("\n", @lines);
   return $map;
+}
+
+package Schroeder::Hex;
+
+use parent -norequire, 'Schroeder';
+
+sub neighbors { 0 .. 5 }
+
+sub neighbors2 { 0 .. 11 }
+
+sub random_neighbor { int(rand(6)) }
+
+my $delta_hex = [
+  # x is even
+  [[-1,  0], [ 0, -1], [+1,  0], [+1, +1], [ 0, +1], [-1, +1]],
+  # x is odd
+  [[-1, -1], [ 0, -1], [+1, -1], [+1,  0], [ 0, +1], [-1,  0]]];
+
+sub neighbor {
+  my $self = shift;
+  # $hex is [x,y] or "0x0y" and $i is a number 0 .. 5
+  my ($hex, $i) = @_;
+  die join(":", caller) . ": undefined direction for $hex\n" unless defined $i;
+  $hex = [$self->xy($hex)] unless ref $hex;
+  return ($hex->[0] + $delta_hex->[$hex->[0] % 2]->[$i]->[0],
+	  $hex->[1] + $delta_hex->[$hex->[0] % 2]->[$i]->[1]);
+}
+
+my $delta_hex2 = [
+  # x is even
+  [[-2, +1], [-2,  0], [-2, -1], [-1, -1], [ 0, -2], [+1, -1],
+   [+2, -1], [+2,  0], [+2, +1], [+1, +2], [ 0, +2], [-1, +2]],
+  # x is odd
+  [[-2, +1], [-2,  0], [-2, -1], [-1, -2], [ 0, -2], [+1, -2],
+   [+2, -1], [+2,  0], [+2, +1], [+1, +1], [ 0, +2], [-1, +1]]];
+
+sub neighbor2 {
+  my $self = shift;
+  # $hex is [x,y] or "0x0y" and $i is a number 0 .. 11
+  my ($hex, $i) = @_;
+  die join(":", caller) . ": undefined direction for $hex\n" unless defined $i;
+  $hex = [$self->xy($hex)] unless ref $hex;
+  return ($hex->[0] + $delta_hex2->[$hex->[0] % 2]->[$i]->[0],
+	  $hex->[1] + $delta_hex2->[$hex->[0] % 2]->[$i]->[1]);
+}
+
+sub distance {
+  my $self = shift;
+  my ($x1, $y1, $x2, $y2) = @_;
+  if (@_ == 2) {
+    ($x1, $y1, $x2, $y2) = map { $self->xy($_) } @_;
+  }
+  # transform the coordinate system into a decent system with one axis tilted by
+  # 60°
+  $y1 = $y1 - POSIX::ceil($x1/2);
+  $y2 = $y2 - POSIX::ceil($x2/2);
+  if ($x1 > $x2) {
+    # only consider moves from left to right and transpose start and
+    # end point to make it so
+    my ($t1, $t2) = ($x1, $y1);
+    ($x1, $y1) = ($x2, $y2);
+    ($x2, $y2) = ($t1, $t2);
+  }
+  if ($y2>=$y1) {
+    # if it the move has a downwards component add Δx and Δy
+    return $x2-$x1 + $y2-$y1;
+  } else {
+    # else just take the larger of Δx and Δy
+    return $x2-$x1 > $y1-$y2 ? $x2-$x1 : $y1-$y2;
+  }
+}
+
+sub arrows {
+  my $self = shift;
+  return
+      qq{<marker id="arrow" markerWidth="6" markerHeight="6" refX="6" refY="3" orient="auto"><path d="M6,0 V6 L0,3 Z" style="fill: black;" /></marker>},
+      map {
+	my $angle = 60 * $_;
+	qq{<path id="arrow$_" transform="rotate($angle)" d="M-11.5,-5.8 L11.5,5.8" style="stroke: black; stroke-width: 3px; fill: none; marker-start: url(#arrow);"/>},
+  } ($self->neighbors());
+}
+
+package Schroeder::Square;
+
+use parent -norequire, 'Schroeder';
+
+sub neighbors { 0 .. 3 }
+
+sub neighbors2 { 0 .. 7 }
+
+sub random_neighbor { int(rand(4)) }
+
+my $delta_square = [[-1,  0], [ 0, -1], [+1,  0], [ 0, +1]];
+
+sub neighbor {
+  my $self = shift;
+  # $hex is [x,y] or "0x0y" and $i is a number 0 .. 3
+  my ($hex, $i) = @_;
+  die join(":", caller) . ": undefined direction for $hex\n" unless defined $i;
+  $hex = [$self->xy($hex)] unless ref $hex;
+  return ($hex->[0] + $delta_square->[$i]->[0],
+	  $hex->[1] + $delta_square->[$i]->[1]);
+}
+
+my $delta_square2 = [
+  [-2,  0], [-1, -1], [ 0, -2], [+1, -1],
+  [+2,  0], [+1, +1], [ 0, +2], [-1, +1]];
+
+sub neighbor2 {
+  my $self = shift;
+  # $hex is [x,y] or "0x0y" and $i is a number 0 .. 7
+  my ($hex, $i) = @_;
+  die join(":", caller) . ": undefined direction for $hex\n" unless defined $i;
+  $hex = [$self->xy($hex)] unless ref $hex;
+  return ($hex->[0] + $delta_square2->[$i]->[0],
+	  $hex->[1] + $delta_square2->[$i]->[1]);
+}
+
+sub distance {
+  my $self = shift;
+  my ($x1, $y1, $x2, $y2) = @_;
+  if (@_ == 2) {
+    ($x1, $y1, $x2, $y2) = map { $self->xy($_) } @_;
+  }
+  return abs($x2 - $x1) + abs($y2 - $y1);
+}
+
+sub arrows {
+  my $self = shift;
+  return
+      qq{<marker id="arrow" markerWidth="6" markerHeight="6" refX="6" refY="3" orient="auto"><path d="M6,0 V6 L0,3 Z" style="fill: black;" /></marker>},
+      map {
+	my $angle = 90 * $_;
+	qq{<path id="arrow$_" transform="rotate($angle)" d="M-15,0 H30" style="stroke: black; stroke-width: 3px; fill: none; marker-start: url(#arrow);"/>},
+  } ($self->neighbors());
 }
 
 package Mojolicious::Command::render;
@@ -1938,7 +2189,7 @@ EOF
 sub run {
   my ($self, @args) = @_;
   local $/ = undef;
-  my $map = new Mapper;
+  my $map = new Mapper::Hex;
   $map->initialize(<STDIN>);
   print $map->svg;
 }
@@ -1977,7 +2228,7 @@ get '/' => sub {
   my $c = shift;
   my $param = $c->param('map');
   if ($param) {
-    my $map = new Mapper;
+    my $map = new Mapper::Hex;
     $map->initialize($param);
     $c->render(text => $map->svg, format => 'svg');
   } else {
@@ -1993,7 +2244,12 @@ any '/edit' => sub {
 
 any '/render' => sub {
   my $c = shift;
-  my $map = new Mapper;
+  my $map;
+  if ($c->param('type') eq 'square') {
+    $map = new Mapper::Square;
+  } else {
+    $map = new Mapper::Hex;
+  }
   $map->initialize($c->param('map'));
   $c->render(text => $map->svg, format => 'svg');
 };
@@ -2025,7 +2281,7 @@ get '/smale/random' => sub {
   my $bw = $c->param('bw');
   my $width = $c->param('width');
   my $height = $c->param('height');
-  my $svg = Mapper->new()
+  my $svg = Mapper::Hex->new()
       ->initialize(Smale::generate_map($bw, $width, $height))
       ->svg();
   $c->render(text => $svg, format => 'svg');
@@ -2040,82 +2296,78 @@ get '/smale/random/text' => sub {
   $c->render(text => $text, format => 'txt');
 };
 
-get '/alpine' => sub {
+sub alpine_map {
   my $c = shift;
-  if ($c->stash('format') || '' eq 'txt') {
-    my $map = Schroeder::generate_map($c->param('width'),
-				      $c->param('height'),
-				      $c->param('steepness'),
-				      $c->param('peaks'),
-				      $c->param('peak'),
-				      $c->param('bottom'),
-				      $c->param('seed'));
-    $c->render(text => $map);
-  } else {
-    # need to compute the seed here so that we can send along the URL
-    my $seed = $c->param('seed')||time;
-    my $url = $c->url_with('alpinedocument')->query({seed => $seed})->to_abs;
-    my $map = Schroeder::generate_map($c->param('width'),
-				      $c->param('height'),
-				      $c->param('steepness'),
-				      $c->param('peaks'),
-				      $c->param('peak'),
-				      $c->param('bottom'),
-				      $seed,
-				      $url);
-    $c->render(template => 'edit',
-	       map => $map);
-  }
-};
-
-get '/alpine/random' => sub {
-  my $c = shift;
+  # must be able to override this for the documentation
+  my $step = shift // $c->param('step');
   # need to compute the seed here so that we can send along the URL
-  my $seed = $c->param('seed')||time;
+  my $seed = $c->param('seed') || int(rand(1000000000));
   my $url = $c->url_with('alpinedocument')->query({seed => $seed})->to_abs;
-  my $svg = Mapper->new()
-      ->initialize(Schroeder::generate_map($c->param('width'),
-					   $c->param('height'),
-					   $c->param('steepness'),
-					   $c->param('peaks'),
-					   $c->param('peak'),
-					   $c->param('bottom'),
-					   $c->param('seed'),
-					   $url,
-					   $c->param('step')))
-      ->svg();
-  $c->render(text => $svg, format => 'svg');
-};
-
-get '/alpine/random/text' => sub {
-  my $c = shift;
-  my $text = Schroeder::generate_map($c->param('width'),
-				     $c->param('height'),
-				     $c->param('steepness'),
-				     $c->param('peaks'),
-				     $c->param('peak'),
-				     $c->param('bottom'),
-				     $c->param('seed'),
-				     undef,
-				     $c->param('step'));
-  $c->render(text => $text, format => 'txt');
-};
-
-get '/alpine/document' => sub {
-  my $c = shift;
   my @params = ($c->param('width'),
 		$c->param('height'),
 		$c->param('steepness'),
 		$c->param('peaks'),
 		$c->param('peak'),
-		$c->param('bottom'));
-  my $seed = $c->param('seed')||int(rand(1000000000));
+		$c->param('bottom'),
+		$seed,
+		$url,
+		$step,
+      );
+  my $type = $c->param('type') // 'hex';
+  if ($type eq 'hex') {
+    return Schroeder::Hex->new()->generate_map(@params);
+  } else {
+    return Schroeder::Square->new()->generate_map(@params);
+  }
+}
 
+get '/alpine' => sub {
+  my $c = shift;
+  my $map = alpine_map($c);
+  if ($c->stash('format') || '' eq 'txt') {
+    $c->render(text => $map);
+  } else {
+    $c->render(template => 'edit', map => $map);
+  }
+};
+
+get '/alpine/random' => sub {
+  my $c = shift;
+  my $map = alpine_map($c);
+  my $type = $c->param('type') // 'hex';
+  my $mapper;
+  if ($type eq 'hex') {
+    $mapper = Mapper::Hex->new();
+  } else {
+    $mapper = Mapper::Square->new();
+  }
+  my $svg = $mapper->initialize($map)->svg;
+  $c->render(text => $svg, format => 'svg');
+};
+
+get '/alpine/random/text' => sub {
+  my $c = shift;
+  my $map = alpine_map($c);
+  $c->render(text => $map, format => 'txt');
+};
+
+get '/alpine/document' => sub {
+  my $c = shift;
   # prepare a map for every step
   my @maps;
+  my $type = $c->param('type') || 'hex';
+  # use the same seed for all the calls
+  my $seed = $c->param('seed');
+  $seed = $c->param('seed' => int(rand(1000000000))) unless defined $seed;
   for my $step (1 .. 14) {
-    my $map = Schroeder::generate_map(@params, $seed, undef, $step);
-    my $svg = Mapper->new()->initialize($map)->svg;
+    my $map = alpine_map($c, $step);
+    my $mapper;
+    if ($type eq 'hex') {
+      $mapper = Mapper::Hex->new();
+    } else {
+      $mapper = Mapper::Square->new();
+    }
+    my $svg = $mapper->initialize($map)->svg;
     $svg =~ s/<\?xml version="1.0" encoding="UTF-8" standalone="no"\?>\n//g;
     push(@maps, $svg);
   };
@@ -2466,7 +2718,7 @@ C<%s> in the URL and then this placeholder will be replaced with the
 
 =head2 License
 
-This program is copyright (C) 2007-2016 Alex Schroeder <alex@gnu.org>.
+This program is copyright (C) 2007-2019 Alex Schroeder <alex@gnu.org>.
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -2595,7 +2847,13 @@ Alternatively:
 % end
 
 <p>
-%= submit_button 'Submit', name => 'submit'
+%= radio_button type => 'hex', id => 'hex', checked => undef
+%= label_for hex => 'Hex'
+%= radio_button type => 'square', id => 'square'
+%= label_for square => 'Square'
+
+<p>
+%= submit_button
 </p>
 %= end
 
@@ -2646,6 +2904,11 @@ You'll find the map description in a comment within the SVG file.
 <p>
 See the <%= link_to alpineparameters => begin %>documentation<% end %> for an
 explanation of what these parameters do.
+<p>
+%= radio_button type => 'hex', id => 'hex', checked => undef
+%= label_for hex => 'Hex'
+%= radio_button type => 'square', id => 'square'
+%= label_for square => 'Square'
 </p>
 %= submit_button
 % end
@@ -2826,7 +3089,7 @@ url_with('alpinerandom')->query({peaks => 1}) => begin %>lonely mountain<% end
 arid. They get bushes, a hill (20% of the time at altitudes 3 or higher), or
 some grass (60% of the time at altitudes 3 and lower). Higher up, these are
 light grey (altitude 6–7), otherwise they are light green (altitude 5 and
-below).</p>.
+below).</p>
 
 %== shift(@$maps)
 
