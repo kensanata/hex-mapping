@@ -8800,7 +8800,7 @@
 ;pazuzu place
 1,Hell
 1,the [pazuzu place]
-1,the [pazuzu adjective] [pazuzu place]
+1,the [pazuzu adjective] [pazuzu location]
 1,the [old gods]
 1,Giants
 1,[pazuzu demon title]
@@ -8817,7 +8817,7 @@
 1,Burnt
 1,Flaming
 
-;pazuzu place
+;pazuzu location
 1,Sky
 1,Wind
 1,Air
