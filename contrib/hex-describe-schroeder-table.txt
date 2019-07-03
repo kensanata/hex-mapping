@@ -935,6 +935,698 @@
 1,The sunny side of the valley is covered in pink splashes of *roseroot*.
 1,Up there are white patches of *edelweiss* growing between the rocks.
 
+#starting  point for food and drink tables for menus/food items
+#basic construction: tables for domestic/garden and wild food products
+#sub-tables for specific types of veg/seasoning herbs/descriptions and preparation methods
+#meat: I try to use the "food names" for animals here if they exist, hence the "meat quantifier" in the table names
+#also doing cheese with some cheese producing animals and a few descriptors focusing on texture/type/flavor
+#breads exists now, probably needs more options
+#plurals are pretty common for things that are consumed in groups, there are a few singulars, but I don't think they will create too much trouble.
+#also imported berries (I prefer the prefix method for this), updated fruits
+#still to do potentially: climate/terrain variations and adherence. These may require revising the tables, for now I'm just going to assume a handy trade network for produce/meat :)
+#some recipes may not seem too appetizing thanks to the random generation, but there's no accounting for local tastes :)
+
+
+#making a dish
+;dish
+1,[rural meat prep] [food meat] [seasoning method] [with food seasonings] and [and food seasonings], served with [with veg prep] [with food veg] and [and veg prep] [and food veg]
+
+;snack
+1,[food bread] and a [food cheese]
+
+;orc dish
+1, [rural meat prep] [unusual meats] [seasoning method] [with food seasonings] and [with veg prep] [with food veg]
+1, [rural meat prep] [wild meats] [seasoning method] [with food seasonings] and [with veg prep] [with food veg]
+
+
+#meat tables
+
+
+;food meat
+5,[domesticated meats]
+5,[domesticated poultry]
+5,[freshwater fish]
+2,[freshwater shellfish]
+4,[wild meats]
+4,[wild poultry]
+2,[varmint meats]
+1,[unusual meats]
+
+
+;domesticated meats
+1,lamb [lamb parts]
+1,ham
+1,mutton [mutton parts]
+1,pork [pork parts]
+1,beef [beef parts]
+1,veal [veal parts]
+1,goat [goat parts]
+1,ox [ox parts]
+
+;domesticated poultry
+1,whole chicken
+1,whole duck
+1,whole goose
+1,chicken [poultry parts]
+1,duck [poultry parts]
+1,goose [poultry parts]
+1,turkey [poultry parts]
+
+;freshwater fish
+1,bluegill
+1,bass
+1,carp
+1,crappie
+1,trout
+1,salmon
+1,perch
+1,pike
+1,grayling
+1,tench
+1,walleye
+1,catfish
+1,smelt
+1,whitefish
+1,gar
+1,eels
+1,sturgeon
+1,roe
+1,caviar
+
+;freshwater shellfish
+1,crayfish
+1,snails
+1,mussels
+
+;wild meats
+1,venison [beef parts]
+1,wild boar [pork parts]
+1,bison [beef parts]
+1,antelope [beef parts]
+1,elk [beef parts]
+1,moose [beef parts]
+1,rabbit
+1,hare
+1,reindeer [beef parts]
+
+;varmint meats
+1,beaver
+1,squirrel
+1,opossom
+1,racoon
+
+;wild poultry
+1,pheasant [poultry parts]
+1,partridge [poultry parts]
+1,quail [poultry parts]
+1,squab [poultry parts]
+1,wild duck [poultry parts]
+1,wild turkey [poultry parts]
+1,guineafowl [poultry parts]
+1,grouse [poultry parts]
+1,dove [poultry parts]
+1,ptarmigan [poultry parts]
+1,wild goose [poultry parts]
+1,woodcock [poultry parts]
+1,snipe [poultry parts]
+1,plover [poultry parts]
+
+#some of these might also work for a separate "monster meats" table because they contravene western cultural norms
+;unusual meats
+1,rat
+1,giant rat
+1,dog
+1,cat
+1,horseflesh
+1,donkey-meat
+1,camel
+1,alpaca
+1,llama
+1,water buffalo
+1,yak
+1,kangaroo
+1,guinea pig
+1,alligator
+1,turtle
+1,snake-meat
+1,bear
+
+#this is a suffix descriptor, going after
+;exotic prep
+1,in aspic
+1,deviled
+1,foie gras
+1,kebabs
+1,kishke/haggis
+
+#this is a prefix descriptor, going before
+;rural meat prep
+1,baked
+1,blackened
+1,breaded
+1,fermented
+1,glazed
+1,poached
+1,roasted
+1,seared
+1,smoked
+1,dried
+1,boiled
+1,stewed
+1,grilled
+1,barbecued
+1,pan-broiled
+1,stir-fried
+1,deep-fat fried
+1,pan-fried
+1,braised
+1,fork-tender
+
+;poultry parts
+1,giblets
+1,breast
+1,drumsticks
+1,thighs
+1,backs
+1,legs
+1,wings
+1,necks
+1,oysters
+
+;beef parts
+1,sausage
+1,liver
+1,marrow
+1,medallions
+1,loins
+1,sirloin
+1,flank
+1,brisket
+1,chuck steak
+1,shoulder
+1,mince
+1,offal
+1,steak
+1,shank
+1,tongue
+1,haunch
+1,ribs
+
+;pork parts
+1,sausage
+1,shoulder
+1,hock
+1,loin
+1,chops
+1,ribs
+1,spareribs
+1,belly
+1,baby-back ribs
+1,chitterlings
+1,feet
+
+;mutton parts
+1,chops
+1,joints
+1,legs
+1,shank
+1,shoulder
+1,loin chop
+1,rump
+1,neck fillet
+1,rack
+
+;lamb parts
+1,chops
+1,shanks
+1,rack
+
+;veal parts
+1,chops
+1,cutlet
+1,fillet
+1,rack
+1,ribeye
+1,shin
+1,shanks
+1,ribs
+1,liver
+1,topside
+1,silverside
+1,kidneys
+1,brisket
+1,tenderloin
+
+;goat parts
+1,liver
+1,marrow
+1,medallions
+1,loins
+1,sirloin
+1,flank
+1,brisket
+1,chuck steak
+1,shoulder
+1,mince
+1,offal
+1,steak
+1,shank
+1,tongue
+1,haunch
+1,ribs
+
+;ox parts
+1,liver
+1,marrow
+1,medalions
+1,loins
+1,sirloin
+1,flank
+1,brisket
+1,chuck steak
+1,shoulder
+1,mince
+1,offal
+1,steak
+1,shank
+1,tongue
+1,haunch
+1,ribs
+1,tail
+
+
+;food veg
+1,[root veg]
+1,[leafy veg]
+1,[legumes veg]
+1,[vine veg]
+1,asparagus
+1,brussel sprouts
+1,broccoli
+1,celery
+1,corn
+1,artichokes
+1,arugula
+1,cauliflower
+1,okra
+1,rhubarb
+
+#this is a prefix descriptor, going before
+;veg prep
+1,fermented
+1,marinated
+1,whipped
+1,mashed
+1,breaded
+1,pickled
+1,smoked
+1,dried
+1,boiled
+1,stewed
+1,charred
+1,finely-diced
+1,raw
+1,steamed
+1,sautéd
+1,fried
+1,braised
+1,baked
+1,sun-dried
+1,minced
+1,chopped
+1,au gratin
+1,au poivre
+1,blanched
+1,brined
+1,browned
+1,caramelized
+1,char-broiled
+1,creamed
+1,deep fried
+1,dry roasted
+1,glazed
+1,grilled
+1,julienned
+1,par-baked
+1,parboiled
+1,poached
+1,spit-roasted
+1,seared
+1,stir fried
+1,sweated
+
+
+
+;wild veg
+1,wild [domesticated veg] 
+1,foraged [domesticated veg]
+
+;root veg
+1,carrots
+1,potatoes
+1,beets
+1,turnips
+1,parsnips
+1,onions
+1,leeks
+1,scallions/green onions
+1,rutabagas
+1,radishes
+1,sweet potatoes
+1,yams
+
+;leafy veg
+1,spinach
+1,lettuce
+1,cabbage
+1,mustard greens
+1,turnip greens
+1,kale
+1,collard greens
+1,escarole
+1,sorrel
+1,radicchio
+
+;legumes veg
+1,green beans
+1,peas
+1,navy beans
+1,kidney beans
+1,lentils
+1,chickpeas
+1,snap peas
+1,soybeans
+1,black-eyed peas
+1,lima beans
+1,mung beans
+1,broad beans
+1,horse beans
+1,cow peas
+1,vetch
+
+;vine veg
+1,cucumber
+1,zucchini
+1,acorn squash
+1,crookneck squash
+1,butternut squash
+1,summer squash
+1,spaghetti squash
+1,pumpkin
+1,tomatoes
+1,eggplant
+1,bell peppers
+1,hot peppers
+
+
+;food seasonings
+1,parsley
+1,basil
+1,rosemary
+1,chives
+1,sage
+1,horseradish
+1,dill
+1,garlic
+1,shallots
+1,thyme
+1,oregano
+1,coriander
+1,mint
+1,tarragon
+1,ginger
+1,cumin
+1,paprika
+1,cardamom
+1,fennel
+1,cayenne
+1,allspice
+1,marjoram
+1,saffron
+1,nutmeg
+1,clove
+1,turmeric
+1,lemon balm
+1,fenugreek
+1,lovage
+1,bay leaves
+1,celery salt
+1,sumac
+1,borage
+1,caraway
+1,salt
+1,coriander seeds
+1,vanilla
+1,cinnamon
+1,poppy seeds
+1,chili peppers
+1,chicory
+1,lemongrass
+1,sesame
+1,curry
+1,black pepper
+1,lemon basil
+1,juniper berries
+1,peppermint
+1,garden cress
+1,hyssop
+1,tamarind
+1,mustard
+1,anise
+1,honey
+1,vinegar
+
+
+;seasoning method
+5,seasoned with
+30,flavored with
+45,covered in [sauces] with
+5,marinated in
+5,basted with
+5,enhanced with
+5,cured with
+
+;sauces
+1,[with food seasonings] and [food fruit] sauce
+1,[with food seasonings] and [food fruit] dressing
+1,[with food seasonings] and [food fruit] gravy
+1,[with food seasonings] and [food fruit] relish
+1,[with food seasonings] and [food fruit] chutney
+1,[with food seasonings] and [food fruit] coulis
+1,[with food seasonings] and [food fruit] topping
+1,[with food seasonings] and [cheese producer] cheese sauce
+
+;food melon
+1,cantaloupe
+1,watermelon
+1,winter melon
+1,horn melon
+1,muskmelon
+1,honeydew
+
+#singular, doing cherry here for sauces etc.
+;food fruit
+1,apple
+1,quince
+1,loquat
+1,pear
+1,rose hip
+1,apricot
+1,black cherry
+1,cherry
+1,choke cherry
+1,fig
+1,creek plum
+1,date
+1,jujube
+1,lychee
+1,nectarine
+1,peach
+1,plum
+1,rambutan
+1,sloe
+
+;food citrus fruit
+1,orange
+1,lime
+1,citron
+1,clementine
+1,finger lime
+1,grapefruit
+1,key lime
+1,lemon
+1,limequat
+1,pomelo
+1,tangerine
+
+;food tropical fruit
+1,coconut
+1,banana
+1,guava
+1,mango
+1,mangosteen
+1,persimmon
+1,pineapple
+
+
+
+;food cheese
+1,[cheese portion] of [with cheese desc2] and [and cheese desc2] [cheese texture] [cheese producer] cheese
+
+#the blank/default is cow, since we don't refer to it as "cow cheese" :)
+;cheese producer
+9,
+3,goat
+3,sheep
+1,[exotic cheese producer]
+
+;exotic cheese producer
+1,buffalo
+1,yak
+1,camel
+1,reindeer
+1,moose
+
+;cheese portion
+1,hunk
+1,chunk
+1,slice
+1,wedge
+1,lump
+1,small wheel
+1,block
+1,square
+
+;cheese texture
+1,hard
+1,sharp
+1,soft
+1,crumbly
+1,thick-rinded
+1,soft-rinded
+1,wax-wrapped
+1,buttery
+1,creamy
+1,delicate
+1,fluffy
+1,silky
+1,smooth
+1,velvety
+1,gooey
+
+;cheese desc2
+1,blue-veined
+1,fresh
+1,ripe
+1,fermented
+1,herbal
+1,green
+1,rustic
+1,rich
+1,smoked
+1,fruity
+1,zesty
+1,briny
+1,citrusy ([food citrus fruit])
+1,full-bodied
+1,honeyed
+1,earthy
+1,floral
+1,nutty
+1,sweet
+1,grassy
+1,barnyardy
+1,garlicky
+1,oniony
+1,funky
+1,pungent
+1,stinky
+1,musty
+1,acrid
+1,bitter
+1,bold
+1,sour
+1,meaty
+1,tangy
+1,robust
+1,full-flavored
+1,mushroomy
+1,spicy
+1,peppery
+1,piquant
+1,wine-y
+1,hay-covered
+
+
+;food bread
+60,[bread desc1] of [bread desc2] [breads]  
+40,[bread desc2] [exotic breads]
+
+#default with best odds should be "bread"
+;breads
+99,bread
+1,[exotic breads]
+
+;exotic breads
+1,baguette
+1,rolls
+1,buns
+1,pitas
+1,rotis
+1,bagels
+1,biscuits
+1,pretzels
+1,flat breads
+1,brioches
+1,chiabattas
+1,crumpets
+1,hardtack
+1,scones
+
+;bread desc2
+1,airy
+1,chewy
+1,crispy
+1,crumbly
+1,crunchy
+1,doughy
+1,flaky
+1,hearty
+1,toasted
+1,rye
+1,sweet
+1,pumpernickel
+1,coarse
+1,white
+1,whole-wheat
+1,multi-grain
+1,nutty
+1,sourdough
+1,brown
+1,sprouted
+1,spelt
+1,fresh-from-the-oven
+1,just baked
+1,slightly stale
+1,hard
+1,crusty
+1,seed-covered
+1,barley
+1,oat
+1,millet
+1,buttered
+1,mealy
+
+;bread desc1
+1,hunk
+1,heel
+1,slice
+1,chunk
+1,generous portion
+1,whole loaf
+1,small loaf
+1,fist-sized loaf
+
 ;mountain monolith
 1,A [here monolith] stands here. In the weeks when the sky is clear and a full moon casts its silvery light onto the monolith's surface, silvery spirals can be seen. If you trace them with your finger, you are transported to a similar [other monolith].
 1,A [here monolith] stands here. In the weeks when the sky is clear and a full moon casts its silvery light onto the monolith's surface, silvery spirals can be seen. If you trace them with your finger, you are transported to a similar [other monolith].
