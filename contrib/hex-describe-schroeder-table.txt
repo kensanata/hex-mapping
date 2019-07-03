@@ -817,7 +817,7 @@
 1,HD 3 AC 5 *drain* F3 MV 9 ML 12 XP 300; only harmed by magic or magic weapons; immune to *sleep* and *charm*
 
 ;mountain
-1,The green valley up here has some sheep and a **kid** called *[human kid]* guarding them.
+1,The green valley up here has some [mountain animals] and a **kid** called *[human name]* guarding them.
 1,Up here in the mountains lies lake *[lake name]*. [lake inhabitants]
 1,[mountain valley] [mountain monolith]
 1,[mountain valley] [hill giants]
@@ -829,9 +829,9 @@
 1,[mountain orcs]
 
 ;mountain orcs
-1,The valley up here is hard to find. This is where the orcs of the *[evil tribe]* tribe raise [mountain orc animals] and make their [mountain orc product]. [orcs] [orc leader specialty]</p><p>[mountain orc settlement]
+1,The valley up here is hard to find. This is where the orcs of the *[evil tribe]* tribe raise [mountain animals] and make their [mountain orc product]. [orcs] [mountain orc leader specialty]</p><p>[mountain orc settlement]
 
-;mountain orc animals
+;mountain animals
 1,mountain goats
 1,bighorn sheep
 1,yaks
@@ -931,10 +931,15 @@
 1,smooth
 1,velvety
 
-;orc leader specialty
+;mountain orc leader specialty
 1,*[same orc]* is a famous sword smith in the [orc sword tradition].
 1,*[same orc]* is a famous dual-wielding sword dancer.
 1,*[same orc]* is a famous singer of epics, his favourite being [orc epic].
+
+;forge orc leader specialty
+1,*[same orc]* is a famous armour smith in the [orc armour tradition].
+1,*[same orc]* is a famous engineer in the [orc engineering school].
+1,*[same orc]* is a famous rune lord having just finished his most celebrated epic, [orc epic].
 
 ;mountain orc settlement
 1,A rough palisade surrounds a few round wooden huts and a common roofed area, an orc settlement style unchanged ever since the *War of the Landgrab*. [mountain orc space] The settlement is [orc fort]
@@ -949,6 +954,27 @@
 1,The rooms are full of chests covered with beautiful carpets. They are filled with polished ancestral bones.
 1,In one corner is an altar and a statue of *[evil power]* with [orcish runes].
 1,The floor is covered with rugs except for a large hole filled with polished skulls.
+
+;forge orc settlement
+1,The orcs have built their settlement [forge location]. The round huts are protected by [orc companions]. [forge orc space]
+
+;forge location
+1,near the gatehouse guarding the entrance to the forge, with murder holes and arrow slits to defend against intruders
+1,in the old cistern, on a wooden platform built above the water, with access via rickety bridges, ropes and ladders
+1,in the main hall, along the walls and overlooking the stone garden and its dwarf statues and the artificial pools
+1,in the market hall, on the main floor and in the gallery above, with ladders and rickety stairs connecting the two
+
+;orc companions
+1,spear traps
+1,a **boar** ([boar stats])
+4,[1d4+1] **boars** ([boar stats])
+
+;forge orc space
+1,The open spaces between the huts are small and filled with dwarf junk: pipes, cogs, jagged metal plates.
+1,In the middle of the settlement stands a statue made of bits and pieces of dwarven metal painted in garish colours: a statue of *[evil power]* with [orcish runes].
+1,Every little hut looks the lab of a crazy inventor with bits of dwarf junk being disassembled or catalogued.
+1,The rooms are full of chests to sit on, covered with beautiful carpets. They are filled with polished ancestral bones.
+1,Every room has multiple little painted wooden statues depicting animals and plants from the surface world: goats, yaks, trees, mushrooms.
 
 ;orc epic
 1,*[orc] and [[orc antagonist]]*
@@ -1934,8 +1960,8 @@
 1,Trees
 
 ;forge ruin
-1,The ruin is abandoned and dead. If you explore the ruins, you will soon find the **balor** *[demon name]* who caused its downfall ([balor stats]). It guards a portal to the realm of eternal fire, to Muspelheim. [balor servants]
-1,The ruin has been settled by the *[evil tribe]* tribe. [orcs]
+1,The ruin is abandoned and dead. If you explore the ruins, you will soon find the **balor** *[demon name]* who caused its downfall ([balor stats]). It guards a portal to the realm of eternal fire, to Muspelheim.</p><p>[balor servants]
+1,The ruin has been settled by the *[evil tribe]* tribe. [orcs] [forge orc leader specialty]</p><p>[forge orc settlement]
 1,The ruin is full of broken machinery. In its depths, however, a **bronze golem** still wanders the halls ([bronze golem stats]).
 1,The ruin is now home to the **white dragon** [white dragon name] ([white dragon stats]). [dragon treasure]
 
@@ -1944,7 +1970,7 @@
 
 ;balor servants
 1,The chambers around the fire gate are occupied by creates from the other side. [salamanders]
-1,The orcs of the *[evil tribe]* tribe serve it. [orcs]
+1,The orcs of the *[evil tribe]* tribe serve *[same demon name]*. [orcs] [forge orc leader specialty]</p><p>[forge orc settlement]
 
 ;salamanders
 1,2d4 **salamanders** ([salamander stats]) live here, led by *[salamander]*. [terror treasure]
@@ -2024,19 +2050,6 @@
 1,of the Top
 1,the Eternal
 1,the Sleeper
-
-;human kid
-1,Al
-1,Bert
-1,Cus
-1,Dirk
-1,Ed
-1,Fal
-1,Gil
-1,Hela
-1,Ila
-1,Jo
-1,Keg
 
 ;lake name
 1,[lake 1] [lake 2]
@@ -4487,6 +4500,53 @@
 1,Killer
 1,Ripper
 1,Stab
+
+;orc armour tradition
+1,*[orc armour 1] [orc armour 2] [orc armour 3]* tradition
+
+;orc armour 1
+1,Fortified
+1,Polished
+1,Ancient
+
+;orc armour 2
+1,Steel
+1,Black
+1,Spike
+1,Poison
+1,Bone
+1,Rune
+
+;orc armour 3
+1,Panzer
+1,Shield
+1,Plate
+1,Hammer
+1,Wall
+
+;orc engineering school
+1,*[with orc engineering] and [and orc engineering] school of [orc purpose]*
+
+;orc engineering
+1,Fire
+1,Brimstone
+1,Ash
+1,Steel
+1,Brass
+1,Cog
+1,Wheel
+1,Hammer
+1,Lava
+1,Oil
+
+;orc purpose
+1,Destruction
+1,Machinery
+1,Tunneling
+1,Digging
+1,Mining
+1,Siege Warfare
+1,Forge Power
 
 ;orcish runes
 1,the orcish rune of [orcish rune 1]
