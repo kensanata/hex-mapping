@@ -1278,7 +1278,7 @@
 
 
 ;wild veg
-1,wild [domesticated veg] 
+1,wild [domesticated veg]
 1,foraged [domesticated veg]
 
 ;root veg
@@ -1559,7 +1559,7 @@
 
 
 ;food bread
-60,[bread desc1] of [bread desc2] [breads]  
+60,[bread desc1] of [bread desc2] [breads]
 40,[bread desc2] [exotic breads]
 
 #default with best odds should be "bread"
@@ -6265,20 +6265,20 @@
 1,fresh [food berries prefix]berries ([rp] [wicker desc] baskets)
 1,ripe [food berries prefix]berries ([rp] [wicker desc] baskets)
 1,[rp] [bone type] bones
-1,empty [glass desc] bottle 
+1,empty [glass desc] bottle
 1,empty [metal mat] flask
 1,[condition desc] [metal mat] [metal jewelry]
-1,[condition desc] [glass desc] glass shards 
-1,[glass desc] glass beads 
+1,[condition desc] [glass desc] glass shards
+1,[glass desc] glass beads
 1,[tool mat] butter knife
-1,[rp] [tool mat] buttons 
+1,[rp] [tool mat] buttons
 1,[tool mat] chess [chess piece]
-1,[condition desc] [tool mat] [vessel desc] 
+1,[condition desc] [tool mat] [vessel desc]
 1,chunk of [plant mat]
 1,[rp] [body part desc]
 1,[rp] corks
 1,[condition desc] [tool mat] pipe
-1,[length desc] of [metal mat] wire 
+1,[length desc] of [metal mat] wire
 1,dead [small animal type]
 1,live [small animal type]
 1,[skull desc] ear
@@ -6287,7 +6287,7 @@
 1,[rp] [small bird type] eggshells
 1,[rp] [small reptile type] eggshells
 1,[rp] [small bird type] eggs
-1,[rp] [small reptile type] eggs 
+1,[rp] [small reptile type] eggs
 1,[rp] feet of [string desc] on a [tool mat] spool
 1,fish scales
 1,[small reptile type] scales
@@ -6295,9 +6295,9 @@
 1,[stone mat] shard
 1,foot of [string desc]
 1,[tool mat] fork
-1,[glass desc] glass vial 
+1,[glass desc] glass vial
 1,handful of [handful mat]
-1,[cloth desc] pouch of [handful mat] 
+1,[cloth desc] pouch of [handful mat]
 1,incense cones/sticks
 1,fragrant herbs
 1,[metal mat] arrowhead
@@ -6306,8 +6306,8 @@
 1,[condition desc] [tool mat] ladle
 1,[length desc] [hide mat] cord
 1,[length desc] of [string desc]
-1,little [condition desc] [tool mat] box 
-1,[lock pick desc] lock pick 
+1,little [condition desc] [tool mat] box
+1,[lock pick desc] lock pick
 1,[rp] morel mushrooms
 1,[rp] vanilla beans
 1,[rp] cinnamon sticks
@@ -6315,7 +6315,7 @@
 1,strip of jerky
 1,mummified [skull desc] finger
 1,mummified [skull desc] toe
-1,[metal mat] nails 
+1,[metal mat] nails
 1,[metal mat] tacks
 1,[rp] [nuts]
 1,palm fronds
@@ -6323,71 +6323,71 @@
 1,cedar shavings
 1,[cloth desc] [cloth mat] cloth patch
 1,[2d12] pebbles
-1,[2d12] flower petals 
+1,[2d12] flower petals
 1,[2d12] dried flowers
 1,piece of [horn mat]
 1,piece of charcoal
 1,piece of [fruit]
-1,piece of [wood desc] [wood mat] tree bark 
+1,piece of [wood desc] [wood mat] tree bark
 1,[rp] pieces of candy/sweets
 1,pinch of salt
 1,[rp] plum pits
 1,[rp] pine cones
 1,[rp] shards of coconut shell
-1,[rp] cherry stones 
+1,[rp] cherry stones
 1,[metal mat] metal shavings
 1,powdered [stone mat]
 1,powdered [metal mat]
 1,[tool mat] flute
 1,[tool mat] harmonica
-1,[rp] roots 
-1,[rp] bulbs 
-1,scrap of [cloth mat] 
+1,[rp] roots
+1,[rp] bulbs
+1,scrap of [cloth mat]
 1,seven dried herbs or spices
 1,[tool mat] sewing needles
 1,[tool mat] pins
 1,[condition desc] [tool mat] hand mirror
-1,[condition desc] [tool mat] hairbrush 
+1,[condition desc] [tool mat] hairbrush
 1,[tool mat] comb
-1,[only desc] [pair item] 
+1,[only desc] [pair item]
 1,[metal mat] skeleton key
-1,[skin mat] skin 
+1,[skin mat] skin
 1,small chunk of cheese
-1,small [bone type] fossil 
+1,small [bone type] fossil
 1,[rp] seashells
 1,[condition desc] [tool mat] knife
 1,small pumice stone
 1,small shard of petrified wood
 1,[cloth desc] [cloth mat] handkerchief
 1,[cloth desc] [cloth mat] bandanna
-1,[cloth desc] [cloth mat] rags 
+1,[cloth desc] [cloth mat] rags
 1,[cloth desc] [cloth mat] scarf
 1,[cloth desc] [cloth mat] shawl
 1,some [fruit] peels/rinds
-1,[tool mat] spool 
-1,[condition desc] [tool mat] spoon 
+1,[tool mat] spool
+1,[condition desc] [tool mat] spoon
 1,[food desc] heel of bread
 1,[food desc] biscuits
-1,[food desc] crackers 
+1,[food desc] crackers
 1,[tool mat] stamp
 1,[tool mat] seal
 1,[metal mat] seal
 1,quill
 1,nib pen
 1,chalk pieces
-1,stub of a candle 
+1,stub of a candle
 1,[rp] candle wicks
 1,[tool mat] thimble
-1,tiny [metal mat] bell 
-1,tiny ingot of [metal mat] 
+1,tiny [metal mat] bell
+1,tiny ingot of [metal mat]
 1,tiny [metal mat] figurine
 1,[rp] pieces of torn [paper mat] ([paper desc])
 1,[wood mat] twigs/kindling
 1,slivers of [wood mat] wood
 1,two [tool mat] dice
 1,unworked strap of [hide mat]
-1,[hide mat] belt 
-1,[tool mat] whistle 
+1,[hide mat] belt
+1,[tool mat] whistle
 
 
 ;wood desc
@@ -6488,7 +6488,7 @@
 1,[metal mat]
 
 ;horn mat
-1,antler 
+1,antler
 1,bull horn
 1,goat horn
 1,ram horn
@@ -6521,7 +6521,7 @@
 1,scraps of fur
 1,hair
 1,tree sap
-1,tar 
+1,tar
 1,resin
 
 ;stone mat
@@ -6548,18 +6548,18 @@
 1,flour
 1,grain
 1,spelt
-1,[seed desc] seeds 
+1,[seed desc] seeds
 
 ;seed desc
 1,flower
 1,fruit
-1,tree 
+1,tree
 1,vegetable
 
 ;skull desc
 1,orc
 1,pixie
-1,sprite 
+1,sprite
 1,elf
 1,goblin
 1,human
@@ -6803,15 +6803,15 @@
 1,pine
 
 ;junk price
-5,[rp] [money mat] pieces 
-1,[rp]0 [money mat] pieces 
+5,[rp] [money mat] pieces
+1,[rp]0 [money mat] pieces
 
 ;money mat
 50,copper
 30,silver
 10,electrum
 9,gold
-1,platinum 
+1,platinum
 
 ;goblin closing pitch
 1,*All Sales Are Final*
@@ -8437,11 +8437,11 @@
 1,[path 1] [path 2]
 
 ;path 1
-1,path 
-1,game-trail 
-1,track 
-1,passage 
-1,path 
+1,path
+1,game-trail
+1,track
+1,passage
+1,path
 
 ;path 2
 1,winds
@@ -8622,7 +8622,7 @@
 ;inorganic objects
 1,a suit of plate mail armor
 1,a locked iron strong box containing <span class="treasure">[1d6]00sp</span>
-1,the iron rim of a wagon wheel 
+1,the iron rim of a wagon wheel
 1,a rusty tower shield
 1,a large empty clay amphora
 1,the marble head of a statue of a dwarf
