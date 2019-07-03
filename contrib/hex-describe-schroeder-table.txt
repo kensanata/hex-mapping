@@ -835,20 +835,94 @@
 1,mountain goats
 1,bighorn sheep
 1,yaks
+1,llamas
+1,mountain moose
 
 ;mountain orc product
-1,famous cheese
-1,green cheese
-1,spicy yogurt
-1,fermented yogurt
-1,fermented bean-curd
-1,frozen bean-curd
-1,famous iron rations made of dried [fruit] and [nuts]
-1,famous iron rations made of bacon, honey and roasted [nuts]
+1,[orc cheese]
+1,[orc yogurt]
+1,[orc tofu]
+1,famous [iron rations]
 1,waterproof woollen coats
 1,decorated silver drinking horns
 1,gruesome puppets made of orc bones
 1,famous composite bows
+
+;iron rations
+1,iron rations made of dried [fruit] and [nuts]
+1,iron rations made of bacon, honey and roasted [nuts]
+
+;orc yogurt
+1,[orc yogurt adjective] yogurt
+
+;orc yogurt adjective
+1,spicy
+1,strained
+1,honey
+1,[fruit]
+
+;orc tofu
+1,[orc tofu adjective] bean-curd
+
+;orc tofu adjective
+3,bean-curd
+1,fermented
+1,frozen
+1,soft
+1,silky
+1,sweet
+1,smoked
+
+;orc cheese
+1,[orc cheese adjective] and [orc cheese texture] cheese[orc cheese taste]
+
+;orc cheese adjective
+1,blue-veined
+1,salty
+1,fermented
+1,herbal
+1,green
+1,rich
+1,smoked
+1,earthy
+1,floral
+1,nutty
+1,sweet
+1,grassy
+1,pungent
+1,stinky
+1,musty
+1,acrid
+1,bitter
+1,sour
+1,meaty
+1,tangy
+1,spicy
+
+;orc cheese taste
+5,
+# leading space required
+1, with a fruity aftertaste of [food citrus fruit]
+1, marinated in whine
+1, covered in crushed pepper
+1, containing bits of mushrooms
+1, with a strong garlic taste
+1, with a taste of onion
+1, covered in hay
+1, best served with honey
+
+;orc cheese texture
+4,hard
+2,crumbly
+1,soft
+1,wax-wrapped
+1,buttery
+1,creamy
+1,delicate
+1,fluffy
+1,silky
+1,smooth
+1,velvety
 
 ;orc leader specialty
 1,*[same orc]* is a famous sword smith in the [orc sword tradition].
@@ -1407,13 +1481,13 @@
 5,cured with
 
 ;sauces
-1,[with food seasonings] and [food fruit] sauce
-1,[with food seasonings] and [food fruit] dressing
-1,[with food seasonings] and [food fruit] gravy
-1,[with food seasonings] and [food fruit] relish
-1,[with food seasonings] and [food fruit] chutney
-1,[with food seasonings] and [food fruit] coulis
-1,[with food seasonings] and [food fruit] topping
+1,[with food seasonings] and [fruit] sauce
+1,[with food seasonings] and [fruit] dressing
+1,[with food seasonings] and [fruit] gravy
+1,[with food seasonings] and [fruit] relish
+1,[with food seasonings] and [fruit] chutney
+1,[with food seasonings] and [fruit] coulis
+1,[with food seasonings] and [fruit] topping
 1,[with food seasonings] and [cheese producer] cheese sauce
 
 ;food melon
@@ -1423,28 +1497,6 @@
 1,horn melon
 1,muskmelon
 1,honeydew
-
-#singular, doing cherry here for sauces etc.
-;food fruit
-1,apple
-1,quince
-1,loquat
-1,pear
-1,rose hip
-1,apricot
-1,black cherry
-1,cherry
-1,choke cherry
-1,fig
-1,creek plum
-1,date
-1,jujube
-1,lychee
-1,nectarine
-1,peach
-1,plum
-1,rambutan
-1,sloe
 
 ;food citrus fruit
 1,orange
@@ -6591,6 +6643,9 @@
 1,peach
 1,apricot
 1,plum
+1,cherry
+1,quince
+1,fig
 
 ;skin mat
 1,[small mammal type]
