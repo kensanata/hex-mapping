@@ -2248,7 +2248,7 @@ any '/edit' => sub {
 any '/render' => sub {
   my $c = shift;
   my $map;
-  if ($c->param('type') eq 'square') {
+  if ($c->param('type')||'' eq 'square') {
     $map = new Mapper::Square;
   } else {
     $map = new Mapper::Hex;
