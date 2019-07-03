@@ -865,7 +865,7 @@
 1,[orc tofu adjective] bean-curd
 
 ;orc tofu adjective
-3,bean-curd
+3,
 1,fermented
 1,frozen
 1,soft
