@@ -829,10 +829,11 @@
 1,[mountain orcs]
 
 ;mountain orcs
-1,The valley up here is hard to find. This is where the orcs of the *[evil tribe]* tribe raise [mountain orc animals] and make their [mountain orc product]. [orcs] Their village is [orc fort]
+1,The valley up here is hard to find. This is where the orcs of the *[evil tribe]* tribe raise [mountain orc animals] and make their [mountain orc product]. [orcs] [orc leader specialty]</p><p>[mountain orc settlement]
 
 ;mountain orc animals
 1,mountain goats
+1,bighorn sheep
 1,yaks
 
 ;mountain orc product
@@ -841,11 +842,90 @@
 1,spicy yogurt
 1,fermented yogurt
 1,fermented bean-curd
-1,famous iron rations
+1,frozen bean-curd
+1,famous iron rations made of dried [fruit] and [nuts]
+1,famous iron rations made of bacon, honey and roasted [nuts]
 1,waterproof woollen coats
 1,decorated silver drinking horns
-1,gruesome puppets made of their bones
+1,gruesome puppets made of orc bones
 1,famous composite bows
+
+;orc leader specialty
+1,*[same orc]* is a famous sword smith in the [orc sword tradition].
+1,*[same orc]* is a famous dual-wielding sword dancer.
+1,*[same orc]* is a famous singer of epics, his favourite being [orc epic].
+
+;mountain orc settlement
+1,A rough palisade surrounds a few round wooden huts and a common roofed area, an orc settlement style unchanged ever since the *War of the Landgrab*. [mountain orc space] The settlement is [orc fort]
+1,A majestic palisade surrounds a big, saddle-shaped hut built in the *Two Families* style with a central hall and two domed rooms on opposite sides. [mountain orc space] The hut is [orc fort]
+1,The orcs live in a big circular building with a large central courtyard in the *One Clan* style, the lower story made of stone and the upper story made of wood. [mountain orc space] The building is [orc fort]
+1,The orcs live in an old stone tower from the old days, patched up with planks and shingled. [mountain orc space] It is [orc fort]
+1,The orcs live in a ruined mountain fortress built during the reign of [wight leader]. The stone carvings still tell the story of the subjugation of these lands. Amidst the rubble, the orcs have built a handful of wooden huts. [mountain orc space] The fortress itself is [orc fort]
+
+;mountain orc space
+1,Beneath some covers are tents and tent poles for the entire clan.
+1,The rooms look like a mix between a forge and an alchemy lab: stuffed lizards, skulls, garlic, but also an anvil, a hammer, sacks of coal.
+1,The rooms are full of chests covered with beautiful carpets. They are filled with polished ancestral bones.
+1,In one corner is an altar and a statue of *[evil power]* with [orcish runes].
+1,The floor is covered with rugs except for a large hole filled with polished skulls.
+
+;orc epic
+1,*[orc] and [[orc antagonist]]*
+1,*[orc] and the [orc blessing] of [star name]*
+1,*The [orc fate] of [[orc antagonist]]*
+1,*The [orc victory] of [[orc place]]*
+
+;orc blessing
+1,Light
+1,Wisdom
+1,Healing
+1,Birth
+1,Blessing
+1,Rescue
+
+;orc victory
+1,Razing
+1,Conquest
+1,Destruction
+1,Curse
+1,Taking
+
+;orc place
+1,green tower simple name
+1,crag name
+1,village name
+
+;orc fate
+1,Binding
+1,Death
+1,End
+1,Song
+1,Bones
+1,Trials
+
+;orc antagonist
+1,orc
+1,ice devil
+1,red dragon name
+1,white dragon name
+1,green dragon name
+1,black dragon name
+1,wight name
+1,ettercap name
+1,manticore
+1,tengu name
+1,demon name
+1,evil tribe
+1,human name
+1,dwarf name
+1,halfling name
+1,strange name
+1,old name
+1,secret society
+1,mercenary house name
+1,organisation name
+1,netherworld elves
+1,fire giant name
 
 ;mountain valley
 1,The upper valley is rocky and bare.
@@ -3619,9 +3699,15 @@
 1,HD 3+1 AC 6 1d8 F1 MV 15 ML 9 XP 300
 
 ;orc feature
-1,Many skulls are on display.
+1,There are [some] big skull pyramids near the entrance with about 200 skulls each.
+1,There are [some] large iron spikes with a dozen skulls each near the entrance.
+1,There are [some] skulls hanging over the entrance, swinging in the breeze.
 1,At the back is an entrance to an abandoned mine. [abandoned mine]
-1,*[same orc]* is a famous sword smith in the [orc sword tradition].
+
+;some
+1,two
+1,three
+1,several
 
 ;orc sword tradition
 1,*[orc sword 1] [orc sword 2] [orc sword 3]* tradition
@@ -3632,30 +3718,24 @@
 1,Wicked
 1,Toothed
 1,Barbed
+1,Crooked
 
 ;orc sword 2
 1,Back
-1,Crooked
 1,Horse
 1,Rank
 1,Monkey
+1,Pig
+1,Elf
+1,Man
+1,Mountain Lion
 
 ;orc sword 3
 1,Biter
 1,Slicer
 1,Killer
 1,Ripper
-
-;orc treasure
-1,[orc treasure context] [robber treasure]
-
-;orc treasure context
-1,Piles of rags and poles. Maybe old tents?
-1,Broken siege engines and other weird machinery made of wood.
-1,A mix between a forge and an alchemy lab: stuffed lizards, skulls, garlic, but also an anvil, a hammer, sacks of coal.
-1,Chests filled with polished, ancestral bones.
-1,A statue of *[evil power]* with [orcish runes].
-1,A hole filled with polished skulls.
+1,Stab
 
 ;orcish runes
 1,the orcish rune of [orcish rune 1]
@@ -3685,8 +3765,8 @@
 
 ;abandoned mine
 1,[abandoned coal mine]
-1,This must have been a pretty big operation. At least twenty or thirty people must been digging down here at one point.</p><p>The orc avoid the mine because a bunch of gnomes has settled here and extended the crawlspaces with even more tunnels. [gnomes] They resent intruders.
-1,This is a huge shaft leading down into blackness. At the bottom are the ruins of an underground building by the ancients.</p><p>[ruins of the ancients]
+1,This must have been a pretty big operation. At least twenty or thirty people must have been digging down here at one point.</p><p>The orc avoid the mine because a bunch of gnomes has settled here and extended the crawlspaces with even more tunnels. [gnomes] They resent intruders.
+1,A huge shaft leads down into blackness. At the bottom are the ruins of an underground building by the ancients.</p><p>[ruins of the ancients]
 
 ;gnomes
 1,5d8 **gnomes** ([gnome stats]) led by *[gnome]* (HD 5) live here, looking for gems. [rich treasure] These caves are protected by [gnome companions]
@@ -4191,7 +4271,7 @@
 1,HD 1 AC 6 1d6 F1 MV 12 ML 8 XP 100
 
 ;orcs
-1,[1d6x10] **orcs** led by [orc leader] live here ([orc stats]). [orc treasure] [leader treasure]
+1,[1d6x10] **orcs** led by [orc leader] live here ([orc stats]). [robber treasure] [leader treasure]
 
 ;orc war
 1,The Resettlement
@@ -5545,7 +5625,7 @@
 1,mummified [skull desc] toe
 1,[metal mat] nails 
 1,[metal mat] tacks
-1,[rp] [nuts desc] 
+1,[rp] [nuts]
 1,palm fronds
 1,pine needles
 1,cedar shavings
@@ -5555,7 +5635,7 @@
 1,[2d12] dried flowers
 1,piece of [horn mat]
 1,piece of charcoal
-1,piece of [fruit desc] 
+1,piece of [fruit]
 1,piece of [wood desc] [wood mat] tree bark 
 1,[rp] pieces of candy/sweets
 1,pinch of salt
@@ -5591,7 +5671,7 @@
 1,[cloth desc] [cloth mat] rags 
 1,[cloth desc] [cloth mat] scarf
 1,[cloth desc] [cloth mat] shawl
-1,some [fruit desc] peels/rinds
+1,some [fruit] peels/rinds
 1,[tool mat] spool 
 1,[condition desc] [tool mat] spoon 
 1,[food desc] heel of bread
@@ -5801,7 +5881,7 @@
 1,spiderlimb
 1,wyverntail
 
-;nuts desc
+;nuts
 1,acorns
 1,cashews
 1,pecans
@@ -5809,7 +5889,7 @@
 1,hazelnuts
 1,almonds
 
-;fruit desc
+;fruit
 1,apple
 1,melon
 1,orange
@@ -8824,7 +8904,10 @@
 1,The temple functions welcomes all wanderers and homeless people, housing people for up to week for a gold piece per person. This is the [inn] run by **[human name]**. The common room has an entire altar built into it, including carved columns with eagles and ravens and showing Odin riding his eight legged horse over the rainbow bridge.
 
 ;mercenary house
-1,The [mercenary house name 1] [mercenary house name 1] of [mercenary house name 2] is run by [human name] and consists of 6d6 mercenaries.
+1,The [mercenary house name] is run by [human name] and consists of 6d6 mercenaries.
+
+;mercenary house name
+1,[mercenary house name 1] [mercenary house name 2] of [mercenary house name 3]
 
 ;mercenary house name 1
 1,Legendary
@@ -31543,7 +31626,7 @@
 1,The two handed *Icekiller* +3, forged by the frost giant *[frost giant]* in Jotunheim; when the blade is drawn, snow flakes form; when it is stuck into water, a layer of ice forms (10ft); when left unsheathed, a glacier will eventually form.
 1,The long sword *Swampfire* +1/+3 vs. runners, forged in the depths of Myrkheim by frogling priests of Tsathoggua; it eeks a phosphorous glowing liquid and smells of rotten eggs; when left unsheathed, everything around it becomes water logged and eventually turns into a swamp.
 1,The *trident of fishes* +1 gives you long, webbed toes and the ability to breathe under water when you step into it, and you can speak the language of fishes.
-1,The ancient war hammer *Earth Hammer* +3, made by *[orc]* in the Wars of the Landgrab: it can smash any structure built by man in three blows.
+1,The ancient war hammer *Earth Hammer* +3, made by *[orc]* in the *War of the Landgrab*: it can smash any structure built by man in three blows.
 
 ;magic weapon for magic user
 5,An elven *dagger* +1 with [elven inscription]
