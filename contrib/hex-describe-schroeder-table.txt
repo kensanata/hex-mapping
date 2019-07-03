@@ -839,14 +839,21 @@
 1,mountain moose
 
 ;mountain orc product
-1,[orc cheese]
-1,[orc yogurt]
-1,[orc tofu]
-1,famous [iron rations]
+1,[orc food adjective] [orc cheese]
+1,[orc food adjective] [orc yogurt]
+1,[orc food adjective] [orc tofu]
+1,[orc food adjective] [iron rations]
 1,waterproof woollen coats
 1,decorated silver drinking horns
 1,gruesome puppets made of orc bones
 1,famous composite bows
+
+;orc food adjective
+1,famous
+1,tasty
+1,superior
+1,popular
+1,well-known
 
 ;iron rations
 1,iron rations made of dried [fruit] and [nuts]
