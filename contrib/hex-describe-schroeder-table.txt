@@ -1013,10 +1013,24 @@
 
 ;forge orc space
 1,The open spaces between the huts are small and filled with dwarf junk: pipes, cogs, jagged metal plates.
-1,In the middle of the settlement stands a statue made of bits and pieces of dwarven metal painted in garish colours: a statue of *[evil power]* with [orcish runes].
+1,In the middle of the settlement stands a statue made of bits and pieces of dwarven metal painted in garish colours: a statue of *[evil power]* with [orcish runes] painted in [orcish rune colour] on [orcish rune location].
 1,Every little hut looks the lab of a crazy inventor with bits of dwarf junk being disassembled or catalogued.
 1,The rooms are full of chests to sit on, covered with beautiful carpets. They are filled with polished ancestral bones.
 1,Every room has multiple little painted wooden statues depicting animals and plants from the surface world: goats, yaks, trees, mushrooms.
+
+;orcish rune location
+1,its forehead
+1,its torso
+1,the flag wrapped around it
+1,the tapestry hanging behind it
+1,their tongue
+
+;orcish rune colour
+1,gold
+1,silver
+1,black
+1,white
+1,red
 
 ;orc epic
 1,*[orc] and [[orc antagonist]]*
