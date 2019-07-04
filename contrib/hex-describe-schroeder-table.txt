@@ -831,6 +831,9 @@
 ;mountain orcs
 1,The valley up here is hard to find. This is where the orcs of the *[evil tribe]* tribe raise [mountain animals] and make their [mountain orc product]. [orcs] [mountain orc leader specialty]</p><p>[mountain orc settlement]
 
+;forge orcs
+1,The ruin has been settled by the *[evil tribe]* tribe. This is where they study dwarven technology and build strange and wonderful machines from the wreckage, and this is where they cultivate their mushrooms to make [forge orc mushroom dish].</p><p>[orcs] [forge orc leader specialty]</p><p>[forge orc settlement]
+
 ;mountain animals
 1,mountain goats
 1,bighorn sheep
@@ -930,6 +933,45 @@
 1,silky
 1,smooth
 1,velvety
+
+;forge orc mushroom dish
+1,[rural meat prep] [edible mushroom] [seasoning method] [with food seasonings] and [with veg prep] [with food veg]
+
+;edible mushroom
+1,[fungus qualifier] [fungus]
+1,[fungus qualifier] [tree] [fungus]
+1,[fungus qualifier] [orc fate] [fungus]
+1,[fungus qualifier] [regular noun] [fungus]
+1,[fungus qualifier] [fungus location] [fungus]
+1,[colour]-tipped [regular noun] [fungus]
+1,[evil tribe animal] Ear
+
+;fungus qualifier
+8,[capitalize colour]
+1,Dotted
+1,Smooth
+
+;fungus
+1,Fungus
+1,Chanterelle
+1,Mushroom
+1,Cap
+1,Head
+1,Parasol
+1,Stalk
+1,Puffball
+1,Sponge
+1,Russula
+1,Trumpet
+
+;fungus location
+1,Forest
+1,Saddle
+1,Ear
+1,Eggs
+1,Trumpet
+1,[animal]
+1,[evil tribe thing]
 
 ;mountain orc leader specialty
 1,*[same orc]* is a famous sword smith in the [orc sword tradition].
@@ -1961,7 +2003,7 @@
 
 ;forge ruin
 1,The ruin is abandoned and dead. If you explore the ruins, you will soon find the **balor** *[demon name]* who caused its downfall ([balor stats]). It guards a portal to the realm of eternal fire, to Muspelheim.</p><p>[balor servants]
-1,The ruin has been settled by the *[evil tribe]* tribe. [orcs] [forge orc leader specialty]</p><p>[forge orc settlement]
+1,[forge orcs]
 1,The ruin is full of broken machinery. In its depths, however, a **bronze golem** still wanders the halls ([bronze golem stats]).
 1,The ruin is now home to the **white dragon** [white dragon name] ([white dragon stats]). [dragon treasure]
 
