@@ -516,10 +516,9 @@ sub process {
       my $rest = $3;
       my ($label, $size) = $rest =~ /\"([^\"]+)\"\s*(\d+)?/;
       $region->label($label);
-      $rest =~ s/\"[^\"]+\"\s*\d*//; # strip label and size
-      my @terms = split(/\s+/, $rest);
       $region->size($size);
-      my @types = grep(!/^\d$/, @terms);
+      $rest =~ s/\"[^\"]+\"\s*\d*//; # strip label and size
+      my @types = split(/\s+/, $rest);
       $region->type(\@types);
       push(@{$self->regions}, $region);
       push(@{$self->things}, $region);
