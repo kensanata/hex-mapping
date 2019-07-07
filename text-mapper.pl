@@ -514,12 +514,11 @@ sub process {
     if (/^(\d\d)(\d\d)\s+(.*)/) {
       my $region = $self->make_region(x => $1, y => $2, map => $self);
       my $rest = $3;
-      my ($label) = $rest =~ /\"([^\"]+)\"/;
+      my ($label, $size) = $rest =~ /\"([^\"]+)\"\s*(\d+)?/;
       $region->label($label);
-      $rest =~ s/\"[^\"]+\"//;
+      $rest =~ s/\"[^\"]+\"\s*\d*//; # strip label and size
       my @terms = split(/\s+/, $rest);
-      my @sizes = grep(/^(\d)$/, @terms);
-      $region->size(shift(@sizes));
+      $region->size($size);
       my @types = grep(!/^\d$/, @terms);
       $region->type(\@types);
       push(@{$self->regions}, $region);
@@ -2248,7 +2247,7 @@ any '/edit' => sub {
 any '/render' => sub {
   my $c = shift;
   my $map;
-  if ($c->param('type')||'' eq 'square') {
+  if ($c->param('type') and $c->param('type') eq 'square') {
     $map = new Mapper::Square;
   } else {
     $map = new Mapper::Hex;
