@@ -1,0 +1,52 @@
+# This file is for use with text-mapper.
+# https://github.com/kensanata/hex-mapping
+
+default attributes fill="none" stroke="black" stroke-width="3"
+
+# ports
+A xml <text font-size="20pt" dy="-25px" font-family="Optima, Helvetica, sans-serif" text-anchor="middle">A</text>
+B xml <text font-size="20pt" dy="-25px" font-family="Optima, Helvetica, sans-serif" text-anchor="middle">B</text>
+C xml <text font-size="20pt" dy="-25px" font-family="Optima, Helvetica, sans-serif" text-anchor="middle">C</text>
+D xml <text font-size="20pt" dy="-25px" font-family="Optima, Helvetica, sans-serif" text-anchor="middle">D</text>
+E xml <text font-size="20pt" dy="-25px" font-family="Optima, Helvetica, sans-serif" text-anchor="middle">E</text>
+F xml <text font-size="20pt" dy="-25px" font-family="Optima, Helvetica, sans-serif" text-anchor="middle">F</text>
+
+# size
+0 xml <circle r="11"/>
+1 xml <circle r="12"/>
+2 xml <circle r="13"/>
+3 xml <circle r="14"/>
+4 xml <circle r="15"/>
+5 xml <circle r="16"/>
+6 xml <circle r="17"/>
+7 xml <circle r="18"/>
+8 xml <circle r="19"/>
+9 xml <circle r="20"/>
+10 xml <circle r="21"/>
+
+# bases
+consulate xml <text font-size="20pt" dy="50px" dx="-45px" font-family="Optima, Helvetica, sans-serif" text-anchor="middle">■</text>
+tas xml <text font-size="20pt" dy="20px" dx="-70px" font-family="Optima, Helvetica, sans-serif" text-anchor="middle">☼</text>
+pirate xml <text font-size="20pt" dy="20px" dx="70px" font-family="Optima, Helvetica, sans-serif" text-anchor="middle">☠</text>
+research xml <text font-size="20pt" dy="-10px" dx="70px" font-family="Optima, Helvetica, sans-serif" text-anchor="middle">π</text>
+naval xml <text font-size="20pt" dy="-40px" dx="-45px" font-family="Optima, Helvetica, sans-serif" text-anchor="middle">★</text>
+gas xml <text font-size="20pt" dy="-40px" dx="45px" font-family="Optima, Helvetica, sans-serif" text-anchor="middle">◉</text>
+scout xml <text font-size="20pt" dy="-10px" dx="-70px" font-family="Optima, Helvetica, sans-serif" text-anchor="middle">▲</text>
+
+# alert status
+red xml <circle r="48" fill="red" opacity="0.3"/>
+amber xml <circle r="48" fill="none" stroke="black" stroke-width="1" opacity="0.3"/>
+
+text font-size="16pt" dy="15px" font-family="Optima, Helvetica, sans-serif" fill-opacity="0.5"
+label font-size="16pt" font-family="Optima, Helvetica, sans-serif"
+
+communication path attributes stroke="#ff6347" stroke-width="10pt" fill="none" opacity="0.7"
+trade path attributes stroke="#afeeee" stroke-width="6pt" fill="none" opacity="0.7"
+
+# frame and legend
+other <rect fill="none" stroke="black" stroke-width="10" x="30" y="30" width="1500" height="1840" />
+other <text font-size="24pt" y="70px" x="730px" font-family="Optima, Helvetica, sans-serif">coreward</text>
+other <text font-size="24pt" y="1850px" x="730px" font-family="Optima, Helvetica, sans-serif">rimward</text>
+other <text font-size="24pt" x="0" y="0" transform="translate(70,1020) rotate(-90) " font-family="Optima, Helvetica, sans-serif">spinward</text>
+other <text font-size="24pt" x="0" y="0" transform="translate(1490,900) rotate(90) " font-family="Optima, Helvetica, sans-serif">trailing</text>
+other <text font-size="14pt" x="0" y="0" transform="translate(10,1850) rotate(-90) " font-family="Optima, Helvetica, sans-serif">◉ gas giant – ■ imperial consulate – ☼ TAS – ▲ scout base – ★ navy base – π research base – ☠ pirate base – <tspan fill="#ff6347">▮</tspan> communication – <tspan fill="#afeeee">▮</tspan> trade</text>
