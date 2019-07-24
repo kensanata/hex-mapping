@@ -150,10 +150,9 @@ get '/load/random/alpine' => sub {
 
 This is where the actual map is described.
 
-B<map> is the map, B<url> is the URL to an external table. If not provided,
-B<table> is the text of the table. If neither is provided, a table will be
-loaded based on the B<load> parameter. Current valid values are I<seckler>,
-I<strom> and I<schroeder>.
+B<map> is the map, B<url> is the URL to an external table, B<table> is the text
+of the table, and a table will be loaded based on the B<load> parameter. Current
+valid values are I<seckler>, I<strom> and I<schroeder>.
 
 If we want to call this from the command line, we will need to request a map
 from Text Mapper, too.
@@ -549,7 +548,7 @@ sub get_post_data {
 =item get_table
 
 This function gets a Mojolicious Controller object and looks for C<map>,
-C<load>, C<url> or C<table> parameters in order to determine the table data to
+C<load>, C<url> and C<table> parameters in order to determine the table data to
 use.
 
 =cut
@@ -560,10 +559,10 @@ sub get_table {
   my $url = $c->param('url');
   my $table;
   $table = get_data($url) if $url;
-  $table ||= $c->param('table');
-  $table ||= decode_utf8($seckler_table->slurp) if $load eq 'seckler';
-  $table ||= decode_utf8($schroeder_table->slurp) if $load eq 'schroeder';
-  $table ||= decode_utf8($strom_table->slurp) if $load eq 'strom';
+  $table .= $c->param('table');
+  $table .= decode_utf8($seckler_table->slurp) if $load eq 'seckler';
+  $table .= decode_utf8($schroeder_table->slurp) if $load eq 'schroeder';
+  $table .= decode_utf8($strom_table->slurp) if $load eq 'strom';
   return $url, $table if wantarray;
   return $table;
 }
@@ -1930,7 +1929,9 @@ submit button once you have made your choice.
 (best for Smale maps)<br>
 <%= radio_button load => 'strom' %>
 <%= link_to 'Matt Strom' => 'stromtable' %>
-(best for Smale maps)
+(best for Smale maps)<br>
+<%= radio_button load => '' %>
+(only use the data provided below)
 </p>
 
 <p>
