@@ -1739,10 +1739,12 @@ helper example => sub {
     my $map = join("\n", grep(/^\d\d\d\d|^include/, split(/\n/, $result)));
     my $table = join("\n", grep(!/^\d\d\d\d|^include/, split(/\n/, $result)));
     $url = $c->url_for('edit')->query(map => $map,
+				      load => 'none',
 				      table=> html_unescape($table));
   } else {
     my ($key) = $result =~ /^;(.*)/m;
     $url = $c->url_for('nomap')->query(input => "[$key]\n" x 4,
+				       load => 'none',
 				       table=> html_unescape($result));
   }
   return Mojo::ByteStream->new(qq(<pre>$result</pre><p><a href='$url'>Try it</a>.</p>));
@@ -1812,7 +1814,9 @@ What random tables should be used to generate the descriptions?
 (best for Smale maps)<br>
 <%= radio_button load => 'strom' %>
 <%= link_to 'Matt Strom' => 'stromtable' %>
-(best for Smale maps)
+(best for Smale maps)<br>
+<%= radio_button load => 'none' %>
+(only use the data provided below)
 </p>
 
 <p>
@@ -1883,7 +1887,9 @@ What random tables should be used to generate the text?
 (best for Smale maps)<br>
 <%= radio_button load => 'strom' %>
 <%= link_to 'Matt Strom' => 'stromtable' %>
-(best for Smale maps)
+(best for Smale maps)<br>
+<%= radio_button load => 'none' %>
+(only use the data provided below)
 </p>
 
 <p>
@@ -1930,7 +1936,7 @@ submit button once you have made your choice.
 <%= radio_button load => 'strom' %>
 <%= link_to 'Matt Strom' => 'stromtable' %>
 (best for Smale maps)<br>
-<%= radio_button load => '' %>
+<%= radio_button load => 'none' %>
 (only use the data provided below)
 </p>
 
