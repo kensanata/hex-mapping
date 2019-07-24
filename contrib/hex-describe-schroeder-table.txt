@@ -5878,6 +5878,24 @@
 ;magic plant
 1,[magic plant 1] [magic plant 2]
 
+;magic plant location
+1,growing around a skeleton of [a forest animal]
+1,growing in the shadows under the trees
+1,along a small creek
+1,around a small pond
+1,on a rocky outcrop
+1,on a dead tree
+1,under a dead tree
+1,deep within a thorny bush
+
+;a forest animal
+1,a bear
+1,a boar
+1,a giant weasel
+1,a deer
+1,a wolf
+1,an elk
+
 ;magic plant 1
 1,Fey
 1,Dream
@@ -7211,6 +7229,7 @@
 1,The [forest name] has overgrown an old temple of *[power]*. Some of the walls still stand, and so do some of the columns, but the roof is gone and floor is wet. [old forest temple denizen]
 1,There's a little stream here, making its way through the [forest name], wrapping itself around a beautiful, big, old tree. [dryad]
 1,The [forest name] is full of rustling and bustling sounds as **giant ants** can be seen scurrying back and forth along invisible trails and up and down the giant [tree] trees. [giant ant lair]
+1,[unicorns]
 
 ;wood elves
 1,[save 1d6+1 as level][save spellbook for elves] Elves have built their [elf dwelling] in [forest name], [beautiful trees]. [elf environment] [elf companions]</p><p>[elf clade name], [2d12] **elves** ([elf stats]) led by [elf leader] (level [same level]). [same spellbook for elves] [leader treasure]
@@ -8465,8 +8484,8 @@
 1,an unnatural seeming hill, surrounded by sharpened stakes
 
 ;druid
-1,The **druid** *[old names for men]* has freed himself from the shackles of civilisation and lives here like a wild beast in a hovel ([druid stats]).
-1,The **druid** *[old names for women]* has freed herself from the shackles of civilisation and lives here like a wild beast in a hovel ([druid stats]).
+1,The **druid** *[here old names for men as druid]* has freed himself from the shackles of civilisation and lives here like a wild beast in a hovel ([druid stats]).
+1,The **druid** *[here old names for women as druid]* has freed herself from the shackles of civilisation and lives here like a wild beast in a hovel ([druid stats]).
 
 ;druid stats
 1,HD 9 AC 7 1d6 F9 MV 12 ML 9 XP 900; *heat metal*; *tree travel*; *animate tree* (3×/day): [animated tree stats]; *limited shape change* into a bear: [bear stats]
@@ -8809,6 +8828,60 @@
 1,a large bottle of wine (still corked)
 1,a scroll case lined with tin
 1,a steel mace
+
+;unicorns
+1,This clearing is surrounded by [tree] trees. It is frequented by the unicorn herd *[unicorn herd name]*. [calm clearing feature] Those with a knack for herbalism can find *[magic plant]*, [magic plant location]. The clearing is patrolled by [1d8 unicorns]. [unicorn information]
+
+;unicorn herd name
+1,Golden Spirits
+1,Shimmering Manes
+1,Silver Hooves
+1,Flowing Manes
+1,Joyful Spirits
+1,Wise Guardians
+1,Gentle Spirits
+
+;1d8 unicorns
+1,the **unicorn** *[unicorn]* ([unicorn stats]; [unicorn spells])
+4,[1d7+1] **unicorns** ([unicorn stats]) led by *[unicorn]* ([unicorn spells])
+1,the **unicorn** *[unicorn]* ([unicorn stats]) and her colt
+1,[1d4+1] **unicorns* ([unicorn stats]) and [1d2+1] unicorn foals, led by *[unicorn]* ([unicorn spells])
+1,[1d4+1] **unicorns** ([unicorn stats]) led by *[unicorn]* and [1d3+1] **sprites** ([sprite stats])
+
+;unicorn stats
+1,HD 4 AC 2 1d8/1d8/1d8 F8 MV 24 ML 7 XP 400; short teleport jump (360ft) 1×/day
+
+;unicorn spells
+1,[save elf spellbook as spellbook]*[with [same spellbook] 1]*, *[and [same spellbook] 1]*, *[[same spellbook] 2]*
+
+;unicorn
+1,[unicorn 1] [unicorn 2]
+
+;unicorn 1
+1,Destroyer of
+1,Smiter of
+1,Trampler of
+1,Scourge of
+
+;unicorn 2
+1,Greed
+1,Terror
+1,Envy
+1,Jealousy
+1,Fear
+1,Suffering
+
+;calm clearing feature
+1,There is a cool pool of crystal clear water, here.
+1,The meadow is full of flowers and buzzing bees and singing birds, a dream of pastoral happiness.
+1,The clearing contains a spring of frigid water that removes *fear*.
+1,A gentle breeze carries the sound of ethereal wind-chimes.
+
+;unicorn information
+1,The unicorns fear the temple of [nearby tempel power] and would like to see it destroyed.
+1,The unicorns know of the dangers of [adjacent hex] and warn against going there.
+1,The unicorns are concerned about the druid [nearby druid] and would like for them to be eradicated.
+1,The unicorns fear the influence of the witch [nearby witch] and would like to see them destroyed.
 
 ;satyr threat
 1,These satyrs seeking to convince all the married women of the nearby settlement to leave their homes. Half have already fled into the forest laughing and singing. They really don't want to come back and the [3d6] **satyrs** will support them ([satyr stats]).
