@@ -5870,6 +5870,13 @@
 1,[swamp ettercaps]
 1,The [forest name] is sinking beneath the water. Beavers have built dams, drowning the land. [swamp gnome colony]
 
+# more descriptions for future entries:
+# gnarled roots jutting up like knees from brackish water
+# quagmires
+# sucking mud (like quicksand)
+# moss hanging from trees
+# humid islets studded with rotting logs
+
 ;doppelgänger stats
 1,HD 4 AC 5 1d12 F10 MV 9 ML 10 XP 400; *shape change* at will
 
