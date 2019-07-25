@@ -5054,6 +5054,7 @@
 1,wrestling to see who has first watch tonight
 1,watching the skies to divine the weather
 1,sharpening their swords
+1,fletching arrows
 1,dressed in patched leathers that blend into the trees
 1,drinking and gambling to pass the time
 1,mending torn leather armour
