@@ -3302,7 +3302,7 @@ from services that aren’t hosted on the same domain
 <h1>Hex Describe Authors</h1>
 
 <p>
-The tables contains material by the following people:
+The tables contain material by the following people:
 </p>
 
 <ul>
@@ -3314,6 +3314,7 @@ The tables contains material by the following people:
 <li><a href="https://iceandruin.blogspot.com/">Matt Strom</a>
 <li><a href="https://blog.d4caltrops.com/">Ktrey Parker</a>
 <li><a href="http://www.whidou.fr/">Whidou</a>
+<li>Robin Green
 </ul>
 
 <p>
