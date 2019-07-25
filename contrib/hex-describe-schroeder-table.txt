@@ -4895,11 +4895,11 @@
 1,HD 2 AC 7 1d4 + 1 *strenth* F2 MV 15 ML 8 XP 200; *surprise* on 1–5 in 6; only harmed by magic or magic weapons; immune to *sleep* and *charm*
 
 ;ogre hill
-1,One hill is inhabited by [1d6 ogres] ([ogre stats]). [ogre lair] [robber treasure]
+1,One hill is inhabited by [1d6 ogres]. [ogre lair] [robber treasure]
 
 ;1d6 ogres
-1,[ogre leader]
-1,[ogre leader] and their partner
+1,[ogre leader] ([ogre stats])
+1,[ogre leader] and their partner ([ogre stats])
 4,[ogre leader] leading [ogres]
 
 ;ogre stats
@@ -4956,8 +4956,8 @@
 1,the Wild
 
 ;ogres
-1,[1d4+1] more **ogres**
-1,[1d4+1] more **ogres** and [1d6x10] **orcs** of the *[evil tribe]* tribe ([orc stats])
+1,[1d4+1] more **ogres** ([ogre stats])
+1,[1d4+1] more **ogres** ([ogre stats]) and [1d6x10] **orcs** of the *[evil tribe]* tribe ([orc stats])
 
 ;ogre lair
 1,The ogres have found a cave under some boulders where they have dug their lair. It's basically one stuffy room, with hundreds of bones.
