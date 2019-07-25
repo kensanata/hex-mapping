@@ -54,15 +54,116 @@
 
 ;grass
 1,The rolling grass stretches in all directions. In the distance, you can see some **[cows]**.
-1,These grasslands are home to [horse archers]
+3,These grasslands are home to [horse archers]
 1,These grasslands are home to [centaurs].
+1,The tall grass makes it difficult to see over long distances. Partly will get lost on a 1-2 in 6.
+1,The colorful yellow, pink, and white prairie flowers here are visited by a variety of butterflies and bees.
+1,A slow-moving river meanders through the grasslands here providing water for animals like **[cows]**.
+1,The prairie grass is interrupted by limestone outcrops here and the air is warmer and dry.
 
 ;horse archers
-1,[1d4x10] **humans** ([human stats]) led by [human]. They are hunters and gatherers, following the herds of *[cows]*, and they are also excellent *horse archers*. Their tents are protected by [human companions]. [average treasure]
-1,[1d4x10] **humans** ([human stats]) led by [human]. They keep [2d4x10] large *deer*. They are also excellent *horse archers*. Their tents are protected by [human companions]. [average treasure]
+1,[1d4x10] **humans** ([human stats]) led by *[archer leader name as human name]*[human portrait]. They are hunters and gatherers, following the herds of *[cows]*, and they are also excellent *horse archers*. [horse archer activities] They will trade dried meat and finely woven cloth for jewelry or [gem]. Their wool tents are decorated with [with colour] and [and colour] banners and protected by [human companions]. [average treasure]
+1,[1d4x10] **humans** ([human stats]) led by *[archer leader name as human name]*[human portrait]. They keep [2d4x10] *[cows]*. They are also excellent *horse archers*. [horse archer activities] They will trade [same cows] cheese and pickled [root veg] for [mine content] or spices. For an extravagant sum, they might even trade a prized hunting eagle. Their wool tents are arranged in a circle around the tent of their leader and are protected by [human companions]. [average treasure]
 
 ;human stats
 1,HD 1 AC 8 1d6 F1 MV 12 ML 7 XP 100
+
+;archer leader name
+1,[archer leader name 1] [archer leader name 2]
+
+;archer leader name 1
+1,Golden
+1,Strong
+1,Crystal
+1,Peaceful
+1,Steel
+1,Great
+1,Sun
+1,Eternal
+1,Noble
+1,Elegant
+1,Faithful
+1,Wise
+1,Stone
+
+;archer leader name 2
+1,Flower
+1,Jewel
+1,Joy
+1,Fist
+1,Hero
+1,Hearth
+1,Healer
+1,Rose
+1,Heart
+1,Mind
+1,Axe
+1,Light
+1,Ruler
+1,Thistle
+
+;gem
+1,amber
+1,amethyst
+1,aquamarine
+1,onyx
+1,opal
+1,sapphire
+1,agate
+1,diamond
+1,quartz
+1,topaz
+1,ruby
+1,emerald
+1,garnet
+1,jade
+1,jet
+1,malachite
+1,moonstone
+1,nephrite
+1,obsidian
+1,periodot
+1,rose quartz
+1,tiger's eye
+1,turquoise
+
+;cows
+1,bison
+1,wisent
+1,antelope
+1,wild sheep
+1,yak
+1,wild donkey
+1,elk
+1,camel
+
+;horse archer activities
+1,Some of the horse archers are [with horse archer activity] while others are [and horse archer activity].
+
+;horse archer activity
+1,singing, eating and drinking in honour of *[an old hero]*
+1,spinning wool and weaving fabrics for their tents and coats
+1,fletching arrows 
+1,consulting with their shaman about how to appease the spirits
+1,dancing around a fire in a celebration of a good hunt
+1,repairing their tents after a hailstorm
+1,dressed in dark coats with woven bands of [with colour] and [and colour]
+1,drying [same cows] meat on wooden racks in the sun
+1,preparing to hunt the [grass monster] that raided their camp last night
+1,debating to choose their next leader
+1,breaking new horses
+1,racing horses near the camp
+1,engaged in an archery competition
+1,sitting on the floor, playing a dice game
+
+;grass monster
+1,**manticore** *[manticore]* ([manticore stats]). [robber treasure]
+1,**tiger** *[tiger]* ([tiger stats]).
+1,**giant lizard** *[giant lizard]* ([giant lizard stats])
+1,**invisible stalker** *[invisible stalker]* ([invisible stalker stats]).
+1,[3d6] **gnolls** *[gnoll]* ([gnoll stats]). [robber treasure]
+1,**vulture demon** *[vulture demon]* ([vulture demon stats])
+1,[1d4x10] **bandits** ([human stats]) led by [human]. [average treasure]
 
 ;centaurs
 1,the **centaur** *[centaur]* ([centaur stats])
@@ -133,10 +234,6 @@
 1,lind
 1,swind
 1,trud
-
-;cows
-1,bison
-1,wisent
 
 ;hill
 1,The [name for hills] are dry and forbidding. The only animals you can see are some **goats**.
@@ -9064,7 +9161,7 @@
 1,Otylia
 
 ;swamp gnome leader 2
-1, Nowak
+1,Nowak
 1,Wisniowski
 1,Dabrowski
 1,Wojcik
@@ -10284,6 +10381,10 @@
 
 ;woman with portrait
 1,*[woman as human name]*<img src="[[redirect https://campaignwiki.org/face/redirect/alex/woman]]" alt="[same human name]" title="[same human name]"/>
+
+;human portrait
+1,<img src="[[redirect https://campaignwiki.org/face/redirect/alex/man]]" alt="[same human name]" title="[same human name]"/>
+1,<img src="[[redirect https://campaignwiki.org/face/redirect/alex/woman]]" alt="[same human name]" title="[same human name]"/>
 
 ;human name
 1,[man]
