@@ -8886,7 +8886,7 @@
 1,The unicorns hate the wood loggers of [nearby village name] and want them gone.
 
 ;swamp gnome colony
-1,This is [here swamp gnome colony name], a colony of [1d4x10] **swamp gnomes** ([swamp gnome stats]) led by *[swamp gnome leader]*. [rich treasure] [colony feature] The gnomes live in [swamp gnome dwellings] that are protected by [swamp gnome companions]. These colony-folk are [two colony activities].
+1,This is [here swamp gnome colony name], a colony of [1d4x10] **swamp gnomes** ([swamp gnome stats]) led by *[swamp gnome leader]*. [rich treasure] [colony feature] The gnomes live in [swamp gnome dwellings], protected by [swamp gnome companions]. These colony-folk are [two colony activities].
 
 ;swamp gnome colony name
 1,Last Copper
@@ -8941,6 +8941,7 @@
 1,The scouts in this colony know all the creatures of [adjacent hex].
 1,The gnomes are eager to trade for spices and silver.
 1,The gnomes of this colony are *hostile to humans*.
+1,The gnomes are secret spies for the witch [nearby witch].
 
 ;woven product
 1,carpets
