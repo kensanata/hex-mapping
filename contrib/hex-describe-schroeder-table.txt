@@ -5033,7 +5033,7 @@
 1,This camp has a renowned healer: *[human name]* knows how to *cure disease* using [nearby magic plant].
 1,The scouts in this camp know all the creatures of [nearby hex].
 1,The outlaws are eager to trade for alcohol and gold.
-1,This camp has a talented bard called *[human name]* who was chased out of [nearby village].
+1,This camp has a talented bard called *[human name]* who was chased out of [nearby village name].
 
 ;outlaw companions
 1,[1d6+1] **hunting hounds** ([wolf stats])
