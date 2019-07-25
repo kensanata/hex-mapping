@@ -4051,7 +4051,7 @@
 1,The hill overlooking [forest name] is the home of [1d8 treants] ([treant stats]). They mostly stand around near the [forest feature].
 1,There is a hill rising high above [forest name] with a nice cave which offers shelter from the rain. [den]
 1,[5d8] **dwarves** ([dwarf stats]) have set up a small logging community, here in [forest name]. The [tree] trees in the area have brought them here. They are led by [dwarf leader] (level [1d6+2 as level]). The camp is defended by [dwarven companions]. [dwarven treasure]
-1,The hills of [forest name] are full of ancient ruins. On one of these hills right here you can find the foundations of an old keep. The walls are long gone but the cistern and the storage rooms below are still usable. [1d4x10] **bandits** led by [human] have made this their permament base. The camp is [human fort]. [average treasure]
+1,The hills of [forest name] are full of ancient ruins. On one of these hills right here you can find the foundations of an old keep. The walls are long gone but the cistern and the storage rooms below are still usable. [outlaw camp]
 1,[faerie witch]
 
 # tree names from http://blog.d4caltrops.com/2019/04/see-forest-for-trees.html
@@ -4996,10 +4996,71 @@
 1,An old fort overlooking the woods has been taken over by a war party of [4d6] **hobgoblins** ([hobgoblin stats]) led by *[hobgoblin]* (HD 3+1). The fort is defended by [hobgoblin companions]. [old fort] [luxurious context] [robber treasure]
 1,An abandoned watchtower on a promontory overlooking the drylands is home to [4d6] **hobgoblins** ([hobgoblin stats]) led by *[hobgoblin]* (HD 3+1). The approach is guarded by [hobgoblin companions]. [luxurious context] [robber treasure]
 1,Up in these drylands, a massive fortress built by giants long ago is home to the *[evil tribe]* tribe. [orcs] The fortress is [orc fort] [orc plans]
-1,Up here on these hills and overlooking the shrublands is a massive fortress built by giants long ago. It has been taken over by **humans** and now it is home to [1d4x10] bandits ([human stats]) led by [human]. The fortress is [human fort]. [average treasure]
+1,Up here on these hills and overlooking the shrublands is a massive fortress built by giants long ago. [outlaw camp]
 1,There are caves beneath these badlands. [caves]
 1,The dry lands up here are the hunting grounds of a **manticore** called *[manticore]* living in the ruins of an old tower ([manticore stats]). [robber treasure] [manticore companions]
 1,A **green dragon** named [green dragon name] lives at [hill name], one of the hills overlooking these shrublands ([green dragon stats]). [dragon treasure]
+
+;outlaw camp
+1,There is a camp of [1d4X10] **outlaws** ([outlaw stats]) led by *[outlaw leader]*, here. [average treasure] They call themselves the *[adjective] [organisation name]*. [outlaw feature] The camp is protected by [outlaw companions]. These outlaws are [two outlaw activities].
+
+;outlaw stats
+1,HD 1 AC 8 1d6 F 1 MV 12 ML 7 XP100
+
+;outlaw leader
+1,[outlaw leader 1] [outlaw leader 2]
+
+;outlaw leader 1
+1,Red
+1,Black
+1,Singing
+1,Dancing
+1,Silent
+1,Deadly
+1,Wild
+
+;outlaw leader 2
+1,Hawk
+1,Blade
+1,Robber
+1,Rapier
+1,Hood
+1,Falcon
+1,Bear
+
+;outlaw feature
+1,The outlaws use raven feathers in their arrows.
+1,This camp has a renowned healer: *[human name]* knows how to *cure disease* using [nearby magic plant].
+1,The scouts in this camp know all the creatures of [nearby hex].
+1,The outlaws are eager to trade for alcohol and gold.
+1,This camp has a talented bard called *[human name]* who was chased out of [nearby village].
+
+;outlaw companions
+1,[1d6+1] **hunting hounds** ([wolf stats])
+1,a **war dog** ([wolf stats])
+1,[1d6+1] **war dogs** ([wolf stats])
+1,[2d6] *spiked pit traps* (2d6 each)
+1,[1d3+1] *hanging log traps* (2d6 each)
+1,protected *long stakes* set against charging (1d6 when charging)
+1,[1d4+1] hidden **outlaws** ([outlaw stats])
+
+;two outlaw activities
+1,[with outlaw activity] and [and outlaw activity]
+
+;outlaw activity
+1,wary from a patrol of town guards roaming nearby
+1,gathering firewood
+1,fishing for dinner
+1,wrestling to see who has first watch tonight
+1,watching the skies to divine the weather
+1,sharpening their swords
+1,dressed in patched leathers that blend into the trees
+1,drinking and gambling to pass the time
+1,mending torn leather armour
+1,arguing about which rich nobles to relieve of their coin purses next
+1,tending to wounds from a recent raid
+1,suspicious the party are hunting them
+1,dancing to a bawdy tune
 
 ;badlands
 1,Badlands full of shrubs and wild hedges.
@@ -5015,11 +5076,6 @@
 1,a secret escape passage via a trapdoor inside the main building
 1,a secret passage via the well inside the fort
 1,a secret passage from the cellar below the watch tower
-
-;human fort
-1,protected long stakes against charging
-1,protected by a **war dog** ([wolf stats])
-6,protected by [1d6+1] **war dogs** ([wolf stats])
 
 ;loner
 1,At the foot of a hill you find a burned down cabin. This must have happened [some time ago].
@@ -5238,7 +5294,7 @@
 ;manticore companions
 1,</p><p>At the foot of the tower there's a camp of [4d6] **hobgoblins** ([hobgoblin stats]) led by *[hobgoblin]* (HD 3+1). They are trying to recruit the manticore for their war. [robber treasure]
 1,</p><p>Beneath the tower is a warren of [6d10] **goblins**, led by [goblin] ([goblin stats]). [poor treasure] They will happily lead fools to the manticore's tower (and betray them).
-1,</p><p>Two of the buildings at the foot of the tower have been fixed up. [1d4x10] **bandits** led by [human] live here in an uneasy truce with the manticore.
+1,</p><p>Two of the buildings at the foot of the tower have been fixed up. [outlaw camp] They live here in an uneasy truce with the manticore.
 2,
 
 ;manticore stats
@@ -5629,7 +5685,7 @@
 1,HD 5 AC 6 1d6/1d6 F5 MV 15 ML 7 XP 500; on a 20: magic water fills victim’s lung, save vs. death or drown; *beautiful* (until kissed), *charm male*, *kiss of mind control* (24h), *invisibility*, *turn to fog*, *curse of water lungs*: save vs. death or drown in 1d6 days
 
 ;faerie witch
-1,Hidden deep in the forest is a [witch cottage] [witch cottage door] [witch cottage other entry]</p><p>[witch cottage main room]</p><p>This house belongs to [here old names for women as witch] the **witch** ([witch stats]). She is working on [witch product]. [terror treasure] [witch annex]
+1,Hidden deep in the [forest name] is a [witch cottage] [witch cottage door] [witch cottage other entry]</p><p>[witch cottage main room]</p><p>This house belongs to [here old names for women as witch] the **witch** ([witch stats]). She is working on [witch product]. [terror treasure] [witch annex]
 
 ;witch product
 1,some poultice
@@ -7312,7 +7368,7 @@
 1,**manticore** *[manticore]* ([manticore stats]). [robber treasure]
 1,**bear** *[bear name]* ([bear stats])
 1,[1d4x10] **bandits** led by [human]. [average treasure]
-1,[6d10] **goblins** live here, led by [goblin] ([goblin stats]). [poor treasure]
+1,[6d10] **goblins** led by [goblin] ([goblin stats]). [poor treasure]
 
 ;ettercap forest
 1,[spider word] [forest 2]
