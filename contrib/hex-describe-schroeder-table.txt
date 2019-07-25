@@ -5803,7 +5803,7 @@
 1,A ruined tower standing on a small island in this part of the [forest name] swamp is home to the **ettin** called *[ettin]*. [robber treasure] [ettin tower protection]
 1,In the old days, the stagnant pools of the [forest name] swamp was used to drown evil necromancers. [bog wights]
 1,On one of the islands of this [forest name] swamp there is a huge mud mound. [goblins]
-1,The [forest name] has turned into a black swamp and the smell of sulphur hangs in the air. A **black dragon** named [black dragon name] [black dragon activity] ([black dragon stats]). [dragon treasure] If you enter the water, you'll soon attract the attention of [1d6 crocodiles].
+1,The [forest name] has turned into a black swamp and the smell of sulphur hangs in the air. A **black dragon** named [here black dragon name] [black dragon activity] ([black dragon stats]). [dragon treasure] If you enter the water, you'll soon attract the attention of [1d6 crocodiles].
 1,The [forest name] has turned into a water logged swamp. You need a boat and a guide to navigate these waterways. If you travel on foot, you'll soon attract the attention of [1d6 crocodiles].
 1,The swamp of [forest name] opens up somewhat and you can see the sky again. If you drink the water here, save vs. poison or spend the rest of the day vomiting. These lakes are home to [3d12] **swamp cranes** ([swamp crane stats]). Their dung is poisonous to most creatures on land.
 1,The stagnant waters of [forest name] are foul and smell of vomit. An abandoned temple of *[power]* stands here, half sunk. The acrid stench is overwhelming. On the small piece of solid ground rising above the water you can see [what you can see of the sunken temple] A **gorgon** has cursed this temple with its presence ([gorgon stats]). [terror treasure]
@@ -5811,6 +5811,7 @@
 1,A sulphur smell hangs over the swamp of [forest name]. The waterways eventually lead to a wooden fort rising out of the water, inhabited by [4d6] **hobgoblins** ([hobgoblin stats]) and led by *[hobgoblin]* (HD 3+1). The fort is defended by [hobgoblin companions]. [robber treasure]
 1,This section of the [forest name] swamp is a well known death trap. The trees are older, here. They remember every axe wielder, every ship builder, every carpenter, every fire maker, and they hate them with the hate of the primal forest. These trees are protected by [1d8 treants] ([treant stats]) who would like nothing better than to squash anybody capable of wielding tools.
 1,[swamp ettercaps]
+1,The [forest name] is sinking beneath the water. Beavers have built dams, drowning the land. [swamp gnome colony]
 
 ;doppelgänger stats
 1,HD 4 AC 5 1d12 F10 MV 9 ML 10 XP 400; *shape change* at will
@@ -7229,7 +7230,7 @@
 1,The [forest name] has overgrown an old temple of *[power]*. Some of the walls still stand, and so do some of the columns, but the roof is gone and floor is wet. [old forest temple denizen]
 1,There's a little stream here, making its way through the [forest name], wrapping itself around a beautiful, big, old tree. [dryad]
 1,The [forest name] is full of rustling and bustling sounds as **giant ants** can be seen scurrying back and forth along invisible trails and up and down the giant [tree] trees. [giant ant lair]
-1,[unicorns]
+1,The [forest name] is flooded with soothing sun light (or moon light). [unicorns]
 
 ;wood elves
 1,[save 1d6+1 as level][save spellbook for elves] Elves have built their [elf dwelling] in [forest name], [beautiful trees]. [elf environment] [elf companions]</p><p>[elf clade name], [2d12] **elves** ([elf stats]) led by [elf leader] (level [same level]). [same spellbook for elves] [leader treasure]
@@ -7341,9 +7342,9 @@
 1,The ground rises and forms a little mound, here, promising a look at the surrounding land. But actually, a group of [2d4] **giant trapdoor spiders** ([giant spider stats]) have dug tunnels and pits around here. Anybody climbing the mound has a 1-2 in 6 chance of sliding and falling into a 20ft pit (2d6) and being beset by these spiders.
 
 ;ettercap lake
-1,The trees open up and there's a small island up ahead, covered in giant trees shrouded in spiderwebs. There are dessicated birds and bats and bigger things (wyverns, young dragons, griffons?) caught in the web up there. If you're patient, you can see movement beneath the water as giant spiders dart out of their silken diving bells to kill fish. [2d4] **giant diving bell spiders** ([giant spider stats]; *swim*) live in this lake. It is not safe for swimming.
-1,The trees open up and there's a small island up ahead. Big silken strands connect the giant trees growing on that island with the trees growing along the lake's edge. From it, smaller strands hang down, filling the air and sinking into the water. During the day, you can see [2d4] **giant spiders** working these strange fishing lines ([giant spider stats]).
-1,The trees open up and there's a small island up ahead. Giant trees grow on that island. A sweet, musky flagrance of wisteria and roses fills the air. On these trees [2d4] **giant bolas spiders** hunt for prey ([giant spider stats]; *bola*: 30ft ranged attacks with a weighted *capture blob* of sticky silk on a line).
+1,The trees of [forest name] open up and there's a small island up ahead, covered in giant trees shrouded in spiderwebs. There are dessicated birds and bats and bigger things (wyverns, young dragons, griffons?) caught in the web up there. If you're patient, you can see movement beneath the water as giant spiders dart out of their silken diving bells to kill fish. [2d4] **giant diving bell spiders** ([giant spider stats]; *swim*) live in this lake. It is not safe for swimming.
+1,The trees of [forest name] open up and there's a small island up ahead. Big silken strands connect the giant trees growing on that island with the trees growing along the lake's edge. From it, smaller strands hang down, filling the air and sinking into the water. During the day, you can see [2d4] **giant spiders** working these strange fishing lines ([giant spider stats]).
+1,The trees of [forest name] open up and there's a small island up ahead. Giant trees grow on that island. A sweet, musky flagrance of wisteria and roses fills the air. On these trees [2d4] **giant bolas spiders** hunt for prey ([giant spider stats]; *bola*: 30ft ranged attacks with a weighted *capture blob* of sticky silk on a line).
 
 ;ettercap lair
 1,Up in the trees are some tree houses connected by several ropes. If you're not afraid of heights, you can easily walk from one to the other, feet on one rope and hands holding another one. The tree houses are home to [2d4] **ettercaps** led by [ettercap with portrait] ([ettercap stats]). [average treasure] [ettercap prisoners]
@@ -7646,7 +7647,7 @@
 1,HD 2 AC 7 1d8 MV 12 ML 12 XP 200; immune to *arrows*, immune to *poison*; immune to *spells*
 
 ;owl stats
-1,HD 3 AC 6 1d4/1d4/1d6 F1 MV 15 ML 5 XP 300; when both claws hit, may carry halflings and dwarves up for a bit before dropping them again for 1d6 falling damage.
+1,HD 3 AC 6 1d4/1d4/1d6 F1 MV 15 ML 5 XP 300; when both claws hit, may carry halflings, dwarves or gnomes up for a bit before dropping them again for 1d6 falling damage
 
 ;sprite stats
 1,HD 1 AC 7 1d4 F1 MV 12 ML 6 XP 100; *entanglement*: save vs. spells or unable to move for an hour; *illusion*; *sleep*
@@ -8882,6 +8883,106 @@
 1,The unicorns know of the dangers of [adjacent hex] and warn against going there.
 1,The unicorns are concerned about the druid [nearby druid] and would like for them to be eradicated.
 1,The unicorns fear the influence of the witch [nearby witch] and would like to see them destroyed.
+1,The unicorns hate the wood loggers of [nearby village name] and want them gone.
+
+;swamp gnome colony
+1,This is [here swamp gnome colony name], a colony of [1d4x10] **swamp gnomes** ([swamp gnome stats]) led by *[swamp gnome leader]*. [rich treasure] [colony feature] The gnomes live in [swamp gnome dwellings] that are protected by [swamp gnome companions]. These colony-folk are [two colony activities].
+
+;swamp gnome colony name
+1,Last Copper
+1,Wet Socks
+1,Riverbend
+1,Frog Hop
+1,The End of the World
+1,Boggy Ground
+1,Still Marsh
+1,Blue Lake
+1,Crane’s Nest
+
+;swamp gnome stats
+1,HD 1 AC 5 1d6 F1 MV 6 ML 8 XP 100; *speak with animals*; *walk on water*
+
+;swamp gnome leader
+1,[swamp gnome leader 1] [swamp gnome leader 2]
+
+;swamp gnome leader 1
+1,Vassily
+1,Nikolai
+1,Jannah
+1,Antonina
+1,Janny
+1,Zayna
+1,Janalee
+1,Aggi
+1,Albin
+1,Aldona
+1,Basha
+1,Bazyli
+1,Cyrek
+1,Kaleena
+1,Konrad
+1,Otylia
+
+;swamp gnome leader 2
+1, Nowak
+1,Wisniowski
+1,Dabrowski
+1,Wojcik
+1,Mazur
+1,Zajac
+1,Baran
+1,Balik
+1,Antos
+1,Chobot
+
+;colony feature
+1,The gnomes of this colony are known for their bright [with colour] and [and colour] [with woven product] and [and woven product].
+1,[same swamp gnome leader] is a renowned healer (*mend broken bones*; *grow limb*, but with the drawback of attracting all sorts of water loving animals during the night).
+1,The scouts in this colony know all the creatures of [adjacent hex].
+1,The gnomes are eager to trade for spices and silver.
+1,The gnomes of this colony are *hostile to humans*.
+
+;woven product
+1,carpets
+1,banners
+1,rugs
+1,mats
+1,scarves
+1,cloaks
+1,hats
+
+;swamp gnome dwellings
+1,elaborate multi-story huts on stilts
+1,a flotilla of boats joined by rickety planks
+1,a riverboat propelled by gnomish oarsmen
+1,homes built of reeds that just fit on tiny islands in the marsh
+
+;swamp gnome companions
+1,[1d3+1] **alligators** ([crocodile stats])
+1,[1d6+1] **giant fish** ([giant fish stats])
+1,[1d4+1] **dire raccoons** ([bear stats])
+1,[1d3+1] **giant snakes** ([giant snake stats])
+1,[1d3+1] **giant turtles** ([giant turtle stats])
+1,[1d3+1] **giant owls** ([owl stats])
+
+;giant turtle stats
+1,HD 4 AC 2 1d10 F2 MV 3 ML 7 XP 400
+
+;two colony activities
+1,[with colony activity] and [and colony activity]
+
+;colony activity
+1,celebrating a traditional holiday
+3,gathering reeds to make huts and garments
+3,fishing for dinner
+1,choosing the child to be the next leader
+1,watching the skies to divine the weather
+1,weaving nets for hunting and fishing
+1,repairing the hull of a damaged boat
+1,drying fish fillets on wooden racks in the sun
+1,listening to their oracle predict the best places to fish
+1,dressed in green patchwork clothing and conical reed hats
+1,frightened from the black dragon [nearby black dragon name] attack that happened last week
 
 ;satyr threat
 1,These satyrs seeking to convince all the married women of the nearby settlement to leave their homes. Half have already fled into the forest laughing and singing. They really don't want to come back and the [3d6] **satyrs** will support them ([satyr stats]).
