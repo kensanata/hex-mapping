@@ -7535,10 +7535,29 @@
 1,Shadow
 1,Moon
 1,Green
+1,Silver Birch
+1,Twisted Pine
+1,Shivering
+1,Whispering
+1,Knotted Oak
+1,Golden Maple
+1,Misty
+1,Cloudy
+1,Silent
+1,Thorny Vine
+1,Dead Tree
+1,Ghost
+1,Singing
+1,Spirit
 
 ;forest 2
 1,Forest
 1,Wood
+1,Copse
+1,Thicket
+1,Weald
+1,Dell
+1,Grove
 
 ;forest feature
 1,[forest feature 1] [forest feature 2]
