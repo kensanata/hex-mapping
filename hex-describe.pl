@@ -556,10 +556,9 @@ use.
 sub get_table {
   my $c = shift;
   my $load = $c->param('load');
+  my $table = $c->param('table');
   my $url = $c->param('url');
-  my $table;
-  $table = get_data($url) if $url;
-  $table .= $c->param('table');
+  $table .= get_data($url) if $url;
   $table .= decode_utf8($seckler_table->slurp) if $load eq 'seckler';
   $table .= decode_utf8($schroeder_table->slurp) if $load eq 'schroeder';
   $table .= decode_utf8($strom_table->slurp) if $load eq 'strom';

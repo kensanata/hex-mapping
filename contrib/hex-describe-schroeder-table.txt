@@ -4007,7 +4007,7 @@
 1,HD 2 AC 7 1d6 F1 MV 12 ML 8 XP 200
 
 ;froglings
-1,[5d8] **froglings** ([frogling stats]) led by *[frogling with portrait]*, a priest of Tsathoggua: *lightning bolt* 2×/day (5d6, save vs. spells for half). [poor treasure] The mud village built around the temple is guarded by [frogling companions].
+1,[5d8] **froglings** ([frogling stats]) live here, led by *[frogling with portrait]*, a priest of Tsathoggua: *lightning bolt* 2×/day (5d6, save vs. spells for half). [poor treasure] The mud village built around the temple is guarded by [frogling companions].
 
 ;frogling with portrait
 1,*[frogling]*<img src="[[redirect https://campaignwiki.org/face/redirect/alex/frog]]" alt="[same frogling]" title="[same frogling]"/>
@@ -5852,23 +5852,81 @@
 1,[swamp]
 
 ;swamp
-1,The river widens here and forms a large swamp. You need a guide and boats in order to pass through the water-logged [forest name]. [giant fish] can be seen below the surface ([giant fish stats]).
-1,This swamp is a labyrinth of crisscrossing water ways cutting through the [forest name]. You need a guide to find your way through it. If you don’t, you will soon end up in the lands of the [witch]
-1,The [forest name] swamp is home to a lot of [swamp animals]. Those who know how to find it can gather *[here magic plant]*.
-1,The [forest name] here is flooded and has been settled by a tribe of [6d6] **lizard people** ([lizard people stats]) led by *[lizard leader]* (HD [1d4+2 as level]). [leader treasure] The little village of mud huts is guarded by [lizard companions]. [average treasure]
-1,The inundated [forest name] here is home to [froglings]
-1,A ruined tower standing on a small island in this part of the [forest name] swamp is home to the **ettin** called *[ettin]*. [robber treasure] [ettin tower protection]
-1,In the old days, the stagnant pools of the [forest name] swamp was used to drown evil necromancers. [bog wights]
-1,On one of the islands of this [forest name] swamp there is a huge mud mound. [goblins]
+1,[swamp intro] [swamp dressing] [giant fish] can be seen below the water surface ([giant fish stats]).
+1,[swamp intro] [swamp dressing] Without a guide, you soon end up in the lands of the [witch]
+1,[swamp intro] [swamp dressing] There are plenty of [swamp animals]. Those who know how to find it can gather *[here magic plant]*.
+1,[swamp intro] [swamp dressing] The area has been settled by a tribe of [6d6] **lizard people** ([lizard people stats]) led by *[lizard leader]* (HD [1d4+2 as level]). [leader treasure] The little village of mud huts is guarded by [lizard companions]. [average treasure]
+1,[swamp intro] [swamp dressing] [froglings]
+1,[swamp intro] [swamp dressing] A ruined tower standing on a small island is home to the **ettin** called *[ettin]*. [robber treasure] [ettin tower protection]
+1,[swamp intro] [swamp dressing] In the old days, these stagnant pools were used to drown evil necromancers. [bog wights]
+1,[swamp intro] [swamp dressing] On one of the islands there is a huge mud mound. [goblins]
 1,The [forest name] has turned into a black swamp and the smell of sulphur hangs in the air. A **black dragon** named [here black dragon name] [black dragon activity] ([black dragon stats]). [dragon treasure] If you enter the water, you'll soon attract the attention of [1d6 crocodiles].
-1,The [forest name] has turned into a water logged swamp. You need a boat and a guide to navigate these waterways. If you travel on foot, you'll soon attract the attention of [1d6 crocodiles].
-1,The swamp of [forest name] opens up somewhat and you can see the sky again. If you drink the water here, save vs. poison or spend the rest of the day vomiting. These lakes are home to [3d12] **swamp cranes** ([swamp crane stats]). Their dung is poisonous to most creatures on land.
-1,The stagnant waters of [forest name] are foul and smell of vomit. An abandoned temple of *[power]* stands here, half sunk. The acrid stench is overwhelming. On the small piece of solid ground rising above the water you can see [what you can see of the sunken temple] A **gorgon** has cursed this temple with its presence ([gorgon stats]). [terror treasure]
-1,The swamp of [forest name] seems to stretch forever. There's a wooden hut, here. Its inhabitant appears to be a hermit called [human]. In actual fact, however, this is a **doppelgänger** ([doppelgänger stats]). [poor treasure] It will try and see whether it can replace one of the party members and leave the area with you.
-1,A sulphur smell hangs over the swamp of [forest name]. The waterways eventually lead to a wooden fort rising out of the water, inhabited by [4d6] **hobgoblins** ([hobgoblin stats]) and led by *[hobgoblin]* (HD 3+1). The fort is defended by [hobgoblin companions]. [robber treasure]
+1,[swamp intro] [swamp dressing] You need a boat and a guide to navigate these waterways. If you travel on foot, you'll soon attract the attention of [1d6 crocodiles].
+1,[swamp intro] If you drink the water here, save vs. poison or spend the rest of the day vomiting. These lakes are home to [3d12] **swamp cranes** ([swamp crane stats]). Their dung is poisonous to most creatures on land.
+1,[swamp intro] [swamp dressing] An abandoned temple of *[power]* stands here, half sunk. The acrid stench is overwhelming. On the small piece of solid ground rising above the water you can see [what you can see of the sunken temple] A **gorgon** has cursed this temple with its presence ([gorgon stats]). [terror treasure]
+1,[swamp intro] [swamp dressing] There's a wooden hut, here. Its inhabitant appears to be a hermit called [human]. In actual fact, however, this is a **doppelgänger** ([doppelgänger stats]). [poor treasure] It will try and see whether it can replace one of the party members and leave the area with you.
+1,[swamp intro] [swamp dressing] The waterways eventually lead to a wooden fort rising out of the water, inhabited by [4d6] **hobgoblins** ([hobgoblin stats]) and led by *[hobgoblin]* (HD 3+1). The fort is defended by [hobgoblin companions]. [robber treasure]
 1,This section of the [forest name] swamp is a well known death trap. The trees are older, here. They remember every axe wielder, every ship builder, every carpenter, every fire maker, and they hate them with the hate of the primal forest. These trees are protected by [1d8 treants] ([treant stats]) who would like nothing better than to squash anybody capable of wielding tools.
 1,[swamp ettercaps]
-1,The [forest name] is sinking beneath the water. Beavers have built dams, drowning the land. [swamp gnome colony]
+1,[swamp intro] [swamp dressing] [swamp gnome colony]
+
+;swamp intro
+1,The [forest name] is sinking beneath the water.
+1,This is the [forest name].
+1,The swamp of [forest name] seems to stretch forever.
+1,The stagnant waters of [forest name] are foul and smell of vomit.
+1,The swamp of [forest name] opens up somewhat and you can see the sky again.
+1,The [forest name] has turned into a water logged swamp.
+1,The river widens, inundating everything. You need a guide and a boat in order to pass through the water-logged [forest name].
+
+;swamp dressing
+1,From the gnarled boughs of ancient [tree] trees dangles [hanging moss] moss.
+1,The bleak, black, and brackish water teems with mosquito larvae and lily pads.
+1,Vibrant green duckweed floats still on the stagnant water's surface.
+1,The smell of wood-rot is strong. A waterlogged [tree] trunks bob lazily in the mire.
+1,Pale yellow froth clings to the [tree] roots here. A distant splash is followed by frantic waterfowl calls.
+1,The woodpeckers never stop hammering up above in the trees. Incessant buzzing betrays the mosquitoes desperately looking for a place to land.
+1,Turtle rest on a floating log in a murky pool and slip slowly into the water when approached. The air is thick and humid.
+1,Soon, small leeches are squirming furiously against your clothing. Setting up camp here is not safe.
+1,Beavers have built dams, drowning the land.
+1,A sulphur smell hangs over the swamp.
+
+#possible compound tables here
+;hanging moss
+1,[hairy subject][hairy body part]
+1,[fluid][fluid action]
+
+;hairy subject
+1,Dwarf
+1,Elf
+1,Goat
+1,Bear
+1,Sloth
+1,Swamp
+1,Hag
+1,Rock
+
+;hairy body part
+1,chin
+1,hair
+1,mouth
+1,beard
+1,cap
+1, Garland
+
+;fluid
+1,Sap
+1,Honey
+1,Blood
+1,Sweat
+1,Dew
+
+;fluid action
+1,drop
+1,drinker
+1,suckle
+1,burn
+1,flow
 
 # more descriptions for future entries:
 # gnarled roots jutting up like knees from brackish water
