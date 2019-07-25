@@ -7620,7 +7620,6 @@
 1,Copse
 1,Thicket
 1,Weald
-1,Dell
 1,Grove
 
 ;forest feature
