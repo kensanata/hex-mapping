@@ -4733,7 +4733,7 @@
 1,A huge shaft leads down into blackness. At the bottom are the ruins of an underground building by the ancients.</p><p>[ruins of the ancients]
 
 ;gnomes
-1,5d8 **gnomes** ([gnome stats]) led by *[gnome]* (HD 5) live here, looking for gems. [rich treasure] These caves are protected by [gnome companions]
+1,5d8 **gnomes** ([gnome stats]) led by [gnome with portrait] (HD 5) live here, looking for gems. [rich treasure] These caves are protected by [gnome companions]
 
 ;gnome stats
 1,HD 1 AC 5 1d6 F1 MV 6 ML 8 XP 100; *speak with animals*, *stone talk* and *earth swim* at will
@@ -4744,25 +4744,44 @@
 1,a **badger** ([weasel stats])
 4,[1d4+1] **badgers** ([weasel stats])
 
+;gnome with portrait
+1,*[gnome as gnome name]*[gnome portrait]
+
 ;gnome
 1,[gnome 1] [gnome 2]
 
 ;gnome 1
-1,Joy
-1,Happy
-1,Gift
-1,Ruby
-1,Diamond
-1,Sapphire
-1,Opal
-1,Beryl
-1,Pearl
+1,Vassily
+1,Nikolai
+1,Jannah
+1,Antonina
+1,Janny
+1,Zayna
+1,Janalee
+1,Aggi
+1,Albin
+1,Aldona
+1,Basha
+1,Bazyli
+1,Cyrek
+1,Kaleena
+1,Konrad
+1,Otylia
 
 ;gnome 2
-1,Ring
-1,Love
-1,Giver
-1,Finder
+1,Nowak
+1,Wisniowski
+1,Dabrowski
+1,Wojcik
+1,Mazur
+1,Zajac
+1,Baran
+1,Balik
+1,Antos
+1,Chobot
+
+;gnome portrait
+1,<img src="[[redirect https://campaignwiki.org/face/redirect/alex/gnome]]" alt="[same gnome name]" title="[same gnome name]"/>
 
 ;abandoned coal mine
 1,It’s basically a deep hole where a single miner would keep digging for coal.
@@ -5917,7 +5936,7 @@
 
 ;vampire foe
 1,</p><p>Quietly, [same human name] is trying to find a way to topple [same old names for women] reign, for they themselves are a **werewolf** and as long as no moon rises in this mirror realm, their disguise is perfect ([werewolf stats]).
-1,</p><p>Underground, a bunch of radical **gnomes** ([gnome stats]) [1d6-1 badgers] led by *[gnome]* (HD 5) are trying to undermine the reign of [same old names for women]. [rich treasure]
+1,</p><p>Underground, a bunch of radical **gnomes** ([gnome stats]) [1d6-1 badgers] led by [gnome with portrait] (HD 5) are trying to undermine the reign of [same old names for women]. [rich treasure]
 1,
 
 ;1d6-1 badgers
@@ -9123,7 +9142,7 @@
 1,The unicorns hate the wood loggers of [nearby village name] and want them gone.
 
 ;swamp gnome colony
-1,This is [here swamp gnome colony name], a colony of [1d4x10] **swamp gnomes** ([swamp gnome stats]) led by *[swamp gnome leader]*. [rich treasure] [colony feature] The gnomes live in [swamp gnome dwellings], protected by [swamp gnome companions]. These colony-folk are [two colony activities].
+1,This is [here swamp gnome colony name], a colony of [1d4x10] **swamp gnomes** ([swamp gnome stats]) led by [gnome with portrait] (HD 5). [rich treasure] [colony feature] The gnomes live in [swamp gnome dwellings], protected by [swamp gnome companions]. These colony-folk are [two colony activities].
 
 ;swamp gnome colony name
 1,Last Copper
@@ -9139,42 +9158,9 @@
 ;swamp gnome stats
 1,HD 1 AC 5 1d6 F1 MV 6 ML 8 XP 100; *speak with animals*; *walk on water*
 
-;swamp gnome leader
-1,[swamp gnome leader 1] [swamp gnome leader 2]
-
-;swamp gnome leader 1
-1,Vassily
-1,Nikolai
-1,Jannah
-1,Antonina
-1,Janny
-1,Zayna
-1,Janalee
-1,Aggi
-1,Albin
-1,Aldona
-1,Basha
-1,Bazyli
-1,Cyrek
-1,Kaleena
-1,Konrad
-1,Otylia
-
-;swamp gnome leader 2
-1,Nowak
-1,Wisniowski
-1,Dabrowski
-1,Wojcik
-1,Mazur
-1,Zajac
-1,Baran
-1,Balik
-1,Antos
-1,Chobot
-
 ;colony feature
 1,The gnomes of this colony are known for their bright [with colour] and [and colour] [with woven product] and [and woven product].
-1,[same swamp gnome leader] is a renowned healer (*mend broken bones*; *grow limb*, but with the drawback of attracting all sorts of water loving animals during the night).
+1,[same gnome name] is a renowned healer (*mend broken bones*; *grow limb*, but with the drawback of attracting all sorts of water loving animals during the night).
 1,The scouts in this colony know all the creatures of [adjacent hex].
 1,The gnomes are eager to trade for spices and silver.
 1,The gnomes of this colony are *hostile to humans*.
