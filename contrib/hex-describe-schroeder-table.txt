@@ -143,7 +143,7 @@
 ;horse archer activity
 1,singing, eating and drinking in honour of *[an old hero]*
 1,spinning wool and weaving fabrics for their tents and coats
-1,fletching arrows 
+1,fletching arrows
 1,consulting with their shaman about how to appease the spirits
 1,dancing around a fire in a celebration of a good hunt
 1,repairing their tents after a hailstorm

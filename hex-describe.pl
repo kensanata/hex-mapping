@@ -348,9 +348,13 @@ any '/rule/markdown' => sub {
   my $descriptions = describe_text($input, parse_table($table));
   my @paragraphs = map {
     my $text = $_->{html};
+    $text =~ s!<span[^>]*>\s*!｢!g;
+    $text =~ s!\s*</span>!｣!g;
     $text =~ s!</?strong>!**!g;
     $text =~ s!</?em>!*!g;
     $text =~ s!</p><p>!\n\n!g;
+    $text =~ s!  +! !g;
+    $text =~ s!(.*?)!$1!g;
     $text;
   } @$descriptions;
   my $text = join("\n" . '-' x 72 . "\n", @paragraphs);
