@@ -299,10 +299,12 @@ any '/rules/list' => sub {
   if ($c->param('url') or $c->param('table')) {
     $c->render(template => 'ruleslist_post', input => $input,
 	       url => $url, table => $table,
+	       log => $c->param('log'),
 	       rules => [keys %{parse_table($table)}]);
   } else {
     $c->render(template => 'ruleslist_get',
 	       load => $c->param('load'),
+	       log => $c->param('log'),
 	       rules => [keys %{parse_table($table)}]);
   }
 } => 'ruleslist';
@@ -328,6 +330,7 @@ any '/rule' => sub {
   $c->render(template => 'text', load => $c->param('load'), seed => $seed,
 	     n => $n, url => $c->param('url'), table => $c->param('table'),
 	     rule => $rule, id => to_id($rule),
+	     log => $c->param('log') ? $log->history : undef,
 	     descriptions => $descriptions);
 } => 'rule';
 
@@ -1952,6 +1955,13 @@ Alternatively, just paste your tables here:
 %= text_area table => (cols => 60, rows => 15) => begin
 <%= $table =%>
 % end
+
+<p>
+<label>
+%= check_box 'log'
+Include log history
+</label>
+<p>
 %= end
 
 
@@ -1963,7 +1973,7 @@ Alternatively, just paste your tables here:
 
 <p>
 % for my $rule (sort @$rules) {
-• <%= link_to url_for('rule')->query(rule => $rule, load => $load) => begin %><%= $rule %><% end %>
+• <%= link_to url_for('rule')->query(rule => $rule, load => $load, log => $log) => begin %><%= $rule %><% end %>
 % }
 </p>
 
@@ -1991,6 +2001,7 @@ Pick one of the rules below and submit it.
 %= hidden_field load => undef
 %= hidden_field url => $url
 %= hidden_field table => $table
+%= hidden_field log => $log
 %= end
 
 
@@ -2067,6 +2078,15 @@ These results are based on the <strong><%= $rule %></strong> table.
 (Switch <%= link_to url_for('rule_markdown')->query(load => $load, rule => $rule, seed => $seed) => begin %>to Markdown<% end %>.)
 </p>
 %   }
+% }
+
+% if ($log) {
+<h2>Log</h2>
+<pre>
+% for (@$log) {
+%= "@$_"
+% }
+</pre>
 % }
 
 
