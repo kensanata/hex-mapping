@@ -322,21 +322,13 @@ any '/rule' => sub {
   my $n = $c->param('n') || 10;
   my $input = "[$rule]\n" x $n;
   my $table = get_table($c);
+  my $seed = $c->param('seed') || time;
+  srand($seed);
   my $descriptions = describe_text($input, parse_table($table));
-  # we cannot test for 'load' because a radiobutton is always selected
-  if ($c->param('url') or $c->param('table')) {
-    $c->render(template => 'text',
-	       load => undef,
-	       url => $c->param('url'), table => $c->param('table'),
-	       rule => $rule, id => to_id($rule),
-	       descriptions => $descriptions);
-  } else {
-    $c->render(template => 'text',
-	       load => $c->param('load'),
-	       url => undef, table => undef,
-	       rule => $rule, id => to_id($rule),
-	       descriptions => $descriptions);
-  }
+  $c->render(template => 'text', load => $c->param('load'), seed => $seed,
+	     n => $n, url => $c->param('url'), table => $c->param('table'),
+	     rule => $rule, id => to_id($rule),
+	     descriptions => $descriptions);
 } => 'rule';
 
 any '/rule/markdown' => sub {
@@ -345,6 +337,8 @@ any '/rule/markdown' => sub {
   my $n = $c->param('n') || 10;
   my $input = "[$rule]\n" x $n;
   my $table = get_table($c);
+  my $seed = $c->param('seed') || time;
+  srand($seed);
   my $descriptions = describe_text($input, parse_table($table));
   my @paragraphs = map {
     my $text = $_->{html};
@@ -352,6 +346,7 @@ any '/rule/markdown' => sub {
     $text =~ s!\s*</span>!｣!g;
     $text =~ s!</?strong>!**!g;
     $text =~ s!</?em>!*!g;
+    $text =~ s!</?a\b[^>]*>!!g;
     $text =~ s!</p><p>!\n\n!g;
     $text =~ s!  +! !g;
     $text =~ s!(.*?)!$1!g;
@@ -359,7 +354,7 @@ any '/rule/markdown' => sub {
   } @$descriptions;
   my $text = join("\n" . '-' x 72 . "\n", @paragraphs);
   $c->render(text => $text, format => 'txt');
-} => 'rule_md';
+} => 'rule_markdown';
 
 any '/rule/show' => sub {
   my $c = shift;
@@ -2025,14 +2020,14 @@ These results are based on the
 table.
 </p>
 % }
-% elsif (($url or $table) and $rule) {
+% elsif ($rule) {
 <p>
 These results are based on the <strong><%= $rule %></strong> table.
 </p>
 %= form_for rule_show => (method => 'POST') => begin
 <p>
 %= submit_button 'Check it out', name => 'submit'
-%= hidden_field load => undef
+%= hidden_field load => $load
 %= hidden_field rule => $rule
 %= hidden_field url => $url
 %= hidden_field table => $table
@@ -2052,6 +2047,27 @@ These results are based on the <strong><%= $rule %></strong> table.
 <p><%== $description->{images} %><%== $description->{html} %></p>
 % }
 </div>
+
+
+% if ($seed) {
+%   if ($url or $table) {
+%= form_for rule_markdown => (method => 'POST') => begin
+<p>
+%= submit_button 'Markdown', name => 'submit'
+%= hidden_field load => $load
+%= hidden_field rule => $rule
+%= hidden_field url => $url
+%= hidden_field table => $table
+%= hidden_field n => $n
+%= hidden_field seed => $seed
+</p>
+%= end
+%   } else {
+<p>
+(Switch <%= link_to url_for('rule_markdown')->query(load => $load, rule => $rule, seed => $seed) => begin %>to Markdown<% end %>.)
+</p>
+%   }
+% }
 
 
 @@ help.html.ep
