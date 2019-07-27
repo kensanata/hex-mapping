@@ -53,13 +53,76 @@
 1,These white salt flats harbor as dead as dead can be.
 
 ;grass
-1,The rolling grass stretches in all directions. In the distance, you can see some **[cows]**.
-3,These grasslands are home to [horse archers]
-1,These grasslands are home to [centaurs].
-1,The tall grass makes it difficult to see over long distances. Partly will get lost on a 1-2 in 6.
-1,The colorful yellow, pink, and white prairie flowers here are visited by a variety of butterflies and bees.
-1,A slow-moving river meanders through the grasslands here providing water for animals like **[cows]**.
-1,The prairie grass is interrupted by limestone outcrops here and the air is warmer and dry.
+5,[grass intro] [grass dressing] [capitalize cow] can be seen grazing in the distance to the [direction].
+1,[grass intro] [grass dressing] Without a guide, you may be ambushed by [1d12+1] [warrior ants] protecting their colony from intruders.
+3,[grass intro] [grass dressing] Those who know how to find it can gather *[magic plant]*.
+1,[grass intro] [grass dressing] The area has been settled by a tribe of [6d6] **lizard people** ([lizard people stats]) led by *[lizard leader]* (HD [1d4+2 as level]). [leader treasure] The little village of sod and grass huts is guarded by [lizard companions]. [average treasure]
+1,[grass intro] [grass dressing] [centaurs]
+1,[grass intro] [grass dressing] A ruined tower standing on a small rise is home to the **ettin** called *[ettin]*. [robber treasure] [ettin tower protection]
+1,[grass intro] [grass dressing] In the old days, this rocky pit was a [gem] quarry. Concealed in a rocky crevice is the hidden barrow of [1d8 wights] ([wight stats]).
+1,[grass intro] [grass dressing] There is a huge dirt mound with small holes for windows and a rough wooden door. [goblins]
+1,The [grass name] looks burned and shrivelled here and the smell of sulphur hangs in the air. A **manticore** named [here manticore name] [manticore activity] ([manticore stats]).
+3,[grass intro] [grass dressing]  If you stay here long, you'll soon attract the attention of [boars].
+1,[grass intro] A burbling spring seeps out of a small cave here, save vs. poison or spend the rest of the day vomiting. This cave is home to a **basilisk** ([basilisk stats]). The poisonous vapors have polluted the springwater.
+1,[grass intro] [grass dressing] An abandoned shrine to *[power]* stands here, partly covered in lichens. Patrolling the corridors inside the crumbling shrine is a **straw golem** ([straw golem stats]). [2d6]
+[gem] gems can be recovered from the golem.
+1,[grass intro] [grass dressing] There's a wooden hut, here. Its inhabitant appears to be a hermit called [human]. In actual fact, however, this is a **wereboar** ([werewolf stats]). [poor treasure] They will attack if the party discovers their secret.
+1,[grass intro] [grass dressing] [outlaw camp]. [robber treasure]
+3,This section of the [grass name] is an elephant graveyard. Elephant bones lie scattered among the flattened grasses. These bones are protected by [1d8+1] **elephants** ([elephant stats]) who will trample and gore anybody disturbing this area. <span class="treasure">Each tusk is worth 1d6×100gp.</span>
+1,[grass intro] [grass dressing] This is the territory of [1d12+1] **pumas** ([puma stats]).
+3,[grass intro] [grass dressing] [horse archers]
+5,[grass intro] [grass dressing] To the [direction], [1d4+1] **coyote** ([wolf stats]) can be seen hunting.
+
+;grass intro
+1,The [grass name] is a gently rolling expanse of prairie.
+1,This is the [grass name]. The tall grasses here make navigating difficult. Without a guide, you will get lost on a 1-2 in 6.
+1,The grassland of [grass name] seems to stretch forever.
+1,The grasses here have long pointy seeds that get stuck in your skin and clothing and itch terribly.
+1,The [grass name] is covered by a brilliant blue sky that arcs above you.
+1,The [grass name] is interrupted by rocky limestone outcroppings here.
+1,A river meanders through the grasses here. You need a guide in order to pass through the water-logged [grass name] and stay on course.
+
+;grass dressing
+1,Scattered [tree] trees interrupt the grassland here, providing welcome shade.
+1,The grasses are intermingled with [with colour], [and colour], and [and colour] wildflowers here.
+1,A hawk wheels overhead, her piercing cry breaking the silence.
+1,Small [colour] birds hunt for seeds among the grasses and race up into the air when approached.
+1,Venomous snakes slither among the grasses. Setting up camp here may not be safe.
+1,Beavers have built a dam here, creating a lake teeming with waterfowl and frogs.
+1,A brisk wind blows over the plain, making the grasses sway like waves on the sea.
+
+;manticore activity
+1,has built its lair in an abandoned burial mound
+1,lurks in the grasses here, waiting to ambush travellers with his bitter ferocity
+1,hunts the region, surveying the grassland from above and attacking travellers from the air
+
+;grass name
+1,[name for grass/bush/bushes]
+
+;name for grass/bush/bushes
+1,<span class="grass">[grass name1] [grass name2]</span>
+
+;grass name1
+1,Lonely
+1,Windy
+1,Tallgrass
+1,Shortgrass
+1,Rolling
+1,Dusty
+1,[capitalize cow]
+
+;grass name2
+1,Prairie
+1,Steppe
+1,Plain
+1,Savanna
+1,Scrublands
+
+;elephant stats
+1,HD 9 AC 5 4d8 *with +4 to hit* F5 MV 12 ML 8 XP 900
+
+;straw golem stats
+1,HD 1 AC 9 1d6 MV 12 ML 12 XP 100; immune to *arrows*, immune to *poison*; immune to *spells*
 
 ;horse archers
 1,[1d4x10] **humans** ([human stats]) led by *[archer leader name as human name]*[human portrait]. They are hunters and gatherers, following the herds of *[cows]*, and they are also excellent *horse archers*. [horse archer activities] They will trade dried meat and finely woven cloth for jewelry or [gem]. Their wool tents are decorated with [with colour] and [and colour] banners and protected by [human companions]. [average treasure]
@@ -2546,7 +2609,7 @@
 ;gorgon lair
 1,A piece of the glacier has broken off and revealed an old temple of *[good power]*, razed, defiled, and cursed with the presence of a gorgon. There are plenty of dead birds which have died due to the poisonous fumes.
 
-;ice hydra lair
+;cryohydra lair
 1,The glacier up here is the work of a hydra, a living manifestation of the ice realm.
 
 ;mountains
@@ -5147,7 +5210,7 @@
 ;outlaw feature
 1,The outlaws use raven feathers in their arrows.
 1,This camp has a renowned healer: *[human name]* knows how to *cure disease* using [nearby magic plant].
-1,The scouts in this camp know all the creatures of [nearby hex].
+1,The scouts in this camp know all the creatures of [adjacent hex].
 1,The outlaws are eager to trade for alcohol and gold.
 1,This camp has a talented bard called *[human name]* who was chased out of [nearby village name].
 
@@ -5302,7 +5365,7 @@
 ;caves
 1,[cave use] The caves are full of broken constructions, tiny ladders and walkways. [goblins]
 1,[cave use] The caves have paintings of the *[evil tribe]* tribe on the cave walls. [orcs] [orc plans]
-1,[cavee use] The caves are filled with mushrooms and guarded by [myconids]
+1,[cave use] The caves are filled with mushrooms and guarded by [myconids]
 1,[cave use] [den]
 1,[cave use] The caves are inhabited by [1d8 trolls] ([troll stats]). [robber treasure]
 1,[cave use] The caves have been abandoned a long time ago.
@@ -7734,7 +7797,7 @@
 
 ;myconids
 1,[3d6] **myconids** ([myconid stats]). [poor treasure]
-1,[3d6] **myconids** watching their mushroom circle ([myconid stats]). [poor treasure] On nights of the full moon, or on a 1 in 6, the portal to [fey realm] opens. [save 1d6+1 as level][save spellbook for elves]If so, [2d12] **elves** ([elf stats]) led by [elf leader] (level [same  level]) will be visiting from [fey realm]. [same spellbook for elves] [leader treasure] [elf travelling companions]
+1,[3d6] **myconids** watching their mushroom circle ([myconid stats]). [poor treasure] On nights of the full moon, or on a 1 in 6, the portal to [fey realm] opens. [save 1d6+1 as level][save spellbook for elves]If so, [2d12] **elves** ([elf stats]) led by [elf leader] (level [same level]) will be visiting from [fey realm]. [same spellbook for elves] [leader treasure] [elf travelling companions]
 
 ;fey realm
 1,Alfheim
@@ -7742,7 +7805,7 @@
 
 ;elf stats
 # This requires the establishment a [spellbook for elves]. Typically you'd use it like this:
-# [save 1d6+1 as level][save spellbook for elves][2d12] **elves** ([elf stats]) led by [elf leader] ([same level]). [same spellbook for elves] [leader treasure]
+# [save 1d6+1 as level][save spellbook for elves][2d12] **elves** ([elf stats]) led by [elf leader] (level [same level]). [same spellbook for elves] [leader treasure]
 1,HD 1 HP 1d6 AC 5 1d6 or *[same [same spellbook] 1]* 1×/day E1 MV 12 ML 10 XP 100
 
 ;elf travelling companions
@@ -7813,7 +7876,7 @@
 1,Lake
 
 ;boars
-1,the guardian spirit of this forest, a **demon boar** ([demon boar stats])
+1,the local guardian spirit, a **demon boar** ([demon boar stats])
 25,a male **boar** seaching for food ([boar stats])
 5, a group of [5d6] female **boars** and their young ([boar stats])
 
@@ -8676,7 +8739,7 @@
 ;fir-forest
 1,[fir highlands] The land up here is the hunting ground of a **manticore** called *[manticore]* living in the ruins of an old tower overlooking the area ([manticore stats]). [robber treasure] [manticore companions]
 1,[fir highlands] This fir forest is home to a pack of [3d6] **wolves** ([wolf stats]).
-1,[fir highlands] At dusk and dawn, you can sometimes see [boars] ([boar stats]).
+1,[fir highlands] At dusk and dawn, you can sometimes see [boars].
 1,[fir highlands] There is a cave housing the **ettin** called *[ettin]*. [robber treasure]
 1,[fir highlands] At the foot of [crag name], there is cave inhabited by [1d8 trolls] ([troll stats]). [robber treasure]
 1,[fir highlands] In this fir forest is a little campsite with [1d12 bugbears] ([bugbear stats]). [scout treasure]
@@ -9320,7 +9383,7 @@
 1,[fir highlands] [signs of human activity in a fir-forest] Sometimes you can see an elk.
 1,[fir highlands] [signs of human activity in a fir-forest] Sometimes you can see some deer.
 1,[fir highlands] [signs of human activity in a fir-forest] At dusk and dawn a pack of [3d6] **wolves** roam these lands ([wolf stats]).
-1,[fir highlands] [signs of human activity in a fir-forest] At dusk and dawn, you can sometimes see [boars] ([boar stats]).
+1,[fir highlands] [signs of human activity in a fir-forest] At dusk and dawn, you can sometimes see [boars].
 
 ;fir highlands
 1,A few stunted [conifers] grow in these highlands. This is the edge of the [forest name].
