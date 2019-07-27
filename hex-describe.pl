@@ -1172,7 +1172,7 @@ sub describe {
       # modifying the data structures)
       for (1 .. 10) {
 	my $text = pick($map_data, $table_data, $level, $coordinates, $words, $key);
-	$log->warn("[and $key] is used before [with $key] is done") if ref $locals{$key} ne 'ARRAY';
+	$log->warn("[and $key] is used before [with $key] is done in $coordinates") if ref $locals{$key} ne 'ARRAY';
 	$locals{$key} = [$text] if ref $locals{$key} ne 'ARRAY';
 	next if not $text or grep { $text eq $_ } @{$locals{$key}};
 	push(@{$locals{$key}}, $text);
@@ -1222,6 +1222,12 @@ sub describe {
       next unless $text;
       $locals{$key} = $text;
       push(@descriptions, $text);
+    } elsif ($level > 1 and not exists $table_data->{$word}) {
+      # on level one, many terrain types do not exist (e.g. river-start)
+      $log->error("unknown table for $coordinates/$level: $word");
+    } elsif ($level > 1 and not $table_data->{$word}) {
+      # on level one, many terrain types do not exist (e.g. river-start)
+      $log->error("empty table for $coordinates/$level: $word");
     } else {
       my $text = pick($map_data, $table_data, $level, $coordinates, $words, $word);
       # remember it's legitimate to have no result for a table
@@ -1436,7 +1442,6 @@ sub resolve_later {
       my $key = $words;
       my $re = quotemeta($ref);
       $key =~ s/$re// if $ref;
-      $log->debug("Key: $key");
       $re = quotemeta($words);
       my $result = $descriptions->{$coord}->{html} =~
 	  s/${FS}later $re${FS}/describe($map_data,$table_data,1,$coord,[$key]) . $ref or '…'/ge;
