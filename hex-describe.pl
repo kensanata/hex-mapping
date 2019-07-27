@@ -3450,6 +3450,10 @@ td, th {
   background-color: #c1ffc1;
   padding: 2px 1px 0px 1px;
 }
+.grass {
+  background-color: #f2ffe6;
+  padding: 2px 1px 0px 1px;
+}
 .mountains {
   background-color: #e0e0e0;
 }
