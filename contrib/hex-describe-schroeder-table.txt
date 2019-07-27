@@ -77,10 +77,10 @@
 1,The [grass name] is a gently rolling expanse of prairie.
 1,This is the [grass name]. The tall grasses here make navigating difficult. Without a guide, you will get lost on a 1-2 in 6.
 1,The grassland of [grass name] seems to stretch forever.
-1,The grasses here have long pointy seeds that get stuck in your skin and clothing and itch terribly.
+1,The [grass name] here has long pointy seeds that get stuck in your skin and clothing and itch terribly.
 1,The [grass name] is covered by a brilliant blue sky that arcs above you.
 1,The [grass name] is interrupted by rocky limestone outcroppings here.
-1,A river meanders through the grasses here. You need a guide in order to pass through the water-logged [grass name] and stay on course.
+1,A network of small waterways makes progress difficult. You need a guide in order to pass through the water-logged [grass name].
 
 ;grass dressing
 1,Scattered [tree] trees interrupt the grassland here, providing welcome shade.
