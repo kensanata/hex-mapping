@@ -124,6 +124,9 @@
 ;straw golem stats
 1,HD 1 AC 9 1d6 MV 12 ML 12 XP 100; immune to *arrows*, immune to *poison*; immune to *spells*
 
+;basilisk stats
+1,HD 6+1 AC 4 1d10 F6 MV 6 ML 9 XP 600; save vs. poison if closer than 30ft because of the *poisoned air*, or when its *killing gaze* falls on you, or when bitten by the *poisonous fangs*
+
 ;horse archers
 1,[1d4x10] **humans** ([human stats]) led by *[archer leader name as human name]*[human portrait]. They are hunters and gatherers, following the herds of *[cows]*, and they are also excellent *horse archers*. [horse archer activities] They will trade dried meat and finely woven cloth for jewelry or [gem]. Their wool tents are decorated with [with colour] and [and colour] banners and protected by [human companions]. [average treasure]
 1,[1d4x10] **humans** ([human stats]) led by *[archer leader name as human name]*[human portrait]. They keep [2d4x10] *[cows]*. They are also excellent *horse archers*. [horse archer activities] They will trade [same cows] cheese and pickled [root veg] for [mine content] or spices. For an extravagant sum, they might even trade a prized hunting eagle. Their wool tents are arranged in a circle around the tent of their leader and are protected by [human companions]. [average treasure]
