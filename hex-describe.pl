@@ -1186,16 +1186,20 @@ sub describe {
       if (not $found) {
 	push(@descriptions, "…");
       }
-    } elsif ($word =~ /^save (.+?)(?: as (.+))?$/) {
-      my ($key, $alias) = ($1, $2);
+    } elsif ($word =~ /^(here )?save (.+?)(?: as (.+))?$/) {
+      my ($global, $key, $alias) = ($1, $2, $3);
       my $text = pick($map_data, $table_data, $level, $coordinates, $words, $key);
       next unless $text;
       $locals{$key} = $text;
       $locals{$alias} = $text if $alias;
+      $globals->{$key}->{$coordinates} = $text if $global;
+      $globals->{$alias}->{$coordinates} = $text if $global and $alias;
       # no description
-    } elsif ($word =~ /^store (.+) as (.+)$/) {
-      my ($text, $alias) = ($1, $2);
+    } elsif ($word =~ /^(here )?store (.+) as (.+)$/) {
+      my ($global, $text, $alias) = ($1, $2, $3);
       $locals{$alias} = $text;
+      $globals->{$text}->{$coordinates} = $text if $global;
+      $globals->{$alias}->{$coordinates} = $text if $global and $alias;
       # no description
     } elsif ($word =~ /^here (.+?)(?: as (.+))?$/) {
       my ($key, $alias) = ($1, $2);
@@ -2121,6 +2125,7 @@ page is my attempt at writing a tutorial.
 <li><a href="#adjacent">Adjacent Hexes</a></li>
 <li><a href="#links">Linking to Other Hexes</a></li>
 <li><a href="#quests">Simple Quests: here, nearby, other</a></li>
+<li><a href="#combining">Combining it: here, save, store</a></li>
 <li><a href="#here">Reuse: here, same, and nearby</a></li>
 <li><a href="#later">Delayed nested lookup: later</a></li>
 <li><a href="#lists">Lists of unique things: with, and</a></li>
@@ -3125,6 +3130,47 @@ just as well have written <code>The village alchemist is looking for
 <p>
 Remember: "nearby X" and "here X" must match up.
 </p>
+
+<h2 id="combining">Combining it: here, save, store</h2>
+
+The keyword "here" can be combined with "save" and "store". In the following
+example, half the temples are dedicated to a Greek god and the other half are
+dedicated to Heracles. Since he's not a god, we're simple using "here store
+Heracles as temple" to store the name "Heracles" as a temple location on the
+map, and thus half the time pilgrims will be looking for a Heracles temple.
+
+%= example begin
+0101 light-grey mountain
+0201 white mountain
+0301 white mountains
+0401 white mountain
+0501 light-grey mountain
+0601 light-green fir-forest
+0701 light-green fir-forest
+0801 light-grey mountain
+0901 white mountain
+1001 white mountains
+1101 white mountain
+1201 light-grey mountain
+1301 light-green village
+include https://campaignwiki.org/contrib/gnomeyland.txt
+
+;mountain
+1,Here stands a temple of *[here power as temple]*.
+1,Here stands a temple of *Heracles*.[here store Heracles as temple]
+
+;mountains
+1,[mountain]
+
+;power
+1,Zeus
+1,Hera
+1,Apollo
+1,Athena
+
+;village
+1,The inn houses a pilgrim looking for the temple of *[other temple]*.
+% end
 
 <h2 id="here">Reuse: here, same, and nearby</h2>
 

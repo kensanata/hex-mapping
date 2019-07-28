@@ -2555,7 +2555,7 @@
 
 ;small temple near giant apes
 1,
-1,Hidden away and protected from the elements there is a small temple of *[power]*.
+1,Hidden away and protected from the elements there is a small temple of *[here power as temple power]*.
 
 ;mountain obstacle
 1,snow fields
@@ -4179,7 +4179,7 @@
 1,HD 2 AC 7 1d6 F1 MV 12 ML 8 XP 200
 
 ;froglings
-1,[5d8] **froglings** ([frogling stats]) live here, led by *[frogling with portrait]*, a priest of Tsathoggua: *lightning bolt* 2×/day (5d6, save vs. spells for half). [poor treasure] The mud village built around the temple is guarded by [frogling companions].
+1,[5d8] **froglings** ([frogling stats]) live here, led by *[frogling with portrait]*, a priest of Tsathoggua: *lightning bolt* 2×/day (5d6, save vs. spells for half). [poor treasure] The mud village built around the temple[here store Tsathoggua as temple power] is guarded by [frogling companions].
 
 ;frogling with portrait
 1,*[frogling]*<img src="[[redirect https://campaignwiki.org/face/redirect/alex/frog]]" alt="[same frogling]" title="[same frogling]"/>
@@ -5290,7 +5290,7 @@
 ;some ruins
 1,On one of the hills you find an old two story watchtower.
 1,One of the hills is actually an old burial mound but the dead are long gone.
-1,On one of the hills are the ruins of an old temple.
+1,On one of the hills are the ruins of an old *[power]* temple.
 1,One of the hills contains one of these smooth shafts that go down a hundred feet or so. Ropes and ladders lead to the strange rooms below.
 1,A few large boulders stand close together and somebody built a little shelter using wooden lattice and some straw.
 1,Somebody dug a hole under one of the larger boulders.
@@ -6636,9 +6636,9 @@
 1,we are all goblins
 
 ;goblin town
-1,The goblin town has two factions: the *[[with goblin town companions as g1] name as g1name]* and the *[[and goblin town companions as g2] name as g2name]*.</p><p>The *[same g1name]* live in the upper parts of town, near the temple of *[evil power]*. [goblin town faction] [[same g1]]</p><p>The *[same g2name]* faction controls access to the [goblin town water], and the goblin *market*. [goblin town faction] [[same g2]]</p><p>[goblin market]
-2,The goblin town has three factions: the *[[with goblin town companions as g1] name as g1name]*, the *[[and goblin town companions as g2] name as g2name]*, and the *[[and goblin town companions as g3] name as g3name]*.</p><p>The *[same g1name]* live in the upper parts of town, near the entrance. [goblin town faction] [[same g1]]</p><p>The *[same g2name]* faction live in the middle part town, around the temple of *[evil power]*. [goblin town faction] [[same g2]]</p><p>The *[same g3name]* faction controls access to the [goblin town water], and the goblin *market*. [goblin town faction] [[same g3]]</p><p>[goblin market]
-1,The goblin town has four factions: the *[[with goblin town companions as g1] name as g1name]*, the *[[and goblin town companions as g2] name as g2name]*, the *[[and goblin town companions as g3] name as g3name]*, and the *[[and goblin town companions as g4] name as g4name]*.</p><p>The *[same g1name]* live in the upper parts of town, near the entrance. [goblin town faction] [[same g1]]</p><p>The *[same g2name]* faction live in the middle part town, around the temple of *[evil power]*. [goblin town faction] [[same g2]]</p><p>The *[same g4name]* faction live below the *[same evil power]* temple and run a *fight pit*. [goblin town faction] [[same g2]]</p><p>[goblin fight pit]</p><p>The *[same g3name]* faction controls access to the [goblin town water], and the goblin *market*. [goblin town faction] [[same g3]]</p><p>[goblin market]
+1,The goblin town has two factions: the *[[with goblin town companions as g1] name as g1name]* and the *[[and goblin town companions as g2] name as g2name]*.</p><p>The *[same g1name]* live in the upper parts of town, near the temple of *[here evil power as temple power]*. [goblin town faction] [[same g1]]</p><p>The *[same g2name]* faction controls access to the [goblin town water], and the goblin *market*. [goblin town faction] [[same g2]]</p><p>[goblin market]
+2,The goblin town has three factions: the *[[with goblin town companions as g1] name as g1name]*, the *[[and goblin town companions as g2] name as g2name]*, and the *[[and goblin town companions as g3] name as g3name]*.</p><p>The *[same g1name]* live in the upper parts of town, near the entrance. [goblin town faction] [[same g1]]</p><p>The *[same g2name]* faction live in the middle part town, around the temple of *[here evil power as temple power]*. [goblin town faction] [[same g2]]</p><p>The *[same g3name]* faction controls access to the [goblin town water], and the goblin *market*. [goblin town faction] [[same g3]]</p><p>[goblin market]
+1,The goblin town has four factions: the *[[with goblin town companions as g1] name as g1name]*, the *[[and goblin town companions as g2] name as g2name]*, the *[[and goblin town companions as g3] name as g3name]*, and the *[[and goblin town companions as g4] name as g4name]*.</p><p>The *[same g1name]* live in the upper parts of town, near the entrance. [goblin town faction] [[same g1]]</p><p>The *[same g2name]* faction live in the middle part town, around the temple of *[here evil power as temple power]*. [goblin town faction] [[same g2]]</p><p>The *[same g4name]* faction live below the *[same evil power]* temple and run a *fight pit*. [goblin town faction] [[same g2]]</p><p>[goblin fight pit]</p><p>The *[same g3name]* faction controls access to the [goblin town water], and the goblin *market*. [goblin town faction] [[same g3]]</p><p>[goblin market]
 
 ;goblin town companions
 1,goblin town failures
