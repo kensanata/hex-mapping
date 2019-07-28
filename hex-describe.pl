@@ -2568,7 +2568,7 @@ include https://campaignwiki.org/contrib/gnomeyland.txt
 <h2 id="alias">Alias: as</h2>
 
 <p>
-Sometimes you are going to generate some stuff and need to refer to elsewhere
+Sometimes you are going to generate some stuff and need to refer to it elsewhere
 under a different name. In the following example, the monster is either a named
 gorgon or a named fate. If you want to reuse just the name, you need to alias
 it. The pattern “<em>something</em> as <em>something else</em>” is key, here.
