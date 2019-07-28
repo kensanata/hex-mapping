@@ -1272,6 +1272,7 @@ my $steepness;
 my $peak;
 my $peaks;
 my $bottom;
+my $arid;
 
 sub xy {
   my $self = shift;
@@ -1348,9 +1349,12 @@ sub altitude {
     # warn "Altitude $current_altitude\n";
     my @next;
     for my $coordinates (@batch) {
-      # pick some random neighbors based on steepness (allow fractions)
-      my $n = int($steepness);
-      $n++ if rand() < $steepness - $n;
+      # pick some random neighbors based on variable steepness
+      my $n = $steepness + rand($steepness/2) - rand($steepness/2);
+      # round up based on fraction
+      $n += 1 if rand() < $n - int($n);
+      $n = int($n);
+      $log->debug("Steepness $n");
       for (1 .. $n) {
 	# try to find an empty neighbor; abort after six attempts
 	for (1 .. 6) {
@@ -1728,17 +1732,26 @@ sub grow_forest {
   my $self = shift;
   my ($coordinates, $world, $altitude) = @_;
   my @candidates = ($coordinates);
-  for my $i ($self->neighbors()) {
-    my ($x, $y) = $self->neighbor($coordinates, $i);
-    next unless $self->legal($x, $y);
-    my $other = coordinates($x, $y);
-    push(@candidates, $other) if $world->{$other} !~ /mountain|hill|water|swamp/;
+  my $n = $arid;
+  # fractions are allowed
+  $n += 1 if rand() < $arid - int($arid);
+  $n = int($n);
+  $log->warn("Arid: $n");
+  if ($n >= 1) {
+    for my $i ($self->neighbors()) {
+      my ($x, $y) = $self->neighbor($coordinates, $i);
+      next unless $self->legal($x, $y);
+      my $other = coordinates($x, $y);
+      push(@candidates, $other) if $world->{$other} !~ /mountain|hill|water|swamp/;
+    }
   }
-  for my $i ($self->neighbors2()) {
-    my ($x, $y) = $self->neighbor2($coordinates, $i);
-    next unless $self->legal($x, $y);
-    my $other = coordinates($x, $y);
-    push(@candidates, $other) if $world->{$other} !~ /mountain|hill|water|swamp/;
+  if ($n >= 2) {
+    for my $i ($self->neighbors2()) {
+      my ($x, $y) = $self->neighbor2($coordinates, $i);
+      next unless $self->legal($x, $y);
+      my $other = coordinates($x, $y);
+      push(@candidates, $other) if $world->{$other} !~ /mountain|hill|water|swamp/;
+    }
   }
   for $coordinates (@candidates) {
     if ($altitude->{$coordinates} >= 7) {
@@ -1965,6 +1978,7 @@ sub generate_map {
   $peaks = shift // int($width * $height / 30);
   $peak = shift // 10;
   $bottom = shift // 0;
+  $arid = shift // 2;
   my $seed = shift||time;
   my $url = shift;
   my $step = shift||0;
@@ -2310,6 +2324,7 @@ sub alpine_map {
 		$c->param('peaks'),
 		$c->param('peak'),
 		$c->param('bottom'),
+		$c->param('arid'),
 		$seed,
 		$url,
 		$step,
@@ -2382,6 +2397,7 @@ get '/alpine/document' => sub {
   my $peaks = $c->param('peaks') // int($width * $height / 30);
   my $peak = $c->param('peak') // 10;
   my $bottom = $c->param('bottom') // 0;
+  my $arid = $c->param('arid') // 2;
 
   $c->render(template => 'alpine_document',
 	     seed => $seed,
@@ -2390,7 +2406,8 @@ get '/alpine/document' => sub {
 	     steepness => $steepness,
 	     peaks => $peaks,
 	     peak => $peak,
-	     bottom => $bottom);
+	     bottom => $bottom,
+	     arid => $arid);
 };
 
 get '/alpine/parameters' => sub {
@@ -2901,6 +2918,10 @@ You'll find the map description in a comment within the SVG file.
 %= number_field steepness => 3, min => 1, max => 6
 </td><td>Peak:</td><td>
 %= number_field peak => 10, min => 7, max => 10
+</td></tr><tr><td>Arid:</td><td>
+%= number_field arid => 2, min => 0, max => 2
+</td><td><td>
+</td><td></td><td>
 </td></tr></table>
 <p>
 See the <%= link_to alpineparameters => begin %>documentation<% end %> for an
@@ -2981,6 +3002,19 @@ Examples:
 <%= link_to url_for('alpinerandom')->query(height => 10, width => 15, peak => 11) => begin %>big mountains<% end %>,
 <%= link_to url_for('alpinerandom')->query(height => 10, width => 15, steepness => 3, bottom => 3, peak => 8) => begin %>old country<% end %>
 </p>
+<p>
+You can also control forest growth (as opposed to grassland) by using the
+<strong>arid</strong> parameter (default 2). That's how many hexes surrounding a
+river hex will grow forests. Smaller means more arid and thus more grass.
+Fractions are allowed. Thus, 0.5 means half the river hexes will have forests
+grow to their neighbouring hexes.
+</p>
+<p>
+Examples:
+<%= link_to url_for('alpinerandom')->query(height => 10, width => 15, peaks => 2, stepness => 2, arid => 2) => begin %>fewer, steeper mountains<% end %>,
+<%= link_to url_for('alpinerandom')->query(height => 10, width => 15, peaks => 2, stepness => 2, arid => 1) => begin %>less forest<% end %>,
+<%= link_to url_for('alpinerandom')->query(height => 10, width => 15, peaks => 2, stepness => 2, arid => 0) => begin %>very arid<% end %>
+</p>
 
 
 @@ alpine_document.html.ep
@@ -2989,11 +3023,11 @@ Examples:
 <h1>Alpine Map: How does it get created?</h1>
 
 <p>How do we get to the following map?
-<%= link_to url_for('alpinedocument')->query(width => $width, height => $height, steepness => $steepness, peaks => $peaks, peak => $peak, bottom => $bottom) => begin %>Reload<% end %>
+<%= link_to url_for('alpinedocument')->query(width => $width, height => $height, steepness => $steepness, peaks => $peaks, peak => $peak, bottom => $bottom, arid => $arid) => begin %>Reload<% end %>
 to get a different one. If you like this particular map, bookmark
-<%= link_to url_for('alpinerandom')->query(seed => $seed, width => $width, height => $height, steepness => $steepness, peaks => $peaks, peak => $peak, bottom => $bottom) => begin %>this link<% end %>,
+<%= link_to url_for('alpinerandom')->query(seed => $seed, width => $width, height => $height, steepness => $steepness, peaks => $peaks, peak => $peak, bottom => $bottom, arid => $arid) => begin %>this link<% end %>,
 and edit it using
-<%= link_to url_for('alpine')->query(seed => $seed, width => $width, height => $height, steepness => $steepness, peaks => $peaks, peak => $peak, bottom => $bottom) => begin %>this link<% end %>,
+<%= link_to url_for('alpine')->query(seed => $seed, width => $width, height => $height, steepness => $steepness, peaks => $peaks, peak => $peak, bottom => $bottom, arid => $arid) => begin %>this link<% end %>,
 </p>
 
 %== $maps->[$#$maps]
@@ -3078,7 +3112,7 @@ otherwise dark-grey.</p>
 <p>Wherever there is water and no swamp, forests will form. The exact type again
 depends on the altitude: light green fir-forest (altitude 7 and higher), green
 fir-forest (altitude 6), green forest (altitude 4–5), dark-green forest
-(altitude 3 and lower). Once a forest is placed, it expands up to two hexes
+(altitude 3 and lower). Once a forest is placed, it expands up to <%= $arid %> hexes
 away, even if those hexes have no water flowing through them. You probably need
 fewer peaks on your map to verify this (a <%= link_to
 url_with('alpinerandom')->query({peaks => 1}) => begin %>lonely mountain<% end
