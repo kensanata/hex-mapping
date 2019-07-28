@@ -911,6 +911,8 @@ sub parse_table {
       for my $alias ($h{text} =~ /\[$words\[$words\]$words as ($words)\]/g) {
 	$aliases{$alias} = 1;
       }
+    } elsif ($line ne '' and $line !~ /^\s*#/) {
+      $log->warn("unknown line type: '$line'");
     }
   }
   # check tables
