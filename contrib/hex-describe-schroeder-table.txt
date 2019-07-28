@@ -1132,8 +1132,18 @@
 1,Ear
 1,Eggs
 1,Trumpet
-1,[animal]
+1,[capitalize animal]
 1,[evil tribe thing]
+
+;animal
+1,rhino
+1,elephant
+1,dog
+1,cat
+1,rat
+1,goat
+1,cow
+1,sheep
 
 ;mountain orc leader specialty
 1,*[same orc]* is a famous sword smith in the [orc sword tradition].
