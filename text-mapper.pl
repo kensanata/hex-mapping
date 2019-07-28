@@ -1736,7 +1736,7 @@ sub grow_forest {
   # fractions are allowed
   $n += 1 if rand() < $arid - int($arid);
   $n = int($n);
-  $log->warn("Arid: $n");
+  $log->debug("Arid: $n");
   if ($n >= 1) {
     for my $i ($self->neighbors()) {
       my ($x, $y) = $self->neighbor($coordinates, $i);
