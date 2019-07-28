@@ -64,8 +64,7 @@
 1,The [grass name] looks burned and shrivelled here and the smell of sulphur hangs in the air. A **manticore** named *[here manticore name]* [manticore activity] ([manticore stats]).
 3,[grass intro] [grass dressing]  If you stay here long, you'll soon attract the attention of [boars].
 1,[grass intro] A burbling spring seeps out of a small cave here, save vs. poison or spend the rest of the day vomiting. This cave is home to a **basilisk** ([basilisk stats]). The poisonous vapors have polluted the springwater.
-1,[grass intro] [grass dressing] An abandoned shrine to *[power]* stands here, partly covered in lichens. Patrolling the corridors inside the crumbling shrine is a **straw golem** ([straw golem stats]). [2d6]
-[gem] gems can be recovered from the golem.
+1,[grass intro] [grass dressing] An abandoned shrine to *[power]* stands here, partly covered in lichens. Patrolling the corridors inside the crumbling shrine is a **straw golem** ([straw golem stats]). [2d6] [gem] gems can be recovered from the golem.
 1,[grass intro] [grass dressing] There's a wooden hut, here. Its inhabitant appears to be a hermit called [human]. In actual fact, however, this is a **wereboar** ([werewolf stats]). [poor treasure] They will attack if the party discovers their secret.
 1,[grass intro] [grass dressing] [outlaw camp]. [robber treasure]
 3,This section of the [grass name] is an elephant graveyard. Elephant bones lie scattered among the flattened grasses. These bones are protected by [1d8+1] **elephants** ([elephant stats]) who will trample and gore anybody disturbing this area. <span class="treasure">Each tusk is worth 1d6×100gp.</span>
