@@ -15,14 +15,30 @@
 
 package main;
 use Modern::Perl;
-use Mojo::Log;
 
-our $debug = $ENV{DEBUG};
-my $log = Mojo::Log->new(level => $debug ? 'debug' : 'warn');
-$log->debug("Debugging enabled");
+=head2 Configuration
+
+As a Mojolicious application, it will read a config file called
+F<text-mapper.conf> in the same directory, if it exists. As the default log
+level is 'warn', one use of the config file is to change the log level using
+the C<loglevel> key.
+
+The libraries are loaded from the F<contrib> URL. You can change the default
+using the C<contrib> key. This is necessary when you want to develop locally,
+for example.
+
+    {
+      loglevel => 'debug',
+      contrib => 'file://contrib',
+    };
+
+=cut
 
 my $dx = 100;
 my $dy = 100*sqrt(3);
+my $debug;
+my $log;
+my $contrib;
 
 sub url_encode {
   my $str = shift;
@@ -493,7 +509,7 @@ my $example = <<'EOT';
 0205-0103-0202-0303-0402 road
 0101-0203 river
 0401-0303-0403 border
-include https://campaignwiki.org/contrib/default.txt
+include $contrib/default.txt
 license <text>Public Domain</text>
 EOT
 
@@ -1253,7 +1269,7 @@ sub generate_map {
   }
 
   return join("\n", map { $_ . " " . $world{$_} } sort keys %world) . "\n"
-    . "include https://campaignwiki.org/contrib/gnomeyland.txt\n";
+    . "include $contrib/gnomeyland.txt\n";
 }
 
 package Schroeder;
@@ -2028,7 +2044,7 @@ sub generate_map {
   push(@lines, map { "@$_ canyon" } @$canyons);
   push(@lines, map { "@$_ river" } @$rivers);
   push(@lines, map { "$_ trail" } @$trails);
-  push(@lines, "include https://campaignwiki.org/contrib/gnomeyland.txt");
+  push(@lines, "include $contrib/gnomeyland.txt");
 
   # when documenting or debugging, add some more lines at the end
   if ($step > 0) {
@@ -2238,6 +2254,15 @@ use Mojo::DOM;
 use Mojo::Util qw(xml_escape);
 use Pod::Simple::HTML;
 use Pod::Simple::Text;
+
+plugin Config => {default => {
+  loglevel => 'warn',
+  contrib => 'https://campaignwiki.org/contrib', }};
+
+$log = Mojo::Log->new;
+$log->level(app->config('loglevel'));
+$debug = $log->level eq 'debug';
+$contrib = app->config('contrib');
 
 get '/' => sub {
   my $c = shift;
@@ -2632,7 +2657,7 @@ Since these definitions get unwieldy, require a lot of work (the path
 elements), and to encourage reuse, you can use the B<include>
 statement with an URL.
 
-    include https://campaignwiki.org/contrib/default.txt
+    include $contrib/default.txt
     0102 sand
     0103 sand
     0201 sand
@@ -2653,7 +2678,7 @@ that connects to itself. These "closed" lines can have C<fill> in
 their path attributes. In the following example, the oasis is
 surrounded by a larger green area.
 
-    include https://campaignwiki.org/contrib/default.txt
+    include $contrib/default.txt
     0102 sand
     0103 sand
     0201 sand
@@ -2792,35 +2817,35 @@ Source of the map:
 L<http://themetalearth.blogspot.ch/2011/03/opd-entry.html>
 
 Example data:
-L<https://campaignwiki.org/contrib/forgotten-depths.txt>
+L<$contrib/forgotten-depths.txt>
 
 Library:
-L<https://campaignwiki.org/contrib/default.txt>
+L<$contrib/default.txt>
 
 Result:
-L<https://campaignwiki.org/text-mapper?map=include+https://campaignwiki.org/contrib/forgotten-depths.txt>
+L<https://campaignwiki.org/text-mapper?map=include+$contrib/forgotten-depths.txt>
 
 =head3 Gnomeyland
 
 Example data:
-L<https://campaignwiki.org/contrib/gnomeyland-example.txt>
+L<$contrib/gnomeyland-example.txt>
 
 Library:
-L<https://campaignwiki.org/contrib/gnomeyland.txt>
+L<$contrib/gnomeyland.txt>
 
 Result:
-L<https://campaignwiki.org/text-mapper?map=include+https://campaignwiki.org/contrib/gnomeyland-example.txt>
+L<https://campaignwiki.org/text-mapper?map=include+$contrib/gnomeyland-example.txt>
 
 =head3 Traveller
 
 Example:
-L<https://campaignwiki.org/contrib/traveller-example.txt>
+L<$contrib/traveller-example.txt>
 
 Library:
-L<https://campaignwiki.org/contrib/traveller.txt>
+L<$contrib/traveller.txt>
 
 Result:
-L<https://campaignwiki.org/text-mapper?map=include+https://campaignwiki.org/contrib/traveller-example.txt>
+L<https://campaignwiki.org/text-mapper?map=include+$contrib/traveller-example.txt>
 
 =head2 Command Line
 
