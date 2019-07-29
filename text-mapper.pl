@@ -1285,8 +1285,10 @@ struct Schroeder => {};
 my $width;
 my $height;
 my $steepness;
-my $peak;
 my $peaks;
+my $peak;
+my $hills;
+my $hill;
 my $bottom;
 my $arid;
 
@@ -1341,13 +1343,14 @@ sub flat {
   }
 }
 
-sub altitude {
+sub place_peak {
   my $self = shift;
-  my ($world, $altitude) = @_;
-  my $current_altitude = $peak;
-  my @batch;
-  # place some peaks and put them in a batch
-  for (1 .. $peaks) {
+  my $altitude = shift;
+  my $count = shift;
+  my $current_altitude = shift;
+  my @queue;
+  # place some peaks and put them in a queue
+  for (1 .. $count) {
     # try to find an empty hex
     for (1 .. 6) {
       my $x = int(rand($width)) + 1;
@@ -1355,46 +1358,51 @@ sub altitude {
       my $coordinates = coordinates($x, $y);
       next if $altitude->{$coordinates};
       $altitude->{$coordinates} = $current_altitude;
-      push(@batch, $coordinates);
+      $log->debug("placed $current_altitude at $coordinates");
+      push(@queue, $coordinates);
       last;
     }
   }
-  # go through the batch and add adjacent lower altitude hexes, if possible; the
-  # hexes added are the next batch to look at
-  while (--$current_altitude >= 0) {
-    # warn "Altitude $current_altitude\n";
-    my @next;
-    for my $coordinates (@batch) {
-      # pick some random neighbors based on variable steepness
-      my $n = $steepness + rand($steepness/2) - rand($steepness/2);
-      # round up based on fraction
-      $n += 1 if rand() < $n - int($n);
-      $n = int($n);
-      $log->debug("Steepness $n");
-      for (1 .. $n) {
-	# try to find an empty neighbor; abort after six attempts
-	for (1 .. 6) {
-	  my ($x, $y) = $self->neighbor($coordinates, $self->random_neighbor());
+  return @queue;
+}
+
+sub altitude {
+  my $self = shift;
+  my ($world, $altitude) = @_;
+  my @queue = ($self->place_peak($altitude, $peaks, $peak),
+	       $self->place_peak($altitude, $hills, $hill));
+  # go through the queue and add adjacent lower altitude hexes, if possible; the
+  # hexes added are to the end of the queue
+  while (@queue) {
+    my $coordinates = shift @queue;
+    my $current_altitude = $altitude->{$coordinates};
+    # pick some random neighbors based on variable steepness
+    my $n = $steepness + rand($steepness/2) - rand($steepness/2);
+    # round up based on fraction
+    $n += 1 if rand() < $n - int($n);
+    $n = int($n);
+    $log->debug("Steepness $n");
+    for (1 .. $n) {
+      # try to find an empty neighbor; abort after six attempts
+      for (1 .. 6) {
+	my ($x, $y) = $self->neighbor($coordinates, $self->random_neighbor());
+	next unless $self->legal($x, $y);
+	my $other = coordinates($x, $y);
+	# if this is taken, look further
+	if ($altitude->{$other}) {
+	  ($x, $y) = $self->neighbor2($coordinates, $self->random_neighbor2());
 	  next unless $self->legal($x, $y);
-	  my $other = coordinates($x, $y);
-	  # if this is taken, look further
-	  if ($altitude->{$other}) {
-	    ($x, $y) = $self->neighbor2($coordinates, $self->random_neighbor2());
-	    next unless $self->legal($x, $y);
-	    $other = coordinates($x, $y);
-	    # if this is also taken, try again
-	    next if $altitude->{$other};
-	  }
-	  # warn "Neighbor of $coordinates: picked $other\n";
-	  # if we found an empty neighbor, set its altitude
-	  $altitude->{$other} = $current_altitude;
-	  push(@next, $other);
-	  last;
+	  $other = coordinates($x, $y);
+	  # if this is also taken, try again
+	  next if $altitude->{$other};
 	}
+	# if we found an empty neighbor, set its altitude
+	$altitude->{$other} = $current_altitude - 1;
+	$log->debug("altitude of $coordinates is $current_altitude, altitude of $other was set to $altitude->{$other}");
+	push(@queue, $other);
+	last;
       }
     }
-    last unless @next;
-    @batch = @next;
   }
   # go through all the hexes
   for my $coordinates (sort keys %$altitude) {
@@ -1988,11 +1996,13 @@ sub generate {
 sub generate_map {
   my $self = shift;
   # The parameters turn into class variables.
-  $width = shift // 20;
+  $width = shift // 30;
   $height = shift // 10;
   $steepness = shift // 3;
-  $peaks = shift // int($width * $height / 30);
+  $peaks = shift // int($width * $height / 40);
   $peak = shift // 10;
+  $hills = shift // int($width * $height / 100);
+  $hill = shift // 7;
   $bottom = shift // 0;
   $arid = shift // 2;
   my $seed = shift||time;
@@ -2348,6 +2358,8 @@ sub alpine_map {
 		$c->param('steepness'),
 		$c->param('peaks'),
 		$c->param('peak'),
+		$c->param('hills'),
+		$c->param('hill'),
 		$c->param('bottom'),
 		$c->param('arid'),
 		$seed,
@@ -2419,8 +2431,10 @@ get '/alpine/document' => sub {
   my $width = $c->param('width') // 20;
   my $height = $c->param('height') // 5; # instead of 10
   my $steepness = $c->param('steepness') // 3;
-  my $peaks = $c->param('peaks') // int($width * $height / 30);
+  my $peaks = $c->param('peaks') // int($width * $height / 40);
   my $peak = $c->param('peak') // 10;
+  my $hills = $c->param('hills') // int($width * $height / 100);
+  my $hill = $c->param('hill') // 7;
   my $bottom = $c->param('bottom') // 0;
   my $arid = $c->param('arid') // 2;
 
@@ -2431,6 +2445,8 @@ get '/alpine/document' => sub {
 	     steepness => $steepness,
 	     peaks => $peaks,
 	     peak => $peak,
+	     hills => $hills,
+	     hill => $hill,
 	     bottom => $bottom,
 	     arid => $arid);
 };
@@ -2936,13 +2952,17 @@ You'll find the map description in a comment within the SVG file.
 </td><td>Bottom:</td><td>
 %= number_field bottom => 0, min => 0, max => 10
 </td><td>Peaks:</td><td>
-%= number_field peaks => 10, min => 0, max => 100
+%= number_field peaks => 5, min => 0, max => 100
+</td><td>Hills:</td><td>
+%= number_field hills => 2, min => 0, max => 100
 </td></tr><tr><td>Height:</td><td>
 %= number_field height => 10, min => 5, max => 99
 </td><td>Steepness:</td><td>
 %= number_field steepness => 3, min => 1, max => 6
 </td><td>Peak:</td><td>
 %= number_field peak => 10, min => 7, max => 10
+</td><td>Hill:</td><td>
+%= number_field hill => 7, min => 1, max => 10
 </td></tr><tr><td>Arid:</td><td>
 %= number_field arid => 2, min => 0, max => 2
 </td><td><td>
@@ -3048,22 +3068,22 @@ Examples:
 <h1>Alpine Map: How does it get created?</h1>
 
 <p>How do we get to the following map?
-<%= link_to url_for('alpinedocument')->query(width => $width, height => $height, steepness => $steepness, peaks => $peaks, peak => $peak, bottom => $bottom, arid => $arid) => begin %>Reload<% end %>
+<%= link_to url_for('alpinedocument')->query(width => $width, height => $height, steepness => $steepness, peaks => $peaks, peak => $peak, hills => $hills, hill => $hill, bottom => $bottom, arid => $arid) => begin %>Reload<% end %>
 to get a different one. If you like this particular map, bookmark
-<%= link_to url_for('alpinerandom')->query(seed => $seed, width => $width, height => $height, steepness => $steepness, peaks => $peaks, peak => $peak, bottom => $bottom, arid => $arid) => begin %>this link<% end %>,
+<%= link_to url_for('alpinerandom')->query(seed => $seed, width => $width, height => $height, steepness => $steepness, peaks => $peaks, peak => $peak, hills => $hills, hill => $hill, bottom => $bottom, arid => $arid) => begin %>this link<% end %>,
 and edit it using
-<%= link_to url_for('alpine')->query(seed => $seed, width => $width, height => $height, steepness => $steepness, peaks => $peaks, peak => $peak, bottom => $bottom, arid => $arid) => begin %>this link<% end %>,
+<%= link_to url_for('alpine')->query(seed => $seed, width => $width, height => $height, steepness => $steepness, peaks => $peaks, peak => $peak, hills => $hills, hill => $hill, bottom => $bottom, arid => $arid) => begin %>this link<% end %>,
 </p>
 
 %== $maps->[$#$maps]
 
-<p>First, we pick <%= $peaks %> peaks and set their altitude to <%= $peak %>.
-Then we loop through all the altitudes from <%= $peak %> down to 1 and for every
-hex we added in the previous run, we add <%= $steepness %> neighbors at a lower
-altitude, if possible. We'll also consider neighbors one step away. If our
-random growth missed any hexes, we just copy the height of a neighbor. If we
-can't find a suitable neighbor within a few tries, just make a hole in the
-ground (altitude 0).</p>
+<p>First, we pick <%= $peaks %> peaks and set their altitude to <%= $peak %>,
+and then we pick <%= $hills %> hills and set their altitude to <%= $hill %>.
+Then we loop down to 1 and for every hex we added in the previous run, we add
+<%= $steepness %> neighbors at a lower altitude, if possible. We'll also
+consider neighbors one step away. If our random growth missed any hexes, we just
+copy the height of a neighbor. If we can't find a suitable neighbor within a few
+tries, just make a hole in the ground (altitude 0).</p>
 
 <p>The number of peaks can be changed using the <em>peaks</em> parameter. Please
 note that 0 <em>peaks</em> will result in no land mass.</p>
