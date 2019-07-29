@@ -1287,8 +1287,8 @@ my $height;
 my $steepness;
 my $peaks;
 my $peak;
-my $hills;
-my $hill;
+my $bumps;
+my $bump;
 my $bottom;
 my $arid;
 
@@ -1366,11 +1366,10 @@ sub place_peak {
   return @queue;
 }
 
-sub altitude {
+sub grow_mountains {
   my $self = shift;
-  my ($world, $altitude) = @_;
-  my @queue = ($self->place_peak($altitude, $peaks, $peak),
-	       $self->place_peak($altitude, $hills, $hill));
+  my $altitude = shift;
+  my @queue = @_;
   # go through the queue and add adjacent lower altitude hexes, if possible; the
   # hexes added are to the end of the queue
   while (@queue) {
@@ -1397,13 +1396,18 @@ sub altitude {
 	  next if $altitude->{$other};
 	}
 	# if we found an empty neighbor, set its altitude
-	$altitude->{$other} = $current_altitude - 1;
+	$altitude->{$other} = $current_altitude > 0 ? $current_altitude - 1 : 0;
 	$log->debug("altitude of $coordinates is $current_altitude, altitude of $other was set to $altitude->{$other}");
 	push(@queue, $other);
 	last;
       }
     }
   }
+}
+
+sub fix_altitude {
+  my $self = shift;
+  my $altitude = shift;
   # go through all the hexes
   for my $coordinates (sort keys %$altitude) {
     # find hexes that we missed and give them the height of a random neighbor
@@ -1423,8 +1427,56 @@ sub altitude {
 	$altitude->{$coordinates} = 0;
       }
     }
-    # note height for debugging purposes
+  }
+}
+
+sub altitude {
+  my $self = shift;
+  my ($world, $altitude) = @_;
+  my @queue = $self->place_peak($altitude, $peaks, $peak);
+  $self->grow_mountains($altitude, @queue);
+  $self->fix_altitude($altitude);
+  # note height for debugging purposes
+  for my $coordinates (sort keys %$altitude) {
     $world->{$coordinates} = "height$altitude->{$coordinates}";
+  }
+}
+
+sub bumps {
+  my $self = shift;
+  my ($world, $altitude) = @_;
+  for (1 .. $bumps) {
+    for my $delta (-$bump, $bump) {
+      # six attempts to try and find a good hex
+      for (1 .. 6) {
+	my $x = int(rand($width)) + 1;
+	my $y = int(rand($height)) + 1;
+	my $coordinates = coordinates($x, $y);
+	my $current_altitude = $altitude->{$coordinates} + $delta;
+	next if $current_altitude > 10 or $current_altitude < 0;
+	# bump it up or down
+	$altitude->{$coordinates} = $current_altitude;
+	$world->{$coordinates} = "height$altitude->{$coordinates}";
+	$log->debug("bumped altitude of $coordinates by $delta to $current_altitude");
+	# if the bump was +2 or -2, bump the neighbours by +1 or -1
+	if ($delta < -1 or $delta > 1) {
+	  my $delta = $delta - $delta / abs($delta);
+	  for my $i ($self->neighbors()) {
+	    my ($x, $y) = $self->neighbor($coordinates, $i);
+	    my $legal = $self->legal($x, $y);
+	    my $other = coordinates($x, $y);
+	    next if not $legal;
+	    $current_altitude = $altitude->{$other} + $delta;
+	    next if $current_altitude > 10 or $current_altitude < 0;
+	    $altitude->{$other} = $current_altitude;
+	    $world->{$other} = "height$altitude->{$other}";
+	    $log->debug("$i bumped altitude of $other by $delta to $current_altitude");
+	  }
+	}
+	# if we have found a good hex, don't go through all the other attempts
+	last;
+      }
+    }
   }
 }
 
@@ -1967,6 +2019,7 @@ sub generate {
   my @code = (
     sub { $self->flat($altitude);
 	  $self->altitude($world, $altitude); },
+    sub { $self->bumps($world, $altitude); },
     sub { $self->mountains($world, $altitude); },
     sub { $self->water($world, $altitude, $water); },
     sub { $self->lakes($world, $altitude, $water); },
@@ -1982,6 +2035,7 @@ sub generate {
     sub { push(@$settlements, $self->settlements($world, $flow)); },
     sub { push(@$trails, $self->trails($altitude, $settlements)); },
     # make sure you look at "alpine_document.html.ep" if you change this list!
+    # make sure you look at '/alpine/document' if you add to this list
       );
 
   # $step 0 runs all the code; note that we can't simply cache those results
@@ -2001,8 +2055,8 @@ sub generate_map {
   $steepness = shift // 3;
   $peaks = shift // int($width * $height / 40);
   $peak = shift // 10;
-  $hills = shift // int($width * $height / 100);
-  $hill = shift // 7;
+  $bumps = shift // int($width * $height / 40);
+  $bump = shift // 2;
   $bottom = shift // 0;
   $arid = shift // 2;
   my $seed = shift||time;
@@ -2358,8 +2412,8 @@ sub alpine_map {
 		$c->param('steepness'),
 		$c->param('peaks'),
 		$c->param('peak'),
-		$c->param('hills'),
-		$c->param('hill'),
+		$c->param('bumps'),
+		$c->param('bump'),
 		$c->param('bottom'),
 		$c->param('arid'),
 		$seed,
@@ -2412,7 +2466,7 @@ get '/alpine/document' => sub {
   # use the same seed for all the calls
   my $seed = $c->param('seed');
   $seed = $c->param('seed' => int(rand(1000000000))) unless defined $seed;
-  for my $step (1 .. 14) {
+  for my $step (1 .. 15) {
     my $map = alpine_map($c, $step);
     my $mapper;
     if ($type eq 'hex') {
@@ -2433,8 +2487,8 @@ get '/alpine/document' => sub {
   my $steepness = $c->param('steepness') // 3;
   my $peaks = $c->param('peaks') // int($width * $height / 40);
   my $peak = $c->param('peak') // 10;
-  my $hills = $c->param('hills') // int($width * $height / 100);
-  my $hill = $c->param('hill') // 7;
+  my $bumps = $c->param('bumps') // int($width * $height / 40);
+  my $bump = $c->param('bump') // 2;
   my $bottom = $c->param('bottom') // 0;
   my $arid = $c->param('arid') // 2;
 
@@ -2445,8 +2499,8 @@ get '/alpine/document' => sub {
 	     steepness => $steepness,
 	     peaks => $peaks,
 	     peak => $peak,
-	     hills => $hills,
-	     hill => $hill,
+	     bumps => $bumps,
+	     bump => $bump,
 	     bottom => $bottom,
 	     arid => $arid);
 };
@@ -2953,16 +3007,16 @@ You'll find the map description in a comment within the SVG file.
 %= number_field bottom => 0, min => 0, max => 10
 </td><td>Peaks:</td><td>
 %= number_field peaks => 5, min => 0, max => 100
-</td><td>Hills:</td><td>
-%= number_field hills => 2, min => 0, max => 100
+</td><td>Bumps:</td><td>
+%= number_field bumps => 2, min => 0, max => 100
 </td></tr><tr><td>Height:</td><td>
 %= number_field height => 10, min => 5, max => 99
 </td><td>Steepness:</td><td>
 %= number_field steepness => 3, min => 1, max => 6
 </td><td>Peak:</td><td>
 %= number_field peak => 10, min => 7, max => 10
-</td><td>Hill:</td><td>
-%= number_field hill => 7, min => 1, max => 10
+</td><td>Bump:</td><td>
+%= number_field bump => 2, min => 1, max => 2
 </td></tr><tr><td>Arid:</td><td>
 %= number_field arid => 2, min => 0, max => 2
 </td><td><td>
@@ -3003,7 +3057,7 @@ Example:
 </p>
 <p>
 The number of peaks we start with is controlled by the <strong>peaks</strong>
-parameter (default is 3⅓% of the hexes). Note that you need at least one peak in
+parameter (default is 2½% of the hexes). Note that you need at least one peak in
 order to get any land at all.
 </p>
 <p>
@@ -3011,6 +3065,15 @@ Examples:
 <%= link_to url_for('alpinerandom')->query(height => 10, width => 15, peaks => 1) => begin %>lonely mountain<% end %>,
 <%= link_to url_for('alpinerandom')->query(height => 10, width => 15, peaks => 2) => begin %>twin peaks<% end %>,
 <%= link_to url_for('alpinerandom')->query(height => 10, width => 15, peaks => 15) => begin %>here be glaciers<% end %>
+</p>
+<p>
+The number of bumps we start with is controlled by the <strong>bumps</strong>
+parameter (default is 1% of the hexes). These are secondary hills and hollows.
+</p>
+<p>
+Examples:
+<%= link_to url_for('alpinerandom')->query(height => 10, width => 15, peaks => 1, bumps => 0) => begin %>lonely mountain, no bumps<% end %>,
+<%= link_to url_for('alpinerandom')->query(height => 10, width => 15, peaks => 1, bumps => 4) => begin %>lonely mountain and four bumps<% end %>
 </p>
 <p>
 When creating elevations, we surround each hex with a number of other hexes at
@@ -3048,6 +3111,15 @@ Examples:
 <%= link_to url_for('alpinerandom')->query(height => 10, width => 15, steepness => 3, bottom => 3, peak => 8) => begin %>old country<% end %>
 </p>
 <p>
+You can also control how high the extra bumps will be using the
+<strong>bump</strong> parameter (default 2).
+</p>
+<p>
+Examples:
+<%= link_to url_for('alpinerandom')->query(height => 10, width => 15, peaks => 1, bump => 1) => begin %>small bumps<% end %>,
+<%= link_to url_for('alpinerandom')->query(height => 10, width => 15, peaks => 1, bump => 2) => begin %>bigger bumps<% end %>
+</p>
+<p>
 You can also control forest growth (as opposed to grassland) by using the
 <strong>arid</strong> parameter (default 2). That's how many hexes surrounding a
 river hex will grow forests. Smaller means more arid and thus more grass.
@@ -3068,22 +3140,22 @@ Examples:
 <h1>Alpine Map: How does it get created?</h1>
 
 <p>How do we get to the following map?
-<%= link_to url_for('alpinedocument')->query(width => $width, height => $height, steepness => $steepness, peaks => $peaks, peak => $peak, hills => $hills, hill => $hill, bottom => $bottom, arid => $arid) => begin %>Reload<% end %>
+<%= link_to url_for('alpinedocument')->query(width => $width, height => $height, steepness => $steepness, peaks => $peaks, peak => $peak, bumps => $bumps, bump => $bump, bottom => $bottom, arid => $arid) => begin %>Reload<% end %>
 to get a different one. If you like this particular map, bookmark
-<%= link_to url_for('alpinerandom')->query(seed => $seed, width => $width, height => $height, steepness => $steepness, peaks => $peaks, peak => $peak, hills => $hills, hill => $hill, bottom => $bottom, arid => $arid) => begin %>this link<% end %>,
+<%= link_to url_for('alpinerandom')->query(seed => $seed, width => $width, height => $height, steepness => $steepness, peaks => $peaks, peak => $peak, bumps => $bumps, bump => $bump, bottom => $bottom, arid => $arid) => begin %>this link<% end %>,
 and edit it using
-<%= link_to url_for('alpine')->query(seed => $seed, width => $width, height => $height, steepness => $steepness, peaks => $peaks, peak => $peak, hills => $hills, hill => $hill, bottom => $bottom, arid => $arid) => begin %>this link<% end %>,
+<%= link_to url_for('alpine')->query(seed => $seed, width => $width, height => $height, steepness => $steepness, peaks => $peaks, peak => $peak, bumps => $bumps, bump => $bump, bottom => $bottom, arid => $arid) => begin %>this link<% end %>,
 </p>
 
 %== $maps->[$#$maps]
 
-<p>First, we pick <%= $peaks %> peaks and set their altitude to <%= $peak %>,
-and then we pick <%= $hills %> hills and set their altitude to <%= $hill %>.
+<p>First, we pick <%= $peaks %> peaks and set their altitude to <%= $peak %>.
 Then we loop down to 1 and for every hex we added in the previous run, we add
-<%= $steepness %> neighbors at a lower altitude, if possible. We'll also
-consider neighbors one step away. If our random growth missed any hexes, we just
-copy the height of a neighbor. If we can't find a suitable neighbor within a few
-tries, just make a hole in the ground (altitude 0).</p>
+<%= $steepness %> neighbors at a lower altitude, if possible. We actually vary
+steepness, so the steepness given is just an average. We'll also consider
+neighbors one step away. If our random growth missed any hexes, we just copy the
+height of a neighbor. If we can't find a suitable neighbor within a few tries,
+just make a hole in the ground (altitude 0).</p>
 
 <p>The number of peaks can be changed using the <em>peaks</em> parameter. Please
 note that 0 <em>peaks</em> will result in no land mass.</p>
@@ -3096,6 +3168,12 @@ sources for rivers.</p>
 <em>steepness</em> parameter. Floating points are allowed. Please note that the
 maximum numbers of neighbors considered is the 6 immediate neighbors and the 12
 neighbors one step away.</p>
+
+%== shift(@$maps)
+
+<p>Next, we pick <%= $bumps %> bumps and shift their altitude by -<%= $bump %>,
+and <%= $bumps %> bumps and shift their altitude by +<%= $bump %>. If the shift
+is bigger than 1, then we shift the neighbours by one less.</p>
 
 %== shift(@$maps)
 
@@ -3182,12 +3260,12 @@ density of the forest. There are three levels of settlements: thorps, villages
 and towns.</p>
 
 <table>
-<tr><th>Settlement</th><th>Forest</th><th>Altitudes</th><th>Number</th><th>Minimum Distance</th></tr>
-<tr><td>Thorp</td><td>fir-forest</td><td class="numeric">6–7</td><td class="numeric">10%</td><td class="numeric">2</td></tr>
-<tr><td>Village</td><td>green forest</td><td class="numeric">4–5</td><td class="numeric">5%</td><td class="numeric">5</td></tr>
-<tr><td>Town</td><td>dark-green forest</td><td class="numeric">0–3</td><td class="numeric">2½%</td><td class="numeric">10</td></tr>
-<tr><td>Law</td><td>white mountain</td><td class="numeric">9</td><td class="numeric">2½%</td><td class="numeric">10</td></tr>
-<tr><td>Chaos</td><td>swamp</td><td class="numeric">any</td><td class="numeric">2½%</td><td class="numeric">10</td></tr>
+<tr><th>Settlement</th><th>Forest</th><th>Number</th><th>Minimum Distance</th></tr>
+<tr><td>Thorp</td><td>fir-forest, forest</td><td class="numeric">10%</td><td class="numeric">2</td></tr>
+<tr><td>Village</td><td>forest &amp; river</td><td class="numeric">5%</td><td class="numeric">5</td></tr>
+<tr><td>Town</td><td>forest &amp; river</td><td class="numeric">2½%</td><td class="numeric">10</td></tr>
+<tr><td>Law</td><td>white mountain</td><td class="numeric">2½%</td><td class="numeric">10</td></tr>
+<tr><td>Chaos</td><td>swamp</td><td class="numeric">2½%</td><td class="numeric">10</td></tr>
 </table>
 
 %== shift(@$maps)
