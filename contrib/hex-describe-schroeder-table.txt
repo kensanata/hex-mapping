@@ -8753,7 +8753,7 @@
 1,[fir highlands] This fir forest is home to a pack of [3d6] **wolves** ([wolf stats]).
 1,[fir highlands] At dusk and dawn, you can sometimes see [boars].
 1,[fir highlands] There is a cave housing the **ettin** called *[ettin]*. [robber treasure]
-1,[fir highlands] At the foot of [crag name], there is cave inhabited by [1d8 trolls] ([troll stats]). [robber treasure]
+1,[fir highlands] At the foot of [crag name], there is a cave inhabited by [1d8 trolls] ([troll stats]). [robber treasure]
 1,[fir highlands] In this fir forest is a little campsite with [1d12 bugbears] ([bugbear stats]). [scout treasure]
 1,[fir highlands] At night, the orcs of the *[evil tribe]* tribe hunt these lands. [orcs] Their settlement is protected by a palisade and [orc fort] [orc plans]
 1,[fir highlands] There is an abandoned shrine to *[power]* up here. It is haunted by the **spectre** of *[old name]*, the last priest who cared for it ([spectre stats]). [ancient treasure]
