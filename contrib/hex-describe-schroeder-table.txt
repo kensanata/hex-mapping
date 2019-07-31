@@ -2010,7 +2010,7 @@
 1,2d6 **winter wolves** ([winter wolf stats])
 1,4d6 **white gorillas**
 1,2d6 **four armed, white gorillas**
-1,pet **white dragon** [here white dragon name] ([white dragon stats])
+1,pet **white dragon** [here white dragon name as dragon name] ([white dragon stats])
 
 ;ice devil lair
 1,a large ice cave with a mount of bones as big as a house upon which the devil has built his throne of ice and steel.
@@ -2191,7 +2191,7 @@
 1,The ruin is abandoned and dead. If you explore the ruins, you will soon find the **balor** *[demon name]* who caused its downfall ([balor stats]). It guards a portal to the realm of eternal fire, to Muspelheim.</p><p>[balor servants]
 1,[forge orcs]
 1,The ruin is full of broken machinery. In its depths, however, a **bronze golem** still wanders the halls ([bronze golem stats]).
-1,The ruin is now home to the **white dragon** [here white dragon name] ([white dragon stats]). [dragon treasure]
+1,The ruin is now home to the **white dragon** [here white dragon name as dragon name] ([white dragon stats]). [dragon treasure]
 
 ;balor stats
 1,HD 9+1 AC 4 1d6/2d6 F9 MV 12 ML 11; flying; *aura of fire* (anybody in melee takes automatic 1d6 fire damage); if the first attack with the flaming whip hits, the second attack with the flaming sword is at +4; only harmed by magic or magic weapons; immune to fire
@@ -2223,7 +2223,7 @@
 
 ;green tower
 1,long abandoned.
-1,now inhabited by a **white dragon** called [here white dragon name] ([white dragon stats]). [dragon treasure]
+1,now inhabited by a **white dragon** called [here white dragon name as dragon name] ([white dragon stats]). [dragon treasure]
 1,and at the very top there is a lair of [2d8] very protective **griffons** ([griffon stats]).
 1,currently the home of [gargoyles] ([gargoyle stats]). [poor treasure]
 
@@ -2551,7 +2551,7 @@
 1,The [mountain obstacle] beneath the [name for white big mountains] are difficult to traverse. You need a guide and skis. The stone walls rising from the snow are home to a [cat style] [mountain cat].
 1,There is a hidden meadow up here, protected by the [name for white big mountains]. [giant apes] [small temple near giant apes]
 1,The glacier of [name for white big mountains] ends at a small lake. [ice monster lair]
-1,A **white dragon** called [here white dragon name] lives in a ruined mountain fortress guarding the approaches to the [name for white big mountains] ([white dragon stats]). [dragon treasure]
+1,A **white dragon** called [here white dragon name as dragon name] lives in a ruined mountain fortress guarding the approaches to the [name for white big mountains] ([white dragon stats]). [dragon treasure]
 
 ;small temple near giant apes
 1,
@@ -2804,7 +2804,7 @@
 
 ;more mountains
 1,They are impossible to climb.
-1,Fissures lead into the depth of the mountain and in the warm chambers below there sleeps the **red dragon** [here red dragon name] ([red dragon stats]). [dragon treasure]
+1,Fissures lead into the depth of the mountain and in the warm chambers below there sleeps the **red dragon** [here red dragon name as dragon name] ([red dragon stats]). [dragon treasure]
 1,The passes need a local guide to cross. [mountain people]
 1,A glacier fills the gap between these mountains.
 
@@ -2864,7 +2864,7 @@
 3,[1d4] **white bears** ([bear stats])
 2,[2d4] **winter wolves** ([winter wolf stats])
 1,a **cryohydra** ([cryohydra stats])
-1,a **white dragon** named [here white dragon name] ([white dragon stats])
+1,a **white dragon** named [here white dragon name as dragon name] ([white dragon stats])
 1,a **spectre** of their ancient ice king ([spectre stats])
 
 ;dwarf forge
@@ -5190,7 +5190,7 @@
 1,Up here on these hills and overlooking the shrublands is a massive fortress built by giants long ago. [outlaw camp]
 1,There are caves beneath these badlands. [caves]
 1,The dry lands up here are the hunting grounds of a **manticore** called *[manticore]* living in the ruins of an old tower ([manticore stats]). [robber treasure] [manticore companions]
-1,A **green dragon** named [here green dragon name] lives at [hill name], one of the hills overlooking these shrublands ([green dragon stats]). [dragon treasure]
+1,A **green dragon** named [here green dragon name as dragon name] lives at [hill name], one of the hills overlooking these shrublands ([green dragon stats]). [dragon treasure]
 
 ;outlaw camp
 1,There is a camp of [1d4x10] **outlaws** ([outlaw stats]) led by *[outlaw leader]*, here. [average treasure] They call themselves the *[adjective] [organisation name]*. [outlaw feature] The camp is protected by [outlaw companions]. These outlaws are [two outlaw activities].
@@ -6051,7 +6051,7 @@
 1,[swamp intro] [swamp dressing] A ruined tower standing on a small island is home to the **ettin** called *[ettin]*. [robber treasure] [ettin tower protection]
 1,[swamp intro] [swamp dressing] In the old days, these stagnant pools were used to drown evil necromancers. [bog wights]
 1,[swamp intro] [swamp dressing] On one of the islands there is a huge mud mound. [goblins]
-1,The [forest name] has turned into a black swamp and the smell of sulphur hangs in the air. A **black dragon** named [here black dragon name] [black dragon activity] ([black dragon stats]). [dragon treasure] If you enter the water, you'll soon attract the attention of [1d6 crocodiles].
+1,The [forest name] has turned into a black swamp and the smell of sulphur hangs in the air. A **black dragon** named [here black dragon name as dragon name] [black dragon activity] ([black dragon stats]). [dragon treasure] If you enter the water, you'll soon attract the attention of [1d6 crocodiles].
 1,[swamp intro] [swamp dressing] You need a boat and a guide to navigate these waterways. If you travel on foot, you'll soon attract the attention of [1d6 crocodiles].
 1,[swamp intro] If you drink the water here, save vs. poison or spend the rest of the day vomiting. These lakes are home to [3d12] **swamp cranes** ([swamp crane stats]). Their dung is poisonous to most creatures on land.
 1,[swamp intro] [swamp dressing] An abandoned temple of *[power]* stands here, half sunk. The acrid stench is overwhelming. On the small piece of solid ground rising above the water you can see [what you can see of the sunken temple] A **gorgon** has cursed this temple with its presence ([gorgon stats]). [terror treasure]
@@ -9281,7 +9281,7 @@
 1,drying fish fillets on wooden racks in the sun
 1,listening to their oracle predict the best places to fish
 1,dressed in green patchwork clothing and conical reed hats
-1,frightened from the black dragon [nearby black dragon name] attack that happened last week
+1,frightened from the dragon [nearby dragon name] attack last week
 
 ;satyr threat
 1,These satyrs seeking to convince all the married women of the nearby settlement to leave their homes. Half have already fled into the forest laughing and singing. They really don't want to come back and the [3d6] **satyrs** will support them ([satyr stats]).
@@ -9503,6 +9503,16 @@
 
 ;cultists led by a woman
 1,[1d4x10] **cultists** ([human stats]) live here. [average treasure] They are led by their cult leader [woman with portrait] (level [1d6+1 as level]). [leader treasure for magic user]
+
+;settlement event
+# most settlements don't have a current event
+2,
+1,</p><p>The dragon hunter **[human class]** *[human]* (level [1d4+5 as level]) is trying to hire two score desperate peasants to go and slay [nearby dragon name]. [sharing agreement] [spellbook for [same class]] [leader treasure for [same class]]
+
+;sharing agreement
+3,“I am generous: two shares of the treasure found for me, the rest to be shared equally amongst the other survivors.”
+2,“I will provide all the expertise: five shares of the treasure found for me, the rest to be shared equally amongst the other survivors.”
+1,“I’ll be fair: half of the treasure found for me, half to be shared amongst the other survivors.”
 
 #NOTE: no space to create proper compounds, spaces are present in some second halves for some variety
 ;village name
@@ -9924,15 +9934,15 @@
 1,choosing the child to be sacrificed to the dragon [nearby dragon name]
 
 ;thorp
-1,</p><p>This is [here village name], a thorp of [1d4x10] **humans** ([human stats]) led by [human][human job]. The [human houses] are protected by [human companions]. [average treasure] These village-folk are [thorp activity].
+1,</p><p>This is [here village name], a thorp of [1d4x10] **humans** ([human stats]) led by [human][human job]. The [human houses] are protected by [human companions]. [average treasure] These village-folk are [thorp activity]. [settlement event]
 
 # the second variant has a temple at the end
 ;village
-1,</p><p>This is [here village name], a village of [5d6x10] **humans** ([human stats]). The [human houses] are protected by [human companions] and a [human defense]. There is a small *[village building]*. [small [same village building]] [average treasure]</p><p>The [human leader] lives in the [same village building]. [spellbook for [same class]] [leader treasure for [same class]]</p><p>[human retainer]</p><p>[human friends]</p><p>[And a secret society]
-1,</p><p>This is [here village name], a village of [5d6x10] **humans** ([human stats]). The [human houses] are protected by [human companions] and a [human defense]. There is a small *[village building]*. [small [same village building]] [average treasure]</p><p>The [human leader] lives in the [same village building]. [spellbook for [same class]] [leader treasure for [same class]]</p><p>[human retainer]</p><p>[human friends]</p><p>[And a secret society]</p><p>[temple]
+1,</p><p>This is [here village name], a village of [5d6x10] **humans** ([human stats]). The [human houses] are protected by [human companions] and a [human defense]. There is a small *[village building]*. [small [same village building]] [average treasure]</p><p>The [human leader] lives in the [same village building]. [spellbook for [same class]] [leader treasure for [same class]]</p><p>[human retainer]</p><p>[human friends]</p><p>[And a secret society] [settlement event]
+1,</p><p>This is [here village name], a village of [5d6x10] **humans** ([human stats]). The [human houses] are protected by [human companions] and a [human defense]. There is a small *[village building]*. [small [same village building]] [average treasure]</p><p>The [human leader] lives in the [same village building]. [spellbook for [same class]] [leader treasure for [same class]]</p><p>[human retainer]</p><p>[human friends]</p><p>[And a secret society]</p><p>[temple] [settlement event]
 
 ;town
-1,</p><p>This is [here village name], a town of [1d6x100] **humans** ([human stats]). The [human houses] are protected by a keep, a town wall and the river. [average treasure]</p><p>The [human leader] lives in the keep. [spellbook for [same class]] [leader treasure for [same class]]</p><p>[human retainer]</p><p>[human friends]</p><p>[And two secret societies feuding]</p><p>[temple]</p><p>There is also [town feature]
+1,</p><p>This is [here village name], a town of [1d6x100] **humans** ([human stats]). The [human houses] are protected by a keep, a town wall and the river. [average treasure]</p><p>The [human leader] lives in the keep. [spellbook for [same class]] [leader treasure for [same class]]</p><p>[human retainer]</p><p>[human friends]</p><p>[And two secret societies feuding]</p><p>[temple]</p><p>There is also [town feature] [settlement event]
 
 ;human job
 1, the smith
