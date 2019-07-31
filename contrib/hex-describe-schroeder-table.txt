@@ -2010,7 +2010,7 @@
 1,2d6 **winter wolves** ([winter wolf stats])
 1,4d6 **white gorillas**
 1,2d6 **four armed, white gorillas**
-1,pet **white dragon** [white dragon name] ([white dragon stats])
+1,pet **white dragon** [here white dragon name] ([white dragon stats])
 
 ;ice devil lair
 1,a large ice cave with a mount of bones as big as a house upon which the devil has built his throne of ice and steel.
@@ -2191,7 +2191,7 @@
 1,The ruin is abandoned and dead. If you explore the ruins, you will soon find the **balor** *[demon name]* who caused its downfall ([balor stats]). It guards a portal to the realm of eternal fire, to Muspelheim.</p><p>[balor servants]
 1,[forge orcs]
 1,The ruin is full of broken machinery. In its depths, however, a **bronze golem** still wanders the halls ([bronze golem stats]).
-1,The ruin is now home to the **white dragon** [white dragon name] ([white dragon stats]). [dragon treasure]
+1,The ruin is now home to the **white dragon** [here white dragon name] ([white dragon stats]). [dragon treasure]
 
 ;balor stats
 1,HD 9+1 AC 4 1d6/2d6 F9 MV 12 ML 11; flying; *aura of fire* (anybody in melee takes automatic 1d6 fire damage); if the first attack with the flaming whip hits, the second attack with the flaming sword is at +4; only harmed by magic or magic weapons; immune to fire
@@ -2223,7 +2223,7 @@
 
 ;green tower
 1,long abandoned.
-1,now inhabited by a **white dragon** called [white dragon name] ([white dragon stats]). [dragon treasure]
+1,now inhabited by a **white dragon** called [here white dragon name] ([white dragon stats]). [dragon treasure]
 1,and at the very top there is a lair of [2d8] very protective **griffons** ([griffon stats]).
 1,currently the home of [gargoyles] ([gargoyle stats]). [poor treasure]
 
@@ -2551,7 +2551,7 @@
 1,The [mountain obstacle] beneath the [name for white big mountains] are difficult to traverse. You need a guide and skis. The stone walls rising from the snow are home to a [cat style] [mountain cat].
 1,There is a hidden meadow up here, protected by the [name for white big mountains]. [giant apes] [small temple near giant apes]
 1,The glacier of [name for white big mountains] ends at a small lake. [ice monster lair]
-1,A **white dragon** called [white dragon name] lives in a ruined mountain fortress guarding the approaches to the [name for white big mountains] ([white dragon stats]). [dragon treasure]
+1,A **white dragon** called [here white dragon name] lives in a ruined mountain fortress guarding the approaches to the [name for white big mountains] ([white dragon stats]). [dragon treasure]
 
 ;small temple near giant apes
 1,
@@ -2804,7 +2804,7 @@
 
 ;more mountains
 1,They are impossible to climb.
-1,Fissures lead into the depth of the mountain and in the warm chambers below there sleeps the **red dragon** [red dragon name] ([red dragon stats]). [dragon treasure]
+1,Fissures lead into the depth of the mountain and in the warm chambers below there sleeps the **red dragon** [here red dragon name] ([red dragon stats]). [dragon treasure]
 1,The passes need a local guide to cross. [mountain people]
 1,A glacier fills the gap between these mountains.
 
@@ -2864,7 +2864,7 @@
 3,[1d4] **white bears** ([bear stats])
 2,[2d4] **winter wolves** ([winter wolf stats])
 1,a **cryohydra** ([cryohydra stats])
-1,a **white dragon** named [white dragon name] ([white dragon stats])
+1,a **white dragon** named [here white dragon name] ([white dragon stats])
 1,a **spectre** of their ancient ice king ([spectre stats])
 
 ;dwarf forge
@@ -5190,7 +5190,7 @@
 1,Up here on these hills and overlooking the shrublands is a massive fortress built by giants long ago. [outlaw camp]
 1,There are caves beneath these badlands. [caves]
 1,The dry lands up here are the hunting grounds of a **manticore** called *[manticore]* living in the ruins of an old tower ([manticore stats]). [robber treasure] [manticore companions]
-1,A **green dragon** named [green dragon name] lives at [hill name], one of the hills overlooking these shrublands ([green dragon stats]). [dragon treasure]
+1,A **green dragon** named [here green dragon name] lives at [hill name], one of the hills overlooking these shrublands ([green dragon stats]). [dragon treasure]
 
 ;outlaw camp
 1,There is a camp of [1d4x10] **outlaws** ([outlaw stats]) led by *[outlaw leader]*, here. [average treasure] They call themselves the *[adjective] [organisation name]*. [outlaw feature] The camp is protected by [outlaw companions]. These outlaws are [two outlaw activities].
@@ -9921,7 +9921,7 @@
 1,hauling loamy compost to their fallow fields
 1,wearing their clothing inside out and backwards
 # and others
-1,choosing the child to be sacrificed to the dragon
+1,choosing the child to be sacrificed to the dragon [nearby dragon name]
 
 ;thorp
 1,</p><p>This is [here village name], a thorp of [1d4x10] **humans** ([human stats]) led by [human][human job]. The [human houses] are protected by [human companions]. [average treasure] These village-folk are [thorp activity].
