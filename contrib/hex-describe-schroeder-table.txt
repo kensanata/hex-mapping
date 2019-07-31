@@ -9912,7 +9912,7 @@
 1,watching a fire breather entertaining children
 1,getting hoodwinked by a lumber merchant
 1,trying to gird necks with floral/garlic garlands
-1,ready to sacrifice their dozen eldest to a local wight
+1,ready to sacrifice their eldest to the local wight [wight name]
 1,very tall and broad, claim it's troll-blood
 1,giving away as many surplus tuber crops as they can
 1,wantonly smashing pottery and crockery
