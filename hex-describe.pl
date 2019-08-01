@@ -249,6 +249,29 @@ get '/describe/random/strom' => sub {
 	     descriptions => $descriptions);
 };
 
+=item markdown
+
+This allows us to generate Markdown output.
+
+=cut
+
+sub markdown {
+  my $descriptions = shift;
+  my @paragraphs = map {
+    my $text = $_->{html};
+    $text =~ s!<span[^>]*>\s*!｢!g;
+    $text =~ s!\s*</span>!｣!g;
+    $text =~ s!</?strong>!**!g;
+    $text =~ s!</?em>!*!g;
+    $text =~ s!</?a\b[^>]*>!!g;
+    $text =~ s!</p><p>!\n\n!g;
+    $text =~ s!  +! !g;
+    $text =~ s!(.*?)!$1!g;
+    $text;
+  } @$descriptions;
+  return join("\n" . '-' x 72 . "\n", @paragraphs);
+}
+
 =item get /nomap
 
 This shows you the I<edit> page for use cases without a map. Now you're using
@@ -276,6 +299,16 @@ get '/nomap' => sub {
   my $table = $c->param('table');
   $c->render(template => 'nomap', input => $input, url => $url, table => $table);
 };
+
+any '/nomap/markdown' => sub {
+  my $c = shift;
+  my $input = $c->param('input') || '';
+  my $table = get_table($c);
+  my $seed = $c->param('seed') || time;
+  srand($seed);
+  my $descriptions = describe_text($input, parse_table($table));
+  $c->render(text => markdown($descriptions), format => 'txt');
+} => 'nomap_markdown';
 
 =item /rules
 
@@ -343,20 +376,7 @@ any '/rule/markdown' => sub {
   my $seed = $c->param('seed') || time;
   srand($seed);
   my $descriptions = describe_text($input, parse_table($table));
-  my @paragraphs = map {
-    my $text = $_->{html};
-    $text =~ s!<span[^>]*>\s*!｢!g;
-    $text =~ s!\s*</span>!｣!g;
-    $text =~ s!</?strong>!**!g;
-    $text =~ s!</?em>!*!g;
-    $text =~ s!</?a\b[^>]*>!!g;
-    $text =~ s!</p><p>!\n\n!g;
-    $text =~ s!  +! !g;
-    $text =~ s!(.*?)!$1!g;
-    $text;
-  } @$descriptions;
-  my $text = join("\n" . '-' x 72 . "\n", @paragraphs);
-  $c->render(text => $text, format => 'txt');
+  $c->render(text => markdown($descriptions), format => 'txt');
 } => 'rule_markdown';
 
 any '/rule/show' => sub {
@@ -402,13 +422,20 @@ Pipe through C<lynx -stdin -dump -nolist> to get text instead of HTML.
 
 any '/describe/text' => sub {
   my $c = shift;
+  my $rule = $c->param('rule');
+  my $load = $c->param('load');
+  my $n = $c->param('n');
   my $input = $c->param('input');
-  my $table = get_table($c);
-  $c->render(template => 'text', load => undef, seed => undef,
-	     n => undef, url => undef, table => undef,
-	     rule => undef, id => undef,
-	     log => undef,
-	     descriptions => describe_text($input, parse_table($table)));
+  my $url = $c->param('url');
+  my $table = $c->param('table');
+  my $seed = $c->param('seed') || time;
+  srand($seed);
+  my $data = get_table($c); # must be scalar context
+  $c->render(template => 'text', input => $input, load => $load, seed => $seed,
+	     n => $n, url => $url, table => $table,
+	     rule => $rule, id => to_id($rule),
+	     log => $c->param('log') ? $log->history : undef,
+	     descriptions => describe_text($input, parse_table($data)));
 };
 
 =item get /default/map
@@ -1228,10 +1255,10 @@ sub describe {
       next unless $text;
       $locals{$key} = $text;
       push(@descriptions, $text);
-    } elsif ($level > 1 and not exists $table_data->{$word}) {
+    } elsif ($level > 1 and not exists $table_data->{$word} and not $locals{$word}) {
       # on level one, many terrain types do not exist (e.g. river-start)
       $log->error("unknown table for $coordinates/$level: $word");
-    } elsif ($level > 1 and not $table_data->{$word}) {
+    } elsif ($level > 1 and not $table_data->{$word} and not $locals{$word}) {
       # on level one, many terrain types do not exist (e.g. river-start)
       $log->error("empty table for $coordinates/$level: $word");
     } else {
@@ -2072,7 +2099,7 @@ These results are based on the <strong><%= $rule %></strong> table.
 
 
 % if ($seed) {
-%   if ($url or $table) {
+%   if ($rule and ($url or $table)) {
 %= form_for rule_markdown => (method => 'POST') => begin
 <p>
 %= submit_button 'Markdown', name => 'submit'
@@ -2081,6 +2108,17 @@ These results are based on the <strong><%= $rule %></strong> table.
 %= hidden_field url => $url
 %= hidden_field table => $table
 %= hidden_field n => $n
+%= hidden_field seed => $seed
+</p>
+%= end
+%   } elsif ($input and ($url or $table)) {
+%= form_for nomap_markdown => (method => 'POST') => begin
+<p>
+%= submit_button 'Markdown', name => 'submit'
+%= hidden_field input => $input
+%= hidden_field load => $load
+%= hidden_field url => $url
+%= hidden_field table => $table
 %= hidden_field seed => $seed
 </p>
 %= end
