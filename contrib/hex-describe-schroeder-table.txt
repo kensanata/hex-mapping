@@ -9506,13 +9506,271 @@
 
 ;settlement event
 # most settlements don't have a current event
-2,
+3,
 1,</p><p>The dragon hunter **[human class]** *[human]* (level [1d4+5 as level]) is trying to hire two score desperate peasants to go and slay [nearby dragon name]. [sharing agreement] [spellbook for [same class]] [leader treasure for [same class]]
+1,</p><p>The [bard adjective] [singing humanoid] **bard** *[[same singing humanoid] name]* is here, [performing] [with story] and [performing] [and story]. [audience reaction]
 
 ;sharing agreement
 3,“I am generous: two shares of the treasure found for me, the rest to be shared equally amongst the other survivors.”
 2,“I will provide all the expertise: five shares of the treasure found for me, the rest to be shared equally amongst the other survivors.”
 1,“I’ll be fair: half of the treasure found for me, half to be shared amongst the other survivors.”
+
+;bard adjective
+1,wandering
+1,travelling
+1,sly
+1,famous
+1,notorious
+
+;performing
+1,singing
+1,retelling
+1,playing the [instrument] and reciting
+
+;instrument
+1,flute
+1,lyre
+1,lute
+1,fiddle
+1,guitar
+1,harp
+1,tambourine
+
+;audience reaction
+1,The audience cheers and laughs.
+1,The audience applauds enthusiastically.
+1,Many in the audience are moved to tears.
+1,The listeners are not convinced. They hiss and boo.
+1,The audience jeers and laughs. They are not convinced.
+1,The audience isn't reacting well and throws rotten fruit and vegetables.
+1,The audience is not taking it well and some have started insulting the bard.
+1,Many are nodding in approval.
+1,The audience is happy and you can hear muted praise.
+1,There is some polite clapping but the audience seems uninterested.
+
+;singing humanoid
+1,human
+1,elf
+1,dwarf
+1,halfling
+1,orc
+
+#fix
+;orc name
+1,[orc]
+
+#fix
+;elf name
+1,[elf]
+
+;human story hero
+# the setting has three human heroes
+1,[name for a human story hero 1]
+1,[name for a human story hero 2]
+1,[name for a human story hero 3]
+
+;name for a human story hero 1
+1,[human name]
+
+;name for a human story hero 2
+1,[human name]
+
+;name for a human story hero 3
+1,[human name]
+
+;elf story hero
+# the setting has three elf heroes
+1,[name for a elf story hero 1]
+1,[name for a elf story hero 2]
+1,[name for a elf story hero 3]
+
+;name for a elf story hero 1
+1,[elf name]
+
+;name for a elf story hero 2
+1,[elf name]
+
+;name for a elf story hero 3
+1,[elf name]
+
+;dwarf story hero
+# the setting has three dwarf heroes
+1,[name for a dwarf story hero 1]
+1,[name for a dwarf story hero 2]
+1,[name for a dwarf story hero 3]
+
+;name for a dwarf story hero 1
+1,[dwarf name]
+
+;name for a dwarf story hero 2
+1,[dwarf name]
+
+;name for a dwarf story hero 3
+1,[dwarf name]
+
+;halfling story hero
+# the setting has three halfling heroes
+1,[name for a halfling story hero 1]
+1,[name for a halfling story hero 2]
+1,[name for a halfling story hero 3]
+
+;name for a halfling story hero 1
+1,[halfling name]
+
+;name for a halfling story hero 2
+1,[halfling name]
+
+;name for a halfling story hero 3
+1,[halfling name]
+
+;orc story hero
+# the setting has three orc heroes
+1,[name for a orc story hero 1]
+1,[name for a orc story hero 2]
+1,[name for a orc story hero 3]
+
+;name for a orc story hero 1
+1,[orc name]
+
+;name for a orc story hero 2
+1,[orc name]
+
+;name for a orc story hero 3
+1,[orc name]
+
+;story villain
+# the setting has two villains
+1,[name for a story villain 1]
+1,[name for a story villain 2]
+
+;name for a story villain 1
+1,[[singing humanoid] name]
+
+;name for a story villain 2
+1,[[singing humanoid] name]
+
+;story mcguffin
+# the setting has four important items
+1,[name for a story mcguffin 1]
+1,[name for a story mcguffin 2]
+1,[name for a story mcguffin 3]
+1,[name for a story mcguffin 4]
+
+;name for a story mcguffin 1
+1,[capitalize metal jewelry]
+1,[evil tribe weapon]
+
+;name for a story mcguffin 2
+1,[capitalize metal jewelry]
+1,[evil tribe weapon]
+
+;name for a story mcguffin 3
+1,[capitalize metal jewelry]
+1,[evil tribe weapon]
+
+;name for a story mcguffin 4
+1,[special adjective] [capitalize metal jewelry]
+1,[special adjective] [evil tribe weapon]
+
+;story
+1,*How [hero adjective] [[same singing humanoid] story hero] [verbed] [villain adjective] [story villain]*
+1,*The [story type] of [hero adjective] [[same singing humanoid] story hero] and The [story mcguffin]*
+1,*Why [villain adjective] [story villain] [villain verbed] [hero adjective] [[same singing humanoid] story hero]'s [hero friend]*
+1,*The [story type] of [[same singing humanoid] story hero] and the [villain adjective] [with story monster]*
+1,*How [hero adjective] [[same singing humanoid] story hero] [verbed] the [villain adjective] [and story monster]*
+1,*[[same singing humanoid] story hero]'s Perilous Journey to the [story place]*
+1,*How the [story mcguffin] Was [mcguffin verb]*
+
+;story type
+1,Ballad
+1,Story
+1,Tale
+1,Legend
+1,Saga
+1,Romance
+1,Song
+1,Canticle
+
+;hero adjective
+1,Crafty
+1,Clever
+1,Nimble
+1,Sly
+1,Bold
+1,Courageous
+1,Daring
+1,Fearless
+1,Gallant
+1,Valiant
+
+;villain adjective
+1,Wicked
+1,Dastardly
+1,Unprincipled
+1,Evil
+1,Cowardly
+1,Nefarious
+1,Vile
+1,Corrupt
+1,Crooked
+1,Cruel
+1,Diabolical
+1,Felonious
+1,Vicious
+1,Malicious
+1,Dimwitted
+
+;verbed
+1,Defeated
+1,Slew
+1,Outwitted
+1,Tricked
+1,Fooled
+1,Trapped
+1,Deceived
+1,Blinded
+1,Overthrew
+1,Outmaneuvered
+1,Misled
+
+;villain verbed
+1,Stole
+1,Kidnapped
+1,Slew
+1,Defeated
+1,Underestimated
+
+;mcguffin verb
+1,Lost
+1,Forged
+1,Made
+1,Hidden Away
+1,Sundered
+1,Buried in the [story place]
+
+;hero friend
+1,Wife
+1,Husband
+1,Fiancee
+1,Mother
+1,Father
+1,Brother
+1,Sister
+1,Mentor
+
+;story monster
+1,Dragon
+1,Sphinx
+1,Manticore
+1,Giant
+1,Vampire
+
+;story place
+1,Deserts of Sadness
+1,Green Glass Tower
+1,Underworld
+3,[dreadful] [peaks]
+3,[forest 1] [forest 2]
 
 #NOTE: no space to create proper compounds, spaces are present in some second halves for some variety
 ;village name
@@ -10253,8 +10511,8 @@
 1,The temple houses an 8ft high wooden statue of Odin wielding his magic spear. An old woman named **[woman]** takes care of the temple. She knows the power of runes and will cast the stones for you, should want to locate a loved one or find a dragon.
 1,The temple is actually a feast hall housing a small college of [3d6] bards led by **[human name]**. During the day, they sing songs, practice balads, and compete in poetry. In the evening, the drink. All bards are expected to deliver a yearly donation for the upkeep of the college. Failure to do so results in being placed on a list. Should you need rescuing, they will contract a secret society to do that. Should you skip your obligation, they will contract a secret society to remedy that.
 1,The temple is also a famous school for birds of prey. They are trained here and then sold to nobility in far away regions. The rich merchants making this trip often need guards and thus a mercenary house was established here. [mercenary house]
-1,It was built generations ago atop a pool of Earth Blood by Wise **[human name]** in order to prevent its mutagenic power from corrupting the area. Many magic users and elves have come here over the years, drawn by the small eddies of magic energy still emanating from the sealed area: get one extra spell slot of your liking while you sleep nearby. [inn] was built next to the temple just for this.
-1,The temple functions welcomes all wanderers and homeless people, housing people for up to week for a gold piece per person. This is the [inn] run by **[human name]**. The common room has an entire altar built into it, including carved columns with eagles and ravens and showing Odin riding his eight legged horse over the rainbow bridge.
+1,It was built generations ago atop a pool of Earth Blood by *Wise [human name]* in order to prevent its mutagenic power from corrupting the area. Many magic users and elves have come here over the years, drawn by the small eddies of magic energy still emanating from the sealed area: get one extra spell slot of your liking while you sleep nearby. *[inn]* was built next to the temple just for this. It's run by **[human name]**.
+1,The temple functions welcomes all wanderers and homeless people, housing people for up to week for a gold piece per person. This is the *[inn]* run by **[human name]**. The common room has an entire altar built into it, including carved columns with eagles and ravens and showing Odin riding his eight legged horse over the rainbow bridge.
 
 ;mercenary house
 1,The [mercenary house name] is run by [human name] and consists of 6d6 mercenaries.
@@ -10325,9 +10583,9 @@
 
 ;small temple dedicated to Thor
 1,[small temple]
-1,The temple is in fact an altar built inside the village smith’s forge. This is where the strongest villagers meet every seven-night to discuss their grievances and resolve their issues. Money changes hands, children are promised into apprenticeship and journeymen are welcomed into the village.
-1,The temple is an altar at the foot of a big rock. The top has been hit by lightning countless times. Next to the altar is the wrestling field. Every festival involves wrestling and old **[human name]** is the most proficient wrestler, here.
-1,The temple stands in the backyard of **[human name]** the chariot maker. Inside it is a life sized statue of Thor riding a chariot drawn by two giant goats. The chariot maker is rich and has buried all his gold beneath the chariot.
+1,The temple is in fact an altar built inside the village smith’s forge. The **smith** is called *[human name]*. This is where the strongest villagers meet every seven-night to discuss their grievances and resolve their issues. Money changes hands, children are promised into apprenticeship and journeymen are welcomed into the village.
+1,The temple is an altar at the foot of a big rock. The top has been hit by lightning countless times. Next to the altar is the wrestling field. Every festival involves wrestling and old *[human name]* is the most proficient **wrestler**, here.
+1,The temple stands in the backyard of *[human name]* the **chariot maker**. Inside it is a life sized statue of Thor riding a chariot drawn by two giant goats. The chariot maker is rich and has buried all his gold beneath the chariot.
 1,The temple is one of the few places where they raise **giant goats**. There are currently [2d6] of these giant goats, here. The paintings beneath the roof show Thor riding his chariot pulled by his two famous goats. These giant goats are sold to [goat clients].
 
 ;goat clients
@@ -10341,7 +10599,7 @@
 1,The temple looks like a tower, except that it has a big window from the bottom to the roof. On the inside, there are no extra floors. The room is simply 50ft high. The strip of light from the window falls on one of three oath brother statues in here, each raising their right hand, each pointing three fingers towards the sky. This is the bond of loyalty that makes us strong.
 1,The temple has a door fit for a giant, but inside there is simply a strip of wooden flooring for petitioners to kneel and a big status of Mitra standing blindfolded in a sea of fire, holding the balance of justice in one hand and the sword of judgement in the other.
 1,A long set of winding stairs leads deep underground to a fiery pit. The fumes are intoxicating and the dreamy babbling of a woman’s voice can be heard but her words make no sense to you. She is one of the eternal servants, gifted to the temple by her parents and bound to pass through the lake of fire into Muspelheim, the realm of Mitra, whence nobody has ever returned. This is of course true: the lake of fire is a one way gate to [a location in Muspelheim]. Most of these women eventually master the arcane arts of pyromancy.
-1,Deep within the bowels of the earth, a pool of Earth Blood is being kept at bay by circles of banishment and stasis and thus evil **gorgon** and its poison remains imprisoned while these seals last ([gorgon stats]). The temple guards the entry to this underworld and the [2d6] priests **[human name]**, the current head of the temple, inspect and improve their defences every year on the night of the winter solstice. The common folks just see the statues of the three oath brother statues here and come here to renew their bond with Mitra. They call themselves the *Oath Keepers* for this is what they do: the make their bargains, here.
+1,Deep within the bowels of the earth, a pool of Earth Blood is being kept at bay by circles of banishment and stasis and thus evil **gorgon** and its poison remains imprisoned while these seals last ([gorgon stats]). The temple guards the entry to this underworld and the [2d6] **priests** and *[human name]*, the current head of the temple, inspect and improve their defences every year on the night of the winter solstice. The common folks just see the statues of the three oath brother statues here and come here to renew their bond with Mitra. They call themselves the *Oath Keepers* for this is what they do: the make their bargains, here.
 
 ;a location in Muspelheim
 1,the *[Muspelheim building] of [Muspelheim material]* where [Muspelheim matriarch] *[old names for women]* rules
@@ -10413,12 +10671,11 @@
 
 # must be able to create a plural by appending an s
 ;aide
-1,whip
-1,slave master
+1,retainer
 1,steward
-1,acolyte
 1,aide
-1,subordinate
+1,friend
+1,follower
 
 ;human companions
 1,sharpened stakes
