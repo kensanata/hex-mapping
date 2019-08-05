@@ -65,7 +65,7 @@
 3,[grass intro] [grass dressing]  If you stay here long, you'll soon attract the attention of [boars].
 1,[grass intro] A burbling spring seeps out of a small cave here, save vs. poison or spend the rest of the day vomiting. This cave is home to a **basilisk** ([basilisk stats]). The poisonous vapors have polluted the springwater.
 1,[grass intro] [grass dressing] An abandoned shrine to *[power]* stands here, partly covered in lichens. Patrolling the corridors inside the crumbling shrine is a **straw golem** ([straw golem stats]). [2d6] [gem] gems can be recovered from the golem.
-1,[grass intro] [grass dressing] There's a wooden hut, here. Its inhabitant appears to be a hermit called [human]. In actual fact, however, this is a **wereboar** ([werewolf stats]). [poor treasure] They will attack if the party discovers their secret.
+1,[grass intro] [grass dressing] There's a wooden hut, here. Its inhabitant appears to be a hermit called [human with portrait]. In actual fact, however, this is a **wereboar** ([werewolf stats]). [poor treasure] They will attack if the party discovers their secret.
 1,[grass intro] [grass dressing] [outlaw camp]. [robber treasure]
 3,This section of the [grass name] is an elephant graveyard. Elephant bones lie scattered among the flattened grasses. These bones are protected by [1d8+1] **elephants** ([elephant stats]) who will trample and gore anybody disturbing this area. <span class="treasure">Each tusk is worth 1d6×100gp.</span>
 1,[grass intro] [grass dressing] This is the territory of [1d12+1] **pumas** ([puma stats]).
@@ -228,7 +228,7 @@
 1,**invisible stalker** *[invisible stalker]* ([invisible stalker stats]).
 1,[3d6] **gnolls** *[gnoll]* ([gnoll stats]). [robber treasure]
 1,**vulture demon** *[vulture demon]* ([vulture demon stats])
-1,[1d4x10] **bandits** ([human stats]) led by [human]. [average treasure]
+1,[1d4x10] **bandits** ([human stats]) led by [human with portrait]. [average treasure]
 
 ;centaurs
 1,the **centaur** *[centaur]* ([centaur stats])
@@ -2896,8 +2896,8 @@
 1,father
 
 ;dwarves
-3,This is a small forge. [5d8] **dwarves** live and work here ([dwarf stats]) led by [dwarf leader] (level [1d6+2 as level]). [luxurious context] [dwarven treasure]
-1,This is a legendary forge stronghold. [5d8x10] **dwarves** live and work here ([dwarf stats]) led by [dwarf leader] (level [1d4+8 as level]). They are divided into [3d6] families, each led by a clan elder (level [1d6+2]). [dwarven stronghold treasure]
+3,This is a small forge. [5d8] **dwarves** live and work here ([dwarf stats]) led by [dwarf with portrait] (level [1d6+2 as level]). [luxurious context] [dwarven treasure]
+1,This is a legendary forge stronghold. [5d8x10] **dwarves** live and work here ([dwarf stats]) led by [dwarf with portrait] (level [1d4+8 as level]). They are divided into [3d6] families, each led by a clan elder (level [1d6+2]). [dwarven stronghold treasure]
 
 ;dwarf stats
 1,HD 1 AC 4 1d6 D1 MV 6 ML 8 XP 100
@@ -2905,7 +2905,7 @@
 ;duergar stats
 1,[dwarf stats]; immune to fire
 
-;dwarf leader
+;dwarf with portrait
 1,*[dwarf name]*<img class="portrait" src="[[redirect https://campaignwiki.org/face/redirect/alex/dwarf]]" alt="[same dwarf name]" title="[same dwarf name]"/>
 
 ;dwarf name
@@ -4222,7 +4222,7 @@
 1,These [tree] hills in [forest name] belong to the *[evil tribe]* tribe. [orcs] Their fort is [orc fort] [orc plans]
 1,The hill overlooking [forest name] is the home of [1d8 treants] ([treant stats]). They mostly stand around near the [forest feature].
 1,There is a hill rising high above [forest name] with a nice cave which offers shelter from the rain. [den]
-1,[5d8] **dwarves** ([dwarf stats]) have set up a small logging community, here in [forest name]. The [tree] trees in the area have brought them here. They are led by [dwarf leader] (level [1d6+2 as level]). The camp is defended by [dwarven companions]. [dwarven treasure]
+1,[5d8] **dwarves** ([dwarf stats]) have set up a small logging community, here in [forest name]. The [tree] trees in the area have brought them here. They are led by [dwarf with portrait] (level [1d6+2 as level]). The camp is defended by [dwarven companions]. [dwarven treasure]
 1,The hills of [forest name] are full of ancient ruins. On one of these hills right here you can find the foundations of an old keep. The walls are long gone but the cistern and the storage rooms below are still usable. [outlaw camp]
 1,[faerie witch]
 
@@ -4636,8 +4636,8 @@
 1,Steal
 1,Thrash
 
-;orc leader
-1,*[orc name]*<img class="portrait" src="[[redirect https://campaignwiki.org/face/redirect/alex/orc]]" alt="[same orc name]" title="[same orc name]" /> (HD [1d6+1 as level])
+;orc with portrait
+1,*[orc name]*<img class="portrait" src="[[redirect https://campaignwiki.org/face/redirect/alex/orc]]" alt="[same orc name]" title="[same orc name]" />
 
 ;orc name
 1,[orc 1][orc 2]
@@ -5378,10 +5378,10 @@
 1,At the foot of a hill you find a burned down cabin. This must have happened [some time ago].
 1,[necromancer]
 1,[vivimancer]
-1,[some ruins] Here lives the **hermit** [human] (level 1).
-1,[some ruins] Here lives the **hermit** [human] (level 1) and a **puma** ([puma stats]).
-1,[some ruins] Here lives the **hermit** [human] (level 1) and a **jaguar** ([jaguar stats]).
-1,[some ruins] Here lives the **hermit** halfling [halfling] (level 1) with some sheep.
+1,[some ruins] Here lives the **hermit** [human with portrait] (level 1).
+1,[some ruins] Here lives the **hermit** [human with portrait] (level 1) and a **puma** ([puma stats]).
+1,[some ruins] Here lives the **hermit** [human with portrait] (level 1) and a **jaguar** ([jaguar stats]).
+1,[some ruins] Here lives the **hermit** halfling [halfling with portrait] (level 1) with some sheep.
 
 ;puma stats
 1,HD 3 AC 6 1d6 F1 MV 24 ML 7 XP 300
@@ -5402,7 +5402,7 @@
 1,Sheltered behind one of the boulders and well hidden by some bushes there is a tent.
 
 ;necromancer
-1,Here lives the **necromancer** [human] (level [1d3+4 as level]), protected by [necromancer companions], in a tower. [necromancer tower] [luxurious context] [leader treasure for magic user]
+1,Here lives the **necromancer** [human with portrait] (level [1d3+4 as level]), protected by [necromancer companions], in a tower. [necromancer tower] [luxurious context] [leader treasure for magic user]
 
 ;necromancer companions
 1,[4d6] watchful **zombies** ([zombie stats])
@@ -5456,8 +5456,8 @@
 1,[an old wight leader]
 
 ;vivimancer
-1,Here lives the **vivimancer** [human] (level [1d3+4 as level]), protected by [3d6] **myconids**, in a tower. [alchemist job] [luxurious context] [poor treasure] [leader treasure for magic user]
-1,Here is the tower of the **vivimancer** [human] (level [1d3+4 as level]) with [3d6] [slimes]. [safe zone] [poor treasure] [leader treasure for magic user]
+1,Here lives the **vivimancer** [human with portrait] (level [1d3+4 as level]), protected by [3d6] **myconids**, in a tower. [alchemist job] [luxurious context] [poor treasure] [leader treasure for magic user]
+1,Here is the tower of the **vivimancer** [human with portrait] (level [1d3+4 as level]) with [3d6] [slimes]. [safe zone] [poor treasure] [leader treasure for magic user]
 
 ;alchemist job
 1,*[same human name]* is looking for *[nearby magic plant]*.
@@ -5491,7 +5491,7 @@
 1,HD 1 AC 6 1d6 F1 MV 12 ML 8 XP 100
 
 ;orcs
-1,[1d6x10] **orcs** led by [orc leader] live here ([orc stats]). [robber treasure] [leader treasure]
+1,[1d6x10] **orcs** led by [orc with portrait] (HD [1d6+1 as level]) live here ([orc stats]). [robber treasure] [leader treasure]
 
 ;orc war
 1,The Resettlement
@@ -5601,7 +5601,7 @@
 1,[5d8] **halflings** led by [halfling leader]. [leader treasure] [average treasure] [halfling troubles]
 
 ;halfling leader
-1,[halfling] (level [1d6+1 as level])
+1,[halfling with portrait] (level [1d6+1 as level])
 
 ;halfling troubles
 1,These halflings are wicked raiders, disappearing into the wilderness without leaving a trail.
@@ -5609,7 +5609,7 @@
 1,A curse has been killing their sheep and they fear starvation, soon enough.</p><p>Little do they know of the [witch]
 1,They hate and fear all outsiders. And what they fear most of all is that somebody would betray the location of their home.
 
-;halfling
+;halfling with portrait
 1,*[halfling name]*<img class="portrait" src="[[redirect https://campaignwiki.org/face/redirect/alex/woman]]" alt="[same halfling name]" title="[same halfling name]"/>
 
 ;halfling name
@@ -6160,7 +6160,7 @@
 1,[swamp intro] [swamp dressing] You need a boat and a guide to navigate these waterways. If you travel on foot, you'll soon attract the attention of [1d6 crocodiles].
 1,[swamp intro] If you drink the water here, save vs. poison or spend the rest of the day vomiting. These lakes are home to [3d12] **swamp cranes** ([swamp crane stats]). Their dung is poisonous to most creatures on land.
 1,[swamp intro] [swamp dressing] An abandoned temple of *[power]* stands here, half sunk. The acrid stench is overwhelming. On the small piece of solid ground rising above the water you can see [what you can see of the sunken temple] A **gorgon** has cursed this temple with its presence ([gorgon stats]). [terror treasure]
-1,[swamp intro] [swamp dressing] There's a wooden hut, here. Its inhabitant appears to be a hermit called [human]. In actual fact, however, this is a **doppelgänger** ([doppelgänger stats]). [poor treasure] It will try and see whether it can replace one of the party members and leave the area with you.
+1,[swamp intro] [swamp dressing] There's a wooden hut, here. Its inhabitant appears to be a hermit called [human with portrait]. In actual fact, however, this is a **doppelgänger** ([doppelgänger stats]). [poor treasure] It will try and see whether it can replace one of the party members and leave the area with you.
 1,[swamp intro] [swamp dressing] The waterways eventually lead to a wooden fort rising out of the water, inhabited by [4d6] **hobgoblins** ([hobgoblin stats]) and led by *[hobgoblin]* (HD 3+1). The fort is defended by [hobgoblin companions]. [robber treasure]
 1,This section of the [forest name] swamp is a well known death trap. The trees are older, here. They remember every axe wielder, every ship builder, every carpenter, every fire maker, and they hate them with the hate of the primal forest. These trees are protected by [1d8 treants] ([treant stats]) who would like nothing better than to squash anybody capable of wielding tools.
 1,[swamp ettercaps]
@@ -7651,7 +7651,7 @@
 1,The [forest name] is flooded with soothing sun light (or moon light). [unicorns]
 
 ;wood elves
-1,[save 1d6+1 as level][save spellbook for elves] Elves have built their [elf dwelling] in [forest name], [beautiful trees]. [elf environment] [elf companions]</p><p>[elf clade name], [2d12] **elves** ([elf stats]) led by [elf leader] (level [same level]). [same spellbook for elves] [leader treasure]
+1,[save 1d6+1 as level][save spellbook for elves] Elves have built their [elf dwelling] in [forest name], [beautiful trees]. [elf environment] [elf companions]</p><p>[elf clade name], [2d12] **elves** ([elf stats]) led by [elf with portrait] (level [same level]). [same spellbook for elves] [leader treasure]
 
 ;elf clade name
 1,This the home of the [clade name for [same [same spellbook] 1]]
@@ -7729,7 +7729,7 @@
 ;forest monster
 1,**manticore** *[manticore]* ([manticore stats]). [robber treasure]
 1,**bear** *[bear name]* ([bear stats])
-1,[1d4x10] **bandits** led by [human]. [average treasure]
+1,[1d4x10] **bandits** led by [human with portrait]. [average treasure]
 1,[6d10] **goblins** led by [goblin] ([goblin stats]). [poor treasure]
 
 ;ettercap forest
@@ -7828,7 +7828,7 @@
 
 ;ettercap trade
 1,To reach the ettercap trading post, follow the single white strand that starts atop the lonely [tree] tree to the [direction], leading you safely from branch to branch above the forest floor to the ancient tree giant where the ettercaps have built a large platform with their shacks and their chests. [ettercap trading post]
-1,The ettercaps have created a landing pad up in the air where they discovered a passage to the world tree *Yggdrasil*. This is where they keep their chests of silken wares. [ettercap trading post] On nights of the full moon, or on a 1 in 6, the portal opens. [save 1d6+1 as level][save spellbook for elves][2d12] **elves** ([elf stats]) led by trade-captain [elf leader] (level [same level]). [same spellbook for elves] [leader treasure] The elves are looking to buy silken wares or trade them for spells cast. [elven trade money] [elf travelling companions]
+1,The ettercaps have created a landing pad up in the air where they discovered a passage to the world tree *Yggdrasil*. This is where they keep their chests of silken wares. [ettercap trading post] On nights of the full moon, or on a 1 in 6, the portal opens. [save 1d6+1 as level][save spellbook for elves][2d12] **elves** ([elf stats]) led by trade-captain [elf with portrait] (level [same level]). [same spellbook for elves] [leader treasure] The elves are looking to buy silken wares or trade them for spells cast. [elven trade money] [elf travelling companions]
 1,The ettercaps have made contact with *phase spiders*, intelligent travellers of the nine realms. On a 1 in 6, a party of   [1d6 phase spiders] will show up tonight ([phase spider stats]). Nobody knows what they are up to but they are very interested in hearing stories about current events as well as local botany and zoology. In return, they bring fancy looking trinkets from unknown places.
 
 ;1d6 phase spiders
@@ -7890,8 +7890,8 @@
 1,HD 9 AC 9 1d6 + *poison* F9 MV 12 ML 9 XP 900; *climb*; *poison*: when bit, save vs. poison or die; *charm*: save vs. spells or fall madly in love with her; *glamour*: every hour in her company when not madly in love, save vs. spells to notice a flickering of her glamour revealing her eight eyes, or the spider legs growing out of her back
 
 ;old forest temple denizen
-1,In one corner, a wooden roof keeps a corner of the old temple dry. Here lives [human], an old **hermit**, and his pet **jaguar** ([jaguar stats]).
-1,In a dry corner of the ruin is the lair of [3d6] **wolves** ([wolf stats]) and [human], who ended up being raised by wolves after being abandoned by the parents.
+1,In one corner, a wooden roof keeps a corner of the old temple dry. Here lives [human with portrait], an old **hermit**, and his pet **jaguar** ([jaguar stats]).
+1,In a dry corner of the ruin is the lair of [3d6] **wolves** ([wolf stats]) and [human with portrait], who ended up being raised by wolves after being abandoned by the parents.
 1,Between the [tree] trees growing all over the structure the ground is dry and solid. [giant apes]
 1,A dreadful *stench* hangs in the air. Beneath a big stone is an entrance into a cave full of decomposing corpses. Amidst the flies you see [2d6] wide-eyed and mute humans. Soon enough, however, they'll turn into **werwolves** and find you and kill you and bring you here and eat you ([werewolf stats]). [poor treasure]
 1,A dreadful *stench* hangs in the air. The cistern has turned into a charnel house. Bones and decomposing corpses cover the ground. It is very *cold* down here. This is the realm of [1d8 wights] ([wight stats]). [dead treasure]
@@ -7914,7 +7914,7 @@
 
 ;myconids
 1,[3d6] **myconids** ([myconid stats]). [poor treasure]
-1,[3d6] **myconids** watching their mushroom circle ([myconid stats]). [poor treasure] On nights of the full moon, or on a 1 in 6, the portal to [fey realm] opens. [save 1d6+1 as level][save spellbook for elves]If so, [2d12] **elves** ([elf stats]) led by [elf leader] (level [same level]) will be visiting from [fey realm]. [same spellbook for elves] [leader treasure] [elf travelling companions]
+1,[3d6] **myconids** watching their mushroom circle ([myconid stats]). [poor treasure] On nights of the full moon, or on a 1 in 6, the portal to [fey realm] opens. [save 1d6+1 as level][save spellbook for elves]If so, [2d12] **elves** ([elf stats]) led by [elf with portrait] (level [same level]) will be visiting from [fey realm]. [same spellbook for elves] [leader treasure] [elf travelling companions]
 
 ;fey realm
 1,Alfheim
@@ -7922,7 +7922,7 @@
 
 ;elf stats
 # This requires the establishment a [spellbook for elves]. Typically you'd use it like this:
-# [save 1d6+1 as level][save spellbook for elves][2d12] **elves** ([elf stats]) led by [elf leader] (level [same level]). [same spellbook for elves] [leader treasure]
+# [save 1d6+1 as level][save spellbook for elves][2d12] **elves** ([elf stats]) led by [elf with portrait] (level [same level]). [same spellbook for elves] [leader treasure]
 1,HD 1 HP 1d6 AC 5 1d6 or *[same [same spellbook] 1]* 1×/day E1 MV 12 ML 10 XP 100
 
 ;elf travelling companions
@@ -8091,7 +8091,7 @@
 ;stone golem stats
 1,HD 9 AC 1 3d6 MV 12 ML 12 XP 900; immune to *arrows*, immune to *poison*; immune to *spells*
 
-;elf leader
+;elf with portrait
 1,*[elf name]*<img class="portrait" src="[[redirect https://campaignwiki.org/face/redirect/alex/elf]]" alt="[same elf name]" title="[same elf name]"/>
 
 # Not accounted for: Letter changes when combining words
@@ -9551,7 +9551,7 @@
 
 ;maybe a sage
 1,These days, there are no vistors.
-1,These days it is frequented by the [magic user] *[human]* (level [1d3+4 as level]). [spellbook for magic user] [leader treasure for magic user]
+1,These days it is frequented by the [magic user] [human with portrait] (level [1d3+4 as level]). [spellbook for magic user] [leader treasure for magic user]
 
 ;monks or nuns
 1,[1d4x10] **humans** ([human stats]) live up here. [average treasure] They are led by [abbot] (level [1d6+1 as level]). [leader treasure for magic user]
@@ -9604,7 +9604,7 @@
 1,HD 1 AC 7 2d10 F1 MV 6 ML 7 XP 100; immune to *sleep* and *charm*
 
 ;cultists
-1,[1d4x10] **cultists** ([human stats]) live here. [average treasure] They are led by their cult leader [human] (level [1d6+1 as level]). [leader treasure for magic user]
+1,[1d4x10] **cultists** ([human stats]) live here. [average treasure] They are led by their cult leader [human with portrait] (level [1d6+1 as level]). [leader treasure for magic user]
 
 ;cultists led by a woman
 1,[1d4x10] **cultists** ([human stats]) live here. [average treasure] They are led by their cult leader [woman with portrait] (level [1d6+1 as level]). [leader treasure for magic user]
@@ -9616,7 +9616,7 @@
 1,</p><p>[bard]
 
 ;dragon hunter
-1,The dragon hunter **[human class]** *[human]* (level [1d4+5 as level]) is trying to hire two score desperate peasants to go and slay *[nearby dragon name]*. [sharing agreement] [spellbook for [same class]] [leader treasure for [same class]]
+1,The dragon hunter **[human class]** [human with portrait] (level [1d4+5 as level]) is trying to hire two score desperate peasants to go and slay *[nearby dragon name]*. [sharing agreement] [spellbook for [same class]] [leader treasure for [same class]]
 
 ;sharing agreement
 3,“I am generous: two shares of the treasure found for me, the rest to be shared equally amongst the other survivors.”
@@ -9624,7 +9624,7 @@
 1,“I’ll be fair: half of the treasure found for me, half to be shared amongst the other survivors.”
 
 ;bard
-1,The [bard adjective] [singing humanoid] **bard** *[[same singing humanoid] name]* is here, playing the [instrument] and [with performing] [with story] and [and performing] [and story]. [audience reaction]
+1,The [bard adjective] [singing humanoid] **bard** *[[same singing humanoid] with portrait]* is here, playing the [instrument] and [with performing] [with story] and [and performing] [and story]. [audience reaction]
 
 ;bard adjective
 1,wandering
@@ -9698,10 +9698,9 @@
 1,orc
 
 ;human story hero
-# the setting has three human heroes
+# limited number of heroes
 1,[name for a human story hero 1]
 1,[name for a human story hero 2]
-1,[name for a human story hero 3]
 
 ;name for a human story hero 1
 1,[human name]
@@ -9709,14 +9708,10 @@
 ;name for a human story hero 2
 1,[human name]
 
-;name for a human story hero 3
-1,[human name]
-
 ;elf story hero
-# the setting has three elf heroes
+# limited number of heroes
 1,[name for a elf story hero 1]
 1,[name for a elf story hero 2]
-1,[name for a elf story hero 3]
 
 ;name for a elf story hero 1
 1,[elf name]
@@ -9724,14 +9719,10 @@
 ;name for a elf story hero 2
 1,[elf name]
 
-;name for a elf story hero 3
-1,[elf name]
-
 ;dwarf story hero
-# the setting has three dwarf heroes
+# limited number of heroes
 1,[name for a dwarf story hero 1]
 1,[name for a dwarf story hero 2]
-1,[name for a dwarf story hero 3]
 
 ;name for a dwarf story hero 1
 1,[dwarf name]
@@ -9739,14 +9730,10 @@
 ;name for a dwarf story hero 2
 1,[dwarf name]
 
-;name for a dwarf story hero 3
-1,[dwarf name]
-
 ;halfling story hero
-# the setting has three halfling heroes
+# limited number of heroes
 1,[name for a halfling story hero 1]
 1,[name for a halfling story hero 2]
-1,[name for a halfling story hero 3]
 
 ;name for a halfling story hero 1
 1,[halfling name]
@@ -9754,22 +9741,15 @@
 ;name for a halfling story hero 2
 1,[halfling name]
 
-;name for a halfling story hero 3
-1,[halfling name]
-
 ;orc story hero
-# the setting has three orc heroes
+# limited number of heroes
 1,[name for a orc story hero 1]
 1,[name for a orc story hero 2]
-1,[name for a orc story hero 3]
 
 ;name for a orc story hero 1
 1,[orc name]
 
 ;name for a orc story hero 2
-1,[orc name]
-
-;name for a orc story hero 3
 1,[orc name]
 
 ;story villain
@@ -10326,7 +10306,7 @@
 1,choosing the child to be sacrificed to the dragon *[nearby dragon name]*
 
 ;thorp
-1,</p><p>This is [here village name], a thorp of [1d4x10] **humans** ([human stats]) led by [human][human job]. The [human houses] are protected by [human companions]. [average treasure] These village-folk are [thorp activity]. [settlement event]
+1,</p><p>This is [here village name], a thorp of [1d4x10] **humans** ([human stats]) led by [human with portrait][human job]. The [human houses] are protected by [human companions]. [average treasure] These village-folk are [thorp activity]. [settlement event]
 
 # the second variant has a temple at the end
 ;village
@@ -10362,10 +10342,10 @@
 1,One society is led by [a boss]. [spellbook for [same class]] [leader treasure for [same class]] The other society is led by [a lesser boss]. [spellbook for [same class]] [leader treasure for [same class]]
 
 ;a boss
-1,the **[human class]** *[human]* (level [1d4+2 as level])
+1,the **[human class]** [human with portrait] (level [1d4+2 as level])
 
 ;a lesser boss
-1,the **[human class]** *[human]* (level [1d4+1 as level])
+1,the **[human class]** [human with portrait] (level [1d4+1 as level])
 
 # make sure there are only 3 of them
 ;one of the secret societies
@@ -10787,10 +10767,10 @@
 1,river flowing around it
 
 ;human leader
-1,**[human class]** *[human]* (level [1d2+8 as level])
+1,**[human class]** [human with portrait] (level [1d2+8 as level])
 
 ;human retainer
-1,Their retainer is the **[human class]** *[human]* (level [1d2+6 as level]). [spellbook for [same class]] [leader treasure for [same class]]
+1,Their retainer is the **[human class]** [human with portrait] (level [1d2+6 as level]). [spellbook for [same class]] [leader treasure for [same class]]
 
 ;retainer
 1,retainer
@@ -10800,8 +10780,8 @@
 1,partner
 
 ;human friends
-1,Their [aide], the **[human class]** *[human]* (level [1d4+1 as level]), also lives here. [spellbook for [same class]] [leader treasure for [same class]]
-1,They are served by two [aide]s. One is the **[human class]** *[human]* (level [5 as level]). [spellbook for [same class]] [leader treasure for [same class]] The other is the **[human class]** *[human]* (level [1d4+1 as level]). [spellbook for [same class]] [leader treasure for [same class]]
+1,Their [aide], the **[human class]** [human with portrait] (level [1d4+1 as level]), also lives here. [spellbook for [same class]] [leader treasure for [same class]]
+1,They are served by two [aide]s. One is the **[human class]** [human with portrait] (level [5 as level]). [spellbook for [same class]] [leader treasure for [same class]] The other is the **[human class]** [human with portrait] (level [1d4+1 as level]). [spellbook for [same class]] [leader treasure for [same class]]
 
 # must be able to create a plural by appending an s
 ;aide
@@ -10834,7 +10814,7 @@
 1,warrior
 1,knight
 
-;human
+;human with portrait
 1,[man with portrait]
 1,[woman with portrait]
 
@@ -10845,6 +10825,7 @@
 1,*[woman as human name]*<img class="portrait" src="[[redirect https://campaignwiki.org/face/redirect/alex/woman]]" alt="[same human name]" title="[same human name]"/>
 
 ;human portrait
+# use this when you need a portrait of either sex and you have already picked a non-standard human name
 1,<img class="portrait" src="[[redirect https://campaignwiki.org/face/redirect/alex/man]]" alt="[same human name]" title="[same human name]"/>
 1,<img class="portrait" src="[[redirect https://campaignwiki.org/face/redirect/alex/woman]]" alt="[same human name]" title="[same human name]"/>
 
@@ -12901,7 +12882,7 @@
 1,In the presence of an amulet of passage bearing the [name for a clan of the netherworld elves] sigil, the door glides opens and reveals stairs leading down to the underground [lair of the netherworld elves]
 
 ;lair of the netherworld elves
-1,*[building of the netherworld elves] of [elf name]*.</p><p>[gate of the netherworld elves]</p><p>[companions of the netherworld elves]</p><p>[save 1d6+4 as level][save spellbook for elves][5d12] **elves** live here ([elf stats]), led by [elf leader] (level [same level]). [same spellbook for elves] [leader treasure]
+1,*[building of the netherworld elves] of [elf name]*.</p><p>[gate of the netherworld elves]</p><p>[companions of the netherworld elves]</p><p>[save 1d6+4 as level][save spellbook for elves][5d12] **elves** live here ([elf stats]), led by [elf with portrait] (level [same level]). [same spellbook for elves] [leader treasure]
 
 ;building of the netherworld elves
 1,Bastion
