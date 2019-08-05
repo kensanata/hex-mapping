@@ -5326,10 +5326,10 @@
 
 ;outlaw feature
 1,The outlaws use raven feathers in their arrows.
-1,This camp has a renowned healer: *[human name]* knows how to *cure disease* using [nearby magic plant].
+1,This camp has a renowned **healer**: [human with portrait] knows how to *cure disease* using [nearby magic plant].
 1,The scouts in this camp know all the creatures of [adjacent hex].
 1,The outlaws are eager to trade for alcohol and gold.
-1,This camp has a talented bard called *[human name]* who was chased out of [nearby village name].
+1,This camp has a talented **bard** called [human with portrait] who was chased out of [nearby village name].[store human as singing humanoid] The songs they like to perform are [with story] and [and story].
 
 ;outlaw companions
 1,[1d6+1] **hunting hounds** ([wolf stats])
@@ -10622,14 +10622,14 @@
 
 ;small temple dedicated to Odin
 1,[small temple]
-1,The temple houses an 8ft high wooden statue of Odin wielding his magic spear. An old woman named **[woman]** takes care of the temple. She knows the power of runes and will cast the stones for you, should want to locate a loved one or find a dragon.
-1,The temple is actually a feast hall housing a small college of [3d6] bards led by **[human name]**. During the day, they sing songs, practice balads, and compete in poetry. In the evening, the drink. All bards are expected to deliver a yearly donation for the upkeep of the college. Failure to do so results in being placed on a list. Should you need rescuing, they will contract a secret society to do that. Should you skip your obligation, they will contract a secret society to remedy that.
+1,The temple houses an 8ft high wooden statue of Odin wielding his magic spear. An **old woman** named [woman with portrait] takes care of the temple. She knows the power of runes and will cast the stones for you, should want to locate a loved one or find a dragon.
+1,The temple is actually a feast hall housing a small college of [3d6] **bards** led by [human with portrait].[store human as singing humanoid] During the day, they sing songs, practice balads, and compete in poetry. Their best known pieces are [with story] and [and story]. In the evening, the drink. All bards are expected to deliver a yearly donation for the upkeep of the college. Failure to do so results in being placed on a list. Should you need rescuing, they will contract a secret society to do that. Should you skip your obligation, they will contract a secret society to remedy that.
 1,The temple is also a famous school for birds of prey. They are trained here and then sold to nobility in far away regions. The rich merchants making this trip often need guards and thus a mercenary house was established here. [mercenary house]
-1,It was built generations ago atop a pool of Earth Blood by *Wise [human name]* in order to prevent its mutagenic power from corrupting the area. Many magic users and elves have come here over the years, drawn by the small eddies of magic energy still emanating from the sealed area: get one extra spell slot of your liking while you sleep nearby. *[inn]* was built next to the temple just for this. It's run by **[human name]**.
-1,The temple functions welcomes all wanderers and homeless people, housing people for up to week for a gold piece per person. This is the *[inn]* run by **[human name]**. The common room has an entire altar built into it, including carved columns with eagles and ravens and showing Odin riding his eight legged horse over the rainbow bridge.
+1,It was built generations ago atop a pool of Earth Blood by *Wise [human name]* in order to prevent its mutagenic power from corrupting the area. Many magic users and elves have come here over the years, drawn by the small eddies of magic energy still emanating from the sealed area: get one extra spell slot of your liking while you sleep nearby. *[inn]* was built next to the temple just for this. It's run by the **inn keeper** [human with portrait].
+1,The temple functions welcomes all wanderers and homeless people, housing people for up to week for a gold piece per person. This is the *[inn]* run by the **inn keeper** [human with portrait]. The common room has an entire altar built into it, including carved columns with eagles and ravens and showing Odin riding his eight legged horse over the rainbow bridge.
 
 ;mercenary house
-1,The [mercenary house name] is run by [human name] and consists of 6d6 mercenaries.
+1,*[mercenary house name]* is run by [human with portrait] and consists of 6d6 mercenaries.
 
 ;mercenary house name
 1,[mercenary house name 1] [mercenary house name 2] of [mercenary house name 3]
