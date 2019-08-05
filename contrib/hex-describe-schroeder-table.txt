@@ -9615,13 +9615,19 @@
 ;settlement event
 # most settlements don't have a current event
 3,
-1,</p><p>The dragon hunter **[human class]** *[human]* (level [1d4+5 as level]) is trying to hire two score desperate peasants to go and slay *[nearby dragon name]*. [sharing agreement] [spellbook for [same class]] [leader treasure for [same class]]
-1,</p><p>The [bard adjective] [singing humanoid] **bard** *[[same singing humanoid] name]* is here, [performing] [with story] and [performing] [and story]. [audience reaction]
+1,</p><p>[dragon hunter]
+1,</p><p>[bard]
+
+;dragon hunter
+1,The dragon hunter **[human class]** *[human]* (level [1d4+5 as level]) is trying to hire two score desperate peasants to go and slay *[nearby dragon name]*. [sharing agreement] [spellbook for [same class]] [leader treasure for [same class]]
 
 ;sharing agreement
 3,“I am generous: two shares of the treasure found for me, the rest to be shared equally amongst the other survivors.”
 2,“I will provide all the expertise: five shares of the treasure found for me, the rest to be shared equally amongst the other survivors.”
 1,“I’ll be fair: half of the treasure found for me, half to be shared amongst the other survivors.”
+
+;bard
+1,The [bard adjective] [singing humanoid] **bard** *[[same singing humanoid] name]* is here, playing the [instrument] and [with performing] [with story] and [and performing] [and story]. [audience reaction]
 
 ;bard adjective
 1,wandering
@@ -9633,16 +9639,47 @@
 ;performing
 1,singing
 1,retelling
-1,playing the [instrument] and reciting
+1,reciting
 
 ;instrument
-1,flute
-1,lyre
-1,lute
+1,bagpipes
+1,bladder pipe
+1,chalumeau
+1,cornemuse
+1,cornett
+1,crumhorn
+1,cymbals
+1,drum
+1,dulcimer
 1,fiddle
+1,finger cymbals
+1,flageolet
+1,flute
+1,gamba
+1,gemshorn
 1,guitar
+1,hand bells
 1,harp
+1,hurdy-gurdy
+1,kettledrum
+1,lute
+1,lyre
+1,mandolin
+1,ocarina
+1,psaltery
+1,rebec
+1,recorder
+1,sackbut
+1,shawm
+1,shofar
+1,syrinx
+1,tabor
 1,tambourine
+1,timbrel
+1,trumpet
+1,viol
+1,zink
+1,zither
 
 ;audience reaction
 1,The audience cheers and laughs.
