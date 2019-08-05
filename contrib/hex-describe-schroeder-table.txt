@@ -10363,6 +10363,9 @@
 1,There is a place for everybody, they say. And they are true to their word: if you need work, they will find something for you.
 1,They are out there, making sure things run smoothly. Their highest ranks, however, are also spies for [name for a emperor].
 1,This is a society for the rich and powerful, and those who want to join their ranks. Work hard, enslave the poor, and you will rise in their ranks.
+1,They prepare for war, train in underground halls, learn the way of the knife, the way of the staff, the way of the bow.
+1,They believe in mental discipline. Right thought, right action. Live the life you're destined to live and leave it at the appointed time, that is the way.
+1,They believe that the ruling class has been taken over by vampires. They prepare for the big fight by studying ancient books and training with silver daggers.
 
 ;name for a emperor
 1,Emperor Albus
@@ -10388,11 +10391,17 @@
 1,They spread revolution and sharing where ever they go. That is why the authorities fear them.
 1,To be free of shackles is what they want. They free slaves and wreck the tools of their feudal lords.
 1,They are here to overthrow the feudal lords and to push back against their supporters.
+1,To believe in the current order of things is what servants are trained to do. They believe that another world is possible.
+1,They believe that true happiness means renouncing the world, leaving your job, your family, your obligations. Cultivated carelessness.
+1,They teach the ways of the wild, living off the wild, hunting, gathering, being self sufficient. They plan to leave this sorry town, soon.
 
 ;description for a secret society (neutrality)
 1,If you're in need of money, they will lend you money. If you don't pay back your debts, they will break your bones.
 1,They're a self-aid society where members pay yearly dues and if you're ever in a pinch, they'll help you out.
 1,This is a mutual protection society. Harm one of the members and you have harmed them all. And they will get you for it.
+1,This is a mutual aid society. Others would call it a thieves' guild. Cooperation, sharing, and taking from the rich.
+1,They are inventors, working on tools to free themselves from the shackles of sword and spell.
+1,They prepare for the magic revolution because spells are the sign of a higher calling where as swords serve no purpose but to skewer the living.
 
 # meaning the human has no class and isn’t a priest
 # the result is also reused in the following tables
