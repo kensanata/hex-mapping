@@ -359,7 +359,7 @@ any '/rule' => sub {
   my $seed = $c->param('seed') || time;
   srand($seed);
   my $descriptions = describe_text($input, parse_table($table));
-  $c->render(template => 'text', load => $c->param('load'), seed => $seed,
+  $c->render(template => 'text', input => $input, load => $c->param('load'), seed => $seed,
 	     n => $n, url => $c->param('url'), table => $c->param('table'),
 	     rule => $rule, id => to_id($rule),
 	     log => $c->param('log') ? $log->history : undef,
