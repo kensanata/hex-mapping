@@ -2010,7 +2010,7 @@
 1,2d6 **winter wolves** ([winter wolf stats])
 1,4d6 **white gorillas**
 1,2d6 **four armed, white gorillas**
-1,pet **white dragon** [here white dragon name as dragon name] ([white dragon stats])
+1,pet **white dragon** *[here white dragon name as dragon name]*<img class="landscape" src="[[redirect https://campaignwiki.org/face/redirect/alex/dragon]]" alt="[same dragon name]" title="[same dragon name]"/> ([white dragon stats])
 
 ;ice devil lair
 1,a large ice cave with a mount of bones as big as a house upon which the devil has built his throne of ice and steel.
@@ -2191,7 +2191,7 @@
 1,The ruin is abandoned and dead. If you explore the ruins, you will soon find the **balor** *[demon name]* who caused its downfall ([balor stats]). It guards a portal to the realm of eternal fire, to Muspelheim.</p><p>[balor servants]
 1,[forge orcs]
 1,The ruin is full of broken machinery. In its depths, however, a **bronze golem** still wanders the halls ([bronze golem stats]).
-1,The ruin is now home to the **white dragon** [here white dragon name as dragon name] ([white dragon stats]). [dragon treasure]
+1,The ruin is now home to the **white dragon** *[here white dragon name as dragon name]*<img class="landscape" src="[[redirect https://campaignwiki.org/face/redirect/alex/dragon]]" alt="[same dragon name]" title="[same dragon name]"/> ([white dragon stats]). [dragon treasure]
 
 ;balor stats
 1,HD 9+1 AC 4 1d6/2d6 F9 MV 12 ML 11; flying; *aura of fire* (anybody in melee takes automatic 1d6 fire damage); if the first attack with the flaming whip hits, the second attack with the flaming sword is at +4; only harmed by magic or magic weapons; immune to fire
@@ -2223,7 +2223,7 @@
 
 ;green tower
 1,long abandoned.
-1,now inhabited by a **white dragon** called [here white dragon name as dragon name] ([white dragon stats]). [dragon treasure]
+1,now inhabited by a **white dragon** called *[here white dragon name as dragon name]*<img class="landscape" src="[[redirect https://campaignwiki.org/face/redirect/alex/dragon]]" alt="[same dragon name]" title="[same dragon name]"/> ([white dragon stats]). [dragon treasure]
 1,and at the very top there is a lair of [2d8] very protective **griffons** ([griffon stats]).
 1,currently the home of [gargoyles] ([gargoyle stats]). [poor treasure]
 
@@ -2251,7 +2251,7 @@
 1,HD 6 AC 3 1d4/1d4/2d8 F6 MV 24 ML 8 XP 600; *ice* (as much as the dragon has hp left, save vs. dragon breath for half)
 
 ;white dragon name
-1,*[white dragon 1] [dragon 2] [white dragon 3]*
+1,[white dragon 1] [dragon 2] [white dragon 3]
 
 ;white dragon 1
 1,White
@@ -2551,7 +2551,7 @@
 1,The [mountain obstacle] beneath the [name for white big mountains] are difficult to traverse. You need a guide and skis. The stone walls rising from the snow are home to a [cat style] [mountain cat].
 1,There is a hidden meadow up here, protected by the [name for white big mountains]. [giant apes] [small temple near giant apes]
 1,The glacier of [name for white big mountains] ends at a small lake. [ice monster lair]
-1,A **white dragon** called [here white dragon name as dragon name] lives in a ruined mountain fortress guarding the approaches to the [name for white big mountains] ([white dragon stats]). [dragon treasure]
+1,A **white dragon** called *[here white dragon name as dragon name]*<img class="landscape" src="[[redirect https://campaignwiki.org/face/redirect/alex/dragon]]" alt="[same dragon name]" title="[same dragon name]"/> lives in a ruined mountain fortress guarding the approaches to the [name for white big mountains] ([white dragon stats]). [dragon treasure]
 
 ;small temple near giant apes
 1,
@@ -2804,7 +2804,7 @@
 
 ;more mountains
 1,They are impossible to climb.
-1,Fissures lead into the depth of the mountain and in the warm chambers below there sleeps the **red dragon** [here red dragon name as dragon name] ([red dragon stats]). [dragon treasure]
+1,Fissures lead into the depth of the mountain and in the warm chambers below there sleeps the **red dragon** *[here red dragon name as dragon name]*<img class="landscape" src="[[redirect https://campaignwiki.org/face/redirect/alex/dragon]]" alt="[same dragon name]" title="[same dragon name]"/> ([red dragon stats]). [dragon treasure]
 1,The passes need a local guide to cross. [mountain people]
 1,A glacier fills the gap between these mountains.
 
@@ -2812,7 +2812,7 @@
 1,HD 10 AC -1 1d8/1d8/4d8 F10 MV 24 ML 10 XP 1000; *fire* (as much as the dragon has hp left, save vs. dragon breath for half)
 
 ;red dragon name
-1,*[red dragon 1] [dragon 2] [red dragon 3]*
+1,[red dragon 1] [dragon 2] [red dragon 3]
 
 ;red dragon 1
 1,Red
@@ -2864,7 +2864,7 @@
 3,[1d4] **white bears** ([bear stats])
 2,[2d4] **winter wolves** ([winter wolf stats])
 1,a **cryohydra** ([cryohydra stats])
-1,a **white dragon** named [here white dragon name as dragon name] ([white dragon stats])
+1,a **white dragon** named *[here white dragon name as dragon name]*<img class="landscape" src="[[redirect https://campaignwiki.org/face/redirect/alex/dragon]]" alt="[same dragon name]" title="[same dragon name]"/> ([white dragon stats])
 1,a **spectre** of their ancient ice king ([spectre stats])
 
 ;dwarf forge
@@ -2903,7 +2903,7 @@
 1,[dwarf stats]; immune to fire
 
 ;dwarf leader
-1,*[dwarf]*<img src="[[redirect https://campaignwiki.org/face/redirect/alex/dwarf]]" alt="[same dwarf]" title="[same dwarf]"/>
+1,*[dwarf]*<img class="portrait" src="[[redirect https://campaignwiki.org/face/redirect/alex/dwarf]]" alt="[same dwarf]" title="[same dwarf]"/>
 
 ;dwarf
 1,[dwarf name] [dwarf 2a][dwarf 2b]
@@ -4182,7 +4182,7 @@
 1,[5d8] **froglings** ([frogling stats]) live here, led by *[frogling with portrait]*, a priest of Tsathoggua: *lightning bolt* 2×/day (5d6, save vs. spells for half). [poor treasure] The mud village built around the temple[here store Tsathoggua as temple power] is guarded by [frogling companions].
 
 ;frogling with portrait
-1,*[frogling]*<img src="[[redirect https://campaignwiki.org/face/redirect/alex/frog]]" alt="[same frogling]" title="[same frogling]"/>
+1,*[frogling]*<img class="portrait" src="[[redirect https://campaignwiki.org/face/redirect/alex/frog]]" alt="[same frogling]" title="[same frogling]"/>
 
 ;frogling
 1,[frogling 1] [frogling 2]
@@ -4637,7 +4637,7 @@
 1,Thrash
 
 ;orc leader
-1,*[orc]*<img src="[[redirect https://campaignwiki.org/face/redirect/alex/orc]]" alt="[same orc]" title="[same orc]" /> (HD [1d6+1 as level])
+1,*[orc]*<img class="portrait" src="[[redirect https://campaignwiki.org/face/redirect/alex/orc]]" alt="[same orc]" title="[same orc]" /> (HD [1d6+1 as level])
 
 ;orc
 1,[orc 1][orc 2]
@@ -4856,7 +4856,7 @@
 1,Chobot
 
 ;gnome portrait
-1,<img src="[[redirect https://campaignwiki.org/face/redirect/alex/gnome]]" alt="[same gnome name]" title="[same gnome name]"/>
+1,<img class="portrait" src="[[redirect https://campaignwiki.org/face/redirect/alex/gnome]]" alt="[same gnome name]" title="[same gnome name]"/>
 
 ;abandoned coal mine
 1,It’s basically a deep hole where a single miner would keep digging for coal.
@@ -4873,7 +4873,7 @@
 3,[1d3+1] **squid people** led by [squid leader] ([squid person stats])
 
 ;squid leader
-1,*[squid]*<img src="[[redirect https://campaignwiki.org/face/redirect/alex/squid]]" alt="[same squid]" title="[same squid]"/>
+1,*[squid]*<img class="portrait" src="[[redirect https://campaignwiki.org/face/redirect/alex/squid]]" alt="[same squid]" title="[same squid]"/>
 
 ;squid
 1,[squid 1] [star name]
@@ -5190,7 +5190,7 @@
 1,Up here on these hills and overlooking the shrublands is a massive fortress built by giants long ago. [outlaw camp]
 1,There are caves beneath these badlands. [caves]
 1,The dry lands up here are the hunting grounds of a **manticore** called *[manticore]* living in the ruins of an old tower ([manticore stats]). [robber treasure] [manticore companions]
-1,A **green dragon** named [here green dragon name as dragon name] lives at [hill name], one of the hills overlooking these shrublands ([green dragon stats]). [dragon treasure]
+1,A **green dragon** named *[here green dragon name as dragon name]*<img class="landscape" src="[[redirect https://campaignwiki.org/face/redirect/alex/dragon]]" alt="[same dragon name]" title="[same dragon name]"/> lives at [hill name], one of the hills overlooking these shrublands ([green dragon stats]). [dragon treasure]
 
 ;outlaw camp
 1,There is a camp of [1d4x10] **outlaws** ([outlaw stats]) led by *[outlaw leader]*, here. [average treasure] They call themselves the *[adjective] [organisation name]*. [outlaw feature] The camp is protected by [outlaw companions]. These outlaws are [two outlaw activities].
@@ -5446,7 +5446,7 @@
 1,HD 8 AC 1 1d6/1d6/3d8 F8 MV 24 ML 9 XP 1000; *poison* (if HD 4 or lower, save vs. poison or die; otherwise suffer 1/rd)
 
 ;green dragon name
-1,*[green dragon 1] [dragon 2] [green dragon 3]*
+1,[green dragon 1] [dragon 2] [green dragon 3]
 
 ;green dragon 1
 1,Green
@@ -5505,7 +5505,7 @@
 1,They hate and fear all outsiders. And what they fear most of all is that somebody would betray the location of their home.
 
 ;halfling
-1,*[halfling name]*<img src="[[redirect https://campaignwiki.org/face/redirect/alex/woman]]" alt="[same halfling name]" title="[same halfling name]"/>
+1,*[halfling name]*<img class="portrait" src="[[redirect https://campaignwiki.org/face/redirect/alex/woman]]" alt="[same halfling name]" title="[same halfling name]"/>
 
 ;halfling name
 1,[gothic names for men]
@@ -6051,7 +6051,7 @@
 1,[swamp intro] [swamp dressing] A ruined tower standing on a small island is home to the **ettin** called *[ettin]*. [robber treasure] [ettin tower protection]
 1,[swamp intro] [swamp dressing] In the old days, these stagnant pools were used to drown evil necromancers. [bog wights]
 1,[swamp intro] [swamp dressing] On one of the islands there is a huge mud mound. [goblins]
-1,The [forest name] has turned into a black swamp and the smell of sulphur hangs in the air. A **black dragon** named [here black dragon name as dragon name] [black dragon activity] ([black dragon stats]). [dragon treasure] If you enter the water, you'll soon attract the attention of [1d6 crocodiles].
+1,The [forest name] has turned into a black swamp and the smell of sulphur hangs in the air. A **black dragon** named *[here black dragon name as dragon name]*<img class="landscape" src="[[redirect https://campaignwiki.org/face/redirect/alex/dragon]]" alt="[same dragon name]" title="[same dragon name]"/> [black dragon activity] ([black dragon stats]). [dragon treasure] If you enter the water, you'll soon attract the attention of [1d6 crocodiles].
 1,[swamp intro] [swamp dressing] You need a boat and a guide to navigate these waterways. If you travel on foot, you'll soon attract the attention of [1d6 crocodiles].
 1,[swamp intro] If you drink the water here, save vs. poison or spend the rest of the day vomiting. These lakes are home to [3d12] **swamp cranes** ([swamp crane stats]). Their dung is poisonous to most creatures on land.
 1,[swamp intro] [swamp dressing] An abandoned temple of *[power]* stands here, half sunk. The acrid stench is overwhelming. On the small piece of solid ground rising above the water you can see [what you can see of the sunken temple] A **gorgon** has cursed this temple with its presence ([gorgon stats]). [terror treasure]
@@ -6144,7 +6144,7 @@
 1,hunts the region, surveying the waterways from above and attacking boats from the air
 
 ;black dragon name
-1,*[black dragon 1] [black dragon 2] [black dragon 3]*
+1,[black dragon 1] [black dragon 2] [black dragon 3]
 
 ;black dragon 1
 1,Acid
@@ -7667,7 +7667,7 @@
 1,HD 5 AC 5 1d4/1d4/1d6 + *poison* F5 MV 12 ML 9 XP 500; *climb*; *poison*: when bit, save vs. poison or be paralysed for 2h
 
 ;ettercap with portrait
-1,*[ettercap name]*<img src="[[redirect https://campaignwiki.org/face/redirect/alex/spider]]" alt="[same ettercap name]" title="[same ettercap name]"/>
+1,*[ettercap name]*<img class="portrait" src="[[redirect https://campaignwiki.org/face/redirect/alex/spider]]" alt="[same ettercap name]" title="[same ettercap name]"/>
 
 ;ettercap name
 1,[spider name 1] [spider name 2]
@@ -7987,7 +7987,7 @@
 1,HD 9 AC 1 3d6 MV 12 ML 12 XP 900; immune to *arrows*, immune to *poison*; immune to *spells*
 
 ;elf leader
-1,*[elf]*<img src="[[redirect https://campaignwiki.org/face/redirect/alex/elf]]" alt="[same elf]" title="[same elf]"/>
+1,*[elf]*<img class="portrait" src="[[redirect https://campaignwiki.org/face/redirect/alex/elf]]" alt="[same elf]" title="[same elf]"/>
 
 # Not accounted for: Letter changes when combining words
 # http://sindarinlessons.weebly.com/37---how-to-make-names-1.html
@@ -9281,7 +9281,7 @@
 1,drying fish fillets on wooden racks in the sun
 1,listening to their oracle predict the best places to fish
 1,dressed in green patchwork clothing and conical reed hats
-1,frightened from the dragon [nearby dragon name] attack last week
+1,frightened from the dragon *[nearby dragon name]* attack last week
 
 ;satyr threat
 1,These satyrs seeking to convince all the married women of the nearby settlement to leave their homes. Half have already fled into the forest laughing and singing. They really don't want to come back and the [3d6] **satyrs** will support them ([satyr stats]).
@@ -9507,7 +9507,7 @@
 ;settlement event
 # most settlements don't have a current event
 3,
-1,</p><p>The dragon hunter **[human class]** *[human]* (level [1d4+5 as level]) is trying to hire two score desperate peasants to go and slay [nearby dragon name]. [sharing agreement] [spellbook for [same class]] [leader treasure for [same class]]
+1,</p><p>The dragon hunter **[human class]** *[human]* (level [1d4+5 as level]) is trying to hire two score desperate peasants to go and slay *[nearby dragon name]*. [sharing agreement] [spellbook for [same class]] [leader treasure for [same class]]
 1,</p><p>The [bard adjective] [singing humanoid] **bard** *[[same singing humanoid] name]* is here, [performing] [with story] and [performing] [and story]. [audience reaction]
 
 ;sharing agreement
@@ -10189,7 +10189,7 @@
 1,hauling loamy compost to their fallow fields
 1,wearing their clothing inside out and backwards
 # and others
-1,choosing the child to be sacrificed to the dragon [nearby dragon name]
+1,choosing the child to be sacrificed to the dragon *[nearby dragon name]*
 
 ;thorp
 1,</p><p>This is [here village name], a thorp of [1d4x10] **humans** ([human stats]) led by [human][human job]. The [human houses] are protected by [human companions]. [average treasure] These village-folk are [thorp activity]. [settlement event]
@@ -10705,14 +10705,14 @@
 1,[woman with portrait]
 
 ;man with portrait
-1,*[man as human name]*<img src="[[redirect https://campaignwiki.org/face/redirect/alex/man]]" alt="[same human name]" title="[same human name]"/>
+1,*[man as human name]*<img class="portrait" src="[[redirect https://campaignwiki.org/face/redirect/alex/man]]" alt="[same human name]" title="[same human name]"/>
 
 ;woman with portrait
-1,*[woman as human name]*<img src="[[redirect https://campaignwiki.org/face/redirect/alex/woman]]" alt="[same human name]" title="[same human name]"/>
+1,*[woman as human name]*<img class="portrait" src="[[redirect https://campaignwiki.org/face/redirect/alex/woman]]" alt="[same human name]" title="[same human name]"/>
 
 ;human portrait
-1,<img src="[[redirect https://campaignwiki.org/face/redirect/alex/man]]" alt="[same human name]" title="[same human name]"/>
-1,<img src="[[redirect https://campaignwiki.org/face/redirect/alex/woman]]" alt="[same human name]" title="[same human name]"/>
+1,<img class="portrait" src="[[redirect https://campaignwiki.org/face/redirect/alex/man]]" alt="[same human name]" title="[same human name]"/>
+1,<img class="portrait" src="[[redirect https://campaignwiki.org/face/redirect/alex/woman]]" alt="[same human name]" title="[same human name]"/>
 
 ;human name
 1,[man]
@@ -33264,8 +33264,8 @@
 2,A suit of dwarven *plate armour* +2 with [dwarven inscription]
 2,An elven *shield* +1 with [elven inscription]
 2,A dwarven *shield* +2 with [dwarven inscription]
-1,A suit of elven *plate armour of fire resistance* +1 made with scales of the red dragon [red dragon name], forged by *[elf]*.
-1,A suit of dwarven *plate armour cold resistance* +1 made with scales of the white dragon [white dragon name], forged by *[dwarf]* of *[dwarf forge]*.
+1,A suit of elven *plate armour of fire resistance* +1 made with scales of the red dragon *[red dragon name]*, forged by *[elf]*.
+1,A suit of dwarven *plate armour cold resistance* +1 made with scales of the white dragon *[white dragon name]*, forged by *[dwarf]* of *[dwarf forge]*.
 1,An orcish *spiked plate armour* +1 forged by *[orc]*, preventing all sorts of wrestling and hugging by bears, cats, gorillas and the like
 1,A black *plate armour of [evil power]* +3, inscribed with runes of fire spelling doom and despair.
 1,The *shield of the lion* +2: when you hit your opponent, it bites for an extra 1d6 damage.
@@ -33389,14 +33389,14 @@
 ;dwarven inscription
 2,dwarven runes naming its maker: *[dwarf]* of *[dwarf forge]*.
 2,dwarven runes naming the owner: *[dwarf]* of *[dwarf forge]*.
-1,dwarven runes commemorating the slaying of the white dragon [white dragon name].
-1,dwarven runes commemorating the slaying of the red dragon [red dragon name].
+1,dwarven runes commemorating the slaying of the white dragon *[white dragon name]*.
+1,dwarven runes commemorating the slaying of the red dragon *[red dragon name]*.
 
 ;elven inscription
 2,elven runes naming its maker: *[elf]*.
 2,elven runes naming its owner: *[elf]*.
 1,elven runes in memory of *[treant]*.
-1,elven runes commemorating the slaying of the green dragon [green dragon name].
+1,elven runes commemorating the slaying of the green dragon *[green dragon name]*.
 
 ;animal shape
 1,sea lion, allows you to swim

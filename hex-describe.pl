@@ -258,16 +258,15 @@ This allows us to generate Markdown output.
 sub markdown {
   my $descriptions = shift;
   my @paragraphs = map {
-    my $text = $_->{html};
-    $text =~ s!<span[^>]*>\s*!｢!g;
-    $text =~ s!\s*</span>!｣!g;
-    $text =~ s!</?strong>!**!g;
-    $text =~ s!</?em>!*!g;
-    $text =~ s!</?a\b[^>]*>!!g;
-    $text =~ s!</p><p>!\n\n!g;
-    $text =~ s!  +! !g;
-    $text =~ s!(.*?)!$1!g;
-    $text;
+    s!<span[^>]*>\s*!｢!g;
+    s!\s*</span>!｣!g;
+    s!</?strong>!**!g;
+    s!</?em>!*!g;
+    s!</?a\b[^>]*>!!g;
+    s!</p><p>!\n\n!g;
+    s!  +! !g;
+    s!(.*?)!$1!g;
+    $_;
   } @$descriptions;
   return join("\n" . '-' x 72 . "\n", @paragraphs);
 }
@@ -1314,25 +1313,15 @@ sub normalize_elvish {
 =item process
 
 We do some post-processing after the description has been assembled: we move all
-the IMG tags to the front of the paragraph and put it in a SPAN element with
-class "images". This makes it easier to lay out the result using CSS.
+the IMG tags in a SPAN element with class "images". This makes it easier to lay
+out the result using CSS.
 
 =cut
 
 sub process {
   my $text = shift;
-  my @terms = split(/(<img.*?>)/, $text);
-  return { images => '', html => $text } unless @terms > 1;
-  my @output; # $output[0] is texts, $output[1] is images
-  my $i = 0;
-  while (@terms) {
-    push(@{$output[$i]}, shift(@terms));
-    $i = 1 - $i;
-  }
-  return {
-    images => '<span class="images">' . join('', @{$output[1]}) . '</span>',
-    html => join('', @{$output[0]}),
-  };
+  $text =~ s/(<img[^>]+?>)/<span class="images">$1<\/span>/g;
+  return $text;
 }
 
 =item resolve_nearby
@@ -1348,7 +1337,7 @@ sub resolve_nearby {
   my $table_data = shift;
   my $descriptions = shift;
   for my $coord (keys %$descriptions) {
-    $descriptions->{$coord}->{html} =~
+    $descriptions->{$coord} =~
 	s/${FS}nearby ([^][${FS}]*)${FS}/closest($map_data,$table_data,$coord,$1) or '…'/ge;
   }
 }
@@ -1421,7 +1410,7 @@ sub resolve_other {
   my $table_data = shift;
   my $descriptions = shift;
   for my $coord (keys %$descriptions) {
-    $descriptions->{$coord}->{html} =~
+    $descriptions->{$coord} =~
 	s/${FS}other ([^][]*)${FS}/some_other($map_data,$table_data,$coord,$1) or '…'/ge;
   }
 }
@@ -1468,7 +1457,7 @@ sub resolve_later {
   my $table_data = shift;
   my $descriptions = shift;
   for my $coord (keys %$descriptions) {
-    while ($descriptions->{$coord}->{html} =~ /${FS}later ([^][]*)${FS}/) {
+    while ($descriptions->{$coord} =~ /${FS}later ([^][]*)${FS}/) {
       my $words = $1;
       my ($ref) = $words =~ m!( \(<a href=".*">.*</a>\))!;
       $ref //= ''; # but why should it ever be empty?
@@ -1476,7 +1465,7 @@ sub resolve_later {
       my $re = quotemeta($ref);
       $key =~ s/$re// if $ref;
       $re = quotemeta($words);
-      my $result = $descriptions->{$coord}->{html} =~
+      my $result = $descriptions->{$coord} =~
 	  s/${FS}later $re${FS}/describe($map_data,$table_data,1,$coord,[$key]) . $ref or '…'/ge;
       if (not $result) {
 	$log->error("Could not resolve later reference in '$words'");
@@ -1884,13 +1873,13 @@ Alternatively, just paste your tables here:
 
 % if ($descriptions->{TOP}) {
 <p>
-<%== $descriptions->{TOP}->{html} %>
+<%== $descriptions->{TOP} %>
 </p>
 %   delete $descriptions->{TOP};
 % }
 
 % for my $hex (sort keys %$descriptions) {
-<p><%== $descriptions->{$hex}->{images} =%><strong class="coordinates" id="desc<%= $hex =%>"><a href="#hex<%= $hex =%>"><%= $hex =%></a></strong>: <%== $descriptions->{$hex}->{html} =%>
+<p><strong class="coordinates" id="desc<%= $hex =%>"><a href="#hex<%= $hex =%>"><%= $hex =%></a></strong>: <%== $descriptions->{$hex} =%>
 </p>
 % }
 </div>
@@ -2086,14 +2075,14 @@ These results are based on the <strong><%= $rule %></strong> table.
 
 <div class="description">
 % my $first = 1;
-% my $sep = grep {$_->{html} =~ /<p>/} @$descriptions;
+% my $sep = grep {$_ =~ /<p>/} @$descriptions;
 % for my $description (@$descriptions) {
 % if (!$first and $sep) {
 <hr>
 % } else {
 %   $first = 0;
 % }
-<p><%== $description->{images} %><%== $description->{html} %></p>
+<p><%== $description %></p>
 % }
 </div>
 
@@ -3401,12 +3390,10 @@ The default table has the following entry:
 </pre>
 
 <p>
-As HTML gets passed through during processing, this adds the images to
-the output. Getting them to float in an acceptable manner took a bit
-more work. There is a post-processing step which rearranges the HTML:
-It moves all the images in a paragraph to the very beginning and into
-a <em>span</em> element with a class I can refer to in the CSS. The
-CSS then sizes the faces floats the images to the left.
+As HTML gets passed through during processing, a <em>span</em> element with the
+<em>image</em> class is added around every image. That makes it easy to refer to
+all the images in the CSS. The CSS then sizes the faces floats the images to the
+left.
 </p>
 
 <p>
@@ -3497,8 +3484,11 @@ td, th {
 .example {
   font-size: smaller;
 }
-.images img {
+.images img.portrait {
   max-width: 80px;
+}
+.images img.landscape {
+  max-width: 120px;
 }
 .images {
   clear: both;
