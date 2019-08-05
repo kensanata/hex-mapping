@@ -1146,14 +1146,14 @@
 1,sheep
 
 ;mountain orc leader specialty
-1,*[same orc]* is a famous sword smith in the [orc sword tradition].
-1,*[same orc]* is a famous dual-wielding sword dancer.
-1,*[same orc]* is a famous singer of epics, his favourite being [orc epic].
+1,*[same orc name]* is a famous sword smith in the [orc sword tradition].
+1,*[same orc name]* is a famous dual-wielding sword dancer.
+1,*[same orc name]* is a famous singer of epics, his favourite being [orc epic].
 
 ;forge orc leader specialty
-1,*[same orc]* is a famous armour smith in the [orc armour tradition].
-1,*[same orc]* is a famous engineer in the [orc engineering school].
-1,*[same orc]* is a famous rune lord having just finished his most celebrated epic, [orc epic].
+1,*[same orc name]* is a famous armour smith in the [orc armour tradition].
+1,*[same orc name]* is a famous engineer in the [orc engineering school].
+1,*[same orc name]* is a famous rune lord having just finished his most celebrated epic, [orc epic].
 
 ;mountain orc settlement
 1,A rough palisade surrounds a few round wooden huts and a common roofed area, an orc settlement style unchanged ever since the *War of the Landgrab*. [mountain orc space] The settlement is [orc fort]
@@ -1205,8 +1205,8 @@
 1,red
 
 ;orc epic
-1,*[orc] and [[orc antagonist]]*
-1,*[orc] and the [orc blessing] of [star name]*
+1,*[orc name] and [[orc antagonist]]*
+1,*[orc name] and the [orc blessing] of [star name]*
 1,*The [orc fate] of [[orc antagonist]]*
 1,*The [orc victory] of [[orc place]]*
 
@@ -2359,9 +2359,9 @@
 1,The Glass Tower
 1,The Elf Ruin
 1,The Cursed Ruin
-1,[elf]'s Ruin
-1,[elf]'s Redoubt
-1,[elf]'s Last Stand
+1,[elf name]'s Ruin
+1,[elf name]'s Redoubt
+1,[elf name]'s Last Stand
 1,The Needle
 1,The Nameless Tower
 
@@ -2386,9 +2386,9 @@
 1,the Moon
 1,the Sun
 3,[elf animal] [elf place]
-3,[elf]
-2,[elf] & [elf]
-1,[elf] the [elf animal]
+3,[elf name]
+2,[elf name] & [elf name]
+1,[elf name] the [elf animal]
 1,[male elf] the [elf title]
 1,[female elf] the [elf title]
 1,[male noble elf]
@@ -2743,7 +2743,7 @@
 1,by the tanner's stinking vats
 1,near [hill name]
 1,behind [small landmark building]
-1,by the *[elf]* elf stone
+1,by the *[elf name]* elf stone
 
 ;small landmark building
 1,the old mill
@@ -2906,14 +2906,11 @@
 1,[dwarf stats]; immune to fire
 
 ;dwarf leader
-1,*[dwarf]*<img class="portrait" src="[[redirect https://campaignwiki.org/face/redirect/alex/dwarf]]" alt="[same dwarf]" title="[same dwarf]"/>
-
-;dwarf
-1,[dwarf name] [dwarf 2a][dwarf 2b]
+1,*[dwarf name]*<img class="portrait" src="[[redirect https://campaignwiki.org/face/redirect/alex/dwarf]]" alt="[same dwarf name]" title="[same dwarf name]"/>
 
 ;dwarf name
-1,[dwarf name for men]
-1,[dwarf name for women]
+1,[dwarf name for men] [dwarf 2a][dwarf 2b]
+1,[dwarf name for women] [dwarf 2a][dwarf 2b]
 
 # https://dwarrowscholar.wordpress.com/general-documents/female-dwarf-outer-names/
 ;dwarf name for men
@@ -4640,9 +4637,9 @@
 1,Thrash
 
 ;orc leader
-1,*[orc]*<img class="portrait" src="[[redirect https://campaignwiki.org/face/redirect/alex/orc]]" alt="[same orc]" title="[same orc]" /> (HD [1d6+1 as level])
+1,*[orc name]*<img class="portrait" src="[[redirect https://campaignwiki.org/face/redirect/alex/orc]]" alt="[same orc name]" title="[same orc name]" /> (HD [1d6+1 as level])
 
-;orc
+;orc name
 1,[orc 1][orc 2]
 
 ;orc 1
@@ -4784,7 +4781,7 @@
 1,the orcish rune of [orcish rune 2]
 1,the orcish runes of [orcish rune 1] and [orcish rune 2]
 1,the orcish runes of [orcish rune 2] and [orcish rune 1]
-2,the name of its orc maker, *[orc]*
+2,the name of its orc maker, *[orc name]*
 
 ;orcish rune 1
 1,power
@@ -5267,8 +5264,8 @@
 
 ;ogre prisoners
 1,All the cages are empty.
-1,The elf *[elf]* is the last survivor of their hunting party, [feeling terrible].
-1,The dwarf *[dwarf]* is the last survivor of their mining party, [feeling terrible].
+1,The elf *[elf name]* is the last survivor of their hunting party, [feeling terrible].
+1,The dwarf *[dwarf name]* is the last survivor of their mining party, [feeling terrible].
 1,The halfling *[halfling name]* is the last survivor of their village, [feeling terrible].
 1,*[human name]* is the last survivor of a company of pilgrims, [feeling terrible].
 1,*[human name]* is the last survivor of a company of merchants, [feeling terrible].
@@ -6072,7 +6069,7 @@
 1,
 
 ;witch prisoner details
-1,the dwarf *[dwarf]*, the last survivor of their mining party.
+1,the dwarf *[dwarf name]*, the last survivor of their mining party.
 1,the halfling *[halfling name]* who was looking for place to set up their hermitage.
 2,*[human name]*, a child maybe [1d6+4] years old.
 
@@ -6848,13 +6845,13 @@
 
 ;goblin fight team
 3,[3d6] **goblins** led by *[goblin]*
-2,[2d6] **goblins** and [2d6] **orcs** led by *[orc]*
+2,[2d6] **goblins** and [2d6] **orcs** led by *[orc name]*
 2,[2d6] **goblins** led by *[goblin]* and [2d6] **war dogs**
 2,[3d4] **goblins** and *[ogre]* the **ogre**
 1,[3d4] **goblins** and *[ogre mage]* the **ogre mage**
 1,[3d4] **goblins** and *[troll]* the **troll**
 1,[1d4+1] **trolls** led by *[troll]*
-1,[3d6] **orcs** led by *[orc]*
+1,[3d6] **orcs** led by *[orc name]*
 
 ;goblin closing fight pitch
 1,*May the force be with you!*
@@ -7823,8 +7820,8 @@
 1,screaming, overcome by madness and fear
 
 ;ettercap prisoner details
-1,the elf *[elf]* is the last survivor of their hunting party.
-1,the dwarf *[dwarf]* is the last survivor of their mining party passing through.
+1,the elf *[elf name]* is the last survivor of their hunting party.
+1,the dwarf *[dwarf name]* is the last survivor of their mining party passing through.
 1,the halfling *[halfling name]* used to live as a hermit not far from here and thought they knew the ettercaps.
 1,*[human name]* is the last survivor of a company of pilgrims.
 1,*[human name]* is the last survivor of a company of merchants.
@@ -8095,12 +8092,12 @@
 1,HD 9 AC 1 3d6 MV 12 ML 12 XP 900; immune to *arrows*, immune to *poison*; immune to *spells*
 
 ;elf leader
-1,*[elf]*<img class="portrait" src="[[redirect https://campaignwiki.org/face/redirect/alex/elf]]" alt="[same elf]" title="[same elf]"/>
+1,*[elf name]*<img class="portrait" src="[[redirect https://campaignwiki.org/face/redirect/alex/elf]]" alt="[same elf name]" title="[same elf name]"/>
 
 # Not accounted for: Letter changes when combining words
 # http://sindarinlessons.weebly.com/37---how-to-make-names-1.html
 
-;elf
+;elf name
 1,[male elf]
 1,[female elf]
 
@@ -9700,14 +9697,6 @@
 1,halfling
 1,orc
 
-#fix
-;orc name
-1,[orc]
-
-#fix
-;elf name
-1,[elf]
-
 ;human story hero
 # the setting has three human heroes
 1,[name for a human story hero 1]
@@ -9821,8 +9810,8 @@
 1,*How [hero adjective] [[same singing humanoid] story hero] [verbed] [villain adjective] [story villain]*
 1,*The [story type] of [hero adjective] [[same singing humanoid] story hero] and The [story mcguffin]*
 1,*Why [villain adjective] [story villain] [villain verbed] [hero adjective] [[same singing humanoid] story hero]'s [hero friend]*
-1,*The [story type] of [[same singing humanoid] story hero] and the [villain adjective] [with story monster]*
-1,*How [hero adjective] [[same singing humanoid] story hero] [verbed] the [villain adjective] [and story monster]*
+1,*The [story type] of [[same singing humanoid] story hero] and the [villain adjective] [story monster]*
+1,*How [hero adjective] [[same singing humanoid] story hero] [verbed] the [villain adjective] [story monster]*
 1,*[[same singing humanoid] story hero]'s Perilous Journey to the [story place]*
 1,*How the [story mcguffin] Was [mcguffin verb]*
 
@@ -12912,7 +12901,7 @@
 1,In the presence of an amulet of passage bearing the [name for a clan of the netherworld elves] sigil, the door glides opens and reveals stairs leading down to the underground [lair of the netherworld elves]
 
 ;lair of the netherworld elves
-1,*[building of the netherworld elves] of [elf]*.</p><p>[gate of the netherworld elves]</p><p>[companions of the netherworld elves]</p><p>[save 1d6+4 as level][save spellbook for elves][5d12] **elves** live here ([elf stats]), led by [elf leader] (level [same level]). [same spellbook for elves] [leader treasure]
+1,*[building of the netherworld elves] of [elf name]*.</p><p>[gate of the netherworld elves]</p><p>[companions of the netherworld elves]</p><p>[save 1d6+4 as level][save spellbook for elves][5d12] **elves** live here ([elf stats]), led by [elf leader] (level [same level]). [same spellbook for elves] [leader treasure]
 
 ;building of the netherworld elves
 1,Bastion
@@ -12921,8 +12910,8 @@
 
 ;gate of the netherworld elves
 1,The entrance of is protected by a chasm 100ft wide. A thin bridge without rails crosses the chasm. If you climb along the walls, this alerts the [2d4] **giant spiders** ([giant spider stats]) living in the chasm itself.
-1,The bronze gates lead to the eternal throne room of *[same elf]*, an ancient **spectre** that still sits here on a throne of [spectre throne shards] and [spectre throne bones] ([spectre stats]). [ancient treasure] The elves live amongst the vaults and mausoleums of [same elf]'s servants and retainers, their sarcophagi serving as decorations and altars.
-1,This is the former dwarven forge [dwarf forge]. The bronze iris gate leads to the abandoned barracks and a maze of spiders webs by [2d4] **giant spiders** ([giant spider stats]). The main stair shaft leads from the barracks down to the core forge which is still operational.</p><p>The **fire giant** *[fire giant name]* ([fire giant stats]) works the forge. [rich treasure] [same fire giant name] is served by [2d8] **duergar** ([duergar stats]).</p><p>[dwarf forge taken over by netherworld elves]
+1,The bronze gates lead to the eternal throne room of *[same elf name]*, an ancient **spectre** that still sits here on a throne of [spectre throne shards] and [spectre throne bones] ([spectre stats]). [ancient treasure] The elves live amongst the vaults and mausoleums of [same elf name]'s servants and retainers, their sarcophagi serving as decorations and altars.
+1,This is the former dwarven forge *[here dwarf forge]*. The bronze iris gate leads to the abandoned barracks and a maze of spiders webs by [2d4] **giant spiders** ([giant spider stats]). The main stair shaft leads from the barracks down to the core forge which is still operational.</p><p>The **fire giant** *[fire giant name]* ([fire giant stats]) works the forge. [rich treasure] [same fire giant name] is served by [2d8] **duergar** ([duergar stats]).</p><p>[dwarf forge taken over by netherworld elves]
 1,The iron gates lead into a cavern illuminated by a [evil light colour] light, dominated by a giant statue of *[evil power]* about 50ft high [giant statue standing somewhere]. The sacrificial altar is tended to by [guardian of [same evil power]]
 
 ;evil light colour
@@ -33275,8 +33264,8 @@
 1,prayer of *summoning* ([summoning])
 1,prayer of *protection of the moon* (8h, prevents were-creatures from approaching)
 1,prayer of *safety* (transports the reader and up to ten targets back to the last temple the reader entered)
-1,map to the hidden ancestral shrine of *[elf]* (in [link to adjacent hex]) with the promise of [1d6]000 gold coins to be found
-1,map to the hidden ancestral shrine of *[dwarf]* (in [link to adjacent hex]) with the promise of [1d10]000 gold coins to be found
+1,map to the hidden ancestral shrine of *[elf name]* (in [link to adjacent hex]) with the promise of [1d6]000 gold coins to be found
+1,map to the hidden ancestral shrine of *[dwarf name]* (in [link to adjacent hex]) with the promise of [1d10]000 gold coins to be found
 1,map to the hidden crypt of [wight leader] (in [link to adjacent hex]) with the promise of [1d12]000 gold coins to be found
 1,map to [2d6] jewels hidden in a secret compartment in the dwarven forge *[nearby dwarf forge]*
 
@@ -33370,22 +33359,22 @@
 1,An orcish *zweihänder* +1/+3 vs. city dwellers, in the [orc sword tradition].
 1,An orcish *mace* +1 with [orcish runes].
 1,An orcish *mace* +1 marked with the runes of [evil power].
-1,The orcish spear *Dog Impaler* +1/+3 vs. elves, created by *[orc]* in [orc war].
-1,The orcish sword *Monkey Slicer* +1/+3 vs. humans used by *[orc]* in [orc war].
+1,The orcish spear *Dog Impaler* +1/+3 vs. elves, created by *[orc name]* in [orc war].
+1,The orcish sword *Monkey Slicer* +1/+3 vs. humans used by *[orc name]* in [orc war].
 1,The ancient spear *Fur Hunter* +1/+3 vs. mammals, a relic of the Old Lizard Wars, blessed by Set.
 1,The long sword *Moonfire* +1/+3 vs. lycanthropes, inscribed with silver runes of death and banishment, forged by the high inquisitors of *[wight realm]*.
 1,The long sword *Razorblade* +1/+3 vs. spell casters, forged by ancient machines in the Philosophers’ War.
 1,The holy long sword *Angelfire* +1/+3 vs. undead, forged in Asgard by *[dwarf name]*.
 1,The long sword *Meteorstrike* +1/+3 vs. dragons, an old elven sword forged in the dragon wars.
 1,The long sword *Dragonslayer* +1/+3 vs. dragons, blessed by Marduk.
-1,The dwarven hammer *Ironslayer* +1/+3 vs. armoured foes, made by the legendary *[dwarf]* of *[dwarf forge]*.
+1,The dwarven hammer *Ironslayer* +1/+3 vs. armoured foes, made by the legendary *[dwarf name]* of *[dwarf forge]*.
 1,A *long sword of light* +3 (60ft), made in Asgard for the valkyrie *[valkyrie name]* (the sword rejects anybody who refuses to join three fights while carrying the sword).
 1,The *club of the slayer* +1/+3 vs. giants, blessed by Marduk.
 1,A smoking, quivering *black arrow of death* +2, carrying the curse of Nergal, ready to take root in a target: if hit, save vs. death or die; the arrow’s curse is lost when shot whether it hits or misses.
 1,The two handed *Icekiller* +3, forged by the frost giant *[frost giant]* in Jotunheim; when the blade is drawn, snow flakes form; when it is stuck into water, a layer of ice forms (10ft); when left unsheathed, a glacier will eventually form.
 1,The long sword *Swampfire* +1/+3 vs. runners, forged in the depths of Myrkheim by frogling priests of Tsathoggua; it eeks a phosphorous glowing liquid and smells of rotten eggs; when left unsheathed, everything around it becomes water logged and eventually turns into a swamp.
 1,The *trident of fishes* +1 gives you long, webbed toes and the ability to breathe under water when you step into it, and you can speak the language of fishes.
-1,The ancient war hammer *Earth Hammer* +3, made by *[orc]* in the *War of the Landgrab*: it can smash any structure built by man in three blows.
+1,The ancient war hammer *Earth Hammer* +3, made by *[orc name]* in the *War of the Landgrab*: it can smash any structure built by man in three blows.
 
 ;magic weapon for magic user
 5,An elven *dagger* +1 with [elven inscription]
@@ -33409,9 +33398,9 @@
 2,A suit of dwarven *plate armour* +2 with [dwarven inscription]
 2,An elven *shield* +1 with [elven inscription]
 2,A dwarven *shield* +2 with [dwarven inscription]
-1,A suit of elven *plate armour of fire resistance* +1 made with scales of the red dragon *[red dragon name]*, forged by *[elf]*.
-1,A suit of dwarven *plate armour cold resistance* +1 made with scales of the white dragon *[white dragon name]*, forged by *[dwarf]* of *[dwarf forge]*.
-1,An orcish *spiked plate armour* +1 forged by *[orc]*, preventing all sorts of wrestling and hugging by bears, cats, gorillas and the like
+1,A suit of elven *plate armour of fire resistance* +1 made with scales of the red dragon *[red dragon name]*, forged by *[elf name]*.
+1,A suit of dwarven *plate armour cold resistance* +1 made with scales of the white dragon *[white dragon name]*, forged by *[dwarf name]* of *[dwarf forge]*.
+1,An orcish *spiked plate armour* +1 forged by *[orc name]*, preventing all sorts of wrestling and hugging by bears, cats, gorillas and the like
 1,A black *plate armour of [evil power]* +3, inscribed with runes of fire spelling doom and despair.
 1,The *shield of the lion* +2: when you hit your opponent, it bites for an extra 1d6 damage.
 1,A black *plate armour of the dark lord* + 2, giving your voice a magical force, if you are not attacking: the person addressed must save vs. spells or obey a one-word command, if they understand.
@@ -33423,11 +33412,11 @@
 1,A pair of *black iron broken manacles* +2 with fiendish runes dedicating its wearer to [evil power].
 1,Two sets of *black iron chains* +2 to wrap around your arms, with the runes of [evil power] on every link.
 3,A *silver diadem* +1 dedicated to [power].
-1,A *silver crown* +1 commemorating the immortal *[elf]*.
+1,A *silver crown* +1 commemorating the immortal *[elf name]*.
 1,A *golden diadem* +2 dedicated to [good power].
-1,A *golden crown* +2 commemorating the ascension of *[dwarf]* to the throne of *[dwarf forge]*.
+1,A *golden crown* +2 commemorating the ascension of *[dwarf name]* to the throne of *[dwarf forge]*.
 1,A *black iron crown* +2 proclaiming the wearer to be loyal slave of [evil power].
-1,A *black iron crown* +2 proclaiming the wearer to be [orc], king of kings.
+1,A *black iron crown* +2 proclaiming the wearer to be [orc name], king of kings.
 3,A *silver necklace* +1 dedicated to [power].
 1,A *golden necklace* +2 dedicated to [good power].
 1,A *black iron slave collar* +2 dedicating its wearer to [evil power].
@@ -33532,14 +33521,14 @@
 1,HD 10 AC 3 2d8 + 1d8 *fire* F20 MV 24 ML 12 XP 1000; *illusion*, permanent *living flame*, *invisibility*, *wall of fire* and *creation* at will; only harmed by magic or magic weapons
 
 ;dwarven inscription
-2,dwarven runes naming its maker: *[dwarf]* of *[dwarf forge]*.
-2,dwarven runes naming the owner: *[dwarf]* of *[dwarf forge]*.
+2,dwarven runes naming its maker: *[dwarf name]* of *[dwarf forge]*.
+2,dwarven runes naming the owner: *[dwarf name]* of *[dwarf forge]*.
 1,dwarven runes commemorating the slaying of the white dragon *[white dragon name]*.
 1,dwarven runes commemorating the slaying of the red dragon *[red dragon name]*.
 
 ;elven inscription
-2,elven runes naming its maker: *[elf]*.
-2,elven runes naming its owner: *[elf]*.
+2,elven runes naming its maker: *[elf name]*.
+2,elven runes naming its owner: *[elf name]*.
 1,elven runes in memory of *[treant]*.
 1,elven runes commemorating the slaying of the green dragon *[green dragon name]*.
 
