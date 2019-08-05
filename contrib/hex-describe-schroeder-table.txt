@@ -9538,7 +9538,7 @@
 
 ;temple of law
 1,On a peak nearby stands a statue of *[here good power as tempel power]*, built by [ancients]. At the foot of the statue, a few followers of [same good power] have built a small temple consisting of a prayer hall, a sleeping hall, and [lawful temple feature] [monks or nuns]
-1,Between these mountains lies a hidden valley where the [name for a secret society 1] have built a temple dedicated to *[here good power as tempel power]*. The members of this secret society have erected a prayer hall, a sleeping hall, and [lawful temple feature] [monks or nuns]
+1,Between these mountains lies a hidden valley where the [name for a secret society (law)] have built a temple dedicated to *[here good power as tempel power]*. The members of this secret society have erected a prayer hall, a sleeping hall, and [lawful temple feature] [monks or nuns]
 1,Between these mountains lies a hidden valley where the followers of *[here good power as tempel power]* have built a temple containing a prayer hall, a sleeping hall, and [lawful temple feature] [monks or nuns]
 
 ;lawful temple feature
@@ -10330,35 +10330,69 @@
 
 ;And a secret society
 1,Luckily, no secret societies have established themselves, here.
-1,The local contact for the secret society of the [one of the secret societies] is [a boss]. [spellbook for [same class]] [leader treasure for [same class]]
-1,The secret society of the [one of the secret societies] has a representative, here: [a boss]. [spellbook for [same class]] [leader treasure for [same class]]
+1,The local contact for the secret society of the [one of the secret societies] is [a boss]. [spellbook for [same class]] [leader treasure for [same class]] [description for a secret society ([same alignment])]
+1,The secret society of the [one of the secret societies] has a representative, here: [a boss]. [spellbook for [same class]] [leader treasure for [same class]] [description for a secret society ([same alignment])]
 
 ;And two secret societies feuding
 1,[And a secret society]
-1,A secret war between the [name for a secret society 1] and the [name for a secret society 2] is the cause of much misery in this town. [Their leaders are]
-1,The secret societies of the [name for a secret society 2] and the [name for a secret society 3] are feuding in this town. [Their leaders are]
+1,A secret war between two secret societies is the cause of much misery in this town.</p><p>[name for a secret society (law)] is led by [secret society boss] [description for a secret society (law)]</p><p>[name for a secret society (chaos)] is led by [secret society boss] [description for a secret society (chaos)]
+1,Two secret societies are feuding in this town. There can be no neutral position.</p><p>[name for a secret society (chaos)] is led by [secret society boss] [description for a secret society (chaos)]</p><p>[name for a secret society (neutrality)] is led by [secret society boss] [description for a secret society (neutrality)]
+1,Half the buildings in this town have been burnt to the ground. There is an on-going all-out war between two secret societies. Choose your side wisely.</p><p>[name for a secret society (neutrality)] is led by [secret society boss] [description for a secret society (neutrality)]</p><p>[name for a secret society (law)] is led by [secret society boss] [description for a secret society (law)]
 
-;Their leaders are
-1,One society is led by [a boss]. [spellbook for [same class]] [leader treasure for [same class]] The other society is led by [a lesser boss]. [spellbook for [same class]] [leader treasure for [same class]]
+;secret society boss
+1,[a boss]. [spellbook for [same class]] [leader treasure for [same class]]
 
 ;a boss
 1,the **[human class]** [human with portrait] (level [1d4+2 as level])
 
-;a lesser boss
-1,the **[human class]** [human with portrait] (level [1d4+1 as level])
-
 # make sure there are only 3 of them
 ;one of the secret societies
-1,[name for a secret society 1]
-1,[name for a secret society 2]
-1,[name for a secret society 3]
+1,[name for a secret society (law)][store law as alignment] 
+1,[name for a secret society (chaos)][store law as alignment]
+1,[name for a secret society (neutrality)][store law as alignment]
 
-;name for a secret society 1
+;name for a secret society (law)
 1,*[secret society]*
-;name for a secret society 2
+;name for a secret society (chaos)
 1,*[secret society]*
-;name for a secret society 3
+;name for a secret society (neutrality)
 1,*[secret society]*
+
+;description for a secret society (law)
+1,They love knowledge and writing and sponsor map makers and merchants travelling to unknown lands. They also keep tabs on people.
+1,There is a place for everybody, they say. And they are true to their word: if you need work, they will find something for you.
+1,They are out there, making sure things run smoothly. Their highest ranks, however, are also spies for [name for a emperor].
+1,This is a society for the rich and powerful, and those who want to join their ranks. Work hard, enslave the poor, and you will rise in their ranks.
+
+;name for a emperor
+1,Emperor Albus
+1,Emperor Aquila
+1,Emperor Aulus
+1,Emperor Maximilianus
+1,Emperor Nero
+1,Emperor Severus
+1,Emperor Valerius
+1,Emperor Vibius
+1,Empress Alba
+1,Empress Alelia
+1,Empress Aquila
+1,Empress Herminia
+1,Empress Laetitia
+1,Empress Nera
+1,Empress Tatiana
+1,Empress Valeria
+1,Empress Vibiana
+
+;description for a secret society (chaos)
+1,They love freedom and sharing, and they don't like if if you make rules to stop them from doing just that.
+1,They spread revolution and sharing where ever they go. That is why the authorities fear them.
+1,To be free of shackles is what they want. They free slaves and wreck the tools of their feudal lords.
+1,They are here to overthrow the feudal lords and to push back against their supporters.
+
+;description for a secret society (neutrality)
+1,If you're in need of money, they will lend you money. If you don't pay back your debts, they will break your bones.
+1,They're a self-aid society where members pay yearly dues and if you're ever in a pinch, they'll help you out.
+1,This is a mutual protection society. Harm one of the members and you have harmed them all. And they will get you for it.
 
 # meaning the human has no class and isn’t a priest
 # the result is also reused in the following tables
