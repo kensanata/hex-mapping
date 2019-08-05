@@ -4823,43 +4823,148 @@
 4,[1d4+1] **badgers** ([weasel stats])
 
 ;gnome with portrait
-1,*[gnome as gnome name]*[gnome portrait]
+1,*[gnome man as gnome name]*<img class="portrait" src="[[redirect https://campaignwiki.org/face/redirect/alex/gnome]]" alt="[same gnome name]" title="[same gnome name]"/>
+1,*[gnome woman as gnome name]*<img class="portrait" src="[[redirect https://campaignwiki.org/face/redirect/tuiren/gnome]]" alt="[same gnome name]" title="[same gnome name]"/>
 
-;gnome
-1,[gnome 1] [gnome 2]
+;gnome man
+1,[polish names for men] [gnome family]
 
-;gnome 1
-1,Vassily
-1,Nikolai
-1,Jannah
-1,Antonina
-1,Janny
-1,Zayna
-1,Janalee
+;gnome woman
+1,[polish names for women] [gnome family]
+
+;polish names for men
+1,Adok
 1,Aggi
 1,Albin
-1,Aldona
-1,Basha
+1,Aniol
+1,Arek
+1,Aurek
 1,Bazyli
-1,Cyrek
-1,Kaleena
+1,Bialy
+1,Bogumil
+1,Bohdan
+1,Borys
+1,Danek
+1,Dobry
+1,Donat
+1,Donek
+1,Dorek
+1,Dymek
+1,Edik
+1,Estek
+1,Fabek
+1,Feodor
+1,Florek
+1,Gerek
+1,Gwidon
+1,Inek
+1,Iwo
+1,Janny
+1,Jarek
+1,Jaromil
+1,Jedrej
+1,Jerzy
+1,Jurek
+1,Justek
+1,Karol
 1,Konrad
-1,Otylia
+1,Kornel
+1,Lech
+1,Linik
+1,Loosha
+1,Lubomir
+1,Mandek
+1,Marcinek
+1,Marek
+1,Mosze
+1,Nacek
+1,Nelek
+1,Onufry
+1,Piotr
+1,Piotrek
+1,Prym
+1,Rufin
+1,Tadeusz
+1,Tolek
+1,Tymek
+1,Tymon
+1,Wicek
+1,Wicus
+1,Wilek
+1,Wilus
+1,Zarek
+1,Ziven
+1,Zygmunt
 
-;gnome 2
+;polish names for women
+1,Adelajda
+1,Agata
+1,Agnieska
+1,Ala
+1,Albinka
+1,Aldona
+1,Alina
+1,Alka
+1,Amalja
+1,Ania
+1,Anka
+1,Basha
+1,Berta
+1,Bogna
+1,Bohdana
+1,Brygida
+1,Cela
+1,Celek
+1,Celina
+1,Cesia
+1,Danuta
+1,Edyta
+1,Estera
+1,Felka
+1,Gita
+1,Halina
+1,Ina
+1,Iwona
+1,Iza
+1,Kamilka
+1,Kasia
+1,Kaska
+1,Lopa
+1,Marcelina
+1,Marzena
+1,Mela
+1,Melka
+1,Morela
+1,Morelia
+1,Nadzia
+1,Nastka
+1,Natka
+1,Ola
+1,Olenka
+1,Olesia
+1,Otylia
+1,Pela
+1,Pola
+1,Renia
+1,Roda
+1,Stefa
+1,Tereska
+1,Truda
+1,Trudka
+1,Wisia
+1,Zayna
+
+;gnome family
+1,Antos
+1,Balik
+1,Baran
+1,Chobot
+1,Dabrowski
+1,Mazur
 1,Nowak
 1,Wisniowski
-1,Dabrowski
 1,Wojcik
-1,Mazur
 1,Zajac
-1,Baran
-1,Balik
-1,Antos
-1,Chobot
-
-;gnome portrait
-1,<img class="portrait" src="[[redirect https://campaignwiki.org/face/redirect/alex/gnome]]" alt="[same gnome name]" title="[same gnome name]"/>
 
 ;abandoned coal mine
 1,It’s basically a deep hole where a single miner would keep digging for coal.
