@@ -1104,7 +1104,7 @@ sub describe {
       # $log->debug("rolling dice: $word = $r");
       $locals{$save_as} = $r if $save_as;
       push(@descriptions, $r) unless $just_save;
-    } elsif ($word =~ /^name for a /) {
+    } elsif ($word =~ /^name for an? /) {
       # for global things like factions, dukes
       my $name = $names{$word};
       # $log->debug("Memoized: $word is $name") if $name;
@@ -2781,10 +2781,10 @@ them.
 % end
 
 <p>
-The pattern “name for a <em>thing</em>” is key, here. Whenever a table
-has this name, it will determine the result for the table and keep
-returning that. Thus, with the tables as they are, eventually all the
-bugbear bands will have one of three names as “name for a bugbear
+The pattern “name for a <em>thing</em>” (or “name for an <em>other thing</em>”)
+is key, here. Whenever a table has this name, it will determine the result for
+the table and keep returning that. Thus, with the tables as they are, eventually
+all the bugbear bands will have one of three names as “name for a bugbear
 band1-3” are eventually determined.
 </p>
 
