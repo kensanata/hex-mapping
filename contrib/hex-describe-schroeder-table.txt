@@ -5229,7 +5229,7 @@
 ;ogre stats
 1,HD 4+1 AC 5 1d10 F4 MV 9 ML 10 XP 400
 
-;ogre
+;ogre name
 1,Pain
 1,Smash
 1,Club
@@ -5238,8 +5238,11 @@
 1,Flesh Eater
 
 ;ogre leader
-1,an **ogre mage** called *[ogre mage]* ([ogre mage stats])
-5,an **ogre** called *[ogre]*
+1,an **ogre mage** called *[ogre mage as ogre name]*[ogre portrait] ([ogre mage stats])
+5,an **ogre** called *[ogre name]*[ogre portrait]
+
+;ogre portrait
+1,<img class="portrait" src="[[redirect https://campaignwiki.org/face/redirect/alex/demon]]" alt="[same ogre name]" title="[same ogre name]"/>
 
 ;ogre mage stats
 1,HD 6+1 AC 5 1d10 + 1d6 *fire* F6 MV 9 ML 10 XP 600; *fog*; *invisibility*; *snow storm* 3×/day for 6d6 damage up to 30ft., save vs. spells for half
@@ -6875,8 +6878,8 @@
 3,[3d6] **goblins** led by *[goblin]*
 2,[2d6] **goblins** and [2d6] **orcs** led by *[orc name]*
 2,[2d6] **goblins** led by *[goblin]* and [2d6] **war dogs**
-2,[3d4] **goblins** and *[ogre]* the **ogre**
-1,[3d4] **goblins** and *[ogre mage]* the **ogre mage**
+2,[3d4] **goblins** and *[ogre name]* the **ogre**[ogre portrait]
+1,[3d4] **goblins** and *[ogre mage as ogre name]* the **ogre mage**[ogre portrait]
 1,[3d4] **goblins** and *[troll]* the **troll**
 1,[1d4+1] **trolls** led by *[troll]*
 1,[3d6] **orcs** led by *[orc name]*
