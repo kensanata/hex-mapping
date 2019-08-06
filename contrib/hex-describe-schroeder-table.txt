@@ -2228,13 +2228,22 @@
 1,HD 10 AC 0 3d10 MV 12 ML 12 XP 1000; immune to *arrows*, immune to *poison*; immune to *spells*; when dealing damage to a bronze golem with a melee weapon, save vs. death or suffer 2d6 damage from molten metal splashes
 
 ;green tower in the mountains
-1,High up on on a ridge is an old elven tower made of green glass, [green tower]
+1,High up on on a ridge is an old elven tower made of green glass, [green tower] [green tower description] In *[old elf ballad name]*, they call it *[elf tower name]*.
 
 ;green tower
 1,long abandoned.
 1,now inhabited by a **white dragon** called *[here white dragon name as dragon name]*[dragon portrait] ([white dragon stats]). [dragon treasure]
 1,and at the very top there is a lair of [2d8] very protective **griffons** ([griffon stats]).
 1,currently the home of [gargoyles] ([gargoyle stats]). [poor treasure]
+
+;green tower description
+1,The jade-colored columns of the tower glisten in the sunlight showing veins of gold and white.
+1, A chill wind blows through the tower making an eerie whistling noise.
+1,At night, a pale light emanates from the windows of the tower in the form of wisps of vapor.
+1,A breeze carries the scent of gardenia and lilacs, though none can be seen anywhere.
+1,The faceted green spire sparkles like an enormous crystal.
+1,The tower is a spire of swirling emerald foam, like frozen waves.
+1,Leaves and vines of green and brown glass cover the tower, giving the appearance of life where there is none.
 
 ;gargoyle stats
 1,HD 4 AC 5 1d4/1d4/1d6 F8 MV 15 ML 11 XP 400; only harmed by magic or magic weapons
@@ -2357,22 +2366,28 @@
 1,Wait
 
 ;green tower in this lake
-1,A green glass tower has been built in this lake. [green tower name] [green tower connection]
+1,A green glass tower has been built in this lake. [green tower description] [green tower name] [green tower connection]
 
 ;green tower name
 1,The locals call it *[green tower simple name]*.
-1,In *[old elf ballad name]*, they call it *[green tower simple name]*.
+1,In *[old elf ballad name]*, they call it *[elf tower name]*.
 
 ;green tower simple name
 1,The Green Tower
 1,The Glass Tower
 1,The Elf Ruin
 1,The Cursed Ruin
+1,The Needle
+1,The Nameless Tower
+1,The Haunted Spire
+
+;elf tower name
 1,[elf name]'s Ruin
 1,[elf name]'s Redoubt
 1,[elf name]'s Last Stand
-1,The Needle
-1,The Nameless Tower
+1,[elf name]'s Folly
+1,The Thorn of [elf name]
+1,[elf name]'s Pride
 
 ;old elf ballad name
 1,The [old elf song] of [old elf ballad topic]
@@ -2472,15 +2487,19 @@
 ;green tower connection
 1,There is no bridge but the tower's entrance is at the water level. [maybe there is a boat] [green tower underwater room]
 1,There's no visible entrance. Anybody taking a dive would find an underwater entrance. [maybe there is a boat] [green tower underwater room]
+1,An old stone bridge leads partway to the tower before collapsing into the water. [maybe there is a boat] [green tower underwater room]
 
 ;maybe there is a boat
 1,There is no boat to be found at the water's edge.
 1,Hidden between the reeds there is a small rowing boat.
 1,Hidden under some thorn bushes is a small canoe.
 1,Beneath the surface, you see a half-rotten rowing boat beyond repair.
+1,Submerged in the placid water, a boat in the shape of a silver swan appears undamaged.
 
 ;green tower underwater room
 1,</p><p>In the murky darkness below lies the lair of [a water monster]
+1,</p><p>A school of silver and blue minnows swirl and spin before the opening to a cave under the tower.
+1,</p><p>Attempting to enter the tower draws the attention of *[a marid name]*, a **marid** who guards the tower ([stats for a marid]).
 
 ;a water monster
 1,[2d20] **nixies** led by *[nixie]* ([nixie stats]). [poor treasure]
@@ -5210,7 +5229,7 @@
 ;ogre stats
 1,HD 4+1 AC 5 1d10 F4 MV 9 ML 10 XP 400
 
-;ogre
+;ogre name
 1,Pain
 1,Smash
 1,Club
@@ -5219,8 +5238,11 @@
 1,Flesh Eater
 
 ;ogre leader
-1,an **ogre mage** called *[ogre mage]* ([ogre mage stats])
-5,an **ogre** called *[ogre]*
+1,an **ogre mage** called *[ogre mage as ogre name]*[ogre portrait] ([ogre mage stats])
+5,an **ogre** called *[ogre name]*[ogre portrait]
+
+;ogre portrait
+1,<img class="portrait" src="[[redirect https://campaignwiki.org/face/redirect/alex/demon]]" alt="[same ogre name]" title="[same ogre name]"/>
 
 ;ogre mage stats
 1,HD 6+1 AC 5 1d10 + 1d6 *fire* F6 MV 9 ML 10 XP 600; *fog*; *invisibility*; *snow storm* 3×/day for 6d6 damage up to 30ft., save vs. spells for half
@@ -6856,8 +6878,8 @@
 3,[3d6] **goblins** led by *[goblin]*
 2,[2d6] **goblins** and [2d6] **orcs** led by *[orc name]*
 2,[2d6] **goblins** led by *[goblin]* and [2d6] **war dogs**
-2,[3d4] **goblins** and *[ogre]* the **ogre**
-1,[3d4] **goblins** and *[ogre mage]* the **ogre mage**
+2,[3d4] **goblins** and *[ogre name]* the **ogre**[ogre portrait]
+1,[3d4] **goblins** and *[ogre mage as ogre name]* the **ogre mage**[ogre portrait]
 1,[3d4] **goblins** and *[troll]* the **troll**
 1,[1d4+1] **trolls** led by *[troll]*
 1,[3d6] **orcs** led by *[orc name]*
