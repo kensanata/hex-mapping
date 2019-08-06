@@ -57,7 +57,7 @@
 1,[grass intro] [grass dressing] Without a guide, you may be ambushed by [1d12+1] [warrior ants] protecting their colony from intruders. The ant lair is not far.</p><p>[giant ant lair]
 3,[grass intro] [grass dressing] Those who know how to find it can gather *[magic plant]*.
 1,[grass intro] [grass dressing] The area has been settled by a tribe of [6d6] **lizard people** ([lizard people stats]) led by *[lizard leader]* (HD [1d4+2 as level]). [leader treasure] The little village of sod and grass huts is guarded by [lizard companions]. [average treasure]
-1,[grass intro] [grass dressing] [centaurs]
+1,[grass intro] [grass dressing] [centaurs] have settled here.
 1,[grass intro] [grass dressing] A ruined tower standing on a small rise is home to the **ettin** called *[ettin]*. [robber treasure] [ettin tower protection]
 1,[grass intro] [grass dressing] In the old days, this rocky pit was a [gem] quarry. Concealed in a rocky crevice is the hidden barrow of [1d8 wights] ([wight stats]).
 1,[grass intro] [grass dressing] There is a huge dirt mound with small holes for windows and a rough wooden door. [goblins]
@@ -69,7 +69,7 @@
 1,[grass intro] [grass dressing] [outlaw camp]. [robber treasure]
 3,This section of the [grass name] is an elephant graveyard. Elephant bones lie scattered among the flattened grasses. These bones are protected by [1d8+1] **elephants** ([elephant stats]) who will trample and gore anybody disturbing this area. <span class="treasure">Each tusk is worth 1d6×100gp.</span>
 1,[grass intro] [grass dressing] This is the territory of [1d12+1] **pumas** ([puma stats]).
-3,[grass intro] [grass dressing] [horse archers]
+3,[grass intro] [grass dressing] There is a camp of [horse archers]
 5,[grass intro] [grass dressing] To the [direction], [1d4+1] **coyote** ([wolf stats]) can be seen hunting.
 
 ;grass intro
@@ -108,7 +108,7 @@
 1,Shortgrass
 1,Rolling
 1,Dusty
-1,[capitalize cow]
+1,[capitalize cows]
 
 ;grass name2
 1,Prairie
@@ -1610,11 +1610,20 @@
 1,stir fried
 1,sweated
 
-
-
 ;wild veg
 1,wild [domesticated veg]
 1,foraged [domesticated veg]
+1,dandelion
+1,burdock
+1.skirret
+1,salsify
+1,chickweed
+1,cattail
+1,peppergrass
+1,cactus
+1,arrowroot
+1,garlic mustard
+1,sunchoke
 
 ;root veg
 1,carrots
