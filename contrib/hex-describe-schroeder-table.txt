@@ -9288,7 +9288,7 @@
 1,**giant bombardier ant** ([giant ant stats]; *more acid*: can spray cone of corrosive acids for 3d6, save vs. dragon breath for half)
 1,**giant suicide ant** ([giant ant stats]; *suicide: in a ball of fire for 5d6, save vs. dragon breath for half)
 1,**giant trap jaw ant** ([giant ant stats]; *hold*: holds on after a bite and continues to deal damage, no additional to-hit rolls required)
-1,**giant door headed ant** ([giant ant stats]; *huge head*: can block tunnels using head)
+1,**giant door-headed ant** ([giant ant stats]; *huge head*: can block tunnels using head)
 1,**giant weaver ant** ([giant ant stats]; *sticky*: sticky saliva to immobilise victims reduced to 0hp; *camouflage*: surprise on 1–4 in 6)
 1,**giant honey pot ant** ([giant ant stats]; *honey*: swollen abdomen filled with delicious sugary liquid worth 100gp)
 # note plural form below!
@@ -9297,7 +9297,7 @@
 1,**giant bombardier ants** ([giant ant stats]; *acid*: can spray cone of corrosive acids for 3d6)
 1,**giant suicide ants** ([giant ant stats]; *suicide: explodes as a fireball for 5d6)
 1,**giant trap jaw ants** ([giant ant stats]; *hold*: holds on after a bite and continues to deal damage, no additional to-hit rolls required)
-1,**giant door headed ants** ([giant ant stats]; *huge head*: can block tunnels using head)
+1,**giant door-headed ants** ([giant ant stats]; *huge head*: can block tunnels using head)
 1,**giant weaver ants** ([giant ant stats]; *sticky*: sticky saliva to immobilise victims reduced to 0hp; *camouflage*: surprise on 1–4 in 6)
 1,[honey pot ants]
 # note singular form above!
@@ -9857,13 +9857,13 @@
 
 ;elf story hero
 # limited number of heroes
-1,[name for a elf story hero 1]
-1,[name for a elf story hero 2]
+1,[name for an elf story hero 1]
+1,[name for an elf story hero 2]
 
-;name for a elf story hero 1
+;name for an elf story hero 1
 1,[elf name]
 
-;name for a elf story hero 2
+;name for an elf story hero 2
 1,[elf name]
 
 ;dwarf story hero
@@ -9890,13 +9890,13 @@
 
 ;orc story hero
 # limited number of heroes
-1,[name for a orc story hero 1]
-1,[name for a orc story hero 2]
+1,[name for an orc story hero 1]
+1,[name for an orc story hero 2]
 
-;name for a orc story hero 1
+;name for an orc story hero 1
 1,[orc name]
 
-;name for a orc story hero 2
+;name for an orc story hero 2
 1,[orc name]
 
 ;story villain
@@ -10523,13 +10523,13 @@
 ;description for a secret society (law)
 1,They love knowledge and writing and sponsor map makers and merchants travelling to unknown lands. They also keep tabs on people.
 1,There is a place for everybody, they say. And they are true to their word: if you need work, they will find something for you.
-1,They are out there, making sure things run smoothly. Their highest ranks, however, are also spies for [name for a emperor].
+1,They are out there, making sure things run smoothly. Their highest ranks, however, are also spies for [name for an emperor].
 1,This is a society for the rich and powerful, and those who want to join their ranks. Work hard, enslave the poor, and you will rise in their ranks.
 1,They prepare for war, train in underground halls, learn the way of the knife, the way of the staff, the way of the bow.
 1,They believe in mental discipline. Right thought, right action. Live the life you're destined to live and leave it at the appointed time, that is the way.
 1,They believe that the ruling class has been taken over by vampires. They prepare for the big fight by studying ancient books and training with silver daggers.
 
-;name for a emperor
+;name for an emperor
 1,Emperor Albus
 1,Emperor Aquila
 1,Emperor Aulus
@@ -10550,7 +10550,7 @@
 
 ;description for a secret society (chaos)
 1,They love freedom and sharing, and they don't like if if you make rules to stop them from doing just that.
-1,They spread revolution and sharing where ever they go. That is why the authorities fear them.
+1,They spread revolution and sharing wherever they go. That is why the authorities fear them.
 1,To be free of shackles is what they want. They free slaves and wreck the tools of their feudal lords.
 1,They are here to overthrow the feudal lords and to push back against their supporters.
 1,To believe in the current order of things is what servants are trained to do. They believe that another world is possible.
@@ -10588,7 +10588,7 @@
 1,[small temple]
 1,The temple is nothing but a pit in the earth with a stone ceiling and the statue of a giant snake in the back. In front of the snake there are burning candles and wooden poles with strings attached and at the end of every string is an accusation: names of villagers and their misdeed, the punishment requested, and counter claims, and peace offerings. This is where the elders decide upon blood money to be paid and punishments to be exacted.
 1,Between some rocks, a crack leads deeper into the earth and into a cave. There, a giant snake made of stone watches over all who pray to Set. A deep pit contains the polished bones of all who where killed in revenge for their misdeeds. There are always wooden accusation plates to be found naming bandits, thieves, murders, adulterers, and cowards who ran from a battle, deserting their village comrades. Will you take a plate and exact revenge in the name of Set?
-1,An old stairway leads into the bowels of the earth where warm vapours make your head swim. Down here, the **spirit naga** *[naga]* will guide your hand, should you need her words ([naga stats]). Spend an hour down here and any soul dedicated to Set will tell you of the past and the future for all time goes in circles and the big snake eats itself.
+1,An old stairway leads into the bowels of the earth where warm vapours make your head swim. Down here, the **spirit naga** *[naga]* will guide your hand, should you need her words ([naga stats]). Spend an hour down here and any soul dedicated to Set will tell you of the past and the future, for all time goes in circles and the big snake eats itself.
 1,Deep below, where the **spirit naga** *[naga]* guards the passages to Svartalfheim ([naga stats]), pools of Earth Blood corrupt both the living and the dead. If you spend an hour here, your death warrant is sealed: slowly, you will die, or turn into an ettin, or a goblin, or some other dreadful creature.
 1,This is a snake pit, a breeding ground for [1d4 giant snakes] and [1d8 snakes], a place dangerous to every warm blooded creature. And yet, the terror of these snakes also keeps bandits at bay and no orc will set foot near this place, such is the power of Set. They say that those with the secret knowledge can use snake poison to poison their blades and they say that all who serve the temple have done just that.
 1,The temple is a school for assassins. This is where you learn to sneak, to lie, to conceal, to poison, to stab, to strangle. Students learn the secrets of the garrote, of the hidden blade and of the crossbow. All of this is known and yet the farce continues: this is where the young ones learn discipline and strength, diligence and respect. It’s a way to put food on the table, and it’s a useful skill to have available if you’re trying to get ahead.
@@ -10641,7 +10641,7 @@
 1,The temple is a simple mausoleum with a bone pit. The poor and foreign folks are brought here upon their death for it is said that in the hour of need the dead will rise and fight for us at the End of the World.
 1,The temple is an underground network of crypts with dozens of bone chambers. The bones of the dead are used walls, floor, and ceiling. They say that the Bone Road of the underworld is similarly made of all the bones of the restless dead. There they await the End of the World. The bone chambers are there to remind us that everything must pass.
 1,The temple is an underground labyrinth of tunnels with dozens of niches where warriors of old await the end of the world. Most of them are truly dead except for [1d8 mummies] ([mummy stats]). Down here in the cold darkness, somebody is always eager to whisper words of wisdom in exchange for gold and jewels intent on corrupting the world above. It is the hope for eternal life, of resurrection in this world, which brings people back again and again. [dead treasure]
-1,Beneath the town, after descending into an old chamber via many stairs, is the temple: a black pit where the broken whispers of [1d8 wights] can be heard ([wight stats]). Down there are the tunnels of madness. Behind the pit is a status of a naked man, fat and hairy, with the horns of a giant ram, served by satyrs and skeletons. This is the trickster demon lord, the only one capable of bringing back souls from the afterlife, or so they say. [dead treasure]
+1,Beneath the town, after descending into an old chamber via many stairs, is the temple: a black pit where the broken whispers of [1d8 wights] can be heard ([wight stats]). Down there are the tunnels of madness. Behind the pit is a statue of a naked man, fat and hairy, with the horns of a giant ram, served by satyrs and skeletons. This is the trickster demon lord, the only one capable of bringing back souls from the afterlife, or so they say. [dead treasure]
 1,The temple is a burial mound with various secret crypts, each sealed and secured. Falling rocks, swinging blades, spiked pits, and hidden spears await the fools intent on disturbing the draugar, the restless dead, champions of old, warriors and sorcerers all, awakened and animated by the Earth Blood, waiting for their signal. When Fenrir devours the sun, the undead will smash their prison gates and it will be the end of all that is good. The [1d4+1] crypts house [1d8 wights without a name] ([wight stats])and [1d4 spectres] ([spectre stats]). [ancient treasure]
 
 ;spectre stats
@@ -10692,9 +10692,9 @@
 1,The temple is built like the aerie of a giant vulture into a cliff. A narrow stair winds itself through the rock from the base up 100ft to this nest. There, a stone vulture watches the buildings below. A great many small dolls adorn the shelves at the back. These are all the lost children.
 1,The temple is a four storied windowless square tower. Inside a set of ladders leads to the roof. There’s a lift with which to raise corpses to the roof. The roof itself is covered in broken bones. This is where the sky burial takes place. Meat boys and bone girls cut up the corpses and offer the remains of the dead to the vultures of Pazuzu.
 1,The temple stands right next to hanging tree. There must be at least a hundred crows, here. They say Pazuzu sees everything the crows see and thus the local priests are feared and everything that’s secret has to happen in the dark of night.
-1,The temple stands on a rock needle about 100ft high with a rickety sequence of ladders leading up there. The four winged statue of the crow demon Pazuzu is hard to see in all the smoke produced by smoldering fires in iron pots hanging in all four corners of the temple. The temple is looked after by [1d6 tengus].
+1,The temple stands on a rock needle about 100ft high with a rickety sequence of ladders leading up there. The four-winged statue of the crow demon Pazuzu is hard to see in all the smoke produced by smoldering fires in iron pots hanging in all four corners of the temple. The temple is looked after by [1d6 tengus].
 1,The temple stands on a large rock about 20ft above the ground. Petitioners have to climb a rope hanging down over the edge. The temple also houses the **vulture demon** *[demon name]* ([vulture demon stats])
-1,The temple is a a roofed platform made of wood built on top of a large rock about 20ft high. The platform has been blasted by fire many times. Many skulls are hanging from the roof. There is a statue of the four winged god in each corner. Beneath it are the old runes spelling out the name Pazuzu. Whosoever utters his name three times will summon him. Pazuzu will be friendly and grant a wish, and take your soul (never to be resurrected again). To insult him will unleash an unholy blight dealing 20d6 damage to anybody within 10ft of the blasphemer; save vs. death for half damage.
+1,The temple is a a roofed platform made of wood built on top of a large rock about 20ft high. The platform has been blasted by fire many times. Many skulls are hanging from the roof. There is a statue of the four-winged god in each corner. Beneath it are the old runes spelling out the name Pazuzu. Whosoever utters his name three times will summon him. Pazuzu will be friendly and grant a wish, and take your soul (never to be resurrected again). To insult him will unleash an unholy blight dealing 20d6 damage to anybody within 10ft of the blasphemer; save vs. death for half damage.
 
 ;1d6 tengus
 1,the **tengu** master swordsman [tengu name]: [tengu stats]
@@ -10916,8 +10916,8 @@
 1,The temple stands on a little elevation, columns carrying a roof, and a stone altar in the middle, a smoking kettle containing the eternal flame that has been burning here ever since its foundation by *[an old hero]*. This sacred fire is the source for all the human fire in the valley.
 1,The temple is dug into a hill, leading into a small chamber, big enough to barely fit twenty men. There’s a statue of a bull being stopped by Mitra herself. It is blackened by many years of blood and fire for the men swear to be like brothers of blood down here.
 1,The temple looks like a tower, except that it has a big window from the bottom to the roof. On the inside, there are no extra floors. The room is simply 50ft high. The strip of light from the window falls on one of three oath brother statues in here, each raising their right hand, each pointing three fingers towards the sky. This is the bond of loyalty that makes us strong.
-1,The temple has a door fit for a giant, but inside there is simply a strip of wooden flooring for petitioners to kneel and a big status of Mitra standing blindfolded in a sea of fire, holding the balance of justice in one hand and the sword of judgement in the other.
-1,A long set of winding stairs leads deep underground to a fiery pit. The fumes are intoxicating and the dreamy babbling of a woman’s voice can be heard but her words make no sense to you. She is one of the eternal servants, gifted to the temple by her parents and bound to pass through the lake of fire into Muspelheim, the realm of Mitra, whence nobody has ever returned. This is of course true: the lake of fire is a one way gate to [a location in Muspelheim]. Most of these women eventually master the arcane arts of pyromancy.
+1,The temple has a door fit for a giant, but inside there is simply a strip of wooden flooring for petitioners to kneel and a big statue of Mitra standing blindfolded in a sea of fire, holding the balance of justice in one hand and the sword of judgement in the other.
+1,A long set of winding stairs leads deep underground to a fiery pit. The fumes are intoxicating and the dreamy babbling of a woman’s voice can be heard but her words make no sense to you. She is one of the eternal servants, gifted to the temple by her parents and bound to pass through the lake of fire into Muspelheim, the realm of Mitra, whence nobody has ever returned. This is of course true: the lake of fire is a one-way gate to [a location in Muspelheim]. Most of these women eventually master the arcane arts of pyromancy.
 1,Deep within the bowels of the earth, a pool of Earth Blood is being kept at bay by circles of banishment and stasis and thus evil **gorgon** and its poison remains imprisoned while these seals last ([gorgon stats]). The temple guards the entry to this underworld and the [2d6] **priests** and *[human name]*, the current head of the temple, inspect and improve their defences every year on the night of the winter solstice. The common folks just see the statues of the three oath brother statues here and come here to renew their bond with Mitra. They call themselves the *Oath Keepers* for this is what they do: the make their bargains, here.
 
 ;a location in Muspelheim
@@ -13215,15 +13215,15 @@
 1,[precious metal mat] [vessel desc] of St. [old name] kept at the temple of [nearby tempel power]
 1,[later relic of [nearby tempel power]]
 ;relic of Set
-1,seven headed silver snake amulet of *Set*
+1,seven-headed silver snake amulet of *Set*
 ;relic of Orcus
-1,goat headed miniature silver mace of *Orcus*
+1,goat-headed miniature silver mace of *Orcus*
 ;relic of Hel
-1,three headed war dog amulet of *Hel*
+1,three-headed war dog amulet of *Hel*
 ;relic of Nergal
 1,small dancing skeleton puppet of *Nergal*
 ;relic of Pazuzu
-1,small four winged vulture demon statuette of *Pazuzu*
+1,small four-winged vulture demon statuette of *Pazuzu*
 ;relic of Freya
 1,small dark wood wolf sculpture dedicated to *Freya*
 ;relic of Odin
@@ -33349,7 +33349,7 @@
 1,potion of *invisibility* ([name for a potion of invisibility], 20min, no attacks)
 1,potion of *strength* ([name for a potion of strength], 20min, strength 18)
 1,potion of *silver tongue* ([name for a potion of silver tongue], 1h, everybody who hears your voice must save vs. spells or be *charmed*)
-1,potion of *goo* ([name for a potion of goo], 20min, turns you into living goo, able squeeze through any crack)
+1,potion of *goo* ([name for a potion of goo], 20min, turns you into living goo, able to squeeze through any crack)
 1,potion of *jump* ([name for a potion of jump], 20min, allows you to jump up to 60ft high and land safely)
 1,potion of *long fingers* ([name for a potion of long fingers], 20min, allows you to stretch your arms and fingers up to 60ft)
 1,potion of *jaws* ([name for a potion of jaws], 20min, turns your jaws and teeth into a huge, supernatural shark demon jaw able to bite through any material, if you can get it between your new teeth; deal 2d6 in melee)
@@ -33606,8 +33606,8 @@
 3,A *silver necklace* +1 dedicated to [power].
 1,A *golden necklace* +2 dedicated to [good power].
 1,A *black iron slave collar* +2 dedicating its wearer to [evil power].
-1,A *living silver tatoo* +1 dedicated to [good power].
-1,A *living black tatoo* +1 dedicating its wearer to [evil power].
+1,A *living silver tattoo* +1 dedicated to [good power].
+1,A *living black tattoo* +1 dedicating its wearer to [evil power].
 
 ;1d8 wondrous items
 1,[[1d8] wondrous items]
