@@ -10348,8 +10348,8 @@
 # make sure there are only 3 of them
 ;one of the secret societies
 1,[name for a secret society (law)][store law as alignment] 
-1,[name for a secret society (chaos)][store law as alignment]
-1,[name for a secret society (neutrality)][store law as alignment]
+1,[name for a secret society (chaos)][store chaos as alignment]
+1,[name for a secret society (neutrality)][store chaos as alignment]
 
 ;name for a secret society (law)
 1,*[secret society]*
