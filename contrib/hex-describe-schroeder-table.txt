@@ -10334,10 +10334,25 @@
 1,The secret society of the [one of the secret societies] has a representative, here: [a boss]. [spellbook for [same class]] [leader treasure for [same class]] [description for a secret society ([same alignment])]
 
 ;And two secret societies feuding
-1,[And a secret society]
+2,[And a secret society]
+# law vs chaos
 1,A secret war between two secret societies is the cause of much misery in this town.</p><p>[name for a secret society (law)] is led by [secret society boss] [description for a secret society (law)]</p><p>[name for a secret society (chaos)] is led by [secret society boss] [description for a secret society (chaos)]
+# neutrality vs law
 1,Two secret societies are feuding in this town. There can be no neutral position.</p><p>[name for a secret society (chaos)] is led by [secret society boss] [description for a secret society (chaos)]</p><p>[name for a secret society (neutrality)] is led by [secret society boss] [description for a secret society (neutrality)]
+# neutrality vs chaos
 1,Half the buildings in this town have been burnt to the ground. There is an on-going all-out war between two secret societies. Choose your side wisely.</p><p>[name for a secret society (neutrality)] is led by [secret society boss] [description for a secret society (neutrality)]</p><p>[name for a secret society (law)] is led by [secret society boss] [description for a secret society (law)]
+# law vs chaos
+1,The local secret society [name for a secret society (law)] is being infiltrated. It is led by [secret society boss] [description for a secret society (law)]</p><p>The [name for a secret society (chaos)] have been plotting to overthrow them, led by [secret society boss] [description for a secret society (chaos)]
+# neutrality vs law
+1,A volatile truce has recently been formed between the two local secret societies. Both are still unsure and suspicious of each other, and will be watching any visitors closely to try to figure out their allegiances.</p><p>[name for a secret society (law)] is led by [secret society boss] [description for a secret society (law)]</p><p>[name for a secret society (neutrality)] is led by [secret society boss] [description for a secret society (neutrality)].
+# neutrality vs chaos
+1,Talk of a treaty between the two local secret societies seems to be the biggest bit of gossip around town.</p><p>[name for a secret society (neutrality)] is led by [secret society boss] [description for a secret society (neutrality)]</p><p>[name for a secret society (chaos)] is led by [secret society boss] [description for a secret society (chaos)]
+# law vs chaos
+1,Strife is turning sibling against sibling and parents against their children.</p><p>The legendary *[story mcguffin] of [human story hero]* used to belong to the [name for a secret society (law)], but now it is gone. Their leader is [secret society boss], and they are intent on getting it back. The goals of the society itself are not that important, for now. [description for a secret society (law)]</p><p>The accused are another secret society, the [name for a secret society (chaos)]. They are led by [secret society boss] [description for a secret society (chaos)]
+# neutrality vs chaos
+1,The locals are forced to pay protection money to [name for a secret society (chaos)], led by [secret society boss] [description for a secret society (chaos)]</p><p>The recent arrival of [name for a secret society (neutrality)] has disrupted this lucrative enterprise. This secret society is led by [secret society boss] [description for a secret society (neutrality)]
+# neutrality vs law
+1,The [name for a secret society (law)] are recruiting new members for an ongoing feud. They are led by [secret society boss] [description for a secret society (law)]</p><p>They are trying to drive the [name for a secret society (neutrality)] out of town. This secret society is led by [secret society boss] [description for a secret society (neutrality)]
 
 ;secret society boss
 1,[a boss]. [spellbook for [same class]] [leader treasure for [same class]]
@@ -10399,7 +10414,7 @@
 1,If you're in need of money, they will lend you money. If you don't pay back your debts, they will break your bones.
 1,They're a self-aid society where members pay yearly dues and if you're ever in a pinch, they'll help you out.
 1,This is a mutual protection society. Harm one of the members and you have harmed them all. And they will get you for it.
-1,This is a mutual aid society. Others would call it a thieves' guild. Cooperation, sharing, and taking from the rich.
+1,This is a mutual aid society. Others would call it a thieves' guild. They focus on cooperation, sharing, and taking from the rich.
 1,They are inventors, working on tools to free themselves from the shackles of sword and spell.
 1,They prepare for the magic revolution because spells are the sign of a higher calling where as swords serve no purpose but to skewer the living.
 
