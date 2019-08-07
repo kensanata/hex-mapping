@@ -10059,7 +10059,7 @@
 3,[forest 1] [forest 2]
 
 ;trade caravan
-1,A trade caravan is passing through. [2d6] **[race] merchants** led by *[[same race] with portrait]* ([[same race] stats]) are travelling from town to town selling [with trade goods], [and trade goods], and [and trade goods]. [caravan facts]
+1,A trade caravan is passing through. [2d6] **[race] merchants** led by *[[same race] with portrait]* ([[same race] stats]) are travelling from town to town selling [with trade goods], [and trade goods], and [and trade goods]. [caravan facts] [caravan special]
 
 ;race
 5,human
