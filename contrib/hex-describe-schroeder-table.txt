@@ -4859,6 +4859,10 @@
 1,*[gnome man as gnome name]*<img class="portrait" src="[[redirect https://campaignwiki.org/face/redirect/alex/gnome]]" alt="[same gnome name]" title="[same gnome name]"/>
 1,*[gnome woman as gnome name]*<img class="portrait" src="[[redirect https://campaignwiki.org/face/redirect/tuiren/gnome]]" alt="[same gnome name]" title="[same gnome name]"/>
 
+;gnome name
+1,[gnome man]
+1,[gnome woman]
+
 ;gnome man
 1,[polish names for men] [gnome family]
 
@@ -5745,7 +5749,10 @@
 1,HD 6+1 AC 4 1d6/1d6/1d10 or *spikes* F6 MV 18 ML 9 XP 600; 24 *spikes* (60ft, 1d6), up to 6/rd
 
 ;halflings
-1,[5d8] **halflings** led by [halfling leader]. [leader treasure] [average treasure] [halfling troubles]
+1,[5d8] **halflings** ([halfling stats]) led by [halfling leader]. [leader treasure] [average treasure] [halfling troubles]
+
+;halfling stats
+1,HD 1 HP 1d6 AC 7 1d6 H1 MV 9 ML 7 XP 100; outside: *surprise* on 1–5 in 6, inside: *surprise* on 1–2 in 6
 
 ;halfling leader
 1,[halfling with portrait] (level [1d6+1 as level])
@@ -7026,7 +7033,7 @@
 1,[rp] [bone type] bones
 1,empty [glass desc] bottle
 1,empty [metal mat] flask
-1,[condition desc] [metal mat] [metal jewelry]
+1,[condition desc] [metal mat] [metal jewelry singular]
 1,[condition desc] [glass desc] glass shards
 1,[glass desc] glass beads
 1,[tool mat] butter knife
@@ -7395,10 +7402,18 @@
 1,goat hide
 1,eel-skin
 
+;metal jewelry singular
+1,brooch
+19,[metal jewelry]
+
+;metal jewelry plural
+1,brooches
+19,[metal jewelry]s
+
 ;metal jewelry
+# make sure these can be pluralised by appending an s
 1,bracelet
 1,buckle
-1,brooch
 1,clasp
 1,fibula
 1,earring
@@ -7485,8 +7500,16 @@
 1,scorpion
 1,spider
 
-;small bird type
+;small bird type singular
 1,finch
+9,[small bird type]
+
+;small bird type plural
+1,finches
+9,[small bird type]s
+
+;small bird type
+# make sure these can be pluralised by appending an s
 1,sparrow
 1,robin
 1,cardinal
@@ -7506,6 +7529,7 @@
 1,rat
 
 ;small reptile type
+# make sure these can be pluralised by appending an s
 1,lizard
 1,snake
 1,tortoise
@@ -9761,6 +9785,7 @@
 3,
 1,</p><p>[dragon hunter]
 1,</p><p>[bard]
+1,</p><p>[trade caravan]
 
 ;dragon hunter
 1,The dragon hunter **[human class]** [human with portrait] (level [1d4+5 as level]) is trying to hire two score desperate peasants to go and slay *[nearby dragon name]*. [sharing agreement] [spellbook for [same class]] [leader treasure for [same class]]
@@ -9918,19 +9943,19 @@
 1,[name for a story mcguffin 4]
 
 ;name for a story mcguffin 1
-1,[capitalize metal jewelry]
+1,[capitalize metal jewelry singular]
 1,[evil tribe weapon]
 
 ;name for a story mcguffin 2
-1,[capitalize metal jewelry]
+1,[capitalize metal jewelry singular]
 1,[evil tribe weapon]
 
 ;name for a story mcguffin 3
-1,[capitalize metal jewelry]
+1,[capitalize metal jewelry singular]
 1,[evil tribe weapon]
 
 ;name for a story mcguffin 4
-1,[special adjective] [capitalize metal jewelry]
+1,[special adjective] [capitalize metal jewelry singular]
 1,[special adjective] [evil tribe weapon]
 
 ;story
@@ -10032,6 +10057,47 @@
 1,Underworld
 3,[dreadful] [peaks]
 3,[forest 1] [forest 2]
+
+;trade caravan
+1,A trade caravan is passing through. [2d6] **[race] merchants** led by *[[same race] with portrait]* ([[same race] stats]) are travelling from town to town selling [with trade goods], [and trade goods], and [and trade goods]. [caravan facts]
+
+;race
+5,human
+1,gnome
+3,dwarf
+3,halfling
+1,orc
+
+;trade goods
+1,[cloth desc][cloth mat]
+1,[wood mat] lumber
+1,[glass desc] bottles
+1,barrels of [with fruit] mead and [and fruit] cider
+1,sacks of freshly harvested [nuts]
+1,rare [metal mat] and a [gem] [metal jewelry singular] (worth [3d6]00gp) from [nearby village name]
+1,cages of [small bird type plural] and [small reptile type]s
+1,crocks of preserved [food veg]
+1,earthenware jars of [with food seasonings], [and food seasonings], [and food seasonings], [and food seasonings], and [and food seasonings]
+
+;caravan facts
+1,They know rumors about the goings on in [nearby village name], having recently been through there.
+1,They claim to have supplied rare goods to [name for an emperor].
+1,The merchants would like to find a shorter route to [other village name] and will hire scouts and guards for 1gp per day and person.
+1,They are eager for news from [nearby village name], their next destination.
+
+;caravan special
+3,
+2,The caravan has a **bard** called [human with portrait] who is on his way to [nearby village name].[store human as singing humanoid] The songs they like to perform are [with story] and [and story].
+2,One merchant is a secret agent of [near secret society].
+2,One merchant is selling blessed [metal mat] amulets of [good power]
+1,One of the members of the trade caravan is a **witch** in disguise. Traveling under the name [gothic names for women], her real name is *[here old names for women as witch]*, [the witch], [caravan witch goal]. ([witch stats]). Hidden in her wagon is [terror treasure].
+1,The caravan has a traveling mage who can supply [with scroll], [and scroll], [and scroll]. They also have a [with potion] and [and potion] for sale if the price is right.
+1,The caravan has a botanist who will sell potted [with magic plant], [and magic plant], and the very costly [and magic plant].
+
+;caravan witch goal
+1,She uses the caravan as cover to travel from town to town selling love potions to gullible young folk in exchange for secrets.
+1,She is on the run from her rival, *[here old names for women as witch]* [the witch]. She nearly died the last time they crossed paths.
+1,She is under a curse and has lost all memory of her life as a witch.
 
 #NOTE: no space to create proper compounds, spaces are present in some second halves for some variety
 ;village name
@@ -13211,7 +13277,7 @@
 1,Wise
 
 ;relic
-1,[precious metal mat] [metal jewelry] of St. [old name] kept at the temple of [nearby tempel power]
+1,[precious metal mat] [metal jewelry singular] of St. [old name] kept at the temple of [nearby tempel power]
 1,[precious metal mat] [vessel desc] of St. [old name] kept at the temple of [nearby tempel power]
 1,[later relic of [nearby tempel power]]
 ;relic of Set
