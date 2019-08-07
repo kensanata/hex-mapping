@@ -1304,7 +1304,7 @@ sub normalize_elvish {
 
   $name = ucfirst($name);
 
-  $log->debug("Elvish normalize: $original → $name");
+  # $log->debug("Elvish normalize: $original → $name");
   return $name;
 }
 
@@ -1337,6 +1337,7 @@ sub resolve_nearby {
   for my $coord (keys %$descriptions) {
     $descriptions->{$coord} =~
 	s/｢nearby ([^][｣]*)｣/closest($map_data,$table_data,$coord,$1) or '…'/ge;
+    $descriptions->{$coord} =~ s!( \(<a href="#desc\d+">\d+</a>\))</em>!</em>$1!g; # fixup
   }
 }
 
@@ -1356,7 +1357,7 @@ sub closest {
     distance($coordinates, $a) <=> distance($coordinates, $b)
   } grep { $_ ne $coordinates } keys %{$globals->{$key}};
   if (not @coordinates) {
-    $log->info("Did not find any hex with $key");
+    $log->info("Did not find any hex with $key ($coordinates)");
     return pick($map_data, $table_data, 1, $coordinates, [], $key);
   }
   # the first one is the closest
@@ -1411,6 +1412,7 @@ sub resolve_other {
   for my $coord (keys %$descriptions) {
     $descriptions->{$coord} =~
 	s/｢other ([^][｣]*)｣/some_other($map_data,$table_data,$coord,$1) or '…'/ge;
+    $descriptions->{$coord} =~ s!( \(<a href="#desc\d+">\d+</a>\))</em>!</em>$1!g; # fixup
   }
 }
 

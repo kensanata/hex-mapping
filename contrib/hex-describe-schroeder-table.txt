@@ -1982,11 +1982,16 @@
 
 ;a secret mountain thing
 1,there is an inscription on the rocks, each letter higher than three men standing on top of each other, proclaiming the power and glory of [an old wight leader], as well as the riches and treasures of *[a wight capital]*.
-1,a pair of **griffons** is nesting ([griffon stats]). Agents of the [one of the secret societies] would pay 5000gp for their egg, they say.
+1,a pair of **griffons** is nesting ([griffon stats]). [maybe griffon eggs]
 1,a cave leads into the lair of [ice devil], a [ice devil adjectives] **ice devil**, and his [ice devil companions] living in [ice devil lair]
 
 ;griffon stats
 1,HD 4+1 AC 6 1d6/1d6/1d8 F4 MV 24 ML 10 XP 400
+
+;maybe griffon eggs
+1,
+1,<span class="treasure">The *griffon egg* is worth 5000gp to an alchemist</span>.[here store griffon egg as alchemist quest]
+2,<span class="treasure">The [1d2+1] *griffon eggs* are worth 5000gp to an alchemist</span>.[here store griffon egg as alchemist quest]
 
 ;ice devil adjectives
 1,terrible
@@ -2233,7 +2238,7 @@
 ;green tower in the mountains content
 1,long abandoned.
 1,now inhabited by a **white dragon** called *[here white dragon name as dragon name]*[dragon portrait] ([white dragon stats]). [dragon treasure]
-1,and at the very top there is a lair of [2d8] very protective **griffons** ([griffon stats]).
+1,and at the very top there is a lair of [2d8] very protective **griffons** ([griffon stats]). [maybe griffon eggs]
 1,currently the home of [gargoyles] ([gargoyle stats]). [poor treasure]
 1,The Earth Blood in this tower has turned previous visitors into [2d6] [slime].
 1,[necromancer]
@@ -2634,7 +2639,7 @@
 1,stomp
 
 ;ice monster lair
-2,A **[here ice monster]** lives up here ([[same ice monster] stats]). [[same ice monster] lair] [terror treasure]
+2,A **[ice monster]** lives up here ([[same ice monster] stats]). [[same ice monster] lair] [terror treasure]
 1,At night, damned souls rise from icy graves and walk across the ice on their feet, howling and crying. If approached, [1d6 wraiths] ([wraith stats]) turn their attention on you, trying pull you in the procession. If you manage to remain undetected and follow them to their resting places as morning comes, you can find what is left of their frozen bodies buried in the ice. [dead treasure]
 
 ;1d6 wraiths
@@ -2942,7 +2947,7 @@
 1,[dwarf stats]; immune to fire
 
 ;dwarf with portrait
-1,*[dwarf name]*<img class="portrait" src="[[redirect https://campaignwiki.org/face/redirect/alex/dwarf]]" alt="[same dwarf name]" title="[same dwarf name]"/>
+1,*[dwarf name]*<img class="portrait" src="[[redirect https://campaignwiki.org/face/redirect/alex/dwarf]]" alt="[same dwarf name]" title="[same dwarf name]"/>[store [same dwarf name] as dwarf patron]
 
 ;dwarf name
 1,[dwarf name for men] [dwarf 2a][dwarf 2b]
@@ -4673,7 +4678,7 @@
 1,Thrash
 
 ;orc with portrait
-1,*[orc name]*<img class="portrait" src="[[redirect https://campaignwiki.org/face/redirect/alex/orc]]" alt="[same orc name]" title="[same orc name]" />
+1,*[orc name]*<img class="portrait" src="[[redirect https://campaignwiki.org/face/redirect/alex/orc]]" alt="[same orc name]" title="[same orc name]" />[store [same orc name] as orc patron]
 
 ;orc name
 1,[orc 1][orc 2]
@@ -5370,7 +5375,7 @@
 ;outlaw feature
 1,The outlaws use raven feathers in their arrows.
 1,This camp has a renowned **healer**: [human with portrait] knows how to *cure disease* using [nearby magic plant].
-1,The scouts in this camp know all the creatures of [adjacent hex].
+1,The scouts in this camp know all the creatures of [link to adjacent hex].
 1,The outlaws are eager to trade for alcohol and gold.
 1,This camp has a talented **bard** called [human with portrait] who was chased out of [nearby village name].[store human as singing humanoid] The songs they like to perform are [with story] and [and story].
 
@@ -5445,7 +5450,7 @@
 1,Sheltered behind one of the boulders and well hidden by some bushes there is a tent.
 
 ;necromancer
-1,Here lives the **necromancer** [human with portrait] (level [1d3+4 as level]), protected by [necromancer companions]. [necromancer tower] [luxurious context] [leader treasure for magic user]
+1,Here lives the **necromancer** [human with portrait][here store [same human name] as alchemist patron] (level [1d3+4 as level]), protected by [necromancer companions]. [spellbook for necromancers] [necromancer tower] [luxurious context] [leader treasure for magic user]
 
 ;necromancer companions
 1,[4d6] watchful **zombies** ([zombie stats])
@@ -5499,12 +5504,12 @@
 1,[an old wight leader]
 
 ;vivimancer
-1,Here lives the **vivimancer** [human with portrait] (level [1d3+4 as level]), protected by [3d6] **myconids** ([myconid stats]). [alchemist job] [luxurious context] [poor treasure] [leader treasure for magic user]
-1,Here lives the **vivimancer** [human with portrait] (level [1d3+4 as level]) with [3d6] [slimes]. [safe zone] [poor treasure] [leader treasure for magic user]
+1,Here lives the **vivimancer** [human with portrait][here store [same human name] as alchemist patron] (level [1d3+4 as level]), protected by [3d6] **myconids** ([myconid stats]). [alchemist job] [luxurious context] [poor treasure] [leader treasure for magic user]
+1,Here lives the **vivimancer** [human with portrait][here store [same human name] as alchemist patron] (level [1d3+4 as level]) with [3d6] [slimes]. [safe zone] [poor treasure] [leader treasure for magic user]
 
 ;alchemist job
 1,*[same human name]* is looking for *[nearby magic plant]*.
-1,*[same human name]* is looking for a [nearby ice monster] ice tooth.
+1,*[same human name]* is looking for a [nearby alchemist quest].
 
 ;slimes
 1,[slime] hiding in pools and pits
@@ -6254,16 +6259,16 @@
 1,her *terrible oven*, an oven that turns any living being into a tasty meal for up to twelve. [same old names for women] would love nothing better than to turn one of the party into a tasty meal and feed it to the rest of them!
 
 ;mirror realm
-1,</p><p>This realm is a world of eternal night, [1d4x10] **humans** ([human stats]) led by [human name], all of them fungus farmers and blood cattle for [1d6 vampires] led by [same old names for women] ([vampire stats]) living in an old manor house, surrounded by [manor house surrounding] harbouring [2d6] **wolves** ([wolf stats]). [vampire foe]
+1,</p><p>This realm is a world of eternal night, [1d4x10] **humans** ([human stats]) led by [human name], all of them fungus farmers and blood cattle for [1d6 mirror realm vampires] living in an old manor house, surrounded by [manor house surrounding] harbouring [2d6] **wolves** ([wolf stats]). [vampire foe]
 
 ;manor house surrounding
 1,a wild garden behind an iron fence 10ft high
 1,a dense forest of blackened, leafless trees
 1,steep cliffs
 
-;1d6 vampires
-1,a **vampire**
-5,[1d5+1] **vampires**
+;1d6 mirror realm vampires
+1,the **vampire** *[same old names for women]* ([vampire stats])
+5,[1d5+1] **vampires** led by *[same old names for women]* ([vampire stats])
 
 ;vampire stats
 1,HD 9 AC 2 1d10 + *drain* F9 MV 18 ML 11 XP 900; only harmed by magic or magic weapons; immune to *sleep* and *charm*; *charming gaze*: save vs. spells when looking into its eyes as it speaks or be charmed for a day; *limited shape shift* into a bat or mist; *coffin bound*: when reduced to 0hp, turns into mist and slowly creeps back to its coffin; *regenerate*: in its coffin, regenerates completely within a few hours; *vulnerability*: to kill it, expose it to sunlight or submerge it under running water for 10min
@@ -6314,11 +6319,13 @@
 1,[swamp intro] [swamp dressing] You need a boat and a guide to navigate these waterways. If you travel on foot, you'll soon attract the attention of [1d6 crocodiles].
 1,[swamp intro] If you drink the water here, save vs. poison or spend the rest of the day vomiting. These lakes are home to [3d12] **swamp cranes** ([swamp crane stats]). Their dung is poisonous to most creatures on land.
 1,[swamp intro] [swamp dressing] An abandoned temple of *[power]* stands here, half sunk. The acrid stench is overwhelming. On the small piece of solid ground rising above the water you can see [what you can see of the sunken temple] A **gorgon** has cursed this temple with its presence ([gorgon stats]). [terror treasure]
-1,[swamp intro] [swamp dressing] There's a wooden hut, here. Its inhabitant appears to be a hermit called [human with portrait]. In actual fact, however, this is a **doppelgänger** ([doppelgänger stats]). [poor treasure] It will try and see whether it can replace one of the party members and leave the area with you.
+1,[swamp intro] [swamp dressing] There's a wooden hut, here. Its inhabitant appears to be a hermit called [human with portrait]. In actual fact, this is a **doppelgänger** ([doppelgänger stats]). [poor treasure] It will try and see whether it can replace one of the party members and leave the area with you.
 1,[swamp intro] [swamp dressing] The waterways eventually lead to a wooden fort rising out of the water, inhabited by [4d6] **hobgoblins** ([hobgoblin stats]) and led by *[hobgoblin]* (HD 3+1). The fort is defended by [hobgoblin companions]. [robber treasure]
 1,This section of the [forest name] swamp is a well known death trap. The trees are older, here. They remember every axe wielder, every ship builder, every carpenter, every fire maker, and they hate them with the hate of the primal forest. These trees are protected by [1d8 treants] ([treant stats]) who would like nothing better than to squash anybody capable of wielding tools.
 1,[swamp ettercaps]
 1,[swamp intro] [swamp dressing] [swamp gnome colony]
+1,[swamp intro] [swamp dressing] On a rocky outcrop stands a tower. [necromancer]
+1,[swamp intro] [swamp dressing] On a rocky outcrop stands a tower. [vivimancer]
 
 ;swamp intro
 1,The [forest name] is sinking beneath the water.
@@ -7372,7 +7379,7 @@
 1,drawings
 1,rude jokes
 1,love letters
-1,treasure map
+1,a [treasure map]
 1,siege engine plans
 1,castle blueprints
 1,fragmentary ramblings
@@ -8061,7 +8068,7 @@
 1,HD 9 AC 9 1d6 + *poison* F9 MV 12 ML 9 XP 900; *climb*; *poison*: when bit, save vs. poison or die; *charm*: save vs. spells or fall madly in love with her; *glamour*: every hour in her company when not madly in love, save vs. spells to notice a flickering of her glamour revealing her eight eyes, or the spider legs growing out of her back
 
 ;old forest temple denizen
-1,In one corner, a wooden roof keeps a corner of the old temple dry. Here lives [human with portrait], an old **hermit**, and his pet **jaguar** ([jaguar stats]).
+1,In one corner, a wooden roof keeps a corner of the old temple dry. Here lives [human with portrait], an old **hermit**, and their pet **jaguar** ([jaguar stats]).
 1,In a dry corner of the ruin is the lair of [3d6] **wolves** ([wolf stats]) and [human with portrait], who ended up being raised by wolves after being abandoned by the parents.
 1,Between the [tree] trees growing all over the structure the ground is dry and solid. [giant apes]
 1,A dreadful *stench* hangs in the air. Beneath a big stone is an entrance into a cave full of decomposing corpses. Amidst the flies you see [2d6] wide-eyed and mute humans. Soon enough, however, they'll turn into **werwolves** and find you and kill you and bring you here and eat you ([werewolf stats]). [poor treasure]
@@ -8263,7 +8270,7 @@
 1,HD 9 AC 1 3d6 MV 12 ML 12 XP 900; immune to *arrows*, immune to *poison*; immune to *spells*
 
 ;elf with portrait
-1,*[elf name]*<img class="portrait" src="[[redirect https://campaignwiki.org/face/redirect/alex/elf]]" alt="[same elf name]" title="[same elf name]"/>
+1,*[elf name]*<img class="portrait" src="[[redirect https://campaignwiki.org/face/redirect/alex/elf]]" alt="[same elf name]" title="[same elf name]"/>[store [same elf name] as elf patron]
 
 # Not accounted for: Letter changes when combining words
 # http://sindarinlessons.weebly.com/37---how-to-make-names-1.html
@@ -9410,8 +9417,8 @@
 1,a [ant tunnel desc] [ant room type] that houses [1d2+1] **larval ants** the size of goats. [50% ants here] The larval ants are being fed by [1d2+1] [worker ants] with [giant ant food].
 
 ;giant ant queen chamber
-1,a [ant tunnel desc] [ant room type] dominated by a gargantuan **queen ant** with a pulsating abdomen. [1d6+1] [with giant ants] and [1d6+2] [with giant ants] scurry to the queen's defense. The queen's <span class="treasure">*royal jelly* is worth 5000gp to an alchemist</span>.
-1,a [ant tunnel desc] [ant room type] full of chittering sounds. Here lounges a massive **queen ant** with a pulsating purple abdomen, laying eggs. [1d6+1] [with giant ants] and [1d6+2] [and giant ants] scurry to the queen's defense. The queen's <span class="treasure">*royal jelly* is worth 5000gp to an alchemist</span>.
+1,a [ant tunnel desc] [ant room type] dominated by a gargantuan **queen ant** with a pulsating abdomen. [1d6+1] [with giant ants] and [1d6+2] [with giant ants] scurry to the queen's defense. The queen's <span class="treasure">*royal jelly* is worth 5000gp to an alchemist</span>.[here store royal jelly as alchemist quest]
+1,a [ant tunnel desc] [ant room type] full of chittering sounds. Here lounges a massive **queen ant** with a pulsating purple abdomen, laying eggs. [1d6+1] [with giant ants] and [1d6+2] [and giant ants] scurry to the queen's defense. The queen's <span class="treasure">*royal jelly* is worth 5000gp to an alchemist</span>.[here store royal jelly as alchemist quest]
 
 ;giant ant fungal garden
 1, a [ant tunnel desc] [ant room type] that smells of damp leaf mold. Several tall, alien shaped stalactites here are covered with furry clumps of brightly colored fungus. [20% ant here]
@@ -9438,7 +9445,7 @@
 1,a steel mace
 
 ;unicorns
-1,This clearing is surrounded by [tree] trees. It is frequented by the unicorn herd *[unicorn herd name]*. [calm clearing feature] Those with a knack for herbalism can find *[magic plant]*, [magic plant location]. The clearing is patrolled by [1d8 unicorns]. [unicorn information]
+1,This clearing is surrounded by [tree] trees. It is frequented by the unicorn herd *[unicorn herd name]*. [calm clearing feature] Those with a knack for herbalism can find *[magic plant]*, [magic plant location]. The clearing is patrolled by [1d8 unicorns]. <span class="treasure">A *unicorn horn* is worth 5000gp to an alchemist. Each unicorn also has d100 strands of hair long enough to be sold to an alchemist, each worth 50gp</span>.[here store unicorn horn as alchemist quest] [unicorn information]
 
 ;unicorn herd name
 1,Golden Spirits
@@ -9487,7 +9494,7 @@
 
 ;unicorn information
 1,The unicorns fear the temple of [nearby tempel power] and would like to see it destroyed.
-1,The unicorns know of the dangers of [adjacent hex] and warn against going there.
+1,The unicorns know of the dangers of [link to adjacent hex] and warn against going there.
 1,The unicorns are concerned about the druid [nearby druid] and would like for them to be eradicated.
 1,The unicorns fear the influence of the witch [nearby witch] and would like to see them destroyed.
 1,The unicorns hate the wood loggers of [nearby village name] and want them gone.
@@ -9512,7 +9519,7 @@
 ;colony feature
 1,The gnomes of this colony are known for their bright [with colour] and [and colour] [with woven product] and [and woven product].
 1,[same gnome name] is a renowned healer (*mend broken bones*; *grow limb*, but with the drawback of attracting all sorts of water loving animals during the night).
-1,The scouts in this colony know all the creatures of [adjacent hex].
+1,The scouts in this colony know all the creatures of [link to adjacent hex].
 1,The gnomes are eager to trade for spices and silver.
 1,The gnomes of this colony are *hostile to humans*.
 1,The gnomes are secret spies for the witch [nearby witch].
@@ -9781,19 +9788,14 @@
 1,[1d4x10] **cultists** ([human stats]) live here. [average treasure] They are led by their cult leader [woman with portrait] (level [1d6+1 as level]). [leader treasure for magic user]
 
 ;settlement event
-# most settlements don't have a current event
-3,
+1,
 1,</p><p>[dragon hunter]
 1,</p><p>[bard]
 1,</p><p>[trade caravan]
+1,</p><p>[treasure hunter]
 
 ;dragon hunter
-1,The dragon hunter **[human class]** [human with portrait] (level [1d4+5 as level]) is trying to hire two score desperate peasants to go and slay *[nearby dragon name]*. [sharing agreement] [spellbook for [same class]] [leader treasure for [same class]]
-
-;sharing agreement
-3,“I am generous: two shares of the treasure found for me, the rest to be shared equally amongst the other survivors.”
-2,“I will provide all the expertise: five shares of the treasure found for me, the rest to be shared equally amongst the other survivors.”
-1,“I’ll be fair: half of the treasure found for me, half to be shared amongst the other survivors.”
+1,The dragon hunter **[human class]** [human with portrait] (level [1d4+5 as level]) is trying to hire two score desperate peasants to go and slay *[nearby dragon name]*. “[sharing agreement]” [spellbook for [same class]] [leader treasure for [same class]]
 
 ;bard
 1,The [bard adjective] [singing humanoid] **bard** *[[same singing humanoid] with portrait]* is here, playing the [instrument] and [with performing] [with story] and [and performing] [and story]. [audience reaction]
@@ -10088,16 +10090,57 @@
 ;caravan special
 3,
 2,The caravan has a **bard** called [human with portrait] who is on his way to [nearby village name].[store human as singing humanoid] The songs they like to perform are [with story] and [and story].
-2,One merchant is a secret agent of [near secret society].
-2,One merchant is selling blessed [metal mat] amulets of [good power]
-1,One of the members of the trade caravan is a **witch** in disguise. Traveling under the name [gothic names for women], her real name is *[here old names for women as witch]*, [the witch], [caravan witch goal]. ([witch stats]). Hidden in her wagon is [terror treasure].
-1,The caravan has a traveling mage who can supply [with scroll], [and scroll], [and scroll]. They also have a [with potion] and [and potion] for sale if the price is right.
-1,The caravan has a botanist who will sell potted [with magic plant], [and magic plant], and the very costly [and magic plant].
+2,One merchant is a secret agent of [one of the secret societies].
+2,One merchant is selling blessed [metal mat] amulets of [good power].
+1,One of the members of the trade caravan is a **witch** in disguise. Travelling under the name *[woman]*, her real name is *[here old names for women as witch]*, [the witch], [caravan witch goal]. ([witch stats]). Any valuables are well hidden in her wagon. [terror treasure]
+1,The caravan has a **travelling alchemist** called [human with portrait] who can supply a [with scroll], a [and scroll], a [and scroll] at 1000gp each. They also have a [with potion] and a [and potion] for sale at 500gp each.
+1,The caravan has a **botanist** called [human with portrait] who will sell potted [with magic plant] or [and magic plant] at 50gp each (20 of each available), and the very costly [and magic plant] at 500gp each (just 2 available).
 
 ;caravan witch goal
 1,She uses the caravan as cover to travel from town to town selling love potions to gullible young folk in exchange for secrets.
 1,She is on the run from her rival, *[here old names for women as witch]* [the witch]. She nearly died the last time they crossed paths.
 1,She is under a curse and has lost all memory of her life as a witch.
+
+# available patrons:
+# alchemist patron for magical things
+# dwarf patron for metal things
+# elf patron for elven things
+# human patron
+# orc patron for rare metals
+# note:
+# goblin patron is not the same thing!
+;treasure hunter
+1,The treasure hunter **[human class]** [human with portrait] (level [1d4+1 as level]) is trying to hire some fools for they have a [treasure map]. [spellbook for [same class]] [leader treasure for [same class]] “[sharing agreement]”
+1,The treasure hunter **[human class]** [human with portrait] (level [1d4+1 as level]) is trying to hire some fools to find *[magic plant]* (in [link to adjacent hex]). “Surely *[nearby alchemist patron]* will pay us well. [5000gp reward sharing agreement]” [spellbook for [same class]] [leader treasure for [same class]]</p><p>[magic plant guardian]
+# the following item might require more travel to an existing magic planet but has no guardian
+1,The treasure hunter **[human class]** [human with portrait] (level [1d4+1 as level]) is trying to hire some fools to find *[nearby magic plant]*. [spellbook for [same class]] [leader treasure for [same class]] “Surely *[nearby alchemist patron]* will pay us well. [5000gp reward sharing agreement]”
+1,The treasure hunter **[human class]** [human with portrait] (level [1d4+1 as level]) is trying to hire some fools to rob an ancient tomb (in [link to adjacent hex]). [spellbook for [same class]] [leader treasure for [same class]] “[sharing agreement]”</p><p>[tomb guardian] [ancient treasure]
+1,The treasure hunter **[human class]** [human with portrait] (level [1d4+1 as level]) is trying to hire some fools to get some *[nearby alchemist quest]*. [spellbook for [same class]] [leader treasure for [same class]] “Surely *[nearby alchemist patron]* will pay us well. [sales sharing agreement]”
+
+;magic plant guardian
+1,*[same magic plant]* lies in a shady hollow near a crystal clear pool, guarded by [1d8 treants] ([treant stats]). They hate any living being that lives by thumb and fist.
+1,*[same magic plant]* grows in the care of the **hermit druid** *[old name]* ([druid stats]) and their [3d6] **wolves** ([wolf stats]). They are of course unwilling to part with any of it.
+1,In the ancient past, *[same magic plant]* was often used to contain the undead. The plan is to take it from an ancient tomb. “Of course, any treasure found will be shared the same way,” [same human name] adds. That tomb is the resting place of [1d8 wights] ([wight stats]). [dead treasure]
+
+;sharing agreement
+3,I am generous: two shares of the treasure found for me, the rest to be shared equally amongst the other survivors.
+2,I will provide all the expertise: five shares of the treasure found for me, the rest to be shared equally amongst the other survivors.
+1,I’ll be fair: half of the treasure found for me, half to be shared amongst the other survivors.
+
+;5000gp reward sharing agreement
+3,I am generous: two shares of the [2d6x5+15]00gp reward for me, the rest to be shared equally amongst the other survivors.
+2,I will provide all the expertise: five shares of the [2d6x5+15]00gp reward for me, the rest to be shared equally amongst the other survivors.
+1,I’ll be fair: half of the [2d6x5+15]00gp reward for me, half to be shared amongst the other survivors.
+
+;sales sharing agreement
+3,I am generous: two shares of the sales made for me, the rest to be shared equally amongst the other survivors.
+2,I will provide all the expertise: five shares of the sales made for me, the rest to be shared equally amongst the other survivors.
+1,I’ll be fair: half of the sales made for me, half to be shared amongst the other survivors.
+
+;tomb guardian
+1,The inscriptions of the mausoleum tells tales of bloodshed and violence. The tomb is in fact the resting place of [1d6 vampires], and the entrance is guarded by [undead guardians].
+1,The tomb is in fact the council chamber from the days when the living still consulted the dead. The inscriptions speak of many festivals where the dead participated as guests of honour. Sadly, many of the dead have lost their mind: these are the [undead guardians] that still roam these halls. But in the council chamber, you can still find [1d8 mummies] ([mummy stats]) willing to talk. They are quite unwilling to part with any treasure they might have, however.
+1,The tomb is in fact the resting place of an old hero. Sadly, according to the inscriptions they lost their war and never found eternal rest. They are still here, eager to fight, eager to recruit an army and resume their war: [1d4 spectres].
 
 #NOTE: no space to create proper compounds, spaces are present in some second halves for some variety
 ;village name
@@ -10725,6 +10768,10 @@
 1,a **wight**
 7,[1d7+1] **wights**
 
+;1d6 vampires
+1,a **vampire** called *[devil name]* ([vampire stats])
+5,[1d5+1] **vampires** led by *[devil name]* ([vampire stats])
+
 ;mummy stats
 1,HD 5+1 AC 6 1d12 F6 MV 6 ML 12 XP 500; anybody who sees them must save vs. paralysis or be *held*; only harmed by magic or magic weapons; immune to *sleep* and *charm*; always fail their saves vs. fire spells
 
@@ -11022,7 +11069,7 @@
 1,a huge gallows with [2d8] hanged people hanging there as a dire warning.
 1,a chained **troll** ([troll stats]).
 1,a necropolis below the town, infested by [2d8] **ghouls** ([ghoul stats]). [luxurious context] [dead treasure]
-1,an **alchemist** named *[here human name]* selling a [potion] for 500gp each. [1d4+1] of these are currently for sale. [alchemist job]
+1,an **alchemist** named *[here store [same human name] as alchemist patron]* selling a [potion] for 500gp each. [1d4+1] of these are currently for sale. [alchemist job]
 
 ;human houses
 1,thatched huts
@@ -11038,7 +11085,7 @@
 1,river flowing around it
 
 ;human leader
-1,**[human class]** [human with portrait] (level [1d2+8 as level])
+1,**[human class]** [human with portrait] (level [1d2+8 as level])[save [same human name] as human patron]
 
 ;human retainer
 1,Their retainer is the **[human class]** [human with portrait] (level [1d2+6 as level]). [spellbook for [same class]] [leader treasure for [same class]]
@@ -11598,15 +11645,24 @@
 1,gerdana
 1,hadrael
 
+;necromancer spellbook
+1,agrimach
+
 # this allows us to use [same spellbook] later
 ;a famous spellbook
 1,[[spellbook]]
+
+;a famous necromancer spellbook
+1,[[necromancer spellbook as spellbook]]
 
 ;a famous elven spellbook
 1,[[elf spellbook as spellbook]]
 
 ;spellbook for elves
 1,The spells known are based on [a famous elven spellbook]: [spellbook [same level]].
+
+;spellbook for necromancers
+1,The spells known are based on [a famous necromancer spellbook]: [spellbook [same level]].
 
 ;spellbook for magic user
 1,The spells known are based on [a famous spellbook]: [spellbook [same level]].
@@ -33516,6 +33572,9 @@
 1,prayer of *summoning* ([summoning])
 1,prayer of *protection of the moon* (8h, prevents were-creatures from approaching)
 1,prayer of *safety* (transports the reader and up to ten targets back to the last temple the reader entered)
+4,[treasure map]
+
+;treasure map
 1,map to the hidden ancestral shrine of *[elf name]* (in [link to adjacent hex]) with the promise of [1d6]000 gold coins to be found
 1,map to the hidden ancestral shrine of *[dwarf name]* (in [link to adjacent hex]) with the promise of [1d10]000 gold coins to be found
 1,map to the hidden crypt of [wight leader] (in [link to adjacent hex]) with the promise of [1d12]000 gold coins to be found
