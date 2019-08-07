@@ -1344,7 +1344,8 @@ sub resolve_nearby {
 
 =item closest
 
-This picks the closest instance of whatever we're looking for.
+This picks the closest instance of whatever we're looking for, but not from the
+same coordinates, obviously.
 
 =cut
 
@@ -1355,7 +1356,7 @@ sub closest {
   my $key = shift;
   my @coordinates = sort {
     distance($coordinates, $a) <=> distance($coordinates, $b)
-  } keys %{$globals->{$key}};
+  } grep { $_ ne $coordinates } keys %{$globals->{$key}};
   if (not @coordinates) {
     $log->info("Did not find any hex with $key");
     return pick($map_data, $table_data, 1, $coordinates, [], $key);
