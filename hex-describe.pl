@@ -42,8 +42,6 @@ use Mojo::ByteStream;
 use Array::Utils qw(intersect);
 use Encode qw/decode_utf8/;
 
-my $FS = "\x1e"; # The FS character is the RECORD SEPARATOR control char in ASCII
-
 my $hex_describe_url = app->mode eq 'development'
     ? 'http://localhost:3000'
     : 'https://campaignwiki.org/hex-describe';
@@ -1180,7 +1178,7 @@ sub describe {
       return $location;
     } elsif ($word =~ /^(?:nearby|other|later) ./) {
       # skip on the first pass
-      return $FS . $word . $FS;
+      return "｢$word｣";
     } elsif ($word =~ /^same (.+)/) {
       return $locals{$1}->[0] if exists $locals{$1} and ref($locals{$1}) eq 'ARRAY';
       return $locals{$1} if exists $locals{$1};
@@ -1306,7 +1304,7 @@ sub normalize_elvish {
 
   $name = ucfirst($name);
 
-  $log->debug("Elvish normalize: $original → $name");
+  # $log->debug("Elvish normalize: $original → $name");
   return $name;
 }
 
@@ -1338,13 +1336,15 @@ sub resolve_nearby {
   my $descriptions = shift;
   for my $coord (keys %$descriptions) {
     $descriptions->{$coord} =~
-	s/${FS}nearby ([^][${FS}]*)${FS}/closest($map_data,$table_data,$coord,$1) or '…'/ge;
+	s/｢nearby ([^][｣]*)｣/closest($map_data,$table_data,$coord,$1) or '…'/ge;
+    $descriptions->{$coord} =~ s!( \(<a href="#desc\d+">\d+</a>\))</em>!</em>$1!g; # fixup
   }
 }
 
 =item closest
 
-This picks the closest instance of whatever we're looking for.
+This picks the closest instance of whatever we're looking for, but not from the
+same coordinates, obviously.
 
 =cut
 
@@ -1355,9 +1355,9 @@ sub closest {
   my $key = shift;
   my @coordinates = sort {
     distance($coordinates, $a) <=> distance($coordinates, $b)
-  } keys %{$globals->{$key}};
+  } grep { $_ ne $coordinates } keys %{$globals->{$key}};
   if (not @coordinates) {
-    $log->info("Did not find any hex with $key");
+    $log->info("Did not find any hex with $key ($coordinates)");
     return pick($map_data, $table_data, 1, $coordinates, [], $key);
   }
   # the first one is the closest
@@ -1411,7 +1411,8 @@ sub resolve_other {
   my $descriptions = shift;
   for my $coord (keys %$descriptions) {
     $descriptions->{$coord} =~
-	s/${FS}other ([^][]*)${FS}/some_other($map_data,$table_data,$coord,$1) or '…'/ge;
+	s/｢other ([^][｣]*)｣/some_other($map_data,$table_data,$coord,$1) or '…'/ge;
+    $descriptions->{$coord} =~ s!( \(<a href="#desc\d+">\d+</a>\))</em>!</em>$1!g; # fixup
   }
 }
 
@@ -1457,7 +1458,7 @@ sub resolve_later {
   my $table_data = shift;
   my $descriptions = shift;
   for my $coord (keys %$descriptions) {
-    while ($descriptions->{$coord} =~ /${FS}later ([^][]*)${FS}/) {
+    while ($descriptions->{$coord} =~ /｢later ([^][｣]*)｣/) {
       my $words = $1;
       my ($ref) = $words =~ m!( \(<a href=".*">.*</a>\))!;
       $ref //= ''; # but why should it ever be empty?
@@ -1466,7 +1467,7 @@ sub resolve_later {
       $key =~ s/$re// if $ref;
       $re = quotemeta($words);
       my $result = $descriptions->{$coord} =~
-	  s/${FS}later $re${FS}/describe($map_data,$table_data,1,$coord,[$key]) . $ref or '…'/ge;
+	  s/｢later $re｣/describe($map_data,$table_data,1,$coord,[$key]) . $ref or '…'/ge;
       if (not $result) {
 	$log->error("Could not resolve later reference in '$words'");
 	last; # avoid infinite loops!
