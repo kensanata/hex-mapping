@@ -10249,8 +10249,9 @@
 ;treasure hunter
 1,The treasure hunter **[human class]** [human with portrait] (level [1d4+1 as level]) is trying to hire some fools for they have a [treasure map]. [spellbook for [same class]] [leader treasure for [same class]] “[sharing agreement]”
 1,The treasure hunter **[human class]** [human with portrait] (level [1d4+1 as level]) is trying to hire some fools to find *[magic plant]* (in [link to adjacent hex]). “Surely *[nearby alchemist patron]* will pay us well. [5000gp reward sharing agreement]” [spellbook for [same class]] [leader treasure for [same class]]</p><p>[magic plant guardian]
+1,The treasure hunter **[human class]** [human with portrait] (level [1d4+1 as level]) is trying to hire some fools to steal *[magic plant]* from the witch *[nearby witch]* who grows it amongst the other herbs, vegetables, and flowers of her garden. “Surely *[nearby alchemist patron]* will pay us well. [5000gp reward sharing agreement]” [spellbook for [same class]] [leader treasure for [same class]]
 # the following item might require more travel to an existing magic planet but has no guardian
-1,The treasure hunter **[human class]** [human with portrait] (level [1d4+1 as level]) is trying to hire some fools to find *[nearby magic plant]*. [spellbook for [same class]] [leader treasure for [same class]] “Surely *[nearby alchemist patron]* will pay us well. [5000gp reward sharing agreement]”
+1,The treasure hunter **[human class]** [human with portrait] (level [1d4+1 as level]) is trying to hire some fools to search for *[nearby magic plant]*. [spellbook for [same class]] [leader treasure for [same class]] “Surely *[nearby alchemist patron]* will pay us well. [5000gp reward sharing agreement]”
 1,The treasure hunter **[human class]** [human with portrait] (level [1d4+1 as level]) is trying to hire some fools to rob an ancient tomb (in [link to adjacent hex]). [spellbook for [same class]] [leader treasure for [same class]] “[sharing agreement]”</p><p>[tomb guardian] [ancient treasure]
 1,The treasure hunter **[human class]** [human with portrait] (level [1d4+1 as level]) is trying to hire some fools to get some *[nearby alchemist quest]*. [spellbook for [same class]] [leader treasure for [same class]] “Surely *[nearby alchemist patron]* will pay us well. [sales sharing agreement]”
 
@@ -10258,6 +10259,11 @@
 1,*[same magic plant]* lies in a shady hollow near a crystal clear pool, guarded by [1d8 treants] ([treant stats]). They hate any living being that lives by thumb and fist.
 1,*[same magic plant]* grows in the care of the **hermit druid** *[old name]* ([druid stats]) and their [3d6] **wolves** ([wolf stats]). They are of course unwilling to part with any of it.
 1,In the ancient past, *[same magic plant]* was often used to contain the undead. The plan is to take it from an ancient tomb. “Of course, any treasure found will be shared the same way,” [same human name] adds. That tomb is the resting place of [1d8 wights] ([wight stats]). [dead treasure]
+1,Obtaining *[same magic plant]* may not be so simple, for it only grows when fertilized by the pellets of *owlbears*. While foraging for it in this area, it is wise to be weary of [owlbear] with a nearby den ([owlbear stats]).
+1,Often found clinging to trees inhabited by magic, *[same magic plant]* grows on the [tree] tree of the **dryad** with the same name, *[same tree]* ([dryad stats]). [dryad lover]
+1,Traditionally used to flavor their sylvan libations, the *[same magic plant]* here is tended by a troupe of unruly [3d6] **satyrs** ([satyr stats]).
+1,It is wise to be wary when harvesting *[same magic plant]* for it often grows near the dreaded *screaming mandrake*, which if accidentally uprooted let's out a piercing wail that can cause deafness. Sadly, non-herbalists will nearly always mistake one for the other but *[same human name]* is not about to tell you that.
+1,Although the area it grows in seems inordinately peaceful, *giant trapdoor spiders* often lair near places where *[same magic plant]* is found. They are known to burst out of their carefully concealed hiding places and surprise their prey. Indeed, [2d4] **giant trapdoor spiders** ([giant spider stats]; *surprise* on 1–5 in 6) await the gullible.
 
 ;sharing agreement
 3,I am generous: two shares of the treasure found for me, the rest to be shared equally amongst the other survivors.
