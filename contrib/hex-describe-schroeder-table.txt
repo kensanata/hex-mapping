@@ -1991,7 +1991,7 @@
 ;maybe griffon eggs
 1,
 1,<span class="treasure">The *griffon egg* is worth 5000gp to an alchemist</span>.[here store griffon egg as alchemist quest]
-2,<span class="treasure">The [1d2+1] *griffon eggs* are worth 5000gp to an alchemist</span>.[here store griffon egg as alchemist quest]
+2,<span class="treasure">The [1d2+1] *griffon eggs* are worth 5000gp each to an alchemist</span>.[here store griffon egg as alchemist quest]
 
 ;ice devil adjectives
 1,terrible
@@ -2387,11 +2387,11 @@
 1,Dark
 1,Forever
 
-;white dragon stats
-1,HD 6 AC 3 1d4/1d4/2d8 F6 MV 24 ML 8 XP 600; *ice* (as much as the dragon has hp left, save vs. dragon breath for half)
-
 ;dragon portrait
 1,<img class="landscape" src="[[redirect https://campaignwiki.org/face/redirect/alex/dragon]]" alt="[same dragon name]" title="[same dragon name]"/>
+
+;white dragon stats
+1,HD 6 AC 3 1d4/1d4/2d8 F6 MV 24 ML 8 XP 600; *ice* (as much as the dragon has hp left, save vs. dragon breath for half)
 
 ;white dragon name
 1,[white dragon 1] [dragon 2] [white dragon 3]
