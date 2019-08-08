@@ -2026,6 +2026,12 @@
 1,2d6 **four armed, white gorillas**
 1,pet **white dragon** *[here white dragon name as dragon name]*[dragon portrait] ([white dragon stats])
 
+;white gorilla stats
+1,HD 3 AC 7 1d6/1d6 F3 MV 12 ML 5 XP 300
+
+;four armed white gorilla stats
+1,HD 4+1 AC 6 1d6/1d6/1d6/1d6/1d8 F4 MV 24 ML 10 XP 400
+
 ;ice devil lair
 1,a large ice cave with a mount of bones as big as a house upon which the devil has built his throne of ice and steel.
 1,[1d4+2] torture chambres full of racks, vats, ice baths, blades, needles, and worse. There are dead bodies everywhere.
