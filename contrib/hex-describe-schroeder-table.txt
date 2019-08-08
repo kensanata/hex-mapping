@@ -7961,7 +7961,12 @@
 1,The [forest name] is flooded with soothing sun light (or moon light). [unicorns]
 
 ;wood elves
-1,[save 1d6+1 as level][save spellbook for elves] Elves have built their [elf dwelling] in [forest name], [beautiful trees]. [elf environment] [elf companions]</p><p>[elf clade name], [2d12] **elves** ([elf stats]) led by [elf with portrait] (level [same level]). [same spellbook for elves] [leader treasure]
+1,[save 1d6+1 as level][save spellbook for elves] Elves have built their [elf dwelling] in [forest name], [beautiful trees]. [elf environment] [elf companions]</p><p>[elf clade name], [2d12] **elves** ([elf stats]) led by [elf with portrait] (level [same level]). [same spellbook for elves] [leader treasure]</p><p>[wood elf quest]
+
+;wood elf quest
+1,*[same elf name]* wants *[nearby elf treasure]* back. It was stolen many decades ago, they say.
+1,*[same elf name]* wants *[nearby human patron]* dead. They are desecrating the forest, they say.
+1,*[same elf name]* would like some *[nearby magic plant]*. They will pay 500gp if you bring them some.
 
 ;elf clade name
 1,This the home of the [clade name for [same [same spellbook] 1]]
@@ -11217,7 +11222,7 @@
 1,river flowing around it
 
 ;human leader
-1,**[human class]** [human with portrait] (level [1d2+8 as level])[save [same human name] as human patron]
+1,**[human class]** [human with portrait] (level [1d2+8 as level])[here store [same human name] as human patron]
 
 ;human retainer
 1,Their retainer is the **[human class]** [human with portrait] (level [1d2+6 as level]). [spellbook for [same class]] [leader treasure for [same class]]
@@ -33793,8 +33798,8 @@
 
 ;magic weapon
 5,[magic weapon for magic user]
-10,An elven *long sword* +1 with [elven inscription]
-5,An elven *long bow* +1.
+10,An elven *long sword* +1 with [elven inscription][here store the sword of [same owner] as elf treasure]
+5,An elven *long bow* +1 with [elven inscription][here store the long bow of [same owner] as elf treasure]
 5,A dwarven *short sword* +2 with [dwarven inscription]
 2,A dwarven *crossbow* +2.
 2,A goblin assassin’s black iron *crossbow* +1, decorated with the seven heads of Set.
@@ -33820,7 +33825,7 @@
 1,The ancient war hammer *Earth Hammer* +3, made by *[orc name]* in the *War of the Landgrab*: it can smash any structure built by man in three blows.
 
 ;magic weapon for magic user
-5,An elven *dagger* +1 with [elven inscription]
+5,An elven *dagger* +1 with [elven inscription][here store the dagger of [same owner] as elf treasure]
 3,A goblin assassin’s *dagger* +1 with grip covered by rats’ teeth and lizard skin.
 2,A *dagger* +1 consecrated to [power].
 1,A *dagger* +1 with the pommel being a small talking head of [power] always there to recommend a violent course of action.
@@ -33837,9 +33842,9 @@
 
 ;magic armour
 3,[magic armour for magic user]
-4,A suit of elven *plate armour* +1 with [elven inscription]
+4,A suit of elven *plate armour* +1 with [elven inscription][here store the armour of [same owner] as elf treasure]
 2,A suit of dwarven *plate armour* +2 with [dwarven inscription]
-2,An elven *shield* +1 with [elven inscription]
+2,An elven *shield* +1 with [elven inscription][here store the shield of [same owner] as elf treasure]
 2,A dwarven *shield* +2 with [dwarven inscription]
 1,A suit of elven *plate armour of fire resistance* +1 made with scales of the red dragon *[red dragon name]*, forged by *[elf name]*.
 1,A suit of dwarven *plate armour cold resistance* +1 made with scales of the white dragon *[white dragon name]*, forged by *[dwarf name]* of *[dwarf forge]*.
@@ -33970,10 +33975,10 @@
 1,dwarven runes commemorating the slaying of the red dragon *[red dragon name]*.
 
 ;elven inscription
-2,elven runes naming its maker: *[elf name]*.
-2,elven runes naming its owner: *[elf name]*.
-1,elven runes in memory of *[treant]*.
-1,elven runes commemorating the slaying of the green dragon *[green dragon name]*.
+2,elven runes naming its maker: *[elf name as owner]*.
+2,elven runes naming its owner: *[elf name as owner]*.
+1,elven runes in memory of *[treant as owner]*.
+1,elven runes commemorating the slaying of the green dragon *[green dragon name as owner]*.
 
 ;animal shape
 1,sea lion, allows you to swim
