@@ -2233,15 +2233,124 @@
 1,HD 10 AC 0 3d10 MV 12 ML 12 XP 1000; immune to *arrows*, immune to *poison*; immune to *spells*; when dealing damage to a bronze golem with a melee weapon, save vs. death or suffer 2d6 damage from molten metal splashes
 
 ;green tower in the mountains
-1,High up on on a ridge is an old elven tower made of green glass, [green tower in the mountains content] [green tower description] In *[old elf ballad name]*, they call it *[elf tower name]*.
+1,High up on on a ridge is an old elven tower made of green glass. [green tower description] In *[old elf ballad name]*, they call it *[elf tower name]*. [green tower in the mountains content]
 
 ;green tower in the mountains content
-1,long abandoned.
-1,now inhabited by a **white dragon** called *[here white dragon name as dragon name]*[dragon portrait] ([white dragon stats]). [dragon treasure]
-1,and at the very top there is a lair of [2d8] very protective **griffons** ([griffon stats]). [maybe griffon eggs]
-1,currently the home of [gargoyles] ([gargoyle stats]). [poor treasure]
-1,The Earth Blood in this tower has turned previous visitors into [2d6] [slime].
-1,[necromancer]
+1,[green mountain tower entrance] [green mountain tower 2] [green mountain tower 3] [green mountain tower top]
+1,[green mountain tower entrance] [green mountain tower 3] [green mountain tower top]
+
+;green mountain tower entrance
+1,</p><p>There is no visible entrance, but a person carrying an amulet of passage bearing the [name for a clan of the netherworld elves] sigil will see the hidden door.
+1,</p><p>Attempting to enter the tower draws the attention of *[a jinn name]*, a **jinn** who guards the tower ([stats for a jinn]).
+1,</p><p>An ornate archway stands open at the base of the tower allowing any to pass within. In the archway, however, lie [victims of lightning]. Those who do are struck by a *rune of protection* unless copper or iron wiring is used to short-circuit the trap: *lightning bolt* (5d6 damage, save vs. spells for half)
+1,</p><p>The delicately carved [tree] wood doors of the tower have been ripped open and splintered. The bottom floor of the tower is home to [[den type]], [den mood] ([[same den type] stats]).
+1,</p><p>Inside the tower, in the entry hall, [1d2+1] **crystal living statues** stand silent guard ([stone golem stats]). Unless the party speaks the name of the tower's builder, *[elf name]*, the guardians will attack any who attempt to ascend to the next level.
+
+;green mountain tower 2
+1,</p><p>The elf *[elf name]* was cursed for sleeping on their watch on the day this tower fell and was cursed by its commander to guard this tower in the form of a **mountain lion** for all eternity ([puma stats]). If the party can gain the lion's trust – and they can speak with it! – it can teach them the incantation that opens the door to the next level. If killed, the elf will soon reincarnate as another lion and return.
+1,</p><p>The bodies of [1d4+1] adventurers are decomposing on the stairs leading up the next level. They seem to have died a painful death and yet they have no obvious injuries. They did not know about the **poison gas trap** triggered by the third step. If triggered, save vs. poison or die.
+1,</p><p>Further up, in a beautiful room with a terrace encircling the entire tower, a group of [1d4+1] **tengu** is roosting, led by the master swordsman *[tengu name]*. ([tengu stats]) For the price of 500gp they will tell you how to open the secret door to the top of the tower.
+
+;green mountain tower 3
+1,</p><p>The room above, with its polished floor, arching columns and a beautiful mosaic of [with elf decoration] and [and elf decoration] and scenes from [old elf ballad name], is inhabited by a **blue dragon** called *[here blue dragon name as dragon name]*[dragon portrait] ([blue dragon stats]). Exposure to elven dweomers has made the dragon surprisingly [dragon mood].  [dragon treasure]
+1,</p><p>The walls of this room near the top are cracked and all the windows are broken. This is the lair of [2d8] very protective **griffons** ([griffon stats]). They are often seen hunting the land around this tower. [maybe griffon eggs]
+1,</p><p>The large room up here has an opening in the [direction]ern wall leading to a platform with a beautiful view. The room itself is filled with glass pipes, ventilators and copper cauldrons. This laboratory is home to [gargoyles] ([gargoyle stats]). [poor treasure]
+1,</p><p>Furter up, where heaven and earth appear to meet, the Earth Blood has turned previous visitors into [2d6] [slime].
+1,</p><p>Further up and behind locked and iron-bound doors is a large room with a [1d4+1] gorgeous old wooden tables and many chairs decorated with fern leaves and roses. Here dwells the **necromancer** [human with portrait][here store [same human name] as alchemist patron] (level [1d3+4 as level]), protected by [necromancer companions]. [spellbook for necromancers] [luxurious context] [leader treasure for magic user]
+
+;green mountain tower top
+3,</p><p>The top of the tower appears long abandoned. Elven relics are covered with dust and the tapestries are faded and mostly threadbare. [poor treasure]
+1,</p><p>The uppermost chamber of the tower appears to have been some sort of observatory in the past. Perhaps special knowledge could be gleaned by those who take the time to examine it.[here store observatory as source of information]
+1,</p><p>The topmost chamber has an excellent view of the mountains from the tall windows that reach nearly to the floor. One window is decorated with depictions of the moon and [[another realm] decoration]. When the light of the [moon phase] falls on it, it turns to a magical portal to *[same another realm]*.
+1,</p><p>[1d4+1] **elven ghosts** led by *[elf name]* inhabit the topmost chamber. ([spectre stats]) They don't know how long they have been trapped here, but if they can be freed ([how to free an elven ghost]), the party could expect an unusual boon: <span class="treasure">[magic item]</span>
+
+;how to free an elven ghost
+1,by smashing the tower to bits
+1,by washing the tower of the millennia of blood
+1,by dedicating it to [power]
+1,by building an altar to [power]
+1,by returning [nearby elf treasure]
+
+;another realm
+# details in the corresponding [[another relm] decoration] tables
+1,Vanaheim
+1,Muspelheim
+1,Niflheim
+1,Alfheim
+1,Svartalfheim
+
+;Vanaheim decoration
+1,vultures
+1,four winged demons
+1,snakes
+1,skulls
+1,corpses
+1,starving people
+
+;Muspelheim decoration
+1,flames
+1,vulcanoes
+1,smoke
+1,bulls
+1,people swearing an oath
+
+;Niflheim decoration
+1,snow
+1,ice
+1,forests
+1,trolls
+1,a sleeping dragon
+
+;Alfheim decoration
+1,dancing elves
+1,frolicking unicorns
+1,musical instruments
+1,flying sprites
+
+;Svartalfheim decoration
+1,endless caves
+1,sinister looking dwarves
+1,a seven headed snake
+1,countless daggers
+
+;moon phase
+1,new moon (🌑)
+1,waxing crescent moon (🌒)
+1,first quarter moon (🌓)
+1,waxing gibbous moon (🌔)
+1,full moon (🌕)
+1,waning gibbous moon (🌖)
+1,last quarter moon (🌗)
+1,waning crescent moon (🌘)
+
+;elf decoration
+1,fern
+1,flowers
+1,roses
+1,eagles
+1,falcons
+1,sparrows
+1,trees
+1,mushrooms
+1,[magic plant]
+1,[tree] trees
+
+;victims of lightning
+1,two dead knights in plate
+1,two soldiers wearing chain
+
+;dragon mood
+1,friendly
+1,morose
+1,jovial
+1,welcoming
+1,dreamy
+1,flirty
+1,distracted
+1,irritated
+1,angry
+1,apathetic
+1,calm
 
 ;green tower in this lake content
 1,long abandoned.
@@ -2312,6 +2421,29 @@
 1,of the Top
 1,the Eternal
 1,the Sleeper
+
+;blue dragon stats
+1,HD 9 AC 0 1d8/1d8/3d10 F9 MV 24 ML 9 XP 900; *lightning* (as much as the dragon has hp left, save vs. dragon breath for half)
+
+;blue dragon name
+1,[blue dragon 1] [dragon 2] [blue dragon 3]
+
+;blue dragon 1
+1,Blue
+1,Liquid
+1,Water
+1,Storm
+1,Lightning
+1,Thunder
+
+;blue dragon 3
+1,of the Lake
+1,of the River
+1,of the Sea
+1,of the Clouds
+1,of the Rain
+1,the Furious
+1,the Raging
 
 ;lake name
 1,[lake 1] [lake 2]
