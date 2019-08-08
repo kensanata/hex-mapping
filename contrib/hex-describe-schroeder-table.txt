@@ -5895,7 +5895,7 @@
 1,[5d8] **halflings** ([halfling stats]) led by [halfling leader]. [leader treasure] [average treasure] [halfling troubles]
 
 ;halfling stats
-1,HD 1 HP 1d6 AC 7 1d6 H1 MV 9 ML 7 XP 100; outside: *surprise* on 1–5 in 6, inside: *surprise* on 1–2 in 6
+1,HD 1 → 1d6 AC 7 1d6 H1 MV 9 ML 7 XP 100; outside: *surprise* on 1–5 in 6, inside: *surprise* on 1–2 in 6
 
 ;halfling leader
 1,[halfling with portrait] (level [1d6+1 as level])
@@ -8244,7 +8244,7 @@
 ;elf stats
 # This requires the establishment a [spellbook for elves]. Typically you’d use it like this:
 # [save 1d6+1 as level][save spellbook for elves][2d12] **elves** ([elf stats]) led by [elf with portrait] (level [same level]). [same spellbook for elves] [leader treasure]
-1,HD 1 HP 1d6 AC 5 1d6 or *[same [same spellbook] 1]* 1×/day E1 MV 12 ML 10 XP 100
+1,HD 1 → 1d6 AC 5 1d6 or *[same [same spellbook] 1]* 1×/day E1 MV 12 ML 10 XP 100
 
 ;elf travelling companions
 3,
