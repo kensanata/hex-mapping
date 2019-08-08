@@ -2021,9 +2021,9 @@
 1,Frozen
 
 ;ice devil companions
-1,2d6 **winter wolves** ([winter wolf stats])
-1,4d6 **white gorillas**
-1,2d6 **four armed, white gorillas**
+1,[2d6] **winter wolves** ([winter wolf stats])[here store winter wolf icicles as alchemist quest]
+1,[4d6] **white gorillas** ([white gorilla stats])
+1,[2d6] **four armed, white gorillas** ([four armed white gorilla stats])
 1,pet **white dragon** *[here white dragon name as dragon name]*[dragon portrait] ([white dragon stats])
 
 ;white gorilla stats
@@ -2804,7 +2804,7 @@
 1,A piece of the glacier has broken off and revealed an old temple of *[good power]*, razed, defiled, and cursed with the presence of a gorgon. There are plenty of dead birds which have died due to the poisonous fumes.
 
 ;cryohydra lair
-1,The glacier up here is the work of a hydra, a living manifestation of the ice realm.
+1,The glacier up here is the work of a hydra, a living manifestation of the ice realm.[here store hydra blood as alchemist quest]
 
 ;mountains
 1,These mountains are called the [name for white big mountains]. [more mountains]
@@ -3015,7 +3015,7 @@
 
 ;mountain people
 1,[1d4 frost giants]. [rich treasure]
-1,[2d4] **winter wolves** live up here ([winter wolf stats])
+1,[2d4] **winter wolves** live up here ([winter wolf stats])[here store winter wolf icicles as alchemist quest]
 1,There is a dwarven forge called *[here dwarf forge]* up here. [dwarves]
 
 ;frost giant stats
@@ -3044,8 +3044,8 @@
 
 ;frost giant companions
 3,[1d4] **white bears** ([bear stats])
-2,[2d4] **winter wolves** ([winter wolf stats])
-1,a **cryohydra** ([cryohydra stats])
+2,[2d4] **winter wolves** ([winter wolf stats])[here store winter wolf icicles as alchemist quest]
+1,a **cryohydra** ([cryohydra stats])[here store hydra blood as alchemist quest]
 1,a **white dragon** named *[here white dragon name as dragon name]*[dragon portrait] ([white dragon stats])
 1,a **spectre** of their ancient ice king ([spectre stats])
 
@@ -5606,7 +5606,7 @@
 1,HD 2 AC 6 1d4/1d4/1d4 + *paralysis* F2 MV 9 ML 9 XP 200; *aura of fear* (save vs. spells or flee for two rounds); when bitten, save vs. paralysis or be *paralysed* for 1h; *limited shape shift* into a hyena
 
 ;necromancer tower
-1,It is surrounded by a moat and inside the moat lives a **pyrohydra** chained to the foundations of the tower ([pyrohydra stats]).
+1,It is surrounded by a moat and inside the moat lives a **pyrohydra** chained to the foundations of the tower ([pyrohydra stats]).[here store hydra blood as alchemist quest]
 1,The stinking dungeons below the tower are filled with cells where a hundred people or more must have died over the years. A pit of rotten flesh and bones awaits all who die here.
 1,Below the tower is a conjuration room with a circle of protection. There’s a book, here: [necronomicon].
 1,It is surrounded by permanent darkness spells, and in the darkness lie spiked pits and poison trees, and [3d6] **shadow wolves**.
@@ -11058,11 +11058,11 @@
 1,These trolls guard a secret passage to the realm of snow and black forests itself, to Niflheim. The gate to Niflheim itself at the end of this passage is further guarded by a [gate monster].
 
 ;gate monster
-1,**cryohydra** ([cryohydra stats])
-1,**pyrohydra** ([cryohydra stats])
-1,**chimera** ([chimera stats])
-1,three-headed **hell hound** ([hell hound stats])
-1,three-headed **winter wolf** ([winter wolf stats])
+1,**cryohydra** ([cryohydra stats])[here store hydra blood as alchemist quest]
+1,**pyrohydra** ([cryohydra stats])[here store hydra blood as alchemist quest]
+1,**chimera** ([chimera stats])[here store chimera blood as alchemist quest]
+1,three-headed **hell hound** ([hell hound stats])[here store hell hound embers as alchemist quest]
+1,three-headed **winter wolf** ([winter wolf stats])[here store winter wolf icicles as alchemist quest]
 
 ;chimera stats
 1,HD 6 AC 5 1d6/1d6/1d10/2d10 or *fire* F6 MV 9 ML 10 XP 600; *fire* (3×/day): as much as the chimera has hp left, save vs. dragon breath for half
@@ -11074,7 +11074,7 @@
 1,The temple has a courtyard with the wooden statue of a wolf mother raising two human babies. The building is run by [2d6] midwives. Old **[woman]** is their spokeswoman. All the parents in this settlement know how much they owe these midwives, and they know it, too.
 1,The temple belongs to the local [shield maidens], a society of armed women sworn to protect each other and their community. There are [3d6] women led by **[woman]** living here and all are considered armed and dangerous by the locals.
 1,The local priests have turned their attention on the sick and as their reputation grew, so did the number of petitioners waiting outside their hall every morning. There are currently [2d4] priests under the guiding hand of **[woman]** tending the [3d10] sick and wounded.
-1,This temple is run by the she-wolf **[woman]**. She is always in the company of her **winter wolf**, a beast as large as a pony, with red eyes and fearsome fangs.
+1,This temple is run by the she-wolf **[woman]**. She is always in the company of her **winter wolf**, a beast as large as a pony, with red eyes and fearsome fangs.[here store winter wolf icicles as alchemist quest]
 
 ;boars or wolves
 1,**boars** ([boar stats])
