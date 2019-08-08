@@ -6691,7 +6691,7 @@
 1,Prickly
 1,Priest’s
 1,Purple
-1,Queen(’s)
+1,Queen’s
 1,Royal
 1,Rupture
 1,St. [old name]’s
