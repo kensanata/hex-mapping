@@ -10271,9 +10271,10 @@
 ;caravan special
 3,
 2,<p>The caravan has a **bard** called [human with portrait] who is on his way to [nearby village name].[store human as singing humanoid] The songs they like to perform are [with story] and [and story].
-2,<p>One merchant is a secret agent of the [one of the secret societies].
-2,<p>One merchant is selling blessed [metal mat] amulets of [good power].
-1,<p>One of the members of the trade caravan is a **witch** in disguise. Travelling under the name *[woman]*, her real name is *[here old names for women as witch]*, [the witch]. [caravan witch goal] ([witch stats]). Any valuables are well hidden in her wagon. [terror treasure]
+2,<p>*[[same race] name]* is a **secret agent** of the [one of the secret societies]. [description for a secret society ([same alignment])]
+2,<p>*[[same race] name]* is selling blessed [metal mat] amulets of [good power].
+2,<p>*[[same race] name as cultist]* is an **evil cultist** of [evil power]. If you know the cult, you will recognise their amulet: it shows [[same evil power] decoration]. They already befriended a kid called *[human name]* but swore them to secrecy. Before the caravan leaves, *[same cultist]* is planning to sacrifice them to their demon lord.
+1,<p>One of the members of the trade caravan is a **witch** in disguise. Travelling under the name *[[same race] name]*, her real name is *[here old names for women as witch]*, [the witch]. [caravan witch goal] ([witch stats]). Any valuables are well hidden in her wagon. [terror treasure]
 1,<p>The caravan has a **travelling alchemist** called [human with portrait] who can supply a [with scroll], a [and scroll], a [and scroll] at 1000gp each. They also have a [with potion] and a [and potion] for sale at 500gp each.
 1,<p>The caravan has a **botanist** called [human with portrait] who will sell potted *[with magic plant]* or *[and magic plant]* at 50gp each (20 of each available), and the very costly *[and magic plant]* at 500gp each (just 2 available).
 
