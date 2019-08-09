@@ -2159,6 +2159,7 @@ page is my attempt at writing a tutorial.
 <li><a href="#lists">Lists of unique things: with, and</a></li>
 <li><a href="#capitalization">Capitalization</a></li>
 <li><a href="#images">Images</a></li>
+<li><a href="#files">Static Files</a></li>
 </ul>
 
 <h2 id="basics">The Basics</h2>
@@ -3414,6 +3415,27 @@ from services that aren’t hosted on the same domain
 (<a href="https://en.wikipedia.org/wiki/Same-origin_policy">same-origin policy</a>).
 </p>
 
+<h2 id="files">Files</h2>
+
+<p>
+This section is for people running the <em>Hex Describe</em> server.
+</p>
+
+<p>
+You can change the CSS of the site as follows:
+</p>
+
+<ol>
+<li>create a <code>public</code> directory in the same directory where
+<code>hex-describe.pl</code> is</li>
+<li>create a <code>hex-describe.css</code> in the new directory
+</ol>
+
+<p>
+The new file takes precedence over the file that came included in the script's
+<code>__DATA__</code> section.
+</p>
+
 @@ authors.html.ep
 % layout 'default';
 % title 'Hex Describe Authors';
@@ -3441,13 +3463,7 @@ The icons are based on the
 icons by Gregory B. MacKenzie.
 </p>
 
-@@ layouts/default.html.ep
-<!DOCTYPE html>
-<html>
-<head>
-<title><%= title %></title>
-%= stylesheet '/hex-describe.css'
-%= stylesheet begin
+@@ hex-describe.css
 body {
   padding: 1em;
   font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
@@ -3537,7 +3553,13 @@ td, th {
 hr {
   clear: both;
 }
-% end
+
+@@ layouts/default.html.ep
+<!DOCTYPE html>
+<html>
+<head>
+<title><%= title %></title>
+%= stylesheet '/hex-describe.css'
 <meta name="viewport" content="width=device-width">
 </head>
 <body>
