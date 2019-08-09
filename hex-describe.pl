@@ -256,14 +256,27 @@ This allows us to generate Markdown output.
 sub markdown {
   my $descriptions = shift;
   my @paragraphs = map {
+    # remove inline images
+    s!<img[^>]*>!!g;
+    # empty spans left after img has been removed
+    s!<span[^>]*>\s*</span>!!g;
+    # remaining spans result in Japanese brackets around their text
     s!<span[^>]*>\s*!｢!g;
     s!\s*</span>!｣!g;
+    # emphasis
     s!</?strong>!**!g;
     s!</?em>!*!g;
+    # remove links but leave their text
     s!</?a\b[^>]*>!!g;
-    s!</p><p>!\n\n!g;
-    s!  +! !g;
+    # closing paragraph tags are optional
+    s!</p>!!g;
+    # paragraph breaks
+    s!<p>!\n\n!g;
+    # blockquotes
+    s!<blockquote>(.*?)</blockquote>!local $_ = $1; s/^/\n> /g; $_!gem;
+    # unreplaced references (nearby, other, later)
     s!(.*?)!$1!g;
+    # return what's left
     $_;
   } @$descriptions;
   return join("\n" . '-' x 72 . "\n", @paragraphs);
