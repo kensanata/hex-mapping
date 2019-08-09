@@ -57,14 +57,16 @@ my $face_generator_url = app->mode eq 'development'
 As a Mojolicious application, it will read a config file called
 F<hex-describe.conf> in the same directory, if it exists. As the default log
 level is 'debug', one use of the config file is to change the log level using
-the C<loglevel> key.
+the C<loglevel> key, and if you're not running the server in a terminal, using
+the C<logfile> key to set a file.
 
 The default map and table are stored in the F<contrib> directory. You can change
 this directory using the C<default_dir> key. This is necessary when using
 Toadfarm to run the application, for example.
 
     {
-      loglevel => 'warn',
+      loglevel => 'debug',
+      logfile => 'hex-describe.log',
       default_dir => '/home/alex/farm/contrib',
     };
 
@@ -72,10 +74,12 @@ Toadfarm to run the application, for example.
 
 plugin Config => {default => {
   loglevel => 'debug',
+  logfile => undef,
   default_dir => 'contrib', }};
 
 my $log = Mojo::Log->new;
 $log->level(app->config('loglevel'));
+$log->path(app->config('logfile'));
 
 =head2 Default Map, Default Table
 
