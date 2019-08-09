@@ -10270,12 +10270,12 @@
 
 ;caravan special
 3,
-2,The caravan has a **bard** called [human with portrait] who is on his way to [nearby village name].[store human as singing humanoid] The songs they like to perform are [with story] and [and story].
-2,One merchant is a secret agent of [one of the secret societies].
-2,One merchant is selling blessed [metal mat] amulets of [good power].
-1,One of the members of the trade caravan is a **witch** in disguise. Travelling under the name *[woman]*, her real name is *[here old names for women as witch]*, [the witch]. [caravan witch goal] ([witch stats]). Any valuables are well hidden in her wagon. [terror treasure]
-1,The caravan has a **travelling alchemist** called [human with portrait] who can supply a [with scroll], a [and scroll], a [and scroll] at 1000gp each. They also have a [with potion] and a [and potion] for sale at 500gp each.
-1,The caravan has a **botanist** called [human with portrait] who will sell potted [with magic plant] or [and magic plant] at 50gp each (20 of each available), and the very costly [and magic plant] at 500gp each (just 2 available).
+2,<p>The caravan has a **bard** called [human with portrait] who is on his way to [nearby village name].[store human as singing humanoid] The songs they like to perform are [with story] and [and story].
+2,<p>One merchant is a secret agent of the [one of the secret societies].
+2,<p>One merchant is selling blessed [metal mat] amulets of [good power].
+1,<p>One of the members of the trade caravan is a **witch** in disguise. Travelling under the name *[woman]*, her real name is *[here old names for women as witch]*, [the witch]. [caravan witch goal] ([witch stats]). Any valuables are well hidden in her wagon. [terror treasure]
+1,<p>The caravan has a **travelling alchemist** called [human with portrait] who can supply a [with scroll], a [and scroll], a [and scroll] at 1000gp each. They also have a [with potion] and a [and potion] for sale at 500gp each.
+1,<p>The caravan has a **botanist** called [human with portrait] who will sell potted *[with magic plant]* or *[and magic plant]* at 50gp each (20 of each available), and the very costly *[and magic plant]* at 500gp each (just 2 available).
 
 ;caravan witch goal
 1,She uses the caravan as cover to travel from town to town selling love potions to gullible young folk in exchange for secrets.
@@ -10931,8 +10931,9 @@
 ;a boss
 1,the **[human class]** [human with portrait] (level [1d4+2 as level])
 
-# make sure there are only 3 of them
 ;one of the secret societies
+# make sure there are only 3 of them
+# common usage: "the secret society of the [one of the secret societies]"
 1,[name for a secret society (law)][store law as alignment]
 1,[name for a secret society (chaos)][store chaos as alignment]
 1,[name for a secret society (neutrality)][store chaos as alignment]
