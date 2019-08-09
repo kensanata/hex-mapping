@@ -13621,20 +13621,65 @@
 1,[good power]
 
 ;evil power
+# note that we need matching [X decoration] tables
+# and matching [small temple dedicated to X] tables
 1,Set
 1,Orcus
 1,Hel
 2,[disease power]
 
 ;disease power
+# note that we need matching decoration tables
 1,Nergal
 1,Pazuzu
 
 ;good power
+# note that we need matching decoration tables
 1,Freya
 1,Odin
 1,Thor
 1,Mitra
+
+;Set decoration
+1,snakes
+1,a seven headed snake
+1,a star with eight outward pointing daggers
+;Orcus decoration
+1,a skull pyramid
+1,a skull staff
+;Hel decoration
+1,a three headed hell hound
+1,a woman riding on a broom
+1,a pig
+;Nergal decoration
+1,cockroaches
+1,rats
+;Pazuzu decoration
+1,a four winged demon
+1,a bird man
+1,a vulture
+;Freya decoration
+1,a wolf
+1,a woman with a wolf at her feet
+1,an apple tree
+1,a woman standing beneath an apple tree
+1,a woman standing in a wheat field
+;Odin decoration
+1,a man with an eye patch
+1,a man with a raven on his shoulder
+1,a man riding on an eight-legged horse
+;Thor decoration
+1,a man with a hammer
+1,a hammer
+1,a lightning bolt
+1,an iron gauntlet
+;Mitra decoration
+1,a coal brazier
+1,three men swearing an oath
+1,a hand showing the sign of oath swearing
+1,a bull
+1,a bull being killed by an axe
+1,a dragon breathing fire
 
 ;special power
 1,[power] the [power attribute]
