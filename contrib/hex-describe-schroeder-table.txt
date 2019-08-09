@@ -10401,16 +10401,21 @@
 1,tattooed woman [woman with portrait]
 
 ;circus hooks
-1,A prized **[circus exotic animal]** ([[same circus exotic animal] stats]) has escaped from their cage. The circus is desperate to retrieve them, alive and intact and will pay 200gp.
+1,A prized **[circus exotic animal]** ([[same circus exotic animal] stats]) has escaped from their cage. [secret circus leader] is desperate and will pay 200gp to retrieve them, alive and intact.
 1,Local children from [nearby village name] have gone missing, and many of them ran away to join *[same circus name]*. The villagers may not have much in the way of payment, but returning them would make you local heroes, and always welcome.
 1,*[human with portrait]*, one of the [circus performers] that travels with the *[same circus name]* is secretely a **vampire** ([vampire stats]), with a coffin of dark earth hidden away in one of the [conveyances]. They use the nomadic nature of the [same circus2] to drain victims dry and moving on before suspicion falls on the circus.
-1,The circus has been experiencing mysterious accidents lately. Just yesterday, *[human with portrait]*, one of the [circus performers], was severely injured during their act. The other performers suspect foul play, but are too busy rehearsing to properly investigate.
+1,The circus has been experiencing mysterious accidents lately. Just yesterday, *[human with portrait]*, one of the [circus performers], was severely injured during their act. The other performers suspect foul play, but are too busy rehearsing to properly investigate. [circus plot]
 1,On their last visit to [nearby village name], the circus managed to bilk the community out of most of their wealth. [1d4x10] villagers armed with pitchforks and torches led by *[human with portrait]* has been tracking them down to forcibly request refunds.
 1,Times have been tough for *[same circus name]* lately, and the last performance resulted in their payment being in the form of [with trade goods] and [and trade goods], *[human with portrait]* is looking to unload them for coin.
 1,The [with circus performers] have gone on strike for better wages and more safety measures. The protest has begun to escalate, roping in the [and circus performers] and [and circus performers]. The days of ringmaster *[human with portrait]* may be numbered as [secret circus leader] and her supporters *[with human name]* and *[and human name]* are outmanoeuvring them.
-1,The [secret circus leader] is looking to retire and settle down in [nearby village name]. They've saved up quite a bit of coin over the years, but ringmaster *[human name with portrait]* is worried that they may end up taking the [with circus performers] *[with human name]* and *[and human name]* and [and circus performers] *[and human name]* and *[and human name]* with them.
-1,A horrible accident occurred during the last [sideshow attractions] performance, and the circus will pay 50gp for a new, exciting act for tonight's show in [nearby village name].
-1,The mascot of *[same circus name]*, the [domestic animal adjective] **[circus exotic animal]** has died. The [secret circus leader] suspects foul play, and is quick to blame the [circus performers] *[with human name]* and *[and human name]* who have been getting significantly less ring-time lately.
+1,The [secret circus leader] is looking to retire and settle down in [nearby village name]. They've saved up quite a bit of coin over the years, but ringmaster *[human with portrait]* is worried that they may end up taking the [with circus performers] *[with human name]* and *[and human name]* and [and circus performers] *[and human name]* and *[and human name]* with them.
+1,A horrible accident occurred during the last [sideshow attractions] performance, and [secret circus leader] will pay 50gp for a new, exciting act for tonight's show, and another 50gp for the same show in [nearby village name].
+1,The mascot of *[same circus name]*, the [domestic animal adjective] **[circus exotic animal]** has died. The [secret circus leader] suspects foul play and is quick to blame the [circus performers] *[with human name]* and *[and human name]* who have been getting significantly less ring-time lately.
+
+;circus plot
+1,Indeed, the [circus performers] *[with human name]* and *[and human name]* are actually **doppelgängers** ([doppelgänger stats]). They studiously avoid any contact with alcohol in order to avoid discovery.
+1,Sadly, when they fired one of the [circus performers] back in [nearby village name], *[human name]* swore bloody vengeance and started following the circus, sneaking through the camp at night and sabotaging the equipment.
+1,It turns out that this all started after the breakup between the [circus performers] *[with human name as a]* and *[and human name as b]* back in [nearby village name]. *[same b]* has been acting strangely ever since, losing their temper easily and secretly threatening *[same a]* with more accidents unless they come back. *[same a]* isn't confiding in anybody because they think *[same b]* can still be saved. But how?
 
 ;circus exotic animal
 1,gorgon
