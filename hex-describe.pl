@@ -2384,9 +2384,8 @@ Tooth.
 </p>
 
 <p>
-And now you just keep adding. Take a look at the <a class="url http outside"
-href="https://campaignwiki.org/hex-describe/default/table">default
-table</a> if you want to see more examples.
+And now you just keep adding. Take a look at the <%= link_to 'Schroeder table' =>
+'schroedertable' %> if you want to see more examples.
 </p>
 
 <h2 id="context">Context</h2>
