@@ -9932,10 +9932,11 @@
 
 ;settlement event
 1,
-1,</p><p>[dragon hunter]
 1,</p><p>[bard]
-1,</p><p>[trade caravan]
+1,</p><p>[dragon hunter]
 1,</p><p>[treasure hunter]
+1,</p><p>[trade caravan]
+1,</p><p>[travelling circus]
 
 ;dragon hunter
 1,The dragon hunter **[human class]** [human with portrait] (level [1d4+5 as level]) is trying to hire two score desperate peasants to go and slay *[nearby dragon name]*. “[sharing agreement]” [spellbook for [same class]] [leader treasure for [same class]]
@@ -10290,6 +10291,126 @@
 1,The inscriptions of the mausoleum tells tales of bloodshed and violence. The tomb is in fact the resting place of [1d6 vampires], and the entrance is guarded by [undead guardians].
 1,The tomb is in fact the council chamber from the days when the living still consulted the dead. The inscriptions speak of many festivals where the dead participated as guests of honour. Sadly, many of the dead have lost their mind: these are the [undead guardians] that still roam these halls. But in the council chamber, you can still find [1d8 mummies] ([mummy stats]) willing to talk. They are quite unwilling to part with any treasure they might have, however.
 1,The tomb is in fact the resting place of an old hero. Sadly, according to the inscriptions they lost their war and never found eternal rest. They are still here, eager to fight, eager to recruit an army and resume their war: [1d4 spectres].
+
+;travelling circus
+1, Resting on their long journey between villages is the *[circus name]*, throughout the region it's whispered that they are actually a group of *[circus reputation]*. They transport their show via [1d6+1] wooden [conveyances], pulled by [domestic animal adjective] [draft animals].</p><p>**Circus Hook:** [circus hooks]</b>
+1, Carefully practicing their acts as they stop on their circuit through the area is the *[circus name]*, rumored to be comprised entirely of *[circus reputation]*. Circled and tethered are their [domestic animal adjective] [draft animals] near their [1d8+1] sturdy [conveyances].<p>**Circus Hook:** [circus hooks]</b>
+1, A large, colorful canvas tent set up to the side of your path ahead is emblazoned with large lettering proclaiming that this is property of the *[circus name]*. Rumors say that the performers are actually *[circus reputation]*. Off to one side, you can see various individuals unloading things from [conveyances] and watering and feeding some [domestic animal adjective] [draft animals].<p>**Circus Hook:** [circus hooks]</b>
+
+;circus name
+1, [circus1] [circus2]
+
+;circus1
+1,Sunshine
+1,Happy Clown
+1,Lion’s Mane
+1,Behemoth
+1,Red Letter
+1,Madame [old names for women]'s Spectacular
+1,[with old names for men] & Friends Instant
+1,[old names for women]'s
+1,[polish names for men] Family
+1,Lucky [old names for men]'s
+1,Two Copper
+
+;circus2
+1,Carnival
+1,Circus
+1,Travelling Fair
+1,Spectacle
+1,Menagerie
+1,Hippodrome
+
+;circus reputation
+1,thieves
+1,cut-throats
+1,magicians
+1,were-creatures
+1,fey changelings
+1,exiled nobles
+1,penitent monks
+
+;conveyances
+1,carts
+1,wagons
+1,sledges
+1,drays
+
+;draft animals
+3,oxen
+1,work horses
+1,donkeys
+1,mules
+1,[mountain animals]
+
+;domestic animal adjective
+1,overworked
+1,hungry
+1,underfed
+1,thoroughbred
+1,extremely hardy
+1,tired
+1,prize-winning
+1,gaunt
+1,well-treated
+1,exceptionally stubborn
+
+;circus performers
+1,jugglers
+1,acrobats
+1,tumblers
+1,aerialists
+1,trapezists
+1,clowns
+1,contortionists
+1,hand-balance acts
+1,rope walkers
+1,antipodists
+1,trampoliners
+1,knife throwers
+1,human catapult stones
+1,puppeteers
+1,chair jugglers
+1,trick archers
+
+;sideshow attractions
+1,bed of nails
+1,beard of bees
+1,escapology
+1,fire-breathing
+1,fire-eating
+1,shallow diving
+1,snake-charming
+1,sword-swallowing
+
+;secret circus leader
+1,strongwoman *[woman with portrait]*
+1,lion tamer *[human with portrait]*
+1,bearded woman *[woman with portrait]*
+1,tattooed woman *[woman with portrait]*
+
+;circus hooks
+1,A prized **[circus exotic animal]** has escaped from their cage. The circus is desperate to retrieve them, alive and intact and will pay handsomely.
+1,Local children from [nearby village] have gone missing, and many of them ran away to join *[same circus name]*. The villagers may not have much in the way of payment, but returning them would make you local heroes, and always welcome.
+1,*[human with portrait]*, one of the [circus performers] that travels with the *[same circus name]* is secretely a **vampire** [vampire stats], with a coffin of dark earth hidden away in one of the [conveyances]. They use the nomadic nature of the [same circus2] to drain victims dry and moving on before suspicion falls on the circus.
+1,The circus has been experiencing mysterious accidents lately. Just yesterday, *[human with portrait]*, one of the [circus performers], was severely injured during their act. The other performers suspect foul play, but are too busy rehearsing to properly investigate.
+1,On their last visit to [nearby village], the circus managed to bilk the community out of most of their wealth. [1d4x10] villagers armed with pitchforks and torches led by *[human with portrait]* has been tracking them down to forcibly request refunds.
+1,Times have been tough for *[same circus name]* lately, and the last performance resulted in their payment being in the form of [with trade goods] and [and trade goods], *[human with portrait]* is looking to unload them for coin.
+1,The [with circus performers] have gone on strike for better wages and more safety measures. The protest has begun to escalate, roping in the [and circus performers] and [and circus performers]. The days of ringmaster *[human name with portrait]* may be numbered as [secret circus leader] and her supporters *[with human name]* and *[and human name]* are outmanoeuvring them.
+1,The [secret circus leader] is looking to retire and settle down in [nearby village]. They've saved up quite a bit of coin over the years, but ringmaster *[human name with portrait]* is worried that they may end up taking the [with circus performers] *[with human name]* and *[and human name]* and [and circus performers] *[and human name]* and *[and human name]* with them.
+1,A horrible accident occurred during the last [sideshow attractions] performance, and the circus will pay handsomely for a new, exciting act for tonight's show in [nearby village].
+1,The mascot of *[same circus name]*, the [domestic animal adjective] **[circus exotic animal]** has died. The [secret circus leader] suspects foul play, and is quick to blame the [circus performers] *[with human name]* and *[and human name]* who have been getting significantly less ring-time lately.  
+
+;circus exotic animal
+1,Gorgon 
+1,Unicorn 
+1,Manticore
+1,Harpy
+1,Wyvern
+1,Chimera
+1,Cockatrice
+1,Pegasus
+1,Griffon
 
 #NOTE: no space to create proper compounds, spaces are present in some second halves for some variety
 ;village name
