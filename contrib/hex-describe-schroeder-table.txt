@@ -65,7 +65,7 @@
 3,[grass intro] [grass dressing]  If you stay here long, you’ll soon attract the attention of [boars].
 1,[grass intro] A burbling spring seeps out of a small cave here, save vs. poison or spend the rest of the day vomiting. This cave is home to a **basilisk** ([basilisk stats]). The poisonous vapours have polluted the spring water.
 1,[grass intro] [grass dressing] An abandoned shrine to *[power]* stands here, partly covered in lichens. Patrolling the corridors inside the crumbling shrine is a **straw golem** ([straw golem stats]). [2d6] [gem] gems can be recovered from the golem.
-1,[grass intro] [grass dressing] There’s a wooden hut, here. Its inhabitant appears to be a hermit called [human with portrait]. In actual fact, however, this is a **wereboar** ([werewolf stats]). [poor treasure] They will attack if the party discovers their secret.
+1,[grass intro] [grass dressing] There’s a wooden hut here. Its inhabitant appears to be a hermit called [human with portrait]. In actual fact, however, this is a **wereboar** ([werewolf stats]). [poor treasure] They will attack if the party discovers their secret.
 1,[grass intro] [grass dressing] [outlaw camp]. [robber treasure]
 3,This section of the [grass name] is an elephant graveyard. Elephant bones lie scattered among the flattened grasses. These bones are protected by [1d8+1] **elephants** ([elephant stats]) who will trample and gore anybody disturbing this area. <span class="treasure">Each tusk is worth 1d6×100gp.</span>
 1,[grass intro] [grass dressing] This is the territory of [1d12+1] **pumas** ([puma stats]).
@@ -2517,7 +2517,7 @@
 1,Wait
 
 ;green tower in this lake
-1,A green glass tower has been built in this lake. [green tower description] [green tower in this lake content] [green tower name] [green tower connection]
+1,A green glass tower has been built in this lake. [green tower in this lake content] [green tower description] [green tower name] [green tower connection]
 
 ;green tower name
 1,The locals call it *[green tower simple name]*.
@@ -2661,7 +2661,7 @@
 
 ;hill giants
 1,Some boulders have been assembled into a crude stone tower inhabited [2d4] **hill giants** led by *[hill giant]* ([hill giant stats]). [rich treasure]
-1,The bellowing **hill giants** can be heard every day up here. [2d4] of them have built a barricade across the passes, here ([hill giant stats]). They are led by [hill giant title] *[hill giant]*. [rich treasure]
+1,The bellowing **hill giants** can be heard every day up here. [2d4] of them have built a barricade across the passes here ([hill giant stats]). They are led by [hill giant title] *[hill giant]*. [rich treasure]
 1,A giant fortress has been built here in ages past. It extends all along the mountain flank. The ruins are inhabited by their degenerate descendants, [2d4] **hill giants** led by *[hill giant]* ([hill giant stats]). [rich treasure]
 1,There is a huge wooden fort up here, built by **hill giants**. They must have cut down an entire forest to build it. It is huge. [2d4] of them live here, led by [hill giant title] *[hill giant]* ([hill giant stats]). [rich treasure]
 1,Here stands an old watchtower built by giants during the reign of [wight leader]. You can still find the runes of [same wight realm] on the old stones, but the [2d4] **giants** and their leader *[hill giant]* can’t read and they don’t care ([hill giant stats]). [rich treasure]
@@ -2856,7 +2856,7 @@
 ;town river
 1,[river] [capitalize human prefix] *[human name]* owns the ferry boat that carries people across.
 1,[river] *[human name]* owns the ferry boat that carries people across.
-2,[river] A toll bridge has been built, here.
+2,[river] A toll bridge has been built here.
 1,[river] An old stone bridge connects the two sides, with two small guard towers at both ends. There is a toll to be paid.
 
 ;river
@@ -4397,11 +4397,11 @@
 1,One of the hills has an old lookout from which you can see most of the [forest name]. It is also [treant]’s favourite spot. The old **treant** loves to watch the sun set from here ([treant stats]).
 1,A steep hill rises from the forest and at its top stands an old statue of *[power]*, about 20ft tall. Who ever built this statue is long gone but the trail leading up to the statue looks well worn.
 1,Small creeks have dug deep channels into [forest name]. The going is tough. Some of the hidden valleys are very hard to reach. [giant apes] [small temple near giant apes]
-1,[forest name] covers a few hills, here. [ogre hill]
+1,[forest name] covers a few hills here. [ogre hill]
 1,These [tree] hills in [forest name] belong to the *[evil tribe]* tribe. [orcs] Their fort is [orc fort] [orc plans]
 1,The hill overlooking [forest name] is the home of [1d8 treants] ([treant stats]). They mostly stand around near the [forest feature].
 1,There is a hill rising high above [forest name] with a nice cave which offers shelter from the rain. [den]
-1,[5d8] **dwarves** ([dwarf stats]) have set up a small logging community, here in [forest name]. The [tree] trees in the area have brought them here. They are led by [dwarf with portrait] (level [1d6+2 as level]). The camp is defended by [dwarven companions]. [dwarven treasure]
+1,[5d8] **dwarves** ([dwarf stats]) have set up a small logging community here in [forest name]. The [tree] trees in the area have brought them here. They are led by [dwarf with portrait] (level [1d6+2 as level]). The camp is defended by [dwarven companions]. [dwarven treasure]
 1,The hills of [forest name] are full of ancient ruins. On one of these hills right here you can find the foundations of an old keep. The walls are long gone but the cistern and the storage rooms below are still usable. [outlaw camp]
 1,[faerie witch]
 
@@ -5443,7 +5443,7 @@
 
 ;ogre lair
 1,The ogres have found a cave under some boulders where they have dug their lair. It’s basically one stuffy room, with hundreds of bones.
-1,They dug a big cave into one of the hills, here. The roof is supported by many wooden columns. From the timbers along the roof hang wooden cages. [ogre prisoners]
+1,They dug a big cave into one of the hills here. The roof is supported by many wooden columns. From the timbers along the roof hang wooden cages. [ogre prisoners]
 1,The trees cast deep shadows and in these dark places the ogres have dug pits with sharpened spikes and they have set traps to impale the careless. In the middle of this labyrinth of death they have tied together young trees and built a kind of cave, made of wood, surrounded by countless bones.
 1,Their lair is one of those old structures built by the giants of old: a fort made of huge slabs of stone overgrown with ancient trees, an covered area to protect them from the elements where they have built their nests, a deep hole to serve as their cesspit, a huge fireplace in the centre of it all.
 1,The hill top is a maze of trenches to allow them to move about unseen, small caves for them to spend the day protected by spiked pits, all access to this area protected by sharpened wooden stakes rammed into the ground to prevent anybody from storming it.
@@ -5484,7 +5484,7 @@
 1,A **green dragon** named *[here green dragon name as dragon name]*[dragon portrait] lives at [hill name], one of the hills overlooking these shrublands ([green dragon stats]). [dragon treasure]
 
 ;outlaw camp
-1,There is a camp of [1d4x10] **outlaws** ([outlaw stats]) led by *[outlaw leader]*, here. [average treasure] They call themselves the *[adjective] [organisation name]*. [outlaw feature] The camp is protected by [outlaw companions]. These outlaws are [two outlaw activities].
+1,There is a camp of [1d4x10] **outlaws** ([outlaw stats]) led by *[outlaw leader]* here. [average treasure] They call themselves the *[adjective] [organisation name]*. [outlaw feature] The camp is protected by [outlaw companions]. These outlaws are [two outlaw activities].
 
 ;outlaw stats
 1,HD 1 AC 8 1d6 F 1 MV 12 ML 7 XP100
@@ -5608,7 +5608,7 @@
 ;necromancer tower
 1,It is surrounded by a moat and inside the moat lives a **pyrohydra** chained to the foundations of the tower ([pyrohydra stats]).
 1,The stinking dungeons below the tower are filled with cells where a hundred people or more must have died over the years. A pit of rotten flesh and bones awaits all who die here.
-1,Below the tower is a conjuration room with a circle of protection. There’s a book, here: [necronomicon].
+1,Below the tower is a conjuration room with a circle of protection. There’s a book here: [necronomicon].
 1,It is surrounded by permanent darkness spells, and in the darkness lie spiked pits and poison trees, and [3d6] **shadow wolves**.
 
 ;necronomicon
@@ -6267,9 +6267,9 @@
 1,Ferret
 
 ;witch goal
-1,bent on exterminating all life around here.
+1,bent on exterminating all life around here
 1,stealing children and raising them as her own
-1,who is who is cursing all men to a life of cowardice.
+1,who is cursing all men to a life of cowardice
 1,who is stealing young men and taking their seed
 1,who is cursing sheep, cattle, and all the other tamed animals with the drowning sickness
 1,who is cursing all the young women of the land with infertility
@@ -6457,9 +6457,9 @@
 1,[swamp intro] [swamp dressing] You need a boat and a guide to navigate these waterways. If you travel on foot, you’ll soon attract the attention of [1d6 crocodiles].
 1,[swamp intro] If you drink the water here, save vs. poison or spend the rest of the day vomiting. These lakes are home to [3d12] **swamp cranes** ([swamp crane stats]). Their dung is poisonous to most creatures on land.
 1,[swamp intro] [swamp dressing] An abandoned temple of *[power]* stands here, half sunk. The acrid stench is overwhelming. On the small piece of solid ground rising above the water you can see [what you can see of the sunken temple] A **gorgon** has cursed this temple with its presence ([gorgon stats]). [terror treasure]
-1,[swamp intro] [swamp dressing] There’s a wooden hut, here. Its inhabitant appears to be a hermit called [human with portrait]. In actual fact, this is a **doppelgänger** ([doppelgänger stats]). [poor treasure] It will try and see whether it can replace one of the party members and leave the area with you.
+1,[swamp intro] [swamp dressing] There’s a wooden hut here. Its inhabitant appears to be a hermit called [human with portrait]. In actual fact, this is a **doppelgänger** ([doppelgänger stats]). [poor treasure] It will try and see whether it can replace one of the party members and leave the area with you.
 1,[swamp intro] [swamp dressing] The waterways eventually lead to a wooden fort rising out of the water, inhabited by [4d6] **hobgoblins** ([hobgoblin stats]) and led by *[hobgoblin]* (HD 3+1). The fort is defended by [hobgoblin companions]. [robber treasure]
-1,This section of the [forest name] swamp is a well known death trap. The trees are older, here. They remember every axe wielder, every ship builder, every carpenter, every fire maker, and they hate them with the hate of the primal forest. These trees are protected by [1d8 treants] ([treant stats]) who would like nothing better than to squash anybody capable of wielding tools.
+1,This section of the [forest name] swamp is a well known death trap. The trees are older here. They remember every axe wielder, every ship builder, every carpenter, every fire maker, and they hate them with the hate of the primal forest. These trees are protected by [1d8 treants] ([treant stats]) who would like nothing better than to squash anybody capable of wielding tools.
 1,[swamp ettercaps]
 1,[swamp intro] [swamp dressing] [swamp gnome colony]
 1,[swamp intro] [swamp dressing] On a rocky outcrop stands a tower. [necromancer]
@@ -7956,11 +7956,11 @@
 1,This is the [forest name]. [easy to get lost] In the shadows of the [tree] trees live [centaurs].
 1,The tall [tree] trees of [forest name] and their dense canopy keep the sunlight away. [easy to get lost] Down here in the shade there are big mushrooms everywhere. [mushrooms]
 1,This part of [forest name] is under the protection of [1d8 treants] ([treant stats]). They mostly stand around near the [forest feature]. [easy to get lost]
-1,The [tree] trees of [forest name] are full of spider webs, here. [easy to get lost] Anybody climbing the trees or travelling on their own will get attacked by [2d4] **giant spiders** ([giant spider stats]).
+1,The [tree] trees of [forest name] are full of spider webs here. [easy to get lost] Anybody climbing the trees or travelling on their own will get attacked by [2d4] **giant spiders** ([giant spider stats]).
 1,This part of the [forest name] is sometimes called [ettercap forest]. [ettercaps]
 1,The forest here is deep and quiet. [easy to get lost] [wood elves]
 1,These trees are part of [forest name]. [easy to get lost] A system of big tunnels is home to [1d6 weasels] ([weasel stats]).
-1,At dusk and dawn, you can sometimes see [boars] in the [forest name], here.
+1,At dusk and dawn, you can sometimes see [boars] in the [forest name] here.
 1,The [forest name] has overgrown an old temple of *[power]*. Some of the walls still stand, and so do some of the columns, but the roof is gone and floor is wet. [old forest temple denizen]
 1,There’s a little stream here, making its way through the [forest name], wrapping itself around a beautiful, big, old tree. [dryad]
 1,The [forest name] is full of rustling and bustling sounds as **giant ants** can be seen scurrying back and forth along invisible trails and up and down the giant [tree] trees. [giant ant lair]
@@ -8078,7 +8078,7 @@
 ;ettercap ground level
 1,Spider webs between the trees make progress impossible. Desiccated deer and birds hang in these nets. Touching these nets or setting them on fire attracts [2d4] **giant spiders** ([giant spider stats]).
 1,Between the gnarled roots of giant [tree] trees you see the opening of burrows large enough to be bear dens (at least [2d4] of them). If anybody passes within 20ft of such a hole, a **giant tarantula** ([giant spider stats]; *surprise* on 1–5 in 6) jumps out of the burrow and attacks. When the fighting begins, the remaining spiders are attracted by the stomping.
-1,The ground rises and forms a little mound, here, promising a look at the surrounding land. But actually, a group of [2d4] **giant trapdoor spiders** ([giant spider stats]) have dug tunnels and pits around here. Anybody climbing the mound has a 1-2 in 6 chance of sliding and falling into a 20ft pit (2d6) and being beset by these spiders.
+1,The ground rises and forms a little mound here, promising a look at the surrounding land. But actually, a group of [2d4] **giant trapdoor spiders** ([giant spider stats]) have dug tunnels and pits around here. Anybody climbing the mound has a 1-2 in 6 chance of sliding and falling into a 20ft pit (2d6) and being beset by these spiders.
 
 ;ettercap lake
 1,The trees of [forest name] open up and there’s a small island up ahead, covered in giant trees shrouded in spiderwebs. There are dessicated birds and bats and bigger things (wyverns, young dragons, griffons?) caught in the web up there. If you’re patient, you can see movement beneath the water as giant spiders dart out of their silken diving bells to kill fish. [2d4] **giant diving bell spiders** ([giant spider stats]; *swim*) live in this lake. It is not safe for swimming.
@@ -9630,7 +9630,7 @@
 1,Suffering
 
 ;calm clearing feature
-1,There is a cool pool of crystal clear water, here.
+1,There is a cool pool of crystal clear water here.
 1,The meadow is full of flowers and buzzing bees and singing birds, a dream of pastoral happiness.
 1,The clearing contains a spring of frigid water that removes *fear*.
 1,A gentle breeze carries the sound of ethereal wind-chimes.
@@ -10236,7 +10236,7 @@
 2,The caravan has a **bard** called [human with portrait] who is on his way to [nearby village name].[store human as singing humanoid] The songs they like to perform are [with story] and [and story].
 2,One merchant is a secret agent of [one of the secret societies].
 2,One merchant is selling blessed [metal mat] amulets of [good power].
-1,One of the members of the trade caravan is a **witch** in disguise. Travelling under the name *[woman]*, her real name is *[here old names for women as witch]*, [the witch], [caravan witch goal]. ([witch stats]). Any valuables are well hidden in her wagon. [terror treasure]
+1,One of the members of the trade caravan is a **witch** in disguise. Travelling under the name *[woman]*, her real name is *[here old names for women as witch]*, [the witch]. [caravan witch goal] ([witch stats]). Any valuables are well hidden in her wagon. [terror treasure]
 1,The caravan has a **travelling alchemist** called [human with portrait] who can supply a [with scroll], a [and scroll], a [and scroll] at 1000gp each. They also have a [with potion] and a [and potion] for sale at 500gp each.
 1,The caravan has a **botanist** called [human with portrait] who will sell potted [with magic plant] or [and magic plant] at 50gp each (20 of each available), and the very costly [and magic plant] at 500gp each (just 2 available).
 
@@ -10855,9 +10855,9 @@
 1,There is a temple dedicated to *[power]*. [small temple dedicated to [same power]]
 
 ;And a secret society
-1,Luckily, no secret societies have established themselves, here.
+1,Luckily, no secret societies have established themselves here.
 1,The local contact for the secret society of the [one of the secret societies] is [a boss]. [spellbook for [same class]] [leader treasure for [same class]] [description for a secret society ([same alignment])]
-1,The secret society of the [one of the secret societies] has a representative, here: [a boss]. [spellbook for [same class]] [leader treasure for [same class]] [description for a secret society ([same alignment])]
+1,The secret society of the [one of the secret societies] has a representative here: [a boss]. [spellbook for [same class]] [leader treasure for [same class]] [description for a secret society ([same alignment])]
 
 ;And two secret societies feuding
 2,[And a secret society]
@@ -10870,7 +10870,7 @@
 # law vs chaos
 1,The local secret society [name for a secret society (law)] is being infiltrated. It is led by [secret society boss] [description for a secret society (law)]</p><p>The [name for a secret society (chaos)] have been plotting to overthrow them, led by [secret society boss] [description for a secret society (chaos)]
 # neutrality vs law
-1,A volatile truce has recently been formed between the two local secret societies. Both are still unsure and suspicious of each other, and will be watching any visitors closely to try to figure out their allegiances.</p><p>[name for a secret society (law)] is led by [secret society boss] [description for a secret society (law)]</p><p>[name for a secret society (neutrality)] is led by [secret society boss] [description for a secret society (neutrality)].
+1,A volatile truce has recently been formed between the two local secret societies. Both are still unsure and suspicious of each other, and will be watching any visitors closely to try to figure out their allegiances.</p><p>[name for a secret society (law)] is led by [secret society boss] [description for a secret society (law)]</p><p>[name for a secret society (neutrality)] is led by [secret society boss] [description for a secret society (neutrality)]
 # neutrality vs chaos
 1,Talk of a treaty between the two local secret societies seems to be the biggest bit of gossip around town.</p><p>[name for a secret society (neutrality)] is led by [secret society boss] [description for a secret society (neutrality)]</p><p>[name for a secret society (chaos)] is led by [secret society boss] [description for a secret society (chaos)]
 # law vs chaos
@@ -11074,7 +11074,7 @@
 1,[small temple]
 1,The temple is built like the aerie of a giant vulture into a cliff. A narrow stair winds itself through the rock from the base up 100ft to this nest. There, a stone vulture watches the buildings below. A great many small dolls adorn the shelves at the back. These are all the lost children.
 1,The temple is a four storied windowless square tower. Inside a set of ladders leads to the roof. There’s a lift with which to raise corpses to the roof. The roof itself is covered in broken bones. This is where the sky burial takes place. Meat boys and bone girls cut up the corpses and offer the remains of the dead to the vultures of Pazuzu.
-1,The temple stands right next to hanging tree. There must be at least a hundred crows, here. They say Pazuzu sees everything the crows see and thus the local priests are feared and everything that’s secret has to happen in the dark of night.
+1,The temple stands right next to hanging tree. There must be at least a hundred crows here. They say Pazuzu sees everything the crows see and thus the local priests are feared and everything that’s secret has to happen in the dark of night.
 1,The temple stands on a rock needle about 100ft high with a rickety sequence of ladders leading up there. The four-winged statue of the crow demon Pazuzu is hard to see in all the smoke produced by smoldering fires in iron pots hanging in all four corners of the temple. The temple is looked after by [1d6 tengus].
 1,The temple stands on a large rock about 20ft above the ground. Petitioners have to climb a rope hanging down over the edge. The temple also houses the **vulture demon** *[demon name]* ([vulture demon stats])
 1,The temple is a a roofed platform made of wood built on top of a large rock about 20ft high. The platform has been blasted by fire many times. Many skulls are hanging from the roof. There is a statue of the four-winged god in each corner. Beneath it are the old runes spelling out the name Pazuzu. Whosoever utters his name three times will summon him. Pazuzu will be friendly and grant a wish, and take your soul (never to be resurrected again). To insult him will unleash an unholy blight dealing 20d6 damage to anybody within 10ft of the blasphemer; save vs. death for half damage.
@@ -11286,9 +11286,9 @@
 ;small temple dedicated to Thor
 1,[small temple]
 1,The temple is in fact an altar built inside the village smith’s forge. The **smith** is called *[human name]*. This is where the strongest villagers meet every seven-night to discuss their grievances and resolve their issues. Money changes hands, children are promised into apprenticeship and journeymen are welcomed into the village.
-1,The temple is an altar at the foot of a big rock. The top has been hit by lightning countless times. Next to the altar is the wrestling field. Every festival involves wrestling and old *[human name]* is the most proficient **wrestler**, here.
+1,The temple is an altar at the foot of a big rock. The top has been hit by lightning countless times. Next to the altar is the wrestling field. Every festival involves wrestling and old *[human name]* is the most proficient **wrestler** here.
 1,The temple stands in the backyard of *[human name]* the **chariot maker**. Inside it is a life sized statue of Thor riding a chariot drawn by two giant goats. The chariot maker is rich and has buried all his gold beneath the chariot.
-1,The temple is one of the few places where they raise **giant goats**. There are currently [2d6] of these giant goats, here. The paintings beneath the roof show Thor riding his chariot pulled by his two famous goats. These giant goats are sold to [goat clients].
+1,The temple is one of the few places where they raise **giant goats**. There are currently [2d6] of these giant goats here. The paintings beneath the roof show Thor riding his chariot pulled by his two famous goats. These giant goats are sold to [goat clients].
 
 ;goat clients
 1,dwarves
@@ -11301,7 +11301,7 @@
 1,The temple looks like a tower, except that it has a big window from the bottom to the roof. On the inside, there are no extra floors. The room is simply 50ft high. The strip of light from the window falls on one of three oath brother statues in here, each raising their right hand, each pointing three fingers towards the sky. This is the bond of loyalty that makes us strong.
 1,The temple has a door fit for a giant, but inside there is simply a strip of wooden flooring for petitioners to kneel and a big statue of Mitra standing blindfolded in a sea of fire, holding the balance of justice in one hand and the sword of judgement in the other.
 1,A long set of winding stairs leads deep underground to a fiery pit. The fumes are intoxicating and the dreamy babbling of a woman’s voice can be heard but her words make no sense to you. She is one of the eternal servants, gifted to the temple by her parents and bound to pass through the lake of fire into Muspelheim, the realm of Mitra, whence nobody has ever returned. This is of course true: the lake of fire is a one-way gate to [a location in Muspelheim]. Most of these women eventually master the arcane arts of pyromancy.
-1,Deep within the bowels of the earth, a pool of Earth Blood is being kept at bay by circles of banishment and stasis and thus evil **gorgon** and its poison remains imprisoned while these seals last ([gorgon stats]). The temple guards the entry to this underworld and the [2d6] **priests** and *[human name]*, the current head of the temple, inspect and improve their defences every year on the night of the winter solstice. The common folks just see the statues of the three oath brother statues here and come here to renew their bond with Mitra. They call themselves the *Oath Keepers* for this is what they do: the make their bargains, here.
+1,Deep within the bowels of the earth, a pool of Earth Blood is being kept at bay by circles of banishment and stasis and thus evil **gorgon** and its poison remains imprisoned while these seals last ([gorgon stats]). The temple guards the entry to this underworld and the [2d6] **priests** and *[human name]*, the current head of the temple, inspect and improve their defences every year on the night of the winter solstice. The common folks just see the statues of the three oath brother statues here and come here to renew their bond with Mitra. They call themselves the *Oath Keepers* for this is what they do: the make their bargains here.
 
 ;a location in Muspelheim
 1,the *[Muspelheim building] of [Muspelheim material]* where [Muspelheim matriarch] *[old names for women]* rules
