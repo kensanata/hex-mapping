@@ -1316,10 +1316,41 @@ out the result using CSS.
 
 =cut
 
+my $stats_regexp = qr{
+    (?<name> <strong>[^<>]*</strong> | <em>[^<>]*</em> )
+    (?<text>
+      [^<>]*            # random text without tags
+      (?: <span \s+ class="images"><img[^>]+?></span>
+      [^<>]* )*         # except for images followed by text
+    )
+    (?: \s+ \( )        # whitespace and opening parenthesis
+    (?<stats> HD        # beginning of actual stats
+      [^()]+            # anything that's not a parenthesis
+      (?: \( [^()]+ \)  # anything that's not a parenthesis, in parentheses
+          [^()]*        # followed by anything that's not a parenthesis
+      )*                # multiple times
+    )                   # end of stats
+    (?: \) )            # followed by a closing parenthesis
+    }x;
+
 sub process {
+  my $coordinates = shift;
   my $text = shift;
+  # coordinates for the introduction
+  $coordinates = qq{<strong class="coordinates" id="desc$coordinates">}
+  . qq{<a href="#hex$coordinates">$coordinates</a>}
+  . qq{</strong>: };
+  # put images in an extra span
   $text =~ s/(<img[^>]+?>)/<span class="images">$1<\/span>/g;
-  return $text;
+  my $asides;
+  # including one level of nested parentheses
+  $text =~ s!$stats_regexp!
+      $asides .= "<p>$+{name}: $+{stats}</p>";
+      "$+{name}$+{text}"!ge;
+  if ($asides) {
+    return "</p><aside>$asides</aside><p>$coordinates$text";
+  }
+  return "$coordinates$text";
 }
 
 =item resolve_nearby
@@ -1490,8 +1521,10 @@ sub describe_map {
   my $table_data = shift;
   my %descriptions;
   for my $coord (keys %$map_data) {
-    $descriptions{$coord} = process(describe($map_data, $table_data, 1,
-					     $coord, $map_data->{$coord}));
+    $descriptions{$coord} = process(
+      $coord,
+      describe($map_data, $table_data, 1,
+	       $coord, $map_data->{$coord}));
   }
   # add special rule for TOP key which the description template knows
   $descriptions{TOP} = process(describe($map_data, $table_data, 1,
@@ -1880,7 +1913,7 @@ Alternatively, just paste your tables here:
 % }
 
 % for my $hex (sort keys %$descriptions) {
-<p><strong class="coordinates" id="desc<%= $hex =%>"><a href="#hex<%= $hex =%>"><%= $hex =%></a></strong>: <%== $descriptions->{$hex} =%>
+<p><%== $descriptions->{$hex} =%>
 </p>
 % }
 </div>
@@ -2159,6 +2192,7 @@ page is my attempt at writing a tutorial.
 <li><a href="#lists">Lists of unique things: with, and</a></li>
 <li><a href="#capitalization">Capitalization</a></li>
 <li><a href="#images">Images</a></li>
+<li><a href="#files">Static Files</a></li>
 </ul>
 
 <h2 id="basics">The Basics</h2>
@@ -3414,6 +3448,27 @@ from services that aren’t hosted on the same domain
 (<a href="https://en.wikipedia.org/wiki/Same-origin_policy">same-origin policy</a>).
 </p>
 
+<h2 id="files">Files</h2>
+
+<p>
+This section is for people running the <em>Hex Describe</em> server.
+</p>
+
+<p>
+You can change the CSS of the site as follows:
+</p>
+
+<ol>
+<li>create a <code>public</code> directory in the same directory where
+<code>hex-describe.pl</code> is</li>
+<li>create a <code>hex-describe.css</code> in the new directory
+</ol>
+
+<p>
+The new file takes precedence over the file that came included in the script's
+<code>__DATA__</code> section.
+</p>
+
 @@ authors.html.ep
 % layout 'default';
 % title 'Hex Describe Authors';
@@ -3441,13 +3496,7 @@ The icons are based on the
 icons by Gregory B. MacKenzie.
 </p>
 
-@@ layouts/default.html.ep
-<!DOCTYPE html>
-<html>
-<head>
-<title><%= title %></title>
-%= stylesheet '/hex-describe.css'
-%= stylesheet begin
+@@ hex-describe.css
 body {
   padding: 1em;
   font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
@@ -3498,18 +3547,28 @@ td, th {
 .coordinates a {
   color: inherit;
 }
-.sidebar {
-  position: absolute;
-  top:  20ex;
-  left: 90ex;
-  width: auto;
-  border: none;
-}
-.sidebar tr {
-  font-size: smaller;
-}
-.sidebar td {
+td {
   text-align: center;
+}
+.invisible {
+    display: none;
+}
+aside {
+    position: absolute;
+    width: 40ex;
+    left: 90ex;
+    display: block;
+    float: right;
+}
+aside p, aside table {
+    /* font size smaller down here because we need the ex unit in the
+       aside element */
+    font-size: smaller;
+}
+#gems {
+    margin-top: -30ex;
+    width: auto;
+    border: none;
 }
 .treasure {
   background-color: #fffacd;
@@ -3537,7 +3596,13 @@ td, th {
 hr {
   clear: both;
 }
-% end
+
+@@ layouts/default.html.ep
+<!DOCTYPE html>
+<html>
+<head>
+<title><%= title %></title>
+%= stylesheet '/hex-describe.css'
 <meta name="viewport" content="width=device-width">
 </head>
 <body>
