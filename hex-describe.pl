@@ -1792,7 +1792,7 @@ helper example => sub {
 				      table=> html_unescape($table));
   } else {
     my ($key) = $result =~ /^;(.*)/m;
-    $url = $c->url_for('nomap')->query(input => "[$key]\n" x 4,
+    $url = $c->url_for('nomap')->query(input => "[$key]\n" x 10,
 				       load => 'none',
 				       table=> html_unescape($result));
   }
@@ -2215,7 +2215,7 @@ Note how we use asterisks for bold. You can use HTML directly, too.
 </p>
 
 <p>
-You can test it my picking the <%= link_to 'No Map' => 'nomap' %>
+You can test it by picking the <%= link_to 'No Map' => 'nomap' %>
 link, using <code>[hills]</code> as your text and the above as your
 table. Reload it a few times, or just repeat it a few times:
 <code>[hills] [hills] [hills] [hills]</code>.
