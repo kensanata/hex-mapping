@@ -33816,21 +33816,21 @@
 #I've tried to catch most of the "nouns" and append color names/colored to them so they'll still parse ok.
 
 ;colour
-1,[black]
-1,[blue]
-1,[brown]
-1,[cyan]
-1,[green]
-1,[grey]
-1,[magenta]
-1,[orange]
-1,[pink]
-1,[violet]
-1,[red]
-1,[white]
-1,[yellow]
+1,[black synonym]
+1,[blue synonym]
+1,[brown synonym]
+1,[cyan synonym]
+1,[green synonym]
+1,[grey synonym]
+1,[magenta synonym]
+1,[orange synonym]
+1,[pink synonym]
+1,[violet synonym]
+1,[red synonym]
+1,[white synonym]
+1,[yellow synonym]
 
-;black
+;black synonym
 5,black
 1,jet
 1,licorice colored
@@ -33838,7 +33838,7 @@
 1,ebony
 1,onyx
 
-;blue
+;blue synonym
 10,blue
 1,alice blue
 1,azure
@@ -33866,7 +33866,7 @@
 1,ultramarine
 1,zaffre
 
-;brown
+;brown synonym
 10,brown
 1,auburn
 1,almond brown
@@ -33907,7 +33907,7 @@
 1,umber
 1,walnut brown
 
-;cyan
+;cyan synonym
 5,cyan
 1,azure white
 1,celesete
@@ -33918,7 +33918,7 @@
 1,turquoise
 1,verdigris
 
-;green
+;green synonym
 10, green
 1,apple green
 1,aquamarine
@@ -33955,7 +33955,7 @@
 1,viridian
 1,yellow green
 
-;grey
+;grey synonym
 5,grey
 1,ash grey
 1,blue-grey
@@ -33968,7 +33968,7 @@
 1,slate grey
 1,taupe
 
-;magenta
+;magenta synonym
 5,magenta
 1,amaranth
 1,amaranth pink
@@ -33991,7 +33991,7 @@
 1,rose
 1,violet-red
 
-;orange
+;orange synonym
 10,orange
 1,amber
 1,apricot
@@ -34017,7 +34017,7 @@
 1,tawny orange
 1,vermilion
 
-;pink
+;pink synonym
 10,pink
 1,amaranth pink
 1,blush
@@ -34040,7 +34040,7 @@
 1,salmon pink
 1,thulian pink
 
-;violet
+;violet synonym
 10,violet
 1,amethyst
 1,blue-violet
@@ -34061,7 +34061,7 @@
 1,ultra violet
 1,wisteria
 
-;red
+;red synonym
 10,red
 1,alizarin crimson
 1,amaranth
@@ -34096,7 +34096,7 @@
 1,vermilion
 1,wine colored
 
-;white
+;white synonym
 10,white
 1,alabaster
 1,antique white
@@ -34118,7 +34118,7 @@
 1,snow colored
 1,vanilla
 
-;yellow
+;yellow synonym
 10,yellow
 1,amber yellow
 1,apricot yellow
