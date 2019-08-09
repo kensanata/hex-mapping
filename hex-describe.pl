@@ -3554,6 +3554,11 @@ td, th {
 .mountains {
   background-color: #e0e0e0;
 }
+blockquote {
+  border-left: 3px solid grey;
+  margin-left: 0;
+  padding-left: 1ex;
+}
 hr {
   clear: both;
 }

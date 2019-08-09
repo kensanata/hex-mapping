@@ -10293,9 +10293,9 @@
 1,The tomb is in fact the resting place of an old hero. Sadly, according to the inscriptions they lost their war and never found eternal rest. They are still here, eager to fight, eager to recruit an army and resume their war: [1d4 spectres].
 
 ;travelling circus
-1, Resting on their long journey between villages is the *[circus name]*, throughout the region it's whispered that they are actually a group of *[circus reputation]*. They transport their show via [1d6+1] wooden [conveyances], pulled by [domestic animal adjective] [draft animals].</p><p>**Circus Hook:** [circus hooks]</b>
-1, Carefully practicing their acts as they stop on their circuit through the area is the *[circus name]*, rumored to be comprised entirely of *[circus reputation]*. Circled and tethered are their [domestic animal adjective] [draft animals] near their [1d8+1] sturdy [conveyances].<p>**Circus Hook:** [circus hooks]</b>
-1, A large, colorful canvas tent set up to the side of your path ahead is emblazoned with large lettering proclaiming that this is property of the *[circus name]*. Rumors say that the performers are actually *[circus reputation]*. Off to one side, you can see various individuals unloading things from [conveyances] and watering and feeding some [domestic animal adjective] [draft animals].<p>**Circus Hook:** [circus hooks]</b>
+1, Resting on their long journey between villages is the **circus** *[circus name]*, throughout the region it's whispered that they are actually a group of *[circus reputation]*. They transport their show via [1d6+1] wooden [conveyances], pulled by [domestic animal adjective] [draft animals].</p><blockquote>[circus hooks]</blockquote><p>
+1, Carefully practicing their acts as they stop on their circuit through the area is the **circus** *[circus name]*, rumored to be comprised entirely of *[circus reputation]*. Circled and tethered are their [domestic animal adjective] [draft animals] near their [1d8+1] sturdy [conveyances].</p><blockquote>[circus hooks]</blockquote><p>
+1, A large, colorful canvas tent set up to the side of your path ahead is emblazoned with large lettering proclaiming that this is property of the **circus** *[circus name]*. Rumors say that the performers are actually *[circus reputation]*. Off to one side, you can see various individuals unloading things from [conveyances] and watering and feeding some [domestic animal adjective] [draft animals].</p><blockquote>[circus hooks]</blockquote><p>
 
 ;circus name
 1, [circus1] [circus2]
