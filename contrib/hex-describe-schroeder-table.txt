@@ -10249,7 +10249,7 @@
 1,barrels of [with fruit] mead and [and fruit] cider
 ;sacks goods
 1,sacks of freshly harvested [nuts]
-1,sacks of [with color] and [and color] dyes
+1,sacks of [with colour] and [and colour] dyes
 ;jewelry goods
 1,bars of [metal mat]
 1,a [gem] encrusted [metal jewelry singular] (worth [3d6]00gp)
