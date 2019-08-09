@@ -33676,15 +33676,349 @@
 1,foamy [colour]
 1,sparkling [colour]
 
-;colour
+# simple colours when you don't want the full explosion of the colour
+# table (also no black and white, nor grey)
+;simple colour
 1,red
 1,orange
 1,yellow
 1,green
-2,indigo
+1,indigo
 1,blue
 1,purple
 1,rose
+
+#lovingly transcribed/tabled from here: https://en.wikipedia.org/wiki/List_of_colors_by_shade
+#usage: Call Color, or Call a Shade. Tables are weighted somewhat to produce more common names
+#maybe someday: subtables with HTML Color Codes in the ["color name" code] format for styling
+#tint tables might also be a nice add  (pale, deep, dark, light, etc.)
+#I've tried to catch most of the "nouns" and append color names/colored to them so they'll still parse ok.
+
+;colour
+1,[black]
+1,[blue]
+1,[brown]
+1,[cyan]
+1,[green]
+1,[grey]
+1,[magenta]
+1,[orange]
+1,[pink]
+1,[violet]
+1,[red]
+1,[white]
+1,[yellow]
+
+;black
+5,black
+1,jet
+1,licorice colored
+1,charcoal black
+1,ebony
+1,onyx
+
+;blue
+10,blue
+1,alice blue
+1,azure
+1,baby blue
+1,blue-gray
+1,cerulean
+1,cobalt blue
+1,cornflower blue
+1,dark blue
+1,glaucous blue
+1,ice blue
+5,indigo
+1,light blue
+1,midnight blue
+1,periwinkle
+1,phthalo blue
+1,powder blue
+1,robin egg blue
+1,royal blue
+1,sapphire
+1,sky blue
+1,slate blue
+1,steel blue
+1,turquoise
+1,ultramarine
+1,zaffre
+
+;brown
+10,brown
+1,auburn
+1,almond brown
+1,bronze colored
+1,buff
+1,burgundy
+1,burnt sienna
+1,burnt umber
+1,camel brown
+1,caramel brown
+1,chestnut brown
+1,chocolate brown
+1,cocoa brown
+1,coffee brown
+1,copper colored
+1,cordovan
+1,drab dark brown
+1,ecru
+1,fawn brown
+1,fulvous
+1,golden brown
+1,goldenrod
+1,khaki
+1,liver brown
+1,mahogany
+1,maroon
+1,ochre
+1,olive brown
+1,raw umber
+1,russet
+1,rust
+1,sandy brown
+1,sepia
+1,sienna
+1,tan
+1,taupe
+1,tawny brown
+1,umber
+1,walnut brown
+
+;cyan
+5,cyan
+1,azure white
+1,celesete
+1,aqua
+1,sea green
+1,mint colored
+1,teal
+1,turquoise
+1,verdigris
+
+;green
+10, green
+1,apple green
+1,aquamarine
+1,asparagus green
+1,avocado green
+1,bright green
+1,racing green
+1,celadon
+1,chartreuse
+1,midnight green
+1,dark green
+1,dark moss green
+1,dark pastel green
+1,dark spring green
+1,emerald
+1,jade
+1,jungle green
+1,kelly green
+1,lawn green
+1,light green
+1,lime green
+1,mantis green
+1,malachite
+1,mint green
+1,moss green
+1,olive
+1,olivine
+1,pear green
+1,pine green
+1,pistachio
+1,sea green
+1,shamrock green
+1,teal
+1,viridian
+1,yellow green
+
+;grey
+5,grey
+1,ash grey
+1,blue-grey
+1,charcoal grey
+1,cinerous
+1,cool grey
+1,dim grey
+1,platinum grey
+1,silver grey
+1,slate grey
+1,taupe
+
+;magenta
+5,magenta
+1,amaranth
+1,amaranth pink
+1,amaranth purple
+1,blush
+1,cerise
+1,crimson
+1,dark magenta
+1,eggplant colored
+1,aubergine
+1,fuchsia
+1,garnet
+1,mulberry
+1,orchid
+1,phlox
+1,plum
+5,purple
+1,raspberry
+1,red-violet
+1,rose
+1,violet-red
+
+;orange
+10,orange
+1,amber
+1,apricot
+1,tangerine
+1,buff orange
+1,burnt orange
+1,butterscotch
+1,caramel orange
+1,carrot orange
+1,champagne
+1,citron
+1,flame colored
+1,golden orange
+1,golden poppy
+1,mango
+1,marigold
+1,orange-red
+1,peach
+1,peach-orange
+1,peach-yellow
+1,persimmon
+1,pumpkin orange
+1,tawny orange
+1,vermilion
+
+;pink
+10,pink
+1,amaranth pink
+1,blush
+1,carnation pink
+1,cherry blossom pink
+1,coral pink
+1,cyclamen
+1,deep pink
+1,rose colored
+1,fuchsia
+1,heliotrope
+1,lavender blush
+1,lavender pink
+1,misty rose pink
+1,orchid pink
+1,phlox
+1,puce
+1,raspberry pink
+1,rose quartz pink
+1,salmon pink
+1,thulian pink
+
+;violet
+10,violet
+1,amethyst
+1,blue-violet
+1,dark purple
+1,dark violet
+5,indigo
+5,purple
+1,mauve
+1,grape colored
+1,heliotrope
+1,mulberry
+1,orchid purple
+1,plum colored
+1,purpureus
+1,royal purple
+1,thistle colored
+1,tyrian purple
+1,ultra violet
+1,wisteria
+
+;red
+10,red
+1,alizarin crimson
+1,amaranth
+1,apricot red
+1,auburn
+1,blood red
+1,burgundy
+1,cardinal red
+1,carmine
+1,carnelian
+1,cerise
+1,cinnabar
+1,claret
+1,crimson
+1,dark red
+1,brick red
+1,flame red
+1,lava red
+1,maroon
+1,mahogany red
+1,oxblood
+1,raspberry
+1,rosewood
+1,ruby red
+1,russet
+1,rusty red
+1,sanguine red
+1,scarlet
+1,tawny red
+1,terra cotta red
+1,tomato red
+1,vermilion
+1,wine colored
+
+;white
+10,white
+1,alabaster
+1,antique white
+1,beige
+1,bone white
+1,champagne
+1,corn-silk
+1,cream colored
+1,eggshell white
+1,floral white
+1,flax
+1,ghost white
+1,ivory
+1,linen white
+1,magnolia white
+1,mint cream
+1,old lace white
+1,seashell white
+1,snow colored
+1,vanilla
+
+;yellow
+10,yellow
+1,amber yellow
+1,apricot yellow
+1,aureolin
+1,buff yellow
+1,champagne yellow
+1,yellow chartreuse
+1,citron
+1,citrine
+1,dark goldenrod
+1,ecru
+1,flaxen yellow
+1,golden yellow
+1,goldenrod
+1,harvest gold
+1,jasmine
+1,lemon yellow
+1,mustard
+1,saffron
+1,straw colored
+1,sunset yellow
 
 ;potion smell
 1,oranges
