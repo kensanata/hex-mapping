@@ -2384,8 +2384,10 @@ Tooth.
 </p>
 
 <p>
-And now you just keep adding. Take a look at the <%= link_to 'Schroeder table' =>
-'schroedertable' %> if you want to see more examples.
+And now you just keep adding. Take a look at the <%= link_to 'Schroeder table'
+=> 'schroedertable' %> if you want to see more examples. You might be better off
+exploring the <%= link_to url_for('rule_show')->query(load => 'schroeder') =>
+begin %>hyperlinked version<% end %> instead, though.
 </p>
 
 <h2 id="context">Context</h2>
