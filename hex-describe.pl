@@ -1319,6 +1319,9 @@ out the result using CSS.
 sub process {
   my $text = shift;
   $text =~ s/(<img[^>]+?>)/<span class="images">$1<\/span>/g;
+  # strip empty paragraphs
+  $text =~ s/<p>\s*<\/p>//g;
+  $text =~ s/<p>\s*<p>/<p>/g;
   return $text;
 }
 
