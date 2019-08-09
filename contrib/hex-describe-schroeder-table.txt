@@ -33793,7 +33793,7 @@
 ;1d8 potions
 1,A [[1d8] potions].
 
-;1 potion
+;1 potions
 1,[potion]
 
 ;2 potions
@@ -34426,7 +34426,7 @@
 ;1d8 wondrous items
 1,[[1d8] wondrous items]
 
-;1 wondrous item
+;1 wondrous items
 1,[wondrous item]
 
 ;2 wondrous items
