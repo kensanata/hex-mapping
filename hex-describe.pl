@@ -3514,10 +3514,14 @@ td, th {
 .coordinates a {
   color: inherit;
 }
+@media screen and (min-width: 110ex) {
+  .sidebar {
+    position: absolute;
+    top:  20ex;
+    left: 90ex;
+  }
+}
 .sidebar {
-  position: absolute;
-  top:  20ex;
-  left: 90ex;
   width: auto;
   border: none;
 }
