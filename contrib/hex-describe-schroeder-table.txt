@@ -5520,7 +5520,7 @@
 
 ;outlaw feature
 1,The outlaws use raven feathers in their arrows.
-1,This camp has a renowned **healer**: [human with portrait] knows how to *cure disease* using [nearby magic plant].
+1,This camp has a renowned **healer**: [human with portrait] knows how to *cure disease* using *[nearby magic plant]*.
 1,The scouts in this camp know all the creatures of [link to adjacent hex].
 1,The outlaws are eager to trade for alcohol and gold.
 1,This camp has a talented **bard** called [human with portrait] who was chased out of [nearby village name].[store human as singing humanoid] The songs they like to perform are [with story] and [and story].
