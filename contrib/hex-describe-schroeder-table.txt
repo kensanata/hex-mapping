@@ -10309,7 +10309,7 @@
 1, A large, colorful canvas tent set up to the side of your path ahead is emblazoned with large lettering proclaiming that this is property of the **circus** *[circus name]*. Rumors say that the performers are actually *[circus reputation]*. Off to one side, you can see various individuals unloading things from [conveyances] and watering and feeding some [domestic animal adjective] [draft animals].</p><blockquote>[circus hooks]</blockquote><p>
 
 ;circus name
-1, [circus1] [circus2]
+1,[circus1] [circus2]
 
 ;circus1
 1,Sunshine
@@ -10395,10 +10395,10 @@
 1,sword-swallowing
 
 ;secret circus leader
-1,strongwoman *[woman with portrait]*
-1,lion tamer *[human with portrait]*
-1,bearded woman *[woman with portrait]*
-1,tattooed woman *[woman with portrait]*
+1,strongwoman [woman with portrait]
+1,lion tamer [human with portrait]
+1,bearded woman [woman with portrait]
+1,tattooed woman [woman with portrait]
 
 ;circus hooks
 1,A prized **[circus exotic animal]** ([[same circus exotic animal] stats]) has escaped from their cage. The circus is desperate to retrieve them, alive and intact and will pay 200gp.
