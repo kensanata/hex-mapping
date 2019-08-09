@@ -2361,8 +2361,16 @@
 ;green tower in this lake content
 1,long abandoned.
 1,now inhabited by a **green dragon** called *[here green dragon name as dragon name]*[dragon portrait] ([green dragon stats]). [dragon treasure]
+1,now the nesting site of [1d6 wyverns] ([wyvern stats]). [terror treasure]
 1,The Earth Blood in this tower has turned previous visitors into [slime].
 1,[vivimancer]
+
+;1d6 wyverns
+1,a **wyvern**
+7,[1d5+1] **wyverns**
+
+;wyvern stats
+1,HD 5 AC 4 1d8 + *poison* F5 MV 24 ML 7 XP 500
 
 ;green tower description
 1,The jade-colored columns of the tower glisten in the sunlight showing veins of gold and white.
@@ -6873,11 +6881,14 @@
 1,There is a clearing in this forest where [an old statue] of *[power]* still stands.
 
 ;a monster threatening the village
-1,You shouldn’t stray too far from the trails because this forest has been cursed by the presence of [2d4] **harpies** luring men into the depths of the forest and to their death with their magical singing. [terror treasure]
+1,You shouldn’t stray too far from the trails because this forest has been cursed by the presence of [2d4] **harpies** ([harpy stats]) luring men into the depths of the forest and to their death with their magical singing. [terror treasure]
 1,Deep in the forest there is a cave where the **ettin** *[ettin]* lives. It is known for its fury and its appetite for human flesh. [robber treasure]
 1,Hiding between the trees are the watchful eyes of [1d12 bugbears] ([bugbear stats]). [scout treasure] Bugbears are usually a bad sign for they are often employed as spies by the elves of the netherworld. These carry amulets of passage bearing the [name for a clan of the netherworld elves] sigil.
 1,The camp of [1d12 bugbears] is hard to find ([bugbear stats]). [scout treasure] They hunt these woods at night and like to kill anybody that didn’t make it back to the village during daytime.
 1,[orcs] They keep a low profile, living deep in the forest, but lone travellers, or fools that don’t make it back to the village before sunset, or reckless idiots looking for trouble, they’ll all find the orcs to be more than willing to kill.
+
+;harpy stats
+1,HD 3 AC 7 1d4/1d4/1d6 F6 MV 15 ML 7 XP 300; *charm song*
 
 ;ettin
 1,Bert and Bob
