@@ -28,7 +28,7 @@
 1,[chaos]
 
 ;TOP
-1,[procedures]</p><p>[spells]</p>[gems]<p>[treasure]
+1,[procedures]<p>[spells][gems]<p>[treasure]
 
 ;procedures
 1,<strong>Procedures</strong>: <em>random encounters</em> are 1 in 6 per day and 1 in 6 per night if you’re not behind walls. If you’re <em>looking for something</em> that isn’t as obvious as a town or village built in plain sight, your chance of finding it is also just 1 in 6 per day.
@@ -54,7 +54,7 @@
 
 ;grass
 5,[grass intro] [grass dressing] **[capitalize cows]** can be seen grazing in the distance to the [direction].
-1,[grass intro] [grass dressing] Without a guide, you may be ambushed by [1d12+1] [warrior ants] protecting their colony from intruders. The ant lair is not far.</p><p>[giant ant lair]
+1,[grass intro] [grass dressing] Without a guide, you may be ambushed by [1d12+1] [warrior ants] protecting their colony from intruders. The ant lair is not far.<p>[giant ant lair]
 3,[grass intro] [grass dressing] Those who know how to find it can gather *[magic plant]*.
 1,[grass intro] [grass dressing] The area has been settled by a tribe of [6d6] **lizard people** ([lizard people stats]) led by *[lizard leader]* (HD [1d4+2 as level]). [leader treasure] The little village of sod and grass huts is guarded by [lizard companions]. [average treasure]
 1,[grass intro] [grass dressing] [centaurs] have settled here.
@@ -308,7 +308,7 @@
 1,On one of the [name for hills] stands [a warlock fortress]
 
 ;a warlock fortress
-1,a ruined fortress currently occupied by [warlocks]. [average treasure]</p><p>The fortress and its surrounding land is ruled by the **medusa** *[medusa]* ([medusa stats]). The courtyard and rooms are full of her petrified victims and the bones of the dead. [luxurious context] [terror treasure]
+1,a ruined fortress currently occupied by [warlocks]. [average treasure]<p>The fortress and its surrounding land is ruled by the **medusa** *[medusa]* ([medusa stats]). The courtyard and rooms are full of her petrified victims and the bones of the dead. [luxurious context] [terror treasure]
 
 ;name for hills
 1,[hill 1a] [hill 2a] hills
@@ -991,10 +991,10 @@
 1,[mountain orcs]
 
 ;mountain orcs
-1,The valley up here is hard to find. This is where the orcs of the *[evil tribe]* tribe raise [mountain animals] and make their [mountain orc product]. [orcs] [mountain orc leader specialty]</p><p>[mountain orc settlement]
+1,The valley up here is hard to find. This is where the orcs of the *[evil tribe]* tribe raise [mountain animals] and make their [mountain orc product]. [orcs] [mountain orc leader specialty]<p>[mountain orc settlement]
 
 ;forge orcs
-1,The ruin has been settled by the *[evil tribe]* tribe. This is where they study dwarven technology and build strange and wonderful machines from the wreckage, and this is where they cultivate their mushrooms to make [forge orc mushroom dish].</p><p>[orcs] [forge orc leader specialty]</p><p>[forge orc settlement]
+1,The ruin has been settled by the *[evil tribe]* tribe. This is where they study dwarven technology and build strange and wonderful machines from the wreckage, and this is where they cultivate their mushrooms to make [forge orc mushroom dish].<p>[orcs] [forge orc leader specialty]<p>[forge orc settlement]
 
 ;mountain animals
 1,mountain goats
@@ -2035,7 +2035,7 @@
 ;ice devil lair
 1,a large ice cave with a mount of bones as big as a house upon which the devil has built his throne of ice and steel.
 1,[1d4+2] torture chambres full of racks, vats, ice baths, blades, needles, and worse. There are dead bodies everywhere.
-1,a pool of magical darkness where [3d4] insane **ice trolls** toil endlessly, expanding the halls of their master. From here, stairs lead up and up to the very top of the mountain.</p><p>[ice devil castle]
+1,a pool of magical darkness where [3d4] insane **ice trolls** toil endlessly, expanding the halls of their master. From here, stairs lead up and up to the very top of the mountain.<p>[ice devil castle]
 
 ;ice devil castle
 1,A castle stands here, a construction of blue ice, cooled by the desolation of Jötunheim, for at the very top of its tower is a gateway into that realm of frost giants and eternal snow.
@@ -2208,7 +2208,7 @@
 1,Trees
 
 ;forge ruin
-1,The ruin is abandoned and dead. If you explore the ruins, you will soon find the **balor** *[demon name]* who caused its downfall ([balor stats]). It guards a portal to the realm of eternal fire, to Muspelheim.</p><p>[balor servants]
+1,The ruin is abandoned and dead. If you explore the ruins, you will soon find the **balor** *[demon name]* who caused its downfall ([balor stats]). It guards a portal to the realm of eternal fire, to Muspelheim.<p>[balor servants]
 1,[forge orcs]
 1,The ruin is full of broken machinery. In its depths, however, a **bronze golem** still wanders the halls ([bronze golem stats]).
 1,The ruin is now home to the **white dragon** *[here white dragon name as dragon name]*[dragon portrait] ([white dragon stats]). [dragon treasure]
@@ -2218,7 +2218,7 @@
 
 ;balor servants
 1,The chambers around the fire gate are occupied by creates from the other side. [salamanders]
-1,The orcs of the *[evil tribe]* tribe serve *[same demon name]*. [orcs] [forge orc leader specialty]</p><p>[forge orc settlement]
+1,The orcs of the *[evil tribe]* tribe serve *[same demon name]*. [orcs] [forge orc leader specialty]<p>[forge orc settlement]
 
 ;salamanders
 1,2d4 **salamanders** ([salamander stats]) live here, led by *[salamander]*. [terror treasure]
@@ -2246,29 +2246,29 @@
 1,[green mountain tower entrance] [green mountain tower 3] [green mountain tower top]
 
 ;green mountain tower entrance
-1,</p><p>There is no visible entrance, but a person carrying an amulet of passage bearing the [name for a clan of the netherworld elves] sigil will see the hidden door.
-1,</p><p>Attempting to enter the tower draws the attention of *[a jinn name]*, a **jinn** who guards the tower ([stats for a jinn]).
-1,</p><p>An ornate archway stands open at the base of the tower allowing any to pass within. In the archway, however, lie [victims of lightning]. Those who do are struck by a *rune of protection* unless copper or iron wiring is used to short-circuit the trap: *lightning bolt* (5d6 damage, save vs. spells for half)
-1,</p><p>The delicately carved [tree] wood doors of the tower have been ripped open and splintered. The bottom floor of the tower is home to [[den type]], [den mood] ([[same den type] stats]).
-1,</p><p>Inside the tower, in the entry hall, [1d2+1] **crystal living statues** stand silent guard ([stone golem stats]). Unless the party speaks the name of the tower’s builder, *[elf name]*, the guardians will attack any who attempt to ascend to the next level.
+1,<p>There is no visible entrance, but a person carrying an amulet of passage bearing the [name for a clan of the netherworld elves] sigil will see the hidden door.
+1,<p>Attempting to enter the tower draws the attention of *[a jinn name]*, a **jinn** who guards the tower ([stats for a jinn]).
+1,<p>An ornate archway stands open at the base of the tower allowing any to pass within. In the archway, however, lie [victims of lightning]. Those who do are struck by a *rune of protection* unless copper or iron wiring is used to short-circuit the trap: *lightning bolt* (5d6 damage, save vs. spells for half)
+1,<p>The delicately carved [tree] wood doors of the tower have been ripped open and splintered. The bottom floor of the tower is home to [[den type]], [den mood] ([[same den type] stats]).
+1,<p>Inside the tower, in the entry hall, [1d2+1] **crystal living statues** stand silent guard ([stone golem stats]). Unless the party speaks the name of the tower’s builder, *[elf name]*, the guardians will attack any who attempt to ascend to the next level.
 
 ;green mountain tower 2
-1,</p><p>The elf *[elf name]* was cursed for sleeping on their watch on the day this tower fell and was cursed by its commander to guard this tower in the form of a **mountain lion** for all eternity ([puma stats]). If the party can gain the lion’s trust – and they can speak with it! – it can teach them the incantation that opens the door to the next level. If killed, the elf will soon reincarnate as another lion and return.
-1,</p><p>The bodies of [1d4+1] adventurers are decomposing on the stairs leading up the next level. They seem to have died a painful death and yet they have no obvious injuries. They did not know about the **poison gas trap** triggered by the third step. If triggered, save vs. poison or die.
-1,</p><p>Further up, in a beautiful room with a terrace encircling the entire tower, a group of [1d4+1] **tengu** is roosting, led by the master swordsman *[tengu name]*. ([tengu stats]) For the price of 500gp they will tell you how to open the secret door to the top of the tower.
+1,<p>The elf *[elf name]* was cursed for sleeping on their watch on the day this tower fell and was cursed by its commander to guard this tower in the form of a **mountain lion** for all eternity ([puma stats]). If the party can gain the lion’s trust – and they can speak with it! – it can teach them the incantation that opens the door to the next level. If killed, the elf will soon reincarnate as another lion and return.
+1,<p>The bodies of [1d4+1] adventurers are decomposing on the stairs leading up the next level. They seem to have died a painful death and yet they have no obvious injuries. They did not know about the **poison gas trap** triggered by the third step. If triggered, save vs. poison or die.
+1,<p>Further up, in a beautiful room with a terrace encircling the entire tower, a group of [1d4+1] **tengu** is roosting, led by the master swordsman *[tengu name]*. ([tengu stats]) For the price of 500gp they will tell you how to open the secret door to the top of the tower.
 
 ;green mountain tower 3
-1,</p><p>The room above, with its polished floor, arching columns and a beautiful mosaic of [with elf decoration] and [and elf decoration] and scenes from [old elf ballad name], is inhabited by a **blue dragon** called *[here blue dragon name as dragon name]*[dragon portrait] ([blue dragon stats]). Exposure to elven dweomers has made the dragon surprisingly [dragon mood].  [dragon treasure]
-1,</p><p>The walls of this room near the top are cracked and all the windows are broken. This is the lair of [2d8] very protective **griffons** ([griffon stats]). They are often seen hunting the land around this tower. [maybe griffon eggs]
-1,</p><p>The large room up here has an opening in the [direction]ern wall leading to a platform with a beautiful view. The room itself is filled with glass pipes, ventilators and copper cauldrons. This laboratory is home to [gargoyles] ([gargoyle stats]). [poor treasure]
-1,</p><p>Furter up, where heaven and earth appear to meet, the Earth Blood has turned previous visitors into [2d6] [slime].
-1,</p><p>Further up and behind locked and iron-bound doors is a large room with a [1d4+1] gorgeous old wooden tables and many chairs decorated with fern leaves and roses. Here dwells the **necromancer** [human with portrait][here store [same human name] as alchemist patron] (level [1d3+4 as level]), protected by [necromancer companions]. [spellbook for necromancers] [luxurious context] [leader treasure for magic user]
+1,<p>The room above, with its polished floor, arching columns and a beautiful mosaic of [with elf decoration] and [and elf decoration] and scenes from [old elf ballad name], is inhabited by a **blue dragon** called *[here blue dragon name as dragon name]*[dragon portrait] ([blue dragon stats]). Exposure to elven dweomers has made the dragon surprisingly [dragon mood].  [dragon treasure]
+1,<p>The walls of this room near the top are cracked and all the windows are broken. This is the lair of [2d8] very protective **griffons** ([griffon stats]). They are often seen hunting the land around this tower. [maybe griffon eggs]
+1,<p>The large room up here has an opening in the [direction]ern wall leading to a platform with a beautiful view. The room itself is filled with glass pipes, ventilators and copper cauldrons. This laboratory is home to [gargoyles] ([gargoyle stats]). [poor treasure]
+1,<p>Furter up, where heaven and earth appear to meet, the Earth Blood has turned previous visitors into [2d6] [slime].
+1,<p>Further up and behind locked and iron-bound doors is a large room with a [1d4+1] gorgeous old wooden tables and many chairs decorated with fern leaves and roses. Here dwells the **necromancer** [human with portrait][here store [same human name] as alchemist patron] (level [1d3+4 as level]), protected by [necromancer companions]. [spellbook for necromancers] [luxurious context] [leader treasure for magic user]
 
 ;green mountain tower top
-3,</p><p>The top of the tower appears long abandoned. Elven relics are covered with dust and the tapestries are faded and mostly threadbare. [poor treasure]
-1,</p><p>The uppermost chamber of the tower appears to have been some sort of observatory in the past. Perhaps special knowledge could be gleaned by those who take the time to examine it.[here store observatory as source of information]
-1,</p><p>The topmost chamber has an excellent view of the mountains from the tall windows that reach nearly to the floor. One window is decorated with depictions of the moon and [[another realm] decoration]. When the light of the [moon phase] falls on it, it turns to a magical portal to *[same another realm]*.
-1,</p><p>[1d4+1] **elven ghosts** led by *[elf name]* inhabit the topmost chamber. ([spectre stats]) They don’t know how long they have been trapped here, but if they can be freed ([how to free an elven ghost]), the party could expect an unusual boon: <span class="treasure">[magic item]</span>
+3,<p>The top of the tower appears long abandoned. Elven relics are covered with dust and the tapestries are faded and mostly threadbare. [poor treasure]
+1,<p>The uppermost chamber of the tower appears to have been some sort of observatory in the past. Perhaps special knowledge could be gleaned by those who take the time to examine it.[here store observatory as source of information]
+1,<p>The topmost chamber has an excellent view of the mountains from the tall windows that reach nearly to the floor. One window is decorated with depictions of the moon and [[another realm] decoration]. When the light of the [moon phase] falls on it, it turns to a magical portal to *[same another realm]*.
+1,<p>[1d4+1] **elven ghosts** led by *[elf name]* inhabit the topmost chamber. ([spectre stats]) They don’t know how long they have been trapped here, but if they can be freed ([how to free an elven ghost]), the party could expect an unusual boon: <span class="treasure">[magic item]</span>
 
 ;how to free an elven ghost
 1,by smashing the tower to bits
@@ -2656,9 +2656,9 @@
 1,Submerged in the placid water, a boat in the shape of a silver swan appears undamaged.
 
 ;green tower underwater room
-1,</p><p>In the murky darkness below lies the lair of [a water monster]
-1,</p><p>A school of silver and blue minnows swirl and spin before the opening to a cave under the tower.
-1,</p><p>Attempting to enter the tower draws the attention of *[a marid name]*, a **marid** who guards the tower ([stats for a marid]).
+1,<p>In the murky darkness below lies the lair of [a water monster]
+1,<p>A school of silver and blue minnows swirl and spin before the opening to a cave under the tower.
+1,<p>Attempting to enter the tower draws the attention of *[a marid name]*, a **marid** who guards the tower ([stats for a marid]).
 
 ;a water monster
 1,[2d20] **nixies** led by *[nixie]* ([nixie stats]). [poor treasure]
@@ -2839,16 +2839,16 @@
 1,Graves
 
 ;canyon
-1,</p><p>[name for river] has dug itself a deep gorge.
-1,</p><p>The gorge is wonderful and deep.
-1,</p><p>Crossing the canyon requires climbing gear.
+1,<p>[name for river] has dug itself a deep gorge.
+1,<p>The gorge is wonderful and deep.
+1,<p>Crossing the canyon requires climbing gear.
 
 ;river-start river
-1,</p><p>This is where the spring of [name for river] is.
-1,</p><p>[name for river] starts here.
-1,</p><p>The spring of [name for river] is a small pond beneath some trees.
-1,</p><p>The spring of [name for river] can be found between some boulders.
-1,</p><p>At the foot of a small hill, [name for river] makes its appearance.
+1,<p>This is where the spring of [name for river] is.
+1,<p>[name for river] starts here.
+1,<p>The spring of [name for river] is a small pond beneath some trees.
+1,<p>The spring of [name for river] can be found between some boulders.
+1,<p>At the foot of a small hill, [name for river] makes its appearance.
 
 ;thorp river
 1,[river] [capitalize human prefix] *[human name]* has a small raft that can carry cattle and people across.
@@ -2868,8 +2868,8 @@
 1,[river] An old stone bridge connects the two sides, with two small guard towers at both ends. There is a toll to be paid.
 
 ;river
-1,</p><p>[name for river] flows through here.
-1,</p><p>[name for river] runs through here.
+1,<p>[name for river] flows through here.
+1,<p>[name for river] runs through here.
 
 ;name for river
 5,<span class="river">[river 1] [river 2]</span>
@@ -2907,19 +2907,19 @@
 1,Streamlet
 
 ;river-merge river
-1,</p><p>[names for river] merge here.
+1,<p>[names for river] merge here.
 
 ;forest-hill trail
-1,</p><p>[name for trail] winds its way along these hills.
-1,</p><p>[name for trail] hugs the hills.
-1,</p><p>[name for trail] crosses over the water below at [bridge name].
+1,<p>[name for trail] winds its way along these hills.
+1,<p>[name for trail] hugs the hills.
+1,<p>[name for trail] crosses over the water below at [bridge name].
 
 ;trail-start trail
-1,</p><p>[name for trail] starts here.
-1,</p><p>This is the beginning of [name for trail].
+1,<p>[name for trail] starts here.
+1,<p>This is the beginning of [name for trail].
 
 ;trail-merge trail
-1,</p><p>[names for trail] meet here, [small landmark].
+1,<p>[names for trail] meet here, [small landmark].
 
 ;small landmark
 1,under the gallows
@@ -2942,8 +2942,8 @@
 1,the haunted house
 
 ;trail
-1,</p><p>[name for trail] goes through here.
-1,</p><p>[name for trail] leads through here.
+1,<p>[name for trail] goes through here.
+1,<p>[name for trail] leads through here.
 
 ;name for trail
 7,<span class="trail">[trail 1] [trail 2]</span>
@@ -4991,8 +4991,8 @@
 
 ;abandoned mine
 1,[abandoned coal mine]
-1,This must have been a pretty big operation. At least twenty or thirty people must have been digging down here at one point.</p><p>The orc avoid the mine because a bunch of gnomes has settled here and extended the crawlspaces with even more tunnels. [gnomes] They resent intruders.
-1,A huge shaft leads down into blackness. At the bottom are the ruins of an underground building by the ancients.</p><p>[ruins of the ancients]
+1,This must have been a pretty big operation. At least twenty or thirty people must have been digging down here at one point.<p>The orc avoid the mine because a bunch of gnomes has settled here and extended the crawlspaces with even more tunnels. [gnomes] They resent intruders.
+1,A huge shaft leads down into blackness. At the bottom are the ruins of an underground building by the ancients.<p>[ruins of the ancients]
 
 ;gnomes
 1,5d8 **gnomes** ([gnome stats]) led by [gnome with portrait] (HD 5) live here, looking for gems. [rich treasure] These caves are protected by [gnome companions]
@@ -5891,9 +5891,9 @@
 1,Ambition
 
 ;manticore companions
-1,</p><p>At the foot of the tower there’s a camp of [4d6] **hobgoblins** ([hobgoblin stats]) led by *[hobgoblin]* (HD 3+1). They are trying to recruit the manticore for their war. [robber treasure]
-1,</p><p>Beneath the tower is a warren of [6d10] **goblins**, led by [goblin] ([goblin stats]). [poor treasure] They will happily lead fools to the manticore’s tower (and betray them).
-1,</p><p>Two of the buildings at the foot of the tower have been fixed up. [outlaw camp] They live here in an uneasy truce with the manticore.
+1,<p>At the foot of the tower there’s a camp of [4d6] **hobgoblins** ([hobgoblin stats]) led by *[hobgoblin]* (HD 3+1). They are trying to recruit the manticore for their war. [robber treasure]
+1,<p>Beneath the tower is a warren of [6d10] **goblins**, led by [goblin] ([goblin stats]). [poor treasure] They will happily lead fools to the manticore’s tower (and betray them).
+1,<p>Two of the buildings at the foot of the tower have been fixed up. [outlaw camp] They live here in an uneasy truce with the manticore.
 2,
 
 ;manticore stats
@@ -5911,7 +5911,7 @@
 ;halfling troubles
 1,These halflings are wicked raiders, disappearing into the wilderness without leaving a trail.
 1,These halflings are cruel flesh eaters, like ravenous wolves they hunt and eat humans and elves alike.
-1,A curse has been killing their sheep and they fear starvation, soon enough.</p><p>Little do they know of the [witch]
+1,A curse has been killing their sheep and they fear starvation, soon enough.<p>Little do they know of the [witch]
 1,They hate and fear all outsiders. And what they fear most of all is that somebody would betray the location of their home.
 
 ;halfling with portrait
@@ -6287,7 +6287,7 @@
 1,HD 5 AC 6 1d6/1d6 F5 MV 15 ML 7 XP 500; on a 20: magic water fills victim’s lung, save vs. death or drown; *beautiful* (until kissed), *charm male*, *kiss of mind control* (24h), *invisibility*, *turn to fog*, *curse of water lungs*: save vs. death or drown in 1d6 days
 
 ;faerie witch
-1,Hidden deep in the [forest name] is a [witch cottage] [witch cottage door] [witch cottage other entry]</p><p>[witch cottage main room]</p><p>This house belongs to [here old names for women as witch] the **witch** ([witch stats]). She is working on [witch product]. [terror treasure] [witch annex]
+1,Hidden deep in the [forest name] is a [witch cottage] [witch cottage door] [witch cottage other entry]<p>[witch cottage main room]<p>This house belongs to [here old names for women as witch] the **witch** ([witch stats]). She is working on [witch product]. [terror treasure] [witch annex]
 
 ;witch product
 1,some poultice
@@ -6369,8 +6369,8 @@
 1,tarantulas
 
 ;witch prisoner
-1,</p><p>In a cage, hanging from the ceiling, [ettercap prisoner feeling], is [witch prisoner details]
-1,</p><p>In a cage, standing near the fire, [ettercap prisoner feeling], is [witch prisoner details]
+1,<p>In a cage, hanging from the ceiling, [ettercap prisoner feeling], is [witch prisoner details]
+1,<p>In a cage, standing near the fire, [ettercap prisoner feeling], is [witch prisoner details]
 1,
 
 ;witch prisoner details
@@ -6379,14 +6379,14 @@
 2,*[human name]*, a child maybe [1d6+4] years old.
 
 ;witch thrall
-1,</p><p>*[human name]* the servant is cleaning the shelves, singing quietly, dressed in rags.
-1,</p><p>*[human name]* the servant is cleaning the floor, humming softly, dressed in rags.
-1,</p><p>*[human name]* sits in a corner, quietly rocking back and forth, neck leashed to an iron ring. The *magic leash* starts strangling its victim as soon as they try to free themselves.
+1,<p>*[human name]* the servant is cleaning the shelves, singing quietly, dressed in rags.
+1,<p>*[human name]* the servant is cleaning the floor, humming softly, dressed in rags.
+1,<p>*[human name]* sits in a corner, quietly rocking back and forth, neck leashed to an iron ring. The *magic leash* starts strangling its victim as soon as they try to free themselves.
 1,
 
 ;witch annex
-1,</p><p>There’s a rickety ladder leading up to the attic where [same old names for women] keeps [witch attic]
-1,</p><p>There’s a steep staircase leading to a cellar below where [same old names for women] keeps [witch cellar]
+1,<p>There’s a rickety ladder leading up to the attic where [same old names for women] keeps [witch attic]
+1,<p>There’s a steep staircase leading to a cellar below where [same old names for women] keeps [witch cellar]
 
 ;witch attic
 1,her *chest of replenishing curses*. The inscription reads: "Do not open!" Opening the chest releases all her stored curses. Anybody interested in the chest must save vs. spells or be cursed by one of the following: 1. *weakness* (strength 3); 2. *shakes* (dexterity 3); 3. *wheezing cough* (constitution 3); 4. *stupidity* (intelligence 3); 5. *foolishness* (wisdom 3); 6. *foul tongue* (charisma 3); 7. *sloth* (every odd roll on a d20 is an automatic fail); 8. *lunacy* (whenever you see dogs or wolves, drop everything you are carrying, howl like mad and run for the woods to live with your kin); 9. *paranoia* (do not trust your friends, not accept their help, do not help them); 10. *swan* (turn into a swan); 11. *frog* (turn into a frog); 12. *martyrdom* (take blows for everybody, sacrifice yourself if possible).
@@ -6405,7 +6405,7 @@
 1,her *terrible oven*, an oven that turns any living being into a tasty meal for up to twelve. [same old names for women] would love nothing better than to turn one of the party into a tasty meal and feed it to the rest of them!
 
 ;mirror realm
-1,</p><p>This realm is a world of eternal night, [1d4x10] **humans** ([human stats]) led by [human name], all of them fungus farmers and blood cattle for [1d6 mirror realm vampires] living in an old manor house, surrounded by [manor house surrounding] harbouring [2d6] **wolves** ([wolf stats]). [vampire foe]
+1,<p>This realm is a world of eternal night, [1d4x10] **humans** ([human stats]) led by [human name], all of them fungus farmers and blood cattle for [1d6 mirror realm vampires] living in an old manor house, surrounded by [manor house surrounding] harbouring [2d6] **wolves** ([wolf stats]). [vampire foe]
 
 ;manor house surrounding
 1,a wild garden behind an iron fence 10ft high
@@ -6420,8 +6420,8 @@
 1,HD 9 AC 2 1d10 + *drain* F9 MV 18 ML 11 XP 900; only harmed by magic or magic weapons; immune to *sleep* and *charm*; *charming gaze*: save vs. spells when looking into its eyes as it speaks or be charmed for a day; *limited shape shift* into a bat or mist; *coffin bound*: when reduced to 0hp, turns into mist and slowly creeps back to its coffin; *regenerate*: in its coffin, regenerates completely within a few hours; *vulnerability*: to kill it, expose it to sunlight or submerge it under running water for 10min
 
 ;vampire foe
-1,</p><p>Quietly, [same human name] is trying to find a way to topple [same old names for women] reign, for they themselves are a **werewolf** and as long as no moon rises in this mirror realm, their disguise is perfect ([werewolf stats]).
-1,</p><p>Underground, a bunch of radical **gnomes** ([gnome stats]) [1d6-1 badgers] led by [gnome with portrait] (HD 5) are trying to undermine the reign of [same old names for women]. [rich treasure]
+1,<p>Quietly, [same human name] is trying to find a way to topple [same old names for women] reign, for they themselves are a **werewolf** and as long as no moon rises in this mirror realm, their disguise is perfect ([werewolf stats]).
+1,<p>Underground, a bunch of radical **gnomes** ([gnome stats]) [1d6-1 badgers] led by [gnome with portrait] (HD 5) are trying to undermine the reign of [same old names for women]. [rich treasure]
 1,
 
 ;1d6-1 badgers
@@ -6869,7 +6869,7 @@
 
 # These are the monsters for larger villages
 ;trees
-1,This is the [forest name]. [signs of human activity]</p><p>[a monster threatening the village]
+1,This is the [forest name]. [signs of human activity]<p>[a monster threatening the village]
 
 ;signs of human activity
 1,Tall trees cover this valley. Occasionally, you can see tree stumps so somebody must be logging these trees.
@@ -7028,7 +7028,7 @@
 1,Impaler
 
 ;goblin town entrance
-1,A giant **black tree** stands here. This is the *[goblin king]* ([treant stats]; *hold person*, *charm person*, *animate dead*). Upon reciting the mantra "[goblin passphrase]," the tree will step aside and reveal the entrance to an underground *goblin town*.</p><p>[goblin town]
+1,A giant **black tree** stands here. This is the *[goblin king]* ([treant stats]; *hold person*, *charm person*, *animate dead*). Upon reciting the mantra "[goblin passphrase]," the tree will step aside and reveal the entrance to an underground *goblin town*.<p>[goblin town]
 
 ;goblin king
 1,Alder King
@@ -7051,9 +7051,9 @@
 1,we are all goblins
 
 ;goblin town
-1,The goblin town has two factions: the *[[with goblin town companions as g1] name as g1name]* and the *[[and goblin town companions as g2] name as g2name]*.</p><p>The *[same g1name]* live in the upper parts of town, near the temple of *[here evil power as temple power]*. [goblin town faction] [[same g1]]</p><p>The *[same g2name]* faction controls access to the [goblin town water], and the goblin *market*. [goblin town faction] [[same g2]]</p><p>[goblin market]
-2,The goblin town has three factions: the *[[with goblin town companions as g1] name as g1name]*, the *[[and goblin town companions as g2] name as g2name]*, and the *[[and goblin town companions as g3] name as g3name]*.</p><p>The *[same g1name]* live in the upper parts of town, near the entrance. [goblin town faction] [[same g1]]</p><p>The *[same g2name]* faction live in the middle part town, around the temple of *[here evil power as temple power]*. [goblin town faction] [[same g2]]</p><p>The *[same g3name]* faction controls access to the [goblin town water], and the goblin *market*. [goblin town faction] [[same g3]]</p><p>[goblin market]
-1,The goblin town has four factions: the *[[with goblin town companions as g1] name as g1name]*, the *[[and goblin town companions as g2] name as g2name]*, the *[[and goblin town companions as g3] name as g3name]*, and the *[[and goblin town companions as g4] name as g4name]*.</p><p>The *[same g1name]* live in the upper parts of town, near the entrance. [goblin town faction] [[same g1]]</p><p>The *[same g2name]* faction live in the middle part town, around the temple of *[here evil power as temple power]*. [goblin town faction] [[same g2]]</p><p>The *[same g4name]* faction live below the *[same evil power]* temple and run a *fight pit*. [goblin town faction] [[same g2]]</p><p>[goblin fight pit]</p><p>The *[same g3name]* faction controls access to the [goblin town water], and the goblin *market*. [goblin town faction] [[same g3]]</p><p>[goblin market]
+1,The goblin town has two factions: the *[[with goblin town companions as g1] name as g1name]* and the *[[and goblin town companions as g2] name as g2name]*.<p>The *[same g1name]* live in the upper parts of town, near the temple of *[here evil power as temple power]*. [goblin town faction] [[same g1]]<p>The *[same g2name]* faction controls access to the [goblin town water], and the goblin *market*. [goblin town faction] [[same g2]]<p>[goblin market]
+2,The goblin town has three factions: the *[[with goblin town companions as g1] name as g1name]*, the *[[and goblin town companions as g2] name as g2name]*, and the *[[and goblin town companions as g3] name as g3name]*.<p>The *[same g1name]* live in the upper parts of town, near the entrance. [goblin town faction] [[same g1]]<p>The *[same g2name]* faction live in the middle part town, around the temple of *[here evil power as temple power]*. [goblin town faction] [[same g2]]<p>The *[same g3name]* faction controls access to the [goblin town water], and the goblin *market*. [goblin town faction] [[same g3]]<p>[goblin market]
+1,The goblin town has four factions: the *[[with goblin town companions as g1] name as g1name]*, the *[[and goblin town companions as g2] name as g2name]*, the *[[and goblin town companions as g3] name as g3name]*, and the *[[and goblin town companions as g4] name as g4name]*.<p>The *[same g1name]* live in the upper parts of town, near the entrance. [goblin town faction] [[same g1]]<p>The *[same g2name]* faction live in the middle part town, around the temple of *[here evil power as temple power]*. [goblin town faction] [[same g2]]<p>The *[same g4name]* faction live below the *[same evil power]* temple and run a *fight pit*. [goblin town faction] [[same g2]]<p>[goblin fight pit]<p>The *[same g3name]* faction controls access to the [goblin town water], and the goblin *market*. [goblin town faction] [[same g3]]<p>[goblin market]
 
 ;goblin town companions
 1,goblin town failures
@@ -7140,7 +7140,7 @@
 1,[goblin town animal relation] [3d6] **giant beetles** ([giant beetle stats]).
 
 ;goblin fight pit
-1,*[goblin]* is the pit master around here. The current stable of teams:</p><table><tr class="head"><th>Team</th><th>Members</th></tr><tr><td>*[goblin fight team name]*</td><td>[goblin fight team]</td></tr><tr class="odd"><td>*[goblin fight team name]*</td><td>[goblin fight team]</td></tr><tr><td>*[goblin fight team name]*</td><td>[goblin fight team]</td></tr><tr class="odd"><td>*[goblin fight team name]*</td><td>[goblin fight team]</td></tr><tr><td>*[goblin fight team name]*</td><td>[goblin fight team]</td></tr><tr class="odd"><td>*[goblin fight team name]*</td><td>[goblin fight team]</td></tr><tr class="end"><tr><td>*[goblin fight team name]*</td><td>[goblin fight team]</td></tr><tr class="end"><td colspan=2>[goblin closing fight pitch]</td></tr></table><p>Stats:</p><ul><li>**ogres** ([ogre stats])<li>**ogre mages** ([ogre mage stats])<li>**orcs** ([orc stats])<li>**trolls** ([troll stats])<li>**war dogs** ([wolf stats])</ul><p>Betting usually starts at a 1:5 rate for the players and gets adjusted based on past performance. Thus, after four wins in a row the odds arrive at 1:1 and the players are excluded from further fighting.
+1,*[goblin]* is the pit master around here. The current stable of teams:<table><tr class="head"><th>Team</th><th>Members</th></tr><tr><td>*[goblin fight team name]*</td><td>[goblin fight team]</td></tr><tr class="odd"><td>*[goblin fight team name]*</td><td>[goblin fight team]</td></tr><tr><td>*[goblin fight team name]*</td><td>[goblin fight team]</td></tr><tr class="odd"><td>*[goblin fight team name]*</td><td>[goblin fight team]</td></tr><tr><td>*[goblin fight team name]*</td><td>[goblin fight team]</td></tr><tr class="odd"><td>*[goblin fight team name]*</td><td>[goblin fight team]</td></tr><tr class="end"><tr><td>*[goblin fight team name]*</td><td>[goblin fight team]</td></tr><tr class="end"><td colspan=2>[goblin closing fight pitch]</td></tr></table><p>Stats:<ul><li>**ogres** ([ogre stats])<li>**ogre mages** ([ogre mage stats])<li>**orcs** ([orc stats])<li>**trolls** ([troll stats])<li>**war dogs** ([wolf stats])</ul><p>Betting usually starts at a 1:5 rate for the players and gets adjusted based on past performance. Thus, after four wins in a row the odds arrive at 1:1 and the players are excluded from further fighting.
 
 ;goblin fight team name
 1,Team [evil tribe]
@@ -7175,7 +7175,7 @@
 1,*You can do it if you really want!*
 
 ;goblin market
-1,The goblins have the following wares for sale:</p><table><tr class="head"><th>Item</th><th>Upsell</th><th class="center">Price</th></tr><tr><td>[goblin junk]</td><td>[with goblin upsell]</td><td class="center">[junk price]</tr><tr class="odd"><td>[goblin junk]</td><td>[and goblin upsell]</td><td class="center">[junk price]</tr><tr><td>[goblin junk]</td><td>[and goblin upsell]</td><td class="center">[junk price]</tr><tr class="odd"><td>[goblin junk]</td><td>[and goblin upsell]</td><td class="center">[junk price]</tr><tr><td>[goblin junk]</td><td>[goblin upsell]</td><td class="center">[junk price]</tr><tr class="odd"><td>[goblin junk]</td><td>[with goblin upsell]</td><td class="center">[junk price]</tr><tr><td>[goblin junk]</td><td>[and goblin upsell]</td><td class="center">[junk price]</tr><tr class="end"><td colspan=3>[goblin closing pitch]</td></table><p>The *useful* stuff requires contacts. [goblin patron]
+1,The goblins have the following wares for sale:<table><tr class="head"><th>Item</th><th>Upsell</th><th class="center">Price</th></tr><tr><td>[goblin junk]</td><td>[with goblin upsell]</td><td class="center">[junk price]</tr><tr class="odd"><td>[goblin junk]</td><td>[and goblin upsell]</td><td class="center">[junk price]</tr><tr><td>[goblin junk]</td><td>[and goblin upsell]</td><td class="center">[junk price]</tr><tr class="odd"><td>[goblin junk]</td><td>[and goblin upsell]</td><td class="center">[junk price]</tr><tr><td>[goblin junk]</td><td>[goblin upsell]</td><td class="center">[junk price]</tr><tr class="odd"><td>[goblin junk]</td><td>[with goblin upsell]</td><td class="center">[junk price]</tr><tr><td>[goblin junk]</td><td>[and goblin upsell]</td><td class="center">[junk price]</tr><tr class="end"><td colspan=3>[goblin closing pitch]</td></table><p>The *useful* stuff requires contacts. [goblin patron]
 
 ;goblin patron
 1,Big *[goblin]* wants to increase the prestige of the *[same evil power]* temple and is looking for a special relic: the [relic]. Bring it here and *[same goblin]*  will give you a little trinket they recently acquired: [magic item]
@@ -7978,7 +7978,7 @@
 1,The [forest name] is flooded with soothing sun light (or moon light). [unicorns]
 
 ;wood elves
-1,[save 1d6+1 as level][save spellbook for elves] Elves have built their [elf dwelling] in [forest name], [beautiful trees]. [elf environment] [elf companions]</p><p>[elf clade name], [2d12] **elves** ([elf stats]) led by [elf with portrait] (level [same level]). [same spellbook for elves] [leader treasure]</p><p>[wood elf quest]
+1,[save 1d6+1 as level][save spellbook for elves] Elves have built their [elf dwelling] in [forest name], [beautiful trees]. [elf environment] [elf companions]<p>[elf clade name], [2d12] **elves** ([elf stats]) led by [elf with portrait] (level [same level]). [same spellbook for elves] [leader treasure]<p>[wood elf quest]
 
 ;wood elf quest
 1,*[same elf name]* wants *[nearby elf treasure]* back. It was stolen many decades ago, they say.
@@ -8081,10 +8081,10 @@
 1,Silver
 
 ;ettercaps
-1,[ettercap ground level]</p><p>[ettercap lair]</p><p>[ettercap trade]</p><p>[ettercap mother]
+1,[ettercap ground level]<p>[ettercap lair]<p>[ettercap trade]<p>[ettercap mother]
 
 ;swamp ettercaps
-1,[ettercap lake]</p><p>[ettercap harbour]</p><p>The island itself is quite small. [ettercap lair]</p><p>[ettercap mother]
+1,[ettercap lake]<p>[ettercap harbour]<p>The island itself is quite small. [ettercap lair]<p>[ettercap mother]
 
 ;ettercap ground level
 1,Spider webs between the trees make progress impossible. Desiccated deer and birds hang in these nets. Touching these nets or setting them on fire attracts [2d4] **giant spiders** ([giant spider stats]).
@@ -8376,8 +8376,8 @@
 
 ;elf companions
 # 1d6-3 weasels
-1,</p><p>The elves also keep a **giant weasel** as their mount and pet ([weasel stats]).
-2,</p><p>The elves also keep a [1d2+1] **giant weasels** as their mounts and pets ([weasel stats]).
+1,<p>The elves also keep a **giant weasel** as their mount and pet ([weasel stats]).
+2,<p>The elves also keep a [1d2+1] **giant weasels** as their mounts and pets ([weasel stats]).
 3,
 
 ;elf environment
@@ -9208,10 +9208,10 @@
 1,In *The Travels of [old name]*, this place was called
 
 ;druid trails
-1,</p><p>A [druid path] north to [druid larder]. [maybe druid acolytes]</p><p>Another [druid path] south to [druid camp]. [druid] [druid acolytes] [druid goal] [druid terror]
-1,</p><p>A [druid path] south to [druid camp]. [druid] [druid acolytes] [druid goal] [druid terror]</p><p>Another [druid path] east to [druid larder]. [maybe druid acolytes]
-1,</p><p>A [druid path] west to [druid larder]. [maybe druid acolytes]</p><p>Another [druid path] north to [druid camp]. [druid] [druid acolytes] [druid goal] [druid terror]
-1,</p><p>A [druid path] uphill to [druid camp]. [druid] [druid acolytes] [druid goal] [druid terror]</p><p>Another [druid path] into a ravine where there one may find [druid larder]. [maybe druid acolytes]
+1,<p>A [druid path] north to [druid larder]. [maybe druid acolytes]<p>Another [druid path] south to [druid camp]. [druid] [druid acolytes] [druid goal] [druid terror]
+1,<p>A [druid path] south to [druid camp]. [druid] [druid acolytes] [druid goal] [druid terror]<p>Another [druid path] east to [druid larder]. [maybe druid acolytes]
+1,<p>A [druid path] west to [druid larder]. [maybe druid acolytes]<p>Another [druid path] north to [druid camp]. [druid] [druid acolytes] [druid goal] [druid terror]
+1,<p>A [druid path] uphill to [druid camp]. [druid] [druid acolytes] [druid goal] [druid terror]<p>Another [druid path] into a ravine where there one may find [druid larder]. [maybe druid acolytes]
 
 ;maybe druid acolytes
 2,[druid acolytes]
@@ -9269,12 +9269,12 @@
 1,An eerie keening and rattling sound echoes through the wood. Looking up, you see human bones high up in the branches, acting like wind-chimes.
 
 ;druid goal
-1,</p><p>All they want is to drive away all the humans for they bring their walls, their squalid houses, and their diseases into this glorious wilderness.
-1,</p><p>All they want is to kill all the humans that have been cutting down trees with their iron weapons, their iron armour, their bonfires and their torches.
-1,</p><p>All they desire is to rouse the ancient wood and to expanded its borders. Let it re-take the cultivated lands that it once dominated.
-1,</p><p>All they want is to unite the sylvan creatures and take back what is theirs: let the villages burn!
-1,</p><p>All they desire is for the old order to return: hunter and hunted, predator and prey. They see the humans growing soft and fat with their domestication and agriculture, and this makes them prey.
-1,</p><p>All they desire is the perfect, sublime, and chaotic beauty of nature, where nothing is ever uniform for long and entropy reins supreme. Let there be upheaval and change.
+1,<p>All they want is to drive away all the humans for they bring their walls, their squalid houses, and their diseases into this glorious wilderness.
+1,<p>All they want is to kill all the humans that have been cutting down trees with their iron weapons, their iron armour, their bonfires and their torches.
+1,<p>All they desire is to rouse the ancient wood and to expanded its borders. Let it re-take the cultivated lands that it once dominated.
+1,<p>All they want is to unite the sylvan creatures and take back what is theirs: let the villages burn!
+1,<p>All they desire is for the old order to return: hunter and hunted, predator and prey. They see the humans growing soft and fat with their domestication and agriculture, and this makes them prey.
+1,<p>All they desire is the perfect, sublime, and chaotic beauty of nature, where nothing is ever uniform for long and entropy reins supreme. Let there be upheaval and change.
 
 ;druid terror
 1,High up in the trees a small number of wooden cages hold dead bodies and [druid prisoners], [ettercap prisoner feeling].
@@ -9291,11 +9291,11 @@
 5,are [1d5+1] **prisoners** led by *[human name]*
 
 ;druid allies
-1,</p><p>[druid cause] The druids have found powerful allies in the forest: [1d8 treants] ([treant stats]).
-1,</p><p>[druid cause] The woods around here are patrolled by the druids’ pack: [3d6] **wolves** ([wolf stats]).
-1,</p><p>[druid cause] The druids are protected by [1d4 bears] ([bear stats]).
-1,</p><p>[druid cause] The druids have found unruly allies in the forest: [centaurs].
-1,</p><p>[druid cause] The druids know everything that moves in this part of the forest for the **crows** act as their eyes and ears. They’re everywhere!
+1,<p>[druid cause] The druids have found powerful allies in the forest: [1d8 treants] ([treant stats]).
+1,<p>[druid cause] The woods around here are patrolled by the druids’ pack: [3d6] **wolves** ([wolf stats]).
+1,<p>[druid cause] The druids are protected by [1d4 bears] ([bear stats]).
+1,<p>[druid cause] The druids have found unruly allies in the forest: [centaurs].
+1,<p>[druid cause] The druids know everything that moves in this part of the forest for the **crows** act as their eyes and ears. They’re everywhere!
 
 ;druid cause
 1,This place is sacred to the druids.
@@ -9419,8 +9419,8 @@
 1,heads
 
 ;giant ant lair
-1,Rising from the earth ahead is a dome-shaped [giant ant mound]. It is the size of a small hill. The area is devoid of plant life. There are [1d3+1] well-worn pathways, about as wide as a deer-trail, that radiate down from the summit in different directions. [20% ant here]</p><p>Sloping sharply downward the entrance leads to a large open area with smoother walls. [50% ants here] From this cavern, there is a [ant tunnels] sloping downward to the [with directions] and another [ant tunnels] that slopes [and directions].</p><p>The first passageway leads to [[with giant ant area]]</p><p>The second passageway goes much further down and the air gets hot and humid. It leads to [giant ant queen chamber]</p>
-1,Rising from the earth ahead is a dome-shaped [giant ant mound]. It is the size of a small hill. The area is brown and bare. Nothing green remains. There are [1d3+1] well-worn pathways, about as wide as a deer-trail, that radiate down from the summit in different directions. [20% ant here]</p><p>Sloping sharply downward the entrance leads to a large open area with smoother walls. [50% ants here] From this cavern, there are three options: a [ant tunnels] sloping downward to the [with directions], a [ant tunnels] sloping [and directions], and a [ant tunnels] sloping [and directions].</p><p>The first passageway leads to [[with giant ant area]]</p><p>The second main passageway terminates at [[and giant ant area]]</p><p>The third passageway descends for a fair bit and the air gets hot and humid. It leads to [giant ant queen chamber]</p>
+1,Rising from the earth ahead is a dome-shaped [giant ant mound]. It is the size of a small hill. The area is devoid of plant life. There are [1d3+1] well-worn pathways, about as wide as a deer-trail, that radiate down from the summit in different directions. [20% ant here]<p>Sloping sharply downward the entrance leads to a large open area with smoother walls. [50% ants here] From this cavern, there is a [ant tunnels] sloping downward to the [with directions] and another [ant tunnels] that slopes [and directions].<p>The first passageway leads to [[with giant ant area]]<p>The second passageway goes much further down and the air gets hot and humid. It leads to [giant ant queen chamber]
+1,Rising from the earth ahead is a dome-shaped [giant ant mound]. It is the size of a small hill. The area is brown and bare. Nothing green remains. There are [1d3+1] well-worn pathways, about as wide as a deer-trail, that radiate down from the summit in different directions. [20% ant here]<p>Sloping sharply downward the entrance leads to a large open area with smoother walls. [50% ants here] From this cavern, there are three options: a [ant tunnels] sloping downward to the [with directions], a [ant tunnels] sloping [and directions], and a [ant tunnels] sloping [and directions].<p>The first passageway leads to [[with giant ant area]]<p>The second main passageway terminates at [[and giant ant area]]<p>The third passageway descends for a fair bit and the air gets hot and humid. It leads to [giant ant queen chamber]
 
 ;giant ant mound
 1,pile constructed of [with giant ant materials] and [and giant ant materials]
@@ -9557,7 +9557,7 @@
 
 ;giant ant larder
 1,a [ant tunnel desc] [ant room type] that smells strongly of death and decay. Stored here for future meals are [giant ant larder contents]. The floor is bloodstained. [50% ants here] [20% myconids]
-1,a [ant tunnel desc] [ant room type] that is remarkably well-kept and clean. There are [giant ant larder contents].</p><p>From here, another [ant tunnels] slopes [and directions], leading to [[and giant ant area]] [50% ants here] [20% myconids]
+1,a [ant tunnel desc] [ant room type] that is remarkably well-kept and clean. There are [giant ant larder contents].<p>From here, another [ant tunnels] slopes [and directions], leading to [[and giant ant area]] [50% ants here] [20% myconids]
 1,a [ant tunnel desc] [ant room type] obviously used for storage. [50% ants here] Among the contents are [giant ant larder contents]. [20% myconids]
 
 ;giant ant larder contents
@@ -9866,7 +9866,7 @@
 1,a moss covered statue
 
 ;law
-1,</p><p>[temple of law]
+1,<p>[temple of law]
 
 ;temple of law
 1,On a peak nearby stands a statue of *[here good power as tempel power]*, built by [ancients]. At the foot of the statue, a few followers of [same good power] have built a small temple consisting of a prayer hall, a sleeping hall, and [lawful temple feature] [monks or nuns]
@@ -9900,7 +9900,7 @@
 1,dwarves
 
 ;chaos
-1,</p><p>[temple of chaos]
+1,<p>[temple of chaos]
 
 ;temple of chaos
 1,In these water logged woods, a statue of *[here disease power as tempel power]* was built on top of a little hill. Around it, his followers have built a series of wooden huts and a sacrificial pit full of carcasses, maggots and flies. The stench is overpowering. The humans pray for deliverance, for change, for a remaking of the world and the forest. [cultists]
@@ -9943,11 +9943,11 @@
 
 ;settlement event
 1,
-1,</p><p>[bard]
-1,</p><p>[dragon hunter]
-1,</p><p>[treasure hunter]
-1,</p><p>[trade caravan]
-1,</p><p>[travelling circus]
+1,<p>[bard]
+1,<p>[dragon hunter]
+1,<p>[treasure hunter]
+1,<p>[trade caravan]
+1,<p>[travelling circus]
 
 ;dragon hunter
 1,The dragon hunter **[human class]** [human with portrait] (level [1d4+5 as level]) is trying to hire two score desperate peasants to go and slay *[nearby dragon name]*. “[sharing agreement]” [spellbook for [same class]] [leader treasure for [same class]]
@@ -10293,11 +10293,11 @@
 # goblin patron is not the same thing!
 ;treasure hunter
 1,The treasure hunter **[human class]** [human with portrait] (level [1d4+1 as level]) is trying to hire some fools for they have a [treasure map]. [spellbook for [same class]] [leader treasure for [same class]] “[sharing agreement]”
-1,The treasure hunter **[human class]** [human with portrait] (level [1d4+1 as level]) is trying to hire some fools to find *[magic plant]* (in [link to adjacent hex]). “Surely *[nearby alchemist patron]* will pay us well. [5000gp reward sharing agreement]” [spellbook for [same class]] [leader treasure for [same class]]</p><blockquote>[magic plant guardian]</blockquote><p>
+1,The treasure hunter **[human class]** [human with portrait] (level [1d4+1 as level]) is trying to hire some fools to find *[magic plant]* (in [link to adjacent hex]). “Surely *[nearby alchemist patron]* will pay us well. [5000gp reward sharing agreement]” [spellbook for [same class]] [leader treasure for [same class]]<blockquote>[magic plant guardian]</blockquote><p>
 1,The treasure hunter **[human class]** [human with portrait] (level [1d4+1 as level]) is trying to hire some fools to steal *[magic plant]* from the witch *[nearby witch]* who grows it amongst the other herbs, vegetables, and flowers of her garden. “Surely *[nearby alchemist patron]* will pay us well. [5000gp reward sharing agreement]” [spellbook for [same class]] [leader treasure for [same class]]
 # the following item might require more travel to an existing magic planet but has no guardian
 1,The treasure hunter **[human class]** [human with portrait] (level [1d4+1 as level]) is trying to hire some fools to search for *[nearby magic plant]*. [spellbook for [same class]] [leader treasure for [same class]] “Surely *[nearby alchemist patron]* will pay us well. [5000gp reward sharing agreement]”
-1,The treasure hunter **[human class]** [human with portrait] (level [1d4+1 as level]) is trying to hire some fools to rob an ancient tomb (in [link to adjacent hex]). [spellbook for [same class]] [leader treasure for [same class]] “[sharing agreement]”</p><blockquote>[tomb guardian] [ancient treasure]</blockquote><p>
+1,The treasure hunter **[human class]** [human with portrait] (level [1d4+1 as level]) is trying to hire some fools to rob an ancient tomb (in [link to adjacent hex]). [spellbook for [same class]] [leader treasure for [same class]] “[sharing agreement]”<blockquote>[tomb guardian] [ancient treasure]</blockquote><p>
 1,The treasure hunter **[human class]** [human with portrait] (level [1d4+1 as level]) is trying to hire some fools to get some *[nearby alchemist quest]*. [spellbook for [same class]] [leader treasure for [same class]] “Surely *[nearby alchemist patron]* will pay us well. [sales sharing agreement]”
 
 ;magic plant guardian
@@ -10331,9 +10331,9 @@
 1,The tomb is in fact the resting place of an old hero. Sadly, according to the inscriptions they lost their war and never found eternal rest. They are still here, eager to fight, eager to recruit an army and resume their war: [1d4 spectres].
 
 ;travelling circus
-1, Resting on their long journey between villages is the **circus** *[circus name]*, throughout the region it's whispered that they are actually a group of *[circus reputation]*. They transport their show via [1d6+1] wooden [conveyances], pulled by [domestic animal adjective] [draft animals].</p><blockquote>[circus hooks]</blockquote><p>
-1, Carefully practicing their acts as they stop on their circuit through the area is the **circus** *[circus name]*, rumored to be comprised entirely of *[circus reputation]*. Circled and tethered are their [domestic animal adjective] [draft animals] near their [1d8+1] sturdy [conveyances].</p><blockquote>[circus hooks]</blockquote><p>
-1, A large, colorful canvas tent set up to the side of your path ahead is emblazoned with large lettering proclaiming that this is property of the **circus** *[circus name]*. Rumors say that the performers are actually *[circus reputation]*. Off to one side, you can see various individuals unloading things from [conveyances] and watering and feeding some [domestic animal adjective] [draft animals].</p><blockquote>[circus hooks]</blockquote><p>
+1, Resting on their long journey between villages is the **circus** *[circus name]*, throughout the region it's whispered that they are actually a group of *[circus reputation]*. They transport their show via [1d6+1] wooden [conveyances], pulled by [domestic animal adjective] [draft animals].<blockquote>[circus hooks]</blockquote><p>
+1, Carefully practicing their acts as they stop on their circuit through the area is the **circus** *[circus name]*, rumored to be comprised entirely of *[circus reputation]*. Circled and tethered are their [domestic animal adjective] [draft animals] near their [1d8+1] sturdy [conveyances].<blockquote>[circus hooks]</blockquote><p>
+1, A large, colorful canvas tent set up to the side of your path ahead is emblazoned with large lettering proclaiming that this is property of the **circus** *[circus name]*. Rumors say that the performers are actually *[circus reputation]*. Off to one side, you can see various individuals unloading things from [conveyances] and watering and feeding some [domestic animal adjective] [draft animals].<blockquote>[circus hooks]</blockquote><p>
 
 ;circus name
 1,[circus1] [circus2]
@@ -10878,15 +10878,15 @@
 1,choosing the child to be sacrificed to the dragon *[nearby dragon name]*
 
 ;thorp
-1,</p><p>This is [here village name], a thorp of [1d4x10] **humans** ([human stats]) led by [human with portrait][human job]. The [human houses] are protected by [human companions]. [average treasure] These village-folk are [thorp activity]. [settlement event]
+1,<p>This is [here village name], a thorp of [1d4x10] **humans** ([human stats]) led by [human with portrait][human job]. The [human houses] are protected by [human companions]. [average treasure] These village-folk are [thorp activity]. [settlement event]
 
 # the second variant has a temple at the end
 ;village
-1,</p><p>This is [here village name], a village of [5d6x10] **humans** ([human stats]). The [human houses] are protected by [human companions] and a [human defense]. There is a small *[village building]*. [small [same village building]] [average treasure]</p><p>The [human leader] lives in the [same village building]. [spellbook for [same class]] [leader treasure for [same class]]</p><p>[human retainer]</p><p>[human friends]</p><p>[And a secret society] [settlement event]
-1,</p><p>This is [here village name], a village of [5d6x10] **humans** ([human stats]). The [human houses] are protected by [human companions] and a [human defense]. There is a small *[village building]*. [small [same village building]] [average treasure]</p><p>The [human leader] lives in the [same village building]. [spellbook for [same class]] [leader treasure for [same class]]</p><p>[human retainer]</p><p>[human friends]</p><p>[And a secret society]</p><p>[temple] [settlement event]
+1,<p>This is [here village name], a village of [5d6x10] **humans** ([human stats]). The [human houses] are protected by [human companions] and a [human defense]. There is a small *[village building]*. [small [same village building]] [average treasure]<p>The [human leader] lives in the [same village building]. [spellbook for [same class]] [leader treasure for [same class]]<p>[human retainer]<p>[human friends]<p>[And a secret society] [settlement event]
+1,<p>This is [here village name], a village of [5d6x10] **humans** ([human stats]). The [human houses] are protected by [human companions] and a [human defense]. There is a small *[village building]*. [small [same village building]] [average treasure]<p>The [human leader] lives in the [same village building]. [spellbook for [same class]] [leader treasure for [same class]]<p>[human retainer]<p>[human friends]<p>[And a secret society]<p>[temple] [settlement event]
 
 ;town
-1,</p><p>This is [here village name], a town of [1d6x100] **humans** ([human stats]). The [human houses] are protected by a keep, a town wall and the river. [average treasure]</p><p>The [human leader] lives in the keep. [spellbook for [same class]] [leader treasure for [same class]]</p><p>[human retainer]</p><p>[human friends]</p><p>[And two secret societies feuding]</p><p>[temple]</p><p>There is also [town feature] [settlement event]
+1,<p>This is [here village name], a town of [1d6x100] **humans** ([human stats]). The [human houses] are protected by a keep, a town wall and the river. [average treasure]<p>The [human leader] lives in the keep. [spellbook for [same class]] [leader treasure for [same class]]<p>[human retainer]<p>[human friends]<p>[And two secret societies feuding]<p>[temple]<p>There is also [town feature] [settlement event]
 
 ;human job
 1, the smith
@@ -10908,23 +10908,23 @@
 ;And two secret societies feuding
 2,[And a secret society]
 # law vs chaos
-1,A secret war between two secret societies is the cause of much misery in this town.</p><p>[name for a secret society (law)] is led by [secret society boss] [description for a secret society (law)]</p><p>[name for a secret society (chaos)] is led by [secret society boss] [description for a secret society (chaos)]
+1,A secret war between two secret societies is the cause of much misery in this town.<p>[name for a secret society (law)] is led by [secret society boss] [description for a secret society (law)]<p>[name for a secret society (chaos)] is led by [secret society boss] [description for a secret society (chaos)]
 # neutrality vs law
-1,Two secret societies are feuding in this town. There can be no neutral position.</p><p>[name for a secret society (chaos)] is led by [secret society boss] [description for a secret society (chaos)]</p><p>[name for a secret society (neutrality)] is led by [secret society boss] [description for a secret society (neutrality)]
+1,Two secret societies are feuding in this town. There can be no neutral position.<p>[name for a secret society (chaos)] is led by [secret society boss] [description for a secret society (chaos)]<p>[name for a secret society (neutrality)] is led by [secret society boss] [description for a secret society (neutrality)]
 # neutrality vs chaos
-1,Half the buildings in this town have been burnt to the ground. There is an on-going all-out war between two secret societies. Choose your side wisely.</p><p>[name for a secret society (neutrality)] is led by [secret society boss] [description for a secret society (neutrality)]</p><p>[name for a secret society (law)] is led by [secret society boss] [description for a secret society (law)]
+1,Half the buildings in this town have been burnt to the ground. There is an on-going all-out war between two secret societies. Choose your side wisely.<p>[name for a secret society (neutrality)] is led by [secret society boss] [description for a secret society (neutrality)]<p>[name for a secret society (law)] is led by [secret society boss] [description for a secret society (law)]
 # law vs chaos
-1,The local secret society [name for a secret society (law)] is being infiltrated. It is led by [secret society boss] [description for a secret society (law)]</p><p>The [name for a secret society (chaos)] have been plotting to overthrow them, led by [secret society boss] [description for a secret society (chaos)]
+1,The local secret society [name for a secret society (law)] is being infiltrated. It is led by [secret society boss] [description for a secret society (law)]<p>The [name for a secret society (chaos)] have been plotting to overthrow them, led by [secret society boss] [description for a secret society (chaos)]
 # neutrality vs law
-1,A volatile truce has recently been formed between the two local secret societies. Both are still unsure and suspicious of each other, and will be watching any visitors closely to try to figure out their allegiances.</p><p>[name for a secret society (law)] is led by [secret society boss] [description for a secret society (law)]</p><p>[name for a secret society (neutrality)] is led by [secret society boss] [description for a secret society (neutrality)]
+1,A volatile truce has recently been formed between the two local secret societies. Both are still unsure and suspicious of each other, and will be watching any visitors closely to try to figure out their allegiances.<p>[name for a secret society (law)] is led by [secret society boss] [description for a secret society (law)]<p>[name for a secret society (neutrality)] is led by [secret society boss] [description for a secret society (neutrality)]
 # neutrality vs chaos
-1,Talk of a treaty between the two local secret societies seems to be the biggest bit of gossip around town.</p><p>[name for a secret society (neutrality)] is led by [secret society boss] [description for a secret society (neutrality)]</p><p>[name for a secret society (chaos)] is led by [secret society boss] [description for a secret society (chaos)]
+1,Talk of a treaty between the two local secret societies seems to be the biggest bit of gossip around town.<p>[name for a secret society (neutrality)] is led by [secret society boss] [description for a secret society (neutrality)]<p>[name for a secret society (chaos)] is led by [secret society boss] [description for a secret society (chaos)]
 # law vs chaos
-1,Strife is turning sibling against sibling and parents against their children.</p><p>The legendary *[story mcguffin] of [human story hero]* used to belong to the [name for a secret society (law)], but now it is gone. Their leader is [secret society boss], and they are intent on getting it back. The goals of the society itself are not that important, for now. [description for a secret society (law)]</p><p>The accused are another secret society, the [name for a secret society (chaos)]. They are led by [secret society boss] [description for a secret society (chaos)]
+1,Strife is turning sibling against sibling and parents against their children.<p>The legendary *[story mcguffin] of [human story hero]* used to belong to the [name for a secret society (law)], but now it is gone. Their leader is [secret society boss], and they are intent on getting it back. The goals of the society itself are not that important, for now. [description for a secret society (law)]<p>The accused are another secret society, the [name for a secret society (chaos)]. They are led by [secret society boss] [description for a secret society (chaos)]
 # neutrality vs chaos
-1,The locals are forced to pay protection money to [name for a secret society (chaos)], led by [secret society boss] [description for a secret society (chaos)]</p><p>The recent arrival of [name for a secret society (neutrality)] has disrupted this lucrative enterprise. This secret society is led by [secret society boss] [description for a secret society (neutrality)]
+1,The locals are forced to pay protection money to [name for a secret society (chaos)], led by [secret society boss] [description for a secret society (chaos)]<p>The recent arrival of [name for a secret society (neutrality)] has disrupted this lucrative enterprise. This secret society is led by [secret society boss] [description for a secret society (neutrality)]
 # neutrality vs law
-1,The [name for a secret society (law)] are recruiting new members for an ongoing feud. They are led by [secret society boss] [description for a secret society (law)]</p><p>They are trying to drive the [name for a secret society (neutrality)] out of town. This secret society is led by [secret society boss] [description for a secret society (neutrality)]
+1,The [name for a secret society (law)] are recruiting new members for an ongoing feud. They are led by [secret society boss] [description for a secret society (law)]<p>They are trying to drive the [name for a secret society (neutrality)] out of town. This secret society is led by [secret society boss] [description for a secret society (neutrality)]
 
 ;secret society boss
 1,[a boss]. [spellbook for [same class]] [leader treasure for [same class]]
@@ -13526,7 +13526,7 @@
 1,In the presence of an amulet of passage bearing the [name for a clan of the netherworld elves] sigil, the door glides opens and reveals stairs leading down to the underground [lair of the netherworld elves]
 
 ;lair of the netherworld elves
-1,*[building of the netherworld elves] of [elf name]*.</p><p>[gate of the netherworld elves]</p><p>[companions of the netherworld elves]</p><p>[save 1d6+4 as level][save spellbook for elves][5d12] **elves** live here ([elf stats]), led by [elf with portrait] (level [same level]). [same spellbook for elves] [leader treasure]
+1,*[building of the netherworld elves] of [elf name]*.<p>[gate of the netherworld elves]<p>[companions of the netherworld elves]<p>[save 1d6+4 as level][save spellbook for elves][5d12] **elves** live here ([elf stats]), led by [elf with portrait] (level [same level]). [same spellbook for elves] [leader treasure]
 
 ;building of the netherworld elves
 1,Bastion
@@ -13536,7 +13536,7 @@
 ;gate of the netherworld elves
 1,The entrance of is protected by a chasm 100ft wide. A thin bridge without rails crosses the chasm. If you climb along the walls, this alerts the [2d4] **giant spiders** ([giant spider stats]) living in the chasm itself.
 1,The bronze gates lead to the eternal throne room of *[same elf name]*, an ancient **spectre** that still sits here on a throne of [spectre throne shards] and [spectre throne bones] ([spectre stats]). [ancient treasure] The elves live amongst the vaults and mausoleums of [same elf name]’s servants and retainers, their sarcophagi serving as decorations and altars.
-1,This is the former dwarven forge *[here dwarf forge]*. The bronze iris gate leads to the abandoned barracks and a maze of spiders webs by [2d4] **giant spiders** ([giant spider stats]). The main stair shaft leads from the barracks down to the core forge which is still operational.</p><p>The **fire giant** *[fire giant name]* ([fire giant stats]) works the forge. [rich treasure] [same fire giant name] is served by [2d8] **duergar** ([duergar stats]).</p><p>[dwarf forge taken over by netherworld elves]
+1,This is the former dwarven forge *[here dwarf forge]*. The bronze iris gate leads to the abandoned barracks and a maze of spiders webs by [2d4] **giant spiders** ([giant spider stats]). The main stair shaft leads from the barracks down to the core forge which is still operational.<p>The **fire giant** *[fire giant name]* ([fire giant stats]) works the forge. [rich treasure] [same fire giant name] is served by [2d8] **duergar** ([duergar stats]).<p>[dwarf forge taken over by netherworld elves]
 1,The iron gates lead into a cavern illuminated by a [evil light colour] light, dominated by a giant statue of *[evil power]* about 50ft high [giant statue standing somewhere]. The sacrificial altar is tended to by [guardian of [same evil power]]
 
 ;evil light colour
