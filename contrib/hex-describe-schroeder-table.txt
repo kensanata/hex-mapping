@@ -262,7 +262,7 @@
 ;blazon colour tinctures
 1,[with blazon colour][store [same last colour] as a] and [and blazon colour][store [same a] and [same last colour] as main colours]
 ;blazon metal tinctures
-1,[blazon metal][store [same last colour] as a] and [blazon metal][store [same a] and [same last colour] as main colours]
+1,[with blazon metal][store [same last colour] as a] and [and blazon metal][store [same a] and [same last colour] as main colours]
 ;blazon mixed tinctures
 1,[blazon colour][store [same last colour] as a] and [blazon metal][store [same a] and [same last colour] as main colours]
 1,[blazon metal][store [same last colour] as a] and [blazon colour][store [same a] and [same last colour] as main colours]
