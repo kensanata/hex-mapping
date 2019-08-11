@@ -28,7 +28,7 @@
 1,[chaos]
 
 ;TOP
-1,[procedures]<p>[spells][gems]<p>[treasure]
+1,[procedures]<p>[spells][gems]<p>[treasure]<p>[history]
 
 ;procedures
 1,<strong>Procedures</strong>: <em>random encounters</em> are 1 in 6 per day and 1 in 6 per night if you’re not behind walls. If you’re <em>looking for something</em> that isn’t as obvious as a town or village built in plain sight, your chance of finding it is also just 1 in 6 per day.
@@ -41,6 +41,250 @@
 
 ;gems
 1,<table class="sidebar" id="gems"><tr><th>1d20</th><th>Gem Value<th></tr><tr><td>1–3</td><td>10<td></tr><tr><td>4–6</td><td>20<td></tr><tr><td>7–9</td><td>50<td></tr><tr><td>10–12</td><td>75<td></tr><tr><td>13–15</td><td>100<td></tr><tr><td>16–17</td><td>250<td></tr><tr><td>18–19</td><td>750<td></tr><tr><td>20</td><td>1000<td></tr></table>
+
+;history
+1,[history init][history text]
+
+;history text
+1,<strong>History</strong>: *[name for a war party 1]* is invading from the [direction] and *[name for a war party 2]* is trying to organise a defence. They are also trying to pull *[name for a war party 3]* into an alliance.
+1,<strong>History</strong>: *[name for a war party 1]* is once again at odds with *[name for a war party 2]*. This time, however, *[name for a war party 3]* has entered into an alliance with *[name for a war party 2]*.
+1,<strong>History</strong>: *[name for a war party 1]* is once again invading from the [direction] and *[name for a war party 2]* is trying to defend the land. This time however, *[name for a war party 3]* has betrayed their old alliance and so the outcome is far from certain.
+1,<strong>History</strong>: *[name for a war party 1]* is invading from the [with direction] and *[name for a war party 3]* is invading from the [and direction]. How is *[name for a war party 2]* hoping to defend the land? Times are desperate.
+1,<strong>History</strong>: Decades ago, *[name for a war party 1]* was turned into a vampire and has successfully forged a vampire domain in the [with direction]. But now that their human chattel is subdued they are turning their eyes towards the lands of *[name for a war party 2]*. Apparently, *[name for a war party 1]* has managed to talk *[name for a war party 3]* into invading at the same time from the [and direction].
+1,<strong>History</strong>: Decades ago, *[name for a war party 1]* was turned into a vampire and has successfully forged a vampire domain in the [with direction]. But now that their human chattel is subdued they are turning their eyes towards the lands of *[name for a war party 2]*. They in turn managed to convince *[name for a war party 3]* that now is the time to fight back against the vampires.
+
+;history init
+1,[global save blazon as war party blazon 1][global store [same main colours] as war party colours 1][global save blazon as war party blazon 2][global store [same main colours] as war party colours 2][global save blazon as war party blazon 3][global store [same main colours] as war party colours 3]
+
+;name for a war party 1
+# store blazon and colours in a gobal
+1,[war party]
+
+;name for a war party 2
+# store blazon and colours in a gobal
+1,[war party]
+
+;name for a war party 3
+# store blazon and colours in a gobal
+1,[war party]
+
+;a war party
+1,[store 1 as war party number]
+1,[store 2 as war party number]
+1,[store 3 as war party number]
+
+;the war party
+1,[name for a war party [same war party number]]
+
+;the war party colour
+1,[same war party colours [same war party number]]
+
+;the war party blazon
+1,[same war party blazon [same war party number]]
+
+;war party
+1,Duke [man]
+1,Duchess [woman]
+1,Lord [man]
+1,Lady [woman]
+2,Warlord [foreign warlord]
+2,Duke [man] [warlord title]
+2,Duchess [woman] [warlord title]
+1,Lord [man] [warlord title]
+1,Lady [woman] [warlord title]
+
+;warlord title
+# This is less martial than the [foreign warlord title] table.
+# It is based on the [secret society] table.
+1,the [title]
+1,the [adjective] [title]
+1,the [special title]
+1,the [special adjective]
+
+;blazon and colour
+# for debugging
+1,[blazon] ([same main colours])
+
+;blazon
+# http://heraldry.sca.org/armory/bruce.html
+# https://www.reddit.com/r/heraldry/wiki/guide
+# https://penelope.uchicago.edu/~grout/encyclopaedia_romana/britannia/anglo-saxon/flowers/heraldry.html
+# https://en.wikipedia.org/wiki/Tincture_(heraldry)
+# https://en.wikipedia.org/wiki/Charge_(heraldry)
+# the human readable :) main colours are available as [same main colours]
+# single tincture always comes with charge
+# "metal should not be placed upon metal, nor colour upon colour"
+1,[blazon colour][store [same last colour] as main colours] [blazon charges] [blazon metal]
+1,[blazon metal][store [same last colour] as main colours] [blazon charges] [blazon colour]
+# parted with metal and colour tincture means no charge
+1,[blazon parted] [blazon mixed tinctures]
+# parted with metal tinctures means colour charges, if any
+1,[blazon parted] [blazon metal tinctures]
+1,[blazon parted] [blazon metal tinctures] [blazon charges] [blazon colour]
+# parted with colour tinctures means metal charges, if any
+1,[blazon parted] [blazon colour tinctures]
+1,[blazon parted] [blazon colour tinctures] [blazon charges] [blazon metal]
+
+;blazon parted
+4,per [blazon ordinary]
+1,per [blazon ordinary] [blazon complex]
+1,[blazon ordinaries]
+
+;blazon charges
+1,an <span title="a small shield">escutcheon</span>
+1,a <span title="a rhombus">lozenge</span>
+1,a <span title="a rectangle, usually at least twice as tall as it is wide">billet</span>
+1,a <span title="a solid circle">roundel</span>
+1,a <span title="a ring">annulet</span>
+1,a <span title="a star with usually five straight rays">mullet</span>
+1,a <span title="a star with a hole in it">mullet pierced</span>
+1,a <span title="the moon, usually with the horns upwards">crescent</span>
+1,a <span title="a star with a wavy tail">comet</span>
+1,a <span title="many varieties of crosses exist">cross</span>
+1,a <span title="a flower">rose</span>
+1,a <span title="a flower">thistle</span>
+1,a [evil tribe weapon]
+1,a fighter armed 
+1,a magic user
+1,an orc
+1,an elf
+1,a head
+1,a trout
+1,a salmon
+1,a salamander
+1,a castle
+1,a tower
+1,a <span title="two leather water bags on a pole for easy carrying">water bouget</span>
+1,a medusa
+1,a swan
+1,a fox
+1,a fox's mask
+5,a bull
+1,a bull's [blazon head]
+5,a boar
+1,a boar's [blazon head]
+2,a hound
+1,a hound's [blazon head]
+1,a lynx
+5,a wolf
+2,a wolf's [blazon head]
+5,a bear
+1,a bear's [blazon head]
+2,a horse
+1,a horse's [blazon head]
+3,a stag
+1,a stag's [blazon head]
+2,a hart
+1,a hart's [blazon head]
+2,a pegasus
+2,a goat
+1,a goat's [blazon head]
+2,a sheep
+1,a sheep's [blazon head]
+2,a llama
+1,a llama's [blazon head]
+1,a camel
+3,a griffon
+5,a dragon
+2,a wyvern
+1,a sphinx
+1,a manticore
+10,a lion
+5,a lion's face
+6,an eagle
+1,an eagle's head
+2,a rhino
+2,an elephant
+
+;blazon head
+10,head <span title="with the head cleanly separated from the neck so that only the face shows">cabossed</span>
+5,head <span title="with the neck cleanly separated from the body so that the whole head and neck are present">couped</span>
+1,head <span title="with the neck cleanly separated from the body so that the whole head and neck are present">couped</span> <span title="facing right">sinister</span>
+5,head <span title="with the neck showing a ragged edge as if forcibly torn from the body">erased</span>
+1,head <span title="with the neck showing a ragged edge as if forcibly torn from the body">erased</span> <span title="facing right">sinister</span>
+
+;blazon animal attitude
+5,
+1,<span title="standing on one hind leg with forepaws raised as if to strike">Rampant</span>
+1,<span title="lying down">Passant</span>
+1,<span title="turned towards the right">Contourny</span>
+1,<span title="faces the viewer">Affronté</span>
+1,<span title="faces the viewer">Full</span>
+1,<span title="faces dexter with its head turned to face the viewer">Guardant</span>
+1,<span title="faces sinister with its head turned toward sinister, as if looking over its shoulder">Regardant</span>
+
+;blazon number
+5,two
+3,three
+2,four
+1,five
+
+;blazon ordinary
+3,<span title="a horizontal stripe across the middle of the shield">fess</span>
+3,<span title="a vertical stripe across the middle of the shield">pale</span>
+3,<span title="a diagonal stripe running from the top left (dexter chief) to the bottom right (sinister base) of the shield">bend</span>
+1,[blazon number] <span title="multiple diagonal stripes running from the top left (dexter chief) to the bottom right (sinister base) of the shield">bendlets</span>
+3,<span title="a diagonal stripe running from the top right (sinister chief) to the bottom left (dexter base) of the shield">bend sinister</span>
+3,<span title="a cross running throughout the shield">cross</span>
+3,<span title="a diagonal cross running throughout the shield, as seen on the flag of scotland; a combination of a bend and a bend sinister">saltire</span>
+3,<span title="a horizontal stripe running across the top of the shield">chief</span>
+1,<span title="a border around the shield">bordure</span>
+2,<span title="an upside-down 'V' shape">chevron</span>
+1,<span title="a 'Y' shape">pall</span>
+
+;blazon ordinaries
+1,[blazon number] <span title="multiple horizontal stripe across the middle of the shield">bars</span>
+1,[blazon number] <span title="multiple vertical stripes across the middle of the shield">pallets</span>
+1,[blazon number] <span title="multiple diagonal stripes running from the top left (dexter chief) to the bottom right (sinister base) of the shield">bendlets sinister</span>
+1,[blazon number] <span title="multiple, upside-down 'v' shapes, running along the shield">chevronels</span>
+
+;blazon complex
+1,<span title="triangle waves">indented</span>
+1,<span title="triangle waves but with less peaks">dancetty</span>
+1,<span title="based on rays of the sun">rayonny</span>
+1,<span title="waves">wavy</span>
+1,<span title="waves, but more meandering">nebuly</span>
+1,<span title="half circles with points going up">engrailed</span>
+1,<span title="half circles with points going down">invected</span>
+1,<span title="square waves">embattled</span>
+1,<span title="square waves, but at an angle">raguly</span>
+
+;blazon tincture
+20,[blazon colour]
+5,[blazon metal]
+# 1,[blazon fur]
+
+# ;blazon tincture without fur
+# 5,[blazon colour]
+# 2,[blazon metal]
+
+# when using two tinctures we still want to save one string to "main colours"
+;blazon colour tinctures
+1,[with blazon colour][store [same last colour] as a] and [and blazon colour][store [same a] and [same last colour] as main colours]
+;blazon metal tinctures
+1,[blazon metal][store [same last colour] as a] and [blazon metal][store [same a] and [same last colour] as main colours]
+;blazon mixed tinctures
+1,[blazon colour][store [same last colour] as a] and [blazon metal][store [same a] and [same last colour] as main colours]
+1,[blazon metal][store [same last colour] as a] and [blazon colour][store [same a] and [same last colour] as main colours]
+# 1,[blazon colour][store [same last colour] as a] and [blazon fur][store [same a] and [same last colour] as main colours]
+# 1,[blazon metal][store [same last colour] as a] and [blazon fur][store [same a] and [same last colour] as main colours]
+# 1,[blazon fur][store [same last colour] as a] and [blazon colour][store [same a] and [same last colour] as main colours]
+# 1,[blazon fur][store [same last colour] as a] and [blazon metal][store [same a] and [same last colour] as main colours]
+
+;blazon metal
+1,<span title="gold">Or</span>[store yellow as last colour]
+1,<span title="silver">Argent</span>[store white as last colour]
+
+;blazon colour
+5,<span title="red">Gules</span>[store red as last colour]
+3,<span title="blue">Azure</span>[store blue as last colour]
+1,<span title="green">Vert</span>[store green as last colour]
+4,<span title="black">Sable</span>[store black as last colour]
+2,<span title="purple">Purpure</span>[store purple as last colour]
+
+;blazon fur
+1,<span title="the winter coat of a stoat">Ermine</span>[store spotted white as last colour]
+1,<span title="squirrel fur">Vair</span>[store chequered black and white as last colour]
 
 ;sand desert
 1,There is sand in every direction.
@@ -2722,17 +2966,17 @@
 1,Tribute
 
 ;foreign warlord
-1,Ugra [warlord title]
-1,Ogon [warlord title]
-1,Agon [warlord title]
-1,Radan [warlord title]
-1,Elam [warlord title]
-1,Irah [warlord title]
+1,Ugra [foreign warlord title]
+1,Ogon [foreign warlord title]
+1,Agon [foreign warlord title]
+1,Radan [foreign warlord title]
+1,Elam [foreign warlord title]
+1,Irah [foreign warlord title]
 
-;warlord title
+;foreign warlord title
 1,the Great
 1,the Mighty
-1,Carnage
+1,the Lord of Carnage
 1,Deathbringer
 1,the Killer
 
@@ -6940,17 +7184,17 @@
 1,[1d7+1] **wights** led by [wight leader] crawl out of their wet graves and roam the land in search of more followers ([wight stats]).
 
 ;an old wight leader
-1,[name of a wight leader 1]
-1,[name of a wight leader 2]
-1,[name of a wight leader 3]
+1,[name for a wight leader 1]
+1,[name for a wight leader 2]
+1,[name for a wight leader 3]
 
-;name of a wight leader 1
+;name for a wight leader 1
 1,[wight leader]
 
-;name of a wight leader 2
+;name for a wight leader 2
 1,[wight leader]
 
-;name of a wight leader 3
+;name for a wight leader 3
 1,[wight leader]
 
 ;wight leader
@@ -9942,12 +10186,37 @@
 1,[1d4x10] **cultists** ([human stats]) live here. [average treasure] They are led by their cult leader [woman with portrait] (level [1d6+1 as level]). [leader treasure for magic user]
 
 ;settlement event
-1,
+1,<p>[war event]
 1,<p>[bard]
 1,<p>[dragon hunter]
 1,<p>[treasure hunter]
 1,<p>[trade caravan]
 1,<p>[travelling circus]
+
+;war event
+1,[a war party]There are some tents outside the settlement and you can spot the *[the war party colour]* flag of *[the war party]* (blazon: *[the war party blazon]*). [1d4x10] **mercenaries** ([human stats]) are camped here, waiting for orders. [average treasure] They are led by the mercenary captain **[human class]** [human with portrait][store [same human name] as captain] (level [1d4+2 as level]). [spellbook for [same class]] [leader treasure for [same class]]<blockquote>[the presence of soldiers is a problem]</blockquote><p>
+1,[a war party]There is a refugee camp, here. You can recognise the *[the war party colour]* colours of *[the war party]* amongst the rags (blazon: *[the war party blazon]*). [1d4x10] **survivors** ([human stats]) are camped here, leaderless and despondent.<blockquote>[the presence of refugees is a problem]</blockquote><p>
+1,[a war party]There is a smouldering heaps of corpses, here. Charred bodies, smashed shields, broken swords, burned tents – it's a mess. You spot the colours of *[the war party]* on a torn banner, *[the war party colour]* (blazon: *[the war party blazon]*).<blockquote>[the presence of corpses is a problem]</blockquote><p>
+
+;the presence of soldiers is a problem
+1,For now, *[same captain]* has forced the soldiers to pay for all the food but the locals feel like they're forced to sell their winter stores and once the soldiers are gone and winter comes, what then?
+1,The town is in uproar. Young *[human name]* has been found dead. They say this is rape and murder and they want to see the soldier hanged. Clearly, *[same captain]* is weak and discipline is slipping: it's only a matter of time until the soldiers take matters into their own hands.
+1,The town is in uproar. Young *[human name]* has been raped and they want to see the soldier hanged. A delegation is speaking to *[same captain]* right now.
+1,The town appears very quiet. People are keeping to their homes, afraid of what the soldiers might do. *[same captain]* needs supplies, however, and if they're not selling eventually they will have to take them.
+1,Already the soldiers are drinking far too much. The locals grind their teeth and clench their fists when they hear the insults and sneers of the drunken soldiers but they know all too well that now is not the time to fight back.
+
+;the presence of refugees is a problem
+# no captain!
+1,As the wounded start dying, the stench is spreading. Flies are everywhere. Soon, cholera and typhus will be showing up. The locals want the refugees gone, but who is going to argue with armed men? Better to stab them during the night, some might say.
+1,The locals are no longer willing to support the refugees, calling them maggots and worms and worse. Nobody is willing to kill, however, and so the situation just lingers, the refugees to weak to kill the locals simply take what they need and the locals to afraid to do away with the extra mouths.
+1,The young **[human class]** *[human with portrait]* is a devout servant of [good power]. They are trying to find a solution to the problem. Surely some land could be cleared for these poor souls? Let them settle.
+1,The young **[human class]** *[human with portrait]* is a devout servant of [evil power]. They have shrewdly insinuated that the locals simply waiting for them to weaken even further until one night they'll all just stab them. So why not take things into you own hands and act first? Strike now and take what you need!
+
+;the presence of corpses is a problem
+# no captain!
+1,The many corpses have attracted the **necromancer** [human with portrait][here store [same human name] as alchemist patron] (level [1d3+4 as level]). This does not sit well with the locals. Somebody should get rid of them! [spellbook for necromancers] [leader treasure for magic user] Their large tent is black and ominous. Inside, beautiful carpets cover the floor. It is guarded by [necromancer companions].
+1,The many corpses are poisoning the air. The stink is horrendous. Flies are everywhere. The water is foul. *Ghoul fever* is spreading: *[human name]* and their family have turned into [1d4+2] **ghouls** roaming the graveyard at night, looking for some sweet, sweet human flesh.
+1,The many corpses are poisoning the air. The stink is horrendous. Flies are everywhere. Some people say that the corpses move at night and indeed, *[human name]* has risen as a **wight** ([wight stats]). If the mess isn't cleaned up there will be more, soon.
 
 ;dragon hunter
 1,The dragon hunter **[human class]** [human with portrait] (level [1d4+5 as level]) is trying to hire two score desperate peasants to go and slay *[nearby dragon name]*. “[sharing agreement]” [spellbook for [same class]] [leader treasure for [same class]]
@@ -10267,6 +10536,16 @@
 1,They claim to have supplied rare goods to [name for an emperor].
 1,The merchants would like to find a shorter route to [other village name] and will hire scouts and guards for 1gp per day and person.
 1,They are eager for news from [nearby village name], their next destination.
+1,[caravan war rumours]
+
+;caravan war rumours
+# these are all wrong
+1,They saw a mercenary near company [nearby village name] bearing a *[same war party colours 1]* banner belonging to *[name for a war party 1]* (blazon: *[same war party blazon 1]*).
+1,They saw a mercenary near company [nearby village name] bearing a *[same war party colours 2]* banner belonging to *[name for a war party 2]* (blazon: *[same war party blazon 2]*).
+1,They saw a mercenary near company [nearby village name] bearing a *[same war party colours 3]* banner belonging to *[name for a war party 3]* (blazon: *[same war party blazon 3]*).
+1,They heard that *[name for a war party 1]* had been see in *[other village name]*, in person.
+1,They heard that *[name for a war party 2]* had been see in *[other village name]*, in person.
+1,They heard that *[name for a war party 3]* had been see in *[other village name]*, in person.
 
 ;caravan special
 3,

@@ -385,7 +385,7 @@ any '/rule/markdown' => sub {
   my $c = shift;
   my $rule = $c->param('rule');
   my $n = $c->param('n') || 10;
-  my $input = "[$rule]\n" x $n;
+  my $input = $c->param('input') || "[$rule]\n" x $n;
   my $table = get_table($c);
   my $seed = $c->param('seed') || time;
   srand($seed);
@@ -1199,6 +1199,7 @@ sub describe {
     } elsif ($word =~ /^same (.+)/) {
       return $locals{$1}->[0] if exists $locals{$1} and ref($locals{$1}) eq 'ARRAY';
       return $locals{$1} if exists $locals{$1};
+      return $globals->{$1}->{global} if $globals->{$1} and $globals->{$1}->{global};
       $log->error("[$1] is undefined for $coordinates");
       return "…";
     } elsif ($word =~ /^with (.+?)(?: as (.+))?$/) {
@@ -1227,20 +1228,22 @@ sub describe {
       if (not $found) {
 	push(@descriptions, "…");
       }
-    } elsif ($word =~ /^(here )?save (.+?)(?: as (.+))?$/) {
+    } elsif ($word =~ /^(?:(here|global) )?save (.+?)(?: as (.+))?$/) {
       my ($global, $key, $alias) = ($1, $2, $3);
       my $text = pick($map_data, $table_data, $level, $coordinates, $words, $key);
       next unless $text;
       $locals{$key} = $text;
       $locals{$alias} = $text if $alias;
-      $globals->{$key}->{$coordinates} = $text if $global;
-      $globals->{$alias}->{$coordinates} = $text if $global and $alias;
+      $globals->{$key}->{$coordinates} = $text if $global and $global eq 'here';
+      $globals->{$alias}->{$coordinates} = $text if $global and $global eq 'here' and $alias;
+      $globals->{$key}->{global} = $text if $global and $global eq 'global';
+      $globals->{$alias}->{global} = $text if $global and $global eq 'global' and $alias;
       # no description
-    } elsif ($word =~ /^(here )?store (.+) as (.+)$/) {
+    } elsif ($word =~ /^(?:(here|global) )?store (.+) as (.+)$/) {
       my ($global, $text, $alias) = ($1, $2, $3);
       $locals{$alias} = $text;
-      $globals->{$text}->{$coordinates} = $text if $global;
-      $globals->{$alias}->{$coordinates} = $text if $global and $alias;
+      $globals->{$alias}->{$coordinates} = $text if $global and $global eq 'here';
+      $globals->{$alias}->{global} = $text if $global and $global eq 'global';
       # no description
     } elsif ($word =~ /^here (.+?)(?: as (.+))?$/) {
       my ($key, $alias) = ($1, $2);
@@ -1509,13 +1512,12 @@ sub describe_map {
   my $map_data = shift;
   my $table_data = shift;
   my %descriptions;
+  # first, add special rule for TOP key which the description template knows
+  $descriptions{TOP} = process(describe($map_data, $table_data, 1, 'TOP', ['TOP']));
   for my $coord (keys %$map_data) {
     $descriptions{$coord} = process(describe($map_data, $table_data, 1,
 					     $coord, $map_data->{$coord}));
   }
-  # add special rule for TOP key which the description template knows
-  $descriptions{TOP} = process(describe($map_data, $table_data, 1,
-					'TOP', ['TOP']));
   resolve_nearby($map_data, $table_data, \%descriptions);
   resolve_other($map_data, $table_data, \%descriptions);
   resolve_later($map_data, $table_data, \%descriptions);
@@ -2121,7 +2123,7 @@ These results are based on the <strong><%= $rule %></strong> table.
 %= hidden_field seed => $seed
 </p>
 %= end
-%   } elsif ($input and ($url or $table)) {
+%   } elsif ($input or $url or $table) {
 %= form_for nomap_markdown => (method => 'POST') => begin
 <p>
 %= submit_button 'Markdown', name => 'submit'
