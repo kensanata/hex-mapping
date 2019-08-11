@@ -10200,8 +10200,8 @@
 
 ;the presence of soldiers is a problem
 1,For now, *[same captain]* has forced the soldiers to pay for all the food but the locals feel like they're forced to sell their winter stores and once the soldiers are gone and winter comes, what then?
-1,The town is in uproar. Young *[human name]* has been found dead. They say this is rape and murder and they want to see the soldier hanged. Clearly, *[same captain]* is weak and discipline is slipping: it's only a matter of time until the soldiers take matters into their own hands.
-1,The town is in uproar. Young *[human name]* has been raped and they want to see the soldier hanged. A delegation is speaking to *[same captain]* right now.
+1,The town is in uproar. Young *[human name]* has been found dead. They want to see the soldier hanged. Clearly, *[same captain]* is weak and discipline is slipping: it's only a matter of time until the soldiers take matters into their own hands.
+1,The town is in uproar. Young *[human name]* has been assaulted and they want to see the soldier hanged. A delegation is speaking to *[same captain]* right now.
 1,The town appears very quiet. People are keeping to their homes, afraid of what the soldiers might do. *[same captain]* needs supplies, however, and if they're not selling eventually they will have to take them.
 1,Already the soldiers are drinking far too much. The locals grind their teeth and clench their fists when they hear the insults and sneers of the drunken soldiers but they know all too well that now is not the time to fight back.
 
