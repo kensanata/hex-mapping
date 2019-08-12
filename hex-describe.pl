@@ -171,9 +171,10 @@ any '/describe' => sub {
   my $map = $c->param('map');
   my $labels = $c->param('labels');
   my $markdown = $c->param('markdown');
+  my $faces = $c->param('faces');
   my $table = get_table($c);
   init();
-  my $descriptions = describe_map(parse_map($map), parse_table($table));
+  my $descriptions = describe_map(parse_map($map), parse_table($table), $faces);
   if ($markdown) {
     my $texts = [];
     if ($descriptions->{TOP}) {
@@ -211,7 +212,7 @@ get '/describe/random/smale' => sub {
   my $map = get_data($url);
   my $table = decode_utf8($seckler_table->slurp);
   init();
-  my $descriptions = describe_map(parse_map($map), parse_table($table));
+  my $descriptions = describe_map(parse_map($map), parse_table($table), 1); # with faces
   $map = add_labels($map) if $labels;
   my $svg = get_post_data("$text_mapper_url/render", map => $map);
   $c->render(template => 'description',
@@ -233,7 +234,7 @@ get '/describe/random/alpine' => sub {
   my $map = get_data($url);
   my $table = decode_utf8($schroeder_table->slurp);
   init();
-  my $descriptions = describe_map(parse_map($map), parse_table($table));
+  my $descriptions = describe_map(parse_map($map), parse_table($table), 1); # with faces
   $map = add_labels($map) if $labels;
   my $svg = get_post_data("$text_mapper_url/render", map => $map);
   $c->render(template => 'description',
@@ -255,7 +256,7 @@ get '/describe/random/strom' => sub {
   my $map = get_data($url);
   my $table = decode_utf8($strom_table->slurp);
   init();
-  my $descriptions = describe_map(parse_map($map), parse_table($table));
+  my $descriptions = describe_map(parse_map($map), parse_table($table), 1); # with faces
   $map = add_labels($map) if $labels;
   my $svg = get_post_data("$text_mapper_url/render", map => $map);
   $c->render(template => 'description',
@@ -1023,6 +1024,8 @@ sub resolve_redirect {
   # If you install this tool on a server using HTTPS, then some browsers will
   # make sure that including resources from other servers will not work.
   my $url = shift;
+  my $redirects = shift;
+  return '' unless $redirects;
   # Special case because table writers probably used the default face generator URL
   $url =~ s!^https://campaignwiki\.org/face!$face_generator_url! if app->mode eq 'development';
   my $ua = Mojo::UserAgent->new;
@@ -1066,6 +1069,7 @@ sub pick {
   my $coordinates = shift;
   my $words = shift;
   my $word = shift;
+  my $redirects = shift;
   my $text;
   # Make sure we're testing all the context combinations first. Thus, if $words
   # is [ "mountains" white" "chaos"] and $word is "mountains", we want to test
@@ -1078,11 +1082,11 @@ sub pick {
       my $lines = $table_data->{$key}->{lines};
       $text = pick_description($total, $lines);
       # $log->debug("$coordinates → $key → $text");
-      $text =~ s/\[\[redirect (https:.*?)\]\]/resolve_redirect($1)/ge;
+      $text =~ s/\[\[redirect (https:.*?)\]\]/resolve_redirect($1, $redirects)/ge;
       # this makes sure we recursively resolve all references, in order, because
       # we keep rescanning from the beginning
       my $last = $text;
-      while ($text =~ s/\[([^][]*)\]/describe($map_data,$table_data,$level+1,$coordinates,[$1])/e) {
+      while ($text =~ s/\[([^][]*)\]/describe($map_data,$table_data,$level+1,$coordinates,[$1], $redirects)/e) {
 	if ($last eq $text) {
 	  $log->error("Infinite loop: $text");
 	  last;
@@ -1112,6 +1116,7 @@ sub describe {
   my $level = shift;
   my $coordinates = shift;
   my $words = shift;
+  my $redirects = shift;
   $log->error("Recursion level $level exceeds 20!") if $level > 20;
   return '' if $level > 20;
   %locals = () if $level == 1; # reset once per paragraph
@@ -1137,7 +1142,7 @@ sub describe {
       my $name = $names{$word};
       # $log->debug("Memoized: $word is $name") if $name;
       return $name if $name;
-      $name = pick($map_data, $table_data, $level, $coordinates, $words, $word);
+      $name = pick($map_data, $table_data, $level, $coordinates, $words, $word, $redirects);
       next unless $name;
       $names{$word} = $name;
       # $log->debug("$word is $name");
@@ -1152,7 +1157,7 @@ sub describe {
 	for my $line (@lines) {
 	  my $name = $line->{name};
 	  if (not $name) {
-	    $name ||= pick($map_data, $table_data, $level, $coordinates, $words, "name for $key");
+	    $name ||= pick($map_data, $table_data, $level, $coordinates, $words, "name for $key", $redirects);
 	    $line->{name} = $name;
 	  }
 	  push(@names, $name);
@@ -1181,7 +1186,7 @@ sub describe {
 	  # $log->debug("... we already have a name: $name") if $name;
 	  # if a type appears twice for a hex, this returns the same name for all of them
 	  return $name if $name;
-	  $name = pick($map_data, $table_data, $level, $coordinates, $words, $word);
+	  $name = pick($map_data, $table_data, $level, $coordinates, $words, $word, $redirects);
 	  # $log->debug("... we picked a new name: $name") if $name;
 	  next unless $name;
 	  push(@descriptions, $name);
@@ -1194,7 +1199,7 @@ sub describe {
 	my $name = $names{"$word: $coordinates"}; # "name for white big mountain: 0101"
 	# $log->debug("$word for $coordinates is $name") if $name;
 	return $name if $name;
-	$name = pick($map_data, $table_data, $level, $coordinates, $words, $word);
+	$name = pick($map_data, $table_data, $level, $coordinates, $words, $word, $redirects);
 	# $log->debug("new $word for $coordinates is $name") if $name;
 	next unless $name;
 	$names{"$word: $coordinates"} = $name;
@@ -1217,7 +1222,7 @@ sub describe {
       return "…";
     } elsif ($word =~ /^with (.+?)(?: as (.+))?$/) {
       my ($key, $alias) = ($1, $2);
-      my $text = pick($map_data, $table_data, $level, $coordinates, $words, $key);
+      my $text = pick($map_data, $table_data, $level, $coordinates, $words, $key, $redirects);
       next unless $text;
       $locals{$key} = [$text]; # start a new list
       $locals{$alias} = $text if $alias;
@@ -1228,7 +1233,7 @@ sub describe {
       # limited attempts to find a unique entry for an existing list (instead of
       # modifying the data structures)
       for (1 .. 10) {
-	my $text = pick($map_data, $table_data, $level, $coordinates, $words, $key);
+	my $text = pick($map_data, $table_data, $level, $coordinates, $words, $key, $redirects);
 	$log->warn("[and $key] is used before [with $key] is done in $coordinates") if ref $locals{$key} ne 'ARRAY';
 	$locals{$key} = [$text] if ref $locals{$key} ne 'ARRAY';
 	next if not $text or grep { $text eq $_ } @{$locals{$key}};
@@ -1243,7 +1248,7 @@ sub describe {
       }
     } elsif ($word =~ /^(?:(here|global) )?save (.+?)(?: as (.+))?$/) {
       my ($global, $key, $alias) = ($1, $2, $3);
-      my $text = pick($map_data, $table_data, $level, $coordinates, $words, $key);
+      my $text = pick($map_data, $table_data, $level, $coordinates, $words, $key, $redirects);
       next unless $text;
       $locals{$key} = $text;
       $locals{$alias} = $text if $alias;
@@ -1260,7 +1265,7 @@ sub describe {
       # no description
     } elsif ($word =~ /^here (.+?)(?: as (.+))?$/) {
       my ($key, $alias) = ($1, $2);
-      my $text = pick($map_data, $table_data, $level, $coordinates, $words, $key);
+      my $text = pick($map_data, $table_data, $level, $coordinates, $words, $key, $redirects);
       next unless $text;
       $locals{$key} = $text;
       $locals{$alias} = $text if $alias;
@@ -1268,14 +1273,14 @@ sub describe {
       $globals->{$alias}->{$coordinates} = $text if $alias;
       push(@descriptions, $text);
     } elsif (my ($key, $alias) = $word =~ /^(.+) as (.+)/) {
-      my $text = pick($map_data, $table_data, $level, $coordinates, $words, $key);
+      my $text = pick($map_data, $table_data, $level, $coordinates, $words, $key, $redirects);
       next unless $text;
       $locals{$key} = $text;
       $locals{$alias} = $text;
       push(@descriptions, $text);
     } elsif ($word =~ /^capitalize (.+)/) {
       my $key = $1;
-      my $text = pick($map_data, $table_data, $level, $coordinates, $words, $key);
+      my $text = pick($map_data, $table_data, $level, $coordinates, $words, $key, $redirects);
       next unless $text;
       $locals{$key} = $text;
       push(@descriptions, ucfirst $text);
@@ -1292,7 +1297,7 @@ sub describe {
       # on level one, many terrain types do not exist (e.g. river-start)
       $log->error("empty table for $coordinates/$level: $word");
     } else {
-      my $text = pick($map_data, $table_data, $level, $coordinates, $words, $word);
+      my $text = pick($map_data, $table_data, $level, $coordinates, $words, $word, $redirects);
       # remember it's legitimate to have no result for a table
       next unless $text;
       $locals{$word} = $text;
@@ -1351,7 +1356,12 @@ out the result using CSS.
 
 sub process {
   my $text = shift;
-  $text =~ s/(<img[^>]+?>)/<span class="images">$1<\/span>/g;
+  my $images = shift;
+  if ($images) {
+    $text =~ s/(<img[^>]+?>)/<span class="images">$1<\/span>/g;
+  } else {
+    $text =~ s/(<img[^>]+?>)//g;
+  }
   # strip empty paragraphs
   $text =~ s/<p>\s*<\/p>//g;
   $text =~ s/<p>\s*<p>/<p>/g;
@@ -1370,9 +1380,10 @@ sub resolve_nearby {
   my $map_data = shift;
   my $table_data = shift;
   my $descriptions = shift;
+  my $redirects = shift;
   for my $coord (keys %$descriptions) {
     $descriptions->{$coord} =~
-	s/｢nearby ([^][｣]*)｣/closest($map_data,$table_data,$coord,$1) or '…'/ge;
+	s/｢nearby ([^][｣]*)｣/closest($map_data,$table_data,$coord,$1, $redirects) or '…'/ge;
     $descriptions->{$coord} =~ s!( \(<a href="#desc\d+">\d+</a>\))</em>!</em>$1!g; # fixup
   }
 }
@@ -1389,12 +1400,13 @@ sub closest {
   my $table_data = shift;
   my $coordinates = shift;
   my $key = shift;
+  my $redirects = shift;
   my @coordinates = sort {
     distance($coordinates, $a) <=> distance($coordinates, $b)
   } grep { $_ ne $coordinates } keys %{$globals->{$key}};
   if (not @coordinates) {
     $log->info("Did not find any hex with $key ($coordinates)");
-    return pick($map_data, $table_data, 1, $coordinates, [], $key);
+    return pick($map_data, $table_data, 1, $coordinates, [], $key, $redirects);
   }
   # the first one is the closest
   return $globals->{$key}->{$coordinates[0]}
@@ -1445,9 +1457,10 @@ sub resolve_other {
   my $map_data = shift;
   my $table_data = shift;
   my $descriptions = shift;
+  my $redirects = shift;
   for my $coord (keys %$descriptions) {
     $descriptions->{$coord} =~
-	s/｢other ([^][｣]*)｣/some_other($map_data,$table_data,$coord,$1) or '…'/ge;
+	s/｢other ([^][｣]*)｣/some_other($map_data,$table_data,$coord,$1, $redirects) or '…'/ge;
     $descriptions->{$coord} =~ s!( \(<a href="#desc\d+">\d+</a>\))</em>!</em>$1!g; # fixup
   }
 }
@@ -1463,11 +1476,12 @@ sub some_other {
   my $table_data = shift;
   my $coordinates = shift;
   my $key = shift;
+  my $redirects = shift;
   # make sure we don't pick the same location!
   my @coordinates = grep !/$coordinates/, keys %{$globals->{$key}};
   if (not @coordinates) {
     $log->info("Did not find any other hex with $key");
-    return pick($map_data, $table_data, 1, $coordinates, [], $key);
+    return pick($map_data, $table_data, 1, $coordinates, [], $key, $redirects);
   }
   # just pick a random one
   my $other = one(@coordinates);
@@ -1493,6 +1507,7 @@ sub resolve_later {
   my $map_data = shift;
   my $table_data = shift;
   my $descriptions = shift;
+  my $redirects = shift;
   for my $coord (keys %$descriptions) {
     while ($descriptions->{$coord} =~ /｢later ([^][｣]*)｣/) {
       my $words = $1;
@@ -1503,7 +1518,7 @@ sub resolve_later {
       $key =~ s/$re// if $ref;
       $re = quotemeta($words);
       my $result = $descriptions->{$coord} =~
-	  s/｢later $re｣/describe($map_data,$table_data,1,$coord,[$key]) . $ref or '…'/ge;
+	  s/｢later $re｣/describe($map_data,$table_data,1,$coord,[$key], $redirects) . $ref or '…'/ge;
       if (not $result) {
 	$log->error("Could not resolve later reference in '$words'");
 	last; # avoid infinite loops!
@@ -1524,16 +1539,19 @@ description is the value.
 sub describe_map {
   my $map_data = shift;
   my $table_data = shift;
+  my $redirects = shift;
   my %descriptions;
   # first, add special rule for TOP key which the description template knows
-  $descriptions{TOP} = process(describe($map_data, $table_data, 1, 'TOP', ['TOP']));
+  $descriptions{TOP} = process(describe($map_data, $table_data, 1, 'TOP', ['TOP'], $redirects),
+			       $redirects); # with redirects means we keep images
   for my $coord (keys %$map_data) {
     $descriptions{$coord} = process(describe($map_data, $table_data, 1,
-					     $coord, $map_data->{$coord}));
+					     $coord, $map_data->{$coord}, $redirects),
+				    $redirects); # with redirects means we keep images
   }
-  resolve_nearby($map_data, $table_data, \%descriptions);
-  resolve_other($map_data, $table_data, \%descriptions);
-  resolve_later($map_data, $table_data, \%descriptions);
+  resolve_nearby($map_data, $table_data, \%descriptions, $redirects);
+  resolve_other($map_data, $table_data, \%descriptions, $redirects);
+  resolve_later($map_data, $table_data, \%descriptions, $redirects);
   return \%descriptions;
 }
 
@@ -1861,6 +1879,10 @@ Include labels. This will create a very busy map.
 <label>
 %= check_box 'markdown'
 Create Markdown instead of HTML output.
+</label><br>
+<label>
+%= check_box 'faces' => 1, checked => 1
+Include faces in the HTML output (slow)
 </label>
 </p>
 
