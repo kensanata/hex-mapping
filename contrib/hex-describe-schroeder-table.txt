@@ -1525,7 +1525,7 @@
 1,The rocks up here are covered in grey and orange lichens.
 1,A few thorny bushes between the rocks are the only green patches up here.
 1,The sunny side of the valley is covered in pink splashes of *roseroot*.
-1,Up there are white patches of *edelweiss* growing between the rocks.
+1,Further up, there are white patches of *edelweiss* growing between the rocks.
 
 #starting  point for food and drink tables for menus/food items
 #basic construction: tables for domestic/garden and wild food products
@@ -2926,7 +2926,7 @@
 
 ;hill giants
 1,Some boulders have been assembled into a crude stone tower inhabited [2d4] **hill giants** led by *[hill giant]* ([hill giant stats]). [rich treasure]
-1,The bellowing **hill giants** can be heard every day up here. [2d4] of them have built a barricade across the passes here ([hill giant stats]). They are led by [hill giant title] *[hill giant]*. [rich treasure]
+1,The bellowing **hill giants** can be heard every day. [2d4] of them have built a barricade across the pass ([hill giant stats]). They are led by [hill giant title] *[hill giant]*. [rich treasure]
 1,A giant fortress has been built here in ages past. It extends all along the mountain flank. The ruins are inhabited by their degenerate descendants, [2d4] **hill giants** led by *[hill giant]* ([hill giant stats]). [rich treasure]
 1,There is a huge wooden fort up here, built by **hill giants**. They must have cut down an entire forest to build it. It is huge. [2d4] of them live here, led by [hill giant title] *[hill giant]* ([hill giant stats]). [rich treasure]
 1,Here stands an old watchtower built by giants during the reign of [wight leader]. You can still find the runes of [same wight realm] on the old stones, but the [2d4] **giants** and their leader *[hill giant]* can’t read and they don’t care ([hill giant stats]). [rich treasure]
@@ -5746,6 +5746,7 @@
 1,Up here on these hills and overlooking the shrublands is a massive fortress built by giants long ago. [outlaw camp]
 1,There are caves beneath these badlands. [caves]
 1,The dry lands up here are the hunting grounds of a **manticore** called *[manticore]* living in the ruins of an old tower ([manticore stats]). [robber treasure] [manticore companions]
+1,A dreadful *stench* hangs in the air as you approach the top of the hill. Dozens of decomposing cover the ground. [a war party]Searching the remains you find a *[the war party colour]* flag of *[the war party]*. These were mercenaries. They weren’t killed by force of arms: they were poisoned.
 1,A **green dragon** named *[here green dragon name as dragon name]*[dragon portrait] lives at [hill name], one of the hills overlooking these shrublands ([green dragon stats]). [dragon treasure]
 
 ;outlaw camp
