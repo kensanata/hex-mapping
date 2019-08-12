@@ -10214,7 +10214,7 @@
 
 ;record war fact
 # requires [a war party] and a [captain]
-1,[here store captain *[same captain]* was last seen in *[same village name]* and that they carried the banner of *[the war party]* as war fact]
+1,[here store captain *[same captain]* was last seen in *[same village name]* carrying the banner of *[the war party]* as war fact]
 
 ;the presence of mercenaries is a problem
 1,For now, *[same captain]* has forced the mercenaries to pay for all the food but the locals feel like they’re forced to sell their winter stores and once the mercenaries are gone and winter comes, what then?
