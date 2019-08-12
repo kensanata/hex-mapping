@@ -170,14 +170,27 @@ any '/describe' => sub {
   my $c = shift;
   my $map = $c->param('map');
   my $labels = $c->param('labels');
+  my $markdown = $c->param('markdown');
   my $table = get_table($c);
   init();
   my $descriptions = describe_map(parse_map($map), parse_table($table));
-  $map = add_labels($map) if $labels;
-  my $svg = get_post_data($text_mapper_url . '/render', map => $map);
-  $c->render(template => 'description',
-	     svg => add_links($svg),
-	     descriptions => $descriptions);
+  if ($markdown) {
+    my $texts = [];
+    if ($descriptions->{TOP}) {
+      push(@$texts, $descriptions->{TOP});
+      delete $descriptions->{TOP};
+    }
+    for my $hex (sort keys %$descriptions) {
+      push(@$texts, "**$hex**: $descriptions->{$hex}");
+    }
+    $c->render(text => markdown($texts), format => 'txt');
+  } else {
+    $map = add_labels($map) if $labels;
+    my $svg = get_post_data($text_mapper_url . '/render', map => $map);
+    $c->render(template => 'description',
+	       svg => add_links($svg),
+	       descriptions => $descriptions);
+  }
 };
 
 =item get /describe/random/smale
@@ -283,7 +296,7 @@ sub markdown {
     # return what's left
     $_;
   } @$descriptions;
-  return join("\n" . '-' x 72 . "\n", @paragraphs);
+  return join("\n\n---\n\n", @paragraphs);
 }
 
 =item get /nomap
@@ -1844,6 +1857,10 @@ generator.
 <label>
 %= check_box 'labels'
 Include labels. This will create a very busy map.
+</label><br>
+<label>
+%= check_box 'markdown'
+Create Markdown instead of HTML output.
 </label>
 </p>
 
