@@ -10207,10 +10207,14 @@
 1,<p>[travelling circus]
 
 ;war event
-1,[a war party]There are some tents outside the settlement and you can spot the *[the war party colour]* flag of *[the war party]* (blazon: *[the war party blazon]*). [1d4x10] **mercenaries** ([human stats]) are camped here, waiting for orders. [average treasure] They are led by the mercenary captain **[human class]** [human with portrait][store [same human name] as captain] (level [1d4+2 as level]). [spellbook for [same class]] [leader treasure for [same class]]<blockquote>[the presence of mercenaries is a problem]</blockquote><p>
-1,[a war party]There is a refugee camp, here. You can recognise the *[the war party colour]* colours of *[the war party]* amongst the rags (blazon: *[the war party blazon]*). [1d4x10] **survivors** ([human stats]) are camped here, leaderless and despondent.<blockquote>[the presence of refugees is a problem]</blockquote><p>
-1,[a war party]There is a smouldering heaps of corpses, here. Charred bodies, smashed shields, broken swords, burned tents – it’s a mess. You spot the colours of *[the war party]* on a torn banner, *[the war party colour]* (blazon: *[the war party blazon]*).<blockquote>[the presence of corpses is a problem]</blockquote><p>
-1,[a war party]There are some tents outside the settlement and you can spot the *[the war party colour]* flag of *[the war party]* (blazon: *[the war party blazon]*). [1d4x10] **mercenaries** ([human stats]) passing through on their way to a temple of [nearby temple power]. Will you join them on their pilgrimage? [average treasure] They are led by the mercenary captain **[human class]** [human with portrait][store [same human name] as captain] (level [1d4+2 as level]). [spellbook for [same class]] [leader treasure for [same class]]<blockquote>[the influence of a temple can be a problem]</blockquote><p>
+1,[a war party]There are some tents outside the settlement and you can spot the *[the war party colour]* flag of *[the war party]* (blazon: *[the war party blazon]*). [1d4x10] **mercenaries** ([human stats]) are camped here, waiting for orders. [average treasure] They are led by the mercenary captain **[human class]** [human with portrait][store [same human name] as captain] (level [1d4+2 as level]). [spellbook for [same class]] [leader treasure for [same class]][record war fact]<blockquote>[the presence of mercenaries is a problem]</blockquote><p>
+1,[a war party]There is a refugee camp, here. You can recognise the *[the war party colour]* colours of *[the war party]* amongst the rags (blazon: *[the war party blazon]*). [1d4x10] **survivors** ([human stats]) are camped here, leaderless and despondent.[save human name as captain][record war fact]<blockquote>[the presence of refugees is a problem]</blockquote><p>
+1,[a war party]There is a smouldering heaps of corpses, here. Charred bodies, smashed shields, broken swords, burned tents – it’s a mess. You spot the colours of *[the war party]* on a torn banner, *[the war party colour]* (blazon: *[the war party blazon]*).[save human name as captain][record war fact]<blockquote>[the presence of corpses is a problem]</blockquote><p>
+1,[a war party]There are some tents outside the settlement and you can spot the *[the war party colour]* flag of *[the war party]* (blazon: *[the war party blazon]*). [1d4x10] **mercenaries** ([human stats]) passing through on their way to a temple of [nearby temple power]. Will you join them on their pilgrimage? [average treasure] They are led by the mercenary captain **[human class]** [human with portrait][store [same human name] as captain] (level [1d4+2 as level]). [spellbook for [same class]] [leader treasure for [same class]][record war fact]<blockquote>[the influence of a temple can be a problem]</blockquote><p>
+
+;record war fact
+# requires [a war party] and a [captain]
+1,[here store captain *[same captain]* was last seen in *[same village name]* and that they carried the banner of *[the war party]* as war fact]
 
 ;the presence of mercenaries is a problem
 1,For now, *[same captain]* has forced the mercenaries to pay for all the food but the locals feel like they’re forced to sell their winter stores and once the mercenaries are gone and winter comes, what then?
@@ -10567,13 +10571,14 @@
 1,earthenware jars of dried [with edible mushroom] and [and edible mushroom]
 
 ;caravan facts
-1,They know rumors about the goings on in [nearby village name], having recently been through there.
+1,They know rumours about the goings on in [nearby village name], having recently been through there.
 1,They claim to have supplied rare goods to [name for an emperor].
 1,The merchants would like to find a shorter route to [other village name] and will hire scouts and guards for 1gp per day and person.
 1,They are eager for news from [nearby village name], their next destination.
-1,[caravan war rumours]
+3,[caravan war rumours]
 
 ;caravan war rumours
+10,They heard that [nearby war fact].
 # these are all wrong
 1,They saw a mercenary near company [nearby village name] bearing a *[same war party colours 1]* banner belonging to *[name for a war party 1]* (blazon: *[same war party blazon 1]*).
 1,They saw a mercenary near company [nearby village name] bearing a *[same war party colours 2]* banner belonging to *[name for a war party 2]* (blazon: *[same war party blazon 2]*).
