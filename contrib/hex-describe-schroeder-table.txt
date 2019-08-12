@@ -5746,7 +5746,7 @@
 1,Up here on these hills and overlooking the shrublands is a massive fortress built by giants long ago. [outlaw camp]
 1,There are caves beneath these badlands. [caves]
 1,The dry lands up here are the hunting grounds of a **manticore** called *[manticore]* living in the ruins of an old tower ([manticore stats]). [robber treasure] [manticore companions]
-1,A dreadful *stench* hangs in the air as you approach the top of the hill. Dozens of decomposing cover the ground. [a war party]Searching the remains you find a *[the war party colour]* flag of *[the war party]*. These were mercenaries. They weren’t killed by force of arms: they were poisoned.
+1,A dreadful *stench* hangs in the air as you approach the top of the hill. Dozens of decomposing cover the ground. [a war party]Searching the remains you find a *[the war party colour]* flag of *[the war party]*. These were mercenaries. They weren’t killed by force of arms: they were poisoned.[here store captain *[human name]* was last seen in in the badlands near *[nearby village name]* carrying the banner of *[the war party]* as war fact]
 1,A **green dragon** named *[here green dragon name as dragon name]*[dragon portrait] lives at [hill name], one of the hills overlooking these shrublands ([green dragon stats]). [dragon treasure]
 
 ;outlaw camp
