@@ -3596,8 +3596,8 @@ td, th {
 }
 blockquote {
   border-left: 3px solid grey;
-  margin-left: 0;
   padding-left: 1ex;
+  margin: 0;
 }
 hr {
   clear: both;
