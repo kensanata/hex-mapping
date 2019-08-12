@@ -2216,6 +2216,7 @@ page is my attempt at writing a tutorial.
 <li><a href="#quests">Simple Quests: here, nearby, other</a></li>
 <li><a href="#combining">Combining it: here, save, store</a></li>
 <li><a href="#here">Reuse: here, same, and nearby</a></li>
+<li><a href="#global">Reuse: global, save, store, and same</a></li>
 <li><a href="#later">Delayed nested lookup: later</a></li>
 <li><a href="#lists">Lists of unique things: with, and</a></li>
 <li><a href="#capitalization">Capitalization</a></li>
@@ -2616,6 +2617,11 @@ make sure that you're closing and opening them correctly in order to generate
 valid HTML.
 </p>
 
+<p>
+The introduction would be a good place to set up <a href="#global">global
+values</a>.
+</p>
+
 <h2 id="same">Reuse: same</h2>
 
 <p>
@@ -2850,6 +2856,10 @@ is key, here. Whenever a table has this name, it will determine the result for
 the table and keep returning that. Thus, with the tables as they are, eventually
 all the bugbear bands will have one of three names as “name for a bugbear
 band1-3” are eventually determined.
+</p>
+
+<p>
+An alternative would be to set <a href="#global">global values</a>.
 </p>
 
 <h2 id="naming_features">Naming Features</h2>
@@ -3309,6 +3319,101 @@ include https://campaignwiki.org/contrib/gnomeyland.txt
 
 ;village
 1,The village alchemist is looking for the horn of a [nearby ice monster].
+% end
+
+<h2 id="global">Reuse: global, save, store, and same</h2>
+
+<p>
+Sometimes you want to establish some sort of fact and access it from everywhere.
+This can be achieved by <a href="#naming_things">naming things</a>. But but you
+could also do it using "save" and "store" if only the two had a way to make the
+value global.
+</p>
+
+<p>
+In the following example, we establish a conflict in the <a
+href="#introduction">introduction</a>. Compare how much effort is to set up a
+separate table for each ruler's name as opposed to the single "global store"
+lookup.
+</p>
+
+%= example begin
+0101 green grass village
+0201 green grass
+0301 green grass village
+0401 green grass
+0501 green grass village
+0601 green grass
+0701 green grass village
+0801 green grass
+0901 green grass village
+1001 green grass
+1101 green grass village
+1201 green grass
+1301 green grass village
+include https://campaignwiki.org/contrib/gnomeyland.txt
+
+;TOP
+1,In this land, [ruler 1] is fighting [ruler 2].
+
+;ruler 1
+1,[ruler description] [name for a ruler 1][global store [with colour] as colour 1]
+
+;ruler 2
+1,[ruler description] [name for a ruler 2][global store [and colour] as colour 2]
+
+;village
+1,In this village, [same colour 1] flags show the locals support [name for a ruler 1].
+1,In this village, [same colour 2] flags show the locals support [name for a ruler 2].
+
+;ruler description
+1,sad
+1,cruel
+1,unhappy
+1,weak
+
+;name for a ruler 1
+1,[with ruler]
+
+;name for a ruler 2
+1,[and ruler]
+
+;ruler
+1,[title for a man] [name for a man]
+1,[title for a woman] [name for a woman]
+
+;title for a man
+1,Lord
+1,Duke
+1,King
+
+;title for a woman
+1,Lady
+1,Duchess
+1,Queen
+
+;name for a man
+1,John
+1,Richard
+1,Henry
+
+;name for a woman
+1,Elizabeth
+1,Mary
+1,Anne
+
+;colour
+1,red
+1,orange
+1,yellow
+1,green
+1,indigo
+1,blue
+1,purple
+
+;grass
+1,The grass is green.
+1,The grass is very green.
 % end
 
 <h2 id="later">Delayed nested lookup: later</h2>
