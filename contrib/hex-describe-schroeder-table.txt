@@ -74,7 +74,7 @@
 1,[store 3 as war party number]
 
 ;a different war party
-1,[store [not [war party number]] as war party number]
+1,[store [not [same war party number]] as war party number]
 
 ;not 1
 1,2
