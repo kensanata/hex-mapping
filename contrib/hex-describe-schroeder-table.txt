@@ -2518,7 +2518,7 @@
 1,<p>The room above, with its polished floor, arching columns and a beautiful mosaic of [with elf decoration] and [and elf decoration] and scenes from [old elf ballad name], is inhabited by a **blue dragon** called *[here blue dragon name as dragon name]*[dragon portrait] ([blue dragon stats]). Exposure to elven dweomers has made the dragon surprisingly [dragon mood].  [dragon treasure]
 1,<p>The walls of this room near the top are cracked and all the windows are broken. This is the lair of [2d8] very protective **griffons** ([griffon stats]). They are often seen hunting the land around this tower. [maybe griffon eggs]
 1,<p>The large room up here has an opening in the [direction]ern wall leading to a platform with a beautiful view. The room itself is filled with glass pipes, ventilators and copper cauldrons. This laboratory is home to [gargoyles] ([gargoyle stats]). [poor treasure]
-1,<p>Furter up, where heaven and earth appear to meet, the Earth Blood has turned previous visitors into [2d6] [slime].
+1,<p>Furter up, where heaven and earth appear to meet, the Earth Blood has turned previous visitors into [2d6] [slimes].
 1,<p>Further up and behind locked and iron-bound doors is a large room with a [1d4+1] gorgeous old wooden tables and many chairs decorated with fern leaves and roses. Here dwells the **necromancer** [human with portrait][here store [same human name] as alchemist patron] (level [1d3+4 as level]), protected by [necromancer companions]. [spellbook for necromancers] [luxurious context] [leader treasure for magic user]
 
 ;green mountain tower top
@@ -5909,17 +5909,17 @@
 
 ;vivimancer
 1,Here lives the **vivimancer** [human with portrait][here store [same human name] as alchemist patron] (level [1d3+4 as level]), protected by [3d6] **myconids** ([myconid stats]). [alchemist job] [luxurious context] [poor treasure] [leader treasure for magic user]
-1,Here lives the **vivimancer** [human with portrait][here store [same human name] as alchemist patron] (level [1d3+4 as level]) with [3d6] [slimes]. [safe zone] [poor treasure] [leader treasure for magic user]
+1,Here lives the **vivimancer** [human with portrait][here store [same human name] as alchemist patron] (level [1d3+4 as level]) with [3d6] [slimes somewhere]. [safe zone] [poor treasure] [leader treasure for magic user]
 
 ;alchemist job
 1,*[same human name]* is looking for *[nearby magic plant]*.
 1,*[same human name]* is looking for a [nearby alchemist quest].
 
-;slimes
-1,[slime] hiding in pools and pits
-1,[slime] which have integrated themselves into the walls
-1,[slime] which lurk under every ceiling
-1,[slime] which fill the vats and cauldrons
+;slimes somewhere
+1,[slimes] hiding in pools and pits
+1,[slimes] which have integrated themselves into the walls
+1,[slimes] which lurk under every ceiling
+1,[slimes] which fill the vats and cauldrons
 
 ;safe zone
 1,A rickety bridge leads into the tower and to a small platform with a bed and the laboratory. The tower is not safe.
@@ -5942,71 +5942,74 @@
 
 ;slime
 1,[slime color close span] [slime type]</span> ([slime stats]; [slime special ability]; immune to *sleep* and *charm*)
+;slimes
+1,[slime color close span] [slime type]s</span> ([slime stats]; [slime special ability]; immune to *sleep* and *charm*)
 
 #close the span here after calling, used to generate text with color
 #more color goodness here: https://en.wikipedia.org/wiki/List_of_colors_(compact)
 ;slime color close span
-1,<span style="font-weight:bold;color:#93C572;">Pistachio Green
-1,<span style="font-weight:bold;color:#FD7C6E;">Coral
-1,<span style="font-weight:bold;color:#e48400;">Fulvous
-1,<span style="font-weight:bold;color:#9966CC;">Amethyst
-1,<span style="font-weight:bold;background-color:#FEF6CC;">Eburnean
-1,<span style="font-weight:bold;color:#893F45;">Cordovan
-1,<span style="font-weight:bold;color:#CAE00D;">Bitter Lemon
-1,<span style="font-weight:bold;color:#E34234;">Vermilion
-1,<span style="font-weight:bold;color:#F56FA1;">Cyclamen
-1,<span style="font-weight:bold;color:#6082B6;">Glaucous
-1,<span style="font-weight:bold;background-color:#fadfae;">Sarcoline
-1,<span style="font-weight:bold;background-color:#DFFF00;">Chartreuse
-1,<span style="font-weight:bold;color:#DF73FF;">Heliotrope
-1,<span style="font-weight:bold;color:#FFDB58;">Pale Mustard
-1,<span style="font-weight:bold;background-color:#BFFF00;">Lime
-1,<span style="font-weight:bold;color:#00A86B;">Jade Green
-1,<span style="font-weight:bold;color:#592720;">Cardinal Purple
-1,<span style="font-weight:bold;color:#ED872D;">Cadmium Orange
-1,<span style="font-weight:bold;color:#623034;">Burnt Sienna
-1,<span style="font-weight:bold;color:#02A4D3;">Cerulean
-1,<span style="font-weight:bold;background-color:#C3CDE6;">Periwinkle
-1,<span style="font-weight:bold;color:#e34234;">Cimmabar
-1,<span style="font-weight:bold;color:#8D90A1;">Manatee
-1,<span style="font-weight:bold;color:#C9A0DC;">Wisteria
-1,<span style="font-weight:bold;color:#66023C;">Tyrian Purple
-1,<span style="font-weight:bold;color:#9A4EAE;">Puprureus
-1,<span style="font-weight:bold;color:#C154C1;">Fuchsia
-1,<span style="font-weight:bold;color:#3FFF00;">Harlequin Green
-1,<span style="font-weight:bold;background-color:#F2BDCD;">Orchid Pink
-1,<span style="font-weight:bold;color:#CB410B;">Sinopia
-1,<span style="font-weight:bold;color:#0014A8;">Zaffre
-1,<span style="font-weight:bold;color:#8A3324;">Burnt Umber
-1,<span style="font-weight:bold;color:#614051;">Aubergine
-1,<span style="font-weight:bold;background-color:#EDEAE0;">Alabaster
-1,<span style="font-weight:bold;color:#87A96B;">Asparagus
-1,<span style="font-weight:bold;color:#0BDA51;">Malachite
-1,<span style="font-weight:bold;color:#DE6FA1;">Thulian Pink
-1,<span style="font-weight:bold;color:#007FFF;">Azure
-1,<span style="font-weight:bold;color:#354230;">Kombu Green
-1,<span style="font-weight:bold;color:#6B4423;">Kobicha Brown
-1,<span style="font-weight:bold;color:#F4CA16;">Jonquil
-1,<span style="font-weight:bold;color:#006A4E;">Bottle Green
-1,<span style="font-weight:bold;color:#ACE1AF;">Celadon
-1,<span style="font-weight:bold;background-color:#F0FFF0;">Honey Dew
-1,<span style="font-weight:bold;background-color:#7FFFD4;">Aquamarine
-1,<span style="font-weight:bold;color:#4A5D23;">Dark Moss Green
-1,<span style="font-weight:bold;background-color:#FFFFF0;">Ivory
-1,<span style="font-weight:bold;background-color:#FFF8DC;">Cornsilk
-1,<span style="font-weight:bold;background-color:#DCD0FF;">Pale Lavender
-1,<span style="font-weight:bold;color:#a99a86;">Grullo
-1,<span style="font-weight:bold;color:#98817B;">Cinereous
-1,<span style="font-weight:bold;color:#673147;">Wine Dregs
+1,<span style="font-weight:bold;color:#93C572;">pistachio green
+1,<span style="font-weight:bold;color:#FD7C6E;">coral
+1,<span style="font-weight:bold;color:#e48400;">fulvous
+1,<span style="font-weight:bold;color:#9966CC;">amethyst
+1,<span style="font-weight:bold;background-color:#FEF6CC;">eburnean
+1,<span style="font-weight:bold;color:#893F45;">cordovan
+1,<span style="font-weight:bold;color:#CAE00D;">bitter lemon
+1,<span style="font-weight:bold;color:#E34234;">vermilion
+1,<span style="font-weight:bold;color:#F56FA1;">cyclamen
+1,<span style="font-weight:bold;color:#6082B6;">glaucous
+1,<span style="font-weight:bold;background-color:#fadfae;">sarcoline
+1,<span style="font-weight:bold;background-color:#DFFF00;">chartreuse
+1,<span style="font-weight:bold;color:#DF73FF;">heliotrope
+1,<span style="font-weight:bold;color:#FFDB58;">pale mustard
+1,<span style="font-weight:bold;background-color:#BFFF00;">lime
+1,<span style="font-weight:bold;color:#00A86B;">jade green
+1,<span style="font-weight:bold;color:#592720;">cardinal purple
+1,<span style="font-weight:bold;color:#ED872D;">cadmium orange
+1,<span style="font-weight:bold;color:#623034;">burnt sienna
+1,<span style="font-weight:bold;color:#02A4D3;">cerulean
+1,<span style="font-weight:bold;background-color:#C3CDE6;">periwinkle
+1,<span style="font-weight:bold;color:#e34234;">cimmabar
+1,<span style="font-weight:bold;color:#8D90A1;">manatee
+1,<span style="font-weight:bold;color:#C9A0DC;">wisteria
+1,<span style="font-weight:bold;color:#66023C;">tyrian purple
+1,<span style="font-weight:bold;color:#9A4EAE;">puprureus
+1,<span style="font-weight:bold;color:#C154C1;">fuchsia
+1,<span style="font-weight:bold;color:#3FFF00;">harlequin green
+1,<span style="font-weight:bold;background-color:#F2BDCD;">orchid pink
+1,<span style="font-weight:bold;color:#CB410B;">sinopia
+1,<span style="font-weight:bold;color:#0014A8;">zaffre
+1,<span style="font-weight:bold;color:#8A3324;">burnt umber
+1,<span style="font-weight:bold;color:#614051;">aubergine
+1,<span style="font-weight:bold;background-color:#EDEAE0;">alabaster
+1,<span style="font-weight:bold;color:#87A96B;">asparagus
+1,<span style="font-weight:bold;color:#0BDA51;">malachite
+1,<span style="font-weight:bold;color:#DE6FA1;">thulian pink
+1,<span style="font-weight:bold;color:#007FFF;">azure
+1,<span style="font-weight:bold;color:#354230;">kombu green
+1,<span style="font-weight:bold;color:#6B4423;">kobicha brown
+1,<span style="font-weight:bold;color:#F4CA16;">jonquil
+1,<span style="font-weight:bold;color:#006A4E;">bottle green
+1,<span style="font-weight:bold;color:#ACE1AF;">celadon
+1,<span style="font-weight:bold;background-color:#F0FFF0;">honey dew
+1,<span style="font-weight:bold;background-color:#7FFFD4;">aquamarine
+1,<span style="font-weight:bold;color:#4A5D23;">dark moss green
+1,<span style="font-weight:bold;background-color:#FFFFF0;">ivory
+1,<span style="font-weight:bold;background-color:#FFF8DC;">cornsilk
+1,<span style="font-weight:bold;background-color:#DCD0FF;">pale lavender
+1,<span style="font-weight:bold;color:#a99a86;">grullo
+1,<span style="font-weight:bold;color:#98817B;">cinereous
+1,<span style="font-weight:bold;color:#673147;">wine dregs
 
 ;slime type
-4,Slime
-1,Sludge
-1,Glop
-1,Slime Mold
-3,Ooze
-1,Skum
-1,Pudding
+# must allow plural by appending an s
+4,slime
+1,sludge
+1,glop
+1,slime mold
+3,ooze
+1,skum
+1,pudding
 
 ;slime stats
 1,HD 3 AC 5 [slime attack] F3 MV 9 ML 12 XP 300; [slime effect] [slime weakness]
