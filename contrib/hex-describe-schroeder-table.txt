@@ -316,7 +316,7 @@
 1,[grass intro] [grass dressing] The area has been settled by a tribe of [6d6] **lizard people** ([lizard people stats]) led by *[lizard leader]* (HD [1d4+2 as level]). [leader treasure] The little village of sod and grass huts is guarded by [lizard companions]. [average treasure]
 1,[grass intro] [grass dressing] This land is the home of [centaurs].
 1,[grass intro] [grass dressing] A ruined tower standing on a small rise is home to the **ettin** called *[ettin]*. [robber treasure] [ettin tower protection]
-1,[grass intro] [grass dressing] In the old days, this rocky pit was a [gem] quarry. Concealed in a rocky crevice is the hidden barrow of [1d8 wights] ([wight stats]).
+1,[grass intro] [grass dressing] In the old days, this rocky pit was [a gem] quarry. Concealed in a rocky crevice is the hidden barrow of [1d8 wights] ([wight stats]).
 1,[grass intro] [grass dressing] There is a huge dirt mound with small holes for windows and a rough wooden door. [goblins]
 1,The [grass name] looks burned and shrivelled here and the smell of sulphur hangs in the air. A **manticore** named *[here manticore name]* [manticore activity] ([manticore stats]).
 3,[grass intro] [grass dressing]  If you stay here long, you’ll soon attract the attention of [boars].
@@ -425,28 +425,40 @@
 1,Thistle
 
 ;gem
+8,[gem with a vocal]
+15,[gem with a consonant]
+
+;a gem
+8,an [gem with a vocal]
+15,a [gem with a consonant]
+
+;gem with a vocal
+# adding or removing items here affects the [gem] and [a gem] tables
+1,agate
 1,amber
 1,amethyst
 1,aquamarine
+1,emerald
+1,obsidian
 1,onyx
 1,opal
-1,sapphire
-1,agate
+
+;gem with a consonant
+# adding or removing items here affects the [gem] and [a gem] tables
 1,diamond
-1,quartz
-1,topaz
-1,ruby
-1,emerald
 1,garnet
 1,jade
 1,jet
 1,malachite
 1,moonstone
 1,nephrite
-1,obsidian
 1,periodot
+1,quartz
 1,rose quartz
+1,ruby
+1,sapphire
 1,tiger’s eye
+1,topaz
 1,turquoise
 
 ;cows
@@ -10614,7 +10626,7 @@
 1,sacks of [with colour] and [and colour] dyes
 ;jewelry goods
 1,bars of [metal mat]
-1,a [gem] encrusted [metal jewelry singular] (worth [3d6]00gp)
+1,[a gem] encrusted [metal jewelry singular] (worth [3d6]00gp)
 ;cages goods
 1,cages of [small bird type plural] and [small reptile type]s
 ;crocks goods
