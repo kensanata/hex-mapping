@@ -485,7 +485,7 @@
 1,**invisible stalker** *[invisible stalker]* ([invisible stalker stats]).
 1,[3d6] **gnolls** *[gnoll]* ([gnoll stats]). [robber treasure]
 1,**vulture demon** *[vulture demon]* ([vulture demon stats])
-1,[1d4x10] **bandits** ([human stats]) led by [human with portrait]. [average treasure]
+1,[1d4x10] **bandits** ([human stats]) led by [human with portrait].[here store the bandit *[same human name]* as wanted dead or alive] [average treasure]
 
 ;centaurs
 1,the **centaur** *[centaur]* ([centaur stats])
@@ -4676,7 +4676,7 @@
 1,[5d8] **froglings** ([frogling stats]) live here, led by *[frogling with portrait]*, a priest of Tsathoggua: *lightning bolt* 2×/day (5d6, save vs. spells for half). [poor treasure] The mud village built around the temple[here store Tsathoggua as temple power] is guarded by [frogling companions].
 
 ;frogling with portrait
-1,*[frogling name]*<img class="portrait" src="[[redirect https://campaignwiki.org/face/redirect/alex/frog]]" alt="[same frogling]" title="[same frogling]"/>
+1,*[frogling name]*<img class="portrait" src="[[redirect https://campaignwiki.org/face/redirect/alex/frog]]" alt="[same frogling name]" title="[same frogling name]"/>
 
 ;frogling name
 1,[frogling 1] [frogling 2]
@@ -5800,7 +5800,7 @@
 1,A **green dragon** named *[here green dragon name as dragon name]*[dragon portrait] lives at [hill name], one of the hills overlooking these shrublands ([green dragon stats]). [dragon treasure]
 
 ;outlaw camp
-1,There is a camp of [1d4x10] **outlaws** ([outlaw stats]) led by *[outlaw leader]* here. [average treasure] They call themselves the *[adjective] [organisation name]*. [outlaw feature] The camp is protected by [outlaw companions]. These outlaws are [two outlaw activities].
+1,There is a camp of [1d4x10] **outlaws** ([outlaw stats]) led by *[outlaw leader as human name]*[human portrait] here.[here store the outlaw *[same human name]* as wanted dead or alive] [average treasure] They call themselves the *[adjective] [organisation name]*. [outlaw feature] The camp is protected by [outlaw companions]. These outlaws are [two outlaw activities].
 
 ;outlaw stats
 1,HD 1 AC 8 1d6 F1 MV 12 ML 7 XP 100
@@ -5831,7 +5831,7 @@
 1,This camp has a renowned **healer**: [human with portrait] knows how to *cure disease* using *[nearby magic plant]*.
 1,The scouts in this camp know all the creatures of [link to adjacent hex].
 1,The outlaws are eager to trade for alcohol and gold.
-1,This camp has a talented **bard** called [human with portrait] who was chased out of [nearby village name].[store human as singing humanoid] The songs they like to perform are [with story] and [and story].
+1,This camp has a talented **bard** called [human with portrait] who was chased out of [nearby village name].[store human as singing humanoid] The songs they like to perform are [with story] and [and story]. If you ask them about the war, they’ll say that [nearby war fact].
 
 ;outlaw companions
 1,[1d6+1] **hunting hounds** ([wolf stats])
@@ -6220,8 +6220,8 @@
 1,[halfling with portrait] (level [1d6+1 as level])
 
 ;halfling troubles
-1,These halflings are wicked raiders, disappearing into the wilderness without leaving a trail.
-1,These halflings are cruel flesh eaters, like ravenous wolves they hunt and eat humans and elves alike.
+1,These halflings are wicked raiders, disappearing into the wilderness without leaving a trail.[here store the halfling raider *[same halfling name]* as wanted dead or alive]
+1,These halflings are cruel flesh eaters, like ravenous wolves they hunt and eat humans and elves alike.[here store the halfling cannibal *[same halfling name]* as wanted dead or alive]
 1,A curse has been killing their sheep and they fear starvation, soon enough.<p>Little do they know of the [witch]
 1,They hate and fear all outsiders. And what they fear most of all is that somebody would betray the location of their home.
 
@@ -8372,7 +8372,7 @@
 ;forest monster
 1,**manticore** *[manticore]* ([manticore stats]). [robber treasure]
 1,**bear** *[bear name]* ([bear stats])
-1,[1d4x10] **bandits** led by [human with portrait]. [average treasure]
+1,[1d4x10] **bandits** led by [human with portrait].[here store the bandit *[same human name]* as wanted dead or alive] [average treasure]
 1,[6d10] **goblins** led by [goblin] ([goblin stats]). [poor treasure]
 
 ;ettercap forest
@@ -10253,12 +10253,12 @@
 1,[1d4x10] **cultists** ([human stats]) live here. [average treasure] They are led by their cult leader [woman with portrait] (level [1d6+1 as level]), [cult leader description]. [leader treasure for magic user]
 
 ;settlement event
-1,<p>[war event]
-1,<p>[bard]
-1,<p>[dragon hunter]
-1,<p>[treasure hunter]
-1,<p>[trade caravan]
-1,<p>[travelling circus]
+1,[war event]
+1,[bard]
+1,[dragon hunter]
+1,[treasure hunter]
+1,[trade caravan]
+1,[travelling circus]
 
 ;war event
 1,[a war party]There are some tents outside the settlement and you can spot the *[the war party colour]* flag of *[the war party]* (blazon: *[the war party blazon]*). [1d4x10] **mercenaries** ([human stats]) are camped here, waiting for orders. [average treasure] They are led by the mercenary captain **[human class]** [human with portrait][store [same human name] as captain] (level [1d4+2 as level]). [spellbook for [same class]] [leader treasure for [same class]][record war fact]<blockquote>[the presence of mercenaries is a problem]</blockquote><p>
@@ -10315,7 +10315,7 @@
 1,The dragon hunter **[human class]** [human with portrait] (level [1d4+5 as level]) is trying to hire two score desperate peasants to go and slay *[nearby dragon name]*. “[sharing agreement]” [spellbook for [same class]] [leader treasure for [same class]]
 
 ;bard
-1,The [bard adjective] [singing humanoid] **bard** *[[same singing humanoid] with portrait]* is here, playing the [instrument] and [with performing] [with story] and [and performing] [and story]. [audience reaction]
+1,The [bard adjective] [singing humanoid] **bard** *[[same singing humanoid] with portrait]* is here, playing the [instrument] and [with performing] [with story] and [and performing] [and story]. [audience reaction] If you ask them about the war, they’ll say that [nearby war fact].
 
 ;bard adjective
 1,wandering
@@ -11251,15 +11251,15 @@
 1,choosing the child to be sacrificed to the dragon *[nearby dragon name]*
 
 ;thorp
-1,<p>This is [here village name], a thorp of [1d4x10] **humans** ([human stats]) led by [human with portrait][human job]. The [human houses] are protected by [human companions]. [average treasure] These village-folk are [thorp activity]. [settlement event]
+1,<p>This is [here village name], a thorp of [1d4x10] **humans** ([human stats]) led by [human with portrait][human job]. The [human houses] are protected by [human companions]. [average treasure] These village-folk are [thorp activity].<p>[settlement event]
 
 # the second variant has a temple at the end
 ;village
-1,<p>This is [here village name], a village of [5d6x10] **humans** ([human stats]). The [human houses] are protected by [human companions] and a [human defense]. There is a small *[village building]*. [small [same village building]] [average treasure]<p>The [human leader] lives in the [same village building]. [spellbook for [same class]] [leader treasure for [same class]]<p>[human retainer]<p>[human friends]<p>[And a secret society] [settlement event]
-1,<p>This is [here village name], a village of [5d6x10] **humans** ([human stats]). The [human houses] are protected by [human companions] and a [human defense]. There is a small *[village building]*. [small [same village building]] [average treasure]<p>The [human leader] lives in the [same village building]. [spellbook for [same class]] [leader treasure for [same class]]<p>[human retainer]<p>[human friends]<p>[And a secret society]<p>[temple] [settlement event]
+1,<p>This is [here village name], a village of [5d6x10] **humans** ([human stats]). The [human houses] are protected by [human companions] and a [human defense]. There is a small *[village building]*. [small [same village building]] [average treasure]<p>The [human leader] lives in the [same village building]. [spellbook for [same class]] [leader treasure for [same class]]<p>[human retainer]<p>[human friends]<p>[And a secret society]<p>[law and order jobs]<p>[settlement event]
+1,<p>This is [here village name], a village of [5d6x10] **humans** ([human stats]). The [human houses] are protected by [human companions] and a [human defense]. There is a small *[village building]*. [small [same village building]] [average treasure]<p>The [human leader] lives in the [same village building]. [spellbook for [same class]] [leader treasure for [same class]]<p>[human retainer]<p>[human friends]<p>[And a secret society]<p>[law and order jobs]<p>[temple]<p>[settlement event]
 
 ;town
-1,<p>This is [here village name], a town of [1d6x100] **humans** ([human stats]). The [human houses] are protected by a keep, a town wall and the river. [average treasure]<p>The [human leader] lives in the keep. [spellbook for [same class]] [leader treasure for [same class]]<p>[human retainer]<p>[human friends]<p>[And two secret societies feuding]<p>[temple]<p>There is also [town feature] [settlement event]
+1,<p>This is [here village name], a town of [1d6x100] **humans** ([human stats]). The [human houses] are protected by a keep, a town wall and the river. [average treasure]<p>The [human leader] lives in the keep. [spellbook for [same class]] [leader treasure for [same class]]<p>[human retainer]<p>[human friends]<p>[And two secret societies feuding]<p>[law and order jobs]<p>[temple]<p>There is also [town feature]<p>[settlement event]
 
 ;human job
 1, the smith
@@ -11269,6 +11269,9 @@
 1,, the owner of the largest cow herd
 1,, the owner of the most sheep
 1,, the owner of the most goats
+
+;law and order jobs
+1,*[same human patron]* is willing to pay 500gp to whoever brings back [nearby wanted dead or alive], dead or alive.
 
 ;temple
 1,There is a temple dedicated to *[power]*. [small temple dedicated to [same power]]
