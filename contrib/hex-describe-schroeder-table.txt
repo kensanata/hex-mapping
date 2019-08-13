@@ -4676,9 +4676,9 @@
 1,[5d8] **froglings** ([frogling stats]) live here, led by *[frogling with portrait]*, a priest of Tsathoggua: *lightning bolt* 2×/day (5d6, save vs. spells for half). [poor treasure] The mud village built around the temple[here store Tsathoggua as temple power] is guarded by [frogling companions].
 
 ;frogling with portrait
-1,*[frogling]*<img class="portrait" src="[[redirect https://campaignwiki.org/face/redirect/alex/frog]]" alt="[same frogling]" title="[same frogling]"/>
+1,*[frogling name]*<img class="portrait" src="[[redirect https://campaignwiki.org/face/redirect/alex/frog]]" alt="[same frogling]" title="[same frogling]"/>
 
-;frogling
+;frogling name
 1,[frogling 1] [frogling 2]
 
 ;frogling 1
