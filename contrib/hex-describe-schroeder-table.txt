@@ -313,8 +313,8 @@
 5,[grass intro] [grass dressing] **[capitalize cows]** can be seen grazing in the distance to the [direction].
 1,[grass intro] [grass dressing] Without a guide, you may be ambushed by [1d12+1] [warrior ants] protecting their colony from intruders. The ant lair is not far.<p>[giant ant lair]
 3,[grass intro] [grass dressing] Those who know how to find it can gather *[magic plant]*.
-1,[grass intro] [grass dressing] The area has been settled by a tribe of [6d6] **lizard people** ([lizard people stats]) led by *[lizard leader]* (HD [1d4+2 as level]). [leader treasure] The little village of sod and grass huts is guarded by [lizard companions]. [average treasure]
-1,[grass intro] [grass dressing] [centaurs] have settled here.
+1,[grass intro] [grass dressing] The area has been settled by a tribe of [6d6] **lizard people** ([lizard people stats]) led by *[lizard leader]* (HD [1d4+2 as level]). [leader treasure] The little village of sod and grass huts is guarded by [lizard companions]. [average treasure]
+1,[grass intro] [grass dressing] This land is the home of [centaurs].
 1,[grass intro] [grass dressing] A ruined tower standing on a small rise is home to the **ettin** called *[ettin]*. [robber treasure] [ettin tower protection]
 1,[grass intro] [grass dressing] In the old days, this rocky pit was a [gem] quarry. Concealed in a rocky crevice is the hidden barrow of [1d8 wights] ([wight stats]).
 1,[grass intro] [grass dressing] There is a huge dirt mound with small holes for windows and a rough wooden door. [goblins]
@@ -375,7 +375,7 @@
 1,Scrublands
 
 ;elephant stats
-1,HD 9 AC 5 4d8 *with +4 to hit* F5 MV 12 ML 8 XP 900
+1,HD 9 AC 5 4d8 *with +4 to hit* F5 MV 12 ML 8 XP 900
 
 ;straw golem stats
 1,HD 1 AC 9 1d6 MV 12 ML 12 XP 100; immune to *arrows*, immune to *poison*; immune to *spells*
@@ -493,7 +493,7 @@
 9,[1d19+1] drunken **centaurs** led by *[centaur]* ([centaur stats])
 
 ;centaur stats
-1,HD 4 AC 5 1d6/1d6/1d8 F4 MV 18 ML 8 XP 400
+1,HD 4 AC 5 1d6/1d6/1d8 F4 MV 18 ML 8 XP 400
 
 ;centaur
 1,[strange male name]
@@ -2243,7 +2243,7 @@
 1,a cave leads into the lair of [ice devil], a [ice devil adjectives] **ice devil**, and his [ice devil companions] living in [ice devil lair]
 
 ;griffon stats
-1,HD 4+1 AC 6 1d6/1d6/1d8 F4 MV 24 ML 10 XP 400
+1,HD 4+1 AC 6 1d6/1d6/1d8 F4 MV 24 ML 10 XP 400
 
 ;maybe griffon eggs
 1,
@@ -2481,7 +2481,7 @@
 1,2d4 **salamanders** ([salamander stats]) live here, led by *[salamander]*. [terror treasure]
 
 ;salamander stats
-1,HD 8 AC 2 1d4/1d4/1d8 F8 MV 12 ML 8 XP 800; *aura of fire* (anybody in melee takes automatic 1d6 fire damage); immune to fire; only harmed by magic or magic weapons; immune to *sleep* and *charm*
+1,HD 8 AC 2 1d4/1d4/1d8 F8 MV 12 ML 8 XP 800; *aura of fire* (anybody in melee takes automatic 1d6 fire damage); immune to fire; only harmed by magic or magic weapons; immune to *sleep* and *charm*
 
 ;salamander
 1,Hot
@@ -2558,10 +2558,10 @@
 1,people swearing an oath
 
 ;Niflheim decoration
-1,snow
-1,ice
-1,forests
-1,trolls
+1,a snow-covered forest
+1,many icicles
+1,an endless forests
+1,a group of trolls
 1,a sleeping dragon
 
 ;Alfheim decoration
@@ -2616,10 +2616,10 @@
 1,calm
 
 ;green tower in this lake content
-1,long abandoned.
-1,now inhabited by a **green dragon** called *[here green dragon name as dragon name]*[dragon portrait] ([green dragon stats]). [dragon treasure]
-1,now the nesting site of [1d6 wyverns] ([wyvern stats]). [terror treasure]
-1,The Earth Blood in this tower has turned previous visitors into [slime].
+1,It has been long abandoned.
+1,It is now inhabited by a **green dragon** called *[here green dragon name as dragon name]*[dragon portrait] ([green dragon stats]). [dragon treasure]
+1,It is now the nesting site of [1d6 wyverns] ([wyvern stats]). [terror treasure]
+1,The Earth Blood in this tower has turned previous visitors into [3d6] [slimes].
 1,[vivimancer]
 
 ;1d6 wyverns
@@ -2726,8 +2726,13 @@
 1,Deep
 1,Cold
 1,Icy
-1,Drowning
+1,Glass
 1,Dead
+1,Glacier
+1,Spirit
+1,[tree]
+1,[strange male name]
+1,[strange female name]
 
 ;lake 2
 1,Dream
@@ -2736,11 +2741,34 @@
 1,Mirror
 1,Hole
 1,Grave
+1,Lake
+1,Pond
+
+;lake intro
+1,This is the *[lake name]*, claimed as the ancestral home of froglings, kappa, and some swamp gnomes.
+1,The waters of *[lake name]* seems to stretch forever, mirroring the sky above.
+1,The *[lake name]* appears to have been a quarry of some sort. Perhaps giants dug this hole in the old days. The turquoise blue waters look welcoming, though the lake sides seems steep and precarious.
+1,The *[lake name]* is dotted here and there with islands, each of which looks barely large enough to hold a house.
+1,The river splashes down the hillside and ends here in, *[lake name]*.
+
+;lake dressing
+1,[capitalize cows] can be seen gathered near the water.
+1,The silvery glint of scales gives away large fish hunting near shore.
+1,Vibrant green duckweed floats on the water’s surface and waterfowl swim hurriedly about.
+1,A large black snake glides away through the reeds. Setting up camp here may not be safe.
+1,Beavers have built dams, drowning the land.
+1,A cool breeze blows across the lake leaving shimmering waves and bobbing cattails in its wake.
+1,Near the edge of the lake, surrounded by willows, [an old statue] of *[power]* still stands.
 
 ;lake inhabitants
-1,[2d20] **nixies** led by *[nixie]* live here ([nixie stats]). [poor treasure]
-1,[2d4] very polite **turtle people** led by *[turtle]* live here ([turtle people stats]). [poor treasure]
-1,[green tower in this lake]
+1,[2d20] **nixies** led by *[nixie]* live here ([nixie stats]). [poor treasure] They are worried about [nixie problem]
+1,[2d4] very polite **turtle people** led by *[turtle name]* live here ([turtle people stats]). [poor treasure] They are of the *[turtle clan name]* clan. These turtle people are [turtle people activity].
+1,<p>[green tower in this lake]
+
+;nixie problem
+1,a herd of *centaurs* that have been carousing in the area and scaring away the wildlife.</p><blockquote>The lake shore has become the home of [centaurs].</blockquote><p>
+1,rumors of a *chimera* that has made his lair in a nearby cave.</p><blockquote>The **chimera** is guarding an iron wrought gate decorated with [Niflheim decoration] leading to *Niflheim* ([chimera stats])</blockquote><p>
+1,a clan of *dwarves* that is erecting a waterwheel at the other end of the lake.</p><blockquote>Actually, this is going to get worse. The waterwheel is just the beginning: they are trying to start a small forge! [5d8] **dwarves** work and live here ([dwarf stats]), led by [dwarf with portrait] (level [1d6+2 as level]). [luxurious context] [dwarven treasure]</blockquote><p>
 
 ;nixie stats
 1,HD 1 AC 7 1d4 F1 MV 12 ML 6 XP 100; *charm*, *water breathing*
@@ -2769,17 +2797,39 @@
 1,Dew
 1,Rain
 
-;turtle people stats
-1,HD 3 AC 2 1d8 F3 MV 6 ML 8 XP 300; *two attacks* when damaged
+;turtle name
+1,[turtle name 1] [turtle name 2]
 
-;turtle
+;turtle name 1
+1,Long
+1,Still
+1,Enduring
+
+;turtle name 2
 1,Patience
 1,Calm
 1,Quiet
-1,Slow
 1,Peace
-1,Submit
 1,Wait
+
+;turtle clan name
+1,Chelone
+1,Testudo
+1,Tortuga
+1,Skoldpadda
+1,Umigame
+1,Karumbe
+
+;turtle people stats
+1,HD 3 AC 2 1d8 F3 MV 6 ML 8 XP 300; *two attacks* when damaged
+
+;turtle people activity
+1,averting their eyes as you approach for at least an hour
+1,ambling about with the slow grace of the unhurried
+1,gathering fleshy green plants from the water
+1,engaged in an elaborate dance on the lake shore
+1,shucking mollusks and extracting the pearls
+1,celebrating the emergence of a new generation from their shells
 
 ;green tower in this lake
 1,A green glass tower has been built in this lake. [green tower in this lake content] [green tower description] [green tower name] [green tower connection]
@@ -3050,7 +3100,7 @@
 7,[1d5+1] **wraiths**
 
 ;wraith stats
-1,HD 4 AC 3 1d6 + *drain* F4 MV 24 ML 12 XP 400; only harmed by magic or magic weapons; immune to *sleep* and *charm*
+1,HD 4 AC 3 1d6 + *drain* F4 MV 24 ML 12 XP 400; only harmed by magic or magic weapons; immune to *sleep* and *charm*
 
 ;ice monster
 1,gorgon
@@ -4614,10 +4664,10 @@
 1,eater
 
 ;water
-1,A lake covering the ruins of an ancient town.
-1,A lake inhabited by [2d20] charming **nixies** ([nixie stats]) and the same number of **giant fish** ([giant fish stats]) guarding their sea weed garden. [poor treasure]
-1,[lake inhabitants]
-1,A tribe of [froglings]
+1,[lake intro] [lake dressing] Beneath the waves, algae clings to the ruins of an ancient town. Skeletal trees emerge from the water like bleached bones.
+1,[lake intro] [lake dressing]<p>A pod of [2d20] charming **nixies** ([nixie stats]) and the same number of **giant fish** ([giant fish stats]) guard their sea weed garden. [poor treasure]
+3,[lake intro] [lake dressing]<p>[lake inhabitants]
+1,[lake intro] [lake dressing]<p>A tribe of [froglings]
 
 ;giant fish stats
 1,HD 2 AC 7 1d6 F1 MV 12 ML 8 XP 200
@@ -5753,7 +5803,7 @@
 1,There is a camp of [1d4x10] **outlaws** ([outlaw stats]) led by *[outlaw leader]* here. [average treasure] They call themselves the *[adjective] [organisation name]*. [outlaw feature] The camp is protected by [outlaw companions]. These outlaws are [two outlaw activities].
 
 ;outlaw stats
-1,HD 1 AC 8 1d6 F 1 MV 12 ML 7 XP100
+1,HD 1 AC 8 1d6 F1 MV 12 ML 7 XP 100
 
 ;outlaw leader
 1,[outlaw leader 1] [outlaw leader 2]
@@ -5842,7 +5892,7 @@
 1,HD 4 AC 6 1d4/1d4/1d8 F2 MV 21 ML 8 XP 400
 
 ;tiger stats
-1,HD 6 AC 6 1d6/1d6/1d12 F3 MV 15 ML 9 XP 600
+1,HD 6 AC 6 1d6/1d6/1d12 F3 MV 15 ML 9 XP 600
 
 ;some ruins
 1,On one of the hills you find an old two story watchtower.
@@ -6012,10 +6062,10 @@
 1,pudding
 
 ;slime stats
-1,HD 3 AC 5 [slime attack] F3 MV 9 ML 12 XP 300; [slime effect] [slime weakness]
-1,HD 3+1 AC 6 1d8 F1 MV 15 ML 9 XP 300; [slime effect] [slime weakness]
-1,HD 2 AC 6 1d4/1d4/1d4 + [slime attack] F2 MV 9 ML 9 XP 200; [slime effect] [slime weakness]
-1,HD 6+1 AC 4 1d6/1d6/1d10 F6 MV 12 ML 10 XP 600; [slime effect] [slime weakness]
+1,HD 3 AC 5 [slime attack] F3 MV 9 ML 12 XP 300; [slime effect] [slime weakness]
+1,HD 3+1 AC 6 1d8 F1 MV 15 ML 9 XP 300; [slime effect] [slime weakness]
+1,HD 2 AC 6 1d4/1d4/1d4 + [slime attack] F2 MV 9 ML 9 XP 200; [slime effect] [slime weakness]
+1,HD 6+1 AC 4 1d6/1d6/1d10 F6 MV 12 ML 10 XP 600; [slime effect] [slime weakness]
 
 ;slime special ability
 1,dissolves metal
@@ -8516,7 +8566,7 @@
 ;elf stats
 # This requires the establishment a [spellbook for elves]. Typically you’d use it like this:
 # [save 1d6+1 as level][save spellbook for elves][2d12] **elves** ([elf stats]) led by [elf with portrait] (level [same level]). [same spellbook for elves] [leader treasure]
-1,HD 1 → 1d6 AC 5 1d6 or *[same [same spellbook] 1]* 1×/day E1 MV 12 ML 10 XP 100
+1,HD 1 → 1d6 AC 5 1d6 or *[same [same spellbook] 1]* 1×/day E1 MV 12 ML 10 XP 100
 
 ;elf travelling companions
 3,
@@ -9710,7 +9760,7 @@
 4,
 
 ;giant ant stats
-1,HD 4+1 AC 5 1d10 F2 MV 15 ML 9 XP 400; *acid spray* 1×/h: anybody within 20ft takes 2d6, save vs. poison for half
+1,HD 4+1 AC 5 1d10 F2 MV 15 ML 9 XP 400; *acid spray* 1×/h: anybody within 20ft takes 2d6, save vs. poison for half
 
 ;giant ant
 4,**giant worker ant** ([giant ant stats]; *busy*: tries to avoid fights unless alarmed)
@@ -10187,14 +10237,14 @@
 1,[1d5+1] **crocodiles** ([crocodile stats])
 
 ;crocodile stats
-1,HD 6 AC 3 2d8 F3 MV 9 ML 8 XP 600; surprise on 1–5 in 6
+1,HD 6 AC 3 2d8 F3 MV 9 ML 8 XP 600; surprise on 1–5 in 6
 
 ;undead guardians
 1,[4d6] **zombies** ([zombie stats])
 1,[3d10] **skeletons** ([skeleton stats])
 
 ;skeleton stats
-1,HD 1 AC 7 2d10 F1 MV 6 ML 7 XP 100; immune to *sleep* and *charm*
+1,HD 1 AC 7 2d10 F1 MV 6 ML 7 XP 100; immune to *sleep* and *charm*
 
 ;cultists
 1,[1d4x10] **cultists** ([human stats]) live here. [average treasure] They are led by their cult leader [human with portrait] (level [1d6+1 as level]), [cult leader description]. [leader treasure for magic user]
@@ -13938,6 +13988,51 @@
 ;maybe human prisoners of spider goblins
 1,In fact, they keep a prisoner in their central storage room, hanging helplessly in a cocoon, barely alive. This is [human name] who was captured a few days ago. The elves know nothing of it and wouldn’t care if they knew.
 1,
+
+#description for structures and items constructed by light elves
+;name for a clan of the light elves
+1,*[light elves]*
+
+;light elves
+1,[light elf 1] [light elf 2] of the [light elf 3] [light elf 4]
+1,[light elf 1] [light elf 2] of [adjective] [good power]
+
+;light elf 1
+1,Calm
+1,Bright
+1,Silent
+1,Wise
+1,Relentless
+1,Careful
+1,Shining
+1,Timeless
+
+;light elf 2
+1,Children
+1,Hunters
+1,Seekers
+1,Guardians
+1,Servants
+
+;light elf 3
+1,Verdant
+1,Abundant
+1,Spiraling
+1,Light
+1,Vanaheim
+1,Muspelheim
+1,Niflheim
+1,Alfheim
+1,[special adjective]
+
+;light elf 4
+1,Mother
+1,Queen
+1,Counselor
+1,Empress
+1,Flower
+1,Tree
+1,Wilderness
 
 # note that elsewhere tables exist that refer to all the powers
 ;power
