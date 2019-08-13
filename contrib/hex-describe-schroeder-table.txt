@@ -11759,7 +11759,7 @@
 1,a huge gallows with [2d8] hanged people hanging there as a dire warning.
 1,a chained **troll** ([troll stats]).
 1,a necropolis below the town, infested by [2d8] **ghouls** ([ghoul stats]). [luxurious context] [dead treasure]
-1,an **alchemist** named *[here store [same human name] as alchemist patron]* selling a [potion] for 500gp each. [1d4+1] of these are currently for sale. [alchemist job]
+1,an **alchemist** named [human with portrait][here store [same human name] as alchemist patron] selling a [potion] for 500gp each. [1d4+1] of these are currently for sale. [alchemist job]
 
 ;human houses
 1,thatched huts
