@@ -4731,6 +4731,7 @@
 1,[5d8] **dwarves** ([dwarf stats]) have set up a small logging community here in [forest name]. The [tree] trees in the area have brought them here. They are led by [dwarf with portrait] (level [1d6+2 as level]). The camp is defended by [dwarven companions]. [dwarven treasure]
 1,The hills of [forest name] are full of ancient ruins. On one of these hills right here you can find the foundations of an old keep. The walls are long gone but the cistern and the storage rooms below are still usable. [outlaw camp]
 1,[faerie witch]
+1,The [forest name] rises up into these hills. [halfling valley] This is the home of [halflings]
 
 # tree names from http://blog.d4caltrops.com/2019/04/see-forest-for-trees.html
 
@@ -6221,6 +6222,13 @@
 
 ;manticore stats
 1,HD 6+1 AC 4 1d6/1d6/1d10 or *spikes* F6 MV 18 ML 9 XP 600; 24 *spikes* (60ft, 1d6), up to 6/rd
+
+;halfling valley
+1,Often cliffs block your way. But here’s a crack in the cliff and if you follow the small creek into the canyon you can reach a hidden valley. Small pigs rooting between the oak trees, here.
+1,At the end of this valley is a small but beautiful waterfall. This looks like a dead end. There is, however, a **halfling lookout** up there and if all it can see are halflings, then they will lower a rope for them. There’s a hidden plateau up there.
+1,The sheer cliffs are nearly a 500ft high. For those in the know however, there is a hidden path that leads up to the plateau. Up there, [cows] are grazing.
+1,What looked like an outcrop is actually a two mountains rising out the forest. They way up is hard. Between the two mountains is a tiny valley, hidden from view.
+1,The trees of the forest grow smaller and smaller as it rises. As you approach the tree line, there’s a hidden pass leading into an upper valley. You can see [mountain animals] grazing.
 
 ;halflings
 1,[5d8] **halflings** ([halfling stats]) led by [halfling leader]. [leader treasure] [average treasure] [halfling troubles]
