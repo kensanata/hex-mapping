@@ -1559,12 +1559,10 @@
 1,[food bread] and a [food cheese]
 
 ;orc dish
-1, [rural meat prep] [unusual meats] [seasoning method] [with food seasonings] and [with veg prep] [with food veg]
-1, [rural meat prep] [wild meats] [seasoning method] [with food seasonings] and [with veg prep] [with food veg]
-
+1,[rural meat prep] [unusual meats] [seasoning method] [with food seasonings] and [with veg prep] [with food veg]
+1,[rural meat prep] [wild meats] [seasoning method] [with food seasonings] and [with veg prep] [with food veg]
 
 #meat tables
-
 
 ;food meat
 5,[domesticated meats]
@@ -6588,6 +6586,7 @@
 1,Lady Long Nails
 
 ;witch of something
+# leading space required
 1, of Hills
 1, of Cold Wind
 1, of Rain
@@ -8046,12 +8045,12 @@
 1,[hide mat] boot
 
 ;food desc
-1, stale
-1, fresh
-1, inedible
-1, tasty
-1, sweet
-1, salty
+1,stale
+1,fresh
+1,inedible
+1,tasty
+1,sweet
+1,salty
 
 ;food berries prefix
 1,cran
@@ -8099,50 +8098,50 @@
 1,*Thank you for shopping with us!*
 
 ;goblin upsell
-1, *“lucky”*
-1, *“handy”*
-1, *“magical”*
-1, *“guaranteed”*
-1, *“definitely not cursed”*
-1, *“sacred”*
-1, *“fine”*
-1, *“cheap!”*
-1, *“a steal!”*
-1, *“not stolen”*
-1, *“useful”*
-1, *“timeless”*
-1, *“essential”*
-1, *“indispensable”*
-1, *“convenient”*
-1, *“imported!”*
-1, *“very rare!”*
-1, *“one-of-a-kind!”*
-1, *“enchanted”*
-1, *“ensorcelled”*
-1, *“belonged to a saint”*
-1, *“quality craftsmanship”*
-1, *“don’t make ’em like this anymore”*
-1, *“just got ’em in”*
-1, *“from a reliable source”*
-1, *“wholesale price!”*
-1, *“found in a dragon hoard!”*
-1, *“fresh from a Wizard’s tower”*
-1, *“a bargain!”*
-1, *“low-cost”*
-1, *“record low price”*
-1, *“on sale!”*
-1, *“have it for a song!”*
-1, *“cut-rate”*
-1, *“easy on the belt-pouch”*
-1, *“just marked down!”*
-1, *“valuable”*
-1, *“well-loved”*
-1, *“cherished”*
-1, *“home-made!”*
-1, *“hand-crafted!”*
-1, *“all natural!”*
-1, *“vintage!”*
-1, *“antique!”*
+1,*“lucky”*
+1,*“handy”*
+1,*“magical”*
+1,*“guaranteed”*
+1,*“definitely not cursed”*
+1,*“sacred”*
+1,*“fine”*
+1,*“cheap!”*
+1,*“a steal!”*
+1,*“not stolen”*
+1,*“useful”*
+1,*“timeless”*
+1,*“essential”*
+1,*“indispensable”*
+1,*“convenient”*
+1,*“imported!”*
+1,*“very rare!”*
+1,*“one-of-a-kind!”*
+1,*“enchanted”*
+1,*“ensorcelled”*
+1,*“belonged to a saint”*
+1,*“quality craftsmanship”*
+1,*“don’t make ’em like this anymore”*
+1,*“just got ’em in”*
+1,*“from a reliable source”*
+1,*“wholesale price!”*
+1,*“found in a dragon hoard!”*
+1,*“fresh from a Wizard’s tower”*
+1,*“a bargain!”*
+1,*“low-cost”*
+1,*“record low price”*
+1,*“on sale!”*
+1,*“have it for a song!”*
+1,*“cut-rate”*
+1,*“easy on the belt-pouch”*
+1,*“just marked down!”*
+1,*“valuable”*
+1,*“well-loved”*
+1,*“cherished”*
+1,*“home-made!”*
+1,*“hand-crafted!”*
+1,*“all natural!”*
+1,*“vintage!”*
+1,*“antique!”*
 
 # dens are caves in the ground with some monsters of a particular type
 
@@ -8441,35 +8440,35 @@
 1,[spider name 1] [spider name 2]
 
 ;spider name 1
-1, Black
-1, Long
-1, Dusky
-1, Death
-1, Brown
-1, Spiny
-1, Funnel
-1, Nursery
-1, Common
-1, Six-Spotted
-1, Tent
-1, Slender
-1, False
-1, King
-1, Grey
+1,Black
+1,Long
+1,Dusky
+1,Death
+1,Brown
+1,Spiny
+1,Funnel
+1,Nursery
+1,Common
+1,Six-Spotted
+1,Tent
+1,Slender
+1,False
+1,King
+1,Grey
 
 ;spider name 2
-1, Leaper
-1, Fiddle
-1, Creeper
-1, Orb
-1, Legged
-1, Scuttler
-1, Harper
-1, Jumper
-1, Wanderer
-1, Sac
-1, Ant Mimic
-1, Wall
+1,Leaper
+1,Fiddle
+1,Creeper
+1,Orb
+1,Legged
+1,Scuttler
+1,Harper
+1,Jumper
+1,Wanderer
+1,Sac
+1,Ant Mimic
+1,Wall
 
 ;ettercap prisoners
 1,Hanging from the ceiling is a cocooned prisoner, [ettercap prisoner feeling]: [ettercap prisoner details]
@@ -9693,7 +9692,7 @@
 1,Plums
 
 ;fish
-1, [fish1] [fish2] [fish type]
+1,[fish1] [fish2] [fish type]
 
 ;fish1
 1,Long
@@ -9906,15 +9905,15 @@
 1,a [ant tunnel desc] [ant room type] full of chittering sounds. Here lounges a massive **queen ant** with a pulsating purple abdomen, laying eggs. [1d6+1] [with giant ants] and [1d6+2] [and giant ants] scurry to the queen’s defense. The queen’s <span class="treasure">*royal jelly* is worth 5000gp to an alchemist</span>.[here store royal jelly as alchemist quest]
 
 ;giant ant fungal garden
-1, a [ant tunnel desc] [ant room type] that smells of damp leaf mold. Several tall, alien shaped stalactites here are covered with furry clumps of brightly colored fungus. [20% ant here]
-1, a [ant tunnel desc] [ant room type] featuring towering mushrooms, taller than a man. The air has a thick, earthy smell. [20% ant here]
+1,a [ant tunnel desc] [ant room type] that smells of damp leaf mold. Several tall, alien shaped stalactites here are covered with furry clumps of brightly colored fungus. [20% ant here]
+1,a [ant tunnel desc] [ant room type] featuring towering mushrooms, taller than a man. The air has a thick, earthy smell. [20% ant here]
 
 ;giant ant new excavations
 1,an abrupt end with [1d2+1] [worker ants] digging a new [ant tunnel type].
 
 ;giant ant treasure room
-1, a [ant tunnel desc] [ant room type] where lying forgotten are <span class="treasure">[1d5+1] rough gold nuggets worth 50gp each</span>.
-1, a [ant tunnel desc] [ant room type] where the ants have neatly stacked inedible objects. Among the these are [with inorganic objects], [and inorganic objects], and [and inorganic objects] resting against the [same ant tunnel desc] walls here.
+1,a [ant tunnel desc] [ant room type] where lying forgotten are <span class="treasure">[1d5+1] rough gold nuggets worth 50gp each</span>.
+1,a [ant tunnel desc] [ant room type] where the ants have neatly stacked inedible objects. Among the these are [with inorganic objects], [and inorganic objects], and [and inorganic objects] resting against the [same ant tunnel desc] walls here.
 
 ;inorganic objects
 1,a suit of plate mail armor
@@ -10624,7 +10623,7 @@
 1,lengths of high quality [cloth mat]
 ;lumber goods
 1,[wood mat] lumber
-1, rustic [wood mat] furniture
+1,rustic [wood mat] furniture
 ;bottles goods
 1,[glass desc] bottles
 ;barrels goods
@@ -10724,9 +10723,9 @@
 1,The tomb is in fact the resting place of an old hero. Sadly, according to the inscriptions they lost their war and never found eternal rest. They are still here, eager to fight, eager to recruit an army and resume their war: [1d4 spectres].
 
 ;travelling circus
-1, Resting on their long journey between villages is the **circus** *[circus name]*, throughout the region it’s whispered that they are actually a group of *[circus reputation]*. They transport their show via [1d6+1] wooden [conveyances], pulled by [domestic animal adjective] [draft animals].<blockquote>[circus hooks]</blockquote><p>
-1, Carefully practicing their acts as they stop on their circuit through the area is the **circus** *[circus name]*, rumored to be comprised entirely of *[circus reputation]*. Circled and tethered are their [domestic animal adjective] [draft animals] near their [1d8+1] sturdy [conveyances].<blockquote>[circus hooks]</blockquote><p>
-1, A large, colorful canvas tent set up to the side of your path ahead is emblazoned with large lettering proclaiming that this is property of the **circus** *[circus name]*. Rumors say that the performers are actually *[circus reputation]*. Off to one side, you can see various individuals unloading things from [conveyances] and watering and feeding some [domestic animal adjective] [draft animals].<blockquote>[circus hooks]</blockquote><p>
+1,Resting on their long journey between villages is the **circus** *[circus name]*, throughout the region it’s whispered that they are actually a group of *[circus reputation]*. They transport their show via [1d6+1] wooden [conveyances], pulled by [domestic animal adjective] [draft animals].<blockquote>[circus hooks]</blockquote><p>
+1,Carefully practicing their acts as they stop on their circuit through the area is the **circus** *[circus name]*, rumored to be comprised entirely of *[circus reputation]*. Circled and tethered are their [domestic animal adjective] [draft animals] near their [1d8+1] sturdy [conveyances].<blockquote>[circus hooks]</blockquote><p>
+1,A large, colorful canvas tent set up to the side of your path ahead is emblazoned with large lettering proclaiming that this is property of the **circus** *[circus name]*. Rumors say that the performers are actually *[circus reputation]*. Off to one side, you can see various individuals unloading things from [conveyances] and watering and feeding some [domestic animal adjective] [draft animals].<blockquote>[circus hooks]</blockquote><p>
 
 ;circus name
 1,[circus1] [circus2]
@@ -10980,6 +10979,7 @@
 1,Narrow
 
 ;village name2
+# leading space optional
 1, Abbey
 1, Elms
 1, Grove
@@ -11282,6 +11282,7 @@
 1,<p>This is [here village name], a town of [1d6x100] **humans** ([human stats]). The [human houses] are protected by a keep, a town wall and the river. [average treasure]<p>The [human leader] lives in the keep. [spellbook for [same class]] [leader treasure for [same class]]<p>[human retainer]<p>[human friends]<p>[And two secret societies feuding]<p>[law and order jobs]<p>[temple]<p>There is also [town feature]<p>[settlement event]
 
 ;human job
+# leading space or comma required
 1, the smith
 1, the miller
 1, the carpenter
