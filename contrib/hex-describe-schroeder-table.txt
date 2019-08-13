@@ -10296,7 +10296,7 @@
 1,As the wounded start dying, the stench is spreading. Flies are everywhere. Soon, cholera and typhus will be showing up. The locals want the refugees gone, but who is going to argue with armed men? Better to stab them during the night, some might say.
 1,The locals are no longer willing to support the refugees, calling them maggots and worms and worse. Nobody is willing to kill, however, and so the situation just lingers, the refugees to weak to kill the locals simply take what they need and the locals to afraid to do away with the extra mouths.
 1,The young **[human class]** *[human with portrait]* is a devout servant of [good power]. They are trying to find a solution to the problem. Surely some land could be cleared for these poor souls? Let them settle.
-1,The young **[human class]** *[human with portrait]* is a devout servant of [evil power]. They have shrewdly insinuated that the locals simply waiting for them to weaken even further until one night they’ll all just stab them. So why not take things into you own hands and act first? Strike now and take what you need!
+1,The young **[human class]** *[human with portrait]* is a devout servant of [evil power]. They have shrewdly insinuated that the locals are simply waiting for them to weaken even further until one night they’ll all just stab them. So why not take things into your own hands and act first? Strike now and take what you need!
 
 ;the presence of corpses is a problem
 # no captain!
@@ -10649,9 +10649,9 @@
 1,They saw a mercenary near company [nearby village name] bearing a *[same war party colours 1]* banner belonging to *[name for a war party 1]* (blazon: *[same war party blazon 1]*).
 1,They saw a mercenary near company [nearby village name] bearing a *[same war party colours 2]* banner belonging to *[name for a war party 2]* (blazon: *[same war party blazon 2]*).
 1,They saw a mercenary near company [nearby village name] bearing a *[same war party colours 3]* banner belonging to *[name for a war party 3]* (blazon: *[same war party blazon 3]*).
-1,They heard that *[name for a war party 1]* had been see in *[other village name]*, in person.
-1,They heard that *[name for a war party 2]* had been see in *[other village name]*, in person.
-1,They heard that *[name for a war party 3]* had been see in *[other village name]*, in person.
+1,They heard that *[name for a war party 1]* has been seen in *[other village name]*, in person.
+1,They heard that *[name for a war party 2]* has been seen in *[other village name]*, in person.
+1,They heard that *[name for a war party 3]* has been seen in *[other village name]*, in person.
 
 ;caravan special
 3,
