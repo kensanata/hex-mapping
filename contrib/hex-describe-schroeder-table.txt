@@ -10278,6 +10278,7 @@
 1,[treasure hunter]
 1,[trade caravan]
 1,[travelling circus]
+1,[disaster event]
 
 ;war event
 1,[a war party]There are some tents outside the settlement and you can spot the *[the war party colour]* flag of *[the war party]* (blazon: *[the war party blazon]*). [1d4x10] **mercenaries** ([human stats]) are camped here, waiting for orders. [average treasure] They are led by the mercenary captain **[human class]** [human with portrait][store [same human name] as captain] (level [1d4+2 as level]). [spellbook for [same class]] [leader treasure for [same class]][record war fact]<blockquote>[the presence of mercenaries is a problem]</blockquote><p>
@@ -10849,6 +10850,134 @@
 
 ;pegasus stats
 1,HD 2+1 AC 6 1d6/1d6 F2 MV 48 ML 8 XP 200
+
+#new tables for potential inclusion in settlement events
+#Other possible ideas if anyone wants to have a run at them: hard winter, storms, unseasonable weather (might need to do some kind of season storing for this), raining frogs, livestock disease
+
+;disaster event
+1,[flood]
+1,[plague]
+1,[famine]
+1,[drought]
+1,[locusts]
+
+;flood
+1,Heavy rains have caused the banks of [name for river] to swell dramatically. The high-water line is up to the waist of an Ogre on the sides of buildings, and villagers are still shoveling mud out of their homes.
+1,A flash flood caught the community by surprise recently. Several buildings were ripped from their foundations and deposited a good distance away. Several are still missing, including *[same human name]*.
+1,The [food veg] crop that locals depend on for their livelihood is rotting in the fields. The ground is over saturated from recent rains, and the farmers curse the grey clouds.
+1,Standing water still shimmers in large pools in the low areas throughout the village. It's grown brackish and is filled to the brim with mosquito larvae. Soon the dreaded *[diseases]*, carried on buzzing wings, will be a grave concern.
+
+;diseases
+1,[diseases1] [diseases2]
+
+;diseases1
+1,Scarlet
+1,Sleeping
+1,Cackle
+1,Hacking
+1,Blood
+1,Bleeding
+1,Burning
+1,[capitalize grey synonym]
+1,[capitalize yellow synonym]
+1,[capitalize red synonym]
+1,[capitalize black synonym]
+1,[capitalize green synonym]
+1,[capitalize white synonym]
+1,Grinning
+1,Dancing
+1,Ghost
+1,Salt
+1,Harvester's
+1,Sneezing
+1,Wheezing
+1,Weeping
+1,Oozing
+1,[title]'s
+1,Devil
+1,Filth
+1,[old name]'s
+1,Saint [old name]'s
+
+;diseases2
+1,Fever
+1,Sickness
+1,Cough
+1,Shakes
+1,Shivers
+1,Death
+1,Plague
+1,Corruption
+1,Ache
+1,Bane
+1,Blight
+1,Boils
+1,Colic
+1,Malignancy
+1,Misery
+1,Atrophy
+1,Chills
+1,Paralysis
+1,Madness
+1,Pustules
+1,Spasms
+1,Palsy
+1,Melancholy
+1,Rash
+1,Rot
+1,Pox
+1,Croup
+1,Flux
+1,Flu
+1,Worms
+1,Lung
+1,Doom
+
+#possibly merge a fetch quest here for cures from the Herb/Plant tables or get Nergal followers involved :)
+;plague
+1,The doors and windows of a group of homes are boarded up and painted with superstitious symbols and charms. Anyone will tell visitors that a recent outbreak of *[diseases]* is to blame. Highly contagious, quarantine is the only cure the village folk know.
+1,The **healer** [human with portrait] is at their wits end. They've never seen *[diseases]* spread so swiftly. Worry turns to terror when they also begin displaying symptoms.
+1,Having lost a quarter of their number to *[diseases]* the villagers are growing more desperate and paranoid. Most carry fragrant pouches of dried *[magic plant]* that they constantly sniff and a few have even fled to the surrounding wilderness out of fear of infection.
+1,Long ditches are being dug by weeping townsfolk, while all spare lumber is being gathered for a massive pyre. The numerous corpses of victims of *[diseases]* must be dealt with quickly, before it spreads further.
+
+;famine
+1,The soil here has been devastated by over-farming. The [with food veg], [and food veg], and [and food veg] that the settlement depends on are no longer growing, and there will be lean times ahead.
+1,The village stores are down to their last bushel of rotting [food veg]. They began rationing long ago, and already have long since slain any [livestock]. Anyone can see the hollow, gnawing pain of hunger in every set of eyes.
+1,Children rush toward any visitors with hands outstretched, most are too weak to mutter anything but “food… !” For the third year in a row, blight struck the [food veg] crop, and everyone has grown desperate as bellies growl and grumble.
+1,The curse of vindictive *[nearby druid]* causes seeds to no longer sprout in the soil and fruit rots before it fully ripens. Driven to desperation and delirium by hunger, the locals like to pretend that their boiled boot leather is actually a local delicacy: “[dish]!”
+
+;drought
+1,Hearts leap at the sight of any clouds, but no rain is forthcoming. For almost the entire season it's been dry, and the [food veg] are turning brown in the fields.
+1,The lack of rain wouldn't be so bad, had the well not gone dry. The brittle, brown grasses aren't good for grazing, and ribs are beginning to show on the [livestock].
+1,Parched, cracked earth in the furrowed fields may yield easily to the plow, but the first rains of the season are late by months. The farmers have begun to worry that it will soon be too late to plant the [with food veg] and [and food veg].
+1,Even the eldest member of the community, *Old [old name]* can't remember a time when water was so scarce. The [two or three] abnormally dry seasons in a row have everyone on edge, and the locals are contemplating making a deal with *[nearby witch]* to call forth the rains again with her magic.
+
+;two or three
+1,two
+1,three
+
+;livestock
+1,sheep
+1,pigs
+1,cattle
+1,goats
+1,oxen
+
+;locusts
+1,It was only a few days ago that the sky darkened completely as millions upon millions of **[titlecase green synonym] locusts** descended on the crops. Not a single row of [with food veg] or [and food veg] remained intact from their voracious appetite.
+1,What first started as just a few stray and inoffensive **[titlecase yellow synonym] grasshoppers** in the beaks of hungry chickens soon became a plague. If one listens closely, one can even hear the hordes chewing. They've completely decimated the [with food veg] and [and food veg], and will soon move on to the [and food veg]. The farmers are at their wits end.
+1,When *Old Lady [strange female name]* was [witch execution] last week, the locals thought their troubles were over. Few paid any mind to the curses she spat out shortly before she died. Now impossible swarms of **[titlecase red synonym] locusts** seem to scream her name as they ravenously devour every leaf, stalk, and bud in the farmer's fields.
+1,Far less numerous than their normal-sized counterparts, but just as devastating, a plague of **[1d12+1] dire locusts** [dire locust stats] have been spotted in the [food veg] fields and have even managed to devour a few [livestock]. The desperate settlement will pay 50gp for each one slain.
+
+;witch execution
+1,burnt at the stake
+1,crushed by stones
+1,drowned in the mill pond
+1,beheaded
+1,hanged
+
+;dire locust stats
+1,HD 3 AC 6 1d6 F1 MV 24 ML 7 XP 300
 
 #NOTE: no space to create proper compounds, spaces are present in some second halves for some variety
 ;village name
