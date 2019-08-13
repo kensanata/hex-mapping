@@ -12243,7 +12243,7 @@
 1,lies
 
 ;xoralfona 2
-1,*entrapment
+1,entrapment
 1,mind blast
 1,speak
 
