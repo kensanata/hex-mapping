@@ -8378,11 +8378,10 @@
 
 ;light elf legendary item
 1,[capitalize positive adjective] [capitalize metal jewelry singular] of [elf name]
-1,[capitalize positive adjective] [vessel desc] of [elf name]
+1,[capitalize positive adjective] [capitalize vessel desc] of [elf name]
 
 ;positive adjective
 1,great
-1,famous
 1,legendary
 1,holy
 1,astral
