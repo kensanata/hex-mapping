@@ -1251,7 +1251,7 @@
 1,The green valley up here has some [mountain animals] and a **kid** called *[human name]* guarding them.
 1,Up here in the mountains lies lake *[lake name]*. [lake inhabitants]
 1,[mountain valley] [mountain monolith]
-1,[mountain valley] [hill giants]
+1,[mountain valley] [mountain hill giants]
 1,Steep cliffs make progress practically impossible without climbing gear. [mountain secret]
 1,Somewhere up here between the cliffs there is a secret door. [secret door to the realm of the netherworld elves]
 1,[green tower in the mountains]
@@ -2984,13 +2984,16 @@
 ;sea serpent stats
 1,HD 6 AC 5 2d6 and 1d10 vs. ships F3 MV 15 ML 8 XP 600
 
+;mountain hill giants
+1,Some boulders have been assembled into a crude stone tower inhabited [hill giants]
+1,The bellowing of hill giants can be heard every day. A barricade was built across the pass. It has one gate where they expect you to pay obeisance and a toll of 500gp per person. [hill giants]
+1,A giant fortress has been built here in ages past. It extends all along the mountain flank. The ruins are inhabited by their degenerate descendants, [hill giants]
+1,There is a huge wooden fort up here. They must have cut down an entire forest to build it. It is huge. [hill giants]
+1,Here stands an old watchtower built by giants during the reign of [wight leader]. You can still find the runes of [same wight realm] on the old stones but the current inhabitants can’t read and they don’t care: [hill giants]
+1,Here lie the ruins of one of the old mountain fortresses built during the reign of [wight leader]. The big stone slab above the main entrance still says “[same wight realm]” in flaming letters! A very large stone hall stands amidst the ruins. [hill giants]
+
 ;hill giants
-1,Some boulders have been assembled into a crude stone tower inhabited [2d4] **hill giants** led by *[hill giant]* ([hill giant stats]). [rich treasure]
-1,The bellowing **hill giants** can be heard every day. [2d4] of them have built a barricade across the pass ([hill giant stats]). They are led by [hill giant title] *[hill giant]*. [rich treasure]
-1,A giant fortress has been built here in ages past. It extends all along the mountain flank. The ruins are inhabited by their degenerate descendants, [2d4] **hill giants** led by *[hill giant]* ([hill giant stats]). [rich treasure]
-1,There is a huge wooden fort up here, built by **hill giants**. They must have cut down an entire forest to build it. It is huge. [2d4] of them live here, led by [hill giant title] *[hill giant]* ([hill giant stats]). [rich treasure]
-1,Here stands an old watchtower built by giants during the reign of [wight leader]. You can still find the runes of [same wight realm] on the old stones, but the [2d4] **giants** and their leader *[hill giant]* can’t read and they don’t care ([hill giant stats]). [rich treasure]
-1,Here lie the ruins of one of the old mountain fortresses built during the reign of [wight leader]. The big stone slab above the main entrance still says “[same wight realm]” in flaming letters! The [2d4] **giants** and their leader *[hill giant]* live amongst the ruins ([hill giant stats]). [rich treasure]
+1,[2d4] **hill giants** led by *[hill giant]* ([hill giant stats]). [rich treasure]
 
 ;hill giant stats
 1,HD 8 AC 4 2d6 F8 MV 12 ML 8 XP 800
