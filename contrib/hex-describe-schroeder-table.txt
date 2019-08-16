@@ -497,7 +497,7 @@
 1,**invisible stalker** *[invisible stalker]* ([invisible stalker stats]).
 1,[3d6] **gnolls** *[gnoll]* ([gnoll stats]). [robber treasure]
 1,**vulture demon** *[vulture demon]* ([vulture demon stats])
-1,[1d4x10] **bandits** ([human stats]) led by [human with portrait].[here store the bandit *[same human name]* as wanted dead or alive] [average treasure]
+1,[bandits]
 
 ;centaurs
 1,the **centaur** *[centaur]* ([centaur stats])
@@ -8473,9 +8473,12 @@
 
 ;forest monster
 1,**manticore** *[manticore]* ([manticore stats]). [robber treasure]
-1,**bear** *[bear name]* ([bear stats])
-1,[1d4x10] **bandits** led by [human with portrait].[here store the bandit *[same human name]* as wanted dead or alive] [average treasure]
+1,**bear** *[bear name]* ([bear stats]).
+1,[bandits]
 1,[6d10] **goblins** led by [goblin] ([goblin stats]). [poor treasure]
+
+;bandits
+1,[1d4x10] **bandits** ([human stats]). [average treasure] They are led by the **[human class]** [human with portrait] (level [1d4+1 as level]).[here store the bandit *[same human name]* as wanted dead or alive] [spellbook for [same class]] [leader treasure for [same class]]
 
 ;ettercap forest
 1,[spider word] [forest 2]
