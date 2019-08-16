@@ -1258,6 +1258,118 @@
 1,On one of the rock faces you can still see the markings of the old dwarf forge *[here dwarf forge]*. [forge ruin]
 1,The *Pass of [old name]* on the way to [name for white big mountains] is guarded by [a warlock fortress]
 1,[mountain orcs]
+1,[necropolis]
+1,[naga temple]
+
+;necropolis
+1,[necropolis description]<p>[necropolis central area]<p>[necropolis sphinx]
+
+;necropolis description
+1,Huge, grey stones have been connected by smooth grey walls, blocking off the valley. There is a grey tower and a massive gate in the wall.<p>[necropolis gate]<p>[grey tower]
+
+;necropolis gate
+1,The *gate* is large enough to admit a giant, made of wood and iron and decorated in bronze, held together by spells. The doors show a crowd of demonic faces, teeth, horns, claws, and bulging eyes.
+1,The *gate* is a blackness of cold and despair. Anybody close to the gate feels their life drain away and as their body ages. Touch the gates drains and eventually kills you.
+1,The *gate* is still humming with magical energies. Shimmering lines show penitentiaries humbly begging for entrance. If you knock on the gates with nothing but your clothes on, empty handed, no weapons, no armour, no metal, then it will slowly open for you and just for you. If anybody else tries to slip through, the doors will slam shut: save vs. death or be crushed.
+
+;grey tower
+1,[grey tower description]<p>[grey tower inside]<p>[grey tower top]
+
+;grey tower description
+# usage: The first tower is [grey tower description]
+1,Towering above the walls is a bulging *tower* with vertical slits serving as windows, like the visor of a fancy helmet.
+1,Rising above the wall is a massive *tower* that suffered mightily under some heavy blows. It still stands but it is smashed open, the insides laid bare for all to see.
+1,To the right of the gate stands a massive *tower* that had its top blown off. Over the years, this has allowed plants to gain a foothold. Bushes and grass grow from the top like green hair from a huge stone face.
+1,Behind the wall there is a thin *spire*, impossibly high, with barely enough space for a staircase, or maybe ladders. It looks more like a mast with a crow’s nest at the top.
+
+;grey tower inside
+1,The wall and the tower are decorated with colourful banners but it’s hard to discern anything intelligible. Apparently anything that flutters in the wind gets used up here. [goblins]
+1,The bellowing of horny hill giants can be heard far and wide. The walls and the tower are their love nest. [hill giants]
+1,There are plenty of thick, wooden poles rising from the wall and sticking in the flanks of the tower. If the sun is up, you an see a crow-headed warriors jumping and shadow fighting up there: [1d12 tengu] Master *[same tengu name]* can [teach a fighter]
+1,A bunch of ragged tents between wall and tower are the broken dreams of some desperate people. [bandits]
+1,There is an improvised toll booth next to the tower and some tents further back. These people ask 50gp per head “to keep the area safe.” [bandits]
+
+;teach a fighter
+1,teach a fighter about the duelling stance: study a target for two rounds and attack on the third round with a +4 bonus for triple damage. [here store the duelling stance of master *[same tengu name]* as fighter study topic]
+1,teach a fighter about quick drawing a sword: gain an extra attack when your target. [here store the quick-draw technique of master *[same tengu name]* as fighter study topic]
+1,teach a fighter about the blood rain sword fighting style: once per round, make an extra attack when you kill a target. [here store the blood-rain fighting style of master *[same tengu name]* as fighter study topic]
+1,teach a fighter about the left hand: use a shorter blade in your off hand to give you a shield bonus *and* whenever your opponent rolls a 1 as they attack you, make an extra attack with that blade. [here store the left-hand technique of master *[same tengu name]* as fighter study topic]
+1,teach a flying (!) fighter about attacking from above: this allows you to deal double damage in the first round if you hit. [here store the drop attack of master *[same tengu name]* as fighter study topic]
+
+;1d12 tengu
+1,the master swordsman *[tengu name]* ([tengu stats]). [scout treasure]
+11,[1d11+1] **tengu**, led by the master swordsman *[tengu name]* ([tengu stats]). [scout treasure]
+
+;grey tower top
+1,The top of the tower is inaccessible from the interior. A circus of [2d8] young **griffons** ([griffon stats]) is roosting up there when they’re not trying to impress each other with fantastic displays of aerial stunts. [maybe griffon eggs]
+1,A stair leads up to the top of the tower but nobody ever takes it for up there the air is unnaturally cold and half-transparent **spectre** is staring at the necropolis below. “Everyone I know has gone away, in the end.” All they are interested in is talking about the great armies they to [and direction] and [with direction], how they fought the armies of *[a wight capital]*, the manoeuvres they executed, the traps they set, the princes they had assassinated. This is *[a strange royal]*. Turning the conversation away from their achievements makes them very irate ([spectre stats]; *summon 1d4 servants* with the same stats). [ancient treasure]
+1,At the top of the tower, through a painted arch and out onto a platform there is a throne, and on it sits the **spectre** *[a strange royal]*, desiccated and old, bones held together by leather straps and nails. They’re looking at the necropolis below. “This is my empire of dirt. You can have it all!” They butchered all their enemies. They rose in the ranks of *[an old wight leader]*. They held offices in *[a wight capital]*. Talking about the presence angers them ([spectre stats]; *summon 1d4 servants* with the same stats). [ancient treasure]
+1,The top of the tower is an inaccessible mess of wood, hair and bones, the result of [1d6 wyverns] living up here ([wyvern stats]). [terror treasure]
+
+;a strange royal
+1,King [strange name for men]
+1,Queen [strange name for women]
+1,High Priest [strange name for men]
+1,High Priestess [strange name for women]
+
+;necropolis central area
+1,The necropolis itself consists of dozens of mausoleums, each built according to the same plan: a fake entrance leading an altar where descendants left flowers and food for the dead, with paintings of their exploits and achievements, and a *hidden* entrance from above, sealed with a heavy drop stone, trapped by spiked pits below and crushing stones above, filled with poison dust or a brazier of *warp* blood resulting in terrible mutations. And finally, [1d8 mummies] patiently waiting for news from the world of the living ([mummy stats]). They want to know about the world outside but they are unwilling to part with any treasure they might have, however.
+1,The necropolis itself is an endless graveyard, tombstone after tombstone, filling every slope in this valley, stone statues, inscriptions, pictures, headstones engraved with [Set decoration] or [Pazuzu decoration]. At night the ghosts rise from their graves, lamenting the state of their graves and the lack of care, the sloth of their descendants, and they curse them and their world, not realising that their world has already faded and that they are the only ones left. Appropriate rites and sacrifices, a purification and a hallowing might bring them peace.
+1,This might have been a necropolis hundreds of years ago but now it’s more like a meadow. There are still some overgrown headstones to see, some mausoleums are still standing, some statues can be discerned, but most of it is pasture now, [mountain animals] grazing and a bunch of orcs working on their [mountain orc product]. The banners on their tents intents identify them as [evil tribe] orcs. [orcs] [mountain orc leader specialty]
+1,The valley is filled with ruins. This must have been a large monastic complex in its heyday. These days the ceilings have fallen, walls have crumbled, weeds are growing everywhere and anything not made of stone has rotten away. It’s hard to say what these buildings were used for. Here you can see an engravings of [Pazuzu decoration], over there is an engraving of [Set decoration].
+1,The necropolis turned to dust over the years and now nothing but a few statues and crumbled mausoleums remain. Amidst this decay stand newer huts made of wood and dried mud, covered in grass and decorated with banners of [with colour] and [and colour]. [6d6] **lizard people** ([lizard people stats]) live up here, led by *[lizard leader]* (HD [1d4+2 as level]). [leader treasure] The huts are guarded by [lizard companions]. [average treasure] At night they gather around a central fire and sing songs of old, of love, of longing and of leaving, of great deeds and the old days.
+
+;necropolis sphinx
+1,In the middle of all this is a platform that rises 20ft into the air. Wide stairs lead up to a baldachin and under this canopy rests the [sphinx]
+1,In the middle of all this is a column an perched on it, 60ft above the surrounding land rests the [sphinx]
+1,In the middle of all this is a platform made of stone, circular and about five feet high. On it a wooden structure rises up into the air and at the very top rests the [sphinx]
+
+;sphinx
+1,**sphinx** *[strange name]* ([sphinx stats]).[here store the sphinx *[same sphinx name]* as sage] Tell her a good pun and she’ll be friendly. Answer her riddle to be granted a boon. [riddle]
+
+;sphinx stats
+1,HD 5 AC 6 1d6/1d6 F10 MV 15 ML 9 XP 500; *cure disease* 3×/day, *raise dead* 1×/day, *summon tengus* (2d6), 1×/day: [tengu stats]
+
+;riddle
+# https://www.gutenberg.org/cache/epub/36571/pg36571.txt
+1,<blockquote>My body is light, my head is white,<br>With a cord I am laced around,<br>I am beaten with sticks, yet not for bad tricks,<br>But to animate my sound.<br>The unthinking youth, who heed not the truth<br>Which would save them from every alarm,<br>To fight, kill, and die, and cause much misery<br>To those who have done them no harm.<p>(a *drum*)</blockquote><p>
+1,<blockquote>I'm a busy active creature,<br>Fashioned with a sportive nature,<br>I nimbly skip from tree to tree,<br>Under a well-wrought canopy;<br>And for cleanliness and air,<br>Am a pattern to the fair;<br>I, to arms and blood a stranger,<br>Apprehensive of no danger,<br>Like the ant, for winter store,<br>Searching, treasures to explore,<br>All on a sudden hear the foe,<br>The cause and object of my woe<br>By whom I'm soon a prisoner made<br>Chain'd, and in a dungeon laid:<br>Bid Chloe then, and Myra tell,<br>What's my name and where I dwell.<p>(a *squirrel*)</blockquote><p>
+1,<blockquote>My nose is long, my back is broad and round,<br>And in cold weather of great use I'm found;<br>No load I carry, yet I puff and blow,<br>As much as heavy loaded porters do.<p>(a *pair of bellows*)</blockquote><p>
+1,<blockquote>My habitation's in a wood,<br>And I'm at any one's command;<br>I often do more hurt than good,<br>If I once get the upper hand:<br>I never fear the champion's frown,<br>Stout things I oftentimes have done;<br>Brave soldiers I have oft laid down,<br>I never fear their sword and gun.<p>(a *barrel of beer*)</blockquote><p>
+1,<blockquote>What is that which has been tomorrow, and will be yesterday?<p>(*today*)</blockquote><p>
+1,<blockquote>What force and strength cannot get through<br>I with a gentle touch can do;<br>And many in the streets would stand,<br>Were I not, as friend, at hand.<p>(a *key*)</blockquote><p>
+1,<blockquote>It foams without anger,<br>It flies without wings,<br>It cuts without edge,<br>And without tongue it sings.<p>(a *bottle of ale*)</blockquote><p>
+1,<blockquote>I was before the world began,<br>And shall forever last;<br>Ere the first born was a man,<br>I’m from the distant past<br>Your youthful moments I attend,<br>And mitigate your grief;<br>The industrious peasant I befriend,<br>To pris'ners give relief.<br>Make much of me if you are wise,<br>And use me while you may,<br>For you will lose me in a trice.<br>As I for no man stay.<p>(*time*)</blockquote><p>
+1,<blockquote>Two twins we are, and, let it not surprise,<br>Alike in every feature, shape, and size:<br>We're square, or round, of brass or iron made,<br>Sometimes of wood, yet useful found in trade;<br>But, to conclude, for all our daily pains,<br>We by the neck are often hung in chains.<p>(a *pair of scales*)</blockquote><p>
+1,<blockquote>Emblem of youth and innocence<br>With walls enclosed for my defence,<br>And with no care opprest,<br>I boldly spread my charms around,<br>'Till some rude lover breaks the mound,<br>And takes me to his breast.<br>Here soon I sicken and decay:<br>My beauty lost, I'm turned away,<br>And thrown into the street;<br>Where I despised, neglected lie,<br>See no Samaritans pass by,<br>But numerous insults meet.<p>(a *rose*)</blockquote><p>
+1,<blockquote>My clothing's fine as velvet rare,<br>Though under earth my dwellings are;<br>And when above it I appear,<br>My enemies put me oft in fear.<br>The gard'ner does at me repine,<br>I spoil his works as he does mine.<p>(a *mole*)</blockquote><p>
+# https://www.gutenberg.org/files/47335/47335-h/47335-h.htm
+1,<blockquote>Four wings I have,<br>Which swiftly mount on high<br>On sturdy pinions,<br>Yet I never fly;<br>And tho' my body often moves around,<br>Upon the self-same spot<br>I'm always found;<br>And, like a nurse who chews the infants meat,<br>I chew for man before that he can eat.<p>(a *windmill*)</blockquote><p>
+1,<bblockquote><br>With words unnumber'd I a-bound,<br>In me mankind take much delight,<br>In me great store of learning's found,<br>Yet I can neither read nor write.<p>(a *book*)<//blockquote></p>
+1,<blockquote>The world I view in little space<br>I'm restless, ever changing place<br>Nothing I eat, but by my pow'r,<br>Procure what all mankind devour.<p>(the *sun*)</blockquote><p>
+1,<blockquote>My body is both plump and round,<br>With comely neck and breast,<br>No brighter creature would be found<br>Were I but oftner dress'd:<br>But daily I am wearied so<br>And my employment such,<br>Black as any charcoal go,<br>Nor scarce am fit to touch:<br>Upon my mistress morn and eve,<br>I constantly attend;<br>Yet many a blow and nick-name have,<br>Tho' I did ne'er offend.<p>(a *teapot*)</blockquote><p>
+1,<blockquote>When mortals are involv'd in ills,<br>I sing with mournful voice;<br>If mirth their hearts in gladness fills,<br>I celebrate their joys.<br>And as the lark with warbling throat,<br>Ascends upon the wing;<br>So I lift up my chearful note,<br>And as I mount I sing.<p>(a *bell*)</blockquote><p>
+1,<blockquote>A tall and slender shape I bear,<br>Nor lady's skin's more white or fair:<br>My life is short, and doth decay<br>So soon it seldom lasts a day.<br>If in the evening brought to light,<br>I make my exit in the night;<br>Yet to mankind I'm useful ever,<br>And many hidden things discover;<br>Which makes all those who round me tend,<br>Oft with a sigh lament my end.<p>(a *candle*)</blockquote><p>
+1,<blockquote>In courts or cottages we may be found;<br>Our skirts with fringe of various dyes are bound;<br>And as we were by providence design'd,<br>A guard from harm t' a fav'rite applejoin'd.<br>We ne'er rove long, nor far asunder stray,<br>But meet and part a thousand times a day:<br>When dark, like loving couples, we unite,<br>And cuddle close together every night.<p>(the *eye-lids*)</blockquote><p>
+1,<blockquote>Tho' a cook, I'm so lean,<br>That my ribs may be seen,<br>Yet I care not a farthing for that;<br>For when victuals I dress,<br>All about me confess,<br>They are cover'd all over with fat.<p>(a *grill*)</blockquote><p>
+1,<blockquote>No twins could e'er with us compare,<br>So like in shape and size;<br>Our bodies are like ermin fair<br>As black as jet our eyes:<br>But tho' so like in ev'ry feature,<br>We rival brothers be;<br>Yet so obdurate is our nature,<br>We often disagree.<br>Sometimes we play the friendly part,<br>And sometimes act the foe;<br>Now transient happiness impart,<br>Then cause a future woe:<br>Thousands by us have curs'd their fate,<br>Plung'd in the gulph of sin;<br>Happy the youth who shuns the bait,<br>And dreads the fatal gin.<p>(a *dice*)</blockquote><p>
+1,<blockquote>What though I have a hundred eyes,<br>Which my beholders may surprise,<br>Yet I could never see:<br>What if I fine and gay appear,<br>And sometimes gold and silver wear,<br>I'm slav'd by industry.<br>Both male and female me admire,<br>Or for my service or attire;<br>And I while young am priz'd.<br>But when I into years am grown,<br>And with hard labour quite worn down,<br>I am by both despis'd.<p>(a *table*)</blockquote><p>
+1,<blockquote>We dwell in cottages of straw,<br>And labour much for little gains;<br>Sweet meat from us our masters draw,<br>And then with death reward our pains.<p>(*bees*)</blockquote><p>
+1,<blockquote>In spring I look gay,<br>Deck'd in comely array,<br>In summer more cloathing I wear:<br>When colder it grows,<br>I fling off my cloaths,<br>And in winter quite naked appear.<p>(a *tree*)</blockquote><p>
+1,<blockquote>To king and subject I assistance lend;<br>In war a firm ally, in peace a friend;<br>When the shrill trumpet sounds I take the field,<br>Laugh at the pointed spear and glitt'ring shield;<br>Bold and intrepid meet the daring foe;<br>Willing and able to repeat the blow;<br>To peer or prelate I give health and ease;<br>The lady, merchant, and the peasant please:<br>Nay,—of such gen'ral use is my employment,<br>Without me life would scarce be worth enjoyment.<p>(a *horse*)</blockquote><p>
+1,<blockquote>I in gold and silver dress'd,<br>Am by belles and beaux caress'd;<br>Who on each day attend,<br>As their counsellor and friend,<br>Here they practice harmless guiles,<br>Artful glances, killing smiles:<br>Here they all their beauty show,<br>Here they string the bended bow:<br>Here the quiver's fraught with darts,<br>Which they aim at lovers hearts;<br>And never make a visit twice,<br>Without asking my advice.<p>(a *mirror*)</blockquote><p>
+1,<blockquote>Tho' good fellows we are,<br>We can't hope to be sav'd;<br>From our very first day,<br>To our last we're enslav'd,<br>Our office is hardest,<br>And food sure the worst,<br>Being cramm'd with raw flesh,<br>Till we're ready to burst;<br>Tho' low in our state,<br>Ev'n Kings we support;<br>And at balls have<br>The principal share of the sport.<p>(*shoes*)</blockquote><p>
+1,<blockquote>My Lords and Gentlemen advance,<br>Come with a chearful countenance,<br>And tell abroad my praise,<br>Whether you in the senate sit,<br>Or at the bar display your wit,<br>'Tis I your spirits raise;<br>I from the hero banish fear,<br>I whisper in the poet's ear,<br>And teach him how to sing;<br>At my approach care steals away,<br>And all the troubles of the day,<br>Immediately take wing:<br>'Tis I th' afflicted souls relieve,<br>To the desponding comfort give,<br>And make the statesman bold;<br>The balm I yield, if well apply'd,<br>Extends its friendly influence wide,<br>And aids both young and old.<p>(*wine*)</blockquote><p>
+1,<blockquote>My proper title I forsake,<br>And often that of others take;<br>Sometimes a king in stately pride,<br>With lofty majesty I stride;<br>Sometimes with sprightly nymphs and swains,<br>I trip it o'er the flow'ry plains;<br>Sometimes I fleet aloft in air,<br>And oftentimes quite disappear:<br>In various shapes I'm known to be,<br>And children often start at me.<p>(a *shadow*)</blockquote><p>
+1,<blockquote>When in my youth, I was my mother's pride;<br>We always went together, side by side;<br>No harm I wrought, by either word or deed;<br>For to be plain, I could not write or read;<br>But soon as man seiz'd on my tender frame,<br>Depriv'd of life, his pupil I became,<br>And tho' of late so innocent and mild,<br>With blackest deeds my virtues now defil'd;<br>My tongue he slits, and I begin to prate<br>Of friends and foes, of politics and state.<p>(a *quill*)</blockquote><p>
+1,<blockquote>Legs I have got, yet seldom do I walk;<br>I backbite many, yet I never talk:<br>In secret places most I seek to hide me,<br>For he who feeds me never can abide me<p>(a *louse*)</blockquote><p>
+1,<blockquote>What gets wetter the more it dries?<p>(a *towel*)</blockquote><p>
+
+;naga temple
+1,[temple naga]
+
+;temple naga
+1,Deep below, where the **spirit naga** *[naga]* guards the passages to Svartalfheim ([naga stats]; <span class="treasure">a *naga tongue* is worth 1000gp to an alchemist</span>[here store naga tongue as alchemist quest]), pools of Earth Blood corrupt both the living and the dead. If you spend an hour here, your death warrant is sealed: slowly, you will die, or turn into an ettin, or a goblin, or some other dreadful creature.
 
 ;mountain orcs
 1,The valley up here is hard to find. This is where the orcs of the *[evil tribe]* tribe raise [mountain animals] and make their [mountain orc product]. [orcs] [mountain orc leader specialty]<p>[mountain orc settlement]
@@ -2522,7 +2634,7 @@
 ;green mountain tower 2
 1,<p>The elf *[elf name]* was cursed for sleeping on their watch on the day this tower fell and was cursed by its commander to guard this tower in the form of a **mountain lion** for all eternity ([puma stats]). If the party can gain the lion’s trust – and they can speak with it! – it can teach them the incantation that opens the door to the next level. If killed, the elf will soon reincarnate as another lion and return.
 1,<p>The bodies of [1d4+1] adventurers are decomposing on the stairs leading up the next level. They seem to have died a painful death and yet they have no obvious injuries. They did not know about the **poison gas trap** triggered by the third step. If triggered, save vs. poison or die.
-1,<p>Further up, in a beautiful room with a terrace encircling the entire tower, a group of [1d4+1] **tengu** is roosting, led by the master swordsman *[tengu name]*. ([tengu stats]) For the price of 500gp they will tell you how to open the secret door to the top of the tower.
+1,<p>Further up, in a beautiful room with a terrace encircling the entire tower, is the roost of [1d12 tengu] For the price of 500gp *[same tengu name]* will tell you how to open the secret door to the top of the tower.
 
 ;green mountain tower 3
 1,<p>The room above, with its polished floor, arching columns and a beautiful mosaic of [with elf decoration] and [and elf decoration] and scenes from [old elf ballad name], is inhabited by a **blue dragon** called *[here blue dragon name as dragon name]*[dragon portrait] ([blue dragon stats]). Exposure to elven dweomers has made the dragon surprisingly [dragon mood]. [dragon treasure]
