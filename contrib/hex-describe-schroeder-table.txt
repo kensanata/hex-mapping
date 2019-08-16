@@ -2525,7 +2525,7 @@
 1,<p>Further up, in a beautiful room with a terrace encircling the entire tower, a group of [1d4+1] **tengu** is roosting, led by the master swordsman *[tengu name]*. ([tengu stats]) For the price of 500gp they will tell you how to open the secret door to the top of the tower.
 
 ;green mountain tower 3
-1,<p>The room above, with its polished floor, arching columns and a beautiful mosaic of [with elf decoration] and [and elf decoration] and scenes from [old elf ballad name], is inhabited by a **blue dragon** called *[here blue dragon name as dragon name]*[dragon portrait] ([blue dragon stats]). Exposure to elven dweomers has made the dragon surprisingly [dragon mood].  [dragon treasure]
+1,<p>The room above, with its polished floor, arching columns and a beautiful mosaic of [with elf decoration] and [and elf decoration] and scenes from [old elf ballad name], is inhabited by a **blue dragon** called *[here blue dragon name as dragon name]*[dragon portrait] ([blue dragon stats]). Exposure to elven dweomers has made the dragon surprisingly [dragon mood]. [dragon treasure]
 1,<p>The walls of this room near the top are cracked and all the windows are broken. This is the lair of [2d8] very protective **griffons** ([griffon stats]). They are often seen hunting the land around this tower. [maybe griffon eggs]
 1,<p>The large room up here has an opening in the [direction]ern wall leading to a platform with a beautiful view. The room itself is filled with glass pipes, ventilators and copper cauldrons. This laboratory is home to [gargoyles] ([gargoyle stats]). [poor treasure]
 1,<p>Furter up, where heaven and earth appear to meet, the Earth Blood has turned previous visitors into [2d6] [slimes].
@@ -5693,7 +5693,7 @@
 1,HD 5 AC 9 1d4 + *brains* MU5 MV 9 ML 9 XP 500; on their first hit, they simply deal their damage as they grapple with their arms and facial tentacles; on every subsequent hit, victims must save vs. death or have their brains destroyed by tentacles forcing their way through nostrils and eye sockets; *mind blast* (30ft cone, save vs. spells or be stunned for 1d4 rounds), *mind domination* (save vs. spells or submit to their telepathic commands), *mind reading* (save vs. spells or reveal all your intentions) at will
 
 ;brain stats
-1,HD 11 AC 9 MU11 MV 0 ML 12 XP 1100;  *mind blast*, *mind domination*, *mind reading*, *aura of fear* (60ft, save vs. spells or cower in fear) at will
+1,HD 11 AC 9 MU11 MV 0 ML 12 XP 1100; *mind blast*, *mind domination*, *mind reading*, *aura of fear* (60ft, save vs. spells or cower in fear) at will
 
 ;1d8 shadows
 1,a **shadow** ([shadow stats])
