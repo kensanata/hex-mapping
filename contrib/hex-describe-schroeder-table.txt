@@ -513,18 +513,18 @@
 # https://www.s-gabriel.org/names/guntram/franks.htm
 
 ;strange name
-1,[strange male name]
-1,[strange female name]
+1,[strange name for men]
+1,[strange name for women]
 
-;strange male name
-3,[strange male name 1][strange male name 2]
-1,[strange male name short]
+;strange name for men
+3,[strange name for men 1][strange name for men 2]
+1,[strange name for men short]
 
-;strange female name
-3,[strange male name 1][strange female name 2]
-2,[strange male name 1][strange male name 2]a
+;strange name for women
+3,[strange name for men 1][strange name for women 2]
+2,[strange name for men 1][strange name for men 2]a
 
-;strange male name 1
+;strange name for men 1
 1,Adal
 1,Am
 1,Amal
@@ -537,7 +537,7 @@
 1,Sigi
 1,Theude
 
-;strange male name 2
+;strange name for men 2
 1,ger
 1,man
 1,mund
@@ -548,7 +548,7 @@
 1,brand
 1,gysil
 
-;strange male name short
+;strange name for men short
 1,Adda
 1,Adzo
 1,Ardoin
@@ -560,7 +560,7 @@
 1,Siggo
 1,Theo
 
-;strange female name 2
+;strange name for women 2
 1,burg
 1,gard
 1,gund
@@ -2741,8 +2741,8 @@
 1,Glacier
 1,Spirit
 1,[tree]
-1,[strange male name]
-1,[strange female name]
+1,[strange name for men]
+1,[strange name for women]
 
 ;lake 2
 1,Dream
@@ -11052,7 +11052,7 @@
 ;locusts
 1,It was only a few days ago that the sky darkened completely as millions upon millions of **[titlecase green synonym] locusts** descended on the crops. Not a single row of [with food veg] or [and food veg] remained intact from their voracious appetite.
 1,What first started as just a few stray and inoffensive **[titlecase yellow synonym] grasshoppers** in the beaks of hungry chickens soon became a plague. If one listens closely, one can even hear the hordes chewing. They've completely decimated the [with food veg] and [and food veg], and will soon move on to the [and food veg]. The farmers are at their wits end.
-1,When *Old Lady [strange female name]* was [witch execution] last week, the locals thought their troubles were over. Few paid any mind to the curses she spat out shortly before she died. Now impossible swarms of **[titlecase red synonym] locusts** seem to scream her name as they ravenously devour every leaf, stalk, and bud in the farmer's fields.
+1,When *Old Lady [strange name for women]* was [witch execution] last week, the locals thought their troubles were over. Few paid any mind to the curses she spat out shortly before she died. Now impossible swarms of **[titlecase red synonym] locusts** seem to scream her name as they ravenously devour every leaf, stalk, and bud in the farmer's fields.
 1,Far less numerous than their normal-sized counterparts, but just as devastating, a plague of **[1d12+1] dire locusts** [dire locust stats] have been spotted in the [food veg] fields and have even managed to devour a few [livestock]. The desperate settlement will pay 50gp for each one slain.
 
 ;witch execution
