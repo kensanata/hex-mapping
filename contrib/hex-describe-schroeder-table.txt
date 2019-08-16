@@ -10365,6 +10365,7 @@
 1,[trade caravan]
 1,[travelling circus]
 1,[disaster event]
+1,[fortunate event]
 
 ;war event
 1,[a war party]There are some tents outside the settlement and you can spot the *[the war party colour]* flag of *[the war party]* (blazon: *[the war party blazon]*). [1d4x10] **mercenaries** ([human stats]) are camped here, waiting for orders. [average treasure] They are led by the mercenary captain **[human class]** [human with portrait][store [same human name] as captain] (level [1d4+2 as level]). [spellbook for [same class]] [leader treasure for [same class]][record war fact]<blockquote>[the presence of mercenaries is a problem]</blockquote><p>
@@ -11064,6 +11065,103 @@
 
 ;dire locust stats
 1,HD 3 AC 6 1d6 F1 MV 24 ML 7 XP 300
+
+#fortunate events
+#those poor villagers need a break every now and then, here's some tables for "good things" that can happen :)
+#useful sub-tables for the future include [baby livestock], [sacred ability] and [distilled beverage]
+
+;fortunate event
+1,[harvest event]
+1,[animal event]
+1,[holiday event]
+
+;harvest event
+1,Judging is underway for a prize-winning [with food veg] contest, including some of the largest [and food veg] you've ever seen: fit for a giant's table.
+1,Inexplicably clement weather has led to a bumper crop of [with food veg], the villagers are practically giving it away by the bushel-full.
+1,Whilst plowing their fields with their [domestic animal adjective] [draft animals], farmers uncovered a cache of ancient coins: [3d100] gold pieces have been equitably split within the community. Each is emblazoned with on one side with a forgotten queen and a mysterious tower on the other.
+1,The [food veg] are growing exceptionally tall this year. Locals have discovered that clumps of medicinal herb *[magic plant]s* are thriving. This is one of the few non-magical cures for the horrid *[diseases]* and the villagers have made a tidy profit selling it off to visitors and travelling alchemists.
+1,Visitors hear only laughter as [conveyances] groan and occasionally break under the weight of a record-breaking harvest of [food veg]. Since armies march on their stomach, [a war party]*[the war party]*'s quartermasters will soon be buying up most of the surplus.
+1,With [fruit]s ripening in abundance, the town [title] has distilled a new tasty and potent spirit. This *[same fruit] [distilled beverage]* is quite delicious and already they are already in trade-talks with the **dwarf** [dwarf with portrait].
+
+;animal event
+1,Local [food veg] farmer *[human name]* couldn't believe their luck when every one of their [livestock] gave birth to healthy triplets this year.
+1,Seen as an omen of good fortune, a [baby livestock] was born as white as the purest snow with a birthmark that eerily resembles [[good power] decoration]. Sacred to [same good power], the animal seems to be able to *[sacred ability]*.
+1,The unruly geese tended to by the locals have recently been laying quite the surprise. Every few clutches contains a golden egg worth 25gp. As of yet, no one has held onto one long enough to see what hatches from them.
+1,The old herder *[human name]* was distraught when one of their favorite [livestock] wandered off. When they finally tracked the beast down, it was found munching on a patch of valuable *[magic plant]*.
+1,The settlement was recently spared from a **bugbear** raid due to a stampede of brave [livestock]. Herders have already begun breeding them for their fearlessness.
+
+;holiday event
+1,It is the festival of *Saint [old names for women]*, celebrated throughout the land for her miraculous ability to *[sacred ability]*. For the duration of the festival, all visitors are treated to a free meal of [rural meat prep] [food meat] [seasoning method] [with food seasonings] and as much [fruit] [distilled beverage] as they can drink.
+1,From sunrise to sunset, the villagers here celebrate an ancient *Naming Festival*. Anyone whose name begins with the letter *[with random letter]* is treated royally and bedecked with flower wreaths, while anyone whose name begins with *[and random letter]* is playfully chastised and teased. It's also considered highly lucky for babies to be named by a visiting stranger on this day.
+1,Today marks the birth of the hero: *[an old hero]* is rumored to hail from these parts. Friendly competitions (foot races, weight-lifting) may be hard to pass up, for the prize is a [a gem] encrusted [metal jewelry singular] (worth [3d6]00gp).
+
+;sacred ability
+1,predict the future
+1,heal the sick
+1,locate deposits of precious minerals
+1,drive off evil spirits
+1,detect lies
+1,see the invisible
+1,neutralize all poisons
+1,speak any language
+1,absorb magical spells without harm
+
+;distilled beverage
+1,wine
+1,brandy
+1,gin
+1,sherry
+1,cider
+1,liqueur
+1,sangria
+1,sparkling wine
+1,ice wine
+1,table wine
+1,sake
+1,mead
+1,pastis
+1,dessert wine
+1,whiskey
+1,vodka
+1,tequila
+1,rum
+1,schnapps
+1,moonshine
+
+;baby livestock
+1,lamb
+1,piglet
+1,calf
+1,goat kid
+1,foal
+
+;random letter
+1,A
+1,B
+1,C
+1,D
+1,E
+1,F
+1,G
+1,H
+1,I
+1,J
+1,K
+1,L
+1,M
+1,N
+1,O
+1,P
+1,Q
+1,R
+1,S
+1,T
+1,U
+1,V
+1,W
+1,X
+1,Y
+1,Z
 
 #NOTE: no space to create proper compounds, spaces are present in some second halves for some variety
 ;village name
