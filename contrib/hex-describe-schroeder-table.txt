@@ -1539,7 +1539,7 @@
 1,The sunny side of the valley is covered in pink splashes of *roseroot*.
 1,Further up, there are white patches of *edelweiss* growing between the rocks.
 
-#starting  point for food and drink tables for menus/food items
+#starting point for food and drink tables for menus/food items
 #basic construction: tables for domestic/garden and wild food products
 #sub-tables for specific types of veg/seasoning herbs/descriptions and preparation methods
 #meat: I try to use the "food names" for animals here if they exist, hence the "meat quantifier" in the table names
@@ -3123,10 +3123,10 @@
 1,HD 8 AC 7 2d6 F8 MV 12 ML 8 XP 800; *poison breath* 30ft; *charge* into combat for double damage
 
 ;cryohydra stats
-1,[1d8+4 as heads] heads, HD [same heads] (8hp per head) AC 5 1d10 per head F[same heads] MV 12 ML 9 XP [same heads]00; whenever a head is lost, *two heads regrow* the next round (up to 12) unless the wound is cauterised using ice or fire (a melee attack with a torch will do);  *ice* (as much as the hydra has hp left, save vs. dragon breath for half); *poisonous blood* (cutting off a head with a melee weapon exposes the attacker to it: save vs. poison or die; <span class="treasure">*hydra’s blood* is worth 5000gp each to an alchemist</span>[here store hydra blood as alchemist quest])
+1,[1d8+4 as heads] heads, HD [same heads] (8hp per head) AC 5 1d10 per head F[same heads] MV 12 ML 9 XP [same heads]00; whenever a head is lost, *two heads regrow* the next round (up to 12) unless the wound is cauterised using ice or fire (a melee attack with a torch will do); *ice* (as much as the hydra has hp left, save vs. dragon breath for half); *poisonous blood* (cutting off a head with a melee weapon exposes the attacker to it: save vs. poison or die; <span class="treasure">*hydra’s blood* is worth 5000gp each to an alchemist</span>[here store hydra blood as alchemist quest])
 
 ;pyrohydra stats
-1,[1d8+4 as heads] heads, HD [same heads] (8hp per head) AC 5 1d10 per head F[same heads]MV 12 ML 9 XP is [same heads]00; whenever a head is lost, *two heads regrow* the next round (up to 12) unless the wound is cauterised using ice or fire (a melee attack with a torch will do);  *fire* (as much as the hydra has hp left, save vs. dragon breath for half); *poisonous blood* (cutting off a head with a melee weapon exposes the attacker to it: save vs. poison or die; <span class="treasure">*hydra’s blood* is worth 5000gp each to an alchemist</span>[here store hydra blood as alchemist quest])
+1,[1d8+4 as heads] heads, HD [same heads] (8hp per head) AC 5 1d10 per head F[same heads]MV 12 ML 9 XP is [same heads]00; whenever a head is lost, *two heads regrow* the next round (up to 12) unless the wound is cauterised using ice or fire (a melee attack with a torch will do); *fire* (as much as the hydra has hp left, save vs. dragon breath for half); *poisonous blood* (cutting off a head with a melee weapon exposes the attacker to it: save vs. poison or die; <span class="treasure">*hydra’s blood* is worth 5000gp each to an alchemist</span>[here store hydra blood as alchemist quest])
 
 ;gorgon lair
 1,A piece of the glacier has broken off and revealed an old temple of *[good power]*, razed, defiled, and cursed with the presence of a gorgon. There are plenty of dead birds which have died due to the poisonous fumes.
@@ -7511,7 +7511,7 @@
 1,The goblins have the following wares for sale:<table><tr class="head"><th>Item</th><th>Upsell</th><th class="center">Price</th></tr><tr><td>[goblin junk]</td><td>[with goblin upsell]</td><td class="center">[junk price]</tr><tr class="odd"><td>[goblin junk]</td><td>[and goblin upsell]</td><td class="center">[junk price]</tr><tr><td>[goblin junk]</td><td>[and goblin upsell]</td><td class="center">[junk price]</tr><tr class="odd"><td>[goblin junk]</td><td>[and goblin upsell]</td><td class="center">[junk price]</tr><tr><td>[goblin junk]</td><td>[goblin upsell]</td><td class="center">[junk price]</tr><tr class="odd"><td>[goblin junk]</td><td>[with goblin upsell]</td><td class="center">[junk price]</tr><tr><td>[goblin junk]</td><td>[and goblin upsell]</td><td class="center">[junk price]</tr><tr class="end"><td colspan=3>[goblin closing pitch]</td></table><p>The *useful* stuff requires contacts. [goblin patron]
 
 ;goblin patron
-1,Big *[goblin]* wants to increase the prestige of the *[same evil power]* temple and is looking for a special relic: the [relic]. Bring it here and *[same goblin]*  will give you a little trinket they recently acquired: [magic item]
+1,Big *[goblin]* wants to increase the prestige of the *[same evil power]* temple and is looking for a special relic: the [relic]. Bring it here and *[same goblin] *will give you a little trinket they recently acquired: [magic item]
 
 ;goblin junk
 1,[rp] apple cores
@@ -8577,7 +8577,7 @@
 ;ettercap trade
 1,To reach the ettercap trading post, follow the single white strand that starts atop the lonely [tree] tree to the [direction], leading you safely from branch to branch above the forest floor to the ancient tree giant where the ettercaps have built a large platform with their shacks and their chests. [ettercap trading post]
 1,The ettercaps have created a landing pad up in the air where they discovered a passage to the world tree *Yggdrasil*. This is where they keep their chests of silken wares. [ettercap trading post] On nights of the full moon, or on a 1 in 6, the portal opens. [save 1d6+1 as level][save spellbook for elves][2d12] **elves** ([elf stats]) led by trade-captain [elf with portrait] (level [same level]). [same spellbook for elves] [leader treasure] The elves are looking to buy silken wares or trade them for spells cast. [elven trade money] [elf travelling companions]
-1,The ettercaps have made contact with *phase spiders*, intelligent travellers of the nine realms. On a 1 in 6, a party of   [1d6 phase spiders] will show up tonight ([phase spider stats]). Nobody knows what they are up to but they are very interested in hearing stories about current events as well as local botany and zoology. In return, they bring fancy looking trinkets from unknown places.
+1,The ettercaps have made contact with *phase spiders*, intelligent travellers of the nine realms. On a 1 in 6, a party of [1d6 phase spiders] will show up tonight ([phase spider stats]). Nobody knows what they are up to but they are very interested in hearing stories about current events as well as local botany and zoology. In return, they bring fancy looking trinkets from unknown places.
 
 ;1d6 phase spiders
 1,a **phase spider**
@@ -34519,7 +34519,7 @@
 #lovingly transcribed/tabled from here: https://en.wikipedia.org/wiki/List_of_colors_by_shade
 #usage: Call Color, or Call a Shade. Tables are weighted somewhat to produce more common names
 #maybe someday: subtables with HTML Color Codes in the ["color name" code] format for styling
-#tint tables might also be a nice add  (pale, deep, dark, light, etc.)
+#tint tables might also be a nice add (pale, deep, dark, light, etc.)
 #I’ve tried to catch most of the "nouns" and append color names/colored to them so they’ll still parse ok.
 
 ;colour
