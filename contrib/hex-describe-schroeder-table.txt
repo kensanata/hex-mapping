@@ -8495,7 +8495,7 @@
 1,[swamp intro] [swamp dressing] [giant fish] can be seen below the water surface ([giant fish stats]).
 1,[swamp intro] [swamp dressing] Without a guide, you soon end up in the lands of the [witch]
 1,[swamp intro] [swamp dressing] There are plenty of [swamp animals]. Those who know how to find it can gather *[here magic plant]*.
-1,[swamp intro] [swamp dressing] The area has been settled by a tribe of [6d6] **lizard people** ([lizard people stats]) led by *[lizard leader]* (HD [1d4+2 as level]). [leader treasure] The little village of mud huts is guarded by [lizard companions]. [average treasure]
+1,[swamp intro] [swamp dressing] [lizard people]
 1,[swamp intro] [swamp dressing] [froglings]
 1,[swamp intro] [swamp dressing] A ruined tower standing on a small island is home to the **ettin** called *[ettin]*. [robber treasure] [ettin tower protection]
 1,[swamp intro] [swamp dressing] In the old days, these stagnant pools were used to drown evil necromancers. [bog wights]
@@ -8877,6 +8877,16 @@
 1,Wood
 1,Wort
 1,Wrack
+
+;lizard people
+1,The area has been settled by a tribe of [6d6] **lizard people** ([lizard people stats]) led by *[lizard leader]* (HD [1d4+2 as level]). [leader treasure] The little village of mud huts is guarded by [lizard companions]. [average treasure]<p>[lizard culture]
+
+;lizard culture
+1,These lizard people like to sing the *Songs of [nearby snake place]*, it’s rise, and it’s fall to oblivion.
+1,These lizard people like to sing the *Songs of Loss and Longing*, a cycle of heroic poems involving the wars against *[an old wight leader]*.
+1,These lizard people like to sing the *Songs of Remembrance*, a cycle of ballads involving the wars against *[an old wight leader]*.
+1,These lizard people like to sing songs from the *Epics of Reason*, long and winding poems about ancient machines in the Philosophers’ War.
+1,These lizard people like to sing some of the *Songs from the Dead*, songs about doomed heroes in the old liberation wars which the lizard people lost oh so long ago.
 
 ;lizard people stats
 1,HD 2+1 AC 5 1d8 F2 MV 12 ML 7 XP 200
