@@ -1328,7 +1328,7 @@
 1,**sphinx** *[strange name]* ([sphinx stats]).[here store the sphinx *[same sphinx name]* as sage] Tell her a good pun and she’ll be friendly. Answer her riddle to be granted a boon. [riddle]
 
 ;sphinx stats
-1,HD 5 AC 6 1d6/1d6 F10 MV 15 ML 9 XP 500; *cure disease* 3×/day, *raise dead* 1×/day, *summon tengus* (2d6), 1×/day: [tengu stats]
+1,HD 5 AC 6 1d6/1d6 F10 MV 15 ML 9 XP 500; *cure disease* 3×/day, *raise dead* 1×/day, *summon tengus* (2d6) 1×/day: [tengu stats]
 
 ;riddle
 # https://www.gutenberg.org/cache/epub/36571/pg36571.txt
