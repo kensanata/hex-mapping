@@ -1369,10 +1369,12 @@
 1,[naga fortress]<p>[temple of Set]<p>[temple naga]
 
 ;naga fortress
-1,At the end of this valley the mountains rise up like a wall and on that wall is a giant seven-headed snake made of living stone, as if melted and reshaped by the strongest spells. In each of the seven heads there burns a magic fire. This is *[snake place]*.<p>Down below, at the foot of the wall, there is a [snake gate]
+1,At the end of this valley the mountains rise up like a wall and on that wall is a giant *seven-headed snake* made of living stone, as if melted and reshaped by the strongest spells. In each of the seven heads there burns a magic fire. This is *[here snake place]*.<p>Down below, at the foot of the wall, there is [snake gate]
+1,On the pass at the end of this valley there is a structure: *seven towers* growing out of the same rock, bending upwards into the sky, each ending in a snake head, maw wide open, each containing a hall with a brazier in which an eternal flame is burning. This is *[here snake place]*.<p>Down below, where the seven snake necks meet the steep trail leading up to the pass there is [snake gate]
 
 ;snake gate
-1,gate of snakes: a knot of two impossibly large stone snakes with a passage underneath illuminated by torches and guarded by [snake people]
+1,a *gate of snakes*: a knot of two impossibly large stone snakes with a passage underneath illuminated by torches and guarded by [snake people]
+1,a *maw of thorns*: a tunnel with a thousand inwards pointing needles several feet long and but a thin path winding its way through it. In front of the maw is a platform, facing south. It is much warmer here than one would expect this far up. [lizard people]
 
 ;snake people
 1,[6d6] **snake people** ([lizard people stats]; *charm person* 3×/day) led by *[lizard leader]* (HD [1d4+4 as level], *lightning bolt* ([same level]d6) 2×/day). [leader treasure] [snake people companions] [average treasure]
@@ -1383,7 +1385,7 @@
 5,The stables nearby hold [1d4+1] **giant lizards** ([giant lizard stats]).
 
 ;temple of Set
-1,Once past the entrance, a tunnel winds itself up into the hollow sphere of the snake sanctum: the upper hemisphere is decorated with [with Set decoration] and [and Set decoration]. From above hangs a chandelier about 50ft wide beset with a thousand stones glowing in a warm light. It’s impossibly hot in here.<p>Rows and rows of circular platforms lead down the lower hemisphere to the bottom of the sphere. One these platforms are the huts of [temple servants]<p>At the very bottom of the sphere is a ramp descending into the darkness below.
+1,Once past the entrance, a tunnel winds itself up into the hollow sphere of the snake sanctum: the upper hemisphere is decorated with [with Set decoration] and [and Set decoration]. Above hangs a chandelier about 50ft wide beset with a thousand stones glowing in a warm light. It’s impossibly hot in here.<p>Ramps connect rows and rows of circular platforms leading down the lower hemisphere to the bottom of the sphere. One these platforms are the huts of [temple servants]<p>At the very bottom of the sphere is a ramp descending into the darkness below.
 
 ;temple servants
 1,[snake people]
@@ -2952,7 +2954,6 @@
 1,Usok
 1,Uson
 1,Uyangon
-1,Vanguardia
 1,Veagan
 1,Vigan
 1,Virac
