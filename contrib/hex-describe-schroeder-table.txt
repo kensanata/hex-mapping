@@ -12292,12 +12292,12 @@
 
 ;story
 1,*How [hero adjective] [[same singing humanoid] story hero] [verbed] [villain adjective] [story villain]*
-1,*The [story type] of [hero adjective] [[same singing humanoid] story hero] and The [story mcguffin]*
+1,*The [story type] of [hero adjective] [[same singing humanoid] story hero] and the [story mcguffin]*
 1,*Why [villain adjective] [story villain] [villain verbed] [hero adjective] [[same singing humanoid] story hero]’s [hero friend]*
 1,*The [story type] of [[same singing humanoid] story hero] and the [villain adjective] [story monster]*
 1,*How [hero adjective] [[same singing humanoid] story hero] [verbed] the [villain adjective] [story monster]*
 1,*[[same singing humanoid] story hero]’s Perilous Journey to the [story place]*
-1,*How the [story mcguffin] Was [mcguffin verb]*
+1,*How the [story mcguffin] was [mcguffin verb]*
 
 ;story type
 1,Ballad
