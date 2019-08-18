@@ -12880,6 +12880,86 @@
 1,Y
 1,Z
 
+;local smith
+1,The local **smith** is [smith description] called [human with portrait]. You can get your horses shod and your ploughs fixed. There is little here for adventurers, though: [local smith inventory].
+
+;smith description
+1,a simpleton
+1,a braggart
+1,a foul-mouthed ass
+1,an arrogant fool
+1,a quiet one
+1,a humble soul
+1,an ambitious manipulator
+
+;local smith inventory
+1,[with local smith item], [and local smith item], and [and local smith item]
+1,[with local smith item], [with local smith item], [and local smith item], and [and local smith item]
+1,[with local smith item], [with local smith item], [with local smith item], [and local smith item], and [and local smith item]
+1,[with local smith item], [with local smith item], [with local smith item], [with local smith item], [and local smith item], and [and local smith item]
+
+;local smith item
+2,a silver-tipped arrow @ 7gp
+3,20 arrows @ 3gp
+2,a battle axe @ 9gp
+2,a case with 30 quarrels @ 6gp
+1,a 10ft chain @ 35gp
+1,chain mail armour @ 55gp
+4,a club, spiked @ 2gp
+1,a hand crossbow @ 105gp
+1,a heavy crossbow @ 38gp
+1,a light crossbow @ 20gp
+2,a silver dagger @ 14gp
+3,a long dagger @ 3gp
+4,a dagger @ 2gp
+5,a large dart @ 1gp
+5,5 small darts @ 1gp
+2,a flail @ 9gp
+4,a flask @ 2gp
+3,a grappling hook @ 3gp
+1,a two-handed axe @ 25gp
+1,a two-handed greatsword @ 33gp
+2,a halberd @ 14gp
+1,half plate @ 400gp
+2,a hand axe @ 4gp
+2,a helmet @ 14gp
+1,a silver holy symbol of [power] depicting [[same power] decoration] @ 35gp
+5,a javelin @ 1gp
+2,a lance @ 7gp
+2,a lantern @ 10gp
+2,leather armour @ 13gp
+1,studded leather armour @ 20gp
+1,longbow @ 45gp
+1,a long sword @ 20gp
+2,a mace @ 5gp
+1,manacles @ 20gp
+2,a mattock @ 14gp
+2,a steel mirror @ 5gp
+2,a morning star @ 11gp
+5,20 nails @ 1gp
+2,padded armour @ 7gp
+3,a pick @ 3gp
+2,a pike @ 5gp
+1,plate mail @ 800gp
+2,pole arm @ 10gp
+3,30 quarrels @ 3gp
+2,a quiver with 20 arrows @ 6gp
+1,a rapier @ 35gp
+1,ring mail @ 30gp
+1,scale mail @ 40gp
+2,a shield @ 10gp
+1,a short bow @ 25gp
+2,a short sword @ 14gp
+3,a shovel @ 3gp
+4,a sling with 20 metal pellets @ 2gp
+3,a spear @ 3gp
+4,10 spikes @ 2gp
+4,a metal shod staff @ 2gp
+2,3 stakes and a mallet @ 4gp
+1,thievery tools @ 30gp
+3,a tinderbox @ 3gp
+1,a war hammer @ 21gp
+
 #NOTE: no space to create proper compounds, spaces are present in some second halves for some variety
 ;village name
 80,*[village name1][village name2]*
@@ -13301,7 +13381,7 @@
 1,choosing the child to be sacrificed to the dragon *[nearby dragon name]*
 
 ;thorp
-1,<p>This is [here village name], a thorp of [1d4x10] **humans** ([human stats]) led by [human with portrait][human job]. The [human houses] are protected by [human companions]. [average treasure] These village-folk are [thorp activity].<p>[settlement event]
+1,<p>This is [here village name], a thorp of [1d4x10] **humans** ([human stats]) led by [human with portrait][human job]. The [human houses] are protected by [human companions]. [average treasure] These village-folk are [thorp activity].<p>[local smith]<p>[settlement event]
 
 # the second variant has a temple at the end
 ;village
@@ -13313,7 +13393,6 @@
 
 ;human job
 # leading space or comma required
-1, the smith
 1, the miller
 1, the carpenter
 1,, the owner of the largest pasture

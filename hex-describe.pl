@@ -3713,6 +3713,7 @@ The tables contain material by the following people:
 <li><a href="https://blog.d4caltrops.com/">Ktrey Parker</a>
 <li><a href="http://www.whidou.fr/">Whidou</a>
 <li>Robin Green
+<li>J. Alan Henning (<a href="https://twitter.com/jalanhenning">@jalanhenning</a> on Twitter)
 </ul>
 
 <p>
