@@ -12881,7 +12881,7 @@
 1,Z
 
 ;local smith
-1,The local **smith** is [smith description] called [human with portrait]. You can get your horses shod and your ploughs fixed. There is little here for adventurers, though: [local smith inventory].
+1,The local **smith** is [smith description] called [human with portrait]. You can get your horses shod and your ploughs fixed. [local smith inventory description:] [local smith inventory].
 
 ;smith description
 1,a simpleton
@@ -12891,6 +12891,14 @@
 1,a quiet one
 1,a humble soul
 1,an ambitious manipulator
+
+;local smith inventory description:
+1,There is little here for adventurers, though:
+1,Some of the stuff the locals aren’t buying:
+1,Recently somebody dropped off the following:
+1,They probably robbed a corpse for this stuff:
+1,Looks like they pillaged this from somewhere:
+1,Surprisingly, they have some interesting things for sale:
 
 ;local smith inventory
 1,[with local smith item], [and local smith item], and [and local smith item]
