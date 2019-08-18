@@ -1266,6 +1266,7 @@
 
 ;necropolis description
 1,Huge, grey stones have been connected by smooth grey walls, blocking off the valley. There is a grey tower and a massive gate in the wall.<p>[necropolis gate]<p>[grey tower]
+1,A ten-foot-tall black iron fence blocks the way here. Some of the spikes at the top of the fence are adorned with skulls of humans and other humanoids.<p>[necropolis gate]<p>[grey tower]
 
 ;necropolis gate
 1,The *gate* is large enough to admit a giant, made of wood and iron and decorated in bronze, held together by spells. The doors show a crowd of demonic faces, teeth, horns, claws, and bulging eyes.
@@ -1288,6 +1289,55 @@
 1,There are plenty of thick, wooden poles rising from the wall and sticking in the flanks of the tower. If the sun is up, you an see a crow-headed warriors jumping and shadow fighting up there: [1d12 tengu] Master *[same tengu name]* can [teach a fighter]
 1,A bunch of ragged tents between wall and tower are the broken dreams of some desperate people. [bandits]
 1,There is an improvised toll booth next to the tower and some tents further back. These people ask 50gp per head “to keep the area safe.” [bandits]
+1,This is the realm of [stone giants] They are methodically moving cut stones the size of cattle, rebuilding the tower. They place a block, then move back and contemplate it's position for an hour, then repeat.
+
+;stone giants
+1,**stone giant** *[stone giant name]* ([stone giant stats]). [rich treasure]
+1,[1d3+1] **stone giants** led by *[stone giant title] [stone giant name]* ([stone giant stats]). [rich treasure]
+
+;stone giant name
+1,[stone giant 1] [stone giant 2]
+
+;stone giant 1
+1,Black
+1,Still
+1,Quiet
+1,Worn
+1,Carved
+1,Eroded
+
+;stone giant 2
+1,Rock
+1,Boulder
+1,Granite
+1,Stone
+1,Marble
+1,Mountain
+
+# used as "led by [stone giant title] *[stone giant]*."
+;stone giant title
+1,Shaper of the [stone giant place],
+1,Memory of the [stone giant place],
+1,[stone giant thing] Master,
+
+;stone giant place
+1,Valley
+1,Cavern
+1,Bedrock
+1,Mountain
+1,Cave
+
+;stone giant thing
+2,[stone giant place]
+1,Chisel
+1,Hammer
+1,Obsidian
+1,Quartz
+1,Limestone
+1,Sandstone
+
+;stone giant stats
+1,HD 9 AC 4 3d6 or 3d6 *ranged* F9 MV 12 ML 9 XP 900; *stone shape* and *control weather* at will
 
 ;teach a fighter
 1,teach a fighter about the duelling stance: study a target for two rounds and attack on the third round with a +4 bonus for triple damage. [here store the duelling stance of master *[same tengu name]* as fighter study topic]
