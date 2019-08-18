@@ -12798,7 +12798,7 @@
 1,Whilst plowing their fields with their [domestic animal adjective] [draft animals], farmers uncovered a cache of ancient coins: [3d100] gold pieces have been equitably split within the community. Each is emblazoned with on one side with a forgotten queen and a mysterious tower on the other.
 1,The [food veg] are growing exceptionally tall this year. Locals have discovered that clumps of medicinal herb *[magic plant]s* are thriving. This is one of the few non-magical cures for the horrid *[diseases]* and the villagers have made a tidy profit selling it off to visitors and travelling alchemists.
 1,Visitors hear only laughter as [conveyances] groan and occasionally break under the weight of a record-breaking harvest of [food veg]. Since armies march on their stomach, [a war party]*[the war party]*'s quartermasters will soon be buying up most of the surplus.
-1,With [fruit]s ripening in abundance, the town [title] has distilled a new tasty and potent spirit. This *[same fruit] [distilled beverage]* is quite delicious and already they are already in trade-talks with the **dwarf** [dwarf with portrait].
+1,With [fruit]s ripening in abundance, the town [title] has distilled a new tasty and potent spirit. This *[same fruit] [distilled beverage]* is quite delicious and already they are in trade-talks with the **dwarf** [dwarf with portrait].
 
 ;animal event
 1,Local [food veg] farmer *[human name]* couldn't believe their luck when every one of their [livestock] gave birth to healthy triplets this year.
@@ -12905,7 +12905,7 @@
 2,a case with 30 quarrels @ 6gp
 1,a 10ft chain @ 35gp
 1,chain mail armour @ 55gp
-4,a club, spiked @ 2gp
+4,a spiked club @ 2gp
 1,a hand crossbow @ 105gp
 1,a heavy crossbow @ 38gp
 1,a light crossbow @ 20gp
