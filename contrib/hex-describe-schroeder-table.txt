@@ -1421,10 +1421,13 @@
 ;naga fortress
 1,At the end of this valley the mountains rise up like a wall and on that wall is a giant *seven-headed snake* made of living stone, as if melted and reshaped by the strongest spells. In each of the seven heads there burns a magic fire. This is *[here snake place]*.<p>Down below, at the foot of the wall, there is [snake gate]
 1,On the pass at the end of this valley there is a structure: *seven towers* growing out of the same rock, bending upwards into the sky, each ending in a snake head, maw wide open, each containing a hall with a brazier in which an eternal flame is burning. This is *[here snake place]*.<p>Down below, where the seven snake necks meet the steep trail leading up to the pass there is [snake gate]
+1,Rectangular blocks of stone have been carefully stacked here forming *rounded domes* of various shapes and sizes. The domes are all clustered together giving the appearance they grew from this valley like anthills. This is *[here snake place]*.<p>One of the smaller domes has a pathway leading to it, flanked by [snake gate]
+1,Near the top of this mountain, an eroded slope turns into a valley containing a clear lake in the center. On the shore of the lake, a worn *stone pyramid* echoes the shapes of the mountains. This is *[here snake place]*.<p>On the south-facing side, there is [snake gate]
 
 ;snake gate
 1,a *gate of snakes*: a knot of two impossibly large stone snakes with a passage underneath illuminated by torches and guarded by [snake people]
 1,a *maw of thorns*: a tunnel with a thousand inwards pointing needles several feet long and but a thin path winding its way through it. In front of the maw is a platform, facing south. It is much warmer here than one would expect this far up. [lizard people]
+1,a *walkway* lined on either side by carved stone pillars, each shaped to give the appearance of an enormous snake wrapped around it, there opened mouths threatening those who pass. If you misstep, the snakes' mouths shoot **poison darts** at the unwary: save vs. poison or die.
 
 ;snake people
 1,[6d6] **snake people** ([lizard people stats]; *charm person* 3×/day) led by *[lizard leader]* (HD [1d4+4 as level], *lightning bolt* ([same level]d6) 2×/day). [leader treasure] [snake people companions] [average treasure]
@@ -1436,12 +1439,15 @@
 
 ;temple of Set
 1,Once past the entrance, a tunnel winds itself up into the hollow sphere of the snake sanctum: the upper hemisphere is decorated with [with Set decoration] and [and Set decoration]. Above hangs a chandelier about 50ft wide beset with a thousand stones glowing in a warm light. It’s impossibly hot in here.<p>Ramps connect rows and rows of circular platforms leading down the lower hemisphere to the bottom of the sphere. One these platforms are the huts of [temple servants]<p>At the very bottom of the sphere is a ramp descending into the darkness below.
+1,Inside, the central temple contains four bronze snake statues oriented towards the cardinal directions. Large red candles at the base of each statute give a flickering and smoky light. Each statute has a different colored gem set in its forehead (500gp each). The north wall contains a giant mural of [with Set decoration] and the floor is decorated with a mosaic of [and Set decoration].<p> Under the mural, a passage leads further north, past the quarters of [temple servants]<p>At the end of the hallway, stairs lead upwards.
+1,The air inside the temple is surprisingly warm and damp. Lush green plants scramble over stairs and wrap around pools of steaming water. Hidden in the greenery, humans with patches of iridescent scales on their skin observe and wait, for now. [snake people]
 
 ;temple servants
 1,[snake people]
 
 ;temple naga
 1,This is where the **spirit naga** *[naga name]* guards the passages to Svartalfheim ([naga stats]; <span class="treasure">a *naga tongue* is worth 1000gp to an alchemist</span>[here store naga tongue as alchemist quest]) and where pools of Earth Blood corrupt both the living and the dead. If you spend an hour here, your death warrant is sealed: slowly, you will die, or turn into an ettin, or a goblin, or some other dreadful creature.
+1,This is where *[naga name]*, the **spirit naga** resides. ([naga stats]; <span class="treasure">a *naga tongue* is worth 1000gp to an alchemist</span>[here store naga tongue as alchemist quest]) She has spent centuries contemplating and planning. Her minions operate in secret in towns and villages. Parties bringing tribute or valuable information may survive a parley.
 
 ;snake place
 # https://en.wikipedia.org/wiki/List_of_islands_of_the_Philippines
