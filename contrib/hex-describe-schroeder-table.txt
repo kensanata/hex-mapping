@@ -8497,7 +8497,7 @@
 1,her *chest of replenishing curses*. The inscription reads: "Do not open!" Opening the chest releases all her stored curses. Anybody interested in the chest must save vs. spells or be cursed by one of the following: 1. *weakness* (strength 3); 2. *shakes* (dexterity 3); 3. *wheezing cough* (constitution 3); 4. *stupidity* (intelligence 3); 5. *foolishness* (wisdom 3); 6. *foul tongue* (charisma 3); 7. *sloth* (every odd roll on a d20 is an automatic fail); 8. *lunacy* (whenever you see dogs or wolves, drop everything you are carrying, howl like mad and run for the woods to live with your kin); 9. *paranoia* (do not trust your friends, not accept their help, do not help them); 10. *swan* (turn into a swan); 11. *frog* (turn into a frog); 12. *martyrdom* (take blows for everybody, sacrifice yourself if possible).
 1,soul-dead lover in a cage. This is *[man]*, his mind long gone, his hairless body tortured and nursed back to life so many times it has achieved a waxy sheen.
 1,a terrible mobile of baby skulls and rib cages, artfully arranged and carefully balanced such that the slightest whiff sets it in motion, the hollow knocking of the tiny skulls producing a soothing rhythm.
-1,a small altar of *[here evil power as tempel power]*, surrounded by a hundred *eternal candles* and the names of three demons inscribed on blood soaked paper. They all owe her a boon for babies trafficked: *[demon name]*, *[demon name]*, and *[demon name]* ([vulture demon stats]).
+1,a small altar of *[here evil power as temple power]*, surrounded by a hundred *eternal candles* and the names of three demons inscribed on blood soaked paper. They all owe her a boon for babies trafficked: *[demon name]*, *[demon name]*, and *[demon name]* ([vulture demon stats]).
 1,her *guard broom*, a strong willed broom that will attack intruders and raise a ruckus ([animate object stats]).
 
 ;animate object stats
@@ -8647,12 +8647,12 @@
 1,<p>On a small island in a little lake, one can see [barrow]
 
 ;barrow
-3,[number of mounds] [1d3x10]ft in diameter, [barrow verb] an ancient [barrow loss]. If any dare [barrow dig] here, they will discover a hidden chamber, built with [barrow construction], yielding [random corpses], their [resting place] painted [[barrow color] synonym] with [[power] decoration]. The journey to the afterlife was sped with [neolith], [and neolith], [and neolith], and [and neolith].
-1,[number of mounds] [1d3x10]ft in diameter, [barrow verb] an ancient [barrow loss]. If any dare [barrow dig] here, they will discover a hidden chamber, built with [barrow construction], yielding [random corpses], their [resting place] painted [[barrow color] synonym] with [[power] decoration]. The journey to the afterlife was sped with [neolith], [and neolith], [and neolith], and <span class="treasure">a gem worth [3d6x100 as value].</span>
-1,[number of mounds] [1d3x10]ft in diameter, [barrow verb] an ancient [barrow loss]. If any dare [barrow dig] here, they will discover a hidden chamber, built with [barrow construction], yielding [random corpses], their [resting place] painted [[barrow color] synonym] with [[power] decoration]. The journey to the afterlife was sped with [neolith], [and neolith], and [and neolith]. <span class="treasure">[neolithic magic item]</span>
-1,[number of mounds] [1d3x10]ft in diameter. This is an ancestral shrine of the elves. If any dare [barrow dig] here, they will discover a hidden chamber, built with [barrow construction], yielding [random corpses], their [resting place] painted [[barrow color] synonym] with [[power] decoration] and the inscriptions *[elf name]*. The journey to the afterlife was sped with [neolith], [and neolith], [and neolith], and <span class="treasure">[valuable grave goods] worth [1d6x1000 as value]gp</span>.[here store [same valuable grave goods] worth [same value]gp in the barrow of *[same elf name]* as hidden treasure]
-1,[number of mounds] [1d3x10]ft in diameter. This is an ancestral shrine of the dwarves. If any dare [barrow dig] here, they will discover a hidden chamber, built with [barrow construction], yielding [random corpses], their [resting place] painted [[barrow color] synonym] with [[power] decoration] and the inscription *[dwarf name]*. The journey to the afterlife was sped with [neolith], [and neolith], [and neolith], and <span class="treasure">[valuable grave goods] worth [1d10x1000 as value]gp</span>.[here store [same valuable grave goods] worth [same value]gp in the barrow of *[same dwarf name]* as hidden treasure]
-1,[number of mounds] [1d3x10]ft in diameter. This is a crypt of a wight general. If any dare [barrow dig] here, they will discover a hidden chamber, built with [barrow construction], yielding [random corpses], their [resting place] painted [[barrow color] synonym] with [[power] decoration] and the inscription *[wight leader]*. The journey to the afterlife was sped with [neolith], [and neolith], [and neolith], and <span class="treasure">[valuable grave goods] worth [1d12x1000 as value]gp</span>.[here store [same valuable grave goods] worth [same value]gp in the barrow of [same wight leader] as hidden treasure]
+3,[number of mounds] [1d3x10]ft in diameter, [barrow verb] an ancient [barrow loss]. If any dare [barrow dig] here, they will discover a hidden chamber, built with [barrow construction], yielding [random corpses], their [resting place] painted [[barrow colour] synonym] with [[power] decoration]. The journey to the afterlife was sped with [with neolith], [and neolith], [and neolith], and [and neolith].
+1,[number of mounds] [1d3x10]ft in diameter, [barrow verb] an ancient [barrow loss]. If any dare [barrow dig] here, they will discover a hidden chamber, built with [barrow construction], yielding [random corpses], their [resting place] painted [[barrow colour] synonym] with [[power] decoration]. The journey to the afterlife was sped with [with neolith], [and neolith], [and neolith], and <span class="treasure">a gem worth [3d6x100 as value].</span>
+1,[number of mounds] [1d3x10]ft in diameter, [barrow verb] an ancient [barrow loss]. If any dare [barrow dig] here, they will discover a hidden chamber, built with [barrow construction], yielding [random corpses], their [resting place] painted [[barrow colour] synonym] with [[power] decoration]. The journey to the afterlife was sped with [with neolith], [and neolith], and [and neolith]. <span class="treasure">[neolithic magic item]</span>
+1,[number of mounds] [1d3x10]ft in diameter. This is an ancestral shrine of the elves. If any dare [barrow dig] here, they will discover a hidden chamber, built with [barrow construction], yielding [random corpses], their [resting place] painted [[barrow colour] synonym] with [[power] decoration] and the inscriptions *[elf name]*. The journey to the afterlife was sped with [with neolith], [and neolith], [and neolith], and <span class="treasure">[valuable grave goods] worth [1d6x1000 as value]gp</span>.[here store [same valuable grave goods] worth [same value]gp in the barrow of *[same elf name]* as hidden treasure]
+1,[number of mounds] [1d3x10]ft in diameter. This is an ancestral shrine of the dwarves. If any dare [barrow dig] here, they will discover a hidden chamber, built with [barrow construction], yielding [random corpses], their [resting place] painted [[barrow colour] synonym] with [[power] decoration] and the inscription *[dwarf name]*. The journey to the afterlife was sped with [with neolith], [and neolith], [and neolith], and <span class="treasure">[valuable grave goods] worth [1d10x1000 as value]gp</span>.[here store [same valuable grave goods] worth [same value]gp in the barrow of *[same dwarf name]* as hidden treasure]
+1,[number of mounds] [1d3x10]ft in diameter. This is a crypt of a wight general. If any dare [barrow dig] here, they will discover a hidden chamber, built with [barrow construction], yielding [random corpses], their [resting place] painted [[barrow colour] synonym] with [[power] decoration] and the inscription *[wight leader]*. The journey to the afterlife was sped with [with neolith], [and neolith], [and neolith], and <span class="treasure">[valuable grave goods] worth [1d12x1000 as value]gp</span>.[here store [same valuable grave goods] worth [same value]gp in the barrow of [same wight leader] as hidden treasure]
 
 ;number of mounds
 5,one [barrow shape] barrow,
@@ -8793,7 +8793,7 @@
 1,[neolithic magic weapon]
 1,[neolithic wondrous item]
 
-;neolithic magic item
+;neolithic magic weapon
 1,An *arrow* +1 with an obsidian tip.
 1,A *sling stone* +1.
 1,An *arrow* +1/+3 vs. reptiles, a relic from the Old Lizard Wars.
@@ -9358,7 +9358,7 @@
 1,goblin town beetles
 
 ;goblin town failures name
-1,Loosers
+1,Losers
 1,Desperados
 1,Haters
 
@@ -10028,7 +10028,7 @@
 1,huckle
 1,bunch
 1,cloud
-1,edler
+1,elder
 1,rasp
 1,bay
 1,bil
@@ -12026,7 +12026,7 @@
 1,A gentle breeze carries the sound of ethereal wind-chimes.
 
 ;unicorn information
-1,The unicorns fear the temple of [nearby tempel power] and would like to see it destroyed.
+1,The unicorns fear the temple of [nearby temple power] and would like to see it destroyed.
 1,The unicorns know of the dangers of [link to adjacent hex] and warn against going there.
 1,The unicorns are concerned about the druid [nearby druid] and would like for them to be eradicated.
 1,The unicorns fear the influence of the witch [nearby witch] and would like to see them destroyed.
@@ -12248,9 +12248,9 @@
 1,<p>[temple of law]
 
 ;temple of law
-1,On a peak nearby stands a statue of *[here good power as tempel power]*, built by [ancients]. At the foot of the statue, a few followers of [same good power] have built a small temple consisting of a prayer hall, a sleeping hall, and [lawful temple feature] [monks or nuns]
-1,Between these mountains lies a hidden valley where the [name for a secret society (law)] have built a temple dedicated to *[here good power as tempel power]*. The members of this secret society have erected a prayer hall, a sleeping hall, and [lawful temple feature] [monks or nuns]
-1,Between these mountains lies a hidden valley where the followers of *[here good power as tempel power]* have built a temple containing a prayer hall, a sleeping hall, and [lawful temple feature] [monks or nuns]
+1,On a peak nearby stands a statue of *[here good power as temple power]*, built by [ancients]. At the foot of the statue, a few followers of [same good power] have built a small temple consisting of a prayer hall, a sleeping hall, and [lawful temple feature] [monks or nuns]
+1,Between these mountains lies a hidden valley where the [name for a secret society (law)] have built a temple dedicated to *[here good power as temple power]*. The members of this secret society have erected a prayer hall, a sleeping hall, and [lawful temple feature] [monks or nuns]
+1,Between these mountains lies a hidden valley where the followers of *[here good power as temple power]* have built a temple containing a prayer hall, a sleeping hall, and [lawful temple feature] [monks or nuns]
 
 ;lawful temple feature
 1,a prayer machine.
@@ -12282,11 +12282,11 @@
 1,<p>[temple of chaos]
 
 ;temple of chaos
-1,In these water logged woods, a statue of *[here disease power as tempel power]* was built on top of a little hill. Around it, his followers have built a series of wooden huts and a sacrificial pit full of carcasses, maggots and flies. The stench is overpowering. The humans pray for deliverance, for change, for a remaking of the world and the forest. [cultists]
-1,The water pools between the trees here are black and oily. Dead birds, dead fish, everywhere you look there are dead animals. Here is a mound of ash and bones, and standing on it a pillar of pain dedicated to *[here disease power as tempel power]*. Humans have gathered here, to worship and to pray. Their faces are ashen and their eyes infected, their tongue black. They pray for the world to end and to be remade, whole and new. [cultists]
-1,From the stagnant water rises a pyramid. It’s bottom lies under the surface, but there is an opening further up. The waters around the pyramid harbour [1d6 crocodiles]. The boat is well hidden (1 in 6 chance per day and search party). Inside the pyramid is a sacrificial altar of *[here Set as tempel power]*, a [Set animal] pit, and the halls of the assassins in training, the Set acolytes. [cultists]
-1,The trees here are stunted and black, the water is grey and the air carries the smell of sulphur. Beneath the surface lie [undead guardians] waiting for anybody about to enter the water. The boat is well hidden (1 in 6 chance per day and search party). An island made of huge bones rises from the water. On it, necromancers have built a temple to *[here Orcus as tempel power]*, including an altar, a bone hall, a skull mound, and several small huts surrounding it all. [cultists]
-1,The trees here are painted with the blood of pigs and men. Carcasses full of maggots hang from hooks and the air is buzzing with flies. This is where a coven of witches has built an altar to *[here Hel as tempel power]*, the goddess of magic. They live in the wooden tree houses nearby. The area is guarded by [2d4] **hell hounds** ([hell hound stats]). [cultists led by a woman]
+1,In these water logged woods, a statue of *[here disease power as temple power]* was built on top of a little hill. Around it, his followers have built a series of wooden huts and a sacrificial pit full of carcasses, maggots and flies. The stench is overpowering. The humans pray for deliverance, for change, for a remaking of the world and the forest. [cultists]
+1,The water pools between the trees here are black and oily. Dead birds, dead fish, everywhere you look there are dead animals. Here is a mound of ash and bones, and standing on it a pillar of pain dedicated to *[here disease power as temple power]*. Humans have gathered here, to worship and to pray. Their faces are ashen and their eyes infected, their tongue black. They pray for the world to end and to be remade, whole and new. [cultists]
+1,From the stagnant water rises a pyramid. It’s bottom lies under the surface, but there is an opening further up. The waters around the pyramid harbour [1d6 crocodiles]. The boat is well hidden (1 in 6 chance per day and search party). Inside the pyramid is a sacrificial altar of *[here Set as temple power]*, a [Set animal] pit, and the halls of the assassins in training, the Set acolytes. [cultists]
+1,The trees here are stunted and black, the water is grey and the air carries the smell of sulphur. Beneath the surface lie [undead guardians] waiting for anybody about to enter the water. The boat is well hidden (1 in 6 chance per day and search party). An island made of huge bones rises from the water. On it, necromancers have built a temple to *[here Orcus as temple power]*, including an altar, a bone hall, a skull mound, and several small huts surrounding it all. [cultists]
+1,The trees here are painted with the blood of pigs and men. Carcasses full of maggots hang from hooks and the air is buzzing with flies. This is where a coven of witches has built an altar to *[here Hel as temple power]*, the goddess of magic. They live in the wooden tree houses nearby. The area is guarded by [2d4] **hell hounds** ([hell hound stats]). [cultists led by a woman]
 
 # these are necessary because of the aliasing
 ;Set
@@ -16458,9 +16458,9 @@
 1,Wise
 
 ;relic
-1,[precious metal mat] [metal jewelry singular] of St. [old name] kept at the temple of [nearby tempel power]
-1,[precious metal mat] [vessel desc] of St. [old name] kept at the temple of [nearby tempel power]
-1,[later relic of [nearby tempel power]]
+1,[precious metal mat] [metal jewelry singular] of St. [old name] kept at the temple of [nearby temple power]
+1,[precious metal mat] [vessel desc] of St. [old name] kept at the temple of [nearby temple power]
+1,[later relic of [nearby temple power]]
 ;relic of Set
 1,seven-headed silver snake amulet of *Set*
 ;relic of Orcus
