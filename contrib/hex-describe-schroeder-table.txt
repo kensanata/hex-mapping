@@ -7511,7 +7511,7 @@
 1,Lord
 1,Master
 1,Overlord
-1,Sorceror
+1,Sorcerer
 1,Witch
 
 ;ogre mage 3
@@ -14013,7 +14013,7 @@
 1,[[class]]
 
 ;magic user
-1,sorceror
+1,sorcerer
 1,magic user
 1,wizard
 
