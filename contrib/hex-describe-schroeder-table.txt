@@ -508,7 +508,7 @@
 1,HD 4 AC 5 1d6/1d6/1d8 F4 MV 18 ML 8 XP 400
 
 ;centaur
-1,[strange male name]
+1,[strange name for men]
 
 # https://www.s-gabriel.org/names/guntram/franks.htm
 
@@ -1352,7 +1352,7 @@
 
 ;grey tower top
 1,The top of the tower is inaccessible from the interior. A circus of [2d8] young **griffons** ([griffon stats]) is roosting up there when they’re not trying to impress each other with fantastic displays of aerial stunts. [maybe griffon eggs]
-1,A stair leads up to the top of the tower but nobody ever takes it for up there the air is unnaturally cold and half-transparent **spectre** is staring at the necropolis below. “Everyone I know has gone away, in the end.” All they are interested in is talking about the great armies they to [and direction] and [with direction], how they fought the armies of *[a wight capital]*, the manoeuvres they executed, the traps they set, the princes they had assassinated. This is *[a strange royal]*. Turning the conversation away from their achievements makes them very irate ([spectre stats]; *summon 1d4 servants* with the same stats). [ancient treasure]
+1,A stair leads up to the top of the tower but nobody ever takes it for up there the air is unnaturally cold and half-transparent **spectre** is staring at the necropolis below. “Everyone I know has gone away, in the end.” All they are interested in is talking about the great armies they took to the [with direction] and to the [and direction], how they fought the armies of *[a wight capital]*, the manoeuvres they executed, the traps they set, the princes they had assassinated. This is *[a strange royal]*. Turning the conversation away from their achievements makes them very irate ([spectre stats]; *summon 1d4 servants* with the same stats). [ancient treasure]
 1,At the top of the tower, through a painted arch and out onto a platform there is a throne, and on it sits the **spectre** *[a strange royal]*, desiccated and old, bones held together by leather straps and nails. They’re looking at the necropolis below. “This is my empire of dirt. You can have it all!” They butchered all their enemies. They rose in the ranks of *[an old wight leader]*. They held offices in *[a wight capital]*. Talking about the presence angers them ([spectre stats]; *summon 1d4 servants* with the same stats). [ancient treasure]
 1,The top of the tower is an inaccessible mess of wood, hair and bones, the result of [1d6 wyverns] living up here ([wyvern stats]). [terror treasure]
 
@@ -1363,7 +1363,7 @@
 1,High Priestess [strange name for women]
 
 ;necropolis central area
-1,The necropolis itself consists of dozens of mausoleums, each built according to the same plan: a fake entrance leading an altar where descendants left flowers and food for the dead, with paintings of their exploits and achievements, and a *hidden* entrance from above, sealed with a heavy drop stone, trapped by spiked pits below and crushing stones above, filled with poison dust or a brazier of *warp* blood resulting in terrible mutations. And finally, [1d8 mummies] patiently waiting for news from the world of the living ([mummy stats]). They want to know about the world outside but they are unwilling to part with any treasure they might have, however.
+1,The necropolis itself consists of dozens of mausoleums, each built according to the same plan: a fake entrance leading an altar where descendants left flowers and food for the dead, with paintings of their exploits and achievements, and a *hidden* entrance from above, sealed with a heavy drop stone, trapped by spiked pits below and crushing stones above, filled with poison dust or a brazier of *warp* blood resulting in terrible mutations. And finally, [1d8 mummies] patiently waiting for news from the world of the living ([mummy stats]). They want to know about the world outside but they are unwilling to part with any treasure they might have.
 1,The necropolis itself is an endless graveyard, tombstone after tombstone, filling every slope in this valley, stone statues, inscriptions, pictures, headstones engraved with [Set decoration] or [Pazuzu decoration]. At night the ghosts rise from their graves, lamenting the state of their graves and the lack of care, the sloth of their descendants, and they curse them and their world, not realising that their world has already faded and that they are the only ones left. Appropriate rites and sacrifices, a purification and a hallowing might bring them peace.
 1,This might have been a necropolis hundreds of years ago but now it’s more like a meadow. There are still some overgrown headstones to see, some mausoleums are still standing, some statues can be discerned, but most of it is pasture now, [mountain animals] grazing and a bunch of orcs working on their [mountain orc product]. The banners on their tents intents identify them as [evil tribe] orcs. [orcs] [mountain orc leader specialty]
 1,The valley is filled with ruins. This must have been a large monastic complex in its heyday. These days the ceilings have fallen, walls have crumbled, weeds are growing everywhere and anything not made of stone has rotten away. It’s hard to say what these buildings were used for. Here you can see an engravings of [Pazuzu decoration], over there is an engraving of [Set decoration].
@@ -1375,7 +1375,7 @@
 1,In the middle of all this is a platform made of stone, circular and about five feet high. On it a wooden structure rises up into the air and at the very top rests the [sphinx]
 
 ;sphinx
-1,**sphinx** *[strange name]* ([sphinx stats]).[here store the sphinx *[same sphinx name]* as sage] Tell her a good pun and she’ll be friendly. Answer her riddle to be granted a boon. [riddle]
+1,**sphinx** *[strange name]* ([sphinx stats]).[here store the sphinx *[same strange name]* as sage] Tell her a good pun and she’ll be friendly. Answer her riddle to be granted a boon. [riddle]
 
 ;sphinx stats
 1,HD 5 AC 6 1d6/1d6 F10 MV 15 ML 9 XP 500; *cure disease* 3×/day, *raise dead* 1×/day, *summon tengus* (2d6) 1×/day: [tengu stats]
@@ -12580,7 +12580,7 @@
 
 ;tomb guardian
 1,The inscriptions of the mausoleum tells tales of bloodshed and violence. The tomb is in fact the resting place of [1d6 vampires], and the entrance is guarded by [undead guardians].
-1,The tomb is in fact the council chamber from the days when the living still consulted the dead. The inscriptions speak of many festivals where the dead participated as guests of honour. Sadly, many of the dead have lost their mind: these are the [undead guardians] that still roam these halls. But in the council chamber, you can still find [1d8 mummies] ([mummy stats]) willing to talk. They are quite unwilling to part with any treasure they might have, however.
+1,The tomb is in fact the council chamber from the days when the living still consulted the dead. The inscriptions speak of many festivals where the dead participated as guests of honour. Sadly, many of the dead have lost their mind: these are the [undead guardians] that still roam these halls. But in the council chamber, you can still find [1d8 mummies] ([mummy stats]) willing to talk. They are quite unwilling to part with any treasure they might have.
 1,The tomb is in fact the resting place of an old hero. Sadly, according to the inscriptions they lost their war and never found eternal rest. They are still here, eager to fight, eager to recruit an army and resume their war: [1d4 spectres].
 
 ;travelling circus
