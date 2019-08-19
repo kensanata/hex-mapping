@@ -7662,14 +7662,23 @@
 1,[some ruins] Here lives the **hermit** [human with portrait] (level 1) and a **jaguar** ([jaguar stats]).
 1,[some ruins] Here lives the **hermit** halfling [halfling with portrait] (level 1) with some sheep.
 
+;large cat
+1,puma
+1,jaguar
+1,lion
+1,tiger
+
 ;puma stats
-1,HD 3 AC 6 1d6 F1 MV 24 ML 7 XP 300
+1,HD 3 AC 6 1d6 F1 MV 24 ML 7 XP 300; surprise on 1–4 in 6
 
 ;jaguar stats
-1,HD 4 AC 6 1d4/1d4/1d8 F2 MV 21 ML 8 XP 400
+1,HD 4 AC 6 1d4/1d4/1d8 F2 MV 21 ML 8 XP 400; surprise on 1–4 in 6
+
+;lion stats
+1,HD 5 AC 6 1d6/1d6/1d10 F3 MV 15 ML 9 XP 500; surprise on 1–4 in 6
 
 ;tiger stats
-1,HD 6 AC 6 1d6/1d6/1d12 F3 MV 15 ML 9 XP 600
+1,HD 6 AC 6 1d6/1d6/1d12 F3 MV 15 ML 9 XP 600; surprise on 1–4 in 6
 
 ;some ruins
 1,On one of the hills you find an old two story watchtower.
@@ -8549,19 +8558,19 @@
 1,[swamp]
 
 ;swamp
-1,[swamp intro] [swamp dressing] [giant fish] can be seen below the water surface ([giant fish stats]).
+1,[swamp intro] [swamp dressing] [giant fish] can be seen below the water surface ([giant fish stats]). [maybe island barrow]
 1,[swamp intro] [swamp dressing] Without a guide, you soon end up in the lands of the [witch]
 1,[swamp intro] [swamp dressing] There are plenty of [swamp animals]. Those who know how to find it can gather *[here magic plant]*.
-1,[swamp intro] [swamp dressing] [lizard people]
-1,[swamp intro] [swamp dressing] [froglings]
-1,[swamp intro] [swamp dressing] A ruined tower standing on a small island is home to the **ettin** called *[ettin]*. [robber treasure] [ettin tower protection]
-1,[swamp intro] [swamp dressing] In the old days, these stagnant pools were used to drown evil necromancers. [bog wights]
-1,[swamp intro] [swamp dressing] On one of the islands there is a huge mud mound. [goblins]
+1,[swamp intro] [swamp dressing] [lizard people] [maybe guarded barrow]
+1,[swamp intro] [swamp dressing] [froglings] [maybe guarded barrow]
+1,[swamp intro] [swamp dressing] A ruined tower standing on a small island is home to the **ettin** called *[ettin]*. [robber treasure] [ettin tower protection] [maybe island barrow]
+1,[swamp intro] [swamp dressing] In the old days, these stagnant pools were used to drown evil necromancers. [bog wights] [maybe island barrow]
+1,[swamp intro] [swamp dressing] On one of the islands there is a huge mud mound. [goblins] [maybe island barrow]
 1,The [forest name] has turned into a black swamp and the smell of sulphur hangs in the air. A **black dragon** named *[here black dragon name as dragon name]*[dragon portrait] [black dragon activity] ([black dragon stats]). [dragon treasure] If you enter the water, you’ll soon attract the attention of [1d6 crocodiles].
-1,[swamp intro] [swamp dressing] You need a boat and a guide to navigate these waterways. If you travel on foot, you’ll soon attract the attention of [1d6 crocodiles].
-1,[swamp intro] If you drink the water here, save vs. poison or spend the rest of the day vomiting. These lakes are home to [3d12] **swamp cranes** ([swamp crane stats]). Their dung is poisonous to most creatures on land.
+1,[swamp intro] [swamp dressing] You need a boat and a guide to navigate these waterways. If you travel on foot, you’ll soon attract the attention of [1d6 crocodiles]. [maybe island barrow]
+1,[swamp intro] If you drink the water here, save vs. poison or spend the rest of the day vomiting. These lakes are home to [3d12] **swamp cranes** ([swamp crane stats]). Their dung is poisonous to most creatures on land. [maybe island barrow]
 1,[swamp intro] [swamp dressing] An abandoned temple of *[power]* stands here, half sunk. The acrid stench is overwhelming. On the small piece of solid ground rising above the water you can see [what you can see of the sunken temple] A **gorgon** has cursed this temple with its presence ([gorgon stats]). [terror treasure]
-1,[swamp intro] [swamp dressing] There’s a wooden hut here. Its inhabitant appears to be a hermit called [human with portrait]. In actual fact, this is a **doppelgänger** ([doppelgänger stats]). [poor treasure] It will try and see whether it can replace one of the party members and leave the area with you.
+1,[swamp intro] [swamp dressing] There’s a wooden hut here. Its inhabitant appears to be a hermit called [human with portrait]. In actual fact, this is a **doppelgänger** ([doppelgänger stats]). [poor treasure] It will try and see whether it can replace one of the party members and leave the area with you. [maybe guarded barrow]
 1,[swamp intro] [swamp dressing] The waterways eventually lead to a wooden fort rising out of the water, inhabited by [4d6] **hobgoblins** ([hobgoblin stats]) and led by *[hobgoblin]* (HD 3+1). The fort is defended by [hobgoblin companions]. [robber treasure]
 1,This section of the [forest name] swamp is a well known death trap. The trees are older here. They remember every axe wielder, every ship builder, every carpenter, every fire maker, and they hate them with the hate of the primal forest. These trees are protected by [1d8 treants] ([treant stats]) who would like nothing better than to squash anybody capable of wielding tools.
 1,[swamp ettercaps]
@@ -8627,12 +8636,192 @@
 1,burn
 1,flow
 
+;maybe guarded barrow
+1,
+1,<p>Close by, on a little hill, one can see [barrow]
+1,<p>A tiny foot trail leads into a copse of [tree] trees. There, one finds [barrow]
+1,<p>Between two rocky outcrops, one can find [barrow]
+
+;maybe island barrow
+1,
+1,<p>On a small island in a little lake, one can see [barrow]
+
+;barrow
+3,[number of mounds] [1d3x10]ft in diameter, [barrow verb] an ancient [barrow loss]. If any dare [barrow dig] here, they will discover a hidden chamber, built with [barrow construction], yielding [random corpses], their [resting place] painted [[barrow color] synonym] with [[power] decoration]. The journey to the afterlife was sped with [neolith], [and neolith], [and neolith], and [and neolith].
+1,[number of mounds] [1d3x10]ft in diameter, [barrow verb] an ancient [barrow loss]. If any dare [barrow dig] here, they will discover a hidden chamber, built with [barrow construction], yielding [random corpses], their [resting place] painted [[barrow color] synonym] with [[power] decoration]. The journey to the afterlife was sped with [neolith], [and neolith], [and neolith], and <span class="treasure">a gem worth [3d6x100 as value].</span>
+1,[number of mounds] [1d3x10]ft in diameter, [barrow verb] an ancient [barrow loss]. If any dare [barrow dig] here, they will discover a hidden chamber, built with [barrow construction], yielding [random corpses], their [resting place] painted [[barrow color] synonym] with [[power] decoration]. The journey to the afterlife was sped with [neolith], [and neolith], and [and neolith]. <span class="treasure">[neolithic magic item]</span>
+1,[number of mounds] [1d3x10]ft in diameter. This is an ancestral shrine of the elves. If any dare [barrow dig] here, they will discover a hidden chamber, built with [barrow construction], yielding [random corpses], their [resting place] painted [[barrow color] synonym] with [[power] decoration] and the inscriptions *[elf name]*. The journey to the afterlife was sped with [neolith], [and neolith], [and neolith], and <span class="treasure">[valuable grave goods] worth [1d6x1000 as value]gp</span>.[here store [same valuable grave goods] worth [same value]gp in the barrow of *[same elf name]* as hidden treasure]
+1,[number of mounds] [1d3x10]ft in diameter. This is an ancestral shrine of the dwarves. If any dare [barrow dig] here, they will discover a hidden chamber, built with [barrow construction], yielding [random corpses], their [resting place] painted [[barrow color] synonym] with [[power] decoration] and the inscription *[dwarf name]*. The journey to the afterlife was sped with [neolith], [and neolith], [and neolith], and <span class="treasure">[valuable grave goods] worth [1d10x1000 as value]gp</span>.[here store [same valuable grave goods] worth [same value]gp in the barrow of *[same dwarf name]* as hidden treasure]
+1,[number of mounds] [1d3x10]ft in diameter. This is a crypt of a wight general. If any dare [barrow dig] here, they will discover a hidden chamber, built with [barrow construction], yielding [random corpses], their [resting place] painted [[barrow color] synonym] with [[power] decoration] and the inscription *[wight leader]*. The journey to the afterlife was sped with [neolith], [and neolith], [and neolith], and <span class="treasure">[valuable grave goods] worth [1d12x1000 as value]gp</span>.[here store [same valuable grave goods] worth [same value]gp in the barrow of [same wight leader] as hidden treasure]
+
+;number of mounds
+5,one [barrow shape] barrow,
+1,two [barrow shape] barrows, each
+1,three [barrow shape] barrows, each
+1,four [barrow shape] barrows, each
+
+;barrow shape
+1,bank
+1,bell
+1,bowl
+1,cruciform
+1,D-shaped
+1,disc
+1,long
+1,oval
+1,pond
+1,square
+
+;barrow verb
+1,memorialising
+1,remembering
+1,hinting at
+
+;barrow loss
+1,tragedy
+1,loss
+1,noble
+1,people
+1,folk
+1,religion
+
+;barrow dig
+1,dig
+1,excavate
+1,disturb the ground
+
+;barrow construction
+1,wooden posts
+2,stone slabs
+1,stone walls
+
+;random corpses
+4,one corpse
+2,two corpses
+1,three corpses
+1,four corpses
+1,six corpses
+2,two dozen corpses
+
+;resting place
+1,sarcophagus
+1,mummy
+1,tombstone
+1,headstone
+
+;barrow colour
+4,red
+3,black
+2,white
+1,blue
+
+;neolith
+5,pottery shards
+5,painted pebbles
+4,cattle bones
+4,horse bones
+4,human bones
+4,otter bones
+4,sheep bones
+3,stone arrowheads
+3,a stone axehead (1 gp)
+3,a stone handaxe (1 gp)
+3,a stone saddle quern (1 gp)
+3,a stone scraper (1 gp)
+3,a stone spearpoint (1 gp)
+3,a stone rotary quern (1 gp)
+2,an amber spindle whorl (2 gp)
+2,an antler spindle whorl (2 gp)
+2,a bone spindle whorl (2 gp)
+2,a chalk spindle whorl (2 gp)
+2,a limestone spindle whorl (2 gp)
+2,an oak spindle whorl (2 gp)
+2,a sandstone spindle whorl (2 gp)
+2,a slate spindle whorl (2 gp)
+2,a soapstone spindle whorl (2 gp)
+2,a stone adze blade (3 gp)
+2,a stone bowl (3 gp)
+2,a stone weaving or wool-carding comb (3 gp)
+2,a stone cup (3 gp)
+2,a stone dagger (3 gp)
+2,a stone digger (3 gp)
+2,a stone hammerstone (3 gp)
+2,a stone handstone (3 gp)
+2,a stone harpoon head (3 gp)
+2,a stone knife (3 gp)
+2,a stone sickle blade (3 gp)
+1,an amber bead (4 gp)
+1,a bone carving of a boat (4 gp)
+1,a bronze bracelet (4 gp)
+1,a bronze dagger (4 gp)
+1,a folded sheet of lead (4 gp)
+1,a glass-bead bracelet (4 gp)
+1,a gold ring (4 gp)
+1,an iron bell (clapper missing) (4 gp)
+1,an iron hammer (4 gp)
+1,a jet ring (4 gp)
+1,a pick made from an antler (4 gp)
+1,rings with glass heads (4 gp)
+1,stone gaming pieces (4 gp)
+1,a bronze sickle (4 gp)
+1,an iron sickle (4 gp)
+1,a copper sickle (4 gp)
+1,a clay jar with 3 ep (4 gp)
+2,a bone carving of a god (2 gp)
+2,a bone carving of a goddess (2 gp)
+2,a bone carving of a horse (2 gp)
+2,a bone carving of a lion (2 gp)
+2,a bone carving of a man (2 gp)
+2,a bone carving of a monster (roll d20 on monster table) (2 gp)
+2,a bone carving of a woman (2 gp)
+2,a bone flute (2 gp)
+2,a bone pin (2 gp)
+2,a carved antler baton (2 gp)
+2,a carved bone disc (2 gp)
+2,a charcoal horse on stone (2 gp)
+2,etched deer teeth beads (2 gp)
+2,seashell necklace beads (2 gp)
+
 # more descriptions for future entries:
 # gnarled roots jutting up like knees from brackish water
 # quagmires
 # sucking mud (like quicksand)
 # moss hanging from trees
 # humid islets studded with rotting logs
+
+;neolithic magic item
+1,[neolithic magic weapon]
+1,[neolithic wondrous item]
+
+;neolithic magic item
+1,An *arrow* +1 with an obsidian tip.
+1,A *sling stone* +1.
+1,An *arrow* +1/+3 vs. reptiles, a relic from the Old Lizard Wars.
+1,The ancient spear *Scale Eater* +1/+3 vs. reptiles, a relic of the Old Lizard Wars, blessed by Pazuzu.
+1,A *javelin of thunder* that explodes like a *fireball* dealing 6d6 to all nearby, save vs. spells for half.
+1,A *bow of the hunter* +1/+3 vs. giants and extinct megafauna, e.g. sabre tooth tigers, mammoths, or giant elk.
+
+;neolithic wondrous item
+1,A *stone of orientation* that always points north.
+1,A *stone of fire* that always lights a perfect campfire when struck with iron.
+1,An *eternal torch* that produces an eternal flame, temporarily suppressed under water.
+1,A *feather of the divine eagle* which, when attached to an object that can be thrown or shot from a bow or a sling makes sure it always hits a visible target.
+1,A *feather of the divine owl* which, when attached to an object that can be carried by a bird will make sure the object gets delivered to any individual in this realm known by name, sight, hair or bone.
+1,A piece of *chalk of the earth* which allows its user to draw on stone and name the people that will be able to see the marks.
+1,A *wolf skull necklace* which allows its wearer to speak the language of wolves.
+1,A *cape of the wolf* that changes the wearer into a wolf ([wolf stats]; permanent if worn for longer than 24h at a time).
+1,A *coat of the bear* that changes the wearer into a bear ([bear stats]; permanent if worn for longer than 24h at a time).
+1,A *necklace of the [large cat]* width [3d6] teeth left; each one allows the wearer to turn into a [same large cat] and back ([[same large cat] stats]).
+1,[2d6] *dream land berries* which transport the eater into a dream time where they can talk to an immortal hero for as long as they want or walk for as long as they want (if you decide to return, you return to the same moment in time but you will have aged appropriately and your place will have shifted in accordance with the distance you moved).
+1,[1d6+1] *wind leaves* which transport anybody who crushes one as an invisible gust of wind anywhere a gust of wind may travel.
+
+;valuable grave goods
+#1d6 vessels
+1,a [precious metal mat] [vessel desc]
+5,[1d5+1] [precious metal mat] [vessel desc]s
+# 1d6 jewelry
+1,a [precious metal mat] [metal jewelry singular]
+5,[1d5+1] [precious metal mat] [metal jewelry plural]
 
 ;doppelgänger stats
 1,HD 4 AC 5 1d12 F10 MV 9 ML 10 XP 400; *shape change* at will
@@ -9703,6 +9892,7 @@
 1,king
 
 ;vessel desc
+# plural with s must be OK
 1,cup
 1,mug
 1,stein
@@ -36837,9 +37027,7 @@
 4,[treasure map]
 
 ;treasure map
-1,map to the hidden ancestral shrine of *[elf name]* (in [link to adjacent hex]) with the promise of [1d6]000 gold coins to be found
-1,map to the hidden ancestral shrine of *[dwarf name]* (in [link to adjacent hex]) with the promise of [1d10]000 gold coins to be found
-1,map to the hidden crypt of [wight leader] (in [link to adjacent hex]) with the promise of [1d12]000 gold coins to be found
+3,map to the [nearby hidden treasure]
 1,map to [2d6] jewels hidden in a secret compartment in the dwarven forge *[nearby dwarf forge]*
 
 ;link to adjacent hex
@@ -36948,6 +37136,7 @@
 1,The long sword *Swampfire* +1/+3 vs. runners, forged in the depths of Myrkheim by frogling priests of Tsathoggua; it eeks a phosphorous glowing liquid and smells of rotten eggs; when left unsheathed, everything around it becomes water logged and eventually turns into a swamp.
 1,The *trident of fishes* +1 gives you long, webbed toes and the ability to breathe under water when you step into it, and you can speak the language of fishes.
 1,The ancient war hammer *Earth Hammer* +3, made by *[orc name]* in the *War of the Landgrab*: it can smash any structure built by man in three blows.
+1,[neolithic magic weapon]
 
 ;magic weapon for magic user
 5,An elven *dagger* +1 with [elven inscription][here store the dagger of [same owner] as elf treasure]
@@ -37045,6 +37234,7 @@
 1,The *flute of the naga*, summons the naga *[naga name]*, always ready to whisper and corrupt in your name ([naga stats]); the flute’s magic is lost when the naga is killed.
 1,A *flying carpet* (four people).
 1,[elemental prison]
+1,[neolithic wondrous item]
 
 ;magic horn
 2,*horn of the barbarians* (summons 3d6 random, battle crazy barbarians: HD 2 AC 7 1d8 F2 MV 12 ML 12; when they are all killed in the same fight they are released from their bond to the horn)
