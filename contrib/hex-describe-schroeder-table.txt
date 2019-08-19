@@ -12958,9 +12958,9 @@
 
 ;local smith inventory
 1,[with local smith item], [and local smith item], and [and local smith item]
-1,[with local smith item], [with local smith item], [and local smith item], and [and local smith item]
-1,[with local smith item], [with local smith item], [with local smith item], [and local smith item], and [and local smith item]
-1,[with local smith item], [with local smith item], [with local smith item], [with local smith item], [and local smith item], and [and local smith item]
+1,[with local smith item], [and local smith item], [and local smith item], and [and local smith item]
+1,[with local smith item], [and local smith item], [and local smith item], [and local smith item], and [and local smith item]
+1,[with local smith item], [and local smith item], [and local smith item], [and local smith item], [and local smith item], and [and local smith item]
 
 ;local smith item
 2,a silver-tipped arrow @ 7gp
