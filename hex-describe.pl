@@ -985,6 +985,8 @@ sub parse_table {
   for my $line (split(/\r?\n/, $text)) {
     if ($line =~ /^;([^#\r\n]+)/) {
       $key = $1;
+      $log->warn("parse_table: reset '$key'") if exists $data->{$key};
+      $data->{$key} = {}; # reset, don't merge
     } elsif ($key and $line =~ /^(\d+),(.*)/) {
       $data->{$key}->{total} += $1;
       my %h = (count => $1, text => $2);
