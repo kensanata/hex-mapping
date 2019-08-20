@@ -1009,6 +1009,7 @@ sub parse_table {
   for my $table (keys %$data) {
     for my $line (@{$data->{$table}->{lines}}) {
       for my $subtable ($line->{text} =~ /\[($words)\]/g) {
+	next if index($subtable, '|') != -1;
 	next if $subtable =~ /$dice_re/;
 	next if $subtable =~ /^redirect https?:/;
 	next if $subtable =~ /^names for (.*)/ and $data->{"name for $1"};
@@ -1172,6 +1173,9 @@ sub describe {
       # $log->debug("rolling dice: $word = $r");
       $locals{$save_as} = $r if $save_as;
       push(@descriptions, $r) unless $just_save;
+    } elsif (index($word, "|") != -1) {
+      # super shorthand for [a|b]
+      push(@descriptions, one(split(/\|/, $word)));
     } elsif ($word =~ /^name for an? /) {
       # for global things like factions, dukes
       my $name = $names{$word};
@@ -2508,6 +2512,28 @@ them into tables?
 Now we will see such fantastic names as Big Pain, Bone Eye and Mad
 Tooth.
 </p>
+
+<p>
+There is actually a shortcut available if you don't plan on reusing something as
+a table, and if all the entries are equally likely. It's mostly useful when
+doing quick and dirty prototyping: using a vertical line to separate options.
+</p>
+
+%= example begin
+;hills
+1,Many small creeks separated by long ridges make for bad going in these badlands.
+1,An *ettin* is known to live in the area.
+1,A *manticore* has taken over a ruined tower.
+1,[1d6 ogres live] in these hills.
+1,An *orc tribe* is camping in a ruined watch tower.
+
+;1d6 ogres live
+1,An *ogre* named [ogre] lives
+5,[1d5+1] *ogres* led by one named [ogre] live
+
+;ogre
+1,[Mad|Big|Much|Bone] [Eye|Tooth|Pain|Crusher]
+% end
 
 <p>
 And now you just keep adding. Take a look at the <%= link_to 'Schroeder table'
