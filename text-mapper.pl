@@ -1375,12 +1375,13 @@ sub grow_mountains {
   while (@queue) {
     my $coordinates = shift @queue;
     my $current_altitude = $altitude->{$coordinates};
+    next unless $current_altitude > 0;
     # pick some random neighbors based on variable steepness
-    my $n = $steepness + rand($steepness/2) - rand($steepness/2);
+    my $n = $steepness;
     # round up based on fraction
     $n += 1 if rand() < $n - int($n);
     $n = int($n);
-    $log->debug("Steepness $n");
+    next if $n < 1;
     for (1 .. $n) {
       # try to find an empty neighbor; abort after six attempts
       for (1 .. 6) {
@@ -1397,7 +1398,6 @@ sub grow_mountains {
 	}
 	# if we found an empty neighbor, set its altitude
 	$altitude->{$other} = $current_altitude > 0 ? $current_altitude - 1 : 0;
-	$log->debug("altitude of $coordinates is $current_altitude, altitude of $other was set to $altitude->{$other}");
 	push(@queue, $other);
 	last;
       }
