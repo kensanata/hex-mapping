@@ -2313,7 +2313,12 @@ get '/' => sub {
   my $c = shift;
   my $param = $c->param('map');
   if ($param) {
-    my $map = new Mapper::Hex;
+    my $map;
+    if ($c->param('type') and $c->param('type') eq 'square') {
+      $map = new Mapper::Square;
+    } else {
+      $map = new Mapper::Hex;
+    }
     $map->initialize($param);
     $c->render(text => $map->svg, format => 'svg');
   } else {
@@ -2908,7 +2913,7 @@ Library:
 L<$contrib/gridmapper.txt>
 
 Result:
-L<https://campaignwiki.org/text-mapper?map=include+$contrib/gridmapper-example.txt>
+L<https://campaignwiki.org/text-mapper?type=square&map=include+$contrib/gridmapper-example.txt>
 
 =head2 Configuration
 
