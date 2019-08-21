@@ -2504,6 +2504,7 @@ get '/help' => sub {
   seek(DATA,0,0);
   local $/ = undef;
   my $pod = <DATA>;
+  $pod =~ s/\$contrib/$contrib/g;
   my $parser = Pod::Simple::HTML->new;
   $parser->html_header_after_title('');
   $parser->html_header_before_title('');
