@@ -16,24 +16,6 @@
 package main;
 use Modern::Perl;
 
-=head2 Configuration
-
-As a Mojolicious application, it will read a config file called
-F<text-mapper.conf> in the same directory, if it exists. As the default log
-level is 'warn', one use of the config file is to change the log level using
-the C<loglevel> key.
-
-The libraries are loaded from the F<contrib> URL. You can change the default
-using the C<contrib> key. This is necessary when you want to develop locally,
-for example.
-
-    {
-      loglevel => 'debug',
-      contrib => 'file://contrib',
-    };
-
-=cut
-
 my $dx = 100;
 my $dy = 100*sqrt(3);
 my $debug;
@@ -2926,6 +2908,22 @@ L<$contrib/gridmapper.txt>
 
 Result:
 L<https://campaignwiki.org/text-mapper?map=include+$contrib/gridmapper-example.txt>
+
+=head2 Configuration
+
+As a Mojolicious application, it will read a config file called
+F<text-mapper.conf> in the same directory, if it exists. As the default log
+level is 'warn', one use of the config file is to change the log level using
+the C<loglevel> key.
+
+The libraries are loaded from the F<contrib> URL. You can change the default
+using the C<contrib> key. This is necessary when you want to develop locally,
+for example.
+
+    {
+      loglevel => 'debug',
+      contrib => 'file://contrib',
+    };
 
 =head2 Command Line
 
