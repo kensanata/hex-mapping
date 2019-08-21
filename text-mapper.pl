@@ -489,7 +489,9 @@ struct Mapper => {
 		  url => '$',
 		 };
 
-my $example = <<'EOT';
+
+sub example {
+  return <<"EOT";
 0101 mountain "mountain"
 0102 swamp "swamp"
 0103 hill "hill"
@@ -512,9 +514,6 @@ my $example = <<'EOT';
 include $contrib/default.txt
 license <text>Public Domain</text>
 EOT
-
-sub example {
-  return $example;
 }
 
 sub initialize {
