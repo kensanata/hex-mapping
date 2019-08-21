@@ -224,7 +224,20 @@
 0616 rock-dead-end-e
 0816 "dead ends"
 
-0516 rock-corridor-rotated
+3505 empty grey
+3506 empty white
+3507 empty red
+3508 empty salmon
+3509 empty orange
+3510 empty yellow
+3511 empty brown
+3512 empty blue
+3513 empty grey-blue
+3514 empty green
+3515 empty pale-green
+3516 "colours"
+
+other <text font-size="100pt" font-family="Arial Narrow" font-weight="800"><tspan x="5500" y="220">Gridmapper</tspan><tspan x="5500" dy="200">&amp; Text Mapper!</tspan></text>
 
 license <text x="50" y="-15" font-size="15pt" fill="#999999"><a style="fill:#8888ff" xlink:href="https://campaignwiki.org/gridmapper">Gridmapper SVG Map Icons</a>. This work is <a style="fill:#8888ff" xlink:href="https://creativecommons.org/publicdomain/zero/1.0/">dedicated to the Public Domain </a>.</text>
 include http://campaignwiki.org/contrib/gridmapper.txt
