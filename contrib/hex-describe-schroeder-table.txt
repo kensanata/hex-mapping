@@ -1260,6 +1260,196 @@
 1,[mountain orcs]
 1,[necropolis]
 1,[naga temple]
+1,[dungeon]
+
+# At the start you save a dungeon type for theming, then on subsequent
+# calls you reference what it’s stored as to pull in only certain
+# “types” from specific tables. Also uses a “boss” monster in the
+# final room of the key. You could make clew tables for the bosses
+# that tie into the same monster list.
+
+# Some ideas for extensibility (ktrey): Sub-nest with <ul> room
+# contents.
+
+;dungeon
+1,Dungeon:[save dungeontype as monsters]<ol><li>[entrance room]</li><li>[with interior room]<ul><li>[room feature]</i></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[final room]<ul><li>Boss Monster: [[same monsters] boss]</li></ul></li></ol>
+1,Dungeon:[save dungeontype as monsters]<ol><li>[entrance room]</li><li>[with interior room]<ul><li>[room feature]</i></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[final room]<ul><li>Boss Monster: [[same monsters] boss]</li></ul></li></ol>
+1,Dungeon:[save dungeontype as monsters]<ol><li>[entrance room]</li><li>[with interior room]<ul><li>[room feature]</i></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[final room]<ul><li>Boss Monster: [[same monsters] boss]</li></ul></li></ol>
+# add Wandering Monster: [[same monsters] encounter]
+
+;dungeontype
+1,goblin
+1,undead
+1,lizard
+1,magic user
+
+;goblin boss
+1,a **goblin chieftain** ([orc stats]) and [2d4] **goblins** ([goblin stats]) [monster activities]. [poor treasure]
+
+;undead boss
+1,a **wight** ([wight stats]) and [2d4] **skeletons** ([skeleton stats]) [monster activities]. [dead treasure]
+
+;lizard boss
+1,a **red dragon** [red dragon stats]. [dragon treasure]
+
+;magic user boss
+1,a **thaumaturge** [magic user] (level [1d3+4 as level]). [spellbook for magic user] [leader treasure for magic user]
+
+;wererat boss
+1,a **wererat** ([werewolf stats]). [poor treasure]
+
+#other ideas for themes: cultists, smugglers, bandits
+
+;entrance room
+1,catacombs
+1,charnel pit
+1,cave [cave description]
+1,latrine
+1,mine shaft
+1,natural cavern [entrance description]
+
+;interior room
+1,altar
+1,antechamber
+1,arena
+1,banquet hall
+1,barracks
+1,bedroom
+1,chapel
+1,cistern
+1,common room
+1,crypt
+1,debris room
+1,firewood room
+1,guano pit
+1,guard chamber
+1,guardroom
+1,kiln
+1,kitchen
+1,labyrinth
+1,larder
+1,living quarters
+1,mined wall
+1,mushroom farm
+1,nursery
+1,prison cells
+1,shrine
+1,slave pen
+1,smithy
+1,storeroom
+1,torture chamber
+1,vault
+1,well
+1,workshop
+
+;shortcut
+#not currently used
+#rooms avoided by the denizens of the dungeon
+1,bat cave
+1,dusty room
+1,spider cave: Trapdoor Spider, triggered on 1 in 6 per PC to fall in pit with a *giant spider* ([giant spider stats])
+1,spider ceiling: *giant spider* ([giant spider stats]) waits patiently to drop on smallest party member
+
+;special
+1,[2d4] pools
+1,[2d3] statues
+1,buried here can be found [neolithic treasure]
+1,cage with a dead [skull desc]
+1,cave paintings
+1,frescoes of [power]
+1,paintings of [[power] decoration]
+1,a magic mouth reciting poetry
+1,a narrow path along a charnel pit with [random corpses]
+1,painted runes in the wall spelling out [dwarf name]
+
+;empty dressing
+1,cobwebs
+1,small organized piles of dirt
+1,empty room
+1,empty gallery
+1,rubbish heap
+1,garbage pile
+1,midden
+1,phosphorescent fungus
+1,rat tunnels
+1,rodent nests
+1,rockfall
+1,partial cave-in
+1,[entrance description]
+1,[goblin junk]
+
+;final room
+1,banquet room
+1,great hall
+1,hoard
+1,leader’s room
+1,temple
+1,throne room
+1,treasure room
+
+#Moldvay Stocking rules: Contents: 1-2 Monster, 3 Trap, 4 Special, 5-6 Empty
+;room feature
+2, Monster: [[same monsters] encounter]
+1, Trap: [trap]
+1, Special: [special]
+2, Empty: [empty dressing]
+
+;goblin encounter
+1,[1d6+1] **goblins** ([goblin stats]) [monster activities]
+1,[2d4] **hobgoblins** ([hobgoblin stats]) [monster activities]
+1,[1d4+1] **orcs** ([orc stats]) [monster activities]
+1,[1d4+1] **trolls** ([troll stats]) [monster activities]
+
+;lizard encounter
+1,[1d6+1] **kobolds** [goblin stats] [monster activities]
+1,**giant lizard** ([giant lizard stats]) ([giant lizard stats])
+1,[2d4] **lizard people** [lizard people stats] [monster activities]
+
+;undead encounter
+#can call out to the necromancer companions table for this
+1,[necromancer companions] [monster activities]
+
+;magic user encounter
+1,[1d4+1] **suits of armor** [skeleton stats] standing against the wall
+1,[1d6+1] **animated brooms** [goblin stats] sweeping the halls
+1,[2d4] **small clay golems** [orc stats] standing inert
+1,[2d4] **fighter** (level 1) [monster activities]
+
+;wererat encounter
+1,[2d6] **giant rats** ([giant rat stats])
+1,[2d6] **giant beetles** ([giant beetle stats])
+
+;trap
+1,**checkerboard floor**, move like a [chess piece] from its starting position trigger flames: save vs. breath or suffer 2d6 damage
+1,**chest**, booby-trapped with sleep gas, constitution check or sleep that many turns
+1,**deep pit**, save vs. wands or fall 30ft (3d6 damage)
+1,**net**, net falls from the ceiling, dexterity check or be caught
+1,**pendulum blade**, dexterity check or suffer 1d6 damage
+1,**scorched pedestal with treasure**, touching the [gem] unleashes a *fireball*: 3d6 damage to all in the room, save vs. dragon breath for half
+1,**spiked ball**, save vs. breath or suffer 2d6 damage
+# from Holmes’ sample dungeon!
+1,**stagnant pool**, boat on the far side
+1,**statue pointing**, points at door just entered; must be rotated on base to point to another door; any door it is pointed at can’t be opened
+1,**statue with diadem**, [gem] booby-trapped with poison gas, save vs. poison or suffer 3d6 damage
+1,**trap door**, triggered on 1 in 6 per person for a 10ft fall and 1d6 damage; trap door springs shut (strength check to open)
+1,**trapdoor spider**, triggered on 1 in 6 per person to fall in pit with a *giant spider* ([giant spider stats])
+1,**tripwire arrows**, save vs. poison or suffer 1d6 damage
+1,**underground stream**, leads to rapids out of the dungeon (3d6 damage)
+1,**wide pit**, roll d20 under your dexterity to jump across or fall 30 feet (3d6 damage)
+
+;monster activities
+1,alert
+1,arguing
+1,cheering on two who are wrestling 
+1,eating
+1,gambling
+1,gossiping
+1,laughing
+1,pacing with weapons at the ready
+1,polishing weapons
+1,sleeping
+1,tormenting a mouse
+1,wrestling
 
 ;necropolis
 1,[necropolis description]<p>[necropolis central area]<p>[necropolis sphinx]
@@ -8653,6 +8843,9 @@
 1,[number of mounds] [1d3x10]ft in diameter. This is an ancestral shrine of the elves. If any dare [barrow dig] here, they will discover a hidden chamber, built with [barrow construction], yielding [random corpses], their [resting place] painted [[barrow colour] synonym] with [[power] decoration] and the inscriptions *[elf name]*. The journey to the afterlife was sped with [with neolith], [and neolith], [and neolith], and <span class="treasure">[valuable grave goods] worth [1d6x1000 as value]gp</span>.[here store [same valuable grave goods] worth [same value]gp in the barrow of *[same elf name]* as hidden treasure]
 1,[number of mounds] [1d3x10]ft in diameter. This is an ancestral shrine of the dwarves. If any dare [barrow dig] here, they will discover a hidden chamber, built with [barrow construction], yielding [random corpses], their [resting place] painted [[barrow colour] synonym] with [[power] decoration] and the inscription *[dwarf name]*. The journey to the afterlife was sped with [with neolith], [and neolith], [and neolith], and <span class="treasure">[valuable grave goods] worth [1d10x1000 as value]gp</span>.[here store [same valuable grave goods] worth [same value]gp in the barrow of *[same dwarf name]* as hidden treasure]
 1,[number of mounds] [1d3x10]ft in diameter. This is a crypt of a wight general. If any dare [barrow dig] here, they will discover a hidden chamber, built with [barrow construction], yielding [random corpses], their [resting place] painted [[barrow colour] synonym] with [[power] decoration] and the inscription *[wight leader]*. The journey to the afterlife was sped with [with neolith], [and neolith], [and neolith], and <span class="treasure">[valuable grave goods] worth [1d12x1000 as value]gp</span>.[here store [same valuable grave goods] worth [same value]gp in the barrow of [same wight leader] as hidden treasure]
+
+;neolithic treasure
+1,[with neolith], [and neolith], and [and neolith]. <span class="treasure">[neolithic magic item]</span>
 
 ;number of mounds
 5,one [barrow shape] barrow,
