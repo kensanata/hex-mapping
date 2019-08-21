@@ -12352,7 +12352,7 @@
 ;the presence of refugees is a problem
 # no captain!
 1,As the wounded start dying, the stench is spreading. Flies are everywhere. Soon, cholera and typhus will be showing up. The locals want the refugees gone, but who is going to argue with armed men? Better to stab them during the night, some might say.
-1,The locals are no longer willing to support the refugees, calling them maggots and worms and worse. Nobody is willing to kill, however, and so the situation just lingers, the refugees to weak to kill the locals simply take what they need and the locals to afraid to do away with the extra mouths.
+1,The locals are no longer willing to support the refugees, calling them maggots and worms and worse. Nobody is willing to kill, however, and so the situation just lingers, the refugees too weak to kill the locals simply take what they need and the locals to afraid to do away with the extra mouths.
 1,The young **[human class]** *[human with portrait]* is a devout servant of [good power]. They are trying to find a solution to the problem. Surely some land could be cleared for these poor souls? Let them settle.
 1,The young **[human class]** *[human with portrait]* is a devout servant of [evil power]. They have shrewdly insinuated that the locals are simply waiting for them to weaken even further until one night they’ll all just stab them. So why not take things into your own hands and act first? Strike now and take what you need!
 
@@ -13977,11 +13977,12 @@
 1,In the old days, children would be sacrificed down here.
 1,Many years ago, a cult killed all the newborn babies of that year.
 1,This is the price the founders had to pay for peace and prosperity.
+1,These children died from the dread *[diseases]*.
 
 ;why trolls
 1,These trolls are the secret protectors of the settlement. At night, they sneak out and take care of all their enemies.
 1,These trolls are the very trolls that helped the founders settle this area and their safety is part of a covenant as old as the settlement itself.
-1,These trolls are called the Children of Hel and they are sacred. their contact with the settlement being passed down from generation to generation. The current troll friend is **[human name]**.
+1,These trolls are called the Children of Hel and they are sacred. Their contact with the settlement being passed down from generation to generation. The current troll friend is **[human name]**.
 1,These trolls are the true priests of Hel.
 1,These trolls guard a secret passage to the realm of snow and black forests itself, to Niflheim. The gate to Niflheim itself at the end of this passage is further guarded by a [gate monster].
 
@@ -14092,7 +14093,7 @@
 
 ;small temple dedicated to Thor
 1,[small temple]
-1,The temple is in fact an altar built inside the village smith’s forge. The **smith** is called *[human name]*. This is where the strongest villagers meet every seven-night to discuss their grievances and resolve their issues. Money changes hands, children are promised into apprenticeship and journeymen are welcomed into the village.
+1,The temple is in fact an altar built inside the village smith’s forge. This is where the strongest villagers meet every seven-night to discuss their grievances and resolve their issues. Money changes hands, children are promised into apprenticeship and journeymen are welcomed into the village. [local smith]
 1,The temple is an altar at the foot of a big rock. The top has been hit by lightning countless times. Next to the altar is the wrestling field. Every festival involves wrestling and old *[human name]* is the most proficient **wrestler** here.
 1,The temple stands in the backyard of *[human name]* the **chariot maker**. Inside it is a life sized statue of Thor riding a chariot drawn by two giant goats. The chariot maker is rich and has buried all his gold beneath the chariot.
 1,The temple is one of the few places where they raise **giant goats**. There are currently [2d6] of these giant goats here ([giant goat stats]). The paintings beneath the roof show Thor riding his chariot pulled by his two famous goats. These giant goats are sold to [goat clients].
@@ -14111,7 +14112,7 @@
 1,The temple looks like a tower, except that it has a big window from the bottom to the roof. On the inside, there are no extra floors. The room is simply 50ft high. The strip of light from the window falls on one of three oath brother statues in here, each raising their right hand, each pointing three fingers towards the sky. This is the bond of loyalty that makes us strong.
 1,The temple has a door fit for a giant, but inside there is simply a strip of wooden flooring for petitioners to kneel and a big statue of Mitra standing blindfolded in a sea of fire, holding the balance of justice in one hand and the sword of judgement in the other.
 1,A long set of winding stairs leads deep underground to a fiery pit. The fumes are intoxicating and the dreamy babbling of a woman’s voice can be heard but her words make no sense to you. She is one of the eternal servants, gifted to the temple by her parents and bound to pass through the lake of fire into Muspelheim, the realm of Mitra, whence nobody has ever returned. This is of course true: the lake of fire is a one-way gate to [a location in Muspelheim]. Most of these women eventually master the arcane arts of pyromancy.
-1,Deep within the bowels of the earth, a pool of Earth Blood is being kept at bay by circles of banishment and stasis and thus evil **gorgon** and its poison remains imprisoned while these seals last ([gorgon stats]). The temple guards the entry to this underworld and the [2d6] **priests** and *[human name]*, the current head of the temple, inspect and improve their defences every year on the night of the winter solstice. The common folks just see the statues of the three oath brother statues here and come here to renew their bond with Mitra. They call themselves the *Oath Keepers* for this is what they do: the make their bargains here.
+1,Deep within the bowels of the earth, a pool of Earth Blood is being kept at bay by circles of banishment and stasis and thus evil **gorgon** and its poison remains imprisoned while these seals last ([gorgon stats]). The temple guards the entry to this underworld and the [2d6] **priests** and *[human name]*, the current head of the temple, inspect and improve their defences every year on the night of the winter solstice. The common folks just see the statues of the three oath brother statues here and come here to renew their bond with Mitra. They call themselves the *Oath Keepers* for this is what they do: they make their bargains here.
 
 ;a location in Muspelheim
 1,the *[Muspelheim building] of [Muspelheim material]* where [Muspelheim matriarch] *[old names for women]* rules
