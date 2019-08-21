@@ -2916,6 +2916,17 @@ L<$contrib/traveller.txt>
 Result:
 L<https://campaignwiki.org/text-mapper?map=include+$contrib/traveller-example.txt>
 
+=head3 Dungeons
+
+Example:
+L<$contrib/gridmapper-example.txt>
+
+Library:
+L<$contrib/gridmapper.txt>
+
+Result:
+L<https://campaignwiki.org/text-mapper?map=include+$contrib/gridmapper-example.txt>
+
 =head2 Command Line
 
 You can call the script from the command line. The B<render> command reads a map
