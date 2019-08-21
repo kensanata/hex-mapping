@@ -1,0 +1,231 @@
+0101 
+
+0201 empty curtain-n curtain-s
+0301 empty curtain-e curtain-w
+0202 "curtains"
+
+0203 empty wall-n wall-s
+0303 empty wall-e wall-w
+0204 "walls"
+
+0205 empty portcullis-n portcullis-s
+0305 empty portcullis-e portcullis-w
+0206 "portcullis"
+
+0501 empty corner-pillar-nw
+0601 empty corner-pillar-sw
+0701 empty corner-pillar-ne
+0801 empty corner-pillar-se
+0602 "corner pillars"
+
+0503 empty window-n window-s
+0603 empty window-e window-w
+0504 "windows"
+
+0505 empty gap-w gap-s
+0605 empty gap-n gap-e
+0506 "gaps"
+
+0803 water
+0804 "water"
+
+0805 empty
+0806 "empty"
+
+1001 empty door-n door-s
+1101 empty
+1201 empty door-e door-w
+1002 "doors"
+
+1003 empty secret-n secret-s
+1103 empty
+1203 empty secret-e secret-w
+1104 "secret doors"
+
+1005 empty concealed-n concealed-s
+1105 empty
+1205 empty concealed-e concealed-w
+1106 "concealed doors"
+
+1403 empty archway-n archway-s
+1503 empty
+1603 empty archway-e archway-w
+1404 "archways"
+
+1405 empty gate-w
+1505 empty gate-n
+# note that the drawing order matters!
+1705 empty gate-e
+1605 empty gate-s
+1506 "gates"
+
+0207 empty pillar
+0208 "pillar"
+
+0407 empty altar
+0408 "altar"
+
+0607 empty dais
+0608 "dais"
+
+0807 empty dais-round
+0808 "round"
+
+1007 empty rubble
+1008 "rubble"
+
+1207 empty statue
+1208 "statue"
+
+1407 empty well
+1408 "well"
+
+1607 empty fountain
+1608 "fountain"
+
+1807 empty trap
+1808 "trap"
+
+2007 empty pit
+2008 "pit"
+
+2207 empty trap-door-ceiling
+2208 "ceiling"
+
+2407 empty trap-door-floor
+2408 "floor"
+
+2607 empty trap-door-secret
+2608 "secret"
+
+1401 empty chest
+1501 empty chest-rotated
+1402 "chests"
+
+1701 empty bed
+1801 empty bed-rotated
+1702 "beds"
+
+2001 empty table
+2101 empty table-rotated
+2002 "tables"
+
+2301 empty chair
+2401 empty chair-rotated
+2302 "chairs"
+
+2601 empty screen
+2701 empty screen-rotated
+2602 "screens"
+
+1903 "big spiral stairs"
+1904 stair-big-spiral
+2203 stair-s
+2703 stair-w
+2903 stair-e
+2404 stair-n
+2305 "stairs"
+2605 stair-small-w
+2705 stair-small-n
+2805 stair-small-s
+2905 stair-small-e
+2706 "small stairs"
+3105 stair-spiral
+3106 "spiral stairs"
+3206 
+
+0109 diagonal-se
+0209 diagonal-sw
+0110 diagonal-ne
+0210 diagonal-nw
+0211 "diagonals"
+
+0409 walled-diagonal-se
+0509 walled-diagonal-sw
+0410 walled-diagonal-ne
+0510 walled-diagonal-nw
+0511 "walled"
+
+0709 diagonal-wall
+0809 diagonal-wall-rotated
+0710 diagonal-wall-rotated
+0810 diagonal-wall
+0811 "walls"
+
+1009 diagonal-line
+1109 diagonal-line-rotated
+1010 diagonal-line-rotated
+1110 diagonal-line
+1111 "lines"
+
+1309 arc-se
+1409 arc-sw
+1310 arc-ne
+1410 arc-nw
+
+1609 arc2-se
+1909 arc2-sw
+1612 arc2-ne
+1912 arc2-nw
+
+1212 arcw2-se
+1512 arcw2-sw
+1215 arcw2-ne
+1515 arcw2-nw
+
+1714 arcw-se
+1814 arcw-sw
+1715 arcw-ne
+1815 arcw-nw
+
+2109 arc3-se
+2609 arc3-sw
+2114 arc3-ne
+2614 arc3-nw
+
+2809 arcw3-se
+3309 arcw3-sw
+2814 arcw3-ne
+3314 arcw3-nw
+2015 "arcs"
+
+0112 rock-nw
+0113 rock-w
+0114 rock-sw
+0212 rock-n
+0213 empty
+0214 rock-s
+0312 rock-ne
+0313 rock-e
+0314 rock-se
+0215 "rocks"
+
+0512 rock-nw-alternative
+0513 rock-w
+0514 rock-sw-alternative
+0612 rock-n
+0613 empty
+0614 rock-s
+0712 rock-ne-alternative
+0713 rock-e
+0714 rock-se-alternative
+0615 "alternative corners"
+
+0116 rock
+
+0912 rock-dead-end-n
+0913 rock-corridor-n
+0914 rock-corridor-s
+0915 rock-dead-end-s
+
+0316 rock-dead-end-w
+0416 rock-corridor-w
+0516 rock-corridor-e
+0616 rock-dead-end-e
+0816 "dead ends"
+
+0516 rock-corridor-rotated
+
+license <text x="50" y="-15" font-size="15pt" fill="#999999"><a style="fill:#8888ff" xlink:href="https://campaignwiki.org/gridmapper">Gridmapper SVG Map Icons</a>. This work is <a style="fill:#8888ff" xlink:href="https://creativecommons.org/publicdomain/zero/1.0/">dedicated to the Public Domain </a>.</text>
+include http://campaignwiki.org/contrib/gridmapper.txt
+# include file:///home/alex/src/hex-mapping/contrib/gridmapper.txt
