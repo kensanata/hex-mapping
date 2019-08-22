@@ -2250,7 +2250,7 @@ sub arrows {
 }
 
 package Gridmapper;
-use List::Util qw'shuffle';
+use List::Util qw'shuffle none';
 use List::MoreUtils qw'pairwise';
 use Class::Struct;
 
@@ -2260,6 +2260,7 @@ struct Gridmapper => {};
 sub generate_map {
   my $rooms = [map { generate_room($_) } (1 .. 5)];
   my $tiles = connect_rooms($rooms);
+  $tiles = add_stair($tiles);
   my $text = to_text($tiles);
 }
 
@@ -2294,9 +2295,9 @@ sub generate_room {
 sub connect_rooms {
   my $rooms = shift;
   my $shape = shape(scalar(@$rooms));
-  my $tiles = draw_rooms($rooms, $shape);
-  $tiles = draw_corridors($tiles, $shape);
-  $tiles = draw_doors($tiles);
+  my $tiles = add_rooms($rooms, $shape);
+  $tiles = add_corridors($tiles, $shape);
+  $tiles = add_doors($tiles);
   return $tiles;
 }
 
@@ -2411,12 +2412,11 @@ sub shape {
   return $shape;
 }
 
-sub draw_rooms {
+sub add_rooms {
   # get the rooms and the deltas, draw it all on a big grid
   my $rooms = shift;
   my $deltas = shift;
   my @tiles;
-  # map { [] } (1 .. reduce { $a * $b } @room_dimensions, @dungeon_dimensions);
   pairwise {
     my $room = $a;
     my $delta = $b;
@@ -2439,7 +2439,7 @@ sub draw_rooms {
   return \@tiles;
 }
 
-sub draw_corridors {
+sub add_corridors {
   my $tiles = shift;
   my $shapes = shift;    # reference to the original
   my @shapes = @$shapes; # a copy that gets shorter
@@ -2480,7 +2480,7 @@ sub draw_corridors {
     # 2  F    T
     # 3
     # 4
-    $tiles = draw_corridor($tiles,
+    $tiles = add_corridor($tiles,
 			   position_in($from) - $delta->[0],
 			   position_in($next) + $delta->[0], $delta);
     $from = $next;
@@ -2496,7 +2496,7 @@ sub position_in {
       + ($y + $delta->[1] * $room_dimensions[1]) * $row;
 }
 
-sub draw_corridor {
+sub add_corridor {
   my $tiles = shift;
   my $from = shift;
   my $to = shift;
@@ -2511,7 +2511,7 @@ sub draw_corridor {
   return $tiles;
 }
 
-sub draw_doors {
+sub add_doors {
   my $tiles = shift;
   # Doors can be any tile that has three or four neighbours, including
   # diagonally:
@@ -2526,8 +2526,8 @@ sub draw_doors {
 	      s => [-1, 1, -$row, $row, $row + 1, $row - 1],
 	      w => [-$row, $row, -1, 1, $row - 1, -$row - 1]);
   my @doors;
-  for my $dir (qw(n e s w)) {
-    for my $here (shuffle 1 .. scalar(@$tiles) - 1) {
+  for my $here (shuffle 1 .. scalar(@$tiles) - 1) {
+    for my $dir (shuffle qw(n e s w)) {
       if ($tiles->[$here]
 	  and not $tiles->[$here + $test{$dir}->[0]]
 	  and not $tiles->[$here + $test{$dir}->[1]]
@@ -2555,11 +2555,65 @@ sub doors_nearby {
   my $here = shift;
   my $doors = shift;
   for my $door (@$doors) {
-    my $dx = $door % $row - $here % $row;
-    my $dy = int($door/$row) - int($here/$row);
-    return 1 if sqrt($dx * $dx + $dy * $dy) < 2;
+    return 1 if distance($door, $here) < 2;
   }
   return 0;
+}
+
+sub distance {
+  my $from = shift;
+  my $to = shift;
+  my $dx = $to % $row - $from % $row;
+  my $dy = int($to/$row) - int($from/$row);
+  return sqrt($dx * $dx + $dy * $dy);
+}
+
+sub add_stair {
+  my $tiles = shift;
+  # find the middle using the label
+  my $start;
+  for my $one (0 .. scalar(@$tiles) - 1) {
+    next unless $tiles->[$one];
+    $start = $one;
+    last if grep { $_ eq '"1"' } @{$tiles->[$one]};
+  }
+  # first one must be set, all others must be empty
+  my %test = (n => [-$row, -1, 1,
+		    $row + 1, $row, $row - 1,
+		    2 * $row + 1, 2 * $row, 2 * $row - 1],
+	      e => [1, -$row, $row,
+		    -1 - $row, -1, -1 + $row,
+		    -2 - $row, -2, -2 + $row],
+	      s => [$row, -1, 1,
+		    -$row + 1, -$row, -$row - 1,
+		    -2 * $row + 1, -2 * $row, -2 * $row - 1],
+	      w => [-1, -$row, $row,
+		    1 - $row, 1, 1 + $row,
+		    2 - $row, 2, 2 + $row]);
+  for my $here (shuffle 1 .. scalar(@$tiles) - 1) {
+    next if $tiles->[$here];
+    if (distance($here, $start) < 5) {
+      for my $dir (shuffle qw(n e s w)) {
+	my @test = @{$test{$dir}};
+	my $first = shift(@test);
+	if ($tiles->[$here + $first]) {
+	  $log->debug("Placing stair-$dir at $here") if $here == 55;
+	  for (@test) {
+	    $log->debug(" " . ($here + $_) . ": " . ($tiles->[$here + $_] ? "yes" : "no")) if $here == 55 and $dir eq "n";
+	    $log->debug(join(", ", @{$tiles->[$here + $_]})) if $tiles->[$here + $_] and $here == 55 and $dir eq "n";
+	  }
+	  if (none { $tiles->[$here + $_] } @test) {
+	    # stairs are set back by exactly one step
+	    $log->debug("Placed stair-$dir at $here");
+	    push(@{$tiles->[$here - $first]}, "stair-$dir");
+	    return $tiles;
+	  }
+	}
+      }
+    }
+  }
+  $log->warn("Unable to place a stair!");
+  return $tiles;
 }
 
 sub to_text {
