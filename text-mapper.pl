@@ -2258,7 +2258,7 @@ use Class::Struct;
 struct Gridmapper => {};
 
 sub generate_map {
-  my $rooms = [map { generate_room() } (0 .. 4)];
+  my $rooms = [map { generate_room($_) } (1 .. 5)];
   my $tiles = connect_rooms($rooms);
   my $text = to_text($tiles);
 }
@@ -2273,9 +2273,9 @@ my $row = $dungeon_dimensions[0] * $room_dimensions[0];
 # (0,0) starts at the top left and goes rows before columns, like text.
 
 sub generate_room {
+  my $num = shift;
   # generate the tiles necessary for a single geomorph
   my @tiles;
-  # map { [] } (1 .. $room_dimensions[0] * $room_dimensions[1]);
   my @dimensions = (2 + int(rand(3)), 2 + int(rand(3)));
   my @start = pairwise { int(rand($b - $a)) } @dimensions, @room_dimensions;
   # $log->debug("New room starting at (@start) for dimensions (@dimensions)");
@@ -2285,6 +2285,9 @@ sub generate_room {
       # $log->debug("$x $y @{$tiles[$x + $y * $room_dimensions[0]]}");
     }
   }
+  my $x = $start[0] + int($dimensions[0]/2);
+  my $y = $start[1] + int($dimensions[1]/2);
+  push(@{$tiles[$x + $y * $room_dimensions[0]]}, "\"$num\"");
   return \@tiles;
 }
 
