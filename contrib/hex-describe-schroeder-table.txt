@@ -8190,7 +8190,7 @@
 1,Often cliffs block your way. But here’s a crack in the cliff and if you follow the small creek into the canyon you can reach a hidden valley. Small pigs rooting between the oak trees, here.
 1,At the end of this valley is a small but beautiful waterfall. This looks like a dead end. There is, however, a **halfling lookout** up there and if all it can see are halflings, then they will lower a rope for them. There’s a hidden plateau up there.
 1,The sheer cliffs are nearly a 500ft high. For those in the know however, there is a hidden path that leads up to the plateau. Up there, [cows] are grazing.
-1,What looked like an outcrop is actually a two mountains rising out the forest. They way up is hard. Between the two mountains is a tiny valley, hidden from view.
+1,What looked like an outcrop is actually a two mountains rising out the forest. The way up is hard. Between the two mountains is a tiny valley, hidden from view.
 1,The trees of the forest grow smaller and smaller as it rises. As you approach the tree line, there’s a hidden pass leading into an upper valley. You can see [mountain animals] grazing.
 
 ;halflings
