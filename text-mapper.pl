@@ -2249,6 +2249,245 @@ sub arrows {
   } ($self->neighbors());
 }
 
+package Gridmapper;
+use List::Util qw'reduce';
+use List::MoreUtils qw'pairwise';
+use Class::Struct;
+
+# Currently empty
+struct Gridmapper => {};
+
+sub generate_map {
+  my $rooms = [map { generate_room() } (0 .. 4)];
+  my $tiles = connect_rooms($rooms);
+  my $text = to_text($tiles);
+}
+
+# this is the meta grid for the geomorphs
+my @dungeon_dimensions = (3, 3);
+# this is the grid for a particular geomorph
+my @room_dimensions = (5, 5);
+
+# (0,0) starts at the top left and goes rows before columns, like text.
+
+sub generate_room {
+  # generate the tiles necessary for a single geomorph
+  my @tiles;
+  # map { [] } (1 .. $room_dimensions[0] * $room_dimensions[1]);
+  my @dimensions = (2 + int(rand(3)), 2 + int(rand(3)));
+  my @start = pairwise { int(rand($b - $a)) } @dimensions, @room_dimensions;
+  $log->debug("New room starting at (@start) for dimensions (@dimensions)");
+  for my $x ($start[0] .. $start[0] + $dimensions[0] - 1) {
+    for my $y ($start[1] .. $start[1] + $dimensions[1] - 1) {
+      push(@{$tiles[$x + $y * $room_dimensions[0]]}, "empty");
+      # $log->debug("$x $y @{$tiles[$x + $y * $room_dimensions[0]]}");
+    }
+  }
+  return \@tiles;
+}
+
+sub connect_rooms {
+  my $rooms = shift;
+  my $shape = shape(scalar(@$rooms));
+  my $tiles = draw_rooms($rooms, $shape);
+  $tiles = draw_corridors($tiles, $shape);
+  return $tiles;
+}
+
+sub one {
+  my @arr = @_;
+  @arr = @{$arr[0]} if @arr == 1 and ref $arr[0] eq 'ARRAY';
+  return $arr[int(rand(scalar @arr))];
+}
+
+sub shape {
+  # return an array of deltas to shift rooms around
+  my $num = shift;
+  my $shape = [];
+  if ($num == 5) {
+    # railroads
+    #       5        5     4--5
+    #       |        |     |
+    #       4     3--4     3       5--4
+    #       |     |        |          |
+    # 1--2--3  1--2     1--2    1--2--3
+    $shape= one([[0, 2], [1, 2], [2, 2], [2, 1], [2, 0]],
+		[[0, 2], [1, 2], [1, 1], [2, 1], [2, 0]],
+		[[0, 2], [1, 2], [1, 1], [1, 0], [2, 0]],
+		[[0, 2], [1, 2], [2, 2], [2, 1], [1, 1]]);
+  }
+  $log->debug(join(", ", map { "[@$_]"} @$shape));
+  my $r = rand;
+  if ($r < 0.20) {
+    # flip vertically
+    $shape = [map{ $_->[1] = $dungeon_dimensions[1] - 1 - $_->[1]; $_ } @$shape];
+    $log->debug("flip vertically: " . join(", ", map { "[@$_]"} @$shape));
+  } elsif ($r < 0.4) {
+    # flip horizontally
+    $shape = [map{ $_->[0] = $dungeon_dimensions[0] - 1 - $_->[0]; $_ } @$shape];
+    $log->debug("flip horizontally: " . join(", ", map { "[@$_]"} @$shape));
+  } elsif ($r < 0.6) {
+    # flip diagonally
+    $shape = [map{ my $t = $_->[1]; $_->[1] = $_->[0]; $_->[0] = $t; $_ } @$shape];
+    $log->debug("flip diagonally: " . join(", ", map { "[@$_]"} @$shape));
+  } elsif ($r < 0.8) {
+    # flip diagonally
+    $shape = [map{ $_->[0] = $dungeon_dimensions[0] - 1 - $_->[0];
+		   $_->[1] = $dungeon_dimensions[1] - 1 - $_->[1];
+		   $_ } @$shape];
+    $log->debug("flip both: " . join(", ", map { "[@$_]"} @$shape));
+  }
+  $log->error("No appropriate dungeon shape found") unless $shape;
+  return $shape;
+}
+
+sub draw_rooms {
+  # get the rooms and the deltas, draw it all on a big grid
+  my $rooms = shift;
+  my $deltas = shift;
+  my @tiles;
+  # map { [] } (1 .. reduce { $a * $b } @room_dimensions, @dungeon_dimensions);
+  pairwise {
+    my $room = $a;
+    my $delta = $b;
+    $log->debug("Draw room shifted by delta (@$delta)");
+    # copy the room, shifted appropriately
+    for my $x (0 .. $room_dimensions[0] - 1) {
+      for my $y (0 .. $room_dimensions[0] - 1) {
+	my $v = $tiles[$x + $delta->[0] * $room_dimensions[0]
+		       + ($y + $delta->[1] * $room_dimensions[1])
+		       * $dungeon_dimensions[0] * $room_dimensions[0]]
+	    = $room->[$x + $y * $room_dimensions[0]];
+	# $log->debug(sprintf("%02d%02d (%d) %s", $x + $delta->[0] * $room_dimensions[0],
+	# 		    $y + $delta->[1] * $room_dimensions[1],
+	# 		    $x + $delta->[0] * $room_dimensions[0]
+	# 		    + ($y + $delta->[1] * $room_dimensions[1]) * $dungeon_dimensions[0] * $room_dimensions[0],
+	# 		    join(" ", @$v))) if $v;
+      }
+    }
+  } @$rooms, @$deltas;
+  return \@tiles;
+}
+
+sub draw_corridors {
+  my $tiles = shift;
+  my $shape = shift;
+  my $from = shift(@$shape);
+  my $delta;
+  for my $next (@$shape) {
+    # direction: north is minus an entire row, south is plus an entire row, east
+    # is plus one, west is minus one
+    if ($next->[0] < $from->[0]) {
+      $log->debug("west");
+      $delta = [-1,
+		- $dungeon_dimensions[0] * $room_dimensions[0],
+		$dungeon_dimensions[0] * $room_dimensions[0]];
+    } elsif ($next->[0] > $from->[0]) {
+      $log->debug("east");
+      $delta = [1,
+		- $dungeon_dimensions[0] * $room_dimensions[0],
+		$dungeon_dimensions[0] * $room_dimensions[0]];
+    } elsif ($next->[1] < $from->[1]) {
+      $log->debug("north");
+      $delta = [- $dungeon_dimensions[0] * $room_dimensions[0],
+		1, -1];
+    } elsif ($next->[1] > $from->[1]) {
+      $log->debug("south");
+      $delta = [$dungeon_dimensions[0] * $room_dimensions[0],
+		1, -1];
+    } else {
+      $log->debug("unclear direction: bogus shape?");
+    }
+    # In the example below, we're going east from F to T. In order to make sure
+    # that we also connect rooms in (0,0)-(1,1), we start one step earlier (1,2)
+    # and end one step later (8,2).
+    #
+    #  0123456789
+    # 0
+    # 1
+    # 2  F    T
+    # 3
+    # 4
+    $tiles = draw_corridor($tiles,
+			   position_in($from) - $delta->[0],
+			   position_in($next) + $delta->[0], $delta);
+    $from = $next;
+  }
+  return $tiles;
+}
+
+sub position_in {
+  my $delta = shift;
+  my $x = int($room_dimensions[0]/2);
+  my $y = int($room_dimensions[1]/2);
+  return $x + $delta->[0] * $room_dimensions[0]
+      + ($y + $delta->[1] * $room_dimensions[1]) * $dungeon_dimensions[0] * $room_dimensions[0];
+}
+
+sub draw_corridor {
+  my $tiles = shift;
+  my $from = shift;
+  my $to = shift;
+  my $delta = shift; # three elemenfts: forward, left and right indexes
+  my $n = 0;
+  my @doors;
+  $log->debug("Checking $from-$to");
+  while (not grep { $to == ($from + $_) } @$delta) {
+    $from += $delta->[0];
+    $tiles->[$from] = ["empty"] if not $tiles->[$from];
+    # could be a door if there's nobody to the left or to the right; but also just allow one "sequence of doors"
+    if (not $tiles->[$from + $delta->[1]] and not $tiles->[$from + $delta->[2]]) {
+      push(@doors, $from);
+    }
+    last if $n++ > 20; # safety!
+  }
+  # It's possible we added the possibilities of doors at the two ends of the
+  # corridor because we were only checking left and right
+  shift(@doors) if @doors > 0 and not $tiles->[$doors[0] - $delta->[0]];
+  pop(@doors) if @doors > 0 and not $tiles->[$doors[$#doors] + $delta->[0]];
+  # Now add doors, if possible: short corridors only get a door either at the
+  # end or at the beginning; long corridors get two doors.
+  if (@doors > 0 and @doors < 3) {
+    if (rand() < 0.5) {
+      $tiles = door_direction($tiles, $doors[0], -$delta->[0]);
+    } else {
+      $tiles = door_direction($tiles, $doors[$#doors], $delta->[0]);
+    }
+  } else {
+    $tiles = door_direction($tiles, $doors[0], -$delta->[0]);
+    $tiles = door_direction($tiles, $doors[$#doors], $delta->[0]);
+  }
+  return $tiles;
+}
+
+
+sub door_direction {
+  my $tiles = shift;
+  my $here = shift;
+  my $delta = shift;
+  my $prefix = one(qw(door door door door door door secret secret archway concealed));
+  # prefer north and west doors because this overwrites the tiles already placed
+  push(@{$tiles->[$here]}, "$prefix-n") if $delta < -1;
+  push(@{$tiles->[$here]}, "$prefix-w") if $delta == -1;
+  push(@{$tiles->[$here + $delta]}, "$prefix-n") if $delta > 1;
+  push(@{$tiles->[$here + $delta]}, "$prefix-w") if $delta == 1;
+  return $tiles;
+}
+
+sub to_text {
+  my $tiles = shift;
+  my $text = "include $contrib/gridmapper.txt\n";
+  for my $x (0 .. $room_dimensions[0] * $dungeon_dimensions[0] - 1) {
+    for my $y (0 .. $room_dimensions[1] * $dungeon_dimensions[1] - 1) {
+      my $tile = $tiles->[$x + $y * $room_dimensions[0] * $dungeon_dimensions[0]];
+      if ($tile) {
+	$text .= sprintf("%02d%02d @$tile\n", $x + 1, $y + 1);
+      }
+    }
+  }
+  return $text;
+}
+
 package Mojolicious::Command::render;
 use Mojo::Base 'Mojolicious::Command';
 
@@ -2494,6 +2733,37 @@ get '/alpine/document' => sub {
 get '/alpine/parameters' => sub {
   my $c = shift;
   $c->render(template => 'alpine_parameters');
+};
+
+sub gridmapper_map {
+  my $c = shift;
+  my $seed = $c->param('seed') || int(rand(1000000000));
+  my @params = ();
+  return Gridmapper->new()->generate_map(@params);
+}
+
+get '/gridmapper' => sub {
+  my $c = shift;
+  my $map = gridmapper_map($c);
+  if ($c->stash('format') || '' eq 'txt') {
+    $c->render(text => $map);
+  } else {
+    $c->render(template => 'edit', map => $map);
+  }
+};
+
+get '/gridmapper/random' => sub {
+  my $c = shift;
+  my $map = gridmapper_map($c);
+  my $mapper = Mapper::Square->new();
+  my $svg = $mapper->initialize($map)->svg;
+  $c->render(text => $svg, format => 'svg');
+};
+
+get '/gridmapper/random/text' => sub {
+  my $c = shift;
+  my $map = gridmapper_map($c);
+  $c->render(text => $map, format => 'txt');
 };
 
 get '/source' => sub {
@@ -3047,7 +3317,10 @@ explanation of what these parameters do.
 </p>
 %= submit_button
 % end
-
+<p>
+<%= link_to url_for('gridmapper')->query(type => 'square') => begin%>Gridmapper<% end %>
+will generate dungeon map data based on geomorph sketches by Robin Green. Or
+just keep reloading <%= link_to gridmapperrandom => begin %>this link<% end %>.
 
 @@ render.svg.ep
 
