@@ -12514,14 +12514,14 @@
 1,[1d4x10] **cultists** ([human stats]) live here. [average treasure] They are led by their cult leader [woman with portrait] (level [1d6+1 as level]), [cult leader description]. [leader treasure for magic user]
 
 ;settlement event
-1,[war event]
-1,[bard]
-1,[dragon hunter]
-1,[treasure hunter]
-1,[trade caravan]
-1,[travelling circus]
-1,[disaster event]
-1,[fortunate event]
+3,[war event]
+3,[bard]
+3,[dragon hunter]
+3,[treasure hunter]
+3,[trade caravan]
+3,[travelling circus]
+3,[disaster event]
+3,[fortunate event]
 1,[devil troubles]
 
 ;war event
@@ -13376,7 +13376,7 @@
 
 ;devil stats
 #cribbed from the vampire; adjust as needed for your system
-1,HD 9 AC 2 1d8/1d8/1d12 F9 MV 18 ML 11 XP 900; only harmed by magic or magic weapons; immune to spells of casters up to fifth level; *[devil breath]*: 5d6, save vs. spells for half
+1,HD 9 AC 2 1d8/1d8/1d12 F9 MV 18 ML 11 XP 900; only harmed by magic or magic weapons; immune to spells of casters up to fifth level; *[devil breath]*: 2d6, save vs. rays for half
 
 ;devil portrait
 1,<img class="portrait" src="[[redirect https://campaignwiki.org/face/redirect/alex/demon]]" alt="[same devil name]" title="[same devil name]"/>
