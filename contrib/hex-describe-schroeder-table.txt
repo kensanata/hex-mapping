@@ -12522,6 +12522,7 @@
 1,[travelling circus]
 1,[disaster event]
 1,[fortunate event]
+1,[devil troubles]
 
 ;war event
 1,[a war party]There are some tents outside the settlement and you can spot the *[the war party colour]* flag of *[the war party]* (blazon: *[the war party blazon]*). [1d4x10] **mercenaries** ([human stats]) are camped here, waiting for orders. [average treasure] They are led by the mercenary captain **[human class]** [human with portrait][store [same human name] as captain] (level [1d4+2 as level]). [spellbook for [same class]] [leader treasure for [same class]][record war fact]<blockquote>[the presence of mercenaries is a problem]</blockquote><p>
@@ -13318,6 +13319,67 @@
 1,X
 1,Y
 1,Z
+
+;devil troubles
+# this needs a small dungeon map!
+1,Those who live here are often in terror. [Sheep|Goats|Cattle|Pigs] are found mutilated. [Dog|Cat|Rabbit] entrails are spread around sites holy to [power]. Herders have reported seeing a [devil] [late at night|early in the morning|after sunset|before sunrise].<p>A natural hot springs blocks the entrance to a cavern, which hides a shallow cave complex occupied by a coven of devils. They derive psychic energy from the terror of others.<ol><li>The cave entrance is filled with hot steam (1d6 scalding damage to each non-devil who enters), but the water smells and tastes of [sulfur|decaying corpses|burnt bones], revolting all who enter.<li>Stretched on a metal rack is a prisoner with scalded skin, [ettercap prisoner feeling]. This is *[human name]* from *[same village name]*, taken while [herding|fetching water|worshiping|going to see the smith].<li>Here, [1d4+1] [devils] [cavort|caper in a macabre dance|sing in disharmony|strum soundless lutes] ([devil stats]). An [unearthly|unsettling|undulating] music echoes in these halls.<li>This chamber contains a sunken bath, warmed by the hot springs. A [devil] hangs upside down in one of [2d20] niches, asleep. The devil will wake and attack if anyone [whispers|tiptoes|touches the water].<li>A great hall holds a throne and tables full of food and wine. Queen *[devil name]*[devil portrait], a [devil], presides over her court here, [1d6+1] [devils] and [1d2+1] [devils]. The devils will fight to the death to protect their queen ([devil stats]).</li></ol>
+
+;devil
+1,devil with [devil wings][devil chimera] [devil beast]
+
+;devils
+1,devils with [devil wings][devil chimera] [devil beast]
+
+;devil chimera
+1,the head of
+1,the tail of
+1,the legs of
+1,a human head on the body of
+
+;devil beast
+1,an ape
+1,a bat
+1,a bear
+1,a boar
+1,a bull
+1,a dragon
+1,an eagle
+1,a horsefly
+1,a hyena
+1,a lion
+1,a lobster
+1,a locust
+1,a pig
+1,a praying mantis
+1,a rat
+1,a scorpion
+1,a snake
+1,a wolf
+1,a zombie
+
+;devil breath
+1,acid
+1,cold
+1,fire
+1,lightning
+1,poison
+1,thunder
+
+;devil wings
+3, 
+1,angel wings and 
+1,bat wings and 
+1,dragonfly wings and 
+1,eagle wings and 
+1,horsefly wings and 
+1,vestigial wings and 
+
+;devil stats
+#cribbed from the vampire; adjust as needed for your system
+1,HD 9 AC 2 1d8/1d8/1d12 F9 MV 18 ML 11 XP 900; only harmed by magic or magic weapons; immune to spells of casters up to fifth level; *[devil breath]*: 5d6, save vs. spells for half
+
+;devil portrait
+1,<img class="portrait" src="[[redirect https://campaignwiki.org/face/redirect/alex/demon]]" alt="[same devil name]" title="[same devil name]"/>
 
 ;local smith
 1,The local **smith** is [smith description] called [human with portrait]. You can get your horses shod and your ploughs fixed. [local smith inventory description:] [local smith inventory].
