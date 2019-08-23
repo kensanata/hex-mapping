@@ -2577,39 +2577,64 @@ sub add_stair {
     $start = $one;
     last if grep { $_ eq '"1"' } @{$tiles->[$one]};
   }
-  # first one must be set, all others must be empty
-  my %test = (n => [-$row, -1, 1,
-		    $row + 1, $row, $row - 1,
-		    2 * $row + 1, 2 * $row, 2 * $row - 1],
-	      e => [1, -$row, $row,
-		    -1 - $row, -1, -1 + $row,
-		    -2 - $row, -2, -2 + $row],
-	      s => [$row, -1, 1,
-		    -$row + 1, -$row, -$row - 1,
-		    -2 * $row + 1, -2 * $row, -2 * $row - 1],
-	      w => [-1, -$row, $row,
-		    1 - $row, 1, 1 + $row,
-		    2 - $row, 2, 2 + $row]);
-  for my $here (shuffle 1 .. scalar(@$tiles) - 1) {
+  # The first test refers to a tile that must be set to "empty" (where the stair
+  # will end), all others must be undefined. Note that stairs are anchored at
+  # the top end, and we're placing a stair that goes *down*. So what we're
+  # looking for is the point (4,1) in the image below:
+  #
+  #   12345
+  # 1 EE<<
+  # 2 EE
+  #
+  # Remember, +1 is east, -1 is west, -$row is north, +$row is south. The anchor
+  # point we're testing is already known to be undefined.
+  my %test = (n => [-2 * $row,
+		    -$row - 1, -$row, -$row + 1,
+		    -1, +1,
+		    +$row - 1, +$row, +$row + 1],
+	      e => [+2,
+		    -$row + 1, +1, +$row + 1,
+		    -$row, +$row,
+		    -$row - 1, -1, +$row - 1]);
+  $test{s} = [map { -$_ } @{$test{n}}];
+  $test{w} = [map { -$_ } @{$test{e}}];
+  for my $here (shuffle 0 .. scalar(@$tiles) - 1) {
     next if $tiles->[$here];
-    if (distance($here, $start) < 5) {
+    if (distance($here, $start) <= 4) {
+      # push(@{$tiles->[$here]}, "red"); next;
       for my $dir (shuffle qw(n e s w)) {
 	my @test = @{$test{$dir}};
 	my $first = shift(@test);
-	if ($tiles->[$here + $first]) {
-	  $log->debug("Placing stair-$dir at $here") if $here == 55;
-	  for (@test) {
-	    $log->debug(" " . ($here + $_) . ": " . ($tiles->[$here + $_] ? "yes" : "no")) if $here == 55 and $dir eq "n";
-	    $log->debug(join(", ", @{$tiles->[$here + $_]})) if $tiles->[$here + $_] and $here == 55 and $dir eq "n";
-	  }
-	  if (none { $tiles->[$here + $_] } @test) {
-	    # stairs are set back by exactly one step
-	    $log->debug("Placed stair-$dir at $here");
-	    push(@{$tiles->[$here - $first]}, "stair-$dir");
-	    return $tiles;
-	  }
+	if (# the first test is an empty tile: this the stair's landing
+	    $tiles->[$here + $first]
+	    and $tiles->[$here + $first]->[0] eq "empty"
+	    # and the stair's landing doesn't wrap around!
+	    and int($here/$row) == int(($here + $first)/$row)
+	    # and the stair is surrounded by empty space (here we don't check
+	    # whether the tests wrap around)
+	    and none { $tiles->[$here + $_] } @test) {
+	  $log->debug("Placed stair-$dir at $here");
+	  push(@{$tiles->[$here]}, "stair-$dir");
+	  return $tiles;
 	}
       }
+    }
+  }
+  $log->debug("Unable to place a regular stair, trying to place a spiral staircase");
+  for my $here (shuffle 0 .. scalar(@$tiles) - 1) {
+    next unless $tiles->[$here];
+    if (# close by
+	distance($here, $start) < 3
+	# and the landing is empty (no statue, doors n or w)
+	and @{$tiles->[$here]} == 1
+	and $tiles->[$here]->[0] eq "empty"
+	# and the landing to the south has no door n
+	and not grep { /-n$/ } @{$tiles->[$here+$row]}
+	# and the landing to the east has no door w
+	and not grep { /-w$/ } @{$tiles->[$here+1]}) {
+      $log->debug("Placed spiral stair at $here");
+      $tiles->[$here]->[0] = "stair-spiral";
+      return $tiles;
     }
   }
   $log->warn("Unable to place a stair!");
