@@ -2250,7 +2250,7 @@ sub arrows {
 }
 
 package Gridmapper;
-use List::Util qw'shuffle none';
+use List::Util qw'shuffle none any';
 use List::MoreUtils qw'pairwise';
 use Class::Struct;
 
@@ -2513,8 +2513,8 @@ sub add_corridors {
     # 3
     # 4
     $tiles = add_corridor($tiles,
-			   position_in($from) - $delta->[0],
-			   position_in($next) + $delta->[0], $delta);
+			   position_in($from) - 2 * $delta->[0],
+			   position_in($next) + 2 * $delta->[0], $delta);
     $from = $next;
   }
   return $tiles;
@@ -2534,11 +2534,25 @@ sub add_corridor {
   my $to = shift;
   my $delta = shift; # three elemenfts: forward, left and right indexes
   my $n = 0;
+  my $contact = 0;
+  my $started = 0;
+  my @undo;
   # $log->debug("Checking $from-$to");
   while (not grep { $to == ($from + $_) } @$delta) {
     $from += $delta->[0];
-    $tiles->[$from] = ["empty"] if not $tiles->[$from];
+    # contact is if we're on a room, or to the left or right of a room (but not in front of a room)
+    $contact = any { $tiles->[$from + $_] } 0, $delta->[1], $delta->[2];
+    if ($contact) {
+      $started = 1;
+      @undo = ();
+    } else {
+      push(@undo, $from);
+    }
+    $tiles->[$from] = ["empty"] if $started and not $tiles->[$from];
     last if $n++ > 20; # safety!
+  }
+  for (@undo) {
+    $tiles->[$_] = undef;
   }
   return $tiles;
 }
