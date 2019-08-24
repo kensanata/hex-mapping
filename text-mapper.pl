@@ -2275,6 +2275,16 @@ my $row = $dungeon_dimensions[0] * $room_dimensions[0];
 
 sub generate_room {
   my $num = shift;
+  my $r = rand();
+  if ($r < 0.9) {
+    return generate_random_room($num);
+  } else {
+    return generate_fancy_corner_room($num);
+  }
+}
+
+sub generate_random_room {
+  my $num = shift;
   # generate the tiles necessary for a single geomorph
   my @tiles;
   my @dimensions = (2 + int(rand(3)), 2 + int(rand(3)));
@@ -2282,10 +2292,32 @@ sub generate_room {
   # $log->debug("New room starting at (@start) for dimensions (@dimensions)");
   for my $x ($start[0] .. $start[0] + $dimensions[0] - 1) {
     for my $y ($start[1] .. $start[1] + $dimensions[1] - 1) {
+      $tiles[$x + $y * $room_dimensions[0]] = ["empty"];
+    }
+  }
+  my $x = $start[0] + int($dimensions[0]/2);
+  my $y = $start[1] + int($dimensions[1]/2);
+  push(@{$tiles[$x + $y * $room_dimensions[0]]}, "\"$num\"");
+  return \@tiles;
+}
+
+sub generate_fancy_corner_room {
+  my $num = shift;
+  my @tiles;
+  my @dimensions = (3 + int(rand(2)), 3 + int(rand(2)));
+  my @start = pairwise { int(rand($b - $a - 2)) + 1 } @dimensions, @room_dimensions;
+  # $log->debug("New room starting at (@start) for dimensions (@dimensions)");
+  for my $x ($start[0] .. $start[0] + $dimensions[0] - 1) {
+    for my $y ($start[1] .. $start[1] + $dimensions[1] - 1) {
       push(@{$tiles[$x + $y * $room_dimensions[0]]}, "empty");
       # $log->debug("$x $y @{$tiles[$x + $y * $room_dimensions[0]]}");
     }
   }
+  my $type = rand() < 0.5 ? "arc" : "diagonal";
+  $tiles[$start[0] + $start[1] * $room_dimensions[0]] = ["$type-se"];
+  $tiles[$start[0] + $dimensions[0] + $start[1] * $room_dimensions[0] -1] = ["$type-sw"];
+  $tiles[$start[0] + ($start[1] + $dimensions[1] - 1) * $room_dimensions[0]] = ["$type-ne"];
+  $tiles[$start[0] + $dimensions[0] + ($start[1] + $dimensions[1] - 1) * $room_dimensions[0] - 1] = ["$type-nw"];
   my $x = $start[0] + int($dimensions[0]/2);
   my $y = $start[1] + int($dimensions[1]/2);
   push(@{$tiles[$x + $y * $room_dimensions[0]]}, "\"$num\"");
