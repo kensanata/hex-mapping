@@ -1064,6 +1064,7 @@ sub resolve_redirect {
   return '' unless $redirects;
   # Special case because table writers probably used the default face generator URL
   $url =~ s!^https://campaignwiki\.org/face!$face_generator_url! if app->mode eq 'development';
+  $url =~ s!^https://campaignwiki\.org/text-mapper!$text_mapper_url! if app->mode eq 'development';
   my $ua = Mojo::UserAgent->new;
   my $res = $ua->get($url)->result;
   if ($res->code == 301 or $res->code == 302) {
@@ -3818,6 +3819,9 @@ td, th {
 }
 .images img.landscape {
   max-width: 120px;
+}
+.images img.map {
+  width: 30ex;
 }
 .images {
   clear: both;
