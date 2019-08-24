@@ -2750,6 +2750,12 @@ any '/render' => sub {
   $c->render(text => $map->svg, format => 'svg');
 };
 
+get '/:type/redirect' => sub {
+  my $self = shift;
+  my $type = $self->param('type');
+  $self->redirect_to($self->url_for($type . "random")->query(seed => time));
+} => 'redirect';
+
 # alias for /smale
 get '/random' => sub {
   my $c = shift;
@@ -2905,8 +2911,8 @@ get '/alpine/parameters' => sub {
 sub gridmapper_map {
   my $c = shift;
   my $seed = $c->param('seed') || int(rand(1000000000));
-  my @params = ();
-  return Gridmapper->new()->generate_map(@params);
+  srand($seed);
+  return Gridmapper->new()->generate_map();
 }
 
 get '/gridmapper' => sub {
