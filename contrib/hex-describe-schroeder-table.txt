@@ -7766,7 +7766,7 @@
 1,Up here on these hills and overlooking the shrublands is a massive fortress built by giants long ago. [outlaw camp]
 1,There are caves beneath these badlands. [caves]
 1,The dry lands up here are the hunting grounds of a **manticore** called *[manticore]* living in the ruins of an old tower ([manticore stats]). [robber treasure] [manticore companions]
-1,A dreadful *stench* hangs in the air as you approach the top of the hill. Dozens of decomposing cover the ground. [a war party]Searching the remains you find a *[the war party colour]* flag of *[the war party]*. These were mercenaries. They weren’t killed by force of arms: they were poisoned.[here store captain *[human name]* was last seen in in the badlands near *[nearby village name]* carrying the banner of *[the war party]* as war fact]
+1,A dreadful *stench* hangs in the air as you approach the top of the hill. Dozens of decomposing [bodies|corpses|soldiers|warriors] cover the ground. [a war party]Searching the remains you find a *[the war party colour]* flag of *[the war party]*. These were mercenaries. They weren’t killed by force of arms: they were poisoned.[here store captain *[human name]* was last seen in in the badlands near *[nearby village name]* carrying the banner of *[the war party]* as war fact]
 1,A **green dragon** named *[here green dragon name as dragon name]*[dragon portrait] lives at [hill name], one of the hills overlooking these shrublands ([green dragon stats]). [dragon treasure]
 
 ;outlaw camp
@@ -9032,9 +9032,9 @@
 1,HD 1 AC 7 1d4 F2 MV 18 ML 9 XP 100; shoots feathers like darts for 60ft until they roll a 1 for damage; from then on they attack with their beaks; afraid of loud rattling, drumming or bells ringing; <span class="treasure">*swamp crane feathers* are worth 50gp each to an alchemist</span>[here store swamp crane feathers as alchemist quest]
 
 ;black dragon activity
-1,has built its lair on huge pile of rotting plant material forming a steaming island in the warm water
-1,is hunting these waters, hiding in the water like a crocodile but vicious and greedy like only dragons are
-1,hunts the region, surveying the waterways from above and attacking boats from the air
+1,has built its lair on a huge pile of rotting [seaweed|lili pads|leaves|plant material] that form a steaming island in the warm water
+1,is hunting these [muddy|turbulent|stagnant] waters, submerged like a crocodile but vicious and greedy like only dragons are
+1,hunts the region, surveying the waterways from above and attacking [ships|boats|watercraft|craft] from the air
 
 ;black dragon name
 1,[black dragon 1] [black dragon 2] [black dragon 3]
@@ -9076,7 +9076,7 @@
 7,[1d7+1] **giant fish**
 
 ;swamp animals
-1,birds
+1,[herons,egrets,moorhens,cranes]
 1,mosquitoes
 1,eels
 1,lampreys
@@ -10369,7 +10369,7 @@
 ;cave description
 1,littered with the bones of previous victims, mainly [victims]
 1,covered in leaves blown in by the wind
-1,riddled with small pools and puddles of stangant water
+1,riddled with small pools and puddles of stagnant water
 1,punctuated with a few blunt and bumpy stalagmites
 
 ;victims
@@ -10842,7 +10842,7 @@
 
 ;do something interesting
 1,save vs. poison or die. The locals use this to kill criminals.
-1,save vs. poison or loose your voice for a week. The locals avoid doing this.
+1,save vs. poison or lose your voice for a week. The locals avoid doing this.
 1,save vs. poison or be cursed to turn into a myconid over the coming week.
 1,save vs. poison or be paralysed for 1d4 hours. Local Set cultists will trade in these mushrooms.
 1,gain telepathic powers for a week. The locals use them to spy on the thoughts of any foreigners.
