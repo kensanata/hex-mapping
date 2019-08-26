@@ -2349,6 +2349,9 @@ sub generate_pillar_room {
       }
     }
   }
+  my $x = $start[0] + int($dimensions[0]/2);
+  my $y = $start[1] + int($dimensions[1]/2);
+  push(@{$tiles[$x + $y * $room_dimensions[0]]}, "\"$num\"");
   return \@tiles;
 }
 
