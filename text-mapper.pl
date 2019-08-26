@@ -2719,7 +2719,7 @@ sub add_stair {
 	  and none { something($tiles, $here, $_) } @test) {
 	my $distance = distance($here + $first, $start);
 	if ($distance < $stair_distance) {
-	  $log->debug("Considering stair-$dir for $here ($distance)");
+	  # $log->debug("Considering stair-$dir for $here ($distance)");
 	  $stair = $here;
 	  $stair_dir = $dir;
 	  $stair_distance = $distance;
@@ -2731,7 +2731,7 @@ sub add_stair {
     push(@{$tiles->[$stair]}, "stair-$stair_dir");
     return $tiles;
   }
-  $log->debug("Unable to place a regular stair, trying to place a spiral staircase");
+  # $log->debug("Unable to place a regular stair, trying to place a spiral staircase");
   for my $here (shuffle 0 .. scalar(@$tiles) - 1) {
     next unless $tiles->[$here];
     if (# close by
