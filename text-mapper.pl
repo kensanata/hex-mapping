@@ -2767,13 +2767,13 @@ sub fix_pillars {
   TILE:
     for (@{$tiles->[$here]}) {
       if ($_ eq "pillar") {
-	$log->debug("$here: $_");
+	# $log->debug("$here: $_");
 	# debug_neighbours($tiles, $here);
 	for my $dir (qw(n e w s)) {
 	  if (something($tiles, $here, $test{$dir}->[0])
 	      and not something($tiles, $here, $test{$dir}->[1])
 	      and not something($tiles, $here, $test{$dir}->[2])) {
-	    $log->debug("Removing pillar $here");
+	    # $log->debug("Removing pillar $here");
 	    $_ = "empty";
 	    next TILE;
 	  }
