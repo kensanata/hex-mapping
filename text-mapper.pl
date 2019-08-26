@@ -2416,7 +2416,15 @@ sub shape {
       # 3--1--4
       #    |
       #    2
-      [[1, 1], [1, 2], [0, 1, 0], [2, 1, 0], [1, 0, 0]]
+      [[1, 1], [1, 2], [0, 1, 0], [2, 1, 0], [1, 0, 0]],
+      #
+      # The Nose Ring
+      #
+      #    5--4  2--3--4
+      #    |  |  |  |
+      # 1--2--3  1--5
+      # [[0, 2], [1, 2], [2, 2], [2, 1], [1, 1, 1, 3]],
+      [[0, 2], [0, 1], [1, 1], [2, 1], [1, 2, 0, 2]],
 	);
   }
   # $log->debug(join(", ", map { "[@$_]"} @$shape));
@@ -2477,50 +2485,51 @@ sub add_corridors {
   my @shapes = @$shapes; # a copy that gets shorter
   my $from = shift(@shapes);
   my $delta;
-  for my $next (@shapes) {
-    # in case the shapes are not connected one to another, extra coordinates are
-    # available
-    if (@$next == 3) {
-      $from->[0] = $shapes->[$next->[2]]->[0];
-      $from->[1] = $shapes->[$next->[2]]->[1];
-      # $log->debug("set corridor from ($from->[0], $from->[1]) to ($next->[0], $next->[1])");
-    }
-    # direction: north is minus an entire row, south is plus an entire row, east
-    # is plus one, west is minus one
-    if ($next->[0] < $from->[0]) {
-      # $log->debug("west");
-      $delta = [-1, - $row, $row];
-    } elsif ($next->[0] > $from->[0]) {
-      # $log->debug("east");
-      $delta = [1, - $row, $row];
-    } elsif ($next->[1] < $from->[1]) {
-      # $log->debug("north");
-      $delta = [- $row, 1, -1];
-    } elsif ($next->[1] > $from->[1]) {
-      # $log->debug("south");
-      $delta = [$row, 1, -1];
+  for my $to (@shapes) {
+    if (@$to == 2) {
+      # The default case is that the preceding shape is our parent. A simple
+      # railroad!
+      # $log->debug("from @$from to @$to");
+      $tiles = add_corridor($tiles, $from, $to, get_delta($from, $to));
+      $from = $to;
     } else {
-      $log->warn("unclear direction: bogus shape?");
+      # In case the shapes are not connected in order, the parent shapes are
+      # available as extra elements.
+      for my $from (map { $shapes->[$_] } @$to[2 .. $#$to]) {
+	# $log->debug(" from @$from to @$to");
+	$tiles = add_corridor($tiles, $from, $to, get_delta($from, $to));
+      }
     }
-    # In the example below, we're going east from F to T. In order to make sure
-    # that we also connect rooms in (0,0)-(1,1), we start one step earlier (1,2)
-    # and end one step later (8,2).
-    #
-    #  0123456789
-    # 0
-    # 1
-    # 2  F    T
-    # 3
-    # 4
-    $tiles = add_corridor($tiles,
-			   position_in($from) - 2 * $delta->[0],
-			   position_in($next) + 2 * $delta->[0], $delta);
-    $from = $next;
   }
   return $tiles;
 }
 
+sub get_delta {
+  my $from = shift;
+  my $to = shift;
+  # Direction: north is minus an entire row, south is plus an entire row, east
+  # is plus one, west is minus one. Return an array reference with three
+  # elements: how to get the next element and how to get the two elements to the
+  # left and right.
+  if ($to->[0] < $from->[0]) {
+    # $log->debug("west");
+    return [-1, - $row, $row];
+  } elsif ($to->[0] > $from->[0]) {
+    # $log->debug("east");
+    return [1, - $row, $row];
+  } elsif ($to->[1] < $from->[1]) {
+    # $log->debug("north");
+    return [- $row, 1, -1];
+  } elsif ($to->[1] > $from->[1]) {
+    # $log->debug("south");
+    return [$row, 1, -1];
+  } else {
+    $log->warn("unclear direction: bogus shape?");
+  }
+}
+
 sub position_in {
+  # Return a position in the big array corresponding to the midpoint in a room.
   my $delta = shift;
   my $x = int($room_dimensions[0]/2);
   my $y = int($room_dimensions[1]/2);
@@ -2529,10 +2538,24 @@ sub position_in {
 }
 
 sub add_corridor {
+  # In the example below, we're going east from F to T. In order to make sure
+  # that we also connect rooms in (0,0)-(1,1), we start one step earlier (1,2)
+  # and end one step later (8,2).
+  #
+  #  0123456789
+  # 0
+  # 1
+  # 2  F    T
+  # 3
+  # 4
   my $tiles = shift;
   my $from = shift;
   my $to = shift;
-  my $delta = shift; # three elemenfts: forward, left and right indexes
+  # Delta has three elements: forward, left and right indexes.
+  my $delta = shift;
+  # Convert $from and $to to indexes into the tiles array.
+  $from = position_in($from) - 2 * $delta->[0];
+  $to = position_in($to) + 2 * $delta->[0];
   my $n = 0;
   my $contact = 0;
   my $started = 0;
