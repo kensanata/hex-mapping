@@ -3681,6 +3681,16 @@ explanation of what these parameters do.
 <%= link_to url_for('gridmapper')->query(type => 'square') => begin%>Gridmapper<% end %>
 will generate dungeon map data based on geomorph sketches by Robin Green. Or
 just keep reloading <%= link_to gridmapperrandom => begin %>this link<% end %>.
+%= form_for gridmapper => begin
+<p>
+<label>
+%= check_box pillars => 0
+No rooms with pillars
+</label>
+%= hidden_field type => 'square'
+<p>
+%= submit_button
+% end
 
 @@ render.svg.ep
 
