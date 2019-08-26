@@ -1278,7 +1278,7 @@
 # add Wandering Monster: [[same monsters] encounter]
 
 ;dungeon map
-1,<img class="map" src="[[redirect https://campaignwiki.org/text-mapper/gridmapper/redirect]]" alt="5 room dungeon" title="5 room dungeon"/>
+1,<img class="map" src="[[redirect https://campaignwiki.org/text-mapper/gridmapper/redirect?pillars=0]]" alt="5 room dungeon" title="5 room dungeon"/>
 
 ;dungeontype
 1,goblin

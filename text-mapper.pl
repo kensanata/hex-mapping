@@ -2258,10 +2258,13 @@ use Class::Struct;
 struct Gridmapper => {};
 
 sub generate_map {
-  my $rooms = [map { generate_room($_) } (1 .. 5)];
+  my $self = shift;
+  my $pillars = shift;
+  my $rooms = [map { generate_room($_, $pillars) } (1 .. 5)];
   my $tiles = connect_rooms($rooms);
   $tiles = add_stair($tiles);
   $tiles = fix_corners($tiles);
+  $tiles = fix_pillars($tiles) if $pillars;
   my $text = to_text($tiles);
 }
 
@@ -2276,9 +2279,12 @@ my $max = (reduce { $a * $b } @dungeon_dimensions, @room_dimensions) - 1;
 
 sub generate_room {
   my $num = shift;
+  my $pillars = shift;
   my $r = rand();
   if ($r < 0.9) {
     return generate_random_room($num);
+  } elsif ($r < 0.95 and $pillars) {
+    return generate_pillar_room($num);
   } else {
     return generate_fancy_corner_room($num);
   }
@@ -2322,6 +2328,27 @@ sub generate_fancy_corner_room {
   my $x = $start[0] + int($dimensions[0]/2);
   my $y = $start[1] + int($dimensions[1]/2);
   push(@{$tiles[$x + $y * $room_dimensions[0]]}, "\"$num\"");
+  return \@tiles;
+}
+
+sub generate_pillar_room {
+  my $num = shift;
+  my @tiles;
+  my @dimensions = (3 + int(rand(2)), 3 + int(rand(2)));
+  my @start = pairwise { int(rand($b - $a)) } @dimensions, @room_dimensions;
+  # $log->debug("New room starting at (@start) for dimensions (@dimensions)");
+  my $type = "|";
+  for my $x ($start[0] .. $start[0] + $dimensions[0] - 1) {
+    for my $y ($start[1] .. $start[1] + $dimensions[1] - 1) {
+      if ($type eq "|" and ($x == $start[0] or $x == $start[0] + $dimensions[0] - 1)
+	  or $type eq "-" and ($y == $start[1] or $y == $start[1] + $dimensions[1] - 1)) {
+	push(@{$tiles[$x + $y * $room_dimensions[0]]}, "pillar");
+      } else {
+	push(@{$tiles[$x + $y * $room_dimensions[0]]}, "empty");
+	# $log->debug("$x $y @{$tiles[$x + $y * $room_dimensions[0]]}");
+      }
+    }
+  }
   return \@tiles;
 }
 
@@ -2565,7 +2592,7 @@ sub add_corridor {
   while (not grep { $to == ($from + $_) } @$delta) {
     $from += $delta->[0];
     # contact is if we're on a room, or to the left or right of a room (but not in front of a room)
-    $contact = any { $tiles->[$from + $_] } 0, $delta->[1], $delta->[2];
+    $contact = any { something($tiles, $from, $_) } 0, $delta->[1], $delta->[2];
     if ($contact) {
       $started = 1;
       @undo = ();
@@ -2599,12 +2626,12 @@ sub add_doors {
   for my $here (shuffle 1 .. scalar(@$tiles) - 1) {
     for my $dir (shuffle qw(n e s w)) {
       if ($tiles->[$here]
-	  and not $tiles->[$here + $test{$dir}->[0]]
-	  and not $tiles->[$here + $test{$dir}->[1]]
-	  and $tiles->[$here + $test{$dir}->[2]]
-	  and $tiles->[$here + $test{$dir}->[3]]
-	  and ($tiles->[$here + $test{$dir}->[4]]
-	       or $tiles->[$here + $test{$dir}->[5]])
+	  and not something($tiles, $here, $test{$dir}->[0])
+	  and not something($tiles, $here, $test{$dir}->[1])
+	  and something($tiles, $here, $test{$dir}->[2])
+	  and something($tiles, $here, $test{$dir}->[3])
+	  and (something($tiles, $here, $test{$dir}->[4])
+	       or something($tiles, $here, $test{$dir}->[5]))
 	  and not doors_nearby($here, \@doors)) {
 	$log->warn("$here content isn't 'empty'") unless $tiles->[$here]->[0] eq "empty";
 	my $type = one(@types);
@@ -2717,9 +2744,8 @@ sub fix_corners {
   for my $here (0 .. scalar(@$tiles) - 1) {
     for (@{$tiles->[$here]}) {
       if (/^(arc|diagonal)-(ne|nw|se|sw)$/) {
-	$log->debug("$here: $_");
 	my $dir = $2;
-	debug_neighbours($tiles, $here);
+	# debug_neighbours($tiles, $here);
 	if (substr($dir, 0, 1) eq "n" and $here + $row < $max and $tiles->[$here + $row] and @{$tiles->[$here + $row]}
 	    or substr($dir, 0, 1) eq "s" and $here > $row and $tiles->[$here - $row] and @{$tiles->[$here - $row]}
 	    or substr($dir, 1) eq "e" and $here > 0 and $tiles->[$here - 1] and @{$tiles->[$here - 1]}
@@ -2732,22 +2758,71 @@ sub fix_corners {
   return $tiles;
 }
 
+sub fix_pillars {
+  my $tiles = shift;
+  my %test = (n => [-$row, -$row - 1, -$row + 1],
+	      e => [1, 1 - $row, 1 + $row],
+	      s => [$row, $row - 1, $row + 1],
+	      w => [-1, -1 - $row, -1 + $row]);
+  for my $here (0 .. scalar(@$tiles) - 1) {
+  TILE:
+    for (@{$tiles->[$here]}) {
+      if ($_ eq "pillar") {
+	$log->debug("$here: $_");
+	# debug_neighbours($tiles, $here);
+	for my $dir (qw(n e w s)) {
+	  if (something($tiles, $here, $test{$dir}->[0])
+	      and not something($tiles, $here, $test{$dir}->[1])
+	      and not something($tiles, $here, $test{$dir}->[2])) {
+	    $log->debug("Removing pillar $here");
+	    $_ = "empty";
+	    next TILE;
+	  }
+	}
+      }
+    }
+  }
+  return $tiles;
+}
+
+sub legal {
+  # is this position on the map?
+  my $here = shift;
+  my $delta = shift;
+  return if $here + $delta < 0 or $here + $delta > $max;
+  return if $here % $row == 0 and $delta == -1;
+  return if $here % $row == $row and $delta == 1;
+  return 1;
+}
+
+sub something {
+  # Is there something at this legal position? Off the map means there is
+  # nothing at the position.
+  my $tiles = shift;
+  my $here = shift;
+  my $delta = shift;
+  return if not legal($here, $delta);
+  return @{$tiles->[$here + $delta]} if $tiles->[$here + $delta];
+}
+
 sub debug_neighbours {
   my $tiles = shift;
   my $here = shift;
   my @n;
   if ($here > $row and $tiles->[$here - $row] and @{$tiles->[$here - $row]}) {
     push(@n, "n: @{$tiles->[$here - $row]}");
-  } elsif ($here + $row <= $max and $tiles->[$here + $row] and @{$tiles->[$here + $row]}) {
+  }
+  if ($here + $row <= $max and $tiles->[$here + $row] and @{$tiles->[$here + $row]}) {
     push(@n, "s: @{$tiles->[$here + $row]}");
   }
   if ($here > 0 and $tiles->[$here - 1] and @{$tiles->[$here - 1]}) {
     push(@n, "w: @{$tiles->[$here - 1]}");
-  } elsif ($here < $max and $tiles->[$here + 1] and @{$tiles->[$here + 1]}) {
+  }
+  if ($here < $max and $tiles->[$here + 1] and @{$tiles->[$here + 1]}) {
     push(@n, "e: @{$tiles->[$here + 1]}");
   }
   $log->debug("Neighbours of $here: @n");
-  for (-$row, 1, $row, -1) {
+  for (-$row-1, -$row, -$row+1, -1, +1, $row-1, $row, $row+1) {
     eval { $log->debug("Neighbours of $here+$_: @{$tiles->[$here + $_]}") };
   }
 }
@@ -3022,8 +3097,9 @@ get '/alpine/parameters' => sub {
 sub gridmapper_map {
   my $c = shift;
   my $seed = $c->param('seed') || int(rand(1000000000));
+  my $pillars = $c->param('pillars') // 1;
   srand($seed);
-  return Gridmapper->new()->generate_map();
+  return Gridmapper->new()->generate_map($pillars);
 }
 
 get '/gridmapper' => sub {
