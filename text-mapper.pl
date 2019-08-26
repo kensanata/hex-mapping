@@ -2250,7 +2250,7 @@ sub arrows {
 }
 
 package Gridmapper;
-use List::Util qw'shuffle none any';
+use List::Util qw'shuffle none any reduce';
 use List::MoreUtils qw'pairwise';
 use Class::Struct;
 
@@ -2261,6 +2261,7 @@ sub generate_map {
   my $rooms = [map { generate_room($_) } (1 .. 5)];
   my $tiles = connect_rooms($rooms);
   $tiles = add_stair($tiles);
+  $tiles = fix_corners($tiles);
   my $text = to_text($tiles);
 }
 
@@ -2270,7 +2271,7 @@ my @dungeon_dimensions = (3, 3);
 my @room_dimensions = (5, 5);
 # convenience
 my $row = $dungeon_dimensions[0] * $room_dimensions[0];
-
+my $max = (reduce { $a * $b } @dungeon_dimensions, @room_dimensions) - 1;
 # (0,0) starts at the top left and goes rows before columns, like text.
 
 sub generate_room {
@@ -2305,7 +2306,7 @@ sub generate_fancy_corner_room {
   my $num = shift;
   my @tiles;
   my @dimensions = (3 + int(rand(2)), 3 + int(rand(2)));
-  my @start = pairwise { int(rand($b - $a - 2)) + 1 } @dimensions, @room_dimensions;
+  my @start = pairwise { int(rand($b - $a)) } @dimensions, @room_dimensions;
   # $log->debug("New room starting at (@start) for dimensions (@dimensions)");
   for my $x ($start[0] .. $start[0] + $dimensions[0] - 1) {
     for my $y ($start[1] .. $start[1] + $dimensions[1] - 1) {
@@ -2708,6 +2709,47 @@ sub add_stair {
   }
   $log->warn("Unable to place a stair!");
   return $tiles;
+}
+
+sub fix_corners {
+  my $tiles = shift;
+  my %look = (n => -$row, e => 1, s => $row, w => -1);
+  for my $here (0 .. scalar(@$tiles) - 1) {
+    for (@{$tiles->[$here]}) {
+      if (/^(arc|diagonal)-(ne|nw|se|sw)$/) {
+	$log->debug("$here: $_");
+	my $dir = $2;
+	debug_neighbours($tiles, $here);
+	if (substr($dir, 0, 1) eq "n" and $here + $row < $max and $tiles->[$here + $row] and @{$tiles->[$here + $row]}
+	    or substr($dir, 0, 1) eq "s" and $here > $row and $tiles->[$here - $row] and @{$tiles->[$here - $row]}
+	    or substr($dir, 1) eq "e" and $here > 0 and $tiles->[$here - 1] and @{$tiles->[$here - 1]}
+	    or substr($dir, 1) eq "w" and $here < $max and $tiles->[$here + 1] and @{$tiles->[$here + 1]}) {
+	  $_ = "empty";
+	}
+      }
+    }
+  }
+  return $tiles;
+}
+
+sub debug_neighbours {
+  my $tiles = shift;
+  my $here = shift;
+  my @n;
+  if ($here > $row and $tiles->[$here - $row] and @{$tiles->[$here - $row]}) {
+    push(@n, "n: @{$tiles->[$here - $row]}");
+  } elsif ($here + $row <= $max and $tiles->[$here + $row] and @{$tiles->[$here + $row]}) {
+    push(@n, "s: @{$tiles->[$here + $row]}");
+  }
+  if ($here > 0 and $tiles->[$here - 1] and @{$tiles->[$here - 1]}) {
+    push(@n, "w: @{$tiles->[$here - 1]}");
+  } elsif ($here < $max and $tiles->[$here + 1] and @{$tiles->[$here + 1]}) {
+    push(@n, "e: @{$tiles->[$here + 1]}");
+  }
+  $log->debug("Neighbours of $here: @n");
+  for (-$row, 1, $row, -1) {
+    eval { $log->debug("Neighbours of $here+$_: @{$tiles->[$here + $_]}") };
+  }
 }
 
 sub to_text {
