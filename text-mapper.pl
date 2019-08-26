@@ -2706,13 +2706,9 @@ sub add_stair {
 	my @test = @{$test{$dir}};
 	my $first = shift(@test);
 	if (# the first test is an empty tile: this the stair's landing
-	    $tiles->[$here + $first]
-	    and $tiles->[$here + $first]->[0] eq "empty"
-	    # and the stair's landing doesn't wrap around!
-	    and int($here/$row) == int(($here + $first)/$row)
-	    # and the stair is surrounded by empty space (here we don't check
-	    # whether the tests wrap around)
-	    and none { $tiles->[$here + $_] } @test) {
+	    empty($tiles, $here, $first)
+	    # and the stair is surrounded by empty space
+	    and none { something($tiles, $here, $_) } @test) {
 	  $log->debug("Placed stair-$dir at $here");
 	  push(@{$tiles->[$here]}, "stair-$dir");
 	  return $tiles;
@@ -2806,6 +2802,15 @@ sub something {
   my $delta = shift;
   return if not legal($here, $delta);
   return @{$tiles->[$here + $delta]} if $tiles->[$here + $delta];
+}
+
+sub empty {
+  # Is this position legal and empty? We're looking for the "empty" tile!
+  my $tiles = shift;
+  my $here = shift;
+  my $delta = shift;
+  return if not legal($here, $delta);
+  return grep { $_ eq "empty" } @{$tiles->[$here + $delta]};
 }
 
 sub debug_neighbours {
