@@ -2698,23 +2698,41 @@ sub add_stair {
 		    -$row - 1, -1, +$row - 1]);
   $test{s} = [map { -$_ } @{$test{n}}];
   $test{w} = [map { -$_ } @{$test{e}}];
+  # First round: limit ourselves to stair positions close to the start.
+  my %candidates;
   for my $here (shuffle 0 .. scalar(@$tiles) - 1) {
     next if $tiles->[$here];
-    if (distance($here, $start) <= 4) {
-      # push(@{$tiles->[$here]}, "red"); next;
-      for my $dir (shuffle qw(n e s w)) {
-	my @test = @{$test{$dir}};
-	my $first = shift(@test);
-	if (# the first test is an empty tile: this the stair's landing
-	    empty($tiles, $here, $first)
-	    # and the stair is surrounded by empty space
-	    and none { something($tiles, $here, $_) } @test) {
-	  $log->debug("Placed stair-$dir at $here");
-	  push(@{$tiles->[$here]}, "stair-$dir");
-	  return $tiles;
+    my $distance = distance($here, $start);
+    $candidates{$here} = $distance if $distance <= 4;
+  }
+  # Second round: for each candidate, test stair placement and record the
+  # distance of the landing to the start and the direction of every successful
+  # stair.
+  my $stair;
+  my $stair_dir;
+  my $stair_distance = $max;
+  for my $here (sort {$a cmp $b} keys %candidates) {
+    # push(@{$tiles->[$here]}, "red");
+    for my $dir (shuffle qw(n e w s)) {
+      my @test = @{$test{$dir}};
+      my $first = shift(@test);
+      if (# the first test is an empty tile: this the stair's landing
+	  empty($tiles, $here, $first)
+	  # and the stair is surrounded by empty space
+	  and none { something($tiles, $here, $_) } @test) {
+	my $distance = distance($here + $first, $start);
+	if ($distance < $stair_distance) {
+	  $log->debug("Considering stair-$dir for $here ($distance)");
+	  $stair = $here;
+	  $stair_dir = $dir;
+	  $stair_distance = $distance;
 	}
       }
     }
+  }
+  if (defined $stair) {
+    push(@{$tiles->[$stair]}, "stair-$stair_dir");
+    return $tiles;
   }
   $log->debug("Unable to place a regular stair, trying to place a spiral staircase");
   for my $here (shuffle 0 .. scalar(@$tiles) - 1) {
