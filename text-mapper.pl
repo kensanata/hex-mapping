@@ -2250,32 +2250,36 @@ sub arrows {
 }
 
 package Gridmapper;
-use List::Util qw'shuffle none any reduce';
+use List::Util qw'shuffle none any';
 use List::MoreUtils qw'pairwise';
 use Class::Struct;
 
 # Currently empty
 struct Gridmapper => {};
 
+# This is the meta grid for the geomorphs.
+my @dungeon_dimensions = (3, 3);
+# This is the grid for a particular geomorph.
+my @room_dimensions = (5, 5);
+# Add two tiles for the edges.
+my $row = $dungeon_dimensions[0] * $room_dimensions[0] + 4;
+my $col = $dungeon_dimensions[1] * $room_dimensions[1] + 4;
+my $max = $row * $col - 1;
+# (0,0) starts at the top left and goes rows before columns, like text.
+
 sub generate_map {
   my $self = shift;
   my $pillars = shift;
   my $rooms = [map { generate_room($_, $pillars) } (1 .. 5)];
-  my $tiles = connect_rooms($rooms);
+  my $shape = shape(scalar(@$rooms));
+  my $tiles = add_rooms($rooms, $shape);
+  $tiles = add_corridors($tiles, $shape);
+  $tiles = add_doors($tiles);
   $tiles = add_stair($tiles);
   $tiles = fix_corners($tiles);
   $tiles = fix_pillars($tiles) if $pillars;
   my $text = to_text($tiles);
 }
-
-# this is the meta grid for the geomorphs
-my @dungeon_dimensions = (3, 3);
-# this is the grid for a particular geomorph
-my @room_dimensions = (5, 5);
-# convenience
-my $row = $dungeon_dimensions[0] * $room_dimensions[0];
-my $max = (reduce { $a * $b } @dungeon_dimensions, @room_dimensions) - 1;
-# (0,0) starts at the top left and goes rows before columns, like text.
 
 sub generate_room {
   my $num = shift;
@@ -2353,15 +2357,6 @@ sub generate_pillar_room {
   my $y = $start[1] + int($dimensions[1]/2);
   push(@{$tiles[$x + $y * $room_dimensions[0]]}, "\"$num\"");
   return \@tiles;
-}
-
-sub connect_rooms {
-  my $rooms = shift;
-  my $shape = shape(scalar(@$rooms));
-  my $tiles = add_rooms($rooms, $shape);
-  $tiles = add_corridors($tiles, $shape);
-  $tiles = add_doors($tiles);
-  return $tiles;
 }
 
 sub one {
@@ -2484,7 +2479,8 @@ sub shape {
 }
 
 sub add_rooms {
-  # get the rooms and the deltas, draw it all on a big grid
+  # Get the rooms and the deltas, draw it all on a big grid. Don't forget the
+  # two-tile border around it all.
   my $rooms = shift;
   my $deltas = shift;
   my @tiles;
@@ -2495,8 +2491,8 @@ sub add_rooms {
     # copy the room, shifted appropriately
     for my $x (0 .. $room_dimensions[0] - 1) {
       for my $y (0 .. $room_dimensions[0] - 1) {
-	my $v = $tiles[$x + $delta->[0] * $room_dimensions[0]
-		       + ($y + $delta->[1] * $room_dimensions[1])
+	my $v = $tiles[$x + $delta->[0] * $room_dimensions[0] + 2
+		       + ($y + $delta->[1] * $room_dimensions[1] + 2)
 		       * $row]
 	    = $room->[$x + $y * $room_dimensions[0]];
 	# $log->debug(sprintf("%02d%02d (%d) %s", $x + $delta->[0] * $room_dimensions[0],
@@ -2561,9 +2557,10 @@ sub get_delta {
 
 sub position_in {
   # Return a position in the big array corresponding to the midpoint in a room.
+  # Don't forget the two-tile border.
   my $delta = shift;
-  my $x = int($room_dimensions[0]/2);
-  my $y = int($room_dimensions[1]/2);
+  my $x = int($room_dimensions[0]/2) + 2;
+  my $y = int($room_dimensions[1]/2) + 2;
   return $x + $delta->[0] * $room_dimensions[0]
       + ($y + $delta->[1] * $room_dimensions[1]) * $row;
 }
@@ -2854,11 +2851,12 @@ sub debug_neighbours {
 }
 
 sub to_text {
+  # Don't forget the border of two tiles.
   my $tiles = shift;
   my $text = "include $contrib/gridmapper.txt\n";
-  for my $x (0 .. $room_dimensions[0] * $dungeon_dimensions[0] - 1) {
-    for my $y (0 .. $room_dimensions[1] * $dungeon_dimensions[1] - 1) {
-      my $tile = $tiles->[$x + $y * $room_dimensions[0] * $dungeon_dimensions[0]];
+  for my $x (0 .. $row - 1) {
+    for my $y (0 .. $col - 1) {
+      my $tile = $tiles->[$x + $y * $row];
       if ($tile) {
 	$text .= sprintf("%02d%02d @$tile\n", $x + 1, $y + 1);
       }
