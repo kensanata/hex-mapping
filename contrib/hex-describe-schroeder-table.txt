@@ -1257,6 +1257,7 @@
 1,[green tower in the mountains]
 1,On one of the rock faces you can still see the markings of the old dwarf forge *[here dwarf forge]*. [forge ruin]
 1,The *Pass of [old name]* on the way to [name for white big mountains] is guarded by [a warlock fortress]
+1,[lindwurm]
 1,[mountain orcs]
 1,[necropolis]
 1,[naga temple]
@@ -3214,6 +3215,16 @@
 1,Zapato
 1,Zaragoza
 1,Zau
+
+;lindwurm
+1,Scorched tree stumps and puddles of poisonous [black|brown] bile are everywhere. The icy wind bites mercilessly. Rocks loom overhead as the valley floor reaches a maw, a blackness that leads into the bowels of the earth. This is is **lindwurm** territory ([lindwurm stats]). [terror treasure]<p>[lindwurm companions]
+
+;lindwurm stats
+1,HD 5 AC 4 2d6 F5 MV 24 ML 7 XP 500; *poisonous gas* surrounds it at all times: when within 30ft, save vs. poison or loose 1d6
+
+;lindwurm companions
+1,The tunnels *above* the lindwurm caverns are inhabited by [6d10] **goblins**, led by [goblin] ([goblin stats]). [poor treasure] They will happily defend the lindwurm using their bows and arrows. If pursued, they will try and lure fools into the nets of 2d4 **giant spiders** ([giant spider stats]). There is a 2 in 6 chance that running leads people into a web trap. Anybody trapped is *helpless*.
+1,The tunnels *below* the lindwurm caverns are inhabited by [1d8 trolls] ([troll stats]). [robber treasure]
 
 ;mountain orcs
 1,The valley up here is hard to find. This is where the orcs of the *[evil tribe]* tribe raise [mountain animals] and make their [mountain orc product]. [orcs] [mountain orc leader specialty]<p>[mountain orc settlement]
