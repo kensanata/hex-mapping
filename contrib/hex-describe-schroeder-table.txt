@@ -310,24 +310,24 @@
 1,These white salt flats harbor as dead as dead can be.
 
 ;grass
-5,[grass intro] [grass dressing] **[capitalize cows]** can be seen grazing in the distance to the [direction].
-1,[grass intro] [grass dressing] Without a guide, you may be ambushed by [1d12+1] [warrior ants] protecting their colony from intruders. The ant lair is not far.<p>[giant ant lair]
-3,[grass intro] [grass dressing] Those who know how to find it can gather *[magic plant]*.
-1,[grass intro] [grass dressing] The area has been settled by a tribe of [6d6] **lizard people** ([lizard people stats]) led by *[lizard leader]* (HD [1d4+2 as level]). [leader treasure] The little village of sod and grass huts is guarded by [lizard companions]. [average treasure]
-1,[grass intro] [grass dressing] This land is the home of [centaurs].
-1,[grass intro] [grass dressing] A ruined tower standing on a small rise is home to the **ettin** called *[ettin]*. [robber treasure] [ettin tower protection]
-1,[grass intro] [grass dressing] In the old days, this rocky pit was [a gem] quarry. Concealed in a rocky crevice is the hidden barrow of [1d8 wights] ([wight stats]).
-1,[grass intro] [grass dressing] There is a huge dirt mound with small holes for windows and a rough wooden door. [goblins]
+5,[grass intro] [grass dressing] [grass landmark] **[capitalize cows]** can be seen grazing in the distance to the [direction].
+1,[grass intro] [grass dressing] [grass landmark] Without a guide, you may be ambushed by [1d12+1] [warrior ants] protecting their colony from intruders. The ant lair is not far.<p>[giant ant lair]
+3,[grass intro] [grass dressing] [grass landmark] Those who know how to find it can gather *[magic plant]*.
+1,[grass intro] [grass dressing] [grass landmark] The area has been settled by a tribe of [6d6] **lizard people** ([lizard people stats]) led by *[lizard leader]* (HD [1d4+2 as level]). [leader treasure] The little village of sod and grass huts is guarded by [lizard companions]. [average treasure]
+1,[grass intro] [grass dressing] [grass landmark] This land is the home of [centaurs].
+1,[grass intro] [grass dressing] [grass landmark] A ruined tower standing on a small rise is home to the **ettin** called *[ettin]*. [robber treasure] [ettin tower protection]
+1,[grass intro] [grass dressing] [grass landmark] In the old days, this rocky pit was [a gem] quarry. Concealed in a rocky crevice is the hidden barrow of [1d8 wights] ([wight stats]).
+1,[grass intro] [grass dressing] [grass landmark] There is a huge dirt mound with small holes for windows and a rough wooden door. [goblins]
 1,The [grass name] looks burned and shrivelled here and the smell of sulphur hangs in the air. A **manticore** named *[here manticore name]* [manticore activity] ([manticore stats]).
-3,[grass intro] [grass dressing]  If you stay here long, you’ll soon attract the attention of [boars].
+3,[grass intro] [grass dressing] [grass landmark]  If you stay here long, you’ll soon attract the attention of [boars].
 1,[grass intro] A burbling spring seeps out of a small cave here, save vs. poison or spend the rest of the day vomiting. This cave is home to a **basilisk** ([basilisk stats]). The poisonous vapours have polluted the spring water.
-1,[grass intro] [grass dressing] An abandoned shrine to *[power]* stands here, partly covered in lichens. Patrolling the corridors inside the crumbling shrine is a **straw golem** ([straw golem stats]). [2d6] [gem] gems can be recovered from the golem.
-1,[grass intro] [grass dressing] There’s a wooden hut here. Its inhabitant appears to be a hermit called [human with portrait]. In actual fact, however, this is a **wereboar** ([werewolf stats]). [poor treasure] They will attack if the party discovers their secret.
-1,[grass intro] [grass dressing] [outlaw camp]. [robber treasure]
+1,[grass intro] [grass dressing] [grass landmark] An abandoned shrine to *[power]* stands here, partly covered in lichens. Patrolling the corridors inside the crumbling shrine is a **straw golem** ([straw golem stats]). <span class="treasure">[2d6] [gem] gems can be recovered from the golem.</span>
+1,[grass intro] [grass dressing] [grass landmark] There’s a wooden hut here. Its inhabitant appears to be a hermit called [human with portrait]. In actual fact, however, this is a **wereboar** ([werewolf stats]). [poor treasure] They will attack if the party discovers their secret.
+1,[grass intro] [grass dressing] [grass landmark] [outlaw camp]. [robber treasure]
 3,This section of the [grass name] is an elephant graveyard. Elephant bones lie scattered among the flattened grasses. These bones are protected by [1d8+1] **elephants** ([elephant stats]) who will trample and gore anybody disturbing this area. <span class="treasure">Each tusk is worth 1d6×100gp.</span>
-1,[grass intro] [grass dressing] This is the territory of [1d12+1] **pumas** ([puma stats]).
-3,[grass intro] [grass dressing] There is a camp of [horse archers]
-5,[grass intro] [grass dressing] To the [direction], [1d4+1] **coyote** ([wolf stats]) can be seen hunting.
+1,[grass intro] [grass dressing] [grass landmark] This is the territory of [1d12+1] **pumas** ([puma stats]).
+3,[grass intro] [grass dressing] [grass landmark] There is a camp of [horse archers]
+5,[grass intro] [grass dressing] [grass landmark] To the [direction], [1d4+1] **coyote** ([wolf stats]) can be seen hunting.
 
 ;grass intro
 1,The [grass name] is a gently rolling expanse of prairie.
@@ -346,6 +346,28 @@
 1,Venomous snakes slither among the grasses. Setting up camp here may not be safe.
 1,Beavers have built a dam here, creating a lake teeming with waterfowl and frogs.
 1,A brisk wind blows over the plain, making the grasses sway like waves on the sea.
+
+;grass landmark
+1,All plants here are being savaged by [noisy|hungry|rapacious] [blister locusts|[green synonym] grasshoppers|clouds of tiny [colour] songbirds].
+1,The fishing is excellent here in a small, [still|duckweed laden|clear] pond. An hour or so will net at least [1d6+1] [with freshwater fish] and [1d4+1] [and freshwater fish].
+1,There are some signs of a recent campsite, someone has left behind [1d10+1] [iron|bronze|steel|pig iron] tent pitons. A closer look will uncover [goblin junk].
+1,[Meticulously|Clumsily|Recently] [planted|plowed|tilled|turned] [soil|earth|sod] fills the breeze with a [pleasant, earthy|melancholy, homesick|pungent, acrid] scent.
+1,[Uniformly|Haphazardly|Carefully] stacked in groups of [2d4] are [hay bales|woodpiles|stone cairns] the size of [barns|cows|houses].
+1,A herd of [brown synonym] horses gallop [carefree|fearfully|majestically] in the distance.
+1,The ground here is littered with the shells of [sheep-sized|tiny|sun-bleached] [beetles|turtles|clams|snails].
+1,[Off to the side of the trail|At a crossroads|Within a deep ditch], an overturned [cart|wagon|coach]. It's [1d6+1] **[race] occupants** are [drained of blood but smiling|unconscious|fast asleep|severely injured|struggling to right it].
+1,Dilapidated driftwood fence posts [dot|zig-zag across|mar] the landscape, any slats long since salvaged for [building material|firewood].
+1,The [burnt|charred|smoking|ashen] ruins of what might have once been a roadside [inn|toll-booth|watering station] still smolder here.
+1,[capitalize colour] capped [mushrooms|toadstools] grow in large circles here.
+1,[Tiny|Fragrant|Bee-laden] [colour] flower buds simply [cover|carpet|blanket] the land here for as far as the eye can see.
+1,The sod here is [spongy and wet, hungry for boots and hooves|a potent fuel for burning in the winter months|sometimes used to build hovels and houses].
+1,Seven [stone|bronze|iron|terracotta] statues of [winged|crying|laughing|dancing] [women|men|children], [covered in bird droppings|defaced by vandalism|worn by the wind].
+1,Seemingly tossed here [long ago|recently|in anger] by a giant, several polished [granite|sandstone|schist|limestone] throwing boulders rest.
+1,Several [huge|large|well-built] [clay|brick|terracotta|stone] ovens seed the air with the [delicious|fragrant|welcoming] smell of fresh baking [breads].
+1,Diverted for irrigation, a tiny [rivulet|brook|canal] babbles incoherently in protest.
+1,A series of large, empty [carved stone|clay|brick|granite|marble] [jars|kilns|troughs|sarcophagi] lie half buried here.
+1,Some noisome weed is [on the wind|in the breeze|blooming nearby], noses are [sneezing|stuffed|runny] and eyes grow [bloodshot|itchy|watery].
+1,In the distance, [2d6] [superstitious|friendly|suspicious|singing] **shepherds** [herd|call out to|watch over|graze] their [bleating|thick-fleeced|freshly sheared|timid] sheep. They are led by *[human name]*.
 
 ;manticore activity
 1,has built its lair in an abandoned burial mound
