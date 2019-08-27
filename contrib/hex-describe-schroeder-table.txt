@@ -5242,6 +5242,7 @@
 1,<p>[name for trail] winds its way along these hills.
 1,<p>[name for trail] hugs the hills.
 1,<p>[name for trail] crosses over the water below at [bridge name].
+1,<p>[name for trail] crosses over the water below at [bridge name]. This is actually a *toll bridge*: the **bridge troll** *[capitalize precious metal mat] [troll name]* ([troll stats]) demanding 5gp per person “for the maintenance of the bridge, you understand.”
 
 ;trail-start trail
 1,<p>[name for trail] starts here.
