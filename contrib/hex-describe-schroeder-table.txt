@@ -4280,7 +4280,7 @@
 ;ice devil castle
 1,A castle stands here, a construction of blue ice, cooled by the desolation of Jötunheim, for at the very top of its tower is a gateway into that realm of frost giants and eternal snow.
 1,Up here is an old ruin built by frost giants, haunted by the [1d4+1] **spectres** of their last inhabitants ([spectre stats]). [ancient treasure]
-1,Protected by an eternal snow storm, the lone Tower of [frost giant] was built here ages ago. The flowing inscriptions of moon silver runes set into the stone are spells of protection, of hiding, and of cold.
+1,Protected by an eternal snow storm, the lone Tower of [frost giant name] was built here ages ago. The flowing inscriptions of moon silver runes set into the stone are spells of protection, of hiding, and of cold.
 1,A black pole of pain points towards the sky like a nail driven through the mountain. It is surrounded by the frozen carcasses of a thousand warriors, frozen as they lay dying, forever trying to reach that pole, hoping against all odds for release from their endless prison of cold, hard flesh.
 
 ;devil name
@@ -5035,6 +5035,20 @@
 1,There is a hidden meadow up here, protected by the [name for white big mountains]. [giant apes] [small temple near giant apes]
 1,The glacier of [name for white big mountains] ends at a small lake. [ice monster lair]
 1,A **white dragon** called *[here white dragon name as dragon name]*[dragon portrait] lives in a ruined mountain fortress guarding the approaches to the [name for white big mountains] ([white dragon stats]). [dragon treasure]
+1,[ghostly glacier procession]
+
+;ghostly glacier procession
+1,A cold wind blows snow and ice down the mountain. Visibility is down to maybe 30ft. This is the [name for white big mountains] glacier. Every night, a **procession ghosts** struggles barefoot across the ice. You can hear their wailing, their tiny bells ringing, and you can see the flickering candles they are carrying. If you follow them for an hour, you are going to cross over into Jötunheim with them. The procession leads you to the castle of the **frost giant** *[frost giant name]*. [2d4] **frost giants** and [frost giant companions] live here. [rich treasure]<p>To release the ghosts from their eternal wandering, you need to [ghostly glacier procession solution]
+
+;ghostly glacier procession solution
+1,convince [same frost giant name] to forgive these fools because they didn’t know that to kill a frost giant is to incur the wrath of one of the old gods.
+1,kill [same frost giant name] who holds them in eternal bondage and enjoys their eternal suffering as they rise from their graves all over the mountain and come to him, begging for mercy.
+1,tell their relatives in *[nearby village name]* how the traitor *[nearby human patron]* had betrayed them and led them to their doom many years ago. All they want is revenge, but actually just telling their relatives of what happened and helping them to find closure is enough to bring peace to the ghosts (although they don’t know it).
+1,give them all a proper burial, braving the evil guardian of the ice that holds them, the **ice worm** *Spawn of [devil name]* ([ice worm stats]).
+1,free the **wight** *[an old hero]* from their icy tomb and reunite them with their flock. If pressed, they will admit to wanting to rebuild old *[wight realm]*.
+
+;ice worm stats
+1,HD 5 AC 4 1d12 F5 MV 6 ML 8 XP 500; when hit, save vs. paralysis or be *helpless* for one round; helpless creatures are swallowed the next turn; swallowed creates take 1d6 damage every round and may only slash from the inside using a dagger
 
 ;small temple near giant apes
 1,
@@ -5323,10 +5337,10 @@
 1,HD 10+1 AC 4 4d6 or 3d6 *ranged* F10 MV 12 ML 9 XP 1000; *stone shape* and *control weather* at will
 
 ;1d4 frost giants
-1,The **frost giant** *[frost giant]* ([frost giant stats]) lives here in a [frost giant lair] with [frost giant companions]
-3,[1d3+1] **frost giants** led by *[frost giant]* live here ([frost giant stats]) with [frost giant companions] in a [frost giant lair]
+1,The **frost giant** *[frost giant name]* ([frost giant stats]) lives here in a [frost giant lair] with [frost giant companions]
+3,[1d3+1] **frost giants** led by *[frost giant name]* live here ([frost giant stats]) with [frost giant companions] in a [frost giant lair]
 
-;frost giant
+;frost giant name
 1,Winter’s Bone
 1,Snow
 1,Ice
@@ -37406,7 +37420,7 @@
 1,A *long sword of light* +3 (60ft), made in Asgard for the valkyrie *[valkyrie name]* (the sword rejects anybody who refuses to join three fights while carrying the sword).
 1,The *club of the slayer* +1/+3 vs. giants, blessed by Marduk.
 1,A smoking, quivering *black arrow of death* +2, carrying the curse of Nergal, ready to take root in a target: if hit, save vs. death or die; the arrow’s curse is lost when shot whether it hits or misses.
-1,The two handed *Icekiller* +3, forged by the frost giant *[frost giant]* in Jotunheim; when the blade is drawn, snow flakes form; when it is stuck into water, a layer of ice forms (10ft); when left unsheathed, a glacier will eventually form.
+1,The two handed *Icekiller* +3, forged by the frost giant *[frost giant name]* in Jotunheim; when the blade is drawn, snow flakes form; when it is stuck into water, a layer of ice forms (10ft); when left unsheathed, a glacier will eventually form.
 1,The long sword *Swampfire* +1/+3 vs. runners, forged in the depths of Myrkheim by frogling priests of Tsathoggua; it eeks a phosphorous glowing liquid and smells of rotten eggs; when left unsheathed, everything around it becomes water logged and eventually turns into a swamp.
 1,The *trident of fishes* +1 gives you long, webbed toes and the ability to breathe under water when you step into it, and you can speak the language of fishes.
 1,The ancient war hammer *Earth Hammer* +3, made by *[orc name]* in the *War of the Landgrab*: it can smash any structure built by man in three blows.
