@@ -1,0 +1,693 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     viewBox="0 0 1558 1905">
+     <!-- min (01, 01), max (08, 10) -->
+  <defs>
+    <g id="A"><text font-size="20pt" dy="-25px" font-family="Optima, Helvetica, sans-serif" text-anchor="middle">A</text></g>
+    <g id="B"><text font-size="20pt" dy="-25px" font-family="Optima, Helvetica, sans-serif" text-anchor="middle">B</text></g>
+    <g id="C"><text font-size="20pt" dy="-25px" font-family="Optima, Helvetica, sans-serif" text-anchor="middle">C</text></g>
+    <g id="D"><text font-size="20pt" dy="-25px" font-family="Optima, Helvetica, sans-serif" text-anchor="middle">D</text></g>
+    <g id="E"><text font-size="20pt" dy="-25px" font-family="Optima, Helvetica, sans-serif" text-anchor="middle">E</text></g>
+    <g id="F"><text font-size="20pt" dy="-25px" font-family="Optima, Helvetica, sans-serif" text-anchor="middle">F</text></g>
+    <g id="0"><circle r="11"/></g>
+    <g id="1"><circle r="12"/></g>
+    <g id="2"><circle r="13"/></g>
+    <g id="3"><circle r="14"/></g>
+    <g id="4"><circle r="15"/></g>
+    <g id="5"><circle r="16"/></g>
+    <g id="6"><circle r="17"/></g>
+    <g id="7"><circle r="18"/></g>
+    <g id="8"><circle r="19"/></g>
+    <g id="9"><circle r="20"/></g>
+    <g id="10"><circle r="21"/></g>
+    <g id="consulate"><text font-size="20pt" dy="50px" dx="-45px" font-family="Optima, Helvetica, sans-serif" text-anchor="middle">■</text></g>
+    <g id="tas"><text font-size="20pt" dy="20px" dx="-70px" font-family="Optima, Helvetica, sans-serif" text-anchor="middle">☼</text></g>
+    <g id="pirate"><text font-size="20pt" dy="20px" dx="70px" font-family="Optima, Helvetica, sans-serif" text-anchor="middle">☠</text></g>
+    <g id="research"><text font-size="20pt" dy="-10px" dx="70px" font-family="Optima, Helvetica, sans-serif" text-anchor="middle">π</text></g>
+    <g id="naval"><text font-size="20pt" dy="-40px" dx="-45px" font-family="Optima, Helvetica, sans-serif" text-anchor="middle">★</text></g>
+    <g id="gas"><text font-size="20pt" dy="-40px" dx="45px" font-family="Optima, Helvetica, sans-serif" text-anchor="middle">◉</text></g>
+    <g id="scout"><text font-size="20pt" dy="-10px" dx="-70px" font-family="Optima, Helvetica, sans-serif" text-anchor="middle">▲</text></g>
+    <g id="red"><circle r="48" fill="red" opacity="0.3"/></g>
+    <g id="amber"><circle r="48" fill="none" stroke="black" stroke-width="1" opacity="0.3"/></g>  </defs>
+  <g id="backgrounds">
+  </g>
+  <g id="lines">
+    <path id="line0" stroke="#ff6347" stroke-width="10pt" fill="none" opacity="0.7" d="M225.2,1212.4 C259.8,1212.4 225.2,1212.4 259.8,1212.4 S346.4,1264.4 346.4,1299.0 L346.4,1333.7"/>
+    <path id="line1" stroke="#ff6347" stroke-width="10pt" fill="none" opacity="0.7" d="M398.4,1385.6 C433.0,1385.6 398.4,1385.6 433.0,1385.6 S571.6,1385.6 606.2,1385.6 S692.8,1437.6 692.8,1472.2 L692.8,1506.9"/>
+    <path id="line2" stroke="#ff6347" stroke-width="10pt" fill="none" opacity="0.7" d="M571.6,346.4 C606.2,346.4 571.6,346.4 606.2,346.4 S744.8,346.4 779.4,346.4 L814.1,346.4"/>
+    <path id="line3" stroke="#ff6347" stroke-width="10pt" fill="none" opacity="0.7" d="M571.6,519.6 C606.2,519.6 571.6,519.6 606.2,519.6 S744.8,519.6 779.4,519.6 S866.0,467.7 866.0,433.0 L866.0,398.4"/>
+    <path id="line4" stroke="#ff6347" stroke-width="10pt" fill="none" opacity="0.7" d="M744.8,1558.8 C779.4,1558.8 744.8,1558.8 779.4,1558.8 S918.0,1558.8 952.6,1558.8 L987.3,1558.8"/>
+    <path id="line5" stroke="#ff6347" stroke-width="10pt" fill="none" opacity="0.7" d="M866.0,398.4 C866.0,433.0 866.0,398.4 866.0,433.0 S866.0,571.6 866.0,606.2 L866.0,640.9"/>
+    <path id="line6" stroke="#ff6347" stroke-width="10pt" fill="none" opacity="0.7" d="M918.0,692.8 C952.6,692.8 918.0,692.8 952.6,692.8 S1039.2,744.8 1039.2,779.4 L1039.2,814.1"/>
+    <path id="line7" stroke="#ff6347" stroke-width="10pt" fill="none" opacity="0.7" d="M918.0,866.0 C952.6,866.0 918.0,866.0 952.6,866.0 L987.3,866.0"/>
+    <path id="line8" stroke="#ff6347" stroke-width="10pt" fill="none" opacity="0.7" d="M987.3,1212.4 C952.6,1212.4 987.3,1212.4 952.6,1212.4 L918.0,1212.4"/>
+    <path id="line9" stroke="#ff6347" stroke-width="10pt" fill="none" opacity="0.7" d="M1039.2,1160.5 C1039.2,1125.8 1039.2,1160.5 1039.2,1125.8 S1039.2,987.3 1039.2,952.6 L1039.2,918.0"/>
+    <path id="line10" stroke="#ff6347" stroke-width="10pt" fill="none" opacity="0.7" d="M1039.2,1506.9 C1039.2,1472.2 1039.2,1506.9 1039.2,1472.2 S1039.2,1333.7 1039.2,1299.0 L1039.2,1264.4"/>
+    <path id="line11" stroke="#ff6347" stroke-width="10pt" fill="none" opacity="0.7" d="M1212.4,1160.5 C1212.4,1125.8 1212.4,1160.5 1212.4,1125.8 S1160.5,1039.2 1125.8,1039.2 S1039.2,987.3 1039.2,952.6 L1039.2,918.0"/>
+    <path id="line12" stroke="#ff6347" stroke-width="10pt" fill="none" opacity="0.7" d="M1160.5,1212.4 C1125.8,1212.4 1160.5,1212.4 1125.8,1212.4 L1091.2,1212.4"/>
+    <path id="line13" stroke="#ff6347" stroke-width="10pt" fill="none" opacity="0.7" d="M1333.7,692.8 C1299.0,692.8 1333.7,692.8 1299.0,692.8 S1160.5,692.8 1125.8,692.8 S1039.2,744.8 1039.2,779.4 L1039.2,814.1"/>
+    <path id="line14" stroke="#afeeee" stroke-width="6pt" fill="none" opacity="0.7" d="M173.2,398.4 C173.2,433.0 173.2,398.4 173.2,433.0 L173.2,467.7"/>
+    <path id="line15" stroke="#afeeee" stroke-width="6pt" fill="none" opacity="0.7" d="M225.2,866.0 C259.8,866.0 225.2,866.0 259.8,866.0 L294.4,866.0"/>
+    <path id="line16" stroke="#afeeee" stroke-width="6pt" fill="none" opacity="0.7" d="M173.2,987.3 C173.2,952.6 173.2,987.3 173.2,952.6 L173.2,918.0"/>
+    <path id="line17" stroke="#afeeee" stroke-width="6pt" fill="none" opacity="0.7" d="M173.2,1091.2 C173.2,1125.8 173.2,1091.2 173.2,1125.8 L173.2,1160.5"/>
+    <path id="line18" stroke="#afeeee" stroke-width="6pt" fill="none" opacity="0.7" d="M692.8,1506.9 C692.8,1472.2 692.8,1506.9 692.8,1472.2 L692.8,1437.6"/>
+    <path id="line19" stroke="#afeeee" stroke-width="6pt" fill="none" opacity="0.7" d="M866.0,398.4 C866.0,433.0 866.0,398.4 866.0,433.0 L866.0,467.7"/>
+    <path id="line20" stroke="#afeeee" stroke-width="6pt" fill="none" opacity="0.7" d="M814.1,1732.1 C779.4,1732.1 814.1,1732.1 779.4,1732.1 S692.8,1680.1 692.8,1645.4 L692.8,1610.8"/>
+    <path id="line21" stroke="#afeeee" stroke-width="6pt" fill="none" opacity="0.7" d="M987.3,1212.4 C952.6,1212.4 987.3,1212.4 952.6,1212.4 L918.0,1212.4"/>
+    <path id="line22" stroke="#afeeee" stroke-width="6pt" fill="none" opacity="0.7" d="M1039.2,814.1 C1039.2,779.4 1039.2,814.1 1039.2,779.4 L1039.2,744.8"/>
+    <path id="line23" stroke="#afeeee" stroke-width="6pt" fill="none" opacity="0.7" d="M1039.2,1264.4 C1039.2,1299.0 1039.2,1264.4 1039.2,1299.0 L1039.2,1333.7"/>
+    <path id="line24" stroke="#afeeee" stroke-width="6pt" fill="none" opacity="0.7" d="M1264.4,692.8 C1299.0,692.8 1264.4,692.8 1299.0,692.8 L1333.7,692.8"/>
+    <path id="line25" stroke="#afeeee" stroke-width="6pt" fill="none" opacity="0.7" d="M1160.5,1212.4 C1125.8,1212.4 1160.5,1212.4 1125.8,1212.4 L1091.2,1212.4"/>
+    <path id="line26" stroke="#afeeee" stroke-width="6pt" fill="none" opacity="0.7" d="M225.2,346.4 C259.8,346.4 225.2,346.4 259.8,346.4 S398.4,346.4 433.0,346.4 L467.7,346.4"/>
+    <path id="line27" stroke="#afeeee" stroke-width="6pt" fill="none" opacity="0.7" d="M225.2,346.4 C259.8,346.4 225.2,346.4 259.8,346.4 S398.4,346.4 433.0,346.4 S519.6,398.4 519.6,433.0 L519.6,467.7"/>
+    <path id="line28" stroke="#afeeee" stroke-width="6pt" fill="none" opacity="0.7" d="M173.2,814.1 C173.2,779.4 173.2,814.1 173.2,779.4 S173.2,640.9 173.2,606.2 L173.2,571.6"/>
+    <path id="line29" stroke="#afeeee" stroke-width="6pt" fill="none" opacity="0.7" d="M225.2,1212.4 C259.8,1212.4 225.2,1212.4 259.8,1212.4 S346.4,1264.4 346.4,1299.0 L346.4,1333.7"/>
+    <path id="line30" stroke="#afeeee" stroke-width="6pt" fill="none" opacity="0.7" d="M173.2,987.3 C173.2,952.6 173.2,987.3 173.2,952.6 S225.2,866.0 259.8,866.0 S346.4,814.1 346.4,779.4 L346.4,744.8"/>
+    <path id="line31" stroke="#afeeee" stroke-width="6pt" fill="none" opacity="0.7" d="M640.9,1558.8 C606.2,1558.8 640.9,1558.8 606.2,1558.8 S467.7,1558.8 433.0,1558.8 S346.4,1506.9 346.4,1472.2 L346.4,1437.6"/>
+    <path id="line32" stroke="#afeeee" stroke-width="6pt" fill="none" opacity="0.7" d="M744.8,1385.6 C779.4,1385.6 744.8,1385.6 779.4,1385.6 S866.0,1333.7 866.0,1299.0 L866.0,1264.4"/>
+    <path id="line33" stroke="#afeeee" stroke-width="6pt" fill="none" opacity="0.7" d="M814.1,346.4 C779.4,346.4 814.1,346.4 779.4,346.4 S640.9,346.4 606.2,346.4 L571.6,346.4"/>
+    <path id="line34" stroke="#afeeee" stroke-width="6pt" fill="none" opacity="0.7" d="M467.7,346.4 C433.0,346.4 467.7,346.4 433.0,346.4 S294.4,346.4 259.8,346.4 S173.2,294.4 173.2,259.8 L173.2,225.2"/>
+    <path id="line35" stroke="#afeeee" stroke-width="6pt" fill="none" opacity="0.7" d="M866.0,571.6 C866.0,606.2 866.0,571.6 866.0,606.2 S866.0,744.8 866.0,779.4 L866.0,814.1"/>
+    <path id="line36" stroke="#afeeee" stroke-width="6pt" fill="none" opacity="0.7" d="M866.0,398.4 C866.0,433.0 866.0,398.4 866.0,433.0 S866.0,571.6 866.0,606.2 L866.0,640.9"/>
+    <path id="line37" stroke="#afeeee" stroke-width="6pt" fill="none" opacity="0.7" d="M918.0,692.8 C952.6,692.8 918.0,692.8 952.6,692.8 S1091.2,692.8 1125.8,692.8 S1212.4,744.8 1212.4,779.4 L1212.4,814.1"/>
+    <path id="line38" stroke="#afeeee" stroke-width="6pt" fill="none" opacity="0.7" d="M1039.2,1160.5 C1039.2,1125.8 1039.2,1160.5 1039.2,1125.8 S1039.2,987.3 1039.2,952.6 L1039.2,918.0"/>
+    <path id="line39" stroke="#afeeee" stroke-width="6pt" fill="none" opacity="0.7" d="M1160.5,346.4 C1125.8,346.4 1160.5,346.4 1125.8,346.4 S987.3,346.4 952.6,346.4 L918.0,346.4"/>
+    <path id="line40" stroke="#afeeee" stroke-width="6pt" fill="none" opacity="0.7" d="M1212.4,398.4 C1212.4,433.0 1212.4,398.4 1212.4,433.0 S1212.4,571.6 1212.4,606.2 L1212.4,640.9"/>
+    <path id="line41" stroke="#afeeee" stroke-width="6pt" fill="none" opacity="0.7" d="M1212.4,1160.5 C1212.4,1125.8 1212.4,1160.5 1212.4,1125.8 S1264.4,1039.2 1299.0,1039.2 S1385.6,987.3 1385.6,952.6 L1385.6,918.0"/>
+    <path id="line42" stroke="#afeeee" stroke-width="6pt" fill="none" opacity="0.7" d="M640.9,1558.8 C606.2,1558.8 640.9,1558.8 606.2,1558.8 S467.7,1558.8 433.0,1558.8 S294.4,1558.8 259.8,1558.8 L225.2,1558.8"/>
+  </g>
+  <g id="things">
+    <use x="173" y="173" xlink:href="#D" />
+    <use x="173" y="173" xlink:href="#7" />
+    <use x="173" y="173" xlink:href="#gas" />
+    <use x="173" y="173" xlink:href="#amber" />
+    <use x="173" y="346" xlink:href="#E" />
+    <use x="173" y="346" xlink:href="#6" />
+    <use x="173" y="346" xlink:href="#gas" />
+    <use x="173" y="346" xlink:href="#amber" />
+    <use x="173" y="519" xlink:href="#C" />
+    <use x="173" y="519" xlink:href="#5" />
+    <use x="173" y="519" xlink:href="#scout" />
+    <use x="173" y="519" xlink:href="#gas" />
+    <use x="173" y="692" xlink:href="#empty" />
+    <use x="173" y="866" xlink:href="#C" />
+    <use x="173" y="866" xlink:href="#5" />
+    <use x="173" y="866" xlink:href="#gas" />
+    <use x="173" y="866" xlink:href="#amber" />
+    <use x="173" y="1039" xlink:href="#B" />
+    <use x="173" y="1039" xlink:href="#7" />
+    <use x="173" y="1039" xlink:href="#tas" />
+    <use x="173" y="1039" xlink:href="#scout" />
+    <use x="173" y="1039" xlink:href="#gas" />
+    <use x="173" y="1039" xlink:href="#amber" />
+    <use x="173" y="1212" xlink:href="#C" />
+    <use x="173" y="1212" xlink:href="#6" />
+    <use x="173" y="1212" xlink:href="#consulate" />
+    <use x="173" y="1212" xlink:href="#gas" />
+    <use x="173" y="1212" xlink:href="#amber" />
+    <use x="173" y="1385" xlink:href="#empty" />
+    <use x="173" y="1558" xlink:href="#D" />
+    <use x="173" y="1558" xlink:href="#5" />
+    <use x="173" y="1558" xlink:href="#scout" />
+    <use x="173" y="1558" xlink:href="#gas" />
+    <use x="173" y="1732" xlink:href="#empty" />
+    <use x="346" y="173" xlink:href="#empty" />
+    <use x="346" y="346" xlink:href="#empty" />
+    <use x="346" y="519" xlink:href="#empty" />
+    <use x="346" y="692" xlink:href="#E" />
+    <use x="346" y="692" xlink:href="#8" />
+    <use x="346" y="692" xlink:href="#gas" />
+    <use x="346" y="692" xlink:href="#amber" />
+    <use x="346" y="866" xlink:href="#C" />
+    <use x="346" y="866" xlink:href="#6" />
+    <use x="346" y="866" xlink:href="#gas" />
+    <use x="346" y="1039" xlink:href="#empty" />
+    <use x="346" y="1212" xlink:href="#empty" />
+    <use x="346" y="1385" xlink:href="#C" />
+    <use x="346" y="1385" xlink:href="#6" />
+    <use x="346" y="1385" xlink:href="#consulate" />
+    <use x="346" y="1385" xlink:href="#gas" />
+    <use x="346" y="1558" xlink:href="#empty" />
+    <use x="346" y="1732" xlink:href="#E" />
+    <use x="346" y="1732" xlink:href="#3" />
+    <use x="519" y="173" xlink:href="#empty" />
+    <use x="519" y="346" xlink:href="#C" />
+    <use x="519" y="346" xlink:href="#6" />
+    <use x="519" y="346" xlink:href="#consulate" />
+    <use x="519" y="346" xlink:href="#gas" />
+    <use x="519" y="519" xlink:href="#A" />
+    <use x="519" y="519" xlink:href="#7" />
+    <use x="519" y="519" xlink:href="#consulate" />
+    <use x="519" y="519" xlink:href="#tas" />
+    <use x="519" y="519" xlink:href="#naval" />
+    <use x="519" y="519" xlink:href="#gas" />
+    <use x="519" y="519" xlink:href="#amber" />
+    <use x="519" y="692" xlink:href="#empty" />
+    <use x="519" y="866" xlink:href="#empty" />
+    <use x="519" y="1039" xlink:href="#empty" />
+    <use x="519" y="1212" xlink:href="#empty" />
+    <use x="519" y="1385" xlink:href="#empty" />
+    <use x="519" y="1558" xlink:href="#empty" />
+    <use x="519" y="1732" xlink:href="#empty" />
+    <use x="692" y="173" xlink:href="#empty" />
+    <use x="692" y="346" xlink:href="#empty" />
+    <use x="692" y="519" xlink:href="#empty" />
+    <use x="692" y="692" xlink:href="#empty" />
+    <use x="692" y="866" xlink:href="#empty" />
+    <use x="692" y="1039" xlink:href="#empty" />
+    <use x="692" y="1212" xlink:href="#empty" />
+    <use x="692" y="1385" xlink:href="#E" />
+    <use x="692" y="1385" xlink:href="#5" />
+    <use x="692" y="1385" xlink:href="#gas" />
+    <use x="692" y="1385" xlink:href="#amber" />
+    <use x="692" y="1558" xlink:href="#A" />
+    <use x="692" y="1558" xlink:href="#5" />
+    <use x="692" y="1558" xlink:href="#tas" />
+    <use x="692" y="1558" xlink:href="#naval" />
+    <use x="692" y="1558" xlink:href="#gas" />
+    <use x="692" y="1732" xlink:href="#empty" />
+    <use x="866" y="173" xlink:href="#empty" />
+    <use x="866" y="346" xlink:href="#A" />
+    <use x="866" y="346" xlink:href="#2" />
+    <use x="866" y="346" xlink:href="#consulate" />
+    <use x="866" y="346" xlink:href="#tas" />
+    <use x="866" y="346" xlink:href="#naval" />
+    <use x="866" y="346" xlink:href="#gas" />
+    <use x="866" y="519" xlink:href="#E" />
+    <use x="866" y="519" xlink:href="#6" />
+    <use x="866" y="519" xlink:href="#gas" />
+    <use x="866" y="519" xlink:href="#amber" />
+    <use x="866" y="692" xlink:href="#C" />
+    <use x="866" y="692" xlink:href="#6" />
+    <use x="866" y="692" xlink:href="#consulate" />
+    <use x="866" y="692" xlink:href="#research" />
+    <use x="866" y="692" xlink:href="#gas" />
+    <use x="866" y="866" xlink:href="#A" />
+    <use x="866" y="866" xlink:href="#2" />
+    <use x="866" y="866" xlink:href="#tas" />
+    <use x="866" y="866" xlink:href="#research" />
+    <use x="866" y="866" xlink:href="#naval" />
+    <use x="866" y="866" xlink:href="#gas" />
+    <use x="866" y="866" xlink:href="#amber" />
+    <use x="866" y="1039" xlink:href="#empty" />
+    <use x="866" y="1212" xlink:href="#A" />
+    <use x="866" y="1212" xlink:href="#8" />
+    <use x="866" y="1212" xlink:href="#research" />
+    <use x="866" y="1212" xlink:href="#naval" />
+    <use x="866" y="1212" xlink:href="#gas" />
+    <use x="866" y="1212" xlink:href="#amber" />
+    <use x="866" y="1385" xlink:href="#empty" />
+    <use x="866" y="1558" xlink:href="#empty" />
+    <use x="866" y="1732" xlink:href="#B" />
+    <use x="866" y="1732" xlink:href="#3" />
+    <use x="866" y="1732" xlink:href="#tas" />
+    <use x="866" y="1732" xlink:href="#scout" />
+    <use x="866" y="1732" xlink:href="#gas" />
+    <use x="866" y="1732" xlink:href="#amber" />
+    <use x="1039" y="173" xlink:href="#empty" />
+    <use x="1039" y="346" xlink:href="#empty" />
+    <use x="1039" y="519" xlink:href="#empty" />
+    <use x="1039" y="692" xlink:href="#C" />
+    <use x="1039" y="692" xlink:href="#5" />
+    <use x="1039" y="692" xlink:href="#research" />
+    <use x="1039" y="692" xlink:href="#gas" />
+    <use x="1039" y="866" xlink:href="#A" />
+    <use x="1039" y="866" xlink:href="#2" />
+    <use x="1039" y="866" xlink:href="#consulate" />
+    <use x="1039" y="866" xlink:href="#tas" />
+    <use x="1039" y="866" xlink:href="#gas" />
+    <use x="1039" y="1039" xlink:href="#empty" />
+    <use x="1039" y="1212" xlink:href="#A" />
+    <use x="1039" y="1212" xlink:href="#5" />
+    <use x="1039" y="1212" xlink:href="#tas" />
+    <use x="1039" y="1212" xlink:href="#gas" />
+    <use x="1039" y="1385" xlink:href="#B" />
+    <use x="1039" y="1385" xlink:href="#2" />
+    <use x="1039" y="1385" xlink:href="#gas" />
+    <use x="1039" y="1385" xlink:href="#amber" />
+    <use x="1039" y="1558" xlink:href="#B" />
+    <use x="1039" y="1558" xlink:href="#4" />
+    <use x="1039" y="1558" xlink:href="#tas" />
+    <use x="1039" y="1558" xlink:href="#naval" />
+    <use x="1039" y="1558" xlink:href="#scout" />
+    <use x="1039" y="1558" xlink:href="#gas" />
+    <use x="1039" y="1732" xlink:href="#C" />
+    <use x="1039" y="1732" xlink:href="#2" />
+    <use x="1039" y="1732" xlink:href="#gas" />
+    <use x="1212" y="173" xlink:href="#empty" />
+    <use x="1212" y="346" xlink:href="#D" />
+    <use x="1212" y="346" xlink:href="#8" />
+    <use x="1212" y="346" xlink:href="#scout" />
+    <use x="1212" y="346" xlink:href="#amber" />
+    <use x="1212" y="519" xlink:href="#E" />
+    <use x="1212" y="519" xlink:href="#2" />
+    <use x="1212" y="692" xlink:href="#C" />
+    <use x="1212" y="692" xlink:href="#0" />
+    <use x="1212" y="692" xlink:href="#scout" />
+    <use x="1212" y="692" xlink:href="#gas" />
+    <use x="1212" y="692" xlink:href="#amber" />
+    <use x="1212" y="866" xlink:href="#C" />
+    <use x="1212" y="866" xlink:href="#1" />
+    <use x="1212" y="866" xlink:href="#research" />
+    <use x="1212" y="866" xlink:href="#gas" />
+    <use x="1212" y="1039" xlink:href="#empty" />
+    <use x="1212" y="1212" xlink:href="#A" />
+    <use x="1212" y="1212" xlink:href="#5" />
+    <use x="1212" y="1212" xlink:href="#consulate" />
+    <use x="1212" y="1212" xlink:href="#tas" />
+    <use x="1212" y="1212" xlink:href="#naval" />
+    <use x="1212" y="1212" xlink:href="#scout" />
+    <use x="1212" y="1212" xlink:href="#gas" />
+    <use x="1212" y="1385" xlink:href="#empty" />
+    <use x="1212" y="1558" xlink:href="#empty" />
+    <use x="1212" y="1732" xlink:href="#empty" />
+    <use x="1385" y="173" xlink:href="#empty" />
+    <use x="1385" y="346" xlink:href="#C" />
+    <use x="1385" y="346" xlink:href="#9" />
+    <use x="1385" y="346" xlink:href="#gas" />
+    <use x="1385" y="346" xlink:href="#amber" />
+    <use x="1385" y="519" xlink:href="#empty" />
+    <use x="1385" y="692" xlink:href="#B" />
+    <use x="1385" y="692" xlink:href="#6" />
+    <use x="1385" y="692" xlink:href="#consulate" />
+    <use x="1385" y="692" xlink:href="#gas" />
+    <use x="1385" y="692" xlink:href="#amber" />
+    <use x="1385" y="866" xlink:href="#B" />
+    <use x="1385" y="866" xlink:href="#3" />
+    <use x="1385" y="866" xlink:href="#gas" />
+    <use x="1385" y="866" xlink:href="#amber" />
+    <use x="1385" y="1039" xlink:href="#E" />
+    <use x="1385" y="1039" xlink:href="#7" />
+    <use x="1385" y="1039" xlink:href="#gas" />
+    <use x="1385" y="1039" xlink:href="#amber" />
+    <use x="1385" y="1212" xlink:href="#empty" />
+    <use x="1385" y="1385" xlink:href="#empty" />
+    <use x="1385" y="1558" xlink:href="#empty" />
+    <use x="1385" y="1732" xlink:href="#red" />
+    <use x="1385" y="1732" xlink:href="#3" />
+    <use x="1385" y="1732" xlink:href="#D" />
+    <use x="1385" y="1732" xlink:href="#pirate" />
+    <use x="1385" y="1732" xlink:href="#scout" />
+  </g>
+  <g id="coordinates">
+    <text text-anchor="middle" x="173" y="103" font-size="16pt" dy="15px" font-family="Optima, Helvetica, sans-serif" fill-opacity="0.5">01.01</text>
+    <text text-anchor="middle" x="173" y="277" font-size="16pt" dy="15px" font-family="Optima, Helvetica, sans-serif" fill-opacity="0.5">01.02</text>
+    <text text-anchor="middle" x="173" y="450" font-size="16pt" dy="15px" font-family="Optima, Helvetica, sans-serif" fill-opacity="0.5">01.03</text>
+    <text text-anchor="middle" x="173" y="623" font-size="16pt" dy="15px" font-family="Optima, Helvetica, sans-serif" fill-opacity="0.5">01.04</text>
+    <text text-anchor="middle" x="173" y="796" font-size="16pt" dy="15px" font-family="Optima, Helvetica, sans-serif" fill-opacity="0.5">01.05</text>
+    <text text-anchor="middle" x="173" y="969" font-size="16pt" dy="15px" font-family="Optima, Helvetica, sans-serif" fill-opacity="0.5">01.06</text>
+    <text text-anchor="middle" x="173" y="1143" font-size="16pt" dy="15px" font-family="Optima, Helvetica, sans-serif" fill-opacity="0.5">01.07</text>
+    <text text-anchor="middle" x="173" y="1316" font-size="16pt" dy="15px" font-family="Optima, Helvetica, sans-serif" fill-opacity="0.5">01.08</text>
+    <text text-anchor="middle" x="173" y="1489" font-size="16pt" dy="15px" font-family="Optima, Helvetica, sans-serif" fill-opacity="0.5">01.09</text>
+    <text text-anchor="middle" x="173" y="1662" font-size="16pt" dy="15px" font-family="Optima, Helvetica, sans-serif" fill-opacity="0.5">01.10</text>
+    <text text-anchor="middle" x="346" y="103" font-size="16pt" dy="15px" font-family="Optima, Helvetica, sans-serif" fill-opacity="0.5">02.01</text>
+    <text text-anchor="middle" x="346" y="277" font-size="16pt" dy="15px" font-family="Optima, Helvetica, sans-serif" fill-opacity="0.5">02.02</text>
+    <text text-anchor="middle" x="346" y="450" font-size="16pt" dy="15px" font-family="Optima, Helvetica, sans-serif" fill-opacity="0.5">02.03</text>
+    <text text-anchor="middle" x="346" y="623" font-size="16pt" dy="15px" font-family="Optima, Helvetica, sans-serif" fill-opacity="0.5">02.04</text>
+    <text text-anchor="middle" x="346" y="796" font-size="16pt" dy="15px" font-family="Optima, Helvetica, sans-serif" fill-opacity="0.5">02.05</text>
+    <text text-anchor="middle" x="346" y="969" font-size="16pt" dy="15px" font-family="Optima, Helvetica, sans-serif" fill-opacity="0.5">02.06</text>
+    <text text-anchor="middle" x="346" y="1143" font-size="16pt" dy="15px" font-family="Optima, Helvetica, sans-serif" fill-opacity="0.5">02.07</text>
+    <text text-anchor="middle" x="346" y="1316" font-size="16pt" dy="15px" font-family="Optima, Helvetica, sans-serif" fill-opacity="0.5">02.08</text>
+    <text text-anchor="middle" x="346" y="1489" font-size="16pt" dy="15px" font-family="Optima, Helvetica, sans-serif" fill-opacity="0.5">02.09</text>
+    <text text-anchor="middle" x="346" y="1662" font-size="16pt" dy="15px" font-family="Optima, Helvetica, sans-serif" fill-opacity="0.5">02.10</text>
+    <text text-anchor="middle" x="519" y="103" font-size="16pt" dy="15px" font-family="Optima, Helvetica, sans-serif" fill-opacity="0.5">03.01</text>
+    <text text-anchor="middle" x="519" y="277" font-size="16pt" dy="15px" font-family="Optima, Helvetica, sans-serif" fill-opacity="0.5">03.02</text>
+    <text text-anchor="middle" x="519" y="450" font-size="16pt" dy="15px" font-family="Optima, Helvetica, sans-serif" fill-opacity="0.5">03.03</text>
+    <text text-anchor="middle" x="519" y="623" font-size="16pt" dy="15px" font-family="Optima, Helvetica, sans-serif" fill-opacity="0.5">03.04</text>
+    <text text-anchor="middle" x="519" y="796" font-size="16pt" dy="15px" font-family="Optima, Helvetica, sans-serif" fill-opacity="0.5">03.05</text>
+    <text text-anchor="middle" x="519" y="969" font-size="16pt" dy="15px" font-family="Optima, Helvetica, sans-serif" fill-opacity="0.5">03.06</text>
+    <text text-anchor="middle" x="519" y="1143" font-size="16pt" dy="15px" font-family="Optima, Helvetica, sans-serif" fill-opacity="0.5">03.07</text>
+    <text text-anchor="middle" x="519" y="1316" font-size="16pt" dy="15px" font-family="Optima, Helvetica, sans-serif" fill-opacity="0.5">03.08</text>
+    <text text-anchor="middle" x="519" y="1489" font-size="16pt" dy="15px" font-family="Optima, Helvetica, sans-serif" fill-opacity="0.5">03.09</text>
+    <text text-anchor="middle" x="519" y="1662" font-size="16pt" dy="15px" font-family="Optima, Helvetica, sans-serif" fill-opacity="0.5">03.10</text>
+    <text text-anchor="middle" x="692" y="103" font-size="16pt" dy="15px" font-family="Optima, Helvetica, sans-serif" fill-opacity="0.5">04.01</text>
+    <text text-anchor="middle" x="692" y="277" font-size="16pt" dy="15px" font-family="Optima, Helvetica, sans-serif" fill-opacity="0.5">04.02</text>
+    <text text-anchor="middle" x="692" y="450" font-size="16pt" dy="15px" font-family="Optima, Helvetica, sans-serif" fill-opacity="0.5">04.03</text>
+    <text text-anchor="middle" x="692" y="623" font-size="16pt" dy="15px" font-family="Optima, Helvetica, sans-serif" fill-opacity="0.5">04.04</text>
+    <text text-anchor="middle" x="692" y="796" font-size="16pt" dy="15px" font-family="Optima, Helvetica, sans-serif" fill-opacity="0.5">04.05</text>
+    <text text-anchor="middle" x="692" y="969" font-size="16pt" dy="15px" font-family="Optima, Helvetica, sans-serif" fill-opacity="0.5">04.06</text>
+    <text text-anchor="middle" x="692" y="1143" font-size="16pt" dy="15px" font-family="Optima, Helvetica, sans-serif" fill-opacity="0.5">04.07</text>
+    <text text-anchor="middle" x="692" y="1316" font-size="16pt" dy="15px" font-family="Optima, Helvetica, sans-serif" fill-opacity="0.5">04.08</text>
+    <text text-anchor="middle" x="692" y="1489" font-size="16pt" dy="15px" font-family="Optima, Helvetica, sans-serif" fill-opacity="0.5">04.09</text>
+    <text text-anchor="middle" x="692" y="1662" font-size="16pt" dy="15px" font-family="Optima, Helvetica, sans-serif" fill-opacity="0.5">04.10</text>
+    <text text-anchor="middle" x="866" y="103" font-size="16pt" dy="15px" font-family="Optima, Helvetica, sans-serif" fill-opacity="0.5">05.01</text>
+    <text text-anchor="middle" x="866" y="277" font-size="16pt" dy="15px" font-family="Optima, Helvetica, sans-serif" fill-opacity="0.5">05.02</text>
+    <text text-anchor="middle" x="866" y="450" font-size="16pt" dy="15px" font-family="Optima, Helvetica, sans-serif" fill-opacity="0.5">05.03</text>
+    <text text-anchor="middle" x="866" y="623" font-size="16pt" dy="15px" font-family="Optima, Helvetica, sans-serif" fill-opacity="0.5">05.04</text>
+    <text text-anchor="middle" x="866" y="796" font-size="16pt" dy="15px" font-family="Optima, Helvetica, sans-serif" fill-opacity="0.5">05.05</text>
+    <text text-anchor="middle" x="866" y="969" font-size="16pt" dy="15px" font-family="Optima, Helvetica, sans-serif" fill-opacity="0.5">05.06</text>
+    <text text-anchor="middle" x="866" y="1143" font-size="16pt" dy="15px" font-family="Optima, Helvetica, sans-serif" fill-opacity="0.5">05.07</text>
+    <text text-anchor="middle" x="866" y="1316" font-size="16pt" dy="15px" font-family="Optima, Helvetica, sans-serif" fill-opacity="0.5">05.08</text>
+    <text text-anchor="middle" x="866" y="1489" font-size="16pt" dy="15px" font-family="Optima, Helvetica, sans-serif" fill-opacity="0.5">05.09</text>
+    <text text-anchor="middle" x="866" y="1662" font-size="16pt" dy="15px" font-family="Optima, Helvetica, sans-serif" fill-opacity="0.5">05.10</text>
+    <text text-anchor="middle" x="1039" y="103" font-size="16pt" dy="15px" font-family="Optima, Helvetica, sans-serif" fill-opacity="0.5">06.01</text>
+    <text text-anchor="middle" x="1039" y="277" font-size="16pt" dy="15px" font-family="Optima, Helvetica, sans-serif" fill-opacity="0.5">06.02</text>
+    <text text-anchor="middle" x="1039" y="450" font-size="16pt" dy="15px" font-family="Optima, Helvetica, sans-serif" fill-opacity="0.5">06.03</text>
+    <text text-anchor="middle" x="1039" y="623" font-size="16pt" dy="15px" font-family="Optima, Helvetica, sans-serif" fill-opacity="0.5">06.04</text>
+    <text text-anchor="middle" x="1039" y="796" font-size="16pt" dy="15px" font-family="Optima, Helvetica, sans-serif" fill-opacity="0.5">06.05</text>
+    <text text-anchor="middle" x="1039" y="969" font-size="16pt" dy="15px" font-family="Optima, Helvetica, sans-serif" fill-opacity="0.5">06.06</text>
+    <text text-anchor="middle" x="1039" y="1143" font-size="16pt" dy="15px" font-family="Optima, Helvetica, sans-serif" fill-opacity="0.5">06.07</text>
+    <text text-anchor="middle" x="1039" y="1316" font-size="16pt" dy="15px" font-family="Optima, Helvetica, sans-serif" fill-opacity="0.5">06.08</text>
+    <text text-anchor="middle" x="1039" y="1489" font-size="16pt" dy="15px" font-family="Optima, Helvetica, sans-serif" fill-opacity="0.5">06.09</text>
+    <text text-anchor="middle" x="1039" y="1662" font-size="16pt" dy="15px" font-family="Optima, Helvetica, sans-serif" fill-opacity="0.5">06.10</text>
+    <text text-anchor="middle" x="1212" y="103" font-size="16pt" dy="15px" font-family="Optima, Helvetica, sans-serif" fill-opacity="0.5">07.01</text>
+    <text text-anchor="middle" x="1212" y="277" font-size="16pt" dy="15px" font-family="Optima, Helvetica, sans-serif" fill-opacity="0.5">07.02</text>
+    <text text-anchor="middle" x="1212" y="450" font-size="16pt" dy="15px" font-family="Optima, Helvetica, sans-serif" fill-opacity="0.5">07.03</text>
+    <text text-anchor="middle" x="1212" y="623" font-size="16pt" dy="15px" font-family="Optima, Helvetica, sans-serif" fill-opacity="0.5">07.04</text>
+    <text text-anchor="middle" x="1212" y="796" font-size="16pt" dy="15px" font-family="Optima, Helvetica, sans-serif" fill-opacity="0.5">07.05</text>
+    <text text-anchor="middle" x="1212" y="969" font-size="16pt" dy="15px" font-family="Optima, Helvetica, sans-serif" fill-opacity="0.5">07.06</text>
+    <text text-anchor="middle" x="1212" y="1143" font-size="16pt" dy="15px" font-family="Optima, Helvetica, sans-serif" fill-opacity="0.5">07.07</text>
+    <text text-anchor="middle" x="1212" y="1316" font-size="16pt" dy="15px" font-family="Optima, Helvetica, sans-serif" fill-opacity="0.5">07.08</text>
+    <text text-anchor="middle" x="1212" y="1489" font-size="16pt" dy="15px" font-family="Optima, Helvetica, sans-serif" fill-opacity="0.5">07.09</text>
+    <text text-anchor="middle" x="1212" y="1662" font-size="16pt" dy="15px" font-family="Optima, Helvetica, sans-serif" fill-opacity="0.5">07.10</text>
+    <text text-anchor="middle" x="1385" y="103" font-size="16pt" dy="15px" font-family="Optima, Helvetica, sans-serif" fill-opacity="0.5">08.01</text>
+    <text text-anchor="middle" x="1385" y="277" font-size="16pt" dy="15px" font-family="Optima, Helvetica, sans-serif" fill-opacity="0.5">08.02</text>
+    <text text-anchor="middle" x="1385" y="450" font-size="16pt" dy="15px" font-family="Optima, Helvetica, sans-serif" fill-opacity="0.5">08.03</text>
+    <text text-anchor="middle" x="1385" y="623" font-size="16pt" dy="15px" font-family="Optima, Helvetica, sans-serif" fill-opacity="0.5">08.04</text>
+    <text text-anchor="middle" x="1385" y="796" font-size="16pt" dy="15px" font-family="Optima, Helvetica, sans-serif" fill-opacity="0.5">08.05</text>
+    <text text-anchor="middle" x="1385" y="969" font-size="16pt" dy="15px" font-family="Optima, Helvetica, sans-serif" fill-opacity="0.5">08.06</text>
+    <text text-anchor="middle" x="1385" y="1143" font-size="16pt" dy="15px" font-family="Optima, Helvetica, sans-serif" fill-opacity="0.5">08.07</text>
+    <text text-anchor="middle" x="1385" y="1316" font-size="16pt" dy="15px" font-family="Optima, Helvetica, sans-serif" fill-opacity="0.5">08.08</text>
+    <text text-anchor="middle" x="1385" y="1489" font-size="16pt" dy="15px" font-family="Optima, Helvetica, sans-serif" fill-opacity="0.5">08.09</text>
+    <text text-anchor="middle" x="1385" y="1662" font-size="16pt" dy="15px" font-family="Optima, Helvetica, sans-serif" fill-opacity="0.5">08.10</text>
+  </g>
+  <g id="regions">
+    <rect id="square0101" fill="none" stroke="black" stroke-width="3" x="86.6025403784439" y="86.6025403784439" width="173.205080756888" height="173.205080756888" />
+    <rect id="square0102" fill="none" stroke="black" stroke-width="3" x="86.6025403784439" y="259.807621135332" width="173.205080756888" height="173.205080756888" />
+    <rect id="square0103" fill="none" stroke="black" stroke-width="3" x="86.6025403784439" y="433.012701892219" width="173.205080756888" height="173.205080756888" />
+    <rect id="square0104" fill="none" stroke="black" stroke-width="3" x="86.6025403784439" y="606.217782649107" width="173.205080756888" height="173.205080756888" />
+    <rect id="square0105" fill="none" stroke="black" stroke-width="3" x="86.6025403784439" y="779.422863405995" width="173.205080756888" height="173.205080756888" />
+    <rect id="square0106" fill="none" stroke="black" stroke-width="3" x="86.6025403784439" y="952.627944162882" width="173.205080756888" height="173.205080756888" />
+    <rect id="square0107" fill="none" stroke="black" stroke-width="3" x="86.6025403784439" y="1125.83302491977" width="173.205080756888" height="173.205080756888" />
+    <rect id="square0108" fill="none" stroke="black" stroke-width="3" x="86.6025403784439" y="1299.03810567666" width="173.205080756888" height="173.205080756888" />
+    <rect id="square0109" fill="none" stroke="black" stroke-width="3" x="86.6025403784439" y="1472.24318643355" width="173.205080756888" height="173.205080756888" />
+    <rect id="square0110" fill="none" stroke="black" stroke-width="3" x="86.6025403784439" y="1645.44826719043" width="173.205080756888" height="173.205080756888" />
+    <rect id="square0201" fill="none" stroke="black" stroke-width="3" x="259.807621135332" y="86.6025403784439" width="173.205080756888" height="173.205080756888" />
+    <rect id="square0202" fill="none" stroke="black" stroke-width="3" x="259.807621135332" y="259.807621135332" width="173.205080756888" height="173.205080756888" />
+    <rect id="square0203" fill="none" stroke="black" stroke-width="3" x="259.807621135332" y="433.012701892219" width="173.205080756888" height="173.205080756888" />
+    <rect id="square0204" fill="none" stroke="black" stroke-width="3" x="259.807621135332" y="606.217782649107" width="173.205080756888" height="173.205080756888" />
+    <rect id="square0205" fill="none" stroke="black" stroke-width="3" x="259.807621135332" y="779.422863405995" width="173.205080756888" height="173.205080756888" />
+    <rect id="square0206" fill="none" stroke="black" stroke-width="3" x="259.807621135332" y="952.627944162882" width="173.205080756888" height="173.205080756888" />
+    <rect id="square0207" fill="none" stroke="black" stroke-width="3" x="259.807621135332" y="1125.83302491977" width="173.205080756888" height="173.205080756888" />
+    <rect id="square0208" fill="none" stroke="black" stroke-width="3" x="259.807621135332" y="1299.03810567666" width="173.205080756888" height="173.205080756888" />
+    <rect id="square0209" fill="none" stroke="black" stroke-width="3" x="259.807621135332" y="1472.24318643355" width="173.205080756888" height="173.205080756888" />
+    <rect id="square0210" fill="none" stroke="black" stroke-width="3" x="259.807621135332" y="1645.44826719043" width="173.205080756888" height="173.205080756888" />
+    <rect id="square0301" fill="none" stroke="black" stroke-width="3" x="433.012701892219" y="86.6025403784439" width="173.205080756888" height="173.205080756888" />
+    <rect id="square0302" fill="none" stroke="black" stroke-width="3" x="433.012701892219" y="259.807621135332" width="173.205080756888" height="173.205080756888" />
+    <rect id="square0303" fill="none" stroke="black" stroke-width="3" x="433.012701892219" y="433.012701892219" width="173.205080756888" height="173.205080756888" />
+    <rect id="square0304" fill="none" stroke="black" stroke-width="3" x="433.012701892219" y="606.217782649107" width="173.205080756888" height="173.205080756888" />
+    <rect id="square0305" fill="none" stroke="black" stroke-width="3" x="433.012701892219" y="779.422863405995" width="173.205080756888" height="173.205080756888" />
+    <rect id="square0306" fill="none" stroke="black" stroke-width="3" x="433.012701892219" y="952.627944162882" width="173.205080756888" height="173.205080756888" />
+    <rect id="square0307" fill="none" stroke="black" stroke-width="3" x="433.012701892219" y="1125.83302491977" width="173.205080756888" height="173.205080756888" />
+    <rect id="square0308" fill="none" stroke="black" stroke-width="3" x="433.012701892219" y="1299.03810567666" width="173.205080756888" height="173.205080756888" />
+    <rect id="square0309" fill="none" stroke="black" stroke-width="3" x="433.012701892219" y="1472.24318643355" width="173.205080756888" height="173.205080756888" />
+    <rect id="square0310" fill="none" stroke="black" stroke-width="3" x="433.012701892219" y="1645.44826719043" width="173.205080756888" height="173.205080756888" />
+    <rect id="square0401" fill="none" stroke="black" stroke-width="3" x="606.217782649107" y="86.6025403784439" width="173.205080756888" height="173.205080756888" />
+    <rect id="square0402" fill="none" stroke="black" stroke-width="3" x="606.217782649107" y="259.807621135332" width="173.205080756888" height="173.205080756888" />
+    <rect id="square0403" fill="none" stroke="black" stroke-width="3" x="606.217782649107" y="433.012701892219" width="173.205080756888" height="173.205080756888" />
+    <rect id="square0404" fill="none" stroke="black" stroke-width="3" x="606.217782649107" y="606.217782649107" width="173.205080756888" height="173.205080756888" />
+    <rect id="square0405" fill="none" stroke="black" stroke-width="3" x="606.217782649107" y="779.422863405995" width="173.205080756888" height="173.205080756888" />
+    <rect id="square0406" fill="none" stroke="black" stroke-width="3" x="606.217782649107" y="952.627944162882" width="173.205080756888" height="173.205080756888" />
+    <rect id="square0407" fill="none" stroke="black" stroke-width="3" x="606.217782649107" y="1125.83302491977" width="173.205080756888" height="173.205080756888" />
+    <rect id="square0408" fill="none" stroke="black" stroke-width="3" x="606.217782649107" y="1299.03810567666" width="173.205080756888" height="173.205080756888" />
+    <rect id="square0409" fill="none" stroke="black" stroke-width="3" x="606.217782649107" y="1472.24318643355" width="173.205080756888" height="173.205080756888" />
+    <rect id="square0410" fill="none" stroke="black" stroke-width="3" x="606.217782649107" y="1645.44826719043" width="173.205080756888" height="173.205080756888" />
+    <rect id="square0501" fill="none" stroke="black" stroke-width="3" x="779.422863405995" y="86.6025403784439" width="173.205080756888" height="173.205080756888" />
+    <rect id="square0502" fill="none" stroke="black" stroke-width="3" x="779.422863405995" y="259.807621135332" width="173.205080756888" height="173.205080756888" />
+    <rect id="square0503" fill="none" stroke="black" stroke-width="3" x="779.422863405995" y="433.012701892219" width="173.205080756888" height="173.205080756888" />
+    <rect id="square0504" fill="none" stroke="black" stroke-width="3" x="779.422863405995" y="606.217782649107" width="173.205080756888" height="173.205080756888" />
+    <rect id="square0505" fill="none" stroke="black" stroke-width="3" x="779.422863405995" y="779.422863405995" width="173.205080756888" height="173.205080756888" />
+    <rect id="square0506" fill="none" stroke="black" stroke-width="3" x="779.422863405995" y="952.627944162882" width="173.205080756888" height="173.205080756888" />
+    <rect id="square0507" fill="none" stroke="black" stroke-width="3" x="779.422863405995" y="1125.83302491977" width="173.205080756888" height="173.205080756888" />
+    <rect id="square0508" fill="none" stroke="black" stroke-width="3" x="779.422863405995" y="1299.03810567666" width="173.205080756888" height="173.205080756888" />
+    <rect id="square0509" fill="none" stroke="black" stroke-width="3" x="779.422863405995" y="1472.24318643355" width="173.205080756888" height="173.205080756888" />
+    <rect id="square0510" fill="none" stroke="black" stroke-width="3" x="779.422863405995" y="1645.44826719043" width="173.205080756888" height="173.205080756888" />
+    <rect id="square0601" fill="none" stroke="black" stroke-width="3" x="952.627944162882" y="86.6025403784439" width="173.205080756888" height="173.205080756888" />
+    <rect id="square0602" fill="none" stroke="black" stroke-width="3" x="952.627944162882" y="259.807621135332" width="173.205080756888" height="173.205080756888" />
+    <rect id="square0603" fill="none" stroke="black" stroke-width="3" x="952.627944162882" y="433.012701892219" width="173.205080756888" height="173.205080756888" />
+    <rect id="square0604" fill="none" stroke="black" stroke-width="3" x="952.627944162882" y="606.217782649107" width="173.205080756888" height="173.205080756888" />
+    <rect id="square0605" fill="none" stroke="black" stroke-width="3" x="952.627944162882" y="779.422863405995" width="173.205080756888" height="173.205080756888" />
+    <rect id="square0606" fill="none" stroke="black" stroke-width="3" x="952.627944162882" y="952.627944162882" width="173.205080756888" height="173.205080756888" />
+    <rect id="square0607" fill="none" stroke="black" stroke-width="3" x="952.627944162882" y="1125.83302491977" width="173.205080756888" height="173.205080756888" />
+    <rect id="square0608" fill="none" stroke="black" stroke-width="3" x="952.627944162882" y="1299.03810567666" width="173.205080756888" height="173.205080756888" />
+    <rect id="square0609" fill="none" stroke="black" stroke-width="3" x="952.627944162882" y="1472.24318643355" width="173.205080756888" height="173.205080756888" />
+    <rect id="square0610" fill="none" stroke="black" stroke-width="3" x="952.627944162882" y="1645.44826719043" width="173.205080756888" height="173.205080756888" />
+    <rect id="square0701" fill="none" stroke="black" stroke-width="3" x="1125.83302491977" y="86.6025403784439" width="173.205080756888" height="173.205080756888" />
+    <rect id="square0702" fill="none" stroke="black" stroke-width="3" x="1125.83302491977" y="259.807621135332" width="173.205080756888" height="173.205080756888" />
+    <rect id="square0703" fill="none" stroke="black" stroke-width="3" x="1125.83302491977" y="433.012701892219" width="173.205080756888" height="173.205080756888" />
+    <rect id="square0704" fill="none" stroke="black" stroke-width="3" x="1125.83302491977" y="606.217782649107" width="173.205080756888" height="173.205080756888" />
+    <rect id="square0705" fill="none" stroke="black" stroke-width="3" x="1125.83302491977" y="779.422863405995" width="173.205080756888" height="173.205080756888" />
+    <rect id="square0706" fill="none" stroke="black" stroke-width="3" x="1125.83302491977" y="952.627944162882" width="173.205080756888" height="173.205080756888" />
+    <rect id="square0707" fill="none" stroke="black" stroke-width="3" x="1125.83302491977" y="1125.83302491977" width="173.205080756888" height="173.205080756888" />
+    <rect id="square0708" fill="none" stroke="black" stroke-width="3" x="1125.83302491977" y="1299.03810567666" width="173.205080756888" height="173.205080756888" />
+    <rect id="square0709" fill="none" stroke="black" stroke-width="3" x="1125.83302491977" y="1472.24318643355" width="173.205080756888" height="173.205080756888" />
+    <rect id="square0710" fill="none" stroke="black" stroke-width="3" x="1125.83302491977" y="1645.44826719043" width="173.205080756888" height="173.205080756888" />
+    <rect id="square0801" fill="none" stroke="black" stroke-width="3" x="1299.03810567666" y="86.6025403784439" width="173.205080756888" height="173.205080756888" />
+    <rect id="square0802" fill="none" stroke="black" stroke-width="3" x="1299.03810567666" y="259.807621135332" width="173.205080756888" height="173.205080756888" />
+    <rect id="square0803" fill="none" stroke="black" stroke-width="3" x="1299.03810567666" y="433.012701892219" width="173.205080756888" height="173.205080756888" />
+    <rect id="square0804" fill="none" stroke="black" stroke-width="3" x="1299.03810567666" y="606.217782649107" width="173.205080756888" height="173.205080756888" />
+    <rect id="square0805" fill="none" stroke="black" stroke-width="3" x="1299.03810567666" y="779.422863405995" width="173.205080756888" height="173.205080756888" />
+    <rect id="square0806" fill="none" stroke="black" stroke-width="3" x="1299.03810567666" y="952.627944162882" width="173.205080756888" height="173.205080756888" />
+    <rect id="square0807" fill="none" stroke="black" stroke-width="3" x="1299.03810567666" y="1125.83302491977" width="173.205080756888" height="173.205080756888" />
+    <rect id="square0808" fill="none" stroke="black" stroke-width="3" x="1299.03810567666" y="1299.03810567666" width="173.205080756888" height="173.205080756888" />
+    <rect id="square0809" fill="none" stroke="black" stroke-width="3" x="1299.03810567666" y="1472.24318643355" width="173.205080756888" height="173.205080756888" />
+    <rect id="square0810" fill="none" stroke="black" stroke-width="3" x="1299.03810567666" y="1645.44826719043" width="173.205080756888" height="173.205080756888" />
+  </g>
+  <g id="line_labels">
+  </g>
+  <g id="labels">
+    <g><text text-anchor="middle" x="173" y="242" font-size="16pt" font-family="Optima, Helvetica, sans-serif" >Inedgeus</text><text text-anchor="middle" x="173" y="242" font-size="16pt" font-family="Optima, Helvetica, sans-serif">Inedgeus</text></g>
+    <g><text text-anchor="middle" x="173" y="415" font-size="16pt" font-family="Optima, Helvetica, sans-serif" >GEAAN</text><text text-anchor="middle" x="173" y="415" font-size="16pt" font-family="Optima, Helvetica, sans-serif">GEAAN</text></g>
+    <g><text text-anchor="middle" x="173" y="588" font-size="16pt" font-family="Optima, Helvetica, sans-serif" >Orgemaso</text><text text-anchor="middle" x="173" y="588" font-size="16pt" font-family="Optima, Helvetica, sans-serif">Orgemaso</text></g>
+    <g><text text-anchor="middle" x="173" y="935" font-size="16pt" font-family="Optima, Helvetica, sans-serif" >Veesso</text><text text-anchor="middle" x="173" y="935" font-size="16pt" font-family="Optima, Helvetica, sans-serif">Veesso</text></g>
+    <g><text text-anchor="middle" x="173" y="1108" font-size="16pt" font-family="Optima, Helvetica, sans-serif" >Ticezale</text><text text-anchor="middle" x="173" y="1108" font-size="16pt" font-family="Optima, Helvetica, sans-serif">Ticezale</text></g>
+    <g><text text-anchor="middle" x="173" y="1281" font-size="16pt" font-family="Optima, Helvetica, sans-serif" >Maatonte</text><text text-anchor="middle" x="173" y="1281" font-size="16pt" font-family="Optima, Helvetica, sans-serif">Maatonte</text></g>
+    <g><text text-anchor="middle" x="173" y="1628" font-size="16pt" font-family="Optima, Helvetica, sans-serif" >Diesra</text><text text-anchor="middle" x="173" y="1628" font-size="16pt" font-family="Optima, Helvetica, sans-serif">Diesra</text></g>
+    <g><text text-anchor="middle" x="346" y="762" font-size="16pt" font-family="Optima, Helvetica, sans-serif" >Esarra</text><text text-anchor="middle" x="346" y="762" font-size="16pt" font-family="Optima, Helvetica, sans-serif">Esarra</text></g>
+    <g><text text-anchor="middle" x="346" y="935" font-size="16pt" font-family="Optima, Helvetica, sans-serif" >Rience</text><text text-anchor="middle" x="346" y="935" font-size="16pt" font-family="Optima, Helvetica, sans-serif">Rience</text></g>
+    <g><text text-anchor="middle" x="346" y="1454" font-size="16pt" font-family="Optima, Helvetica, sans-serif" >Rearreso</text><text text-anchor="middle" x="346" y="1454" font-size="16pt" font-family="Optima, Helvetica, sans-serif">Rearreso</text></g>
+    <g><text text-anchor="middle" x="346" y="1801" font-size="16pt" font-family="Optima, Helvetica, sans-serif" >Laisbe</text><text text-anchor="middle" x="346" y="1801" font-size="16pt" font-family="Optima, Helvetica, sans-serif">Laisbe</text></g>
+    <g><text text-anchor="middle" x="519" y="415" font-size="16pt" font-family="Optima, Helvetica, sans-serif" >Biveer</text><text text-anchor="middle" x="519" y="415" font-size="16pt" font-family="Optima, Helvetica, sans-serif">Biveer</text></g>
+    <g><text text-anchor="middle" x="519" y="588" font-size="16pt" font-family="Optima, Helvetica, sans-serif" >Labeveri</text><text text-anchor="middle" x="519" y="588" font-size="16pt" font-family="Optima, Helvetica, sans-serif">Labeveri</text></g>
+    <g><text text-anchor="middle" x="692" y="1454" font-size="16pt" font-family="Optima, Helvetica, sans-serif" >Sotexe</text><text text-anchor="middle" x="692" y="1454" font-size="16pt" font-family="Optima, Helvetica, sans-serif">Sotexe</text></g>
+    <g><text text-anchor="middle" x="692" y="1628" font-size="16pt" font-family="Optima, Helvetica, sans-serif" >Zamala</text><text text-anchor="middle" x="692" y="1628" font-size="16pt" font-family="Optima, Helvetica, sans-serif">Zamala</text></g>
+    <g><text text-anchor="middle" x="866" y="415" font-size="16pt" font-family="Optima, Helvetica, sans-serif" >Sogeeran</text><text text-anchor="middle" x="866" y="415" font-size="16pt" font-family="Optima, Helvetica, sans-serif">Sogeeran</text></g>
+    <g><text text-anchor="middle" x="866" y="588" font-size="16pt" font-family="Optima, Helvetica, sans-serif" >Aanbi</text><text text-anchor="middle" x="866" y="588" font-size="16pt" font-family="Optima, Helvetica, sans-serif">Aanbi</text></g>
+    <g><text text-anchor="middle" x="866" y="762" font-size="16pt" font-family="Optima, Helvetica, sans-serif" >Bemaat</text><text text-anchor="middle" x="866" y="762" font-size="16pt" font-family="Optima, Helvetica, sans-serif">Bemaat</text></g>
+    <g><text text-anchor="middle" x="866" y="935" font-size="16pt" font-family="Optima, Helvetica, sans-serif" >Diare</text><text text-anchor="middle" x="866" y="935" font-size="16pt" font-family="Optima, Helvetica, sans-serif">Diare</text></g>
+    <g><text text-anchor="middle" x="866" y="1281" font-size="16pt" font-family="Optima, Helvetica, sans-serif" >Esgeed</text><text text-anchor="middle" x="866" y="1281" font-size="16pt" font-family="Optima, Helvetica, sans-serif">Esgeed</text></g>
+    <g><text text-anchor="middle" x="866" y="1801" font-size="16pt" font-family="Optima, Helvetica, sans-serif" >Leonbi</text><text text-anchor="middle" x="866" y="1801" font-size="16pt" font-family="Optima, Helvetica, sans-serif">Leonbi</text></g>
+    <g><text text-anchor="middle" x="1039" y="762" font-size="16pt" font-family="Optima, Helvetica, sans-serif" >Reisbeon</text><text text-anchor="middle" x="1039" y="762" font-size="16pt" font-family="Optima, Helvetica, sans-serif">Reisbeon</text></g>
+    <g><text text-anchor="middle" x="1039" y="935" font-size="16pt" font-family="Optima, Helvetica, sans-serif" >Atcevein</text><text text-anchor="middle" x="1039" y="935" font-size="16pt" font-family="Optima, Helvetica, sans-serif">Atcevein</text></g>
+    <g><text text-anchor="middle" x="1039" y="1281" font-size="16pt" font-family="Optima, Helvetica, sans-serif" >USMABE</text><text text-anchor="middle" x="1039" y="1281" font-size="16pt" font-family="Optima, Helvetica, sans-serif">USMABE</text></g>
+    <g><text text-anchor="middle" x="1039" y="1454" font-size="16pt" font-family="Optima, Helvetica, sans-serif" >Onbebior</text><text text-anchor="middle" x="1039" y="1454" font-size="16pt" font-family="Optima, Helvetica, sans-serif">Onbebior</text></g>
+    <g><text text-anchor="middle" x="1039" y="1628" font-size="16pt" font-family="Optima, Helvetica, sans-serif" >Raraxema</text><text text-anchor="middle" x="1039" y="1628" font-size="16pt" font-family="Optima, Helvetica, sans-serif">Raraxema</text></g>
+    <g><text text-anchor="middle" x="1039" y="1801" font-size="16pt" font-family="Optima, Helvetica, sans-serif" >Xeerri</text><text text-anchor="middle" x="1039" y="1801" font-size="16pt" font-family="Optima, Helvetica, sans-serif">Xeerri</text></g>
+    <g><text text-anchor="middle" x="1212" y="415" font-size="16pt" font-family="Optima, Helvetica, sans-serif" >Onreon</text><text text-anchor="middle" x="1212" y="415" font-size="16pt" font-family="Optima, Helvetica, sans-serif">Onreon</text></g>
+    <g><text text-anchor="middle" x="1212" y="588" font-size="16pt" font-family="Optima, Helvetica, sans-serif" >Ismave</text><text text-anchor="middle" x="1212" y="588" font-size="16pt" font-family="Optima, Helvetica, sans-serif">Ismave</text></g>
+    <g><text text-anchor="middle" x="1212" y="762" font-size="16pt" font-family="Optima, Helvetica, sans-serif" >Lara</text><text text-anchor="middle" x="1212" y="762" font-size="16pt" font-family="Optima, Helvetica, sans-serif">Lara</text></g>
+    <g><text text-anchor="middle" x="1212" y="935" font-size="16pt" font-family="Optima, Helvetica, sans-serif" >Lalala</text><text text-anchor="middle" x="1212" y="935" font-size="16pt" font-family="Optima, Helvetica, sans-serif">Lalala</text></g>
+    <g><text text-anchor="middle" x="1212" y="1281" font-size="16pt" font-family="Optima, Helvetica, sans-serif" >Maxereis</text><text text-anchor="middle" x="1212" y="1281" font-size="16pt" font-family="Optima, Helvetica, sans-serif">Maxereis</text></g>
+    <g><text text-anchor="middle" x="1385" y="415" font-size="16pt" font-family="Optima, Helvetica, sans-serif" >Requbire</text><text text-anchor="middle" x="1385" y="415" font-size="16pt" font-family="Optima, Helvetica, sans-serif">Requbire</text></g>
+    <g><text text-anchor="middle" x="1385" y="762" font-size="16pt" font-family="Optima, Helvetica, sans-serif" >Azaxe</text><text text-anchor="middle" x="1385" y="762" font-size="16pt" font-family="Optima, Helvetica, sans-serif">Azaxe</text></g>
+    <g><text text-anchor="middle" x="1385" y="935" font-size="16pt" font-family="Optima, Helvetica, sans-serif" >Rieddige</text><text text-anchor="middle" x="1385" y="935" font-size="16pt" font-family="Optima, Helvetica, sans-serif">Rieddige</text></g>
+    <g><text text-anchor="middle" x="1385" y="1108" font-size="16pt" font-family="Optima, Helvetica, sans-serif" >Usorce</text><text text-anchor="middle" x="1385" y="1108" font-size="16pt" font-family="Optima, Helvetica, sans-serif">Usorce</text></g>
+    <g><text text-anchor="middle" x="1385" y="1801" font-size="16pt" font-family="Optima, Helvetica, sans-serif" >Solacexe</text><text text-anchor="middle" x="1385" y="1801" font-size="16pt" font-family="Optima, Helvetica, sans-serif">Solacexe</text></g>
+  </g>
+<text x="0" y="0" transform="translate(1550,50) rotate(90)" font-size="15pt" fill="#999999">This is the default subsector generated by the <a style="fill:#8888ff" xlink:href="http://campaignwiki.org/traveller">Traveller Subsector Mapper</a>.</text><rect fill="none" stroke="black" stroke-width="10" x="30" y="30" width="1500" height="1840" />
+<text font-size="24pt" y="70px" x="730px" font-family="Optima, Helvetica, sans-serif">coreward</text>
+<text font-size="24pt" y="1850px" x="730px" font-family="Optima, Helvetica, sans-serif">rimward</text>
+<text font-size="24pt" x="0" y="0" transform="translate(70,1020) rotate(-90) " font-family="Optima, Helvetica, sans-serif">spinward</text>
+<text font-size="24pt" x="0" y="0" transform="translate(1490,900) rotate(90) " font-family="Optima, Helvetica, sans-serif">trailing</text>
+<text font-size="14pt" x="0" y="0" transform="translate(10,1850) rotate(-90) " font-family="Optima, Helvetica, sans-serif">◉ gas giant – ■ imperial consulate – ☼ TAS – ▲ scout base – ★ navy base – π research base – ☠ pirate base – <tspan fill="#ff6347">▮</tspan> communication – <tspan fill="#afeeee">▮</tspan> trade</text>
+<!-- Source
+# This file is for use with text-mapper.
+# https://github.com/kensanata/hex-mapping
+
+default attributes fill="none" stroke="black" stroke-width="3"
+
+# ports
+A xml <text font-size="20pt" dy="-25px" font-family="Optima, Helvetica, sans-serif" text-anchor="middle">A</text>
+B xml <text font-size="20pt" dy="-25px" font-family="Optima, Helvetica, sans-serif" text-anchor="middle">B</text>
+C xml <text font-size="20pt" dy="-25px" font-family="Optima, Helvetica, sans-serif" text-anchor="middle">C</text>
+D xml <text font-size="20pt" dy="-25px" font-family="Optima, Helvetica, sans-serif" text-anchor="middle">D</text>
+E xml <text font-size="20pt" dy="-25px" font-family="Optima, Helvetica, sans-serif" text-anchor="middle">E</text>
+F xml <text font-size="20pt" dy="-25px" font-family="Optima, Helvetica, sans-serif" text-anchor="middle">F</text>
+
+# size
+0 xml <circle r="11"/>
+1 xml <circle r="12"/>
+2 xml <circle r="13"/>
+3 xml <circle r="14"/>
+4 xml <circle r="15"/>
+5 xml <circle r="16"/>
+6 xml <circle r="17"/>
+7 xml <circle r="18"/>
+8 xml <circle r="19"/>
+9 xml <circle r="20"/>
+10 xml <circle r="21"/>
+
+# bases
+consulate xml <text font-size="20pt" dy="50px" dx="-45px" font-family="Optima, Helvetica, sans-serif" text-anchor="middle">■</text>
+tas xml <text font-size="20pt" dy="20px" dx="-70px" font-family="Optima, Helvetica, sans-serif" text-anchor="middle">☼</text>
+pirate xml <text font-size="20pt" dy="20px" dx="70px" font-family="Optima, Helvetica, sans-serif" text-anchor="middle">☠</text>
+research xml <text font-size="20pt" dy="-10px" dx="70px" font-family="Optima, Helvetica, sans-serif" text-anchor="middle">π</text>
+naval xml <text font-size="20pt" dy="-40px" dx="-45px" font-family="Optima, Helvetica, sans-serif" text-anchor="middle">★</text>
+gas xml <text font-size="20pt" dy="-40px" dx="45px" font-family="Optima, Helvetica, sans-serif" text-anchor="middle">◉</text>
+scout xml <text font-size="20pt" dy="-10px" dx="-70px" font-family="Optima, Helvetica, sans-serif" text-anchor="middle">▲</text>
+
+# alert status
+red xml <circle r="48" fill="red" opacity="0.3"/>
+amber xml <circle r="48" fill="none" stroke="black" stroke-width="1" opacity="0.3"/>
+
+text font-size="16pt" dy="15px" font-family="Optima, Helvetica, sans-serif" fill-opacity="0.5"
+label font-size="16pt" font-family="Optima, Helvetica, sans-serif"
+
+communication path attributes stroke="#ff6347" stroke-width="10pt" fill="none" opacity="0.7"
+trade path attributes stroke="#afeeee" stroke-width="6pt" fill="none" opacity="0.7"
+
+# frame and legend
+other <rect fill="none" stroke="black" stroke-width="10" x="30" y="30" width="1500" height="1840" />
+other <text font-size="24pt" y="70px" x="730px" font-family="Optima, Helvetica, sans-serif">coreward</text>
+other <text font-size="24pt" y="1850px" x="730px" font-family="Optima, Helvetica, sans-serif">rimward</text>
+other <text font-size="24pt" x="0" y="0" transform="translate(70,1020) rotate(-90) " font-family="Optima, Helvetica, sans-serif">spinward</text>
+other <text font-size="24pt" x="0" y="0" transform="translate(1490,900) rotate(90) " font-family="Optima, Helvetica, sans-serif">trailing</text>
+other <text font-size="14pt" x="0" y="0" transform="translate(10,1850) rotate(-90) " font-family="Optima, Helvetica, sans-serif">◉ gas giant – ■ imperial consulate – ☼ TAS – ▲ scout base – ★ navy base – π research base – ☠ pirate base – <tspan fill="#ff6347">▮</tspan> communication – <tspan fill="#afeeee">▮</tspan> trade</text>
+
+# This file is for use with text-mapper.
+# https://github.com/kensanata/hex-mapping
+
+0101 D 7 gas amber "Inedgeus"
+0102 E 6 gas amber "GEAAN"
+0103 C 5 scout gas "Orgemaso"
+0104 empty
+0105 C 5 gas amber "Veesso"
+0106 B 7 tas scout gas amber "Ticezale"
+0107 C 6 consulate gas amber "Maatonte"
+0108 empty
+0109 D 5 scout gas "Diesra"
+0110 empty
+0201 empty
+0202 empty
+0203 empty
+0204 E 8 gas amber "Esarra"
+0205 C 6 gas "Rience"
+0206 empty
+0207 empty
+0208 C 6 consulate gas "Rearreso"
+0209 empty
+0210 E 3 "Laisbe"
+0301 empty
+0302 C 6 consulate gas "Biveer"
+0303 A 7 consulate tas naval gas amber "Labeveri"
+0304 empty
+0305 empty
+0306 empty
+0307 empty
+0308 empty
+0309 empty
+0310 empty
+0401 empty
+0402 empty
+0403 empty
+0404 empty
+0405 empty
+0406 empty
+0407 empty
+0408 E 5 gas amber "Sotexe"
+0409 A 5 tas naval gas "Zamala"
+0410 empty
+0501 empty
+0502 A 2 consulate tas naval gas "Sogeeran"
+0503 E 6 gas amber "Aanbi"
+0504 C 6 consulate research gas "Bemaat"
+0505 A 2 tas research naval gas amber "Diare"
+0506 empty
+0507 A 8 research naval gas amber "Esgeed"
+0508 empty
+0509 empty
+0510 B 3 tas scout gas amber "Leonbi"
+0601 empty
+0602 empty
+0603 empty
+0604 C 5 research gas "Reisbeon"
+0605 A 2 consulate tas gas "Atcevein"
+0606 empty
+0607 A 5 tas gas "USMABE"
+0608 B 2 gas amber "Onbebior"
+0609 B 4 tas naval scout gas "Raraxema"
+0610 C 2 gas "Xeerri"
+0701 empty
+0702 D 8 scout amber "Onreon"
+0703 E 2 "Ismave"
+0704 C 0 scout gas amber "Lara"
+0705 C 1 research gas "Lalala"
+0706 empty
+0707 A 5 consulate tas naval scout gas "Maxereis"
+0708 empty
+0709 empty
+0710 empty
+0801 empty
+0802 C 9 gas amber "Requbire"
+0803 empty
+0804 B 6 consulate gas amber "Azaxe"
+0805 B 3 gas amber "Rieddige"
+0806 E 7 gas amber "Usorce"
+0807 empty
+0808 empty
+0809 empty
+0810 red 3 D pirate scout "Solacexe"
+
+# communication must come before trade routes
+0107-0208 communication
+0208-0409 communication
+0302-0502 communication
+0303-0502 communication
+0409-0609 communication
+0502-0504 communication
+0504-0605 communication
+0505-0605 communication
+0607-0507 communication
+0607-0605 communication
+0609-0607 communication
+0707-0605 communication
+0707-0607 communication
+0804-0605 communication
+
+# trade routes are thinner and can overlay communication routes
+0102-0103 trade
+0105-0205 trade
+0106-0105 trade
+0106-0107 trade
+0409-0408 trade
+0502-0503 trade
+0510-0409 trade
+0607-0507 trade
+0605-0604 trade
+0607-0608 trade
+0704-0804 trade
+0707-0607 trade
+0102-0302 trade
+0102-0303 trade
+0105-0103 trade
+0107-0208 trade
+0106-0204 trade
+0409-0208 trade
+0408-0507 trade
+0502-0302 trade
+0302-0101 trade
+0503-0505 trade
+0502-0504 trade
+0504-0705 trade
+0607-0605 trade
+0702-0502 trade
+0702-0704 trade
+0707-0805 trade
+0409-0109 trade
+
+license <text x="0" y="0" transform="translate(1550,50) rotate(90)" font-size="15pt" fill="#999999">This is the default subsector generated by the <a style="fill:#8888ff" xlink:href="http://campaignwiki.org/traveller">Traveller Subsector Mapper</a>.</text>
+
+
+-->
+</svg>
