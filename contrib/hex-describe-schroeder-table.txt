@@ -4206,7 +4206,7 @@
 ;a secret mountain thing
 1,there is an inscription on the rocks, each letter higher than three men standing on top of each other, proclaiming the power and glory of [an old wight leader], as well as the riches and treasures of *[a wight capital]*.
 1,a pair of **griffons** is nesting ([griffon stats]). [maybe griffon eggs]
-1,a cave leads into the lair of [ice devil], a [ice devil adjectives] **ice devil**, and his [ice devil companions] living in [ice devil lair]
+1,[ice devil]
 
 ;griffon stats
 1,HD 4+1 AC 6 1d6/1d6/1d8 F4 MV 24 ML 10 XP 400
@@ -4215,6 +4215,9 @@
 1,
 1,<span class="treasure">The *griffon egg* is worth 5000gp to an alchemist</span>.[here store griffon egg as alchemist quest]
 2,<span class="treasure">The [1d2+1] *griffon eggs* are worth 5000gp each to an alchemist</span>.[here store griffon egg as alchemist quest]
+
+;ice devil
+1,a cave leads into the lair of [ice devil name], a [ice devil adjectives] **ice devil** ([ice devil stats]), a devil with goat hooves, white fur, long teeth, horns, and blue eyes. [terror treasure] The devil and his [ice devil companions] live in [ice devil lair]
 
 ;ice devil adjectives
 1,terrible
@@ -4227,7 +4230,7 @@
 1,wrathful
 1,jealous
 
-;ice devil
+;ice devil name
 1,*[devil name] the [ice devil epithet]*
 
 ;ice devil epithet
@@ -4242,6 +4245,9 @@
 1,Master of Lies
 1,White
 1,Frozen
+
+;ice devil stats
+1,HD 9 AC 2 1d8/1d8/1d12 F9 MV 18 ML 11 XP 900; only harmed by magic or magic weapons; immune to spells of casters up to fifth level; *ice bolt*: 2d6, save vs. rays for half; *ice storm*: 5d6, 60ft around the devil, save vs. explosions for half
 
 ;ice devil companions
 1,[2d6] **winter wolves** ([winter wolf stats])
@@ -13324,8 +13330,7 @@
 1,Z
 
 ;devil troubles
-# this needs a small dungeon map!
-1,Those who live here are often in terror. [Sheep|Goats|Cattle|Pigs] are found mutilated. [Dog|Cat|Rabbit] entrails are spread around sites holy to [power]. Herders have reported seeing a [devil] [late at night|early in the morning|after sunset|before sunrise].<p>A natural hot springs blocks the entrance to a cavern, which hides a shallow cave complex occupied by a coven of devils. They derive psychic energy from the terror of others.<p>[dungeon map]<ol><li>The cave entrance is filled with hot steam (1d6 scalding damage to each non-devil who enters), but the water smells and tastes of [sulfur|decaying corpses|burnt bones], revolting all who enter.<li>Stretched on a metal rack is a prisoner with scalded skin, [ettercap prisoner feeling]. This is *[human name]* from *[same village name]*, taken while [herding|fetching water|worshiping|going to see the smith].<li>Here, [1d4+1] [devils] [cavort|caper in a macabre dance|sing in disharmony|strum soundless lutes] ([devil stats]). An [unearthly|unsettling|undulating] music echoes in these halls.<li>This chamber contains a sunken bath, warmed by the hot springs. A [devil] hangs upside down in one of [2d20] niches, asleep. The devil will wake and attack if anyone [whispers|tiptoes|touches the water].<li>A great hall holds a throne and tables full of food and wine. Queen *[devil name]*[devil portrait], a [devil], presides over her court here, [1d6+1] [devils] and [1d2+1] [devils]. The devils will fight to the death to protect their queen ([devil stats]).</li></ol>
+1,Those who live here are often in terror. [Sheep|Goats|Cattle|Pigs] are found mutilated. [Dog|Cat|Rabbit] entrails are spread around sites holy to [power]. Herders have reported seeing a [devil] [late at night|early in the morning|after sunset|before sunrise].<p>A natural hot springs blocks the entrance to a cavern, which hides a shallow cave complex occupied by a coven of devils. They derive psychic energy from the terror of others.<p>[dungeon map]<ol><li>The cave entrance is filled with hot steam (1d6 scalding damage to each non-devil who enters), but the water smells and tastes of [sulfur|decaying corpses|burnt bones], revolting all who enter.<li>Stretched on a metal rack is a prisoner with scalded skin, [ettercap prisoner feeling]. This is *[human name]* from *[same village name]*, taken while [herding|fetching water|worshiping|going to see the smith].<li>Here, [1d4+1] [devils] [cavort|caper in a macabre dance|sing in disharmony|strum soundless lutes] ([devil stats]). An [unearthly|unsettling|undulating] music echoes in these halls.<li>This chamber contains a sunken bath, warmed by the hot springs. A [devil] hangs upside down in one of [2d20] niches, asleep. The devil will wake and attack if anyone [whispers|tiptoes|touches the water].<li>A great hall holds a throne and tables full of food and wine. Queen *[devil name]*, a [devil], presides over her court here, [1d6+1] [devils] and [1d2+1] [devils]. The devils will fight to the death to protect their queen ([devil stats]).</li></ol>
 
 ;devil
 1,devil with [devil wings][devil chimera] [devil beast]
@@ -13378,7 +13383,6 @@
 1,vestigial wings and 
 
 ;devil stats
-#cribbed from the vampire; adjust as needed for your system
 1,HD 9 AC 2 1d8/1d8/1d12 F9 MV 18 ML 11 XP 900; only harmed by magic or magic weapons; immune to spells of casters up to fifth level; *[devil breath]*: 2d6, save vs. rays for half
 
 ;devil portrait
