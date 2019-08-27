@@ -9130,7 +9130,7 @@
 7,[1d7+1] **giant fish**
 
 ;swamp animals
-1,[herons,egrets,moorhens,cranes]
+1,[herons|egrets|moorhens|cranes]
 1,mosquitoes
 1,eels
 1,lampreys
