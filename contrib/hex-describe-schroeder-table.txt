@@ -7991,8 +7991,8 @@
 1,[an old wight leader]
 
 ;vivimancer
-1,Here lives the **vivimancer** [human with portrait][here store [same human name] as alchemist patron] (level [1d3+4 as level]), protected by [3d6] **myconids** ([myconid stats]). [alchemist job] [luxurious context] [poor treasure] [leader treasure for magic user]
-1,Here lives the **vivimancer** [human with portrait][here store [same human name] as alchemist patron] (level [1d3+4 as level]) with [3d6] [slimes somewhere]. [safe zone] [poor treasure] [leader treasure for magic user]
+1,Here lives the **vivimancer** [human with portrait][here store [same human name] as alchemist patron] (level [1d3+4 as level]), protected by [3d6] **myconids** ([myconid stats]). [alchemist job] [luxurious context] [poor treasure] [spellbook for vivimancers] [leader treasure for magic user]
+1,Here lives the **vivimancer** [human with portrait][here store [same human name] as alchemist patron] (level [1d3+4 as level]) with [3d6] [slimes somewhere]. [safe zone] [poor treasure] [spellbook for vivimancers] [leader treasure for magic user]
 
 ;alchemist job
 1,*[same human name]* is looking for *[nearby magic plant]*.
@@ -14824,6 +14824,33 @@
 1,ice bridge
 1,ice castle
 
+;korokoro
+1,*The Book of the Warp* by <a href="https://alexschroeder.ch/pdfs/spellcasters/Korokoro.pdf">Korokoro</a> the Mad
+
+;korokoro 1
+1,amnesia
+1,mishap
+1,recoil
+
+;korokoro 2
+1,ooze
+1,outgrowth
+1,plague touch
+
+;korokoro 3
+1,animate rock
+1,grow limb
+1,warp mind
+
+;korokoro 4
+1,open mind
+1,sharing
+1,warp flesh
+
+;korokoro 5
+1,clone
+1,warp gate
+
 ;moroson
 1,*The Book of Armies* by <a href="https://alexschroeder.ch/pdfs/spellcasters/Moroson.pdf">Moroson</a> the General
 
@@ -15022,6 +15049,7 @@
 1,darsim
 1,elam
 1,jezembal
+1,korokoro
 1,moroson
 1,narga
 1,ufala
@@ -15039,12 +15067,18 @@
 ;necromancer spellbook
 1,agrimach
 
+;vivimancer spellbook
+1,korokoro
+
 # this allows us to use [same spellbook] later
 ;a famous spellbook
 1,[[spellbook]]
 
 ;a famous necromancer spellbook
 1,[[necromancer spellbook as spellbook]]
+
+;a famous vivimancer spellbook
+1,[[vivimancer spellbook as spellbook]]
 
 ;a famous elven spellbook
 1,[[elf spellbook as spellbook]]
@@ -15054,6 +15088,9 @@
 
 ;spellbook for necromancers
 1,The spells known are based on [a famous necromancer spellbook]: [spellbook [same level]].
+
+;spellbook for vivimancers
+1,The spells known are based on [a famous vivimancer spellbook]: [spellbook [same level]].
 
 ;spellbook for magic user
 1,The spells known are based on [a famous spellbook]: [spellbook [same level]].
