@@ -1417,6 +1417,8 @@ sub process {
   # strip empty paragraphs
   $text =~ s/<p>\s*<\/p>//g;
   $text =~ s/<p>\s*<p>/<p>/g;
+  # strip other empty elements
+  $text =~ s/<em><\/em>//g;
   return $text;
 }
 
