@@ -315,7 +315,7 @@
 3,[grass intro] [grass dressing] [grass landmark] Those who know how to find it can gather *[magic plant]*.
 1,[grass intro] [grass dressing] [grass landmark] The area has been settled by a tribe of [6d6] **lizard people** ([lizard people stats]) led by *[lizard leader]* (HD [1d4+2 as level]). [leader treasure] The little village of sod and grass huts is guarded by [lizard companions]. [average treasure]
 1,[grass intro] [grass dressing] [grass landmark] This land is the home of [centaurs].
-1,[grass intro] [grass dressing] [grass landmark] A ruined tower standing on a small rise is home to the **ettin** called *[ettin]*. [robber treasure] [ettin tower protection]
+1,[grass intro] [grass dressing] [grass landmark] A ruined tower standing on a small rise is home to the **ettin** called *[ettin]* ([ettin stats]). [robber treasure] [ettin tower protection]
 1,[grass intro] [grass dressing] [grass landmark] In the old days, this rocky pit was [a gem] quarry. Concealed in a rocky crevice is the hidden barrow of [1d8 wights] ([wight stats]).
 1,[grass intro] [grass dressing] [grass landmark] There is a huge dirt mound with small holes for windows and a rough wooden door. [goblins]
 1,The [grass name] looks burned and shrivelled here and the smell of sulphur hangs in the air. A **manticore** named *[here manticore name]* [manticore activity] ([manticore stats]).
@@ -8810,7 +8810,7 @@
 1,[swamp intro] [swamp dressing] There are plenty of [swamp animals]. Those who know how to find it can gather *[here magic plant]*.
 1,[swamp intro] [swamp dressing] [lizard people] [maybe barrow]
 1,[swamp intro] [swamp dressing] [froglings] [maybe barrow]
-1,[swamp intro] [swamp dressing] A ruined tower standing on a small island is home to the **ettin** called *[ettin]*. [robber treasure] [ettin tower protection] [maybe island barrow]
+1,[swamp intro] [swamp dressing] A ruined tower standing on a small island is home to the **ettin** called *[ettin]* ([ettin stats]). [robber treasure] [ettin tower protection] [maybe island barrow]
 1,[swamp intro] [swamp dressing] In the old days, these stagnant pools were used to drown evil necromancers. [bog wights] [maybe island barrow]
 1,[swamp intro] [swamp dressing] On one of the islands there is a huge mud mound. [goblins] [maybe island barrow]
 1,The [forest name] has turned into a black swamp and the smell of sulphur hangs in the air. A **black dragon** named *[here black dragon name as dragon name]*[dragon portrait] [black dragon activity] ([black dragon stats]). [dragon treasure] If you enter the water, you’ll soon attract the attention of [1d6 crocodiles].
@@ -9427,7 +9427,7 @@
 
 ;a monster threatening the village
 1,You shouldn’t stray too far from the trails because this forest has been cursed by the presence of [2d4] **harpies** ([harpy stats]) luring men into the depths of the forest and to their death with their magical singing. [terror treasure]
-1,Deep in the forest there is a cave where the **ettin** *[ettin]* lives. It is known for its fury and its appetite for human flesh. [robber treasure]
+1,Deep in the forest there is a cave where the **ettin** *[ettin]* lives ([ettin stats]). It is known for its fury and its appetite for human flesh. [robber treasure]
 1,Hiding between the trees are the watchful eyes of [1d12 bugbears] ([bugbear stats]). [scout treasure] Bugbears are usually a bad sign for they are often employed as spies by the elves of the netherworld. These carry amulets of passage bearing the [name for a clan of the netherworld elves] sigil.
 1,The camp of [1d12 bugbears] is hard to find ([bugbear stats]). [scout treasure] They hunt these woods at night and like to kill anybody that didn’t make it back to the village during daytime.
 1,[orcs] They keep a low profile, living deep in the forest, but lone travellers, or fools that don’t make it back to the village before sunset, or reckless idiots looking for trouble, they’ll all find the orcs to be more than willing to kill.
@@ -9476,6 +9476,9 @@
 1,Bits and Pieces
 1,Thunder and Lightning
 1,Gin and Tonic
+
+;ettin stats
+1,HD 11 AC 3 3d6/3d6 F10 MV 12 ML 9 XP 1100; only surprised on a 1 in 6
 
 ;bog wights
 1,At night, [wight crawls] [dead treasure]
@@ -11818,7 +11821,7 @@
 1,[fir highlands] The land up here is the hunting ground of a **manticore** called *[manticore]* living in the ruins of an old tower overlooking the area ([manticore stats]). [robber treasure] [maybe barrow]
 1,[fir highlands] This fir forest is home to a pack of [3d6] **wolves** ([wolf stats]). [maybe barrow] [forest event]
 1,[fir highlands] At dusk and dawn, you can sometimes see [boars]. [maybe barrow] [forest event]
-1,[fir highlands] There is a cave housing the **ettin** called *[ettin]*. [robber treasure] [maybe barrow] [forest event]
+1,[fir highlands] There is a cave housing the **ettin** called *[ettin]* ([ettin stats]). [robber treasure] [maybe barrow] [forest event]
 1,[fir highlands] At the foot of [crag name], there is a cave inhabited by [1d8 trolls] ([troll stats]). [robber treasure] [maybe barrow] [forest event]
 1,[fir highlands] In this fir forest is a little campsite with [1d12 bugbears] ([bugbear stats]). [scout treasure] [maybe barrow] [forest event]
 1,[fir highlands] At night, the orcs of the *[evil tribe]* tribe hunt these lands. [orcs] Their settlement is protected by a palisade and [orc fort] [orc plans]
