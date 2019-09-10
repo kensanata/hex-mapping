@@ -14716,30 +14716,30 @@
 1,portal
 1,realm
 
-;fiala
-1,*The Book of Dragons* by <a href="https://alexschroeder.ch/pdfs/spellcasters/Fiala.pdf">Fiala</a> the hunter
+;fanthaiel
+1,*The Book of Dragons* by <a href="https://alexschroeder.ch/pdfs/spellcasters/Fanthaiel.pdf">Fanthaiel</a> the hunter
 
-;fiala 1
+;fanthaiel 1
 1,light foot
 2,sleep
 1,water walking
 
-;fiala 2
+;fanthaiel 2
 1,far seeing
 1,flaming sword
 1,invisibility
 
-;fiala 3
+;fanthaiel 3
 1,haste
 1,breathing
 1,flaming arrows
 
-;fiala 4
+;fanthaiel 4
 1,blade storm
 1,earth blow
 1,magic shield
 
-;fiala 5
+;fanthaiel 5
 1,moon blade
 1,moon barrier
 
@@ -14790,12 +14790,40 @@
 
 ;hadrael 4
 1,plant growth
-1,*shape change* (to a dragon: AC 0 1d8/1d8/3d10)
+# need to exclude the additional info from the default emphasis
+1,shape change</em> (to a dragon: AC 0 1d8/1d8/3d10)<em>
 1,wait
 
 ;hadrael 5
 1,hold monster
 1,time thief
+
+;iauniel
+1,*The Book of Weaving* by <a href="https://alexschroeder.ch/pdfs/spellcasters/Iauniel.pdf">Iauniel</a> the Hidden
+
+;iauniel 1
+2,rope command
+1,silk
+1,spider climb
+
+;iauniel 2
+1,glamour
+1,liquefy
+1,spider senses
+
+;iauniel 3
+1,observation
+1,phase walk
+1,web
+
+;iauniel 4
+1,kill
+1,network
+1,return
+
+;iauniel 5
+1,fate
+1,transmigration
 
 ;jezembal
 1,*The Book of Aquamancy* by <a href="https://alexschroeder.ch/pdfs/spellcasters/Jezembal.pdf">Jezembal</a> the Ice Queen
@@ -15057,10 +15085,13 @@
 1,xoralfona
 1,ysabala
 1,zorkan
-3,[elf spellbook]
+4,[elf spellbook]
 
 ;elf spellbook
-1,fiala
+# if you add a new spellbook here, increase the chances in the
+# [spellbook] table above
+1,fanthaiel
+1,iauniel
 1,gerdana
 1,hadrael
 
