@@ -3784,6 +3784,9 @@ body {
   font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
   max-width: 80ex;
 }
+.spell, .caster {
+  color: inherit;
+}
 textarea {
   width: 100%;
 }

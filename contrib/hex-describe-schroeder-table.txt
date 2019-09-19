@@ -14558,546 +14558,546 @@
 1,
 
 ;agrimach
-1,*The Book of the Dead* by <a href="https://alexschroeder.ch/pdfs/spellcasters/Agrimach.pdf">Agrimach</a> the necromancer
+1,*The Book of the Dead* by <a class="caster" href="https://alexschroeder.ch/pdfs/spellcasters/Agrimach.pdf">Agrimach</a> the necromancer
 
 ;agrimach 1
-2,aura of fear
-1,locate corpse
-1,read magic
+2,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#aura-of-fear">aura of fear</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#locate-corpse">locate corpse</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#read-magic">read magic</a>
 
 ;agrimach 2
-1,hold person
-1,summon ghoul
-1,converse with corpse
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#hold-person">hold person</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#summon-ghoul">summon ghoul</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#converse-with-corpse">converse with corpse</a>
 
 ;agrimach 3
-1,limited shape shift
-1,animate dead
-1,immunity to fire
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#limited-shape-shift">limited shape shift</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#animate-dead">animate dead</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#immunity-to-fire">immunity to fire</a>
 
 ;agrimach 4
-1,poison
-1,grafting
-1,death ray
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#poison">poison</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#grafting">grafting</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#death-ray">death ray</a>
 
 ;agrimach 5
-1,raise dead
-1,cloud kill
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#raise-dead">raise dead</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#cloud-kill">cloud kill</a>
 
 ;asphyx
-1,*The Book of the Mountain Witch* by <a href="https://alexschroeder.ch/pdfs/spellcasters/Asphyx.pdf">Asphyx</a> the aeromancer
+1,*The Book of the Mountain Witch* by <a class="caster" href="https://alexschroeder.ch/pdfs/spellcasters/Asphyx.pdf">Asphyx</a> the aeromancer
 
 ;asphyx 1
-1,eagle eyes
-1,bird friendship
-1,feather fall
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#eagle-eyes">eagle eyes</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#bird-friendship">bird friendship</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#feather-fall">feather fall</a>
 
 ;asphyx 2
-1,invisibility
-1,illusion
-1,levitation
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#invisibility">invisibility</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#illusion">illusion</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#levitation">levitation</a>
 
 ;asphyx 3
-1,lightning bolt
-1,gaseous form
-1,flying
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#lightning-bolt">lightning bolt</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#gaseous-form">gaseous form</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#flying">flying</a>
 
 ;asphyx 4
-1,like grass
-1,slipstream travel
-1,whirlwind
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#like-grass">like grass</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#slipstream-travel">slipstream travel</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#whirlwind">whirlwind</a>
 
 ;asphyx 5
-1,airstrike
-1,creation
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#airstrike">airstrike</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#creation">creation</a>
 
 ;beryl
-1,*The Book of Darkness* by <a href="https://alexschroeder.ch/pdfs/spellcasters/Beryl.pdf">Beryl</a> the sorceress
+1,*The Book of Darkness* by <a class="caster" href="https://alexschroeder.ch/pdfs/spellcasters/Beryl.pdf">Beryl</a> the sorceress
 
 ;beryl 1
-2,darkness
-1,detect magic
-3,charm person
+2,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#darkness">darkness</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#detect-magic">detect magic</a>
+3,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#charm-person">charm person</a>
 
 ;beryl 2
-1,permanent darkness
-1,spider senses
-1,loud whispers
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#permanent-darkness">permanent darkness</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#spider-senses">spider senses</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#loud-whispers">loud whispers</a>
 
 ;beryl 3
-1,artificial life
-1,shadow blast
-1,scrying
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#artificial-life">artificial life</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#shadow-blast">shadow blast</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#scrying">scrying</a>
 
 ;beryl 4
-1,curse
-1,shadow walking
-1,telekinesis
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#curse">curse</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#shadow-walking">shadow walking</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#telekinesis">telekinesis</a>
 
 ;beryl 5
-1,possession
-1,transposition
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#possession">possession</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#transposition">transposition</a>
 
 ;chana
-1,*The Book of the Water Dragon* by <a href="https://alexschroeder.ch/pdfs/spellcasters/Chana.pdf">Chana</a> the aquamancer
+1,*The Book of the Water Dragon* by <a class="caster" href="https://alexschroeder.ch/pdfs/spellcasters/Chana.pdf">Chana</a> the aquamancer
 
 ;chana 1
-2,charm person
-1,song of the water dragons
-1,water walking
+2,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#charm-person">charm person</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#song-of-the-water-dragons">song of the water dragons</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#water-walking">water walking</a>
 
 ;chana 2
-1,speak with skulls
-1,speed
-1,bone casting
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#speak-with-skulls">speak with skulls</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#speed">speed</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#bone-casting">bone casting</a>
 
 ;chana 3
-1,water breathing
-1,wind barrier
-1,lightning bolt
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#water-breathing">water breathing</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#wind-barrier">wind barrier</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#lightning-bolt">lightning bolt</a>
 
 ;chana 4
-1,drowning
-1,flash flood
-1,dragon tongue
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#drowning">drowning</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#flash-flood">flash flood</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#dragon-tongue">dragon tongue</a>
 
 ;chana 5
-1,raise dead
-1,summon living storm
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#raise-dead">raise dead</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#summon-living-storm">summon living storm</a>
 
 ;darsim
-1,*The Book of the Fist* by <a href="https://alexschroeder.ch/pdfs/spellcasters/Darsim.pdf">Darsim</a> the muscle mage
+1,*The Book of the Fist* by <a class="caster" href="https://alexschroeder.ch/pdfs/spellcasters/Darsim.pdf">Darsim</a> the muscle mage
 
 ;darsim 1
-2,fist of air
-1,jump
-1,shield
+2,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#fist-of-air">fist of air</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#jump">jump</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#shield">shield</a>
 
 ;darsim 2
-1,one thousand fists
-1,focus
-1,protection from cold
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#one-thousand-fists">one thousand fists</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#focus">focus</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#protection-from-cold">protection from cold</a>
 
 ;darsim 3
-1,ground strike
-1,cancellation
-1,paralysing punch
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#ground-strike">ground strike</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#cancellation">cancellation</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#paralysing-punch">paralysing punch</a>
 
 ;darsim 4
-1,shatter
-1,binding touch
-1,slow time
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#shatter">shatter</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#binding-touch">binding touch</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#slow-time">slow time</a>
 
 ;darsim 5
-1,fist of death
-1,mastery of the nine realms
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#fist-of-death">fist of death</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#mastery-of-the-nine-realms">mastery of the nine realms</a>
 
 ;elam
-1,*The Book of Liminurgy* by <a href="https://alexschroeder.ch/pdfs/spellcasters/Elam.pdf">Elam</a> the recluse
+1,*The Book of Liminurgy* by <a class="caster" href="https://alexschroeder.ch/pdfs/spellcasters/Elam.pdf">Elam</a> the recluse
 
 ;elam 1
-1,lock
-1,extra pocket
-2,charm person
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#lock">lock</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#extra-pocket">extra pocket</a>
+2,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#charm-person">charm person</a>
 
 ;elam 2
-1,door
-1,extra room
-1,visiting the afterlife
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#door">door</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#extra-room">extra room</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#visiting-the-afterlife">visiting the afterlife</a>
 
 ;elam 3
-1,passage
-1,gaseous form
-1,teleportation trap
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#passage">passage</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#gaseous-form">gaseous form</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#teleportation-trap">teleportation trap</a>
 
 ;elam 4
-1,mirror passage
-1,summoning gate
-1,fortification
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#mirror-passage">mirror passage</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#summoning-gate">summoning gate</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#fortification">fortification</a>
 
 ;elam 5
-1,portal
-1,realm
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#portal">portal</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#realm">realm</a>
 
 ;fanthaiel
-1,*The Book of Dragons* by <a href="https://alexschroeder.ch/pdfs/spellcasters/Fanthaiel.pdf">Fanthaiel</a> the hunter
+1,*The Book of Dragons* by <a class="caster" href="https://alexschroeder.ch/pdfs/spellcasters/Fanthaiel.pdf">Fanthaiel</a> the hunter
 
 ;fanthaiel 1
-1,light foot
-2,sleep
-1,water walking
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#light-foot">light foot</a>
+2,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#sleep">sleep</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#water-walking">water walking</a>
 
 ;fanthaiel 2
-1,far seeing
-1,flaming sword
-1,invisibility
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#far-seeing">far seeing</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#flaming-sword">flaming sword</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#invisibility">invisibility</a>
 
 ;fanthaiel 3
-1,haste
-1,breathing
-1,flaming arrows
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#haste">haste</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#breathing">breathing</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#flaming-arrows">flaming arrows</a>
 
 ;fanthaiel 4
-1,blade storm
-1,earth blow
-1,magic shield
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#blade-storm">blade storm</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#earth-blow">earth blow</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#magic-shield">magic shield</a>
 
 ;fanthaiel 5
-1,moon blade
-1,moon barrier
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#moon-blade">moon blade</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#moon-barrier">moon barrier</a>
 
 ;gerdana
-1,*The Book of the Sea* by Lady <a href="https://alexschroeder.ch/pdfs/spellcasters/Gerdana.pdf">Gerdana</a> of Lagnabadalë
+1,*The Book of the Sea* by Lady <a class="caster" href="https://alexschroeder.ch/pdfs/spellcasters/Gerdana.pdf">Gerdana</a> of Lagnabadalë
 
 ;gerdana 1
-2,charm person
-2,sleep
-1,lunar runes
+2,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#charm-person">charm person</a>
+2,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#sleep">sleep</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#lunar-runes">lunar runes</a>
 
 ;gerdana 2
-1,true words
-1,eternal starlight
-1,glamour
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#true-words">true words</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#eternal-starlight">eternal starlight</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#glamour">glamour</a>
 
 ;gerdana 3
-1,lightning bolt
-1,water breathing
-1,wind barrier
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#lightning-bolt">lightning bolt</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#water-breathing">water breathing</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#wind-barrier">wind barrier</a>
 
 ;gerdana 4
-1,decay
-1,flash flood
-1,shape change
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#decay">decay</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#flash-flood">flash flood</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#shape-change">shape change</a>
 
 ;gerdana 5
-1,lunar sailing
-1,summon living storm
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#lunar-sailing">lunar sailing</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#summon-living-storm">summon living storm</a>
 
 ;hadrael
-1,*The Book of Odin* by <a href="https://alexschroeder.ch/pdfs/spellcasters/Hadrael.pdf">Hadrael</a> the dragon-slayer
+1,*The Book of Odin* by <a class="caster" href="https://alexschroeder.ch/pdfs/spellcasters/Hadrael.pdf">Hadrael</a> the dragon-slayer
 
 ;hadrael 1
-1,detect magic
-2,sleep
-1,restore faith
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#detect-magic">detect magic</a>
+2,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#sleep">sleep</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#restore-faith">restore faith</a>
 
 ;hadrael 2
-1,speak with animals
-1,hold person
-1,silence
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#speak-with-animals">speak with animals</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#hold-person">hold person</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#silence">silence</a>
 
 ;hadrael 3
-1,speed
-1,fly
-1,dispel magic
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#speed">speed</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#fly">fly</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#dispel-magic">dispel magic</a>
 
 ;hadrael 4
-1,plant growth
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#plant-growth">plant growth</a>
 # need to exclude the additional info from the default emphasis
-1,shape change</em> (to a dragon: AC 0 1d8/1d8/3d10)<em>
-1,wait
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#shape-change">shape change</a></em> (to a dragon: AC 0 1d8/1d8/3d10)<em>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#wait">wait</a>
 
 ;hadrael 5
-1,hold monster
-1,time thief
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#hold-monster">hold monster</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#time-thief">time thief</a>
 
 ;iauniel
-1,*The Book of Weaving* by <a href="https://alexschroeder.ch/pdfs/spellcasters/Iauniel.pdf">Iauniel</a> the Hidden
+1,*The Book of Weaving* by <a class="caster" href="https://alexschroeder.ch/pdfs/spellcasters/Iauniel.pdf">Iauniel</a> the Hidden
 
 ;iauniel 1
-2,rope command
-1,silk
-1,spider climb
+2,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#rope-command">rope command</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#silk">silk</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#spider-climb">spider climb</a>
 
 ;iauniel 2
-1,glamour
-1,liquefy
-1,spider senses
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#glamour">glamour</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#liquefy">liquefy</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#spider-senses">spider senses</a>
 
 ;iauniel 3
-1,observation
-1,phase walk
-1,web
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#observation">observation</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#phase-walk">phase walk</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#web">web</a>
 
 ;iauniel 4
-1,kill
-1,network
-1,return
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#kill">kill</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#network">network</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#return">return</a>
 
 ;iauniel 5
-1,fate
-1,transmigration
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#fate">fate</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#transmigration">transmigration</a>
 
 ;jezembal
-1,*The Book of Aquamancy* by <a href="https://alexschroeder.ch/pdfs/spellcasters/Jezembal.pdf">Jezembal</a> the Ice Queen
+1,*The Book of Aquamancy* by <a class="caster" href="https://alexschroeder.ch/pdfs/spellcasters/Jezembal.pdf">Jezembal</a> the Ice Queen
 
 ;jezembal 1
-1,ice wall
-1,icicles
-1,wave
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#ice-wall">ice wall</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#icicles">icicles</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#wave">wave</a>
 
 ;jezembal 2
-1,energy
-1,frozen path
-1,tentacles
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#energy">energy</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#frozen-path">frozen path</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#tentacles">tentacles</a>
 
 ;jezembal 3
-1,ice storm
-1,water breathing
-1,water way
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#ice-storm">ice storm</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#water-breathing">water breathing</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#water-way">water way</a>
 
 ;jezembal 4
-1,flash flood
-1,frozen slumber
-1,part water
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#flash-flood">flash flood</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#frozen-slumber">frozen slumber</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#part-water">part water</a>
 
 ;jezembal 5
-1,ice bridge
-1,ice castle
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#ice-bridge">ice bridge</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#ice-castle">ice castle</a>
 
 ;korokoro
-1,*The Book of the Warp* by <a href="https://alexschroeder.ch/pdfs/spellcasters/Korokoro.pdf">Korokoro</a> the Mad
+1,*The Book of the Warp* by <a class="caster" href="https://alexschroeder.ch/pdfs/spellcasters/Korokoro.pdf">Korokoro</a> the Mad
 
 ;korokoro 1
-1,amnesia
-1,mishap
-1,recoil
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#amnesia">amnesia</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#mishap">mishap</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#recoil">recoil</a>
 
 ;korokoro 2
-1,ooze
-1,outgrowth
-1,plague touch
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#ooze">ooze</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#outgrowth">outgrowth</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#plague-touch">plague touch</a>
 
 ;korokoro 3
-1,animate rock
-1,grow limb
-1,warp mind
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#animate-rock">animate rock</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#grow-limb">grow limb</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#warp-mind">warp mind</a>
 
 ;korokoro 4
-1,open mind
-1,sharing
-1,warp flesh
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#open-mind">open mind</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#sharing">sharing</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#warp-flesh">warp flesh</a>
 
 ;korokoro 5
-1,clone
-1,warp gate
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#clone">clone</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#warp-gate">warp gate</a>
 
 ;moroson
-1,*The Book of Armies* by <a href="https://alexschroeder.ch/pdfs/spellcasters/Moroson.pdf">Moroson</a> the General
+1,*The Book of Armies* by <a class="caster" href="https://alexschroeder.ch/pdfs/spellcasters/Moroson.pdf">Moroson</a> the General
 
 ;moroson 1
-2,bolt of power
-1,protection from harm
-2,voice of the ruler
+2,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#bolt-of-power">bolt of power</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#protection-from-harm">protection from harm</a>
+2,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#voice-of-the-ruler">voice of the ruler</a>
 
 ;moroson 2
-1,chariot of fire
-1,club of law
-1,eyes of the overlord
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#chariot-of-fire">chariot of fire</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#club-of-law">club of law</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#eyes-of-the-overlord">eyes of the overlord</a>
 
 ;moroson 3
-1,lightning bolt
-1,protection from hail
-1,wings of god
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#lightning-bolt">lightning bolt</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#protection-from-hail">protection from hail</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#wings-of-god">wings of god</a>
 
 ;moroson 4
-1,sun chariot
-1,voice of the master
-1,wall of fire
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#sun-chariot">sun chariot</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#voice-of-the-master">voice of the master</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#wall-of-fire">wall of fire</a>
 
 ;moroson 5
-1,eyes of truth
-1,melting walls
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#eyes-of-truth">eyes of truth</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#melting-walls">melting walls</a>
 
 ;narga
-1,*The Book of the Sea Hag* by <a href="https://alexschroeder.ch/pdfs/spellcasters/Narga.pdf">Narga</a> the Pirate Queen of the South Seas
+1,*The Book of the Sea Hag* by <a class="caster" href="https://alexschroeder.ch/pdfs/spellcasters/Narga.pdf">Narga</a> the Pirate Queen of the South Seas
 
 ;narga 1
-2,siren song
-1,needles and puppets
-1,water walking
+2,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#siren-song">siren song</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#needles-and-puppets">needles and puppets</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#water-walking">water walking</a>
 
 ;narga 2
-1,beauty
-1,long kiss
-1,speak with skulls
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#beauty">beauty</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#long-kiss">long kiss</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#speak-with-skulls">speak with skulls</a>
 
 ;narga 3
-1,invisible claws
-1,curse of drowning
-1,sea of fog
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#invisible-claws">invisible claws</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#curse-of-drowning">curse of drowning</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#sea-of-fog">sea of fog</a>
 
 ;narga 4
-1,like leaves
-1,river travel
-1,sorcerous fumes
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#like-leaves">like leaves</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#river-travel">river travel</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#sorcerous-fumes">sorcerous fumes</a>
 
 ;narga 5
-1,hidden lands
-1,summon kraken
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#hidden-lands">hidden lands</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#summon-kraken">summon kraken</a>
 
 ;qunu
-1,*The Book of Witchcraft* by <a href="https://alexschroeder.ch/pdfs/spellcasters/Qunu.pdf">Qunu</a> the Beautiful
+1,*The Book of Witchcraft* by <a class="caster" href="https://alexschroeder.ch/pdfs/spellcasters/Qunu.pdf">Qunu</a> the Beautiful
 
 ;qunu 1
-3,charm male
-2,mind rot
-1,silent message
+3,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#charm-male">charm male</a>
+2,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#mind-rot">mind rot</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#silent-message">silent message</a>
 
 ;qunu 2
-1,bedazzlement
-1,servant
-1,illusion
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#bedazzlement">bedazzlement</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#servant">servant</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#illusion">illusion</a>
 
 ;qunu 3
-1,flying
-1,puppet master
-1,blight
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#flying">flying</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#puppet-master">puppet master</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#blight">blight</a>
 
 ;qunu 4
-1,awaken stone
-1,curse
-1,doll
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#awaken-stone">awaken stone</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#curse">curse</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#doll">doll</a>
 
 ;qunu 5
-1,curse the land
-1,magic kingdom
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#curse-the-land">curse the land</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#magic-kingdom">magic kingdom</a>
 
 ;ufala
-1,*The Book of Ursomancy* by <a href="https://alexschroeder.ch/pdfs/spellcasters/Ufala.pdf">Ufala</a> One Eye
+1,*The Book of Ursomancy* by <a class="caster" href="https://alexschroeder.ch/pdfs/spellcasters/Ufala.pdf">Ufala</a> One Eye
 
 ;ufala 1
-2,bear strength
-1,long sleep
-2,shadows
+2,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#bear-strength">bear strength</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#long-sleep">long sleep</a>
+2,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#shadows">shadows</a>
 
 ;ufala 2
-1,bear shape
-1,permanent starlight
-1,shadow step
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#bear-shape">bear shape</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#permanent-starlight">permanent starlight</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#shadow-step">shadow step</a>
 
 ;ufala 3
-1,breath of cold
-1,javelins of lightning
-1,laser eyes
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#breath-of-cold">breath of cold</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#javelins-of-lightning">javelins of lightning</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#laser-eyes">laser eyes</a>
 
 ;ufala 4
-1,summon ursine soldier
-1,shadow passage
-1,spell warp
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#summon-ursine-soldier">summon ursine soldier</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#shadow-passage">shadow passage</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#spell-warp">spell warp</a>
 
 ;ufala 5
-1,flying bears
-1,ice gate
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#flying-bears">flying bears</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#ice-gate">ice gate</a>
 
 ;wogan
-1,*The Book of the Winter Wolf* by <a href="https://alexschroeder.ch/pdfs/spellcasters/Wogan.pdf">Wogan</a>, Freya’s Son
+1,*The Book of the Winter Wolf* by <a class="caster" href="https://alexschroeder.ch/pdfs/spellcasters/Wogan.pdf">Wogan</a>, Freya’s Son
 
 ;wogan 1
-1,joyful dog
-1,locate creature
-1,wolf tongue
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#joyful-dog">joyful dog</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#locate-creature">locate creature</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#wolf-tongue">wolf tongue</a>
 
 ;wogan 2
-1,night vision
-1,silent paws
-1,wolf howl
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#night-vision">night vision</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#silent-paws">silent paws</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#wolf-howl">wolf howl</a>
 
 ;wogan 3
-1,ice gate
-1,werewolf
-1,wolf pack
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#ice-gate">ice gate</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#werewolf">werewolf</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#wolf-pack">wolf pack</a>
 
 ;wogan 4
-1,call of the wolf
-1,dreamtime
-1,to dust
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#call-of-the-wolf">call of the wolf</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#dreamtime">dreamtime</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#to-dust">to dust</a>
 
 ;wogan 5
-1,bone binding
-1,imprisonment
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#bone-binding">bone binding</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#imprisonment">imprisonment</a>
 
 ;xoralfona
-1,*The Book of Songs* by <a href="https://alexschroeder.ch/pdfs/spellcasters/Xoralfona.pdf">Xoralfona</a> the wordsmith
+1,*The Book of Songs* by <a class="caster" href="https://alexschroeder.ch/pdfs/spellcasters/Xoralfona.pdf">Xoralfona</a> the wordsmith
 
 ;xoralfona 1
-2,calm
-1,empathy
-1,lies
+2,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#calm">calm</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#empathy">empathy</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#lies">lies</a>
 
 ;xoralfona 2
-1,entrapment
-1,mind blast
-1,speak
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#entrapment">entrapment</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#mind-blast">mind blast</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#speak">speak</a>
 
 ;xoralfona 3
-1,exhaustion
-1,speak
-1,speed
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#exhaustion">exhaustion</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#speak">speak</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#speed">speed</a>
 
 ;xoralfona 4
-1,commune
-1,misdirection
-1,vanishing
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#commune">commune</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#misdirection">misdirection</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#vanishing">vanishing</a>
 
 ;xoralfona 5
-1,unbound
-1,world walk
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#unbound">unbound</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#world-walk">world walk</a>
 
 ;ysabala
-1,*The Book of Pyromancy* by <a href="https://alexschroeder.ch/pdfs/spellcasters/Ysabala.pdf">Ysabala</a> Devilsdaughter
+1,*The Book of Pyromancy* by <a class="caster" href="https://alexschroeder.ch/pdfs/spellcasters/Ysabala.pdf">Ysabala</a> Devilsdaughter
 
 ;ysabala 1
-3,ball of fire
-1,fire resistance
-2,flame cloak
+3,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#ball-of-fire">ball of fire</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#fire-resistance">fire resistance</a>
+2,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#flame-cloak">flame cloak</a>
 
 ;ysabala 2
-1,firetrap
-1,flaming blade
-1,illusion
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#firetrap">firetrap</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#flaming-blade">flaming blade</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#illusion">illusion</a>
 
 ;ysabala 3
-1,feasting
-1,fireball
-1,flame arrows
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#feasting">feasting</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#fireball">fireball</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#flame-arrows">flame arrows</a>
 
 ;ysabala 4
-1,summoning a lord of fire
-1,wall of fire
-1,wellness
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#summoning-a-lord-of-fire">summoning a lord of fire</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#wall-of-fire">wall of fire</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#wellness">wellness</a>
 
 ;ysabala 5
-1,fire proofing
-1,rain of fire
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#fire-proofing">fire proofing</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#rain-of-fire">rain of fire</a>
 
 ;zorkan
-1,*The Book of Geomancy* by <a href="https://alexschroeder.ch/pdfs/spellcasters/Zorkan.pdf">Zorkan</a> of Mount Whiterock
+1,*The Book of Geomancy* by <a class="caster" href="https://alexschroeder.ch/pdfs/spellcasters/Zorkan.pdf">Zorkan</a> of Mount Whiterock
 
 ;zorkan 1
-3,flying stones
-1,magic message
-2,stone fist
+3,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#flying-stones">flying stones</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#magic-message">magic message</a>
+2,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#stone-fist">stone fist</a>
 
 ;zorkan 2
-1,speak with stones
-1,throw a rock
-1,golem craft
-1,raise stone
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#speak-with-stones">speak with stones</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#throw-a-rock">throw a rock</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#golem-craft">golem craft</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#raise-stone">raise stone</a>
 
 ;zorkan 3
-1,rock swim
-1,rock throwing
-1,stone skin
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#rock-swim">rock swim</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#rock-throwing">rock throwing</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#stone-skin">stone skin</a>
 
 ;zorkan 4
-1,earth ship
-1,split the ground
-1,bury the living
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#earth-ship">earth ship</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#split-the-ground">split the ground</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#bury-the-living">bury the living</a>
 
 ;zorkan 5
-1,earthblood mastery
-1,stone growth
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#earthblood-mastery">earthblood mastery</a>
+1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#stone-growth">stone growth</a>
 
 ;spellbook
 1,agrimach
