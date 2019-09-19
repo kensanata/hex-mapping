@@ -14936,6 +14936,33 @@
 1,hidden lands
 1,summon kraken
 
+;qunu
+1,*The Book of Witchcraft* by <a href="https://alexschroeder.ch/pdfs/spellcasters/Qunu.pdf">Qunu</a> the Beautiful
+
+;qunu 1
+3,charm male
+2,mind rot
+1,silent message
+
+;qunu 2
+1,bedazzlement
+1,servant
+1,illusion
+
+;qunu 3
+1,flying
+1,puppet master
+1,blight
+
+;qunu 4
+1,awaken stone
+1,curse
+1,doll
+
+;qunu 5
+1,curse the land
+1,magic kingdom
+
 ;ufala
 1,*The Book of Ursomancy* by <a href="https://alexschroeder.ch/pdfs/spellcasters/Ufala.pdf">Ufala</a> One Eye
 
@@ -15083,6 +15110,7 @@
 1,korokoro
 1,moroson
 1,narga
+1,qunu
 1,ufala
 1,wogan
 1,xoralfona
