@@ -35,6 +35,7 @@ dark-soil attributes fill="#c97457"
 dust attributes fill="#ede787"
 sand attributes fill="#e3bea3"
 water attributes fill="#6ebae7"
+ocean attributes fill="#1c86ee"
 
 # wetlands
 light-grey attributes fill="#dcddbe"
@@ -45,6 +46,9 @@ dark-grey attributes fill="#859d70"
 light-green attributes fill="#b7c18c"
 green attributes fill="#77904c"
 dark-green attributes fill="#2d501a"
+
+# debug
+red attributes fill="red" opacity="0.8" transform="scale(0.5)"
 
 # Buildings
 <g id="Keep"><rect fill="white" height="58" width="49" y="-24" x="-25"/><path style="fill:#fecb86" d="M 5,3 C 2,20 -6,29 -13,34 l 36,0 0,-58 -20,0 c 3,8 4,18 2,27 z"/><path fill="none" stroke="black" stroke-width="5" d="m -25,-24 49,0 0,58 -49,0 z"/><path d="M -12,-6 c 0,-8 -6,-8 -6,0 c 2,0 3,0 6,0 z" stroke="black" stroke-width="2"/><path d="M 15,-6 c 0,-8 -6,-8 -6,0 c 2,0 3,0 6,0 z" stroke="black" stroke-width="2"/><rect fill="white" height="19" width="65" y="-43" x="-34"/><path fill="#fecb86" d="m 26,-35 -6,0 0,-6 -6,0 0,6 -6,0 0,-6 -6,0 0,6 -3,0 c 2,3 3,7 5,12 l 28,0 0,-18 -6,0 0,6 0,0 z"/><path d="m -1,8 c -6,0 -11,11 -11,25 l 22,0 C 10,19 5,8 -1,8 z" stroke="black" stroke-width="2"/><path stroke="black" stroke-width="5" d="m -19,34 76,0"/><path fill="none" stroke="black" stroke-width="5" d="m 32,-24 0,-18 -6,0 0,0 0,6 -6,0 0,-6 -6,0 0,6 -6,0 0,-6 -6,0 0,6 -6,0 0,-6 -6,0 0,6 -6,0 0,-6 -6,0 0,6 -6,0 0,-6 -6,0 0,18 z"/></g>

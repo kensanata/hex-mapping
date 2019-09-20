@@ -1467,6 +1467,7 @@ sub water {
   # reset in case we run this twice
   # go through all the hexes
   for my $coordinates (sort keys %$altitude) {
+    next if $altitude->{$coordinates} <= $bottom;
     # note preferred water flow by identifying lower lying neighbors
     my ($lowest, $direction);
     # look at neighbors in random order
@@ -1528,13 +1529,31 @@ sub mountains {
   }
 }
 
+sub ocean {
+  my $self = shift;
+  my ($world, $altitude) = @_;
+  for my $coordinates (sort keys %$altitude) {
+    if ($altitude->{$coordinates} <= $bottom) {
+      my $ocean = 1;
+      for my $i ($self->neighbors()) {
+	my ($x, $y) = $self->neighbor($coordinates, $i);
+	my $legal = $self->legal($x, $y);
+	my $other = coordinates($x, $y);
+	next if not $legal or $altitude->{$other} <= $bottom;
+	$ocean = 0;
+      }
+      $world->{$coordinates} = $ocean ? "ocean" : "water";
+    }
+  }
+}
+
 sub lakes {
   my $self = shift;
   my ($world, $altitude, $water) = @_;
   # any areas without water flow are lakes
-  for my $coordinates (keys %$altitude) {
-    if ($altitude->{$coordinates} <= $bottom
-	or not defined $water->{$coordinates}) {
+  for my $coordinates (sort keys %$altitude) {
+    if (not defined $water->{$coordinates}
+	and $world->{$coordinates} ne "ocean") {
       $world->{$coordinates} = "water";
     }
   }
@@ -1547,7 +1566,7 @@ sub swamps {
  HEX:
   for my $coordinates (keys %$altitude) {
     # don't turn lakes into swamps and skip bogs
-    next if $world->{$coordinates} =~ /water|swamp/;
+    next if $world->{$coordinates} =~ /ocean|water|swamp/;
     # swamps require a river
     next unless $flow->{$coordinates};
     # look at the neighbor the water would flow to
@@ -1604,7 +1623,7 @@ sub flood {
     $seen{$coordinates} = 1;
     $log->debug("Looking at $coordinates");
     my ($x, $y) = $self->xy($coordinates);
-    if ($self->legal($x, $y)) {
+    if ($self->legal($x, $y) and $world->{$coordinates} ne "ocean") {
       # if we're still on the map, check all the unknown neighbors
       my $from = $coordinates;
       for my $i ($self->neighbors()) {
@@ -1621,6 +1640,7 @@ sub flood {
     my $to = $coordinates;
     my $from = $flow{$to};
     while ($from) {
+      last if not $self->legal($x, $y) or $world->{$to} =~ "ocean";
       my $i = $self->direction($from, $to);
       if (not defined $water->{$from}
 	  or $water->{$from} != $i) {
@@ -1650,7 +1670,7 @@ sub rivers {
   my ($world, $altitude, $water, $flow, $level) = @_;
   # $flow are the sources points of rivers, or 1 if a river flows through them
   my @growing = map {
-    $world->{$_} = "light-grey forest-hill" unless $world->{$_} =~ /mountain|swamp|water/;
+    $world->{$_} = "light-grey forest-hill" unless $world->{$_} =~ /mountain|swamp|water|ocean/;
     # warn "Started a river at $_ ($altitude->{$_} == $level)\n";
     $flow->{$_} = [$_]
   } sort grep {
@@ -1740,7 +1760,7 @@ sub canyons {
       }
       # no canyons through water!
       if ($altitude->{$coordinates} and $current_altitude < $altitude->{$coordinates}
-	  and $world->{$coordinates} !~ /water/) {
+	  and $world->{$coordinates} !~ /water|ocean/) {
 	# river is digging a canyon; if this not the start of the river and it
 	# is the start of a canyon, prepend the last step
 	push(@$canyon, $last) unless @$canyon;
@@ -1799,7 +1819,7 @@ sub grow_forest {
       my ($x, $y) = $self->neighbor($coordinates, $i);
       next unless $self->legal($x, $y);
       my $other = coordinates($x, $y);
-      push(@candidates, $other) if $world->{$other} !~ /mountain|hill|water|swamp/;
+      push(@candidates, $other) if $world->{$other} !~ /mountain|hill|water|ocean|swamp/;
     }
   }
   if ($n >= 2) {
@@ -1807,7 +1827,7 @@ sub grow_forest {
       my ($x, $y) = $self->neighbor2($coordinates, $i);
       next unless $self->legal($x, $y);
       my $other = coordinates($x, $y);
-      push(@candidates, $other) if $world->{$other} !~ /mountain|hill|water|swamp/;
+      push(@candidates, $other) if $world->{$other} !~ /mountain|hill|water|ocean|swamp/;
     }
   }
   for $coordinates (@candidates) {
@@ -1828,7 +1848,7 @@ sub forests {
   my ($world, $altitude, $flow) = @_;
   # empty hexes with a river flowing through them are forest filled valleys
   for my $coordinates (keys %$flow) {
-    if ($world->{$coordinates} !~ /mountain|hill|water|swamp/) {
+    if ($world->{$coordinates} !~ /mountain|hill|water|ocean|swamp/) {
       $self->grow_forest($coordinates, $world, $altitude);
     }
   }
@@ -1861,7 +1881,7 @@ sub bogs {
     # limit ourselves to altitude 7
     next if $altitude->{$coordinates} != 7;
     # don't turn lakes into bogs
-    next if $world->{$coordinates} =~ /water/;
+    next if $world->{$coordinates} =~ /water|ocean/;
     # look at the neighbor the water would flow to
     my ($x, $y) = $self->neighbor($coordinates, $water->{$coordinates});
     # skip if water flows off the map
@@ -1880,7 +1900,7 @@ sub bushes {
   # as always, keys is a source of randomness that's independent of srand which
   # is why we sort
   for my $coordinates (sort keys %$world) {
-    if ($world->{$coordinates} !~ /mountain|hill|water|swamp|forest|firs|trees/) {
+    if ($world->{$coordinates} !~ /mountain|hill|water|ocean|swamp|forest|firs|trees/) {
       my $thing = "bushes";
       my $rand = rand();
       if ($altitude->{$coordinates} >= 3 and $rand < 0.2) {
@@ -1976,6 +1996,7 @@ sub cliffs {
   my @neighbors = $self->neighbors();
   # hexes with altitude difference bigger than 1 have cliffs
   for my $coordinates (keys %$world) {
+    next if $altitude->{$coordinates} <= $bottom;
     for my $i (@neighbors) {
       my ($x, $y) = $self->neighbor($coordinates, $i);
       next unless $self->legal($x, $y);
@@ -2002,6 +2023,7 @@ sub generate {
 	  $self->altitude($world, $altitude); },
     sub { $self->bumps($world, $altitude); },
     sub { $self->mountains($world, $altitude); },
+    sub { $self->ocean($world, $altitude); },
     sub { $self->water($world, $altitude, $water); },
     sub { $self->lakes($world, $altitude, $water); },
     sub { $self->flood($world, $altitude, $water); },
@@ -3074,7 +3096,7 @@ get '/alpine/document' => sub {
   # use the same seed for all the calls
   my $seed = $c->param('seed');
   $seed = $c->param('seed' => int(rand(1000000000))) unless defined $seed;
-  for my $step (1 .. 15) {
+  for my $step (1 .. 16) {
     my $map = alpine_map($c, $step);
     my $mapper;
     if ($type eq 'hex') {
@@ -3863,15 +3885,18 @@ white mountain (altitude 9), light-grey mountain (altitude 8).</p>
 
 %== shift(@$maps)
 
+<p>Oceans are whatever lies at the bottom (<%= $bottom %>) and is surrounded by
+regions at the same altitude.</p>
+
+%== shift(@$maps)
+
 <p>We determine the flow of water by having water flow to one of the lowest
 neighbors if possible. Water doesn't flow upward, and if there is already water
 coming our way, then it won't flow back. It has reached a dead end.</p>
 
 %== shift(@$maps)
 
-<p>Any of the dead ends we found in the previous step are marked as lakes.
-Anthing beneath an altitude of <%= $bottom %> is marked the same. This is
-considered to be the sea level.</p>
+<p>Any of the dead ends we found in the previous step are marked as lakes.</p>
 
 %== shift(@$maps)
 
