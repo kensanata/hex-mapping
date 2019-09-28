@@ -43,16 +43,6 @@ use Array::Utils qw(intersect);
 use Encode qw/decode_utf8/;
 use Text::Autoformat;
 
-my $hex_describe_url = app->mode eq 'development'
-    ? 'http://localhost:3000'
-    : 'https://campaignwiki.org/hex-describe';
-my $text_mapper_url = app->mode eq 'development'
-    ? 'http://localhost:3010'
-    : 'https://campaignwiki.org/text-mapper';
-my $face_generator_url = app->mode eq 'development'
-    ? 'http://localhost:3020'
-    : 'https://campaignwiki.org/face';
-
 =head2 Configuration
 
 As a Mojolicious application, it will read a config file called
@@ -96,6 +86,16 @@ my $default_map = Mojo::File->new("$dir/hex-describe-default-map.txt");
 my $schroeder_table = Mojo::File->new("$dir/hex-describe-schroeder-table.txt");
 my $seckler_table = Mojo::File->new("$dir/hex-describe-seckler-table.txt");
 my $strom_table = Mojo::File->new("$dir/hex-describe-strom-table.txt");
+
+=head2 URLs
+
+The code needs to know where Text Mapper and the Face Generator can be found.
+
+=cut
+
+my $hex_describe_url = app->config('hex_describe_url') || 'https://campaignwiki.org/hex-describe';
+my $text_mapper_url = app->config('text_mapper_url') || 'https://campaignwiki.org/text-mapper';
+my $face_generator_url = app->config('face_generator_url') || 'https://campaignwiki.org/face';
 
 =head2 Entry Points
 
@@ -653,7 +653,7 @@ sub get_table {
   $table .= decode_utf8($schroeder_table->slurp) if $load eq 'schroeder';
   $table .= decode_utf8($strom_table->slurp) if $load eq 'strom';
   # the table in the text area overrides the defaults
-  $table .= $c->param('table');
+  $table .= $c->param('table') || '';
   return $url, $table if wantarray;
   return $table;
 }
