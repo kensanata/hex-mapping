@@ -1298,11 +1298,14 @@
 #MAIN GENERATOR
 ;dungeon
 # 5 rooms
-1,[save dungeontype as monsters]<ol><li>[entrance room]</li><li>[with interior room]<ul><li>[room feature]</i></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[final room]<ul><li>Boss Monster: [[same monsters] boss].</li><li>Treasure: [final room treasure].</li></ul></li></ol>
+1,[save dungeontype as monsters]<p>[dungeon map]<ol><li>[entrance room]</li><li>[with interior room]<ul><li>[room feature]</i></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[final room]<ul><li>Boss Monster: [[same monsters] boss].</li><li>Treasure: [final room treasure].</li></ul></li></ol>
 # 6 rooms
 # 1,[save dungeontype as monsters]<ol><li>[entrance room]</li><li>[with interior room]<ul><li>[room feature]</i></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[final room]<ul><li>Boss Monster: [[same monsters] boss].</li><li>Treasure: [final room treasure].</li></ul></li></ol>
 # 7 rooms
 # 1,[save dungeontype as monsters]<ol><li>[entrance room]</li><li>[with interior room]<ul><li>[room feature]</i></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[final room]<ul><li><u>Boss Monster:</u> [[same monsters] boss].</li><li>Treasure: [final room treasure].</li></ul></li></ol>
+
+;dungeon map
+1,<img class="map" src="[[redirect https://campaignwiki.org/text-mapper/gridmapper/redirect?pillars=0]]" alt="5 room dungeon" title="5 room dungeon"/>
 
 # add Wandering Monster: [[same monsters] encounter]...this might be possible as a sub-table floating to the side (like the gem stuff in hex describe)
 
