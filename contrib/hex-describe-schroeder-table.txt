@@ -1285,188 +1285,604 @@
 1,[naga temple]
 1,[dungeon]
 
+# ------------------------------------------------------------
+
+# Dungeon
+
 # At the start you save a dungeon type for theming, then on subsequent
 # calls you reference what it’s stored as to pull in only certain
 # “types” from specific tables. Also uses a “boss” monster in the
-# final room of the key. You could make clew tables for the bosses
+# final room of the key. You could make clue tables for the bosses
 # that tie into the same monster list.
 
-# Some ideas for extensibility (ktrey): Sub-nest with <ul> room
-# contents.
-
+#MAIN GENERATOR
 ;dungeon
-1,Dungeon:[save dungeontype as monsters]<p>[dungeon map]<ol><li>[entrance room]</li><li>[with interior room]<ul><li>[room feature]</i></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[final room]<ul><li>Boss Monster: [[same monsters] boss]</li></ul></li></ol>
-1,Dungeon:[save dungeontype as monsters]<p>[dungeon map]<ol><li>[entrance room]</li><li>[with interior room]<ul><li>[room feature]</i></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[final room]<ul><li>Boss Monster: [[same monsters] boss]</li></ul></li></ol>
-1,Dungeon:[save dungeontype as monsters]<p>[dungeon map]<ol><li>[entrance room]</li><li>[with interior room]<ul><li>[room feature]</i></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[final room]<ul><li>Boss Monster: [[same monsters] boss]</li></ul></li></ol>
-# add Wandering Monster: [[same monsters] encounter]
+# 5 rooms
+1,[save dungeontype as monsters]<ol><li>[entrance room]</li><li>[with interior room]<ul><li>[room feature]</i></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[final room]<ul><li>Boss Monster: [[same monsters] boss].</li><li>Treasure: [final room treasure].</li></ul></li></ol>
+# 6 rooms
+# 1,[save dungeontype as monsters]<ol><li>[entrance room]</li><li>[with interior room]<ul><li>[room feature]</i></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[final room]<ul><li>Boss Monster: [[same monsters] boss].</li><li>Treasure: [final room treasure].</li></ul></li></ol>
+# 7 rooms
+# 1,[save dungeontype as monsters]<ol><li>[entrance room]</li><li>[with interior room]<ul><li>[room feature]</i></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[final room]<ul><li><u>Boss Monster:</u> [[same monsters] boss].</li><li>Treasure: [final room treasure].</li></ul></li></ol>
 
-;dungeon map
-1,<img class="map" src="[[redirect https://campaignwiki.org/text-mapper/gridmapper/redirect?pillars=0]]" alt="5 room dungeon" title="5 room dungeon"/>
+# add Wandering Monster: [[same monsters] encounter]...this might be possible as a sub-table floating to the side (like the gem stuff in hex describe)
 
+#new "dungeon themes" can be added here, but will need [boss] and [encounter] tables in the ENCOUNTER section
 ;dungeontype
+1,[elements] elemental
+1,bandit
 1,goblin
-1,undead
+1,Greek mythology
+1,Gygaxian
 1,lizard
 1,magic user
-
-;goblin boss
-1,a **goblin chieftain** ([orc stats]) and [2d4] **goblins** ([goblin stats]) [monster activities]. [poor treasure]
-
-;undead boss
-1,a **wight** ([wight stats]) and [2d4] **skeletons** ([skeleton stats]) [monster activities]. [dead treasure]
-
-;lizard boss
-1,a **red dragon** [red dragon stats]. [dragon treasure]
-
-;magic user boss
-1,a **thaumaturge** [magic user] (level [1d3+4 as level]). [spellbook for magic user] [leader treasure for magic user]
-
-;wererat boss
-1,a **wererat** ([werewolf stats]). [poor treasure]
-
+1,snake
+1,undead
+1,amalgam
+#amalgam type just mashes up all tables for a random gonzo dungeon experience.
+#Loads more potential here, but they are a little time consuming to create
 #other ideas for themes: cultists, smugglers, bandits
 
-;entrance room
-1,catacombs
-1,charnel pit
-1,cave [cave description]
-1,latrine
-1,mine shaft
-1,natural cavern [entrance description]
 
+#AREA SECTION
+
+
+#ENTRANCES/FIRST AREA SECTION
+#It's very tempting to add a chance of consolidating these with the rooms below
+;entrance room
+1,<u>Catacombs:</u> *In one wall of the entrance are many deep niches, each containing a [human|elf|dwarf|goblin|half-orc|frogling] skeleton.*
+1,<u>Charnel Pit:</u> *Most of the entrance is around a deep pit, filled with bones and corpses of indeterminate type.*
+1,<u>Cave:</u> *[capitalize cave description]*.
+1,<u>Latrine:</u> *The entrance to this dungeon has the overwhelming stench of recently used latrine pits.*
+1,<u>Mine Shaft:</u> *The beginnings of a mine for a vein that soon tapped out. Some abandoned mattock and pick blades are here, their wooden handles long rotted.*
+1,<u>Natural Cavern:</u> *[capitalize entrance description].*
+
+#There might be a better way to call and format these eventually
+#I made the common rooms all a 4 in frequency and rare rooms (e.g., Vestry, Chantry) a 1
 ;interior room
-1,altar
-1,antechamber
-1,arena
-1,banquet hall
-1,barracks
-1,bedroom
-1,chapel
-1,cistern
-1,common room
-1,crypt
-1,debris room
-1,firewood room
-1,guano pit
-1,guard chamber
-1,guardroom
-1,kiln
-1,kitchen
-1,labyrinth
-1,larder
-1,living quarters
-1,mined wall
-1,mushroom farm
-1,nursery
-1,prison cells
-1,shrine
-1,slave pen
-1,smithy
-1,storeroom
-1,torture chamber
-1,vault
-1,well
-1,workshop
+18,[interior religious room]
+4,<u>Antechamber:</u> *[antechamber desc]*
+4,<u>Arena:</u> *[arena desc]*
+4,<u>Barracks:</u> *[barracks desc]*
+4,<u>Bedroom:</u> *[bedroom desc]*
+4,<u>Cistern:</u> *[cistern desc]*
+4,<u>Common Room:</u> *[common room desc]*
+4,<u>Crypt:</u> *[crypt desc]*
+4,<u>Debris Room:</u> *[debris room desc]*
+4,<u>Dining Room:</u> *[dining room desc]*
+4,<u>Firewood Room:</u> *[firewood room desc]*
+4,<u>Guano Pit:</u> *[guano pit desc]*
+4,<u>Guard Chamber:</u> *[guard chamber desc]*
+4,<u>Guardroom:</u> *[guardroom desc]*
+4,<u>Kiln:</u> *[kiln desc]*
+4,<u>Kitchen:</u> *[kitchen desc]*
+4,<u>Larder:</u> *[larder desc]*
+4,<u>Living Quarters:</u> *[living quarters desc]*
+4,<u>Mined Wall:</u> *[mined wall desc]*
+4,<u>Mushroom Farm:</u> *[mushroom farm desc]*
+4,<u>Nursery:</u> *[nursery desc]*
+4,<u>Prison Cells:</u> *[prison cells desc]*
+4,<u>Slave Pen:</u> *[slave pen desc]*
+4,<u>Smithy:</u> *[smithy desc]*
+4,<u>Storeroom:</u> *[storeroom desc]*
+4,<u>Torture Chamber:</u> *[torture chamber desc]* 
+4,<u>Vault:</u> *[vault desc]*
+4,<u>Well:</u> *[well desc]*
+4,<u>Workshop:</u> *[workshop desc]*
+
+;interior religious room
+4,<u>Altar:</u> *[altar desc]*
+1,<u>Chantry:</u> *[chantry desc]*
+4,<u>Chapel:</u> *[chapel desc]*
+4,<u>Shrine:</u> *[shrine desc]*
+4,<u>Temple:</u> *[temple desc]*
+1,<u>Vestry:</u> *[vestry desc]*
+
 
 ;shortcut
 #not currently used
 #rooms avoided by the denizens of the dungeon
+#this is a little trickier, might need to call this with a new "room feature" subtable with no Encounter chances instead
 1,bat cave
 1,dusty room
 1,spider cave: Trapdoor Spider, triggered on 1 in 6 per PC to fall in pit with a *giant spider* ([giant spider stats])
 1,spider ceiling: *giant spider* ([giant spider stats]) waits patiently to drop on smallest party member
 
-;special
-1,[2d4] pools
-1,[2d3] statues
-1,buried here can be found [neolithic treasure]
-1,cage with a dead [skull desc]
-1,cave paintings
-1,frescoes of [power]
-1,paintings of [[power] decoration]
-1,a magic mouth reciting poetry
-1,a narrow path along a charnel pit with [random corpses]
-1,painted runes in the wall spelling out [dwarf name]
-
-;empty dressing
-1,cobwebs
-1,small organized piles of dirt
-1,empty room
-1,empty gallery
-1,rubbish heap
-1,garbage pile
-1,midden
-1,phosphorescent fungus
-1,rat tunnels
-1,rodent nests
-1,rockfall
-1,partial cave-in
-1,[entrance description]
-1,[goblin junk]
-
-;final room
-1,banquet room
-1,great hall
-1,hoard
-1,leader’s room
-1,temple
-1,throne room
-1,treasure room
-
+#AREA FEATURES - These should appear as sub-bullets
 #Moldvay Stocking rules: Contents: 1-2 Monster, 3 Trap, 4 Special, 5-6 Empty
 ;room feature
-2, Monster: [[same monsters] encounter]
-1, Trap: [trap]
-1, Special: [special]
-2, Empty: [empty dressing]
+2, Monster: [[same monsters] encounter]. [encounter treasure]
+1, Trap: [trap]. [trap treasure]
+1, Special: [capitalize special]. [sense feature] [empty treasure]
+2, Empty: [capitalize empty dressing]. [sense feature] [empty treasure]
 
+;sense feature
+#base 25% chance of an additional sensory bullet in Empty/Special Rooms
+2,
+1,</li><li>Sound: One can hear a [sound volume] [sounds] ([sound direction]).
+1,</li><li>Smell: The [faint|strong|distinct|unmistakable|cloying] odor of [smells].
+
+#moved neolithic treasure calls to [unguarded treasure] tables
+#Need More Special Rooms. I think eventually this could house staircases that lead up/down
+;special
+1,[2d4] [strange|fizzing|murky|limpid] pools, filled with [with colour] and [and colour] liquids. 
+1,[2d3] [crumbling|moss covered|vandalized|smashed] [stone|bronze|iron|terracotta] statues
+1,[cheap metal] [cage|chains] hold a dead [orc|human|goblin|elf|dwarf|halfling|frogling|pixie|ogre]
+1,cave paintings
+1,frescoes of [power]
+1,decorations featuring [[power] decoration]
+1,magic mouth reciting [terrible poetry|[store human as singing humanoid][story]|a loud warning to the denizens of the dungeon|praises to [power]|curses to followers of [power]]
+1,filled [ankle-high|waist-high|to the brim] with [colour] [mist|fog]
+1,narrow path along a charnel pit with [random corpses]
+1,[blood spattered|hastily engraved|gouged|painted] runes in the wall spelling out [dwarf name]
+1,a concealed entrance/exit to the surface, a [narrow|tight|barely wide enough] fit for a [halfling|dwarf|elf]
+1,a stairwell down leads into a maze of unmappable corridors, filled with the skeletons of past [human|elf|dwarf|goblin] visitors
+
+;empty dressing
+1,Cobwebs
+1,Small organized [mounds|piles|domes] of [sand|dirt|pebbles]
+1,Rubbish heap
+1,Garbage pile
+1,Midden
+1,Phosphorescent Fungus [softly|brightly|balefully] glowing [colour]
+1,Rat tunnels
+1,Rodent nests
+1,Rockfall
+1,An incomplete [race] skeleton
+1,Partial cave-in
+1,[entrance description]
+1,[goblin junk]
+1,Thousands of dead [insect swarm type] that crunch underfoot
+
+#these may eventually be merged with "interior room" hoards should probably be handled with treasure calls
+;final room
+1,<u>Banquet Hall:</u> *[banquet hall desc]*
+1,<u>Great Hall:</u> *[great hall desc]*
+1,<u>Hoard:</u> *[hoard desc]*
+1,<u>Leader’s Room:</u> *[leader’s room desc]*
+1,<u>Temple:</u> *[temple desc]*
+1,<u>Throne Room:</u> *[throne room desc]*
+1,<u>Treasure Room:</u> *[treasure room desc]*
+1,[interior room]
+
+
+#TREASURE: a chance for treasure exists by Room Feature, this would generally be in addition to carried treasure (but that's not currently handled by stat blocks)
+#Moldvay Unguarded Treasure Stocking:
+#Monsters have treasure on 1-3 dice roll (50% of the time), Traps have treasure on a 1-2 dice roll (33%), and Empty rooms have treasure on dice roll of 1 (16% of the time).
+
+;encounter treasure
+1,
+1,</li><li>Treasure: [unguarded treasure 1].</li>
+
+;trap treasure
+2,
+1,</li><li>Treasure: [unguarded treasure 1].</li>
+
+;empty treasure
+6,
+1,</li><li>Treasure: [unguarded treasure 1].</li>
+
+
+#going with chances closest to level one for now, could pass deeper levels later (https://chartopia.d12dev.com/chart/2590/)
+#current tables can return null, so these need to have a guaranteed amount of coins
+;final room treasure
+1,<span class="treasure unguarded">[1d6][1d100] silver coins [50% 1d6 gold] [10% 1d6 platinum] [10% 1d6 gems] [10% 1d6 jewelry]</span> ([treasure where])
+
+;unguarded treasure 1
+2,<span class="treasure unguarded">[1d6][1d100] silver coins [50% 1d6 gold] [10% 1d6 platinum] [10% 1d6 gems] [10% 1d6 jewelry]</span> ([treasure where])
+
+;50% 1d6 gold
+1,[1d6]0 gold coins.
+1,
+
+#these are kind of neat, maybe some prepositions eventually to make more logical statements
+;treasure where
+1,[treasure state]; [treasure location]
+
+;treasure state
+1,concealed
+1,hidden
+1,secreted
+1,buried
+1,covered
+1,exposed
+1,uncovered
+1,obvious
+1,embedded
+1,within
+1,set in
+1,enclosed within
+1,stacked
+1,piled
+
+;treasure location
+1,wall
+1,floor
+1,ceiling
+1,flagstone
+1,panel
+1,[chest|barrel|box|chair|table|bench|bookshelf|coffin|door|stool]
+1,corner
+1,alcove
+1,niche
+
+
+#ENCOUNTER/MONSTER TABLES (New Stat Blocks at the end for ease of organization). Placing Encounter and Boss Blocks together for ease of reference/updating themes/adding new themes
+
+#here's a “vermin” or “clean-up crew” (oozes, jellies, insects, etc) table that can also be referenced from each [dungeontype2 monster] table...these seem to be pretty omnipresent in dungeons regardless of type (except maybe a civilized one).
+
+#VERMIN
+;vermin encounter
+1,[2d6] **giant rats** ([giant rat stats])
+1,[2d6] **giant beetles** ([giant beetle stats])
+1,[2d4] **giant centipedes** ([giant centipede stats])
+1,1 **corpse crawler** ([corpse crawler stats])
+1,[1d6+1] **giant bats** ([giant bat stats])
+1, [2d3] **giant vampire bats** ([giant vampire bat stats])
+1, [2d20] **bats** ([bat stats])
+1, [2d6] **cave locusts** ([cave locust stats])
+1, [2d4] **robber flies** ([robber fly stats])
+1, 1 **swarm of [insect swarm type]** ([insect swarm stats])
+1, [5d10] **rats** ([rat stats])
+1, [1d2+1] **giant spiders** ([giant spider stats])
+1, [1d4+1] **giant beetles** ([giant beetle stats])
+1, [2d6] **large spiders** ([big spider stats])
+1, [1 [slime]|[1d2+1] [slimes]]
+1, 1 **cave fisher** lurking on the ceiling ([cave fisher stats])
+
+#GOBLIN THEME
 ;goblin encounter
-1,[1d6+1] **goblins** ([goblin stats]) [monster activities]
-1,[2d4] **hobgoblins** ([hobgoblin stats]) [monster activities]
-1,[1d4+1] **orcs** ([orc stats]) [monster activities]
-1,[1d4+1] **trolls** ([troll stats]) [monster activities]
+1,[vermin encounter]
+2,[1d6+1] **goblins** [monster activities] ([goblin stats])
+2,[2d4] **hobgoblins** [monster activities] ([hobgoblin stats])
+2,[1d4+1] **orcs** [monster activities] ([orc stats]) 
+1,[1d4+1] **trolls** [monster activities] ([troll stats]) 
 
-;lizard encounter
-1,[1d6+1] **kobolds** [goblin stats] [monster activities]
-1,**giant lizard** ([giant lizard stats]) ([giant lizard stats])
-1,[2d4] **lizard people** [lizard people stats] [monster activities]
+;goblin boss
+1,1 **goblin chieftain** ([orc stats]) and [2d4] **goblins** [monster activities] ([goblin stats]) 
+1,1 **goblin shaman** (level [1d3+1 as level]). [spellbook for magic user] and [2d6] **goblins** [monster activities] ([goblin stats])
+1,1 **troll taskmaster** ([troll stats]) and [2d4] **goblin flunkies** [monster activities] ([goblin stats])
+1,1 **ogre bully** ([ogre stats]) and [2d4] **goblin toadies** [monster activities] ([goblin stats])
+1,1 **doppelgänger** (impersonating the former chieftain) ([doppelgänger stats]) and [2d3] **suspicious goblins**  [monster activities] ([goblin stats])
+1,1 **hobgoblin majordomo** ([bugbear stats]) and [his|her] [2d4] **loyal hobgoblin retainers** ([hobgoblin stats])
+1,1 **goblin moss-warper** (level [1d3+4 as level]), protected by [3d6] **myconids** ([myconid stats])
+1,1 **recently assassinated goblin chieftain** being devoured by [vermin encounter]
+1,1 **goblin pest-whisperer** (level [1d3+4 as level]), protected by [vermin encounter]
 
+#GREEK MYTHOLOGY THEME
+;Greek mythology encounter
+1,a **basilisk** [monster activities] ([basilisk stats])
+1,[centaurs]
+1,a **chimera** [monster activities] ([chimera stats])
+2,[2d4] **satyrs** [monster activities] ([satyr stats])
+
+;Greek mythology boss
+1,a **gorgon** named *[medusa]* ([gorgon stats])
+1,a **manticore** ([manticore stats])
+1,a **medusa** named *[medusa]* ([medusa stats])
+1,a **minotaur**
+
+#GYGAXIAN THEME
+;Gygaxian encounter
+1,[1d12 bugbears]
+1,an **ettercap** [monster activities] ([ettercap stats])
+1,[myconids]
+1,[1d4 owlbears]
+1,[1d6 phase spiders]
+1,[1d8 treants]
+
+;Gygaxian boss
+1,a **balor** named *[devil name]* ([balor stats])
+1,a [wererat boss]
+1,an **ettin** ([ettin stats])
+
+#UNDEAD THEME
 ;undead encounter
-#can call out to the necromancer companions table for this
-1,[necromancer companions] [monster activities]
+#can call out to the necromancer companions table for this (might add to this eventually)
+3,[necromancer companions] 
+1,[vermin encounter]
 
+;undead boss
+1,1 **wight** [wight stats] and [2d4] **skeletons** [monster activities] ([skeleton stats]) 
+1,1 **spectre** ([spectre stats]) and [undead encounter]
+1,1 **necromancer** [human with portrait][here store [same human name] as alchemist patron] (level [1d3+4 as level]), protected by [necromancer companions]. [spellbook for necromancers] 
+1,1 **mummy** ([mummy stats]) with wrappings that smell of [smells] guarded by [2d6] **grinning skeleton [spear|shield|ceremonial sword]-bearers** ([skeleton stats])
+1,1 **[babbling|insane|rambling|surprisingly polite] ghost** who thinks [he is king|she is queen] of loyal vermin subjects: [vermin encounter]
+1,2 **skeletal minotaurs** [monster activities] ([minotaur stats]) 
+1,2 **shadows** for each party member ([shadow stats]) who hate all light sources
+
+#ELEMENTAL THEME
+#ELEMENTAL THEME
+#This could be useful for theming dungeons somewhat by element: ICE dungeons/FIRE Dungeons, etc. 
+#Not currently used, but could envision this working a bit like magic mirrors for a planar gateway in a green glass tower/etc.
+
+#EARTH
+;earth elemental encounter
+1,[1d4+1] **lesser earth elementals** ([lesser earth elemental stats]) 
+4,[2d6] **[pebble|dust|chalk] mephits**  [monster activities] ([kobold stats])
+3,[2d4] **mud men** [monster activities] ([orc stats]) 
+1,[gargoyles] [indistinguishable from statues|perched along the ceiling|embedded as bas reliefs in the walls] ([gargoyle stats]) 
+1,1 **gorgon** ([gorgon stats])
+1,[1d3+1] **cockatrices** ([cockatrice stats]) guarding a nest
+
+;earth elemental boss
+2,[2d3] **earth elementals** ([earth elemental stats])
+1,1 **earth elemental lord** ([greater earth elemental stats])
+3,The **medusa** *[medusa]* ([medusa stats]) protected by [earth elemental encounter]
+1,1 **basilisk** ([basilisk stats])
+
+#WATER
+;water elemental encounter
+1,[1d4+1] **lesser water elementals** ([lesser water elemental stats]) 
+4,[2d6] **[steam|tear|brine|frost] mephits** [monster activities] ([kobold stats])
+2,[2d4] **snow men** [monster activities] ([orc stats])
+1,[2d3] **giant ice spiders** [darning their translucent webs|defending an icy egg case] ([giant spider stats])
+1,[2d6] **nixies** led by *[nixie]* ([nixie stats])
+1,1 **giant ice crab** ([giant crab stats])
+
+;water elemental boss
+2,[2d3] **water elementals** ([water elemental stats])
+1,1 **water elemental lord** ([greater water elemental stats]) 
+1,1 **aboleth** ([aboleth stats]) [lurking|brooding|plotting world domination] in a large pool, served tirelessly by [2d10] **slime coated goblin servants** ([goblin stats])
+1,1 **serpentine sea dragon** ([sea dragon stats])
+
+
+#AIR
+;air elemental encounter
+#more air creatures go here: Sylphs, Mephits, etc
+1,[1d4+1] **lesser air elementals** ([lesser air elemental stats]) 
+
+;air elemental boss
+1,1 **air elemental lord** ([greater air elemental stats])
+1,The **blue dragon** *[here blue dragon name as dragon name]*[dragon portrait] ([blue dragon stats]) 
+
+#FIRE
+;fire elemental encounter
+#more fire creatures go here: Salamanders, Fire Giants, Hell Hounds, etc
+1,[1d4+1] **lesser fire elementals** ([lesser fire elemental stats])
+
+;fire elemental boss
+1,1 **fire elemental lord** ([greater fire elemental stats])
+1,The **red dragon** *[here red dragon name as dragon name]*[dragon portrait] ([red dragon stats]) 
+
+
+#LIZARD THEME
+;lizard encounter
+1,[1d6+1] **kobolds** [monster activities] ([kobold stats])
+1,**giant lizard** ([giant lizard stats])
+1,[2d4] **lizard men** [monster activities] ([lizard people stats])
+1,[1d8+1] **troglodytes** [monster activities] ([troglodyte stats])
+
+;lizard boss
+1,1 **lizardfolk oracle** (level [1d3+1 as level]). [spellbook for magic user] and [his|her] [2d6] devoted **kobolds** [monster activities] ([kobold stats]) 
+1,1 **brutishly huge lizard [matriarch|patriarch]** ([ogre stats]), fanatically guarded by [lizard encounter]
+1,1 **troglodyte stench-mage** (level [1d3+4 as level]) who currently smells of [smells], teaching the aromatic arts to [1d8+1] **troglodytes** ([troglodyte stats])
+1,*[naga name]* the **[Cobra Hooded|Rattle Tail|Coral Striped|Reticulated] Naga** ([naga stats]; <span class="treasure">a *naga tongue* is worth 1000gp to an alchemist</span> and her [charmed|ensorcelled|adoring] [lizard encounter]
+1,The **red dragon** *[here red dragon name as dragon name]*[dragon portrait] ([red dragon stats])
+
+
+#MAGIC USER THEME
 ;magic user encounter
-1,[1d4+1] **suits of armor** [skeleton stats] standing against the wall
-1,[1d6+1] **animated brooms** [goblin stats] sweeping the halls
-1,[2d4] **small clay golems** [orc stats] standing inert
-1,[2d4] **fighter** (level 1) [monster activities]
+2,[1d4+1] **suits of armor** standing against the wall ([skeleton stats])
+2,[1d6+1] **animated brooms** sweeping the halls ([kobold stats])
+3,[2d4] **[spellbound|charmed|ensorcelled|enchanted|bewitched] [mercenaries|sellswords|hired thugs|fighters]** [monster activities] ([orc stats]) 
+2,[2d4] **[spellbound|charmed|ensorcelled|enchanted|bewitched] lizard men** [monster activities] ([lizard people stats])
+3,[1d6+1] **[spellbound|charmed|ensorcelled|enchanted|bewitched] goblins** [monster activities] ([goblin stats]) 
+3,[2d6+3] **[spellbound|charmed|ensorcelled|enchanted|bewitched] kobolds** [monster activities] ([kobold stats]) 
+1,[gargoyles] ([gargoyle stats])
+#golems are tough, making this rarer for now until we can store "Dungeon Level"
+1,1 [save golemtype as golem] **[same golem] golem** standing inert ([[same golem] golem stats])
+2,1 **aerial servant** ([aerial servant stats])
+1,2 **caryatid columns** in the form of *[beautiful [race] women|mighty female [race] warriors]* ([caryatid column stats])
+2,[2d4] **floating eyes** glaring [balefully|inquisitively|unblinkingly] ([floating eye stats])
 
+;magic user boss
+1,The [infamous|well-known|cruel|absent-minded|callous|calculating|misunderstood|desperate|greedy|power-hungry|maniacal|stark-raving mad|corrupted|cursed|dangerous|studious|apprentice-seeking|unhinged|unnervingly polite] **[magic user]** [human with portrait][here store [same human name] as alchemist patron] (level [1d3+4 as level]). [spellbook for magic user] [leader treasure for magic user]
+
+#LYCANTHROPE THEME
+#Still working on how to handle this
 ;wererat encounter
 1,[2d6] **giant rats** ([giant rat stats])
 1,[2d6] **giant beetles** ([giant beetle stats])
 
-;trap
-1,**checkerboard floor**, move like a [chess piece] from its starting position trigger flames: save vs. breath or suffer 2d6 damage
-1,**chest**, booby-trapped with sleep gas, constitution check or sleep that many turns
-1,**deep pit**, save vs. wands or fall 30ft (3d6 damage)
-1,**net**, net falls from the ceiling, dexterity check or be caught
-1,**pendulum blade**, dexterity check or suffer 1d6 damage
-1,**scorched pedestal with treasure**, touching the [gem] unleashes a *fireball*: 3d6 damage to all in the room, save vs. dragon breath for half
-1,**spiked ball**, save vs. breath or suffer 2d6 damage
-# from Holmes’ sample dungeon!
-1,**stagnant pool**, boat on the far side
-1,**statue pointing**, points at door just entered; must be rotated on base to point to another door; any door it is pointed at can’t be opened
-1,**statue with diadem**, [gem] booby-trapped with poison gas, save vs. poison or suffer 3d6 damage
-1,**trap door**, triggered on 1 in 6 per person for a 10ft fall and 1d6 damage; trap door springs shut (strength check to open)
-1,**trapdoor spider**, triggered on 1 in 6 per person to fall in pit with a *giant spider* ([giant spider stats])
-1,**tripwire arrows**, save vs. poison or suffer 1d6 damage
-1,**underground stream**, leads to rapids out of the dungeon (3d6 damage)
-1,**wide pit**, roll d20 under your dexterity to jump across or fall 30 feet (3d6 damage)
+;wererat boss
+1,1 *wererat* ([werewolf stats]) [poor treasure]
 
+#BANDIT THEME
+;bandit encounter
+3,[1d6+1] **bandits** [monster activities] ([human stats])
+2,[1d6+1] **bandit [archers|assassins|slingers]** [monster activities] ([human stats])
+1,a [chained|mangy|starving|vicious] **war dog** ([wolf stats])
+1,[1d6+1] [chained|mangy|starving|vicious] **war dogs** ([wolf stats])
+1,recently arrived and plaguing this complex: [vermin encounter]
+1,the **dwarf mercenary** [dwarf with portrait] (level [1d6+2 as level]), [working for the highest bidder|blackmailed into service|hoping to usurp the leader].
+1,[ogre leader] ([ogre stats]) who claims a large part of the bandit’s spoils
+
+;bandit boss
+1,The [infamous|wanted|recently escaped] **[human class]** [human with portrait] (level [1d4+1 as level]) leads these bandits.[here store the bandit *[same human name]* as wanted dead or alive] [spellbook for [same class]] [leader treasure for [same class]]
+
+
+#SNAKE THEME
+;snake encounter
+1,[1d4 giant snakes]
+1,[1d8 snakes]
+
+;snake boss
+1,a **gorgon** named *[medusa]* ([gorgon stats])
+1,a **medusa** named *[medusa]* ([medusa stats])
+1,a **naga** named *[naga name]* ([naga stats])
+1,[2d6] **snake people** ([lizard people stats]; *charm person* 3×/day) led by *[lizard leader]* (HD [1d4+4 as level], *lightning bolt* ([same level]d6) 2×/day). [leader treasure]
+
+#AMALGAM THEME
+#This one just takes entries from the other themes and mashes them together for a true gonzo random dungeon experience
+
+;amalgam encounter
+1,[goblin encounter]
+1,[vermin encounter]
+1,[undead encounter]
+1,[[elements] elemental encounter]
+1,[lizard encounter]
+1,[magic user encounter]
+
+;amalgam boss
+1,[goblin boss]
+1,[undead boss]
+1,[[elements] elemental boss]
+1,[lizard boss]
+1,[magic user boss]
+
+
+
+
+
+#NEW MONSTER STAT Blocks and subtables (might need to “Hex-Describe/H&H friendly these”)
+#Monster    AC    HD    Move    # Attacks    Attack Types    Damage    Save    Morale    AL    XP    Notes
+;aerial servant stats
+1,AC 3 HD 16 MV 240'(80') DMG 8d4 Save F10 ML 10 AL C XP 3,300 Special Surprises on 1-4. May pin human-sized creatures
+
+;cave fisher stats
+1,AC 4 HD 3 MV 10'(3') DMG 2d4/2d4 Save F2 ML 9 AL N XP 65 Special 60' sticky filament, +3 to hit, reels in prey at 15'/rd
+
+;caryatid column stats
+1,AC 5 HD 5 MV 60'(20') DMG 2d4 Save F10 ML 12 AL N XP 500 Special All have 22hp. Non-magical weapons only do half damage
+
+;floating eye stats
+1,AC 9 HD ½ MV S300'(100') DMG 0 Save F1 ML 6 AL N XP 6 Special Eye hypnotizes (stuns) creatures (save negates)
+
+;sea dragon stats
+1,AC 1 HD 8 MV 180' (60') Fly/Swim DMG 3d8 Save F8 ML 9 AL N XP 2,060 Special: Breath Weapon [boiling jets of steam|blasting rays of salt and sand]
+
+;giant crab stats
+1,AC 2 HD 3 MV 60'(20') DMG 2d6/2d6 Save F2 ML 7 AL N XP 50
+
+;aboleth stats
+1,AC 4 HD 8    MV Swim 180'(60') DMG 1d6/1d6/1d6/1d6 Save F8 ML 10    AL C XP    2,060 Special: slime and enslavement abilities. Ground movement 30'(10')
+
+;giant centipede stats
+1,AC 9 HD 1d4 hp  MV 60' (20')  DMG Poison  Save NM  ML 7  AL N  XP 5
+
+;corpse crawler stats
+1,AC 7 HD 3 + 1*  MV 120' (40')  DMG Paralysis  Save F2  ML 9 AL N  XP  75  
+
+;giant vampire bat stats
+1,AC 6 HD 2 MV 30' (10'), Fly 180' (60') DMG Unconsciousness No. App 1-10 (1-10) Save F1 ML 8 AL N XP 20 Special A bite does no damage but a save versus paralysis is required or fall unconscious for 1d10 rounds. They then drain 1d4 damage of blood per round
+
+;bat stats
+1,AC 6 HD 1 hp MV 9' (3'), Fly 120' (40') DMG Nil No. App 1-100 (1-100) Save NM ML 6 AL N XP 5 Special Only cause confusion causing -2 to attacks and spell cannot be cast.
+
+;cave locust stats
+1,AC 4 HD 2 MV 60' (20'), Fly 180' (60') DMG 1d2 or 1d4 or special No. App 2-20 (1-10) Save F2 ML 5 AL N XP 20 
+
+;robber fly stats
+1,AC 6 HD 2 MV 90' (30'), Fly 180' (60') DMG 1d8 Save F1 ML 8 AL N XP 20 Special They hide in shadows and surprise others on a 1-4. They can leap up to 30'.
+
+;insect swarm stats
+1,AC 7 HD 2, 3, or 4 MV 30' (10'), Fly 60' (20') DMG 2 points Save NM ML 11 AL N XP 80 Special [insect swarm type] taking up 10'x30' of space automatically hitting anyone where victims with no armor take double damage. It takes 3 rounds to completely swat away insects after escaping. Torches will only do damage to them as weapons doing 1d4 damage.
+
+;rat stats
+1, AC 9 HD 1 hp MV 60' (20'), Swim 30' (10') DMG 1d6 + disease Save NM ML 5 AL N XP 5 Special There is a 1 in 20 chance that a bite will cause a disease. The victim can save versus poison or die (only if a 1 is rolled on 1d4) one in 1d6 days or they have to remain in bed for a month. If attacking someone, they must make a save versus death or fall down and be covered in rats until they can get back on their feet.
+
+;giant rat stats
+1,AC 7 HD 1d4 hp MV 120' (40'), Swim 60' (20') DMG 1d3 + disease Save F1 ML 8 AL N XP 5 Special There is a 1 in 20 chance that a bite will cause a disease. The victim can save versus poison or die (only if a 1 is rolled on 1d4) one in 1d6 days or they have to remain in bed for a month.
+
+;troglodyte stats
+1,AC 5 HD 2* MV 120' (40') DMG 1d4/1d4/1d4 Save F2 ML 9 AL C XP 25 Special They have a chameleon ability that lets them surprise others on a 1 to 4. They secrete oil that smells that nauseates unless a save versus poison is successful. Anyone nauseated will suffer -2 to attack.
+
+;kobold stats
+1,AC 7 HD 1d4 hp MV 60' (20') DMG 1d4 or weapon-1 Save NM ML 6 AL C XP 5 
+
+;amber golem stats
+1,AC 6 HD 10** MV 180' (60') DMG 2d6/2d6/2d10 Save F5 ML 12 AL N XP 2,300 
+
+#always fun to sprinkle one of these in an Undead dungeon :)
+;bone golem stats
+1,AC 2 HD 8 MV 120' (40') DMG By weapons Save F4 ML 12 AL N XP 650 
+
+;giant bronze golem stats
+1,AC 0 HD 20** MV 240' (80') DMG 3d10 + special Save F10 ML 12 AL N XP 4,300 
+
+;water elemental stats
+1,AC 0 HD 12 MV 60' (20'), Swim 180' (60') DMG 2d8 Save F12 ML 10 AL N XP 1,100 
+
+;greater water elemental stats
+1,AC -2 HD 16 MV 60' (20'), Swim 180' (60') DMG 3d8 Save F16 ML 10 AL N XP 1,350 
+
+;lesser water elemental stats
+1, AC 2 HD 8 MV 60' (20'), Swim 180' (60') DMG 1d8 Save F8 ML 10 AL N XP 650 
+
+;air elemental stats
+1,AC 0 HD 12 MV Fly 360' (120') DMG 2d8 Save F12 ML 10 AL N XP 1,100 
+
+;greater air elemental
+1,AC -2 HD 16 MV Fly 360' (120') DMG 3d8 Save F16 ML 10 AL N XP 1,350 
+
+;lesser air elemental
+1,AC 2 HD 8 MV Fly 360' (120') DMG 1d8 Save F8 ML 10 AL N XP 650 
+
+;earth elemental stats
+1,AC 0 HD 12 MV 60' (20') DMG 2d8 Save F12 ML 10 AL N XP 1,100 
+
+;greater earth elemental stats
+1,AC -2 HD 16 MV 60' (20') DMG 3d8 Save F16 ML 10 AL N XP 1,350 
+
+;lesser earth elemental stats
+1,AC 2 HD 8 MV 60' (20') DMG 1d8 Save F8 ML 10 AL N XP 650 
+
+;fire elemental stats
+1,AC 0 HD 12 MV 120' (40') DMG 2d8 Save F12 ML 10 AL N XP 1,100 
+
+;greater fire elemental stats
+1,AC -2 HD 16 MV 120' (40') DMG 3d8 Save F16 ML 10 AL N XP 1,350 
+
+;lesser fire elemental stats
+1,AC 2 HD 8 120' (40') DMG 1d8 Save F8 ML 10 AL N XP 650 
+
+;greater air elemental stats
+1,AC -2 HD 16 MV 60' (20'), Swim 180' (60') DMG 3d8 Save F16 ML 10 AL N XP 1,350 
+
+;lesser air elemental stats
+1,AC 2 HD 8 MV 60' (20'), Swim 180' (60') DMG 1d8 Save F8 ML 10 AL N XP 650 
+
+;cockatrice stats
+1,AC 6 HD 5** MV 90' (30'), Fly 180' (60') DMG 1d6 + petrification Save F5 ML 7AL N XP 45 
+
+
+#for randomly determining golem type, I'll add to this eventually as I love Golems :)
+;golemtype
+1,amber
+1,bone
+1,giant bronze
+1,wood
+
+#for randomly determining elemental type. I always did enjoy weirder "para-elementals" (Dust, Tar, etc) as well.
+;elements
+1,earth
+1,fire
+1,air
+1,water
+
+
+#Called by Insect Swarm, but will probably be useful for other things
+;insect swarm type
+1,flies
+1,spiders
+1,cockroaches
+1,centipedes
+1,maggots
+1,worms
+1,wasps
+1,bees
+1,beetles
+1,termites
+1,ants
+1,grasshoppers
+1,fleas
+1,mosquitos
+
+#MONSTER ACTIVITIES: These might be customized further by Theme/Monster type, but are fun
 ;monster activities
 1,alert
 1,arguing
-1,cheering on two who are wrestling
+1,cheering on two who are wrestling 
 1,eating
 1,gambling
 1,gossiping
@@ -1476,6 +1892,710 @@
 1,sleeping
 1,tormenting a mouse
 1,wrestling
+1,chanting
+1,singing
+1,starving
+
+
+
+#TRAP ROOM FEATURES
+#Need [trap location], [trap trigger] and [trap disable] triggers, might just procedurally generate these based on these lists
+#Adding some CSS here to make these stand out more for DMs running from these descriptions
+#a class would make this shorter :)
+
+
+;concealed trap
+1,<i style="font-weight:bold;color:maroon;">Net</i>, net falls from the ceiling, roll d20 under your dexterity or be caught
+1,<i style="font-weight:bold;color:maroon;">Trap Door</i>, triggered on 1 in 6 per PC for 10-foot fall and 1d6 damage; trap door springs shut (roll under your strength to open)
+1,<i style="font-weight:bold;color:maroon;">Tripwire Arrows</i>, save vs poison (1d6 damage plus poison)
+
+;trap
+3,[concealed trap]
+#1,<i style="font-weight:bold;color:maroon;">Acid Spray</i>
+1,<i style="font-weight:bold;color:maroon;">Checkerboard Floor</i>, move like a [chess piece] from its starting position or save vs breath or 2d6 dmg
+#could generalize to different types of gas (poison, etc.)
+1,<i style="font-weight:bold;color:maroon;">Chest</i> ([chest]), booby-trapped with sleep gas, roll d20 under your constitution or sleep that many turns
+1,<i style="font-weight:bold;color:maroon;">Darts</i>, darts like crossbow bolts fire from the walls
+1,<i style="font-weight:bold;color:maroon;">Deep Pit</i>, save vs wands or fall 30 feet (3d6 damage)
+1,<i style="font-weight:bold;color:maroon;">Falling Rocks</i>, stones crash from the ceiling; save vs death
+# Buffalo Castle 24A!
+1,<i style="font-weight:bold;color:maroon;">Fog Chest</i> ([chest]), on a d4 a green fog dissolves all copper (1), silver (2), electrum (3), or gold (4) coins carried
+1,<i style="font-weight:bold;color:maroon;">Oil</i>, hot oil pours down
+1,<i style="font-weight:bold;color:maroon;">Pendulum Blade</i>, roll d20 under your dexterity to get past, or take 1d6 damage
+1,<i style="font-weight:bold;color:maroon;">Rope Trap</i>, roll d20 under your dexterity or end up hanging from the ceiling
+1,<i style="font-weight:bold;color:maroon;">Scorched Pedestal with Treasure</i>, touching the [gem] unleashes a *fireball*, 3d6 damage to all in the room
+1,<i style="font-weight:bold;color:maroon;">Skunk Chest</i> ([chest]), booby-trapped with skunk oil, take 1d6 damage and be odoriferous for the next 3 days (fail all Charisma checks)
+1,<i style="font-weight:bold;color:maroon;">Smoke Trap</i>, obscures visibility while attackers enter from another room
+1,<i style="font-weight:bold;color:maroon;">Spiked Ball</i>, save vs breath or 2d6 dmg
+1,<i style="font-weight:bold;color:maroon;">Stagnant Pool</i>, boat on the far side
+# from Holmes’ sample dungeon!
+1,<i style="font-weight:bold;color:maroon;">Statue Pointing</i>, points at door just entered; must be rotated on base to point to another door; any door it is pointed at can’t be opened
+1,<i style="font-weight:bold;color:maroon;">Statue with Diadem</i>, [gem] booby-trapped with poison gas, save vs poison (3d6 damage plus poison)
+1,<i style="font-weight:bold;color:maroon;">Trapdoor Spider Pit</i>, triggered on 1 in 6 per PC to fall in pit with a *giant spider* ([giant spider stats])
+#H/T Buffalo Castle!
+1,<i style="font-weight:bold;color:maroon;">Treasure Mirage</i>, a hoard of gold pieces that has alerted the nearest monsters to come and attack, at which point the gold pieces will disappear
+1,<i style="font-weight:bold;color:maroon;">Underground Stream</i>, leads to rapids out of the dungeon, 3d6 damage
+1,<i style="font-weight:bold;color:maroon;">Walls Closing In</i>, once every player has wedged a weapon between the wall and floor, the wall stops closing in, but the weapons are ruined, otherwise roll d20 under your dexterity or be crushed
+1,<i style="font-weight:bold;color:maroon;">Wide Pit</i>, roll d20 under your dexterity to jump across or fall 30 feet (3d6 damage)
+
+
+#INTERIOR ROOM DRESSINGS
+#Included to provide a little descriptive text to the interior room types. These have a chance of triggering a [sound] or a [smells] so we want to try to keep those out of descriptions whenever they can be handled by random calls.
+#Treasure and Monsters are tricky to include here too, so we might need to modify a few of those
+
+
+#more new stuff below 08/23/2019. Not active yet, test in “no map,” feel free to embellish/add
+#used for stone construction material mostly, feel free to expand
+
+;masonry mat
+3,brick
+2,sandstone
+1,granite
+1,marble
+1,limestone
+1,slate
+#this might make some weird ones
+1,[colour]stone 
+
+;height
+5,
+3,short
+1,waist-high
+1,chest-high 
+3,tall
+
+;size
+5,
+3,small
+1,big
+1,large
+1,gigantic
+
+;cheap metal
+1,brass
+2,bronze
+3,copper
+3,iron
+3,metal
+1,tin
+
+;chest
+3,[a locked|an unlocked|a] wooden chest
+2,an iron chest, [locked|unlocked],
+1,a chest with a broken lock
+1,a [cheap metal|wood] box [with a lid|]
+
+;chests
+1,empty iron chests
+1,many wooden chests
+1,a collection of chests
+1,an assortment of chests
+1,treasure chests
+
+# interior room dressing. I went with 4 for each, but can be expanded.
+# May eventually trim in half to combine “decorations” with
+# “furnishings” more randomly. Looking like some [damaged] tables
+# based on material could be useful as well.
+
+# some common tables for use by religious rooms
+
+;religious periphery
+1,Moth-eaten hassocks are angled toward an alcove adorned with religious carvings.
+1,Water-soaked prayer mats line the floor and smell of brine and sewage.
+1,A [height] pedestal holds a tarnished brass reliquary (now empty).
+1,A [height] wooden table here is draped in a cloth whose imagery has been lost to mold and mildew.
+1,A long birch chest holds two candle lighters (copper), candles, and wicks.
+1,A [height] narrow box smells of [smells] but is a home to a mice and her offspring.
+1,A miniature bell tower holds a large brass bell. (Ringing it will set every monster on alert.)
+1,A [size] [cheap metal] cymbal is here on a stand, with a padded drum stick next to it. (Striking the symbol releases a sleep spell.)
+1,A partition in the corner sets off a vestry, with [chest] containing new vestments in many sizes, including [albas|cassocks|cottas|robes|surplices].
+1,A [size] cobweb-covered vestry sits forlornly on the far wall of this room.
+1,A triangular table in a corner is for the sacristy, with [chests] containing ceremonial [food and plates|drinks and cups|candles and charms|lamps and oil].
+1,A rough [masonry mat] idol, more boulder than sculpture, squats in a corner. (An ancient image of [power].)
+1,A giant [cheap metal] lamp dangles from a chain from the ceiling.
+
+;religious walls
+1,Damaged mosaics depict religious parables along the walls of this room.
+1,Crouching within a recess is a large [simple|ornamental|empty|brackish-water filled] font, surrounded by carvings of [[another realm] decoration].
+1,On one wall is a [scarred|roughly hewn|gouged] [masonry mat] slab, [stained|crudely painted|flecked] with dark [red synonym] stains.
+1,Fragments of prayers are barely legible on the surrounding walls.
+1,One wall is dominated by a mosaic depicting [[power] decoration].
+1,Faded, damp tapestries along the walls show a heroine hunting [a forest animal], leading a [dwarf|elvish|human|halfling] army, and battling a [devil].
+1,Three frescoes each display a hellscape ruled by a devil: a [devil], a [devil], and a [devil].
+1,A [wooden|copper] rail, waist high [|for a halfling|for a giant], runs along [two|three|all four] walls. (Used for kneeling and supplication.)
+1,The walls are lined with torches that flicker to life when anyone enters and cast [colour] flames.
+1,The room is lined with exquisite [tuscan|doric|ionic|corinthian|composite] columns of [wood|brick|stone|marble] in [a square|two rows of [4|6|7|8|10] columns each]. 
+
+;altar desc
+1,A low [masonry mat] plinth crowns a [crumbling|collapsing|squat] dias covered in [cobwebs|dried blood|dust]. [religious walls]
+1,Decades of melted wax form a frozen dribble and cover a wide [ornately|primitively|austerely] decorated [masonry mat] pedestal. [religious periphery]
+1,A carefully sculptured marble altar shows images of [power]. But instead of an offering it holds only [old bones|dried flower petals|a dessicated rat].
+1,An enormous stone table, brimming with [occult|dark|evil|vile] [energy|magic], dominates this room. Ceremonial stone knives line the edges. [[religious periphery]|[religious walls]]
+
+;chantry desc
+1,A vaulted ceiling provides excellent acoustics for singing. (But it will also transmit any noise to adjacent rooms.) [chapel desc center]
+
+;chapel desc center
+1,An elevated dias is faced by [1d6+1] rows of wooden pews, which crowd this room.
+1,A mostly burnt pulpit is in the center surrounded by circular benches.
+1,A circular stone font, dry but with a stain around the water line, smells of [smells].
+1,Rows and rows of long [masonry mat] benches are here.
+1,The room is dominated by a central dias, [two|three|six] [masonry mat] steps above the floor.
+
+;chapel desc
+3,[chapel desc center] [[religious periphery]|[religious walls]]
+1,[chapel desc center] [religious periphery] [religious walls]
+1,[chapel desc center] [altar desc]
+
+;shrine desc
+1,Within an ornate alcove rests a small votive sculpture of [power]. [religious walls]
+1,A hazy film of soot clings to every surface here, the smell of incense and [smells] hangs in the air. [religious walls]
+1,At the foot of a defaced stone statue rest small bones, fragile flower petals, and the stubs of consumed candles. [[religious periphery]|[religious walls]]
+1,The room is centered on a mausoleum. [[religious periphery]|[religious walls]] 
+1,A [height] [bright|sharp|unnatural|smoky] [colour] flame rises from the floor in the [center|middle] of this [room|chamber]. [[religious periphery]|[religious walls]] 
+1,The room is centered on a mausoleum. [[religious periphery]|[religious walls]] 
+1,A [whitened sepulchre|sarcophagus] holds the remains of a prophet of [power], her name written in strange runes that line its sides. [[religious periphery]|[religious walls]] 
+1,A philatory the size of an enormous coffin, with a thick glass cover protected by blessings, reveals the skeleton of a [troll|ogre|giant|jotunn]. [[religious periphery]|[religious walls]] 
+1,A bronze reliquary stands on a pedestal (warded by a necrotic curse that will reduce to 3 for the day the strength of anyone who touches it). [[religious periphery]|[religious walls]] 
+1,At the bottom of a shallow pool, [1d100]0 silver coins reflect any torchlight; the head of the coins shows [power]. ([The water is a transparent acid that|Silvery jawfish (the jaw is half its body size)|Cursed water] will do 2d6 damage per turn to any exposed to it.)
+
+;temple desc
+1,Rows of stone pillars form a square around a [masonry mat] table, which has bolted into it a giant [cheap metal] grotesquerie of a [devil]. [[religious periphery]|[religious walls]] 
+1,A circle of inlaid [masonry mat] is divided into [three|four|five|six|ten|twelve] equal segments, at the end of each of which is a stone pedestal. Rust circles on each pedestal mark where statues once stood.
+1,A small chamber, roofed and enclosed on all four sides, occupies the center of this room; it’s only door is [locked.|open, revealing [a hall of statues|engravings on the walls|sacred books|friezes|statues on ledges].]
+1,[chapel desc center] A [size] candle holder holds only melted wax, but the room still smells of incense and patchouli.
+1,[shrine desc]
+1,[altar desc]
+
+;vestry desc
+1,[capitalize chest] holds vestments in many sizes, including [albas|cassocks|cottas|robes|surplices]. (They are worn but still wearable.) [religious walls]
+
+
+#OTHER ROOMS
+
+;common walls
+#not used yet - place for ideas for the future
+1,In the [north|south][west|east] corner, a giant cobweb holds the husk of a dead giant spider.
+1,The ceiling undulates with a mass of tiny young spiders crawling over one another.
+
+;antechamber desc
+1,Heavy chains on the walls support [1d3+1] wooden slab benches for sitting.
+1,Years of [dust|grime|mildew] have stained the walls, and you can clearly see the pale ghostly squares from where paintings were once hung.
+1,Mouldering [cloth mat] cushions serve only as nests for mice as they sag on gnawed wooden chair legs.
+1,Cast iron coat hooks and weapon racks are built into the walls here.
+
+;arena desc
+1,Carved benches are placed along the walls around a large central depression. Dark stains, possibly blood, still grace the floor.
+1,Traces of moldy sawdust are piled up along the edges of a shallow pit in the center of this room.
+1,Two leg-thick, heavy chains hang from the ceiling here, stopping a few feet above the ground. They are gouged with sword strikes.
+1,There are [1d4+1] tiers of benches are carved into the walls. In the middle of the room is a crater like depression about a spear length deep.
+
+;banquet hall desc
+1,Crumbling with age are several long, wide tables surrounded by broken chairs.
+1,Evenly spaced iron warming braziers are bolted into the wall here. Smashed crockery litters the floor.
+1,The rusting mechanism of a turning spit graces a sooty alcove here. A series of overturned tables line the walls.
+1,Tattered and faded [cloth mat] wall hangings are covered in cobwebs. A large round table dominates the center of the room.
+
+;barracks desc
+1,Carved directly into the walls are bunks that could easily be mistaken for funerary niches.
+1,Smashed footlockers are heaped in one corner, while bedding and broken bed frames grace another.
+1,There are [1d6+1] sagging [cloth mat] hammocks hanging from wall hooks here.
+1,Several sleeping mats and rough [cloth mat] pillows stuffed with moldy hay line the walls.
+
+;bedroom desc
+1,A termite-ridden poster bed sags in one corner near a listing, charred wardrobe.
+1,Damp [cloth mat] blankets hang suspended from thin ropes, obscuring most of the room except a glimpse of a bed and a chamberpot.
+1,A poorly mended dressing screen leans against a corner of the room with a rustic but serviceable set of bunks.
+1,With a headboard depicting [Freya decoration], a large bed dominates this room.
+
+;cistern desc
+1,Years of calcification cake the walls here, waist high. The floor is worn smooth.
+1,A deep [masonry mat] well stands in the center of this room, a dented bucket on a very short length of rope nearby.
+1,The floor here is slightly sloped downward with shallow grooves radiating out of a small hole in the center.
+1,Corroded tin barrels line the walls, some gouged and dented. Each once probably had a spigot of some sort.
+
+;common room desc
+1,This room holds a wide array of beds, tables, and broken chairs.
+1,The messy area holds sleeping mats and wooden trays, piled around all the walls.
+1,Several mold-infested [cloth mat] pillows sag in the center of this room.
+1,Used for sleeping, [1d4+1] moth-eaten divans line the walls.
+
+;crypt desc
+1,[1d4+1] old [stone|bone] sarcophagi line the wall here. The lid of each has been removed and cast into a pile.
+1,[capitalize metal mat] doors conceal niches filled with the picked-clean bones of ancient [human|elf|dwarf] lords.
+1,Stacked meticulously along the walls in a morbidly beautiful arrangement are thousands of bones and hundreds of skulls.
+1,Several small pits, each containing an urn and ashes make traversing this room hazardous.
+
+;debris room desc
+#shoutout to Colossal Cave!
+1,You are in a debris room filled with stuff washed in from the surface. Perhaps testament to a long-ago flood.
+1,Rubbish, refuse, and garbage fills pits in this room. Oddly, there is an aroma of [smells].
+1,Broken and useless furnishings have been piled here, out of the way.
+1,Rubble left over from excavation is overflowing a large pit in the center of this room.
+
+;dining room desc
+1,[banquet hall desc]
+1,[kitchen desc]
+1,A long, [oak|pine|cherry wood|mahogany] table with claw-footed chairs dominates the center of this room.
+1,Obviously a mess area of some sort, dining implements are scattered throughout every surface here.
+
+;firewood room desc
+1,A stack of freshly cut firewood sits here, from which the aroma of pine and [tree] emanates.
+1,An axehead missing a handle and a mat of sawdust bear mute witness to the time this room was used for firewood. There is an aroma of [tree] tree and perhaps [smells].
+1,Drying brambles and brush hang from the ceiling above crudely cut [tree] tree logs.
+1,A carefully stacked woodpile completely obscures a wall in this room.
+
+;great hall desc
+1,Long stone tables line this room, but all that remains of the chairs and benches is some rotted wood piled in the corner, smelling like termites and swamp.
+1,The smell of grease and [smells] is overwhelming. Long wooden tables and benches line the great hall, with another table on a dias at the front of the room.
+1,Glowering from above a blocked up fireplace is the giant taxidermied head of a [boar|deer|lion|bear|owlbear|manticore|gorgon|wyvern], in a deplorable state.
+1,Covered in cobwebs and egg-sacs, faded tapestries along the walls hint at this rooms former glory.
+
+;guano pit desc
+1,The stench of this room hits you before you can see it properly: a pit filled with guano, above which sleep hundreds of small [black|brown|vampire] bats.
+1,A rotting wooden bridge, recently swept clean but with occasional spots of guano, leads over a pit full of the stuff. The smell is worse than any [latrine|privvy]. Anyone who rolls above their dexterity score breaks a board and drops into guano, taking 1d6 damage.
+1,The clamor of high-pitched chirps and squeals echoes from the darkness above, the stench of ammonia hangs heavy in the air above a floor covered in guano.
+1,An overturned wheelbarrow and some broken shovels rest near a large pile of astringent bat droppings.
+
+;guard chamber desc
+# need to avoid the monster call here...any room with monsters is a guardroom :) 1,The guard chamber holds [[same monsters] encounter], on high alert.
+1,Old stones form a crude wall here, for guards to hide behind and fire upon any intruders.
+1,[Human|Elf|Dwarf|Halfling] heads on pikes here warn about what happens to intruders.
+1,A barrel here holds spears and polearms while a dented shield graces the far wall.
+1,A wooden table has been carved with a crude board game of some kind, knucklebone pieces are scattered on the surface.
+1,[guardroom desc]
+
+;guardroom desc
+# need to avoid the monster call here...any room with monsters is a guardroom :) 1,The guardroom is protected by [[same monsters] encounter].
+1,Dry mats of fresh straw mark the places where guards rest instead of watching.
+1,A great copper [bell|gong] squats in the middle of the room, to be rung in event of intruders, alerting the whole complex.
+1,Weapon racks covered in cobwebs line the walls, most of the furniture here has seen better days.
+1,Benches surround a thick wooden table that can be easily flipped defensively.
+1,[guard chamber desc]
+
+#might need to do this differently to format treasure properly
+;hoard desc
+1,A mass of [1d10x1000] silver coins, some cut in half, others melted together, forms a great pile in the center of this room. [concealed trap]
+#inspired by: https://www.history.com/news/viking-treasure-trove-unearthed-from-english-field
+1,[Four|Five|Six|Seven] pieces of jewelry (silver armbands, each worth 10 silver pieces), [3d6] silver ingots, and [3d16] worth of hacksilver, form a hoard here.  [concealed trap]
+1,This hoard is a collection of [silver|gold] tableware, including bowls, dishes, cups, and spoons, worth [1d10x1000] coins.
+1,A mound of [2d100] rare [copper|electrum|silver|gold] coins, some broken and fragmented, make up a hoard here.
+
+;kiln desc
+1,A great stone kiln rests here, holding a melted pile of clay where a pot once stood ready to be fired. 
+1,Sawdust and old [tree] branches on the floor attest to a former pile of firewood.
+1,Soot-blackened niches line the walls, and the floor is littered with broken, malformed pottery.
+1,An old kiln has been turned into an oven for cooking. [kitchen without stove desc]
+
+;kitchen desc
+1,An old campfire, still smelling of smoke and ash, has left soot marks on the ceiling.
+3,[kitchen without stove desc] [larder desc]
+;kitchen without stove desc
+1,Stained and gouged crude wooden tables and a clay brick oven can be found here.
+1,Rusting and stained iron pots and pans hang from the ceiling and walls.
+1,A large cast iron cauldron embossed with a grinning face squats defiantly in the center of the room.
+
+;larder desc
+1,Old clay vases hold a variety of liquids, while crates smell of fruit and dried meats.
+1,A series of cupboards and cubbies contain jars of ingredients now infested with [insect swarm type].
+1,Hanging from the ceiling from a massive hook and surrounded by biting [insect swarm type] is the festering carcass of a [deer|boar|ox|cow|sheep|goat].
+1,Several burlap sacks of [food veg] are piled haphazardly in the center of the room.
+
+;leader’s room desc
+1,Faded tapestries enliven the walls, while a once-[colour] carpet adorns the floor. A wooden bed and [chests], with a long table, mark this as a leader’s room.
+1,A small throne faces two rows of benches. An arras hides a secret door {not shown on map} to an adjacent chamber.
+1,This room has a dry, clean rug, and cushions and low tables, meant for use from sitting on the rug. [religious walls]
+1,A polished round table is surrounded by [six|eight|ten|twelve] chairs, equally spaced apart. [capitalize chests] line the walls.
+
+;living quarters desc
+1,Rags cover wide wood beds meant to be shared by four or five at a time.
+1,[barracks desc]
+1,The room shows signs of habitation: A hammock sways on pegs, and a half-eaten meal sits on a small table. Shabby clothing is strewn about the floor.
+1,A large dressing screen obscures the far wall near a well-built bed and nightstand.
+1,An overturned wardrobe has vomited its contents across the floor and all over a broken bed.
+
+;mined wall desc
+1,The wall has been hacked out and is full of holes that traced the last deposits of some vein of minerals. The blade of a pick, its handle long gone, lies here.
+1,Rusty buckets contain rubble and stones, while a large wooden support beam leans precariously to the left.
+1,One can make out the pick marks and soot scorches from where the miners that began to dig this area suddenly stopped.
+1,An unfinished stair-way, hewn from the stone, [ascends|descends] pointlessly into a wall of solid stone.
+
+;mushroom farm desc
+1,Large pale [colour] mushrooms line moist beds of shallow soil. A spade and pitcher of water rest nearby.
+1,Every wall here is covered in faintly glowing [colour] shelf-mushrooms, the air smells of [smells].
+1,A once richly appointed room has been overtaken by [colour] fungus. Toadstools sprout from nearly every surface.
+1,In strangely uniform rows sprout [colour] mushrooms and [strange|uncanny|bizarre] [colour] ferns, all almost [chest|waist|ankle] high.
+
+;nursery desc
+1,Three cradles stand silently here, among broken kindling that might once have been childrens’ toys. Even the mice have abandoned the swaddling.
+1,A crudely carved rocking-[horse|unicorn|pegasus] stares with one painted eye from the center of the room. You could swear you saw it move.
+1,Crude figures and shapes are scrawled all over the walls here in chalk. Several broken slates litter the floor.
+1,A large straw nest of some sort dominates one corner of the room. A few brave rats scurry across the floor.
+
+;prison cells desc
+1,[1d4+1] cells of iron bars line the far wall here. [ogre prisoners]
+1,In the corner of the room is a crude wooden cage, its door missing.
+1,A wall of iron bars contains four doors, behind each of which can be seen a [human|dwarf|elf|orc] skeleton, its feet in shackles.
+1,Knocked down walls of iron bars, broken [cheap metal] doors, and overturned benches attested to a prison escape long ago.
+1,Shackles mounted evenly in the floor along the wall, and a narrow privy trench, long dry, bear witness that this was once a crude prison.
+
+;slave pen desc
+1,[1d4+1] cells with wooden bars each house a [human|dwarf|halfling|elf] slave.
+1,Iron rings are set into the walls here linking thick chains and brutal collars.
+1,A deep pit with sharp [wooden|[cheap metal]|glass] stakes angled downward prevents anyone at the bottom from climbing out.
+1,[1d4+1] large iron cages dangle precariously from the ceiling here. One holds a [human|dwarf|elf|halfling|goblin|orc|strange] skeleton.
+
+;smithy desc
+1,A great iron hammer, tongs, and an old bellows are all that remains from the workshop of a [silver|gold|iron|]smith.
+1,The smithy contains a giant wrought iron anvil, a brick hearth, and an empty slack tub.
+1,Next to a forge and an anvil sits a pile of logs and charcoal. Any other tools of the smith’s trade are long gone.
+1,The smell of peat is overwhelming, as peat is stacked next to a forge. On an anvil rests a blade, broken in half.
+1,This room is empty except for a brick cupelation hearth and a cold, formless pile of slag.
+
+#removing treasure calls for now [goblin junk] can work as well here
+;storeroom desc
+1,Barrels, crates, and pots hold their secrets here.
+1,Rows upon rows of plain clay vases, each with disintegrated cork stoppers and empty now of any liquid.
+1,Pieces of wood, splinters, and sawdust from smashed wooden crates. Some empty crates have been turned upside down and have been used as makeshift benches and a table.
+1,Wooden crates and boxes here contain supplies for an adjacent room.
+
+;throne room desc
+1,An iron throne has been toppled, and the tables and benches all broken.
+1,Rusted iron braziers line the walls around the throne room, while a stone throne sits to one side. Once bejeweled, the throne now has empty sockets, as every gem has been looted from it.
+1,Two unadorned stone thrones sit here, side by side, one larger than the other.
+1,A resplendent wooden throne, recently polished, sits on a stone dias above long polished tables surrounded by benches. [capitalize chests] line both walls. 
+
+;torture chamber desc
+1,Assorted implements of the trade lie on the ground, covered in mildew and filth. Fresh blood pools around an iron drain.
+1,Stadium seating made of benches covered in leather provides a comfortable view of the central, depressed stage. There can be found a rack, an iron maiden, a forge, and a set of iron implements that look so evil that no one has ever dared take them. (They’re cursed.)
+1,A ring of rotted wooden pillories form a half circle around a bizarre [cheap metal] divan, besides which a wooden table is full of holes that once held rusted [iron|metal] implements.
+1,[prison cells desc] A wooden log set below the ceiling holds a range of ropes, chains, and shackles. A shelf holds various [cheap metal] implements of torture.
+
+#removing treasure call for now
+;treasure room desc
+1,The treasure room has long been looted. Among the rubble, though, might be something, to one who looks long.
+1,The treasury contains [chests], all open and empty, except for one, which glitters in torchlight. (It is, of course, a mimic.)
+1,All that remains are [chests] and a shelf full of assorted locks and keys. 
+1,[vault desc]
+
+#removing treasure call for now
+;vault desc
+1,[Lining|Encased in|Adorning] the wall are a number of stone vaults, [sealed with sturdy iron locks|warded by magic|covered in [colour] wax].
+1,A vaulted ceiling overlooks an iron wall of metal doors, all but one open and revealing empty cubicles.
+1,A giant locked [iron|metal] safe squats in the middle of the room, its huge iron door attesting to dozens of attempts to break in - it has been beaten, burnt, and subject to toxic magic. But the door is still shut.
+1,Wooden shelves from many cabinets and bookcases have been toppled and are rotted, the empty lairs of vanished termites. Stone vaults, their great doorways broken and scattered, sit empty.
+
+;well desc
+1,A well - a half circle of brick, a half circle of rubble - opens into watery depths, filling the air with the scent of brine and dead fish. In a corner lies a bucket with a broken iron chain.
+1,Humid air rises from a small alcove in the corner, where lichens and molds congregate.
+1,The air is damp and brackish; an iron grate over a pit covers a water source.
+1,A small trickle of water splashes quietly into a stone basin here from a bas-relief of a [cherub|satyr|angel|demon|[devil]]. The water seems fresh and pure.
+
+;workshop desc
+1,Old wood tables hold scratches, burns, and dents, but no tools.
+1,A large [dusty|iron|rusting] anvil dominates the center of the room. Half a pair of tongs rests in a corner.
+1,Rusting tools with crumbling hafts still hang from hooks here, large gouged wooden tables have seen a lot of labor.
+1,A rusty saw blade sits broken in a long wooden plank on a workbench here.
+
+;smells
+#would be useful to divide these up for calling elsewhere: burnt smells, damp smells, etc.
+1,4-week-old roses
+1,a bakery
+1,a bonfire of books
+1,a drained pond
+1,a fisherman’s tackle
+1,a gelatinous cube
+1,a miner’s birdcage
+1,a pat of butter
+1,a sharp rusty anchor
+1,a summer campfire
+1,a thunderstorm
+1,a wet cat
+1,a wet dog
+1,a wet toad
+1,alcohol
+1,ale
+1,angry sweat
+1,anise or fennel
+1,apple cider vinegar
+1,apples
+1,ashes
+1,baker’s yeast
+1,banana
+1,beach flotsam
+1,beef broth
+1,bisque
+1,bloody nose
+1,brackish tidal pool
+1,broken basil stems
+1,browning lilies
+1,burning pine cones
+1,burnt water
+1,butterscotch
+1,camphorwood
+1,candles
+1,cedar shavings
+1,charred hair
+1,chicken coop
+1,chicken grilling
+1,chocolate pudding
+1,clam juice
+1,cloying citronella
+1,corn on fire
+1,corrosive coriander
+1,cream
+1,crisp, salty sea air
+1,crushed butterflies
+1,crushed mulberries
+1,curried yams
+1,cut green onions
+1,damp plaster
+1,damp straw
+1,day-old manure
+1,dead jellyfish
+1,dead skunk
+1,decaying apricots
+1,decaying leaves
+1,dinner
+1,dried oregano
+1,dusty broom bristles
+1,earthworms
+1,earwax
+1,eye-watering onions
+1,feet
+1,fermenting milk
+1,ferrets
+1,forcemeat
+1,forgotten tubers
+1,freshly cut cucumbers
+1,freshly mown clover
+1,general feculence
+1,gooey cooked carrots
+1,grapes
+1,green, mealy apples
+1,grilled kabobs
+1,grinding nutmeg
+1,ground cardamom
+1,ground ginger root
+1,guilty sweat
+1,hibiscus breeze
+1,honey and gingerbread
+1,honeycomb
+1,honeysuckle bloom
+1,horseradish/wasabi
+1,hot cinnamon
+1,ichor
+1,incense
+1,jasmine and begonias
+1,juniper berries
+1,kelp-draped driftwood
+1,lamp oil
+1,leather tanning
+1,lemon pepper
+1,limburger cheese
+1,limp celery
+1,mildew
+1,mint
+1,moldy citrus
+1,moldy loaf of bread
+1,musky urine
+1,mustard
+1,musty chest
+1,new leather
+1,oil and earth
+1,old dried fish
+1,old fireplace
+1,old shoes
+1,olive juice
+1,onions grilling
+1,orange marmalade
+1,oven-roasted garlic
+1,over-baked cauliflower
+1,oysters
+1,paprika
+1,pecan meats
+1,peppermint
+1,perfume
+1,petrichor
+1,pickle juice
+1,pine bark
+1,pipe smoke
+1,plum wine
+1,pumpkins
+1,putrid fish
+1,quarry puddles
+1,quenched pig iron
+1,rain in the air
+1,rain-soaked wool
+1,rancid buttermilk
+1,rancid vegetable oil
+1,raspberries
+1,raw meat
+1,red-bell peppers
+1,rendering tallow
+1,reverent censers
+1,saffron and sage
+1,salmon croquettes
+1,sandalwood
+1,seafood
+1,seaweed in the sun
+1,sharp, sulfurous rotten eggs
+1,shriveled, fuzzy berries
+1,sizzling pork
+1,slicing mushrooms
+1,slimy cabbage
+1,smoke on clothes
+1,smoked meats
+1,smoldering pitch
+1,snow on the wind
+1,soap
+1,sour goat milk
+1,spider webs
+1,spinach
+1,stale cumin
+1,stale peppercorns
+1,stale, spilt beer
+1,strawberries
+1,sulfur
+1,swamp mud
+1,sweaty old mushrooms
+1,swine in slop
+1,syrup
+1,tamarind
+1,turmeric and teak
+1,vinegary wine
+1,violets in snow
+1,walnut meats
+1,watermelon rinds
+1,weeding a garden
+1,wet ink
+1,wet paint
+1,wilting grape leaves
+
+;sounds
+1,babbling
+1,banging
+1,barking
+1,baying
+1,bellowing
+1,bells ringing
+1,blubbering
+1,burbling
+1,buzzing
+1,chanting
+1,chiming
+1,chirping
+1,clanging
+1,clanking
+1,clashing
+1,clattering
+1,clicking
+1,clinking
+1,clunking
+1,chiming
+1,coughing
+1,creaking
+1,crooning
+1,dripping
+1,drumming
+1,footsteps 
+1,giggling 
+1,grating
+1,grinding
+1,groaning
+1,growling
+1,grunting
+1,grumling
+1,gurgling
+1,hammering
+1,heart beats
+1,hissing
+1,hooting
+1,horn/trumpet sounding
+1,howling
+1,humming
+1,intoning
+1,jingling
+1,keening
+1,knocking
+1,laughter
+1,lip-smacking
+1,moaning
+1,mumbling
+1,murmuring
+1,music
+1,rasping
+1,rattling
+1,ringing
+1,roaring
+1,rustling
+1,scraping
+1,scratching
+1,scrabbling
+1,screaming
+1,scuttling
+1,scuffling
+1,scurrying
+1,shrieking
+1,shouting
+1,shovelling
+1,sighing
+1,singing
+1,slamming
+1,slithering
+1,sloshing
+1,snapping
+1,sneezing
+1,sniffling
+1,snorting
+1,sobbing
+1,splashing
+1,splintering
+1,squeaking
+1,squealing
+1,tapping
+1,throbbing
+1,thudding
+1,thumping
+1,tinkling
+1,twanging
+1,ululating
+1,wailing
+1,whimpering
+1,whining
+1,whispering
+1,whistling
+1,yelling
+1,yelping
+1,yowling
+
+
+;sound volume
+1,faint
+1,muffled
+1,muted
+1,subdued
+1,indistinct
+1,feeble
+1,loud
+1,intense
+1,clamorous
+1,obstreperous
+1,shrill
+
+;sound direction
+1,above
+1,ahead
+1,all-around
+1,approaching
+1,behind
+1,below
+1,distant
+1,off to the left
+1,off to the right
+1,receding
+
+# ------------------------------------------------------------
 
 ;necropolis
 1,[necropolis description]<p>[necropolis central area]<p>[necropolis sphinx]
