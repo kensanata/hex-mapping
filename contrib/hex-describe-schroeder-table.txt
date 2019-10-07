@@ -9861,9 +9861,9 @@
 2,*[human name]*, a child maybe [1d6+4] years old.
 
 ;witch thrall
-1,<p>*[human name]* the servant is cleaning the shelves, singing quietly, dressed in rags.
-1,<p>*[human name]* the servant is cleaning the floor, humming softly, dressed in rags.
-1,<p>*[human name]* sits in a corner, quietly rocking back and forth, neck leashed to an iron ring. The *magic leash* starts strangling its victim as soon as they try to free themselves.
+1,<p>*[human name]* the **[servant|thrall|slave]** is cleaning the shelves, singing quietly, dressed in rags.
+1,<p>*[human name]* the **[servant|thrall|slave]** is cleaning the floor, humming softly, dressed in rags.
+1,<p>*[human name]* the **[servant|thrall|slave]** sits in a corner, quietly rocking back and forth, neck leashed to an iron ring. The *magic leash* starts strangling its victim as soon as they try to free themselves.
 1,
 
 ;witch annex
@@ -14100,7 +14100,7 @@
 
 ;caravan special
 3,
-2,<p>The caravan has a **bard** called [human with portrait] who is on his way to [nearby village name].[store human as singing humanoid] The songs they like to perform are [with story] and [and story].
+2,<p>The caravan has a **bard** called [human with portrait] who is on their way to [nearby village name].[store human as singing humanoid] The songs they like to perform are [with story] and [and story].
 2,<p>*[[same race] name]* is a **secret agent** of the [one of the secret societies]. [description for a secret society ([same alignment])]
 2,<p>*[[same race] name]* is selling blessed [metal mat] amulets of [good power].
 2,<p>*[[same race] name as cultist]* is an **evil cultist** of [evil power]. If you know the cult, you will recognise their amulet: it shows [[same evil power] decoration]. They already befriended a kid called *[human name]* but swore them to secrecy. Before the caravan leaves, *[same cultist]* is planning to sacrifice them to their demon lord.
@@ -15213,8 +15213,8 @@
 1,The keep consists of a gatehouse protecting the small courtyard and a square tower four stories high.
 
 ;small manor house
-1,The manor house is a large, two story building made of stone, with no windows on the ground floor and small, arrow slit like windows above, and terrace up on the roof from which the surrounding land can be surveyed.
-1,The manor house is a large building connected to a walled courtyard with stables, barns and everything a rich land lord needs.
+1,The manor house is a two story building made of stone, with no windows on the ground floor and small, arrow slits above, and a terrace up on the roof from which the surrounding land can be surveyed.
+1,The manor house is connected to a walled courtyard with stables, barns and everything a rich land lord needs.
 
 ;small temple dedicated to Set
 1,[small temple]
