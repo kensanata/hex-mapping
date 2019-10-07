@@ -328,6 +328,7 @@
 1,[grass intro] [grass dressing] [grass landmark] This is the territory of [1d12+1] **pumas** ([puma stats]).
 3,[grass intro] [grass dressing] [grass landmark] There is a camp of [horse archers]
 5,[grass intro] [grass dressing] [grass landmark] To the [direction], [1d4+1] **coyote** ([wolf stats]) can be seen hunting.
+1,[grass intro] [grass dressing] [grass landmark] Careful exploration may reveal the entrance to a dungeon. [dungeon]
 
 ;grass intro
 1,The [grass name] is a gently rolling expanse of prairie.
@@ -597,6 +598,7 @@
 1,Deep ravines cut through the [name for hills]. A cave in one of those dry riverbeds is home to [giant scorpions] ([giant scorpion stats]).
 1,On one of the [name for hills] stands an old tower overlooking the lands below. This is the home of a **manticore** called *[manticore]* ([manticore stats]). [robber treasure]
 1,On one of the [name for hills] stands [a warlock fortress]
+1,The [name for hills] are home to a dungeon. [dungeon]
 
 ;a warlock fortress
 1,a ruined fortress currently occupied by [warlocks]. [average treasure]<p>The fortress and its surrounding land is ruled by the **medusa** *[medusa]* ([medusa stats]). The courtyard and rooms are full of her petrified victims and the bones of the dead. [luxurious context] [terror treasure]
@@ -6181,6 +6183,7 @@
 1,The glacier of [name for white big mountains] ends at a small lake. [ice monster lair]
 1,A **white dragon** called *[here white dragon name as dragon name]*[dragon portrait] lives in a ruined mountain fortress guarding the approaches to the [name for white big mountains] ([white dragon stats]). [dragon treasure]
 1,[ghostly glacier procession]
+1,Secreted among the [mountain obstacle] beneath the [name for white big mountains] is a dungeon. [dungeon]
 
 ;ghostly glacier procession
 1,A cold wind blows snow and ice down the mountain. Visibility is down to maybe 30ft. This is the [name for white big mountains] glacier. Every night, a **procession ghosts** struggles barefoot across the ice. You can hear their wailing, their tiny bells ringing, and you can see the flickering candles they are carrying. If you follow them for an hour, you are going to cross over into Jötunheim with them. The procession leads you to the castle of the **frost giant** *[frost giant name]*. [2d4] **frost giants** and [frost giant companions] live here. [rich treasure]<p>To release the ghosts from their eternal wandering, you need to [ghostly glacier procession solution]
@@ -6450,6 +6453,7 @@
 1,Fissures lead into the depth of the mountain and in the warm chambers below there sleeps the **red dragon** *[here red dragon name as dragon name]*[dragon portrait] ([red dragon stats]). [dragon treasure]
 1,The passes need a local guide to cross. [mountain people]
 1,A glacier fills the gap between these mountains.
+1,The [rough|jagged|rolling|rocky] peaks here hide a dungeon. [dungeon]
 
 ;red dragon stats
 1,HD 10 AC -1 1d8/1d8/4d8 F10 MV 24 ML 10 XP 1000; *fire* (as much as the dragon has hp left, save vs. dragon breath for half)
@@ -7814,6 +7818,7 @@
 1,[lake intro] [lake dressing]<p>A pod of [2d20] charming **nixies** ([nixie stats]) and the same number of **giant fish** ([giant fish stats]) guard their sea weed garden. [poor treasure]
 3,[lake intro] [lake dressing]<p>[lake inhabitants]
 1,[lake intro] [lake dressing]<p>A tribe of [froglings]
+1,[lake intro] [lake dressing] An entrance to a dungeon can be found by diligently exploring the shore. [dungeon]
 
 ;giant fish stats
 1,HD 2 AC 7 1d6 F1 MV 12 ML 8 XP 200
@@ -7866,6 +7871,7 @@
 1,The hills of [forest name] are full of ancient ruins. On one of these hills right here you can find the foundations of an old keep. The walls are long gone but the cistern and the storage rooms below are still usable. [outlaw camp] [maybe barrow]
 1,[faerie witch]
 1,The [forest name] rises up into these hills. [halfling valley] This is the home of [halflings]
+1,The hills of [forest name] are dotted with ruins. Among the ruins is the entrance to a dungeon. [dungeon]
 
 # tree names from http://blog.d4caltrops.com/2019/04/see-forest-for-trees.html
 
@@ -8945,6 +8951,7 @@
 1,The dry lands up here are the hunting grounds of a **manticore** called *[manticore]* living in the ruins of an old tower ([manticore stats]). [robber treasure] [manticore companions]
 1,A dreadful *stench* hangs in the air as you approach the top of the hill. Dozens of decomposing [bodies|corpses|soldiers|warriors] cover the ground. [a war party]Searching the remains you find a *[the war party colour]* flag of *[the war party]*. These were mercenaries. They weren’t killed by force of arms: they were poisoned.[here store captain *[human name]* was last seen in in the badlands near *[nearby village name]* carrying the banner of *[the war party]* as war fact]
 1,A **green dragon** named *[here green dragon name as dragon name]*[dragon portrait] lives at [hill name], one of the hills overlooking these shrublands ([green dragon stats]). [dragon treasure]
+1,The overgrown scrub is difficult to traverse. Concealed by the thorny bracken is the entrance to a dungeon. [dungeon]
 
 ;outlaw camp
 1,There is a camp of [1d4x10] **outlaws** ([outlaw stats]) led by *[outlaw leader as human name]*[human portrait] here.[here store the outlaw *[same human name]* as wanted dead or alive] [average treasure] They call themselves the *[adjective] [organisation name]*. [outlaw feature] The camp is protected by [outlaw companions]. These outlaws are [two outlaw activities].
@@ -9947,6 +9954,7 @@
 1,[swamp intro] [swamp dressing] [swamp gnome colony]
 1,[swamp intro] [swamp dressing] On a rocky outcrop stands a tower. [necromancer]
 1,[swamp intro] [swamp dressing] On a rocky outcrop stands a tower. [vivimancer]
+1,[swamp intro] [swamp dressing] At it's heart are abandoned ruins that lead to a dungeon. [dungeon]
 
 ;swamp intro
 1,The [forest name] is sinking beneath the water.
@@ -11648,6 +11656,7 @@
 1,There’s a little stream here, making its way through the [forest name], wrapping itself around a beautiful, big, old tree. [dryad] [forest event]
 1,The [forest name] is full of rustling and bustling sounds as **giant ants** can be seen scurrying back and forth along invisible trails and up and down the giant [tree] trees. [giant ant lair] [forest event]
 1,The [forest name] is flooded with soothing sun light (or moon light). [unicorns] [forest event]
+1,Among the trees of [forest name] lies a dungeon. [dungeon]
 
 ;forest event
 # add it to [forest] and [fir-forest] if the entry is small, but not
@@ -12951,6 +12960,7 @@
 1,[fir highlands] There is an abandoned shrine to *[power]* up here. It is haunted by the **spectre** of *[old name]*, the last priest who cared for it ([spectre stats]). [ancient treasure] [maybe barrow] [forest event]
 1,[fir highlands] If you wander into these woods, you’ll soon hear laughter and revelling. [satyr threat] [maybe barrow] [forest event]
 1,[fir highlands] [druids]
+1,[fir highlands] Within this wood is a dungeon. [dungeon]
 
 ;druids
 1,[druid warning sign] Here stands [druid circle] [the locals call it] *[druid circle name]*. [druid allies] [druid trails]
