@@ -1476,7 +1476,6 @@ sub water {
       my ($x, $y) = $self->neighbor($coordinates, $i);
       my $legal = $self->legal($x, $y);
       my $other = coordinates($x, $y);
-      # my $debug = $coordinates eq "1004" && $other eq "0904";
       next if $legal and $altitude->{$other} > $altitude->{$coordinates};
       # don't point head on to another arrow
       next if $legal and $water->{$other} and $water->{$other} == ($i-3) % 6;
@@ -1622,8 +1621,7 @@ sub flood {
     last unless $coordinates;
     $seen{$coordinates} = 1;
     $log->debug("Looking at $coordinates");
-    my ($x, $y) = $self->xy($coordinates);
-    if ($self->legal($x, $y) and $world->{$coordinates} ne "ocean") {
+    if ($self->legal($coordinates) and $world->{$coordinates} ne "ocean") {
       # if we're still on the map, check all the unknown neighbors
       my $from = $coordinates;
       for my $i ($self->neighbors()) {
@@ -1640,7 +1638,6 @@ sub flood {
     my $to = $coordinates;
     my $from = $flow{$to};
     while ($from) {
-      last if not $self->legal($x, $y) or $world->{$to} =~ "ocean";
       my $i = $self->direction($from, $to);
       if (not defined $water->{$from}
 	  or $water->{$from} != $i) {
