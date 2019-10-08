@@ -1300,14 +1300,17 @@
 #MAIN GENERATOR
 ;dungeon
 # 5 rooms
-1,[save dungeontype as monsters]<p>[dungeon map]<ol><li>[entrance room]</li><li>[with interior room]<ul><li>[room feature]</i></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[final room]<ul><li>Boss Monster: [[same monsters] boss].</li><li>Treasure: [final room treasure].</li></ul></li></ol>
+1,[save dungeontype as monsters]<p>[dungeon map with 5 rooms]<ol><li>[entrance room]</li><li>[with interior room]<ul><li>[room feature]</i></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[final room]<ul><li>Boss Monster: [[same monsters] boss].</li><li>Treasure: [final room treasure].</li></ul></li></ol>
 # 6 rooms
 # 1,[save dungeontype as monsters]<ol><li>[entrance room]</li><li>[with interior room]<ul><li>[room feature]</i></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[final room]<ul><li>Boss Monster: [[same monsters] boss].</li><li>Treasure: [final room treasure].</li></ul></li></ol>
 # 7 rooms
-# 1,[save dungeontype as monsters]<ol><li>[entrance room]</li><li>[with interior room]<ul><li>[room feature]</i></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[final room]<ul><li><u>Boss Monster:</u> [[same monsters] boss].</li><li>Treasure: [final room treasure].</li></ul></li></ol>
+1,[save dungeontype as monsters]<p>[dungeon map with 7 rooms]<ol><li>[entrance room]</li><li>[with interior room]<ul><li>[room feature]</i></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[final room]<ul><li><u>Boss Monster:</u> [[same monsters] boss].</li><li>Treasure: [final room treasure].</li></ul></li></ol>
 
-;dungeon map
+;dungeon map with 5 rooms
 1,<img class="map" src="[[redirect https://campaignwiki.org/text-mapper/gridmapper/redirect?pillars=0]]" alt="5 room dungeon" title="5 room dungeon"/>
+
+;dungeon map with 7 rooms
+1,<img class="map" src="[[redirect https://campaignwiki.org/text-mapper/gridmapper/redirect?pillars=0&rooms=7]]" alt="7 room dungeon" title="7 room dungeon"/>
 
 # add Wandering Monster: [[same monsters] encounter]...this might be possible as a sub-table floating to the side (like the gem stuff in hex describe)
 
@@ -11747,46 +11750,39 @@
 1,*[same elf name]* would like some *[nearby magic plant]*. They will pay 500gp if you bring them some.
 
 ;elf clade name
-1,This the home of the [clade name for [same [same spellbook] 1]]
-# for debugging: (based on [same spellbook] → *[same [same spellbook] 1]*).
+1,This the home of the [clade name for [same spellbook]]
 
-# these names are based on the first level spells of [elf spellbook]
-# charm person
-# detect magic
-# light foot
-# lunar runes
-# restore faith
-# sleep
-# water walking
-;clade name for charm person
+# these names are based on the [elf spellbook]
+;clade name for fanthaiel
+1,*Sword Dancers*
+1,*Silent Hunters*
+1,*Hunter Killers*
+1,*Moon Clade*
+1,*Water Runners*
+1,*Light Runners*
+;clade name for gerdana
 1,elves of the *Voice*
 1,*Soothing Singers*
 1,*Melody Dancers*
-;clade name for detect magic
-1,elves of the *Piercing Eye*
+1,*Silent Ones*
+1,*Air Dancers*
+1,*Lunar Sisters*
+;clade name for hadrael
+1,*Piercing Eyes*
 1,*True Seeing* elves
 1,elves of the *Third Eye*
 1,*Second Face*
-;clade name for light foot
-1,*Silent Hunters*
-1,*Hunter Killers*
-;clade name for lunar runes
-1,*Wise Ones*
-1,*Learned Ones*
-1,*Lunar Sisters*
-1,*Moon Clade*
-;clade name for restore faith
 1,*Healing Hand*
 1,*Forever Elves*
 1,*Quiet Touch*
-;clade name for sleep
-1,*Silent Ones*
 1,*Quiet Killer*
 1,*Dream Walkers*
-;clade name for water walking
-1,*Water Runners*
-1,*Light Runners*
-1,*Air Dancers*
+;clade name for iauniel
+1,*Wise Ones*
+1,*Learned Ones*
+1,*Lunar Sisters*
+1,*Spider Friends*
+1,*Terrible Ones*
 
 ;dryad
 1,This is a [tree] tree, inhabited by a **dryad** of the same name: *[same tree]* ([dryad stats]). [dryad lover]
@@ -14514,7 +14510,7 @@
 1,Z
 
 ;devil troubles
-1,Those who live here are often in terror. [Sheep|Goats|Cattle|Pigs] are found mutilated. [Dog|Cat|Rabbit] entrails are spread around sites holy to [power]. Herders have reported seeing a [devil] [late at night|early in the morning|after sunset|before sunrise].<p>A natural hot springs blocks the entrance to a cavern, which hides a shallow cave complex occupied by a coven of devils. They derive psychic energy from the terror of others.<p>[dungeon map]<ol><li>The cave entrance is filled with hot steam (1d6 scalding damage to each non-devil who enters), but the water smells and tastes of [sulfur|decaying corpses|burnt bones], revolting all who enter.<li>Stretched on a metal rack is a prisoner with scalded skin, [ettercap prisoner feeling]. This is *[human name]* from *[same village name]*, taken while [herding|fetching water|worshiping|going to see the smith].<li>Here, [1d4+1] [devils] [cavort|caper in a macabre dance|sing in disharmony|strum soundless lutes] ([devil stats]). An [unearthly|unsettling|undulating] music echoes in these halls.<li>This chamber contains a sunken bath, warmed by the hot springs. A [devil] hangs upside down in one of [2d20] niches, asleep. The devil will wake and attack if anyone [whispers|tiptoes|touches the water].<li>A great hall holds a throne and tables full of food and wine. Queen *[devil name]*, a [devil], presides over her court here, [1d6+1] [devils] and [1d2+1] [devils]. The devils will fight to the death to protect their queen ([devil stats]).</li></ol>
+1,Those who live here are often in terror. [Sheep|Goats|Cattle|Pigs] are found mutilated. [Dog|Cat|Rabbit] entrails are spread around sites holy to [power]. Herders have reported seeing a [devil] [late at night|early in the morning|after sunset|before sunrise].<p>A natural hot springs blocks the entrance to a cavern, which hides a shallow cave complex occupied by a coven of devils. They derive psychic energy from the terror of others.<p>[dungeon map with 5 rooms]<ol><li>The cave entrance is filled with hot steam (1d6 scalding damage to each non-devil who enters), but the water smells and tastes of [sulfur|decaying corpses|burnt bones], revolting all who enter.<li>Stretched on a metal rack is a prisoner with scalded skin, [ettercap prisoner feeling]. This is *[human name]* from *[same village name]*, taken while [herding|fetching water|worshiping|going to see the smith].<li>Here, [1d4+1] [devils] [cavort|caper in a macabre dance|sing in disharmony|strum soundless lutes] ([devil stats]). An [unearthly|unsettling|undulating] music echoes in these halls.<li>This chamber contains a sunken bath, warmed by the hot springs. A [devil] hangs upside down in one of [2d20] niches, asleep. The devil will wake and attack if anyone [whispers|tiptoes|touches the water].<li>A great hall holds a throne and tables full of food and wine. Queen *[devil name]*, a [devil], presides over her court here, [1d6+1] [devils] and [1d2+1] [devils]. The devils will fight to the death to protect their queen ([devil stats]).</li></ol>
 
 ;devil
 1,devil with [devil wings][devil chimera] [devil beast]
