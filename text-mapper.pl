@@ -2937,10 +2937,13 @@ use Pod::Simple::Text;
 
 plugin Config => {default => {
   loglevel => 'warn',
+  logfile => undef,
   contrib => 'https://campaignwiki.org/contrib', }};
 
 $log = Mojo::Log->new;
 $log->level(app->config('loglevel'));
+$log->path(app->config('logfile'));
+
 $debug = $log->level eq 'debug';
 $contrib = app->config('contrib');
 
