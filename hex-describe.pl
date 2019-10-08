@@ -1938,7 +1938,7 @@ Create Markdown instead of HTML output.
 </label><br>
 <label>
 %= check_box 'faces' => 1, checked => 1
-Include faces in the HTML output (slow)
+Include images (faces, dungeon maps) in the HTML output (slow)
 </label>
 </p>
 
