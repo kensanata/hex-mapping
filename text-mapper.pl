@@ -3099,7 +3099,10 @@ any '/render' => sub {
 get '/:type/redirect' => sub {
   my $self = shift;
   my $type = $self->param('type');
-  $self->redirect_to($self->url_for($type . "random")->query(seed => time));
+  my $rooms = $self->param('rooms');
+  my %params = (seed => time);
+  $params{rooms} = $rooms if $rooms;
+  $self->redirect_to($self->url_for($type . "random")->query(%params));
 } => 'redirect';
 
 # alias for /smale
