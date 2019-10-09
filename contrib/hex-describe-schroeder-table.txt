@@ -1276,6 +1276,7 @@
 1,Up here in the mountains lies lake *[lake name]*. [lake inhabitants]
 1,[mountain valley] [mountain monolith]
 1,[mountain valley] [mountain hill giants]
+1,[mountain valley] Amidst the rocks, there is a hidden entrance to a dungeon. [dungeon]
 1,Steep cliffs make progress practically impossible without climbing gear. [mountain secret]
 1,Somewhere up here between the cliffs there is a secret door. [secret door to the realm of the netherworld elves]
 1,[green tower in the mountains]
@@ -1285,7 +1286,6 @@
 1,[mountain orcs]
 1,[necropolis]
 1,[naga temple]
-1,[dungeon]
 
 # ------------------------------------------------------------
 
@@ -1300,11 +1300,11 @@
 #MAIN GENERATOR
 ;dungeon
 # 5 rooms
-1,[save dungeontype as monsters]<p>[dungeon map with 5 rooms]<ol><li>[entrance room]</li><li>[with interior room]<ul><li>[room feature]</i></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[final room]<ul><li>Boss Monster: [[same monsters] boss].</li><li>Treasure: [final room treasure].</li></ul></li></ol>
+1,[save dungeontype as monsters]This is the *[dungeon name]*.<p>[dungeon map with 5 rooms]<ol><li>[entrance room]</li><li>[with interior room]<ul><li>[room feature]</i></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[final room]<ul><li>Boss Monster: [[same monsters] boss].</li><li>Treasure: [final room treasure].</li></ul></li></ol>
 # 6 rooms
 # 1,[save dungeontype as monsters]<ol><li>[entrance room]</li><li>[with interior room]<ul><li>[room feature]</i></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[final room]<ul><li>Boss Monster: [[same monsters] boss].</li><li>Treasure: [final room treasure].</li></ul></li></ol>
 # 7 rooms
-1,[save dungeontype as monsters]<p>[dungeon map with 7 rooms]<ol><li>[entrance room]</li><li>[with interior room]<ul><li>[room feature]</i></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[final room]<ul><li><u>Boss Monster:</u> [[same monsters] boss].</li><li>Treasure: [final room treasure].</li></ul></li></ol>
+1,[save dungeontype as monsters]This is the *[dungeon name]*.<p>[dungeon map with 7 rooms]<ol><li>[entrance room]</li><li>[with interior room]<ul><li>[room feature]</i></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[final room]<ul><li><u>Boss Monster:</u> [[same monsters] boss].</li><li>Treasure: [final room treasure].</li></ul></li></ol>
 
 ;dungeon map with 5 rooms
 1,<img class="map" src="[[redirect https://campaignwiki.org/text-mapper/gridmapper/redirect?pillars=0]]" alt="5 room dungeon" title="5 room dungeon"/>
@@ -1330,6 +1330,158 @@
 #Loads more potential here, but they are a little time consuming to create
 #other ideas for themes: cultists, smugglers, bandits
 
+;dungeon name
+1,The [capitalize dungeon adjective] [capitalize dungeon noun 1] of [capitalize dungeon noun 2]
+1,The [capitalize dungeon adjective] [capitalize dungeon noun 1]
+
+;dungeon adjective
+1,lost
+1,terrible
+1,dark
+1,deep
+1,loathsome
+1,gloomy
+1,deepest
+1,damp 
+1,old
+1,horrible
+1,noisome
+1,filthy
+1,cold
+1,dismal
+1,narrow
+1,foul 
+1,darkest
+1,[black synonym]
+1,lowest
+1,dreary
+1,secret
+1,lower
+1,miserable
+1,solitary
+1,dreadful
+1,dank
+1,low
+1,stinking
+1,horrid
+1,vile
+1,lonely
+1,vaulted
+1,wretched
+1,frightful
+1,ancient
+1,awful
+1,vast
+1,infernal
+1,dirty
+1,obscure
+1,darksome
+1,grim
+1,fetid
+1,eternal
+1,deeper
+1,miry
+1,fearful
+1,infested
+1,royal
+1,hideous
+1,unwholesome
+1,chilly
+1,icy
+1,crepuscular
+1,murky
+1,[grey synonym]
+1,[secret society adjective]
+
+;dungeon noun 1
+1,pits
+1,cells
+1,prison
+1,oubliette
+1,vaults
+1,chambers
+1,hole
+1,temple
+1,depths
+1,caves
+1,caverns
+1,mines
+1,warrens
+1,maze
+1,shaft
+1,tomb
+1,tombs
+1,trenches
+1,grave
+1,hollow
+1,well
+1,abyss
+1,cellar
+1,mausoleum
+1,catacomb
+1,cavern
+1,grave
+1,graves
+1,sepulcher
+1,cradle
+1,fathomage
+1,rooms
+1,crypts
+1,den
+1,grotto
+1,subterrane
+1,basement
+
+;dungeon noun 2
+1,calamity
+1,disaster
+1,death
+1,judgement
+1,doom
+1,ruin
+1,tragedy
+1,repose
+1,ruination
+1,silence
+1,darkness
+1,dusk
+1,gloomy
+1,twilight
+1,shadows
+1,pitch
+1,isolation
+1,secrecy
+1,seclusion
+1,mystery
+1,fear
+1,dread
+1,panic
+1,nightmares
+1,fright
+1,foreboding
+1,distress
+1,abhorrence
+1,suspicion
+1,wonder
+1,[devil name]
+1,[human name]
+1,[a strange royal]
+1,[strange name for men]
+1,[strange name for women]
+1,[snake place]
+1,[ancient capital]
+1,[dwarf name]
+1,[orc name]
+1,[gnome name]
+1,[star name]
+1,[halfling name]
+1,[wight name]
+1,[elf name]
+1,[diseases2]
+1,[name for an emperor]
+1,[an old hero]
+1,[spellbook]
+1,the [title]
 
 #AREA SECTION
 
@@ -4655,6 +4807,7 @@
 1,A few thorny bushes between the rocks are the only green patches up here.
 1,The sunny side of the valley is covered in pink splashes of *roseroot*.
 1,Further up, there are white patches of *edelweiss* growing between the rocks.
+1,The water has dug a deep chasm through the mountain.
 
 #starting point for food and drink tables for menus/food items
 #basic construction: tables for domestic/garden and wild food products
