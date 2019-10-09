@@ -15840,7 +15840,7 @@
 1,
 
 ;agrimach
-1,*The Book of the Dead* by <a class="caster" href="https://alexschroeder.ch/pdfs/spellcasters/Agrimach.pdf">Agrimach</a> the necromancer
+1,*The Book of the Dead* by <a class="caster" href="https://alexschroeder.ch/pdfs/spellcasters/Agrimach.pdf">Agrimach</a> the Necromancer
 
 ;agrimach 1
 2,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#aura-of-fear">aura of fear</a>
@@ -15867,7 +15867,7 @@
 1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#cloud-kill">cloud kill</a>
 
 ;asphyx
-1,*The Book of the Mountain Witch* by <a class="caster" href="https://alexschroeder.ch/pdfs/spellcasters/Asphyx.pdf">Asphyx</a> the aeromancer
+1,*The Book of the Mountain Witch* by <a class="caster" href="https://alexschroeder.ch/pdfs/spellcasters/Asphyx.pdf">Asphyx</a> the Aeromancer
 
 ;asphyx 1
 1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#eagle-eyes">eagle eyes</a>
@@ -15894,7 +15894,7 @@
 1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#creation">creation</a>
 
 ;beryl
-1,*The Book of Darkness* by <a class="caster" href="https://alexschroeder.ch/pdfs/spellcasters/Beryl.pdf">Beryl</a> the sorceress
+1,*The Book of Darkness* by <a class="caster" href="https://alexschroeder.ch/pdfs/spellcasters/Beryl.pdf">Beryl</a> the Sorceress
 
 ;beryl 1
 2,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#darkness">darkness</a>
@@ -15921,7 +15921,7 @@
 1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#transposition">transposition</a>
 
 ;chana
-1,*The Book of the Water Dragon* by <a class="caster" href="https://alexschroeder.ch/pdfs/spellcasters/Chana.pdf">Chana</a> the aquamancer
+1,*The Book of the Water Dragon* by <a class="caster" href="https://alexschroeder.ch/pdfs/spellcasters/Chana.pdf">Chana</a> the Aquamancer
 
 ;chana 1
 2,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#charm-person">charm person</a>
@@ -15948,7 +15948,7 @@
 1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#summon-living-storm">summon living storm</a>
 
 ;darsim
-1,*The Book of the Fist* by <a class="caster" href="https://alexschroeder.ch/pdfs/spellcasters/Darsim.pdf">Darsim</a> the muscle mage
+1,*The Book of the Fist* by <a class="caster" href="https://alexschroeder.ch/pdfs/spellcasters/Darsim.pdf">Darsim</a> the Muscle Mage
 
 ;darsim 1
 2,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#fist-of-air">fist of air</a>
@@ -15975,7 +15975,7 @@
 1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#mastery-of-the-nine-realms">mastery of the nine realms</a>
 
 ;elam
-1,*The Book of Liminurgy* by <a class="caster" href="https://alexschroeder.ch/pdfs/spellcasters/Elam.pdf">Elam</a> the recluse
+1,*The Book of Liminurgy* by <a class="caster" href="https://alexschroeder.ch/pdfs/spellcasters/Elam.pdf">Elam</a> the Recluse
 
 ;elam 1
 1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#lock">lock</a>
@@ -16002,7 +16002,7 @@
 1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#realm">realm</a>
 
 ;fanthaiel
-1,*The Book of Dragons* by <a class="caster" href="https://alexschroeder.ch/pdfs/spellcasters/Fanthaiel.pdf">Fanthaiel</a> the hunter
+1,*The Book of Dragons* by <a class="caster" href="https://alexschroeder.ch/pdfs/spellcasters/Fanthaiel.pdf">Fanthaiel</a> the Hunter
 
 ;fanthaiel 1
 1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#light-foot">light foot</a>
@@ -16056,7 +16056,7 @@
 1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#summon-living-storm">summon living storm</a>
 
 ;hadrael
-1,*The Book of Odin* by <a class="caster" href="https://alexschroeder.ch/pdfs/spellcasters/Hadrael.pdf">Hadrael</a> the dragon-slayer
+1,*The Book of Odin* by <a class="caster" href="https://alexschroeder.ch/pdfs/spellcasters/Hadrael.pdf">Hadrael</a> the Dragon-Slayer
 
 ;hadrael 1
 1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#detect-magic">detect magic</a>
@@ -16300,7 +16300,7 @@
 1,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#imprisonment">imprisonment</a>
 
 ;xoralfona
-1,*The Book of Songs* by <a class="caster" href="https://alexschroeder.ch/pdfs/spellcasters/Xoralfona.pdf">Xoralfona</a> the wordsmith
+1,*The Book of Songs* by <a class="caster" href="https://alexschroeder.ch/pdfs/spellcasters/Xoralfona.pdf">Xoralfona</a> the Wordsmith
 
 ;xoralfona 1
 2,<a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#calm">calm</a>
