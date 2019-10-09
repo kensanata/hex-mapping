@@ -436,7 +436,7 @@ any '/rule/markdown' => sub {
   my $table = get_table($c);
   my $seed = $c->param('seed') || time;
   srand($seed);
-  my $descriptions = describe_text($input, parse_table($table));
+  my $descriptions = describe_text($input, parse_table($table), 1); # with redirects
   $c->render(text => markdown($descriptions), format => 'txt');
 } => 'rule_markdown';
 
@@ -2242,7 +2242,7 @@ These results are based on the <strong><%= $rule %></strong> table.
 
 
 % if ($seed) {
-%   if ($rule and ($url or $table)) {
+%   if ($rule) {
 %= form_for rule_markdown => (method => 'POST') => begin
 <p>
 %= submit_button 'Markdown', name => 'submit'
@@ -2254,7 +2254,7 @@ These results are based on the <strong><%= $rule %></strong> table.
 %= hidden_field seed => $seed
 </p>
 %= end
-%   } elsif ($input or $url or $table) {
+%   } elsif ($input) {
 %= form_for nomap_markdown => (method => 'POST') => begin
 <p>
 %= submit_button 'Markdown', name => 'submit'
