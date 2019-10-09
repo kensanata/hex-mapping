@@ -420,7 +420,7 @@ any '/rule' => sub {
   my $table = get_table($c);
   my $seed = $c->param('seed') || time;
   srand($seed);
-  my $descriptions = describe_text($input, parse_table($table));
+  my $descriptions = describe_text($input, parse_table($table), 1); # with redirects
   $c->render(template => 'text', input => $input, load => $c->param('load'), seed => $seed,
 	     n => $n, url => $c->param('url'), table => $c->param('table'),
 	     rule => $rule, id => to_id($rule),
@@ -1851,13 +1851,14 @@ coordinates.
 sub describe_text {
   my $input = shift;
   my $table_data = shift;
+  my $redirects = shift;
   my @descriptions;
   for my $text (split(/\r?\n/, $input)) {
     # $log->debug("replacing lookups in $text");
     init();
     # recusion level 2 makes sure we don't reset %locals
-    $text =~ s/\[(.*?)\]/describe({},$table_data,2,"no map",[$1])/ge;
-    push(@descriptions, process($text));
+    $text =~ s/\[(.*?)\]/describe({},$table_data,2,"no map",[$1],$redirects)/ge;
+    push(@descriptions, process($text, $redirects));
   }
   return \@descriptions;
 }
