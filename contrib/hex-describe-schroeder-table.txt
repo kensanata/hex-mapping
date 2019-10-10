@@ -594,8 +594,8 @@
 
 ;hill
 1,The [name for hills] are dry and forbidding. The only animals you can see are some **goats**.
-1,The [name for hills] are bare and the narrow creeks between them have dug deep channels. One of these channels is home to [some canyon wights] ([wight stats]). During they day they lie in the flooded cellar of a ruined toll tower guarding a ford. [dead treasure]
-1,Deep ravines cut through the [name for hills]. A cave in one of those dry riverbeds is home to [giant scorpions] ([giant scorpion stats]).
+1,The [name for hills] are bare and the narrow creeks between them have dug deep [gorge]s. One of these [same gorge]s is home to [some canyon wights] ([wight stats]). During they day they lie in the flooded cellar of a ruined toll tower guarding a ford. [dead treasure]
+1,Deep [gorge]s cut through the [name for hills]. A cave in one of those dry riverbeds is home to [giant scorpions] ([giant scorpion stats]).
 1,On one of the [name for hills] stands an old tower overlooking the lands below. This is the home of a **manticore** called *[manticore]* ([manticore stats]). [robber treasure]
 1,On one of the [name for hills] stands [a warlock fortress]
 1,The [name for hills] are home to a dungeon. [dungeon]
@@ -664,8 +664,8 @@
 1,HD 4 AC 2 1d10/1d10/1d4 + *poison* F2 MV 15 ML 11 XP 400
 
 ;some canyon wights
-1,the **wight** *[old name]* [the necromaner] who surfaces from his watery grave every night and searches the canyon for fools to drown
-1,[1d7+1] **wights** led by *[old name]* [the necromaner] who roam the canyons, looking for victims to drown and add to their undead posse
+1,the **wight** *[old name]* [the necromaner] who surfaces from his watery grave every night and searches the [gorge] for fools to drown
+1,[1d7+1] **wights** led by *[old name]* [the necromaner] who roam the [gorge]s, looking for victims to drown and add to their undead posse
 
 ;the necromaner
 1,the Necromancer
@@ -6333,7 +6333,7 @@
 1,the Killer
 
 ;white mountain
-1,The air up here is cold. You can see the [name for white big mountains] looming up ahead. Small canyons and giant boulders provide shelter from the icy wind. [giant apes] [small temple near giant apes]
+1,The air up here is cold. You can see the [name for white big mountains] looming up ahead. Small [gorge]s and giant boulders provide shelter from the icy wind. [giant apes] [small temple near giant apes]
 1,The [mountain obstacle] beneath the [name for white big mountains] are difficult to traverse. You need a guide and skis. The stone walls rising from the snow are home to a [cat style] [mountain cat].
 1,There is a hidden meadow up here, protected by the [name for white big mountains]. [giant apes] [small temple near giant apes]
 1,The glacier of [name for white big mountains] ends at a small lake. [ice monster lair]
@@ -6450,9 +6450,16 @@
 1,Graves
 
 ;canyon
-1,<p>[name for river] has dug itself a deep gorge.
-1,<p>The gorge is wonderful and deep.
-1,<p>Crossing the canyon requires climbing gear.
+1,<p>[name for river] has dug itself a deep [gorge].
+1,<p>The [gorge] is deep. Somewhere in the darkness below you hear [name for river].
+1,<p>Crossing the [gorge] requires climbing gear. [name for river] flows far below, unreachable.
+1,<p>The [gorge] cuts through the rock. Waterfalls join the [name for river] below.
+
+;gorge
+1,gorge
+1,ravine
+1,canyon
+1,channel
 
 ;river-start river
 1,<p>This is where the spring of [name for river] is.
@@ -8018,7 +8025,7 @@
 ;forest-hill
 1,One of the hills has an old lookout from which you can see most of the [forest name]. It is also [treant]’s favourite spot. The old **treant** loves to watch the sun set from here ([treant stats]). [maybe barrow]
 1,A steep hill rises from the forest and at its top stands an old statue of *[power]*, about 20ft tall. Who ever built this statue is long gone but the trail leading up to the statue looks well worn. [maybe barrow]
-1,Small creeks have dug deep channels into [forest name]. The going is tough. Some of the hidden valleys are very hard to reach. [giant apes] [small temple near giant apes]
+1,Small creeks have dug deep [gorge]s into [forest name]. The going is tough. Some of the hidden valleys are very hard to reach. [giant apes] [small temple near giant apes]
 1,[forest name] covers a few hills here. [ogre hill]
 1,These [tree] hills in [forest name] belong to the *[evil tribe]* tribe. [orcs] Their fort is [orc fort] [orc plans]
 1,The hill overlooking [forest name] is the home of [1d8 treants] ([treant stats]). They mostly stand around near the [forest feature]. [maybe barrow]
@@ -9530,7 +9537,7 @@
 1,HD 6+1 AC 4 1d6/1d6/1d10 or *spikes* F6 MV 18 ML 9 XP 600; 24 *spikes* (60ft, 1d6), up to 6/rd
 
 ;halfling valley
-1,Often cliffs block your way. But here’s a crack in the cliff and if you follow the small creek into the canyon you can reach a hidden valley. Small pigs rooting between the oak trees, here.
+1,Often cliffs block your way. But here’s a crack in the cliff and if you follow the small creek into the [gorge] you can reach a hidden valley. Small pigs rooting between the oak trees, here.
 1,At the end of this valley is a small but beautiful waterfall. This looks like a dead end. There is, however, a **halfling lookout** up there and if all it can see are halflings, then they will lower a rope for them. There’s a hidden plateau up there.
 1,The sheer cliffs are nearly a 500ft high. For those in the know however, there is a hidden path that leads up to the plateau. Up there, [cows] are grazing.
 1,What looked like an outcrop is actually a two mountains rising out the forest. The way up is hard. Between the two mountains is a tiny valley, hidden from view.
@@ -13125,7 +13132,7 @@
 1,<p>A [druid path] north to [druid larder]. [maybe druid acolytes]<p>Another [druid path] south to [druid camp]. [druid] [druid acolytes] [druid goal] [druid terror]
 1,<p>A [druid path] south to [druid camp]. [druid] [druid acolytes] [druid goal] [druid terror]<p>Another [druid path] east to [druid larder]. [maybe druid acolytes]
 1,<p>A [druid path] west to [druid larder]. [maybe druid acolytes]<p>Another [druid path] north to [druid camp]. [druid] [druid acolytes] [druid goal] [druid terror]
-1,<p>A [druid path] uphill to [druid camp]. [druid] [druid acolytes] [druid goal] [druid terror]<p>Another [druid path] into a ravine where there one may find [druid larder]. [maybe druid acolytes]
+1,<p>A [druid path] uphill to [druid camp]. [druid] [druid acolytes] [druid goal] [druid terror]<p>Another [druid path] into a [gorge] where there one may find [druid larder]. [maybe druid acolytes]
 
 ;maybe druid acolytes
 2,[druid acolytes]
