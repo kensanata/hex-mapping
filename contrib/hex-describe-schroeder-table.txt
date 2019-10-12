@@ -2187,7 +2187,7 @@
 1,The room is lined with exquisite [tuscan|doric|ionic|corinthian|composite] columns of [wood|brick|stone|marble] in [a square|two rows of [4|6|7|8|10] columns each]. 
 
 ;altar desc
-1,A low [masonry mat] plinth crowns a [crumbling|collapsing|squat] dias covered in [cobwebs|dried blood|dust]. [religious walls]
+1,A low [masonry mat] plinth crowns a [crumbling|collapsing|squat] dais covered in [cobwebs|dried blood|dust]. [religious walls]
 1,Decades of melted wax form a frozen dribble and cover a wide [ornately|primitively|austerely] decorated [masonry mat] pedestal. [religious periphery]
 1,A carefully sculptured marble altar shows images of [power]. But instead of an offering it holds only [old bones|dried flower petals|a dessicated rat].
 1,An enormous stone table, brimming with [occult|dark|evil|vile] [energy|magic], dominates this room. Ceremonial stone knives line the edges. [[religious periphery]|[religious walls]]
@@ -2196,11 +2196,11 @@
 1,A vaulted ceiling provides excellent acoustics for singing. (But it will also transmit any noise to adjacent rooms.) [chapel desc center]
 
 ;chapel desc center
-1,An elevated dias is faced by [1d6+1] rows of wooden pews, which crowd this room.
+1,An elevated dais is faced by [1d6+1] rows of wooden pews, which crowd this room.
 1,A mostly burnt pulpit is in the center surrounded by circular benches.
 1,A circular stone font, dry but with a stain around the water line, smells of [smells].
 1,Rows and rows of long [masonry mat] benches are here.
-1,The room is dominated by a central dias, [two|three|six] [masonry mat] steps above the floor.
+1,The room is dominated by a central dais, [two|three|six] [masonry mat] steps above the floor.
 
 ;chapel desc
 3,[chapel desc center] [[religious periphery]|[religious walls]]
@@ -2307,7 +2307,7 @@
 
 ;great hall desc
 1,Long stone tables line this room, but all that remains of the chairs and benches is some rotted wood piled in the corner, smelling like termites and swamp.
-1,The smell of grease and [smells] is overwhelming. Long wooden tables and benches line the great hall, with another table on a dias at the front of the room.
+1,The smell of grease and [smells] is overwhelming. Long wooden tables and benches line the great hall, with another table on a dais at the front of the room.
 1,Glowering from above a blocked up fireplace is the giant taxidermied head of a [boar|deer|lion|bear|owlbear|manticore|gorgon|wyvern], in a deplorable state.
 1,Covered in cobwebs and egg-sacs, faded tapestries along the walls hint at this rooms former glory.
 
@@ -2423,7 +2423,7 @@
 1,An iron throne has been toppled, and the tables and benches all broken.
 1,Rusted iron braziers line the walls around the throne room, while a stone throne sits to one side. Once bejeweled, the throne now has empty sockets, as every gem has been looted from it.
 1,Two unadorned stone thrones sit here, side by side, one larger than the other.
-1,A resplendent wooden throne, recently polished, sits on a stone dias above long polished tables surrounded by benches. [capitalize chests] line both walls. 
+1,A resplendent wooden throne, recently polished, sits on a stone dais above long polished tables surrounded by benches. [capitalize chests] line both walls. 
 
 ;torture chamber desc
 1,Assorted implements of the trade lie on the ground, covered in mildew and filth. Fresh blood pools around an iron drain.
