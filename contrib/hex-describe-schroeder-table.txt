@@ -593,12 +593,35 @@
 1,trud
 
 ;hill
-1,The [name for hills] are dry and forbidding. The only animals you can see are some **goats**.
-1,The [name for hills] are bare and the narrow creeks between them have dug deep [gorge]s. One of these [same gorge]s is home to [some canyon wights] ([wight stats]). During they day they lie in the flooded cellar of a ruined toll tower guarding a ford. [dead treasure]
-1,Deep [gorge]s cut through the [name for hills]. A cave in one of those dry riverbeds is home to [giant scorpions] ([giant scorpion stats]).
-1,On one of the [name for hills] stands an old tower overlooking the lands below. This is the home of a **manticore** called *[manticore]* ([manticore stats]). [robber treasure]
-1,On one of the [name for hills] stands [a warlock fortress]
-1,The [name for hills] are home to a dungeon. [dungeon]
+1,The [name for hills] are dry and forbidding. The only animals you can see are some **goats**. [hills landmark]
+1,[hills landmark] Narrow creeks have dug deep [gorge]s into the [name for hills]. One of these [same gorge]s is home to [some canyon wights] ([wight stats]). During they day they lie in the flooded cellar of a ruined toll tower guarding a ford. [dead treasure]
+1,[hills landmark] Deep [gorge]s cut through the [name for hills]. A cave in one of those dry riverbeds is home to [giant scorpions] ([giant scorpion stats]).
+1,[hills landmark] On one of the [name for hills] stands an old tower overlooking the lands below. This is the home of a **manticore** called *[manticore]* ([manticore stats]). [robber treasure]
+1,[hills landmark] On one of the [name for hills] stands [a warlock fortress]
+1,[hills landmark] The [name for hills] are home to a dungeon. [dungeon]
+
+#Hills/Low Mountains
+;hills landmark
+1,A [large|gigantic|diligent] burrowing [creature|animal|monster] has disturbed the [rich|dry|dark|root-bound] [earth|soil|clay|loam] here.
+1,The [sandy|rocky|pebble-strewn] [slopes|hillsides|valleys] are heavily eroded by [wind and rain|recent flooding|frequent foot-traffic].
+1,[Frequently|Carefully|Meticulously|Recently] [plowed|tilled|planted] [terraces|slopes] make the most use of [fertile|limited flat|unforgiving] land here.
+1,Atop a [large|small|squat|surprisingly uniform|very rotund] [hill|hummock|mound|promontory|slope|tor|talus|knoll] is a [ring|arrangement|circle|jutting pile] of [standing|granite|marble|hewn|crudely worked] [stones|boulders|megaliths].
+1,[Gentle|Rising|Steep] slopes [reveal|cradle|contain] an orchard of [wild|carefully pruned|sagging] [tree 1] [Apple|Lemon|Orange|Cherry|Lemon|Peach|Plum|Fig] trees.
+1,A small [brook|creek|stream] meanders [between|through|down] the [hills|hummocks|slopes|tors|knolls|hillocks] here.
+1,[Celebrating|Memorializing|Immortalizing|Commemorating|Eulogizing|Demonizing] [an ancient battle|a crushing defeat|a long dead monarch], a [weathered|eroded|nearly demolished] statue graces a nearby [hill|hummock|mound|promontory|slope|tor|talus|knoll|crest].
+1,The [hills|hummocks|slopes|tors|knolls|hillocks] here [appear|are|seem] unnatural, possibly ancient barrows of some kind.
+1,[Brilliant|Innumerable|Blossoming] [colour] flowers coat the [hills|hummocks|slopes|tors|knolls|hillocks] here like thick, wet paint.
+1,[Lined|Encircled|Fenced] with [small boulders|decaying wooden slats|cultivated hedges] is what appears to be a[n overgrown| carefully tended| forgotten] [cemetery|graveyard|garden] for [halflings|gnomes].
+1,The [ruts|furrows|gouges] of [centuries of|years of|recent] [wagon|cart|coach] wheels form a [friendly|uneven|muddy] path here.
+1,Someone has nailed a [battered shield|tender love letter|sun-faded wanted poster|wooden holy symbol] to a [sickly|large|ancient] [tree] tree.
+1,A [small|large|animal|foul-smelling] [den|burrow] of some kind is [carefully|clumsily|barely] concealed [with brush|by bushes|behind some stones].
+1,Remnants of a [recent|large|sacred] bonfire and [celebration|ceremony|religious sacrifice] dot the [hills|hummocks|slopes|tors|knolls|hillocks|hilltops].
+1,A[ burned| ransacked|n abandoned| charred] [wagon|barn|farmstead] lies ahead, eerily [silent|peaceful|foreboding] in the [growing|soft|whispering] [winds|breeze].
+1,Crumbling with [age|erosion|disrepair], the [ruins|remains|supports|stony legs] of an ancient aqueduct [wind and hop|snake|straddle the valleys] over hillsides.
+1,Here the [hills|hummocks|slopes|tors|knolls|hillocks|hilltops] grow [rocky|craggy|rough|jagged|pebbly], bearing only a few tufts of [Knife|[tree 1]]grass.
+1,On the side of a large [rise|crest|cliff|hillock|slope], crushed [chalk|glittering gypsum|[colour] clay|glimmering pyrite] forms the image of [[[power] decoration]|a stylized ram skull|rearing horse|sleeping dragon|hunter with a spear|unblinking eye].
+1,[Unnervingly|Surprisingly|Noticeably] uniform, the [hills|hummocks|slopes|tors|knolls|hillocks|hilltops] here resemble [giant tortoise shells|hay-bales|balding heads].
+1,The sun-bleached bones of [thousands of|hundreds of|several|a dozen] [horses|antelope|bison|sheep|goats] [fill|dot|blanket] the [dale|gorge|valley|basin|glen|dell|vale|swale|coulee|lowland] here.
 
 ;a warlock fortress
 1,a ruined fortress currently occupied by [warlocks]. [average treasure]<p>The fortress and its surrounding land is ruled by the **medusa** *[medusa]* ([medusa stats]). The courtyard and rooms are full of her petrified victims and the bones of the dead. [luxurious context] [terror treasure]
