@@ -6473,10 +6473,10 @@
 1,Graves
 
 ;canyon
-1,<p>[name for river] has dug itself a deep [gorge].
-1,<p>The [gorge] is deep. Somewhere in the darkness below you hear [name for river].
-1,<p>Crossing the [gorge] requires climbing gear. [name for river] flows far below, unreachable.
-1,<p>The [gorge] cuts through the rock. Waterfalls join the [name for river] below.
+1,It has dug itself a deep [gorge]. You can see it churning down there, a death trap to any who would dare brave it.
+1,It has cut itself a deep [gorge]. You can hear it murmuring somewhere in the darkness below.
+1,It cuts through the landscape like a knife. You can see it flowing calmly far below, unreachable without many ropes and pitons.
+1,It has cut a [gorge] through the rock. Every now and then a stream tumbles into the depths below.
 
 ;gorge
 1,gorge
