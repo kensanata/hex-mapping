@@ -3100,8 +3100,10 @@ get '/:type/redirect' => sub {
   my $self = shift;
   my $type = $self->param('type');
   my $rooms = $self->param('rooms');
-  my %params = (seed => time);
+  my $seed = $self->param('seed');
+  my %params = ();
   $params{rooms} = $rooms if $rooms;
+  $params{seed} = $seed if $seed;
   $self->redirect_to($self->url_for($type . "random")->query(%params));
 } => 'redirect';
 

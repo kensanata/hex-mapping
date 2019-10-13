@@ -366,7 +366,7 @@ any '/nomap/markdown' => sub {
   my $input = $c->param('input') || '';
   my $table = get_table($c);
   my $seed = $c->param('seed') || time;
-  srand($seed);
+  srand($c->param('seed')) if $c->param('seed');
   my $descriptions = describe_text($input, parse_table($table));
   $c->render(text => markdown($descriptions), format => 'txt');
 } => 'nomap_markdown';
@@ -418,8 +418,8 @@ any '/rule' => sub {
   my $n = $c->param('n') || 10;
   my $input = "[$rule]\n" x $n;
   my $table = get_table($c);
-  my $seed = $c->param('seed') || time;
-  srand($seed);
+  my $seed = $c->param('seed');
+  srand($seed) if $seed;
   my $descriptions = describe_text($input, parse_table($table), 1); # with redirects
   $c->render(template => 'text', input => $input, load => $c->param('load'), seed => $seed,
 	     n => $n, url => $c->param('url'), table => $c->param('table'),
@@ -434,8 +434,7 @@ any '/rule/markdown' => sub {
   my $n = $c->param('n') || 10;
   my $input = $c->param('input') || "[$rule]\n" x $n;
   my $table = get_table($c);
-  my $seed = $c->param('seed') || time;
-  srand($seed);
+  srand($c->param('seed')) if $c->param('seed');
   my $descriptions = describe_text($input, parse_table($table), 1); # with redirects
   $c->render(text => markdown($descriptions), format => 'txt');
 } => 'rule_markdown';
@@ -489,8 +488,8 @@ any '/describe/text' => sub {
   my $input = $c->param('input');
   my $url = $c->param('url');
   my $table = $c->param('table');
-  my $seed = $c->param('seed') || time;
-  srand($seed);
+  my $seed = $c->param('seed');
+  srand($seed) if $seed;
   my $data = get_table($c); # must be scalar context
   $c->render(template => 'text', input => $input, load => $load, seed => $seed,
 	     n => $n, url => $url, table => $table,
@@ -1121,7 +1120,8 @@ sub pick {
       my $lines = $table_data->{$key}->{lines};
       $text = pick_description($total, $lines);
       # $log->debug("$coordinates → $key → $text");
-      $text =~ s/\[\[redirect (https:.*?)\]\]/resolve_redirect($1, $redirects)/ge;
+      my $seed = int(rand(~0)); # maxint
+      $text =~ s/\[\[redirect (https:.*?)\]\]/my $url = $1; $url =~ s!\$seed!$seed!; resolve_redirect($url, $redirects)/ge;
       # this makes sure we recursively resolve all references, in order, because
       # we keep rescanning from the beginning
       my $last = $text;

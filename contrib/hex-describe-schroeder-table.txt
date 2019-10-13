@@ -1330,10 +1330,10 @@
 1,[save dungeontype as monsters]This is the *[here dungeon name]*.<p>[dungeon map with 7 rooms]<ol><li>[entrance room]</li><li>[with interior room]<ul><li>[room feature]</i></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[final room]<ul><li><u>Boss Monster:</u> [[same monsters] boss].</li><li>Treasure: [final room treasure].</li></ul></li></ol>
 
 ;dungeon map with 5 rooms
-1,<img class="map" src="[[redirect https://campaignwiki.org/text-mapper/gridmapper/redirect?pillars=0]]" alt="5 room dungeon" title="5 room dungeon"/>
+1,<img class="map" src="[[redirect https://campaignwiki.org/text-mapper/gridmapper/redirect?pillars=0&seed=$seed]]" alt="5 room dungeon" title="5 room dungeon"/>
 
 ;dungeon map with 7 rooms
-1,<img class="map" src="[[redirect https://campaignwiki.org/text-mapper/gridmapper/redirect?pillars=0&rooms=7]]" alt="7 room dungeon" title="7 room dungeon"/>
+1,<img class="map" src="[[redirect https://campaignwiki.org/text-mapper/gridmapper/redirect?pillars=0&rooms=7&seed=$seed]]" alt="7 room dungeon" title="7 room dungeon"/>
 
 # add Wandering Monster: [[same monsters] encounter]...this might be possible as a sub-table floating to the side (like the gem stuff in hex describe)
 
@@ -5968,7 +5968,7 @@
 1,Forever
 
 ;dragon portrait
-1,<img class="landscape" src="[[redirect https://campaignwiki.org/face/redirect/alex/dragon]]" alt="[same dragon name]" title="[same dragon name]"/>
+1,<img class="landscape" src="[[redirect https://campaignwiki.org/face/redirect/alex/dragon?seed=$seed]]" alt="[same dragon name]" title="[same dragon name]"/>
 
 ;white dragon stats
 1,HD 6 AC 3 1d4/1d4/2d8 F6 MV 24 ML 8 XP 600; *ice* (as much as the dragon has hp left, save vs. dragon breath for half)
@@ -6736,7 +6736,7 @@
 1,[dwarf stats]; immune to fire
 
 ;dwarf with portrait
-1,*[dwarf name]*<img class="portrait" src="[[redirect https://campaignwiki.org/face/redirect/alex/dwarf]]" alt="[same dwarf name]" title="[same dwarf name]"/>[store [same dwarf name] as dwarf patron]
+1,*[dwarf name]*<img class="portrait" src="[[redirect https://campaignwiki.org/face/redirect/alex/dwarf?seed=$seed]]" alt="[same dwarf name]" title="[same dwarf name]"/>[store [same dwarf name] as dwarf patron]
 
 ;dwarf name
 1,[dwarf name for men] [dwarf 2a][dwarf 2b]
@@ -8013,7 +8013,7 @@
 1,[5d8] **froglings** ([frogling stats]) live here, led by *[frogling with portrait]*, a priest of Tsathoggua: *lightning bolt* 2×/day (5d6, save vs. spells for half). [poor treasure] The mud village built around the temple[here store Tsathoggua as temple power] is guarded by [frogling companions].
 
 ;frogling with portrait
-1,*[frogling name]*<img class="portrait" src="[[redirect https://campaignwiki.org/face/redirect/alex/frog]]" alt="[same frogling name]" title="[same frogling name]"/>
+1,*[frogling name]*<img class="portrait" src="[[redirect https://campaignwiki.org/face/redirect/alex/frog?seed=$seed]]" alt="[same frogling name]" title="[same frogling name]"/>
 
 ;frogling name
 1,[frogling 1] [frogling 2]
@@ -8470,7 +8470,7 @@
 1,Thrash
 
 ;orc with portrait
-1,*[orc name]*<img class="portrait" src="[[redirect https://campaignwiki.org/face/redirect/alex/orc]]" alt="[same orc name]" title="[same orc name]" />[store [same orc name] as orc patron]
+1,*[orc name]*<img class="portrait" src="[[redirect https://campaignwiki.org/face/redirect/alex/orc?seed=$seed]]" alt="[same orc name]" title="[same orc name]" />[store [same orc name] as orc patron]
 
 ;orc name
 1,[orc 1][orc 2]
@@ -8653,8 +8653,8 @@
 4,[1d4+1] **badgers** ([weasel stats])
 
 ;gnome with portrait
-1,*[gnome man as gnome name]*<img class="portrait" src="[[redirect https://campaignwiki.org/face/redirect/alex/gnome]]" alt="[same gnome name]" title="[same gnome name]"/>
-1,*[gnome woman as gnome name]*<img class="portrait" src="[[redirect https://campaignwiki.org/face/redirect/tuiren/gnome]]" alt="[same gnome name]" title="[same gnome name]"/>
+1,*[gnome man as gnome name]*<img class="portrait" src="[[redirect https://campaignwiki.org/face/redirect/alex/gnome?seed=$seed]]" alt="[same gnome name]" title="[same gnome name]"/>
+1,*[gnome woman as gnome name]*<img class="portrait" src="[[redirect https://campaignwiki.org/face/redirect/tuiren/gnome?seed=$seed]]" alt="[same gnome name]" title="[same gnome name]"/>
 
 ;gnome name
 1,[gnome man]
@@ -8815,7 +8815,7 @@
 3,[1d3+1] **squid people** led by [squid leader] ([squid person stats])
 
 ;squid leader
-1,*[squid]*<img class="portrait" src="[[redirect https://campaignwiki.org/face/redirect/alex/squid]]" alt="[same squid]" title="[same squid]"/>
+1,*[squid]*<img class="portrait" src="[[redirect https://campaignwiki.org/face/redirect/alex/squid?seed=$seed]]" alt="[same squid]" title="[same squid]"/>
 
 ;squid
 1,[squid 1] [star name]
@@ -9051,7 +9051,7 @@
 5,an **ogre** called *[ogre name]*[ogre portrait]
 
 ;ogre portrait
-1,<img class="portrait" src="[[redirect https://campaignwiki.org/face/redirect/alex/demon]]" alt="[same ogre name]" title="[same ogre name]"/>
+1,<img class="portrait" src="[[redirect https://campaignwiki.org/face/redirect/alex/demon?seed=$seed]]" alt="[same ogre name]" title="[same ogre name]"/>
 
 ;ogre mage stats
 1,HD 6+1 AC 5 1d10 + 1d6 *fire* F6 MV 9 ML 10 XP 600; *fog*; *invisibility*; *snow storm* 3×/day for 6d6 damage up to 30ft., save vs. spells for half
@@ -9582,7 +9582,7 @@
 1,They hate and fear all outsiders. And what they fear most of all is that somebody would betray the location of their home.
 
 ;halfling with portrait
-1,*[halfling name]*<img class="portrait" src="[[redirect https://campaignwiki.org/face/redirect/alex/woman]]" alt="[same halfling name]" title="[same halfling name]"/>
+1,*[halfling name]*<img class="portrait" src="[[redirect https://campaignwiki.org/face/redirect/alex/woman?seed=$seed]]" alt="[same halfling name]" title="[same halfling name]"/>
 
 ;halfling name
 1,[gothic names for men]
@@ -12047,7 +12047,7 @@
 1,HD 5 AC 5 1d4/1d4/1d6 + *poison* F5 MV 12 ML 9 XP 500; *climb*; *poison*: when bit, save vs. poison or be paralysed for 2h
 
 ;ettercap with portrait
-1,*[ettercap name]*<img class="portrait" src="[[redirect https://campaignwiki.org/face/redirect/alex/spider]]" alt="[same ettercap name]" title="[same ettercap name]"/>
+1,*[ettercap name]*<img class="portrait" src="[[redirect https://campaignwiki.org/face/redirect/alex/spider?seed=$seed]]" alt="[same ettercap name]" title="[same ettercap name]"/>
 
 ;ettercap name
 1,[spider name 1] [spider name 2]
@@ -12367,7 +12367,7 @@
 1,HD 9 AC 1 3d6 MV 12 ML 12 XP 900; immune to *arrows*, immune to *poison*; immune to *spells*
 
 ;elf with portrait
-1,*[elf name]*<img class="portrait" src="[[redirect https://campaignwiki.org/face/redirect/alex/elf]]" alt="[same elf name]" title="[same elf name]"/>[store [same elf name] as elf patron]
+1,*[elf name]*<img class="portrait" src="[[redirect https://campaignwiki.org/face/redirect/alex/elf?seed=$seed]]" alt="[same elf name]" title="[same elf name]"/>[store [same elf name] as elf patron]
 
 # Not accounted for: Letter changes when combining words
 # http://sindarinlessons.weebly.com/37---how-to-make-names-1.html
@@ -14749,7 +14749,7 @@
 1,HD 9 AC 2 1d8/1d8/1d12 F9 MV 18 ML 11 XP 900; only harmed by magic or magic weapons; immune to spells of casters up to fifth level; *[devil breath]*: 2d6, save vs. rays for half
 
 ;devil portrait
-1,<img class="portrait" src="[[redirect https://campaignwiki.org/face/redirect/alex/demon]]" alt="[same devil name]" title="[same devil name]"/>
+1,<img class="portrait" src="[[redirect https://campaignwiki.org/face/redirect/alex/demon?seed=$seed]]" alt="[same devil name]" title="[same devil name]"/>
 
 ;local smith
 1,The local **smith** is [smith description] called [human with portrait]. You can get your horses shod and your ploughs fixed. [local smith inventory description:] [local smith inventory].
@@ -15843,15 +15843,15 @@
 1,[woman with portrait]
 
 ;man with portrait
-1,*[man as human name]*<img class="portrait" src="[[redirect https://campaignwiki.org/face/redirect/alex/man]]" alt="[same human name]" title="[same human name]"/>
+1,*[man as human name]*<img class="portrait" src="[[redirect https://campaignwiki.org/face/redirect/alex/man?seed=$seed]]" alt="[same human name]" title="[same human name]"/>
 
 ;woman with portrait
-1,*[woman as human name]*<img class="portrait" src="[[redirect https://campaignwiki.org/face/redirect/alex/woman]]" alt="[same human name]" title="[same human name]"/>
+1,*[woman as human name]*<img class="portrait" src="[[redirect https://campaignwiki.org/face/redirect/alex/woman?seed=$seed]]" alt="[same human name]" title="[same human name]"/>
 
 ;human portrait
 # use this when you need a portrait of either sex and you have already picked a non-standard human name
-1,<img class="portrait" src="[[redirect https://campaignwiki.org/face/redirect/alex/man]]" alt="[same human name]" title="[same human name]"/>
-1,<img class="portrait" src="[[redirect https://campaignwiki.org/face/redirect/alex/woman]]" alt="[same human name]" title="[same human name]"/>
+1,<img class="portrait" src="[[redirect https://campaignwiki.org/face/redirect/alex/man?seed=$seed]]" alt="[same human name]" title="[same human name]"/>
+1,<img class="portrait" src="[[redirect https://campaignwiki.org/face/redirect/alex/woman?seed=$seed]]" alt="[same human name]" title="[same human name]"/>
 
 ;human name
 1,[man]
