@@ -10201,10 +10201,10 @@
 1,flow
 
 ;maybe barrow
-1,
-1,<p>Close by, on a little hill, one can see [barrow]
-1,<p>A tiny foot trail leads into a copse of [tree] trees. There, one finds [barrow]
-1,<p>Between two rocky outcrops, one can find [barrow]
+10,
+1,<p>Close by, on a little hill, one can see **barrow** [barrow]
+1,<p>A tiny foot trail leads into a copse of [tree] trees. There, one finds **barrow** [barrow]
+1,<p>Between two rocky outcrops, one can find **barrow** [barrow]
 
 ;maybe island barrow
 1,
