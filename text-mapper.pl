@@ -14,7 +14,7 @@
 # this program. If not, see <http://www.gnu.org/licenses/>.
 
 package main;
-use Modern::Perl '2019';
+use Modern::Perl '2018';
 
 my $dx = 100;
 my $dy = 100*sqrt(3);
@@ -24,7 +24,7 @@ my $contrib;
 
 package Point;
 
-use Modern::Perl '2019';
+use Modern::Perl '2018';
 use Class::Struct;
 
 struct Point => { x => '$', y => '$', };
@@ -43,7 +43,7 @@ sub coordinates {
 
 package Line;
 
-use Modern::Perl '2019';
+use Modern::Perl '2018';
 use Class::Struct;
 use URI::Escape;
 
@@ -190,7 +190,7 @@ sub circle {
 
 package Line::Hex;
 
-use Modern::Perl '2019';
+use Modern::Perl '2018';
 use parent -norequire, 'Line';
 
 sub pixels {
@@ -235,7 +235,7 @@ sub one_step {
 
 package Line::Square;
 
-use Modern::Perl '2019';
+use Modern::Perl '2018';
 use parent -norequire, 'Line';
 
 sub pixels {
@@ -261,7 +261,7 @@ sub one_step {
 
 package Hex;
 
-use Modern::Perl '2019';
+use Modern::Perl '2018';
 use Class::Struct;
 use URI::Escape;
 
@@ -356,7 +356,7 @@ sub svg_label {
 
 package Square;
 
-use Modern::Perl '2019';
+use Modern::Perl '2018';
 use Class::Struct;
 use URI::Escape;
 
@@ -446,7 +446,7 @@ sub svg_label {
 
 package Mapper;
 
-use Modern::Perl '2019';
+use Modern::Perl '2018';
 use Class::Struct;
 use LWP::UserAgent;
 
@@ -775,7 +775,7 @@ sub svg {
 
 package Mapper::Hex;
 
-use Modern::Perl '2019';
+use Modern::Perl '2018';
 use parent -norequire, 'Mapper';
 
 sub make_region {
@@ -805,7 +805,7 @@ sub viewbox {
 
 package Mapper::Square;
 
-use Modern::Perl '2019';
+use Modern::Perl '2018';
 use parent -norequire, 'Mapper';
 
 sub make_region {
@@ -833,7 +833,7 @@ sub viewbox {
 }
 
 package Smale;
-use Modern::Perl '2019';
+use Modern::Perl '2018';
 
 my %world = ();
 
@@ -1256,7 +1256,7 @@ sub generate_map {
 
 package Schroeder;
 
-use Modern::Perl '2019';
+use Modern::Perl '2018';
 use Class::Struct;
 use List::Util 'shuffle';
 
@@ -2132,7 +2132,7 @@ sub generate_map {
 
 package Schroeder::Hex;
 
-use Modern::Perl '2019';
+use Modern::Perl '2018';
 use parent -norequire, 'Schroeder';
 
 sub neighbors { 0 .. 5 }
@@ -2215,7 +2215,7 @@ sub arrows {
 
 package Schroeder::Square;
 
-use Modern::Perl '2019';
+use Modern::Perl '2018';
 use parent -norequire, 'Schroeder';
 
 sub neighbors { 0 .. 3 }
@@ -2274,7 +2274,7 @@ sub arrows {
 
 package Gridmapper;
 
-use Modern::Perl '2019';
+use Modern::Perl '2018';
 use Class::Struct;
 use List::Util qw'shuffle none any min max';
 use List::MoreUtils qw'pairwise';
@@ -3284,7 +3284,7 @@ sub to_gridmapper_link {
 
 package Mojolicious::Command::render;
 
-use Modern::Perl '2019';
+use Modern::Perl '2018';
 use Mojo::Base 'Mojolicious::Command';
 
 has description => 'Render map from STDIN';
@@ -3307,7 +3307,7 @@ sub run {
 
 package Mojolicious::Command::random;
 
-use Modern::Perl '2019';
+use Modern::Perl '2018';
 use Mojo::Base 'Mojolicious::Command';
 
 has description => 'Print a random map to STDOUT';
@@ -3331,7 +3331,7 @@ sub run {
 
 package main;
 
-use Modern::Perl '2019';
+use Modern::Perl '2018';
 use Mojolicious::Lite;
 use Mojo::DOM;
 use Mojo::Util qw(xml_escape);
