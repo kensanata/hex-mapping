@@ -14,7 +14,7 @@
 # this program. If not, see <http://www.gnu.org/licenses/>.
 
 package main;
-use Modern::Perl;
+use Modern::Perl '2019';
 
 my $dx = 100;
 my $dy = 100*sqrt(3);
@@ -22,20 +22,9 @@ my $debug;
 my $log;
 my $contrib;
 
-sub url_encode {
-  my $str = shift;
-  return '' unless $str;
-  utf8::encode($str); # turn to byte string
-  my @letters = split(//, $str);
-  my %safe = map {$_ => 1} ('a' .. 'z', 'A' .. 'Z', '0' .. '9', '-', '_', '.', '!', '~', '*', "'", '(', ')', '#');
-  foreach my $letter (@letters) {
-    $letter = sprintf("%%%02x", ord($letter)) unless $safe{$letter};
-  }
-  return join('', @letters);
-}
-
 package Point;
 
+use Modern::Perl '2019';
 use Class::Struct;
 
 struct Point => { x => '$', y => '$', };
@@ -54,7 +43,9 @@ sub coordinates {
 
 package Line;
 
+use Modern::Perl '2019';
 use Class::Struct;
+use URI::Escape;
 
 struct Line => {
 		id => '$',
@@ -149,7 +140,7 @@ sub svg_label {
   my $attributes = $self->map->label_attributes || "";
   my $glow = $self->map->glow_attributes || "";
   my $url = $self->map->url;
-  $url =~ s/\%s/url_encode($self->label)/e or $url .= url_encode($self->label) if $url;
+  $url =~ s/\%s/uri_escape($self->label)/e or $url .= uri_escape($self->label) if $url;
   # default is left, but if the line goes from right to left, then "left" means "upside down"
   my $side = '';
   if ($self->points->[1]->x < $self->points->[0]->x
@@ -199,6 +190,7 @@ sub circle {
 
 package Line::Hex;
 
+use Modern::Perl '2019';
 use parent -norequire, 'Line';
 
 sub pixels {
@@ -243,6 +235,7 @@ sub one_step {
 
 package Line::Square;
 
+use Modern::Perl '2019';
 use parent -norequire, 'Line';
 
 sub pixels {
@@ -268,7 +261,9 @@ sub one_step {
 
 package Hex;
 
+use Modern::Perl '2019';
 use Class::Struct;
+use URI::Escape;
 
 struct Hex => {
   x => '$',
@@ -339,7 +334,7 @@ sub svg_label {
       $attributes .= ' font-size="' . $self->size . '"';
     }
   }
-  $url =~ s/\%s/url_encode($self->label)/e or $url .= url_encode($self->label) if $url;
+  $url =~ s/\%s/uri_escape($self->label)/e or $url .= uri_escape($self->label) if $url;
   my $x = $self->x;
   my $y = $self->y;
   my $data = sprintf(qq{    <g><text text-anchor="middle" x="%.1f" y="%.1f" %s %s>}
@@ -361,7 +356,9 @@ sub svg_label {
 
 package Square;
 
+use Modern::Perl '2019';
 use Class::Struct;
+use URI::Escape;
 
 struct Square => {
   x => '$',
@@ -425,7 +422,7 @@ sub svg_label {
       $attributes .= ' font-size="' . $self->size . '"';
     }
   }
-  $url =~ s/\%s/url_encode($self->label)/e or $url .= url_encode($self->label) if $url;
+  $url =~ s/\%s/uri_escape($self->label)/e or $url .= uri_escape($self->label) if $url;
   my $x = $self->x;
   my $y = $self->y;
   my $data = sprintf(qq{    <g><text text-anchor="middle" x="%d" y="%d" %s %s>}
@@ -449,6 +446,7 @@ sub svg_label {
 
 package Mapper;
 
+use Modern::Perl '2019';
 use Class::Struct;
 use LWP::UserAgent;
 
@@ -777,6 +775,7 @@ sub svg {
 
 package Mapper::Hex;
 
+use Modern::Perl '2019';
 use parent -norequire, 'Mapper';
 
 sub make_region {
@@ -806,6 +805,7 @@ sub viewbox {
 
 package Mapper::Square;
 
+use Modern::Perl '2019';
 use parent -norequire, 'Mapper';
 
 sub make_region {
@@ -833,6 +833,7 @@ sub viewbox {
 }
 
 package Smale;
+use Modern::Perl '2019';
 
 my %world = ();
 
@@ -1254,9 +1255,10 @@ sub generate_map {
 }
 
 package Schroeder;
-use Modern::Perl;
-use List::Util 'shuffle';
+
+use Modern::Perl '2019';
 use Class::Struct;
+use List::Util 'shuffle';
 
 # Currently empty
 struct Schroeder => {};
@@ -2130,6 +2132,7 @@ sub generate_map {
 
 package Schroeder::Hex;
 
+use Modern::Perl '2019';
 use parent -norequire, 'Schroeder';
 
 sub neighbors { 0 .. 5 }
@@ -2212,6 +2215,7 @@ sub arrows {
 
 package Schroeder::Square;
 
+use Modern::Perl '2019';
 use parent -norequire, 'Schroeder';
 
 sub neighbors { 0 .. 3 }
@@ -2269,9 +2273,12 @@ sub arrows {
 }
 
 package Gridmapper;
+
+use Modern::Perl '2019';
+use Class::Struct;
 use List::Util qw'shuffle none any min max';
 use List::MoreUtils qw'pairwise';
-use Class::Struct;
+use URI::Escape;
 
 # Currently empty
 struct Gridmapper => {
@@ -2322,7 +2329,7 @@ sub generate_map {
   $tiles = $self->add_stair($tiles, $stairs);
   $tiles = $self->fix_corners($tiles);
   $tiles = $self->fix_pillars($tiles) if $pillars;
-  my $text = $self->to_text($tiles);
+  return $self->to_text($tiles);
 }
 
 sub generate_room {
@@ -3201,10 +3208,83 @@ sub to_text {
       }
     }
   }
+  # The following is matched in /gridmapper/random!
+  $text .= "# Gridmapper link: " . $self->to_gridmapper_link($tiles);
   return $text;
 }
 
+sub to_gridmapper_link {
+  my $self = shift;
+  my $tiles = shift;
+  my $code;
+  my $pen = 'up';
+  for my $y (0 .. $self->col - 1) {
+    for my $x (0 .. $self->row - 1) {
+      my $tile = $tiles->[$x + $y * $self->row];
+      if (not $tile or @$tile == 0) {
+	my $next = $tiles->[$x + $y * $self->row + 1];
+	if ($pen eq 'down' and $next and @$next) {
+	  $code .= ' ';
+	} else {
+	  $pen = 'up';
+	}
+	next;
+      }
+      if ($pen eq 'up') {
+	$code .= "($x,$y)";
+	$pen = 'down';
+      }
+      my $finally = " ";
+      # $log->debug("[$x,$y] @$tile");
+      for (@$tile) {
+	if ($_ eq "empty") { $finally = "f" }
+	elsif ($_ eq "pillar") { $code .= "p" }
+	elsif (/^"(\d+)"$/) { $code .= $1 }
+	elsif ($_ eq "arc-se") { $code .= "a" }
+	elsif ($_ eq "arc-sw") { $code .= "aa" }
+	elsif ($_ eq "arc-nw") { $code .= "aaa" }
+	elsif ($_ eq "arc-ne") { $code .= "aaaa" }
+	elsif ($_ eq "diagonal-se") { $code .= "n" }
+	elsif ($_ eq "diagonal-sw") { $code .= "nn" }
+	elsif ($_ eq "diagonal-nw") { $code .= "nnn" }
+	elsif ($_ eq "diagonal-ne") { $code .= "nnnn" }
+	elsif ($_ eq "door-w") { $code .= "d" }
+	elsif ($_ eq "door-n") { $code .= "dd" }
+	elsif ($_ eq "door-e") { $code .= "ddd" }
+	elsif ($_ eq "door-s") { $code .= "dddd" }
+	elsif ($_ eq "secret-w") { $code .= "dv" }
+	elsif ($_ eq "secret-n") { $code .= "ddv" }
+	elsif ($_ eq "secret-e") { $code .= "dddv" }
+	elsif ($_ eq "secret-s") { $code .= "ddddv" }
+	elsif ($_ eq "concealed-w") { $code .= "dvv" }
+	elsif ($_ eq "concealed-n") { $code .= "ddvv" }
+	elsif ($_ eq "concealed-e") { $code .= "dddvv" }
+	elsif ($_ eq "concealed-s") { $code .= "ddddvv" }
+	elsif ($_ eq "archway-w") { $code .= "dvvvv" }
+	elsif ($_ eq "archway-n") { $code .= "ddvvvv" }
+	elsif ($_ eq "archway-e") { $code .= "dddvvvv" }
+	elsif ($_ eq "archway-s") { $code .= "ddddvvvv" }
+	elsif ($_ eq "stair-s") { $code .= "s" }
+	elsif ($_ eq "stair-w") { $code .= "ss" }
+	elsif ($_ eq "stair-n") { $code .= "sss" }
+	elsif ($_ eq "stair-e") { $code .= "ssss" }
+	else {
+	  $log->warn("Tile $_ not known for Gridmapper link");
+	}
+      }
+      $code .= $finally;
+    }
+    $pen = 'up';
+  }
+  $log->debug("Gridmapper: $code");
+  my $url = 'https://campaignwiki.org/gridmapper?' . uri_escape($code);
+  $log->debug($url);
+  return $url;
+}
+
 package Mojolicious::Command::render;
+
+use Modern::Perl '2019';
 use Mojo::Base 'Mojolicious::Command';
 
 has description => 'Render map from STDIN';
@@ -3226,6 +3306,8 @@ sub run {
 }
 
 package Mojolicious::Command::random;
+
+use Modern::Perl '2019';
 use Mojo::Base 'Mojolicious::Command';
 
 has description => 'Print a random map to STDOUT';
@@ -3249,6 +3331,7 @@ sub run {
 
 package main;
 
+use Modern::Perl '2019';
 use Mojolicious::Lite;
 use Mojo::DOM;
 use Mojo::Util qw(xml_escape);
@@ -3487,6 +3570,8 @@ get '/gridmapper' => sub {
 get '/gridmapper/random' => sub {
   my $c = shift;
   my $map = gridmapper_map($c);
+  my ($url) = $map =~ /^# Gridmapper link: (.*)/m;
+  $c->res->headers->add('X-Link' => $url);
   my $mapper = Mapper::Square->new();
   my $svg = $mapper->initialize($map)->svg;
   $c->render(text => $svg, format => 'svg');
