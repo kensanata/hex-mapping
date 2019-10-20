@@ -1323,17 +1323,32 @@
 #MAIN GENERATOR
 ;dungeon
 # 5 rooms
-1,[save dungeontype as monsters]This is *[here dungeon name]*.<p>[dungeon map with 5 rooms]<ol><li>[entrance room]</li><li>[with interior room]<ul><li>[room feature]</i></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[final room]<ul><li>Boss Monster: [[same monsters] boss].</li><li>Treasure: [final room treasure].</li></ul></li></ol>
+5,[save dungeontype as monsters]This is *[here dungeon name]*.<p>[dungeon map with 5 rooms]<ol><li>[entrance room]</li><li>[with interior room]<ul><li>[room feature]</i></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[final room]<ul><li>Boss Monster: [[same monsters] boss].</li><li>Treasure: [final room treasure].</li></ul></li></ol>
 # 6 rooms
 # 1,[save dungeontype as monsters]<ol><li>[entrance room]</li><li>[with interior room]<ul><li>[room feature]</i></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[final room]<ul><li>Boss Monster: [[same monsters] boss].</li><li>Treasure: [final room treasure].</li></ul></li></ol>
 # 7 rooms
-1,[save dungeontype as monsters]This is *[here dungeon name]*.<p>[dungeon map with 7 rooms]<ol><li>[entrance room]</li><li>[with interior room]<ul><li>[room feature]</i></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[final room]<ul><li><u>Boss Monster:</u> [[same monsters] boss].</li><li>Treasure: [final room treasure].</li></ul></li></ol>
+4,[save dungeontype as monsters]This is *[here dungeon name]*.<p>[dungeon map with 7 rooms]<ol><li>[entrance room]</li><li>[with interior room]<ul><li>[room feature]</i></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[final room]<ul><li><u>Boss Monster:</u> [[same monsters] boss].</li><li>Treasure: [final room treasure].</li></ul></li></ol>
+# 10 rooms
+3,[save dungeontype as monsters]This is *[here dungeon name]*.<p>[dungeon map with 10 rooms]<ol><li>[entrance room]</li><li>[with interior room]<ul><li>[room feature]</i></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[final room]<ul><li>Boss Monster: [[same monsters] boss].</li><li>Treasure: [final room treasure].</li></ul></li><li>[entrance room]</li><li>[with interior room]<ul><li>[room feature]</i></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[final room]<ul><li><u>Boss Monster:</u> [[same monsters] boss].</li><li>Treasure: [final room treasure].</li></ul></li></ol>
+# 12 rooms
+2,[save dungeontype as monsters]This is *[here dungeon name]*.<p>[dungeon map with 12 rooms]<ol><li>[entrance room]</li><li>[with interior room]<ul><li>[room feature]</i></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[final room]<ul><li>Boss Monster: [[same monsters] boss].</li><li>Treasure: [final room treasure].</li></ul></li><li>[entrance room]</li><li>[with interior room]<ul><li>[room feature]</i></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[final room]<ul><li><u>Boss Monster:</u> [[same monsters] boss].</li><li>Treasure: [final room treasure].</li></ul></li></ol>
+# 14 rooms
+1,[save dungeontype as monsters]This is *[here dungeon name]*.<p>[dungeon map with 14 rooms]<ol><li>[entrance room]</li><li>[with interior room]<ul><li>[room feature]</i></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[final room]<ul><li><u>Boss Monster:</u> [[same monsters] boss].</li><li>Treasure: [final room treasure].</li></ul></li><li>[entrance room]</li><li>[with interior room]<ul><li>[room feature]</i></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[final room]<ul><li><u>Boss Monster:</u> [[same monsters] boss].</li><li>Treasure: [final room treasure].</li></ul></li></ol>
 
 ;dungeon map with 5 rooms
 1,<img class="map" src="[[redirect https://campaignwiki.org/text-mapper/gridmapper/redirect?pillars=0&seed=$seed]]" alt="5 room dungeon" title="5 room dungeon"/>
 
 ;dungeon map with 7 rooms
 1,<img class="map" src="[[redirect https://campaignwiki.org/text-mapper/gridmapper/redirect?pillars=0&rooms=7&seed=$seed]]" alt="7 room dungeon" title="7 room dungeon"/>
+
+;dungeon map with 10 rooms
+1,<img class="map" src="[[redirect https://campaignwiki.org/text-mapper/gridmapper/redirect?pillars=0&rooms=10&seed=$seed]]" alt="10 room dungeon" title="10 room dungeon"/>
+
+;dungeon map with 12 rooms
+1,<img class="map" src="[[redirect https://campaignwiki.org/text-mapper/gridmapper/redirect?pillars=0&rooms=12&seed=$seed]]" alt="12 room dungeon" title="12 room dungeon"/>
+
+;dungeon map with 14 rooms
+1,<img class="map" src="[[redirect https://campaignwiki.org/text-mapper/gridmapper/redirect?pillars=0&rooms=14&seed=$seed]]" alt="14 room dungeon" title="14 room dungeon"/>
 
 # add Wandering Monster: [[same monsters] encounter]...this might be possible as a sub-table floating to the side (like the gem stuff in hex describe)
 
