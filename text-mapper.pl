@@ -2758,6 +2758,12 @@ sub shape {
   } elsif ($num == 10) {
     $shape = $self->shape_merge($self->five_room_shape(), $self->five_room_shape());
     $stairs = ["1", "6"];
+  } elsif ($num == 12) {
+    $shape = $self->shape_merge($self->five_room_shape(), $self->seven_room_shape());
+    $stairs = ["1", "6"];
+  } elsif ($num == 14) {
+    $shape = $self->shape_merge($self->seven_room_shape(), $self->seven_room_shape());
+    $stairs = ["1", "8"];
   }
   $self->debug_shapes($shape) if $log->level eq 'debug';
   $log->debug(join(", ", map { "[@$_]"} @$shape));
@@ -4048,7 +4054,9 @@ will generate dungeon map data based on geomorph sketches by Robin Green. Or
 just keep reloading one of these links:
 <%= link_to url_for('gridmapperrandom')->query(rooms => 5) => begin %>5 rooms<% end %>,
 <%= link_to url_for('gridmapperrandom')->query(rooms => 7) => begin %>7 rooms<% end %>,
-<%= link_to url_for('gridmapperrandom')->query(rooms => 10) => begin %>10 rooms<% end %>.
+<%= link_to url_for('gridmapperrandom')->query(rooms => 10) => begin %>10 rooms<% end %>,
+<%= link_to url_for('gridmapperrandom')->query(rooms => 12) => begin %>12 rooms<% end %>,
+<%= link_to url_for('gridmapperrandom')->query(rooms => 14) => begin %>14 rooms<% end %>.
 %= form_for gridmapper => begin
 <p>
 <label>
@@ -4058,7 +4066,7 @@ No rooms with pillars
 %= hidden_field type => 'square'
 <table>
 <tr><td>Rooms:</td><td>
-%= select_field rooms => [5, 7, 10]
+%= select_field rooms => [5, 7, 10, 12, 14]
 </td></tr></table>
 <p>
 %= submit_button
