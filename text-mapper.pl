@@ -2692,33 +2692,34 @@ sub shape_merge {
 	  # $log->debug("Candidate ($d): [$smallest_x, $y] to [$biggest_x, $y]");
 	}
       }
-      my $candidates = one(@candidates);
-      # $log->debug("Need to connect: @$candidates");
-      # Sadly, at this point we no longer know the indexes, so we need to search!
-      my ($from, $to);
-      for my $i (0 .. $#$result) {
-	if (not $from
-	    and $result->[$i]->[0] == $candidates->[0]
-	    and $result->[$i]->[1] == $candidates->[1]) {
-	  $from = $i;
-	} elsif (not $to
-		 and $result->[$i]->[0] == $candidates->[2]
-		 and $result->[$i]->[1] == $candidates->[3]) {
-	  $to = $i;
+      for my $candidates (@candidates) {
+	# $log->debug("Connect: @$candidates");
+	# Sadly, at this point we no longer know the indexes, so we need to search!
+	my ($from, $to);
+	for my $i (0 .. $#$result) {
+	  if (not $from
+	      and $result->[$i]->[0] == $candidates->[0]
+	      and $result->[$i]->[1] == $candidates->[1]) {
+	    $from = $i;
+	  } elsif (not $to
+		   and $result->[$i]->[0] == $candidates->[2]
+		   and $result->[$i]->[1] == $candidates->[3]) {
+	    $to = $i;
+	  }
 	}
+	# $log->debug("Connecting $from and $to");
+	if (@{$result->[$from]} == 3 and $result->[$from]->[2] == $from) {
+	  # If this is a first room that was marked as "disconnected" by a self
+	  # reference, remove it.
+	  pop(@{$result->[$from]});
+	} elsif (@{$result->[$from]} == 2) {
+	  # If this room connects to the previous one by default, we need to make it
+	  # explicit in order to keep the connection.
+	  push(@{$result->[$from]}, $from - 1);
+	}
+	# And this finally connects the two rooms from the two different dungeons.
+	push(@{$result->[$from]}, $to);
       }
-      # $log->debug("Connecting $from and $to");
-      if (@{$result->[$from]} == 3 and $result->[$from]->[2] == $from) {
-	# If this is a first room that was marked as "disconnected" by a self
-	# reference, remove it.
-	pop(@{$result->[$from]});
-      } elsif (@{$result->[$from]} == 2) {
-	# If this room connects to the previous one by default, we need to make it
-	# explicit in order to keep the connection.
-	push(@{$result->[$from]}, $from - 1);
-      }
-      # And this finally connects the two rooms from the two different dungeons.
-      push(@{$result->[$from]}, $to);
     }
     $shift += $width;
     $rooms += $n;
@@ -2900,7 +2901,7 @@ sub add_corridor {
   my $tiles = shift;
   my $from = shift;
   my $to = shift;
-  $log->debug("Drawing a corridor [@$from]-[@$to]");
+  # $log->debug("Drawing a corridor [@$from]-[@$to]");
   # Delta has three elements: forward, left and right indexes.
   my $delta = shift;
   # Convert $from and $to to indexes into the tiles array.
