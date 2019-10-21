@@ -3209,7 +3209,10 @@ sub to_text {
     }
   }
   # The following is matched in /gridmapper/random!
-  $text .= "# Gridmapper link: " . $self->to_gridmapper_link($tiles);
+  my $url = $self->to_gridmapper_link($tiles);
+  $text .= qq{other <text x="-20em" y="0" font-size="40pt" transform="rotate(-90)" style="stroke:blue">}
+  . qq{<a xlink:href="$url">Edit in Gridmapper</a></text>\n};
+  $text .= "# Gridmapper link: $url\n";
   return $text;
 }
 
@@ -3570,8 +3573,6 @@ get '/gridmapper' => sub {
 get '/gridmapper/random' => sub {
   my $c = shift;
   my $map = gridmapper_map($c);
-  my ($url) = $map =~ /^# Gridmapper link: (.*)/m;
-  $c->res->headers->add('X-Link' => $url);
   my $mapper = Mapper::Square->new();
   my $svg = $mapper->initialize($map)->svg;
   $c->render(text => $svg, format => 'svg');
