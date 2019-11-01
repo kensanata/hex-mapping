@@ -4874,6 +4874,11 @@
 ;dwarf outpost
 1,The mountain ridge above is black and forbidding. Stairs wind their way up to [dwarf tower]
 1,At the entrance of this valley is an outcrop on which the dwarven [dwarf clan] clan has built a trading post many centuries ago. It has long since been abandoned. You can see their clan insignia carved into the weathered knots of stone: [with dwarven equipment] and [and dwarven equipment]. The platform is still surrounded by columns, the raised blocks used as tables are still there but everything else is gone.<p>The underground storage rooms are being used by the **orcs** of the *[evil tribe]* tribe. They roam this valley, raising [mountain animals] and making their [mountain orc product]. [orcs]<p>[mountain orc leader specialty]
+1,Among the cliffs a ridge stands out, sheer where the others are rocky. A secret door at its base opens upon a long, steep rising tunnel that exits in a valley with [dwarf tower]
+1,A long shallow pool covered in a sickly green algae guards a far cliff. The waters occasionally swirl and eddy, hinting at some leviathan underneath. In fact, the waters are unseasonably warm, with bubbling hot springs below. From the blocked cliff rises [dwarf tower]
+1,A wide stagnant moat has overflowed its channel and turned to fens, surrounding [dwarf tower]
+1,An enormous statue of a dwarf, its beard reaching the ground, is crowned with [dwarf tower]
+1,A long stone causeway, adorned with statues of dwarves hauling up cages holding sculpted [crabs|crawfish|lobsters], crosses what is now tundra, leading to [dwarf tower]
 
 ;dwarf tower
 1,a squat fortress, grey, with horizontal slits made for big dwarven siege ballistas. The entrance is hidden and fortified with many iron gates in narrow tunnels. These days narrow wooden ladders simply lead up to one of the those slits. A human would have to crawl into the opening.<p>[goblins]
