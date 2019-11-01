@@ -4859,7 +4859,7 @@
 
 ;dwarf outpost
 1,The mountain ridge above is black and forbidding. Stairs wind their way up to [dwarf tower]
-1,At the entrance of this valley is an outcrop on which the dwarven [dwarven clan] clan has built a trading post many centuries ago. It has long since been abandoned. You can still see their clan insignia carved into the knots of stone: [with dwarven equipment] and [and dwarven equipment]. The platform is still surrounded by columns, the raised blocks used as tables are still there but everything else is gone.<p>The underground storage rooms are being used by the **orcs** of the *[evil tribe]* tribe. They roam this valley, raising [mountain animals] and making their [mountain orc product]. [orcs]<p>[mountain orc leader specialty]
+1,At the entrance of this valley is an outcrop on which the dwarven [dwarf clan] clan has built a trading post many centuries ago. It has long since been abandoned. You can still see their clan insignia carved into the knots of stone: [with dwarven equipment] and [and dwarven equipment]. The platform is still surrounded by columns, the raised blocks used as tables are still there but everything else is gone.<p>The underground storage rooms are being used by the **orcs** of the *[evil tribe]* tribe. They roam this valley, raising [mountain animals] and making their [mountain orc product]. [orcs]<p>[mountain orc leader specialty]
 
 ;dwarf tower
 1,a squat fortress, grey, with horizontal slits made for big dwarven siege ballistas. The entrance is hidden and fortified with many iron gates in narrow tunnels. These days narrow wooden ladders simply lead up to one of the those slits. A human would have to crawl into the opening.<p>[goblins]
