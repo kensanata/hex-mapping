@@ -3271,6 +3271,7 @@ sub to_gridmapper_link {
 	elsif ($_ eq "stair-w") { $code .= "ss" }
 	elsif ($_ eq "stair-n") { $code .= "sss" }
 	elsif ($_ eq "stair-e") { $code .= "ssss" }
+	elsif ($_ eq "stair-spiral") { $code .= "svv" }
 	else {
 	  $log->warn("Tile $_ not known for Gridmapper link");
 	}
