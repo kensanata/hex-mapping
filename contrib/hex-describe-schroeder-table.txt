@@ -515,12 +515,26 @@
 
 ;grass monster
 1,**manticore** *[manticore]* ([manticore stats]). [robber treasure]
-1,**tiger** *[tiger]* ([tiger stats]).
-1,**giant lizard** *[giant lizard]* ([giant lizard stats])
-1,**invisible stalker** *[invisible stalker]* ([invisible stalker stats]).
-1,[3d6] **gnolls** *[gnoll]* ([gnoll stats]). [robber treasure]
-1,**vulture demon** *[vulture demon]* ([vulture demon stats])
+1,**tiger** ([tiger stats]).
+1,**giant lizard** ([giant lizard stats])
+1,**invisible stalker** ([invisible stalker stats]).
+1,[3d6] **gnolls** led by *[gnoll name]* ([gnoll stats]). [robber treasure]
+1,**vulture demon** *[demon name]* ([vulture demon stats])
 1,[bandits]
+
+;invisible stalker stats
+1,HD 8 AC 3 2d8 F8 MV 12 ML 12 XP 800; surprise on 1–5 in 6
+
+;gnoll stats
+1,HD 2+1 AC 5 1d10 F2 MV 9 ML 8 XP 200
+
+;gnoll name
+1,Crusher
+1,Marrow
+1,Bloody
+1,Happy
+1,Hungry
+1,Eater
 
 ;centaurs
 1,the **centaur** *[centaur]* ([centaur stats])
@@ -4859,7 +4873,7 @@
 
 ;dwarf outpost
 1,The mountain ridge above is black and forbidding. Stairs wind their way up to [dwarf tower]
-1,At the entrance of this valley is an outcrop on which the dwarven [dwarf clan] clan has built a trading post many centuries ago. It has long since been abandoned. You can still see their clan insignia carved into the knots of stone: [with dwarven equipment] and [and dwarven equipment]. The platform is still surrounded by columns, the raised blocks used as tables are still there but everything else is gone.<p>The underground storage rooms are being used by the **orcs** of the *[evil tribe]* tribe. They roam this valley, raising [mountain animals] and making their [mountain orc product]. [orcs]<p>[mountain orc leader specialty]
+1,At the entrance of this valley is an outcrop on which the dwarven [dwarf clan] clan has built a trading post many centuries ago. It has long since been abandoned. You can see their clan insignia carved into the weathered knots of stone: [with dwarven equipment] and [and dwarven equipment]. The platform is still surrounded by columns, the raised blocks used as tables are still there but everything else is gone.<p>The underground storage rooms are being used by the **orcs** of the *[evil tribe]* tribe. They roam this valley, raising [mountain animals] and making their [mountain orc product]. [orcs]<p>[mountain orc leader specialty]
 
 ;dwarf tower
 1,a squat fortress, grey, with horizontal slits made for big dwarven siege ballistas. The entrance is hidden and fortified with many iron gates in narrow tunnels. These days narrow wooden ladders simply lead up to one of the those slits. A human would have to crawl into the opening.<p>[goblins]
