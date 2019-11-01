@@ -6754,8 +6754,8 @@
 1,*[dwarf name]*<img class="portrait" src="[[redirect https://campaignwiki.org/face/redirect/alex/dwarf?seed=$seed]]" alt="[same dwarf name]" title="[same dwarf name]"/>[store [same dwarf name] as dwarf patron]
 
 ;dwarf name
-1,[dwarf name for men] [dwarf 2a][dwarf 2b]
-1,[dwarf name for women] [dwarf 2a][dwarf 2b]
+1,[dwarf name for men] [dwarf clan]
+1,[dwarf name for women] [dwarf clan]
 
 # https://dwarrowscholar.wordpress.com/general-documents/female-dwarf-outer-names/
 ;dwarf name for men
@@ -7995,24 +7995,117 @@
 1,Yngva
 1,Yrsa
 
-;dwarf 2a
-1,Shield
-1,Hammer
-1,Plate
-1,Sword
-1,Axe
-1,Stone
-1,Iron
-1,Steel
-1,Earth
+;dwarf clan
+1,[dwarf clan 1][dwarf clan 2]
 
-;dwarf 2b
-1,bearer
-1,smasher
-1,master
+;dwarf clan 1
+1,Proud
+1,Stout
+1,Fierce
+1,Coal
+1,Red
+1,Strong
+1,Broad
+1,Brave
+1,Copper
+1,Silver
+1,Crag
+1,Iron
+1,Alder
+1,Ashen
+1,Birch
+1,Elder
+1,Eld
+1,Oaken
+1,Willow
+1,Yew
+1,Stone
+1,Gold
+1,Dark
+1,Forge
+1,Haf
+1,Gnarl
+1,Quartz
+1,Sure
+1,Long
+1,Old
+1,New
+1,Lead
+1,Grit
+1,Dirge
+1,Steel
+1,Spiral
+1,Mountain
+1,Thunder
+1,Storm
+1,River
+1,Frost
+1,Winter
+1,High
+1,Black
+1,Tin
+1,Bronze
+1,Brass
+1,Gem
+
+;dwarf clan 2
+1,axe
+1,home
+1,keeper
+1,hammer
+1,field
+1,tomes
+1,peak
+1,shod
+1,beards
+1,kings
+1,hewer
+1,worn
+1,trickle
+1,shaft
+1,gut
+1,cliff
+1,jaw
+1,bane
+1,brace
+1,ring
+1,shorn
+1,seeker
+1,shield
+1,fist
+1,hold
+1,helm
+1,pot
+1,breaker
+1,flame
+1,anvil
+1,door
+1,gate
+1,tower
 1,friend
-1,maker
-1,eater
+1,hill
+1,hoarder
+1,keep
+1,smelt
+1,store
+1,plate
+1,boot
+1,eye
+1,nose
+1,knee
+1,worm
+1,greed
+1,drake
+1,vault
+1,tomb
+1,cave
+1,furnace
+1,mold
+1,smith
+1,tapper
+1,spark
+1,ember
+1,keg
 
 ;water
 1,[lake intro] [lake dressing] Beneath the waves, algae clings to the ruins of an ancient town. Skeletal trees emerge from the water like bleached bones.
