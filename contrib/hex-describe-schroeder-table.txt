@@ -4871,6 +4871,9 @@
 1,shovels
 1,coal wagons
 
+;dwarven clan fame
+1,The [dwarf clan] clan are best known for their [dwarven equipment].
+
 ;dwarf outpost
 1,The mountain ridge above is black and forbidding. Stairs wind their way up to [dwarf tower]
 1,At the entrance of this valley is an outcrop on which the dwarven [dwarf clan] clan has built a trading post many centuries ago. It has long since been abandoned. You can see their clan insignia carved into the weathered knots of stone: [with dwarven equipment] and [and dwarven equipment]. The platform is still surrounded by columns, the raised blocks used as tables are still there but everything else is gone.<p>The underground storage rooms are being used by the **orcs** of the *[evil tribe]* tribe. They roam this valley, raising [mountain animals] and making their [mountain orc product]. [orcs]<p>[mountain orc leader specialty]
@@ -4883,6 +4886,9 @@
 ;dwarf tower
 1,a squat fortress, grey, with horizontal slits made for big dwarven siege ballistas. The entrance is hidden and fortified with many iron gates in narrow tunnels. These days narrow wooden ladders simply lead up to one of the those slits. A human would have to crawl into the opening.<p>[goblins]
 1,a squat fortress, grey, with horizontal slits. The entrance is hidden and fortified with many iron gates in narrow tunnels. These days narrow wooden ladders simply lead up to one of the those slits. A human would have to crawl into the opening. At night, wild howling can be heard.<p>[2d6] **werewolves** live here ([werewolf stats]). During the day, the place looks like a field lazaret with mauled humans lying on dirty rags. During the night, they succumb to their madness, slipping back into close quarter bunker fighting, never quite managing to kill each other for good. [poor treasure]
+1,a blocky [stone mat] fortress, its great [iron|steel] gates bent, crushed, and broken, and covered in rust. An inner courtyard is littered with the bleached bones of dwarves, long stripped of their armor; only broken axes and chipped mattocks remain. [dungeon]
+1,a [stone mat] citadel, its [iron|steel] gate impregnable, but next to it the charred, collapsed stones of the wall had exploded inward. [dwarven clan fame] Investigating and moving some of the rocks will reveal some of their quality [same dwarven equipment], unsullied by time.
+1,a conical tower of early dwarven construction, as attested by a cone shape formed as each of its four floors tapers inward: [save dungeontype as monsters] <ol><li>[[same monsters] encounter]. [encounter treasure]</li><li>[[same monsters] encounter]. [encounter treasure]</li><li>[[same monsters] encounter]. [encounter treasure]</li><li>[[same monsters] boss] [final room treasure].</li></ol>
 
 ;mountain valley
 1,The upper valley is rocky and bare.
