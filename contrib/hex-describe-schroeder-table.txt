@@ -299,15 +299,26 @@
 1,<span title="the winter coat of a stoat">Ermine</span>[store spotted white as last colour]
 1,<span title="squirrel fur">Vair</span>[store chequered black and white as last colour]
 
-;sand desert
+;desert intro
+1,These white salt flats are
+1,The land here is
+1,The sands stretch on as far as one can see and are
+1,The desert is
+1,Wherever you look, the bare stones here are
+
+;desert conclusion
+1,dead as dead can be
+1,flat and featureless
+1,reflecting the sun in a blinding haze
+1,providing no respite from the sun, no shade
+1,hot and merciless
+1,exhausting to travel by day
+
+;desert
+30,[desert intro] [desert conclusion].
 1,There is sand in every direction.
 1,The dunes make progress slow.
-
-;dust desert
-1,The land here is a flat and featureless desert.
-1,These white salt flats harbor as dead as dead can be.
 1,Bare stones wherever you look and no shade.
-1,These white salt flats harbor as dead as dead can be.
 
 ;grass
 5,[grass intro] [grass dressing] [grass landmark] **[capitalize cows]** can be seen grazing in the distance to the [direction].
