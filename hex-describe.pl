@@ -3841,7 +3841,7 @@ td, th {
 @media screen and (min-width: 110ex) {
   .sidebar {
     position: absolute;
-    top:  20ex;
+    max-width: 30ex;
     left: 90ex;
   }
 }

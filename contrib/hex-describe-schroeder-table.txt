@@ -1336,9 +1336,8 @@
 # that tie into the same monster list.
 
 #MAIN GENERATOR
-#MAIN GENERATOR
 ;dungeon header
-1,[save dungeontype as monsters]This is *[here dungeon name]*.<ul><li>Wandering Monster: [[same monsters] encounter].</li></ul><p>
+1,[save dungeontype as monsters]This is *[here dungeon name]*.<p class="sidebar">Wandering Monster: [[same monsters] encounter].<p>
 
 ;dungeon
 # 5 rooms
