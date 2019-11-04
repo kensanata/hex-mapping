@@ -1919,7 +1919,7 @@
 1,a [chained|mangy|starving|vicious] **war dog** ([wolf stats])
 1,[1d6+1] [chained|mangy|starving|vicious] **war dogs** ([wolf stats])
 1,recently arrived and plaguing this complex: [vermin encounter]
-1,the **dwarf mercenary** [dwarf with portrait] (level [1d6+2 as level]), [working for the highest bidder|blackmailed into service|hoping to usurp the leader].
+1,the **dwarf mercenary** [dwarf with portrait] (level [1d6+2 as level]), [working for the highest bidder|blackmailed into service|hoping to usurp the leader]
 1,[ogre leader] ([ogre stats]) who claims a large part of the bandit’s spoils
 
 ;bandit boss
