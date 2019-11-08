@@ -6447,8 +6447,8 @@
 1,A cold wind blows snow and ice down the mountain. Visibility is down to maybe 30ft. This is the [name for white big mountains] glacier. Every night, a **procession ghosts** struggles barefoot across the ice. You can hear their wailing, their tiny bells ringing, and you can see the flickering candles they are carrying. If you follow them for an hour, you are going to cross over into Jötunheim with them. The procession leads you to the castle of the **frost giant** *[frost giant name]*. [2d4] **frost giants** and [frost giant companions] live here. [rich treasure]<p>To release the ghosts from their eternal wandering, you need to [ghostly glacier procession solution]
 
 ;ghostly glacier procession solution
-1,convince [same frost giant name] to forgive these fools because they didn’t know that to kill a frost giant is to incur the wrath of one of the old gods.
-1,kill [same frost giant name] who holds them in eternal bondage and enjoys their eternal suffering as they rise from their graves all over the mountain and come to him, begging for mercy.
+1,convince *[same frost giant name]* to forgive these fools because they didn’t know that to kill a frost giant is to incur the wrath of one of the old gods.
+1,kill *[same frost giant name]* who holds them in eternal bondage and enjoys their eternal suffering as they rise from their graves all over the mountain and come to him, begging for mercy.
 1,tell their relatives in *[nearby village name]* how the traitor *[nearby human patron]* had betrayed them and led them to their doom many years ago. All they want is revenge, but actually just telling their relatives of what happened and helping them to find closure is enough to bring peace to the ghosts (although they don’t know it).
 1,give them all a proper burial, braving the evil guardian of the ice that holds them, the **ice worm** *Spawn of [devil name]* ([ice worm stats]).
 1,free the **wight** *[an old hero]* from their icy tomb and reunite them with their flock. If pressed, they will admit to wanting to rebuild old *[wight realm]*.
