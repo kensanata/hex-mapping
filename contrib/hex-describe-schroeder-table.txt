@@ -14924,7 +14924,7 @@
 1,<img class="portrait" src="[[redirect https://campaignwiki.org/face/redirect/alex/demon?seed=$seed]]" alt="[same devil name]" title="[same devil name]"/>
 
 ;local smith
-1,The local **smith** is [smith description] called [human with portrait]. You can get your horses shod and your ploughs fixed. [local smith inventory description:] [local smith inventory].
+1,The local **smith** is [smith description] called [human with portrait]. You can get your [donkeys|horses|mounts|mules|oxen] shod and your [axes|farm implements|ploughs|scythes|shears|sickles|spades] [fixed|repaired]. [local smith inventory description:] [local smith inventory].
 
 ;smith description
 1,a simpleton
