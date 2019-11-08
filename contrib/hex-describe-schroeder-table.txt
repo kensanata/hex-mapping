@@ -9622,7 +9622,7 @@
 1,vinegar
 
 ;orc stats
-1,HD 1 AC 6 1d6 F1 MV 12 ML 8 XP 100<img class="landscape" src="/contrib/pics/Orc.jpg" alt="" title="orc"/>
+1,HD 1 AC 6 1d6 F1 MV 12 ML 8 XP 100
 
 ;orcs
 1,[1d6x10] **orcs** led by [orc with portrait] (HD [1d6+1 as level]) live here ([orc stats]). [robber treasure] [leader treasure]
