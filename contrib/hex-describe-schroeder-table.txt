@@ -15438,9 +15438,179 @@
 ;village
 1,<p>This is [here village name], a village of [5d6x10] **humans** ([human stats]). The [human houses] are protected by [human companions] and a [human defense]. There is a small *[village building]*. [small [same village building]] [average treasure]<p>The [human leader] lives in the [same village building]. [spellbook for [same class]] [leader treasure for [same class]]<p>[human retainer]<p>[human friends]<p>[And a secret society]<p>[law and order jobs]<p>[settlement event]
 1,<p>This is [here village name], a village of [5d6x10] **humans** ([human stats]). The [human houses] are protected by [human companions] and a [human defense]. There is a small *[village building]*. [small [same village building]] [average treasure]<p>The [human leader] lives in the [same village building]. [spellbook for [same class]] [leader treasure for [same class]]<p>[human retainer]<p>[human friends]<p>[And a secret society]<p>[law and order jobs]<p>[temple]<p>[settlement event]
+1,<p>This is [here village name], a village of [5d6x10] **humans** ([human stats]). The [human houses] are protected by [an earthen rampart|a wooden palisade]. [average treasure]<p>The [human leader] lives in the [village building]. [spellbook for [same class]] [leader treasure for [same class]]<p>[human retainer]<p>[human friends]<p>[And two secret societies feuding]<p>[law and order jobs]<p>[temple]<p>[settlement event]
 
 ;town
 1,<p>This is [here village name], a town of [1d6x100] **humans** ([human stats]). The [human houses] are protected by a keep, a town wall and the river. [average treasure]<p>The [human leader] lives in the keep. [spellbook for [same class]] [leader treasure for [same class]]<p>[human retainer]<p>[human friends]<p>[And two secret societies feuding]<p>[law and order jobs]<p>[temple]<p>There is also [town feature]<p>[settlement event]
+1,<p>This is [here village name], a town of [1d6x100] **humans** ([human stats]). The [human houses] are protected by a large keep, [an earthen rampart|a wooden palisade|a stone wall|town wall] and the river. The outer bailey of the keep houses the [most prosperous|richest|wealthiest] tradespeople of the [land|area|region], under the [rule|protection|shelter] of [name for a war party 2]. The inner bailey houses the castellan and [the|town|local] [garrison|guard|watch]. [Entering|Visiting] the outer bailey [requires|takes|is by] [paying|a payment of|a fee of] 1sp per [entrant|person|visitor]. [These|The following] [people|tradespeople] [can be found|have shops|work] there:<ol>[alchemist or not][antiquarian or not][cleric or not][gossip or not][guildmaster or not][herbalist or not][horse trader or not][innkeeper or not][jeweler or not]<li>The *merchant* [human name] [buys] [bulk quantities of|in bulk|wholesale] spices, [ingots|metal ingots|rare minerals], and other trade goods. [townsperson goal]</li>[moneylender or not]<li>The *provisioner* [human name] sells [all standard|all types of|adventuring|standard adventuring] equipment. [townsperson goal]</li>[zealot or not]<li>The *smith* [human name] [sells] new - and [repairs|refurbishes] old - [weapons and armor|weaponry|armor]. [townsperson goal]</li>[new shop or not]<li>The *tavern owner* [human name] runs the *[Royal|Noble|King’s|Queen’s|Prince’s|Princess|Purple|Lord’s|Lady’s] [inn name 2]* here, [visited|frequented] by the [wealthy|well-off|gentry|townspeople|propertied] and [adventure-seekers|those seeking adventure|the rabble-rousers]. [tradesperson goal or feud]</li><li>The *trader* [human name] [buys] [used|old] equipment and [any unusual|rare] finds. [townsperson goal]</li>[factional deputy or not]</ol><p>(For a rumor about allegiances, roll a d10 and a d6. On a d6 of 1-3, tell the truth about the tradesperson corresponding to the results of the d10; on a 4-6, lie about them.)<p>The inner bailey is open [by invitation only|to the select few] and houses these [notable|noted|noteworthy|singular] [officers|personages|people]:</p><ul>[bailiff or not][captain or not]<li>The *castellan* [human name]. (Trusted confident of [name for a war party 2].)</li>[corporal or not][marshal or not][scribe or not]</ul>[And two secret societies feuding]<p>[Another|A third|Yet another] secret society [bides its time|waits in the wings|waits patiently for its chance].
+
+# outer bailey
+
+;alchemist or not
+2,<li>The **alchemist** [human name] [sells] [standard|common] potions and [buys] [rare|unusual] substances. [townsperson goal]</li>
+1,
+
+;antiquarian or not
+1,<li>The **antiquarian** [human name] [buys] rare artifacts that may be of interest to [his|her|their] clientele. [townsperson goal]</li>
+1,
+
+;cleric or not
+1,<li>The **cleric** [human name] tends [an altar for|a chapel to|a church of|a shrine to] [good power] and [accepts donations|offers blessings|[sells] indulgences].</li>
+1,
+
+;gossip
+# to fit the alphabetical order, titles range from after _cleric_ to before _guildmaster_!
+1,clerk
+1,clock-maker
+1,cobbler
+1,cook
+1,cooper
+1,courier
+1,crier
+1,cutpurse
+1,dog breeder
+1,drunkard
+1,dyer
+1,embroiderer
+1,engineer
+1,falconer
+1,farrier
+1,felt-maker
+1,fisherman
+1,fletcher
+1,furbisher
+1,furrier
+1,gambler
+1,glassblower
+1,goatherd
+1,goldsmith
+1,gong-farmer
+1,gravedigger
+
+;gossip or not
+1,<li>The **[gossip]** [human name] is [an excellent|a good] source of [gossip|news|rumors]. [tradesperson goal or feud]</li>
+
+;guildmaster or not
+1,<li>The **guildmaster** [human name] [sells] [long-term residence|private rooms|rooms] for [7|8|9|10]gp a [sevenday|tenday|week]. [tradesperson goal or feud]</li>
+1,
+
+;herbalist or not
+1,<li>The **herbalist** [human name] [buys] [medicinal|rare|unusual] [flora|herbs|plants]. [townsperson goal]</li>
+1,
+
+;horse trader or not
+1,<li>The **horse trader** [human name] [buys and sells|[sells]] [horses|horses and donkeys|horses and mules|mounts|stallions|riding horses|warhorses]. [tradesperson goal or feud]</li>
+1,
+
+;innkeeper or not
+2,<li>The **innkeeper** [human name] [has|offers|rents out] the [most secure|safest] [lodging|rooms] [around|in the area|in town] but charges [1|2|3]gp a night for [individual|private|upstairs] rooms, [1|2|3]sp a night per [guest|person] for the [common|public|shared] room. [tradesperson goal or feud]</li>
+1,
+
+;jeweler or not
+1,<li>The **jeweler** [human name] [buys] up to [1|2|3],000gp of [gems|gemstones|precious gems]. [townsperson goal]</li>
+1,
+
+;moneylender or not
+1,<li>The **moneylender** [human name] will [convert coins from one denomination to another|keep funds safe|provide loans up to [1|2|3],000gp secured by property] (10% surcharge). [tradesperson goal or feud]</li>
+1,
+
+;zealot trade
+1,pursemaker
+1,rag man
+1,rat catcher
+1,roofer
+1,ropemaker
+1,rugmaker
+1,ruffian
+1,saddler
+1,sailor
+1,salter
+1,scabbardmaker
+1,scapegoat
+1,scullion
+1,sculptor
+1,servant
+1,shepherd
+1,shoemaker
+
+;zealot or not
+1,<li>The **[zealot trade]** [human name], [[an avowed|a devoted] follower|a fanatic|a zealot] of [good power], [travels|wanders] [around|town] [panhandling|praying|preaching|proselytizing|singing hymns]. [tradesperson goal or feud]</li>
+
+;factional deputy
+# to fit the alphabetical order, titles most come after _trader_!
+1,trumpeter
+1,vagrant
+1,village idiot
+1,vintner
+1,watchman
+1,watercarrier
+1,weaponsmith
+1,weaver
+1,wine-seller
+1,wood[carv|cutt|sell]er
+1,woolwinder
+
+;new shop or not
+1,<li>The **[spice merchant|stonemason|tailor|tanner]** [human name] has [just opened|just refurbished her|temporarily closed] shop. [tradesperson goal or feud]</li>
+1,
+
+;factional deputy or not
+1,<li>The **[factional deputy]** [human name] [frequents|wanders] the shops the [party visits|PCs visit] and [keeps an eye on them|spies on them|tails them]. ([Second-in-command|Deputy|Deputy leader] of the [name for a secret society ([chaos|law|neutrality])].)</li>
+1,
+
+# inner bailey
+
+;bailiff or not
+1,<li>The **bailiff** [human name]. [townsperson goal]</li>
+1,
+
+;captain or not
+1,<li>The **captain of the guard** [human name]. ([Corrupt|A soft touch|An open enemy of [name for a secret society ([chaos|law|neutrality])]].)</li>
+1,
+
+;corporal or not
+1,<li>The **corporal of the watch** [human name]. [townsperson goal]</li>
+1,
+
+;marshal or not
+1,<li>The **marshal** [human name], overseeing the cavalry. [townsperson goal]</li>
+1,
+
+;scribe or not
+1,<li>The **scribe** [human name]. [tradesperson goal or feud]</li>
+1,
+
+# general townsperson tables
+
+;buys
+1,acquires
+1,buys
+1,purchases
+
+;sells
+1,has
+1,has for sale
+1,offers
+1,provides
+1,sells
+
+;Secretly
+1,Secretly
+1,Surreptitiously
+1,Clandestinely
+1,Quietly
+
+;townsperson goal
+1,([Secretly] [favors|supports] [name for a war party 1].)
+1,([Secretly] [worships|follows] [evil power].)
+1,([Prays to|Worships] [good power].)
+6,(A member of [name for a secret society ([chaos|law|neutrality])].)
+3,
+
+;tradesperson goal or feud
+12,[townsperson goal]
+1,(Provides discounts to [dwarves|elves|halflings].)
+2,([In a feud|Feuding] with the [merchant|provisioner|smith|trader].)
 
 ;human job
 # leading space or comma required
@@ -15874,17 +16044,41 @@
 1,bathhouse
 
 ;inn name 2
-1,Pony
-1,Horse
+1,Arms
 1,Bear
-1,Lion
-1,Eagle
+1,Crown
 1,Deer
+1,Dragon
+1,Eagle
+1,Hart
+1,Horse
+1,Lion
+1,Plough
+1,Pony
 1,Rose
+1,Swan
 
 ;inn name 3
-1,Prancing
 1,Black
+1,Butcher's
+1,Carpenter's
+1,Coach &
+1,Fox &
+1,Golden
+1,King's
+1,Lady's
+1,Maid's
+1,Mason's
+1,Prancing
+1,Prince's
+1,Queen's
+1,Red
+1,Rising
+1,Rose &
+1,Royal
+1,Stallion &
+1,The
+1,Traveller's
 1,White
 1,Wild
 
