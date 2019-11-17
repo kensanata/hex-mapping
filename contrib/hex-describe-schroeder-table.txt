@@ -6714,11 +6714,38 @@
 1,Queen’s
 
 ;more mountains
-1,They are impossible to climb.
-1,Fissures lead into the depth of the mountain and in the warm chambers below there sleeps the **red dragon** *[here red dragon name as dragon name]*[dragon portrait] ([red dragon stats]). [dragon treasure]
-1,The passes need a local guide to cross. [mountain people]
-1,A glacier fills the gap between these mountains.
+1,[hot mountains] In the warm chambers below there sleeps the **red dragon** *[here red dragon name as dragon name]*[dragon portrait] ([red dragon stats]). [dragon treasure]
+1,[hot mountains] [fire giant fortress]
+1,[cold mountains] [1d4 frost giants]. [rich treasure]
+1,[cold mountains] [2d4] **winter wolves** live up here ([winter wolf stats])
+1,[cold mountains] There is a dwarven forge called *[here dwarf forge]* up here. [dwarves]
 1,The [rough|jagged|rolling|rocky] peaks here hide a dungeon. [dungeon]
+
+;hot mountains
+1,Fissures lead into the depth of the mountain.
+1,Grey rocks, stretching for miles. This is a high altitude rock garden.
+1,The grey rocks are towering in all directions. There not a drop of water to be had up here.
+1,A sulphurous smell hangs in the air. Every now and then you hear hidden mud pools bubbling with heat from below.
+1,A great volcano dominates these mountains. A smoke column rises from its top. During the night you can sometimes see red hot material being ejected and rolling down its sides.
+1,A great volcano lies silent between these mountains. Cold black lava covers everything, here. Every now and then you see openings into lava tunnels.
+
+;cold mountains
+1,The mountains are steep and the passes dangerous. Only attempt a crossing with a mountaineer or you will all [die in the mountains].
+1,Towering black rocks and snow capped peaks are all around you. A forgotten civilisation dug short tunnels through the most terrible cliffs, making these passes navigable.
+1,Between these cruel stone peaks lies a sea of ice: a glacier, slowly inching towards the warmer lowlands. Up here, passage is difficult. Only attempt a crossing with a mountaineer or you will all end up dead in a crevasse.
+1,An old road winds itself through these mountains. [there is a crossing].
+
+;there is a crossing
+1,Whenever it crosses a gorge, you can see the pillars of a ruined bridge. There is a long and dangerous climb down and back up again on the other side.
+1,Whenever there is a gorge, you find an ancient bridge crossing it.
+1,Whenever there is a gorge you find that the locals have laid wooden planks across ancient pillars in order to cross it.
+1,Whenever there is a gorge you find that the locals have built a rope bridge across it.
+
+;die in the mountains
+1,freeze to death as the snow buries you
+1,be swept away by a mud avalanche
+1,be crushed by falling rocks
+1,fall to your doom on a slippery slope
 
 ;red dragon stats
 1,HD 10 AC -1 1d8/1d8/4d8 F10 MV 24 ML 10 XP 1000; *fire* (as much as the dragon has hp left, save vs. dragon breath for half)
@@ -6743,10 +6770,138 @@
 1,the Eternal
 1,the Sleeper
 
-;mountain people
-1,[1d4 frost giants]. [rich treasure]
-1,[2d4] **winter wolves** live up here ([winter wolf stats])
-1,There is a dwarven forge called *[here dwarf forge]* up here. [dwarves]
+;fire giant fortress
+1,[fire giant passage]<p>[fire giant opening]<p>[fire giant tower]
+1,[fire giant passage]<p>[fire giant opening]<p>[fire giant temple]
+
+;fire giant passage
+1,A narrow stair winds itself into the [depths|bowels] of the earth. [what does the hot earth feel like]
+1,A long chain of iron ladders leads into the [depths|bowels] of the earth. [what does the hot earth feel like]
+1,A spiral stairs descends into the [darkness|blackness] below. [what does the hot earth feel like]
+
+;what does the hot earth feel like
+1,The air reeks of [sulphur|rotten eggs].
+1,The silence down here is deafening. All the sounds you make are amplified.
+1,From the depths below a slow thumping and throbbing can be heard. The earth is alive.
+1,The heat grows as you descend until it seems unbearable. Everything is drenched in sweat.
+1,The stones around you are warm to the touch and keep getting hotter as you go down.
+1,The darkness swirls around you like ink. You are lost at the bottom of a deep black lake.
+1,Hot winds blow up from below, like the exhalations of the oldest dragon gnawing at the roots of the world.
+
+;fire giant opening
+1,[At long last|Finally], you arrive at a huge cave with a lava lake at its bottom. The floor descends steeply towards its shores. The air is hot and acrid. Glowing ashes and poisonous gases make breathing difficult.[store lava as liquid]
+1,[At long last|Finally], you arrive at a huge cave with a boiling lake at its bottom. The floor descends steeply towards its shores. The stones are slick and slippery as the water vapours swirl and churn. The sound of bubbling water fills the air.[store boiling water as liquid]
+
+;fire giant tower
+1,[fire giant ground floor]<p>[fire giant top floor]
+
+;fire giant temple
+1,This is a temple of [here fire power as temple power]. The huge [fire material] gates are decorated with [[same fire power] decoration]. [fire giant ground floor]<p>[fire giant temple of [same fire power]] [fire giant temple interior]<p>[1d4 fire giants]
+
+;fire giant temple of Pazuzu
+1,At the entrance of the temple stands the statue of a four-winged vulture demon made of [fire material].
+1,Above the entrance is the statue of a giant vulture demon feeding on the entrails of a monstrous creature that are in the process of turning into dragons and snakes.
+1,The temple looks like it is but a heap of dead bodies made of stone. Everywhere are hands, feet, faces, bones.
+
+;fire giant temple of Hel
+1,The entrance to the temple is shrouded in magical darkness. Inside the blackness is the guardian of this temple, a **three-headed giant hell-hound** ([cerberus stats]).
+1,The path leading up to the temple passes beneath two rows of giant [fire material] ribs rising 50ft into the air.
+
+;fire giant temple of Mitra
+1,Above the main portal into the temple are the statues of three giants with solemn faces, their hands raised for their oath of allegiance.
+1,To the left and right of the entrance are two giant braziers, 20ft in diameter, burning with a magical fire.
+
+;fire giant temple of Marduk
+1,The front of the temple consists of a sea of sculptures: a thousand stone soldiers, staring out at any visitors, wielding their [swords|spears|halbers], waiting for a battle that never comes.
+1,Above the entrance to this temple you see a giant chariot. Inside it are an archer and a driver. Giant scythes project out from the wheels to cut down soldiers that oppose them.
+
+;fire giant temple interior
+1,The inside of this temple is a domed chamber nearly 100ft high. There are stone benches sit on and [fire material] statues of fire giants to look at. If you know the legends you can see the statues of [fire giant statues].
+1,The inside of the temple is dizzying array of platforms connected by short stairs, with [fire material] trees burning under a roof 60ft above. Along the walls are rows of statues. If you know the history of dwarves and giants, you’ll recognise the statues of [fire giant statues].
+1,The inside of this temple might at one time have been glorious but now it is filled with boiling grey mud and dancing shadows. The fires burning along the walls show fallen statues and broken columns disappearing the blubbering mass. The stink of sulphur hangs in the air.
+
+;fire giant statues
+2,*[with fire giant name]* and *[and fire giant name]*, [fire giant legend summary]
+1,*[fire giant name]* the dwarf kings they had enslaved: *[with dwarf name]*, *[and dwarf name]*, and *[and dwarf name]*
+1,*[fire giant name]* and the dragon they had enslaved, *[red dragon name]*
+
+;fire giant legend summary
+1,who separated fire from earth at the beginning of time
+1,who enslaved the ifrit *[an ifrit name]* and forced it to [fire giant legendary project]
+1,who fought over *[and fire giant name]* and [both died|destroyed the city at the centre of the world] in the process
+1,who fought over *[and fire giant name]* and how *[same fire giant name]* was then [crushed|buried|chained for all eternity] under the mountain of *[Sky|Earth|Despair|Hopelessness]*
+
+;fire giant legendary project
+1,build the bridge of the river of [ash|dreams|fear]
+1,build the ship of the [lead|iron|salt] sea
+1,build the rainbow bridge for the gods
+1,build the eternal stairs
+1,forge the axe to fell the world tree
+1,forge the collar for the wolf of Freya
+1,forge the collar for the hound of Hel
+1,forge the hammer of Thor
+1,forge the gates of hell
+
+;fire material
+1,iron
+1,bronze
+1,obsidian
+
+;fire giant ground floor
+1,Behind the gate lies a courtyard guarded by [fire giant guards].<p>[fire giant courtyard] [fire giant reception]
+
+;fire giant guards
+2,[2d4] **hell hounds** ([hell hound stats])
+1,a **pyrohydra** ([pyrohydra stats])
+1,the **red dragon** *[here red dragon name as dragon name]*[dragon portrait] ([red dragon stats])
+
+;fire giant courtyard
+1,The stones and walls of this courtyard are glowing red. Anything touching them will start to burn if combustible.
+1,The walls surrounding the courtyard are decorated with long black iron spikes, needles as long as a man or two, pointing up, in order to discourage flying opponents from landing.
+1,The courtyard itself encloses a lava-filled pit crossed by a bridge made of [fire material].
+
+;fire giant reception
+1,At the foot of the fortress are some workshops. This is where blackened  [3d8] **dwarves** ([dwarf stats]) slave at the anvils and bellows led by [dwarf with portrait] (level [1d4+2 as level]). They are chained to their workstations, their bedrolls right next to their tools. The food and water they require is stored inside the fortress, behind locked doors in [fire material] coffers.
+1,At the foot of the fortress is a hot pool of [same liquid] where orange worm people can be seen: [2d4] **salamanders** led by *[salamander]* ([salamander stats]) live here.
+
+;fire giant top floor
+1,The top of the fortress is a big room with a throne surrounded by many giant statues. These are the personifications of *[with fire person]* and *[and fire person]*. [1d4 fire giants]
+1,The fortress looks like a [fire material] pitchfork. Each of the three needles is a sequence of ladders and small rooms, spiral stairs, with narrow windows and tiny balconies. Dozens of iron grates, scythe blades and spiked pits make progress painfully slow. [1d4 fire giants]
+1,The fortress looks like a [fire material] candelabrum with [three|four|five] branches, each ending in a large study, surrounded by a round platform, overlooking the cavern. Each platform has stacks of heavy stone disks, the kind the giants know how to throw for devastating effect. [1d4 fire giants]
+1,Up above, the conical tower of [fire material] is covered in long spikes and thorns, each of them as long as a man or longer. This is a formidable defence against the landing of dragons and other air borne enemies. Narrow widows allow the inhabitants to control the surrounding land without exposing themselves. [1d4 fire giants]
+1,The fortress grows out of a rocky outcrop like a scrawny tree, with lava tunnels leading up to the [fire material] tower like intestines twisting this way and that way, leading into larger rooms full of strange machinery, perfect for an ambush by the [5d8] **duergar** in the service of these giants ([duergar stats]). The tower itself is small in comparison. [1d4 fire giants]
+
+;fire person
+1,Anvil
+1,Ash
+1,Destruction
+1,Earthquake
+1,Fire
+1,Flame
+1,Hammer
+1,Heat
+1,Iron
+1,Lava
+1,Melting
+1,Power
+1,Remaking
+1,Swords
+
+;1d4 fire giants
+1,The **fire giant** *[fire giant name]* ([fire giant stats]) lives here. [rich treasure]
+3,[1d3+1] **fire giants** led by *[fire giant name]* live here ([fire giant stats]). [rich treasure]
+
+# ;fire giant companions
+# 2,[2d4] **hell hounds** ([hell hound stats])
+# 1,[2d4] **salamanders** led by *[salamander]* ([salamander stats])
+# 1,a **pyrohydra** ([pyrohydra stats])
+# 1,a **red dragon** named *[here red dragon name as dragon name]*[dragon portrait] ([red dragon stats])
+
+# On an island in the middle of this lake stands a black arch. On the arch itself stands the tower of the **ifrit** [an ifrit name] ([stats for an ifrit]). It guards this portal to *Muspelheim*. If you can fly, or if you have a ship that can sail the sea of flames, and you managed to convince the elemental lord to let you pass, you may reach that realm of fire.
+# 1,The fortress of these giants is surrounded by a flaming moat. [salamanders]
+
+# ;fire giant top floor
+# 1,The upper level of this tower is giant hall with a huge throne, tables, [rich treasure]
 
 ;frost giant stats
 1,HD 10+1 AC 4 4d6 or 3d6 *ranged* F10 MV 12 ML 9 XP 1000; *stone shape* and *control weather* at will
@@ -13857,6 +14012,9 @@
 ;hell hound stats
 1,HD 5 AC 4 1d6 F5 MV 12 ML 9 XP 500; 2 in 6 chance that instead of biting, it breathes *fire* (5d6); *see invisible*; <span class="treasure">*hell hound embers* burning inside them are worth 500gp to an alchemist</span>[here store hell hound embers as alchemist quest]<img class="portrait" src="/contrib/pics/Hellhound.jpg" alt="" title="hell hound"/>
 
+;cerberus stats
+1,HD 7 AC 4 1d10/1d10/1d10 F7 MV 12 ML 10 XP 700; 2 in 6 chance that instead of biting, a head breathes *fire* (7d6); *see invisible*; <span class="treasure">*hell hound embers* burning inside them are worth 500gp to an alchemist</span>[here store hell hound embers as alchemist quest]
+
 ;1d12 bugbears
 1,the **bugbear** *[bugbear]*
 7,[1d11+1] **bugbears** led by *[bugbear]* belonging to the *[a bugbear band]* band
@@ -18492,6 +18650,13 @@
 1,Thor
 1,Mitra
 
+;fire power
+# these are picked from the lists above
+1,Pazuzu
+1,Hel
+1,Mitra
+1,Marduk
+
 ;Set decoration
 1,snakes
 1,a seven headed snake
@@ -18532,6 +18697,13 @@
 1,a bull
 1,a bull being killed by an axe
 1,a dragon breathing fire
+;Marduk decoration
+1,a giant club
+1,a man wielding a huge club
+1,an army of people led by a general in a chariot
+1,a man wrestling a dragon
+1,a man wielding a great bow
+1,a man riding a war chariot
 
 ;special power
 1,[power] the [power attribute]
