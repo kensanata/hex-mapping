@@ -6724,7 +6724,7 @@
 ;hot mountains
 1,Fissures lead into the depth of the mountain.
 1,Grey rocks, stretching for miles. This is a high altitude rock garden.
-1,The grey rocks are towering in all directions. There not a drop of water to be had up here.
+1,The grey rocks are towering in all directions. There is not a drop of water to be had up here.
 1,A sulphurous smell hangs in the air. Every now and then you hear hidden mud pools bubbling with heat from below.
 1,A great volcano dominates these mountains. A smoke column rises from its top. During the night you can sometimes see red hot material being ejected and rolling down its sides.
 1,A great volcano lies silent between these mountains. Cold black lava covers everything, here. Every now and then you see openings into lava tunnels.
@@ -6785,7 +6785,7 @@
 1,From the depths below a slow thumping and throbbing can be heard. The earth is alive.
 1,The heat grows as you descend until it seems unbearable. Everything is drenched in sweat.
 1,The stones around you are warm to the touch and keep getting hotter as you go down.
-1,The darkness swirls around you like ink. You are lost at the bottom of a deep black lake.
+1,The darkness swirls around you like ink. Soon, you feel as lost as if you were walking at the bottom of a deep black lake.
 1,Hot winds blow up from below, like the exhalations of the oldest dragon gnawing at the roots of the world.
 
 ;fire giant opening
