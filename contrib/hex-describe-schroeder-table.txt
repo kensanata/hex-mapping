@@ -329,7 +329,7 @@
 1,[grass intro] [grass dressing] [grass landmark] A ruined tower standing on a small rise is home to the **ettin** called *[ettin]* ([ettin stats]). [robber treasure] [ettin tower protection]
 1,[grass intro] [grass dressing] [grass landmark] In the old days, this rocky pit was [a gem] quarry. Concealed in a rocky crevice is the hidden barrow of [1d8 wights] ([wight stats]).
 1,[grass intro] [grass dressing] [grass landmark] There is a huge dirt mound with small holes for windows and a rough wooden door. [goblins]
-1,The [grass name] looks burned and shrivelled here and the smell of sulphur hangs in the air. A **manticore** named *[here manticore name]* [manticore activity] ([manticore stats]).
+1,The [grass name] looks burned and shrivelled here and the smell of sulphur hangs in the air. A **manticore** named *[manticore]* [manticore activity] ([manticore stats]).
 3,[grass intro] [grass dressing] [grass landmark]  If you stay here long, you’ll soon attract the attention of [boars].
 1,[grass intro] A burbling spring seeps out of a small cave here, save vs. poison or spend the rest of the day vomiting. This cave is home to a **basilisk** ([basilisk stats]). The poisonous vapours have polluted the spring water.
 1,[grass intro] [grass dressing] [grass landmark] An abandoned shrine to *[power]* stands here, partly covered in lichens. Patrolling the corridors inside the crumbling shrine is a **straw golem** ([straw golem stats]). <span class="treasure">[2d6] [gem] gems can be recovered from the golem.</span>
@@ -1352,15 +1352,15 @@
 
 ;dungeon
 # 5 rooms
-5,[dungeon header][dungeon map with 5 rooms]<ol><li>[entrance room]</li><li>[with interior room]<ul><li>[room feature]</i></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[final room]<ul><li>Boss Monster: [[same monsters] boss].</li><li>Treasure: [final room treasure].</li></ul></li></ol>
+5,[dungeon header][dungeon map with 5 rooms]<ol><li>[entrance room]</li><li>[with interior room]<ul><li>[room feature]</i></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[final room]<ul><li>Boss Monster: [[same monsters] boss]</li><li>Treasure: [final room treasure]</li></ul></li></ol>
 # 7 rooms
-4,[dungeon header][dungeon map with 7 rooms]<ol><li>[entrance room]</li><li>[with interior room]<ul><li>[room feature]</i></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[final room]<ul><li><u>Boss Monster:</u> [[same monsters] boss].</li><li>Treasure: [final room treasure].</li></ul></li></ol>
+4,[dungeon header][dungeon map with 7 rooms]<ol><li>[entrance room]</li><li>[with interior room]<ul><li>[room feature]</i></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[final room]<ul><li><u>Boss Monster:</u> [[same monsters] boss]</li><li>Treasure: [final room treasure]</li></ul></li></ol>
 # 10 rooms
-3,[dungeon header][dungeon map with 10 rooms]<ol><li>[entrance room]</li><li>[with interior room]<ul><li>[room feature]</i></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[final room]<ul><li>Boss Monster: [[same monsters] boss].</li><li>Treasure: [final room treasure].</li></ul></li><li>[entrance room]</li><li>[with interior room]<ul><li>[room feature]</i></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[final room]<ul><li><u>Boss Monster:</u> [[same monsters] boss].</li><li>Treasure: [final room treasure].</li></ul></li></ol>
+3,[dungeon header][dungeon map with 10 rooms]<ol><li>[entrance room]</li><li>[with interior room]<ul><li>[room feature]</i></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[final room]<ul><li>Boss Monster: [[same monsters] boss]</li><li>Treasure: [final room treasure]</li></ul></li><li>[entrance room]</li><li>[with interior room]<ul><li>[room feature]</i></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[final room]<ul><li><u>Boss Monster:</u> [[same monsters] boss]</li><li>Treasure: [final room treasure]</li></ul></li></ol>
 # 12 rooms
-2,[dungeon header][dungeon map with 12 rooms]<ol><li>[entrance room]</li><li>[with interior room]<ul><li>[room feature]</i></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[final room]<ul><li>Boss Monster: [[same monsters] boss].</li><li>Treasure: [final room treasure].</li></ul></li><li>[entrance room]</li><li>[with interior room]<ul><li>[room feature]</i></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[final room]<ul><li><u>Boss Monster:</u> [[same monsters] boss].</li><li>Treasure: [final room treasure].</li></ul></li></ol>
+2,[dungeon header][dungeon map with 12 rooms]<ol><li>[entrance room]</li><li>[with interior room]<ul><li>[room feature]</i></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[final room]<ul><li>Boss Monster: [[same monsters] boss]</li><li>Treasure: [final room treasure]</li></ul></li><li>[entrance room]</li><li>[with interior room]<ul><li>[room feature]</i></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[final room]<ul><li><u>Boss Monster:</u> [[same monsters] boss]</li><li>Treasure: [final room treasure]</li></ul></li></ol>
 # 14 rooms
-1,[dungeon header][dungeon map with 14 rooms]<ol><li>[entrance room]</li><li>[with interior room]<ul><li>[room feature]</i></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[final room]<ul><li><u>Boss Monster:</u> [[same monsters] boss].</li><li>Treasure: [final room treasure].</li></ul></li><li>[entrance room]</li><li>[with interior room]<ul><li>[room feature]</i></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[final room]<ul><li><u>Boss Monster:</u> [[same monsters] boss].</li><li>Treasure: [final room treasure].</li></ul></li></ol>
+1,[dungeon header][dungeon map with 14 rooms]<ol><li>[entrance room]</li><li>[with interior room]<ul><li>[room feature]</i></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[final room]<ul><li><u>Boss Monster:</u> [[same monsters] boss]</li><li>Treasure: [final room treasure]</li></ul></li><li>[entrance room]</li><li>[with interior room]<ul><li>[room feature]</i></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[final room]<ul><li><u>Boss Monster:</u> [[same monsters] boss]</li><li>Treasure: [final room treasure]</li></ul></li></ol>
 
 ;dungeon map with 5 rooms
 1,<img class="map" src="[[redirect https://campaignwiki.org/text-mapper/gridmapper/redirect?pillars=0&seed=$seed]]" alt="5 room dungeon" title="5 room dungeon"/>
@@ -1676,26 +1676,25 @@
 
 ;encounter treasure
 1,
-1,</li><li>Treasure: [unguarded treasure 1].</li>
+1,</li><li>Treasure: [unguarded treasure]</li>
 
 ;trap treasure
 2,
-1,</li><li>Treasure: [unguarded treasure 1].</li>
+1,</li><li>Treasure: [unguarded treasure]</li>
 
 ;empty treasure
 6,
-1,</li><li>Treasure: [unguarded treasure 1].</li>
+1,</li><li>Treasure: [unguarded treasure]</li>
 
 
-#going with chances closest to level one for now, could pass deeper levels later (https://chartopia.d12dev.com/chart/2590/)
-#current tables can return null, so these need to have a guaranteed amount of coins
+# Using the treasure type assigned with the boss monster (including “unguarded”)
 ;final room treasure
-1,<span class="treasure unguarded">[1d6][1d100] silver coins [50% 1d6 gold] [10% 1d6 platinum] [10% 1d6 gems] [10% 1d6 jewelry]</span> ([treasure where])
+1,[[[same treasure type] treasure]||unguarded: [unguarded treasure]] ([treasure where])
 
-;unguarded treasure 1
-2,<span class="treasure unguarded">[1d6][1d100] silver coins [50% 1d6 gold] [10% 1d6 platinum] [10% 1d6 gems] [10% 1d6 jewelry]</span> ([treasure where])
+;unguarded treasure
+1,<span class="treasure unguarded">[1d6][1d100] silver coins [50% 1d6×10 gold]</span> ([treasure where])
 
-;50% 1d6 gold
+;50% 1d6×10 gold
 1,[1d6]0 gold coins.
 1,
 
@@ -1731,28 +1730,33 @@
 1,niche
 
 
-#ENCOUNTER/MONSTER TABLES (New Stat Blocks at the end for ease of organization). Placing Encounter and Boss Blocks together for ease of reference/updating themes/adding new themes
+# ENCOUNTER/MONSTER TABLES (New Stat Blocks at the end for ease of
+# organization). Placing Encounter and Boss Blocks together for ease of
+# reference/updating themes/adding new themes
 
-#here's a “vermin” or “clean-up crew” (oozes, jellies, insects, etc) table that can also be referenced from each [dungeontype2 monster] table...these seem to be pretty omnipresent in dungeons regardless of type (except maybe a civilized one).
+# here's a “vermin” or “clean-up crew” (oozes, jellies, insects, etc)
+# table that can also be referenced from each [dungeontype2 monster]
+# table...these seem to be pretty omnipresent in dungeons regardless
+# of type (except maybe a civilized one).
 
 #VERMIN
 ;vermin encounter
 1,[2d6] **giant rats** ([giant rat stats])
 1,[2d6] **giant beetles** ([giant beetle stats])
 1,[2d4] **giant centipedes** ([giant centipede stats])
-1,1 **corpse crawler** ([corpse crawler stats])
+1,a **corpse crawler** ([corpse crawler stats])
 1,[1d6+1] **giant bats** ([giant bat stats])
-1, [2d3] **giant vampire bats** ([giant vampire bat stats])
-1, [2d20] **bats** ([bat stats])
-1, [2d6] **cave locusts** ([cave locust stats])
-1, [2d4] **robber flies** ([robber fly stats])
-1, 1 **swarm of [insect swarm type]** ([insect swarm stats])
-1, [5d10] **rats** ([rat stats])
-1, [1d2+1] **giant spiders** ([giant spider stats])
-1, [1d4+1] **giant beetles** ([giant beetle stats])
-1, [2d6] **large spiders** ([big spider stats])
-1, [1 [slime]|[1d2+1] [slimes]]
-1, 1 **cave fisher** lurking on the ceiling ([cave fisher stats])
+1,[2d3] **giant vampire bats** ([giant vampire bat stats])
+1,[2d20] **bats** ([bat stats])
+1,[2d6] **cave locusts** ([cave locust stats])
+1,[2d4] **robber flies** ([robber fly stats])
+1,a **swarm of [insect swarm type]** ([insect swarm stats])
+1,[5d10] **rats** ([rat stats])
+1,[1d2+1] **giant spiders** ([giant spider stats])
+1,[1d4+1] **giant beetles** ([giant beetle stats])
+1,[2d6] **large spiders** ([big spider stats])
+1,[1 [slime]|[1d2+1] [slimes]]
+1,a **cave fisher** lurking on the ceiling ([cave fisher stats])
 
 #GOBLIN THEME
 ;goblin encounter
@@ -1763,15 +1767,15 @@
 1,[1d4+1] **trolls** [monster activities] ([troll stats]) 
 
 ;goblin boss
-1,1 **goblin chieftain** ([orc stats]) and [2d4] **goblins** [monster activities] ([goblin stats]) 
-1,1 **goblin shaman** (level [1d3+1 as level]). [spellbook for magic user] and [2d6] **goblins** [monster activities] ([goblin stats])
-1,1 **troll taskmaster** ([troll stats]) and [2d4] **goblin flunkies** [monster activities] ([goblin stats])
-1,1 **ogre bully** ([ogre stats]) and [2d4] **goblin toadies** [monster activities] ([goblin stats])
-1,1 **doppelgänger** (impersonating the former chieftain) ([doppelgänger stats]) and [2d3] **suspicious goblins**  [monster activities] ([goblin stats])
-1,1 **hobgoblin majordomo** ([bugbear stats]) and [his|her] [2d4] **loyal hobgoblin retainers** ([hobgoblin stats])
-1,1 **goblin moss-warper** (level [1d3+4 as level]), protected by [3d6] **myconids** ([myconid stats])
-1,1 **recently assassinated goblin chieftain** being devoured by [vermin encounter]
-1,1 **goblin pest-whisperer** (level [1d3+4 as level]), protected by [vermin encounter]
+1,a **goblin chieftain** ([orc stats]) and [2d4] **goblins** [monster activities] ([goblin stats])[store poor as treasure type]
+1,a **goblin shaman** (level [1d3+1 as level]). [spellbook for magic user] and [2d6] **goblins** [monster activities] ([goblin stats])[store poor as treasure type]
+1,a **troll taskmaster** ([troll stats]) and [2d4] **goblin flunkies** [monster activities] ([goblin stats])[store robber as treasure type]
+1,an **ogre bully** ([ogre stats]) and [2d4] **goblin toadies** [monster activities] ([goblin stats])[store robber as treasure type]
+1,a **doppelgänger** (impersonating the former chieftain) ([doppelgänger stats]) and [2d3] **suspicious goblins**  [monster activities] ([goblin stats])[store poor as treasure type]
+1,a **hobgoblin majordomo** ([bugbear stats]) and [his|her] [2d4] **loyal hobgoblin retainers** ([hobgoblin stats])[store scout as treasure type]
+1,a **goblin moss-warper** (level [1d3+4 as level]), protected by [3d6] **myconids** ([myconid stats])[store poor as treasure type]
+1,a **recently assassinated goblin chieftain** being devoured by [vermin encounter][store unguarded as treasure type]
+1,a **goblin pest-whisperer** (level [1d3+4 as level]), protected by [vermin encounter][store unguarded as treasure type]
 
 #GREEK MYTHOLOGY THEME
 ;Greek mythology encounter
@@ -1781,10 +1785,10 @@
 2,[2d4] **satyrs** [monster activities] ([satyr stats])
 
 ;Greek mythology boss
-1,a **gorgon** named *[medusa]* ([gorgon stats])
-1,a **manticore** ([manticore stats])
-1,a **medusa** named *[medusa]* ([medusa stats])
-1,a **minotaur**
+1,a **gorgon** ([gorgon stats])[store terror as treasure type]
+1,a **manticore** named *[manticore]* ([manticore stats])[store robber as treasure type]
+1,a **medusa** named *[medusa]* ([medusa stats])[store terror as treasure type]
+1,a **minotaur** named *[minotaur name]* ([minotaur stats])[store poor as treasure type]
 
 #GYGAXIAN THEME
 ;Gygaxian encounter
@@ -1796,9 +1800,9 @@
 1,[1d8 treants]
 
 ;Gygaxian boss
-1,a **balor** named *[devil name]* ([balor stats])
-1,a [wererat boss]
-1,an **ettin** ([ettin stats])
+1,a **balor** named *[devil name]* ([balor stats])[store terror as treasure type]
+1,a [wererat boss][store poor as treasure type]
+1,an **ettin** ([ettin stats])[store robber as treasure type]
 
 #UNDEAD THEME
 ;undead encounter
@@ -1807,13 +1811,13 @@
 1,[vermin encounter]
 
 ;undead boss
-1,1 **wight** [wight stats] and [2d4] **skeletons** [monster activities] ([skeleton stats]) 
-1,1 **spectre** ([spectre stats]) and [undead encounter]
-1,1 **necromancer** [human with portrait][here store [same human name] as alchemist patron] (level [1d3+4 as level]), protected by [necromancer companions]. [spellbook for necromancers] 
-1,1 **mummy** ([mummy stats]) with wrappings that smell of [smells] guarded by [2d6] **grinning skeleton [spear|shield|ceremonial sword]-bearers** ([skeleton stats])
-1,1 **[babbling|insane|rambling|surprisingly polite] ghost** who thinks [he is king|she is queen] of loyal vermin subjects: [vermin encounter]
-1,2 **skeletal minotaurs** [monster activities] ([minotaur stats]) 
-1,2 **shadows** for each party member ([shadow stats]) who hate all light sources
+1,a **wight** [wight stats] and [2d4] **skeletons** [monster activities] ([skeleton stats])[store dead as treasure type]
+1,a **spectre** ([spectre stats]) and [undead encounter][store dead as treasure type]
+1,a **necromancer** [human with portrait][here store [same human name] as alchemist patron] (level [1d3+4 as level]), protected by [necromancer companions]. [spellbook for necromancers] [leader treasure for magic user][store dead as treasure type]
+1,a **mummy** ([mummy stats]) with wrappings that smell of [smells] guarded by [2d6] **grinning skeleton [spear|shield|ceremonial sword]-bearers** ([skeleton stats])[store dead as treasure type]
+1,**[a babbling|an insane|a rambling|a surprisingly polite] ghost** who thinks [he is king|she is queen] of loyal vermin subjects: [vermin encounter][store unguarded as treasure type]
+1,2 **skeletal minotaurs** [monster activities] ([minotaur stats])[store poor as treasure type]
+1,2 **shadows** for each party member ([shadow stats]) who hate all light sources[store terror as treasure type]
 
 #ELEMENTAL THEME
 #ELEMENTAL THEME
@@ -1826,30 +1830,29 @@
 4,[2d6] **[pebble|dust|chalk] mephits**  [monster activities] ([kobold stats])
 3,[2d4] **mud men** [monster activities] ([orc stats]) 
 1,[gargoyles] [indistinguishable from statues|perched along the ceiling|embedded as bas reliefs in the walls] ([gargoyle stats]) 
-1,1 **gorgon** ([gorgon stats])
+1,a **gorgon** ([gorgon stats])
 1,[1d3+1] **cockatrices** ([cockatrice stats]) guarding a nest
 
 ;earth elemental boss
-2,[2d3] **earth elementals** ([earth elemental stats])
-1,1 **earth elemental lord** ([greater earth elemental stats])
-3,The **medusa** *[medusa]* ([medusa stats]) protected by [earth elemental encounter]
-1,1 **basilisk** ([basilisk stats])
+2,[2d3] **earth elementals** ([earth elemental stats])[store unguarded as treasure type]
+1,an **earth elemental lord** ([greater earth elemental stats])[store ancient as treasure type]
+3,the **medusa** *[medusa]* ([medusa stats]) protected by [earth elemental encounter][store terror as treasure type]
+1,a **basilisk** ([basilisk stats])[store terror as treasure type]
 
 #WATER
 ;water elemental encounter
-1,[1d4+1] **lesser water elementals** ([lesser water elemental stats]) 
+1,[1d4+1] **lesser water elementals** ([lesser water elemental stats])
 4,[2d6] **[steam|tear|brine|frost] mephits** [monster activities] ([kobold stats])
 2,[2d4] **snow men** [monster activities] ([orc stats])
 1,[2d3] **giant ice spiders** [darning their translucent webs|defending an icy egg case] ([giant spider stats])
 1,[2d6] **nixies** led by *[nixie]* ([nixie stats])
-1,1 **giant ice crab** ([giant crab stats])
+1,a **giant ice crab** ([giant crab stats])
 
 ;water elemental boss
-2,[2d3] **water elementals** ([water elemental stats])
-1,1 **water elemental lord** ([greater water elemental stats]) 
-1,1 **aboleth** ([aboleth stats]) [lurking|brooding|plotting world domination] in a large pool, served tirelessly by [2d10] **slime coated goblin servants** ([goblin stats])
-1,1 **serpentine sea dragon** ([sea dragon stats])
-
+2,[2d3] **water elementals** ([water elemental stats])[store unguarded as treasure type]
+1,a **water elemental lord** ([greater water elemental stats])[store ancient as treasure type]
+1,an **aboleth** ([aboleth stats]) [lurking|brooding|plotting world domination] in a large pool, served tirelessly by [2d10] **slime coated goblin servants** ([goblin stats])[store terror as treasure type]
+1,a **serpentine sea dragon** ([sea dragon stats])[store dragon as treasure type]
 
 #AIR
 ;air elemental encounter
@@ -1857,17 +1860,21 @@
 1,[1d4+1] **lesser air elementals** ([lesser air elemental stats]) 
 
 ;air elemental boss
-1,1 **air elemental lord** ([greater air elemental stats])
-1,The **blue dragon** *[here blue dragon name as dragon name]*[dragon portrait] ([blue dragon stats]) 
+1,an **air elemental lord** ([greater air elemental stats])[store ancient as treasure type]
+1,the **blue dragon** *[here blue dragon name as dragon name]*[dragon portrait] ([blue dragon stats])[store dragon as treasure type]
 
 #FIRE
 ;fire elemental encounter
 #more fire creatures go here: Salamanders, Fire Giants, Hell Hounds, etc
 1,[1d4+1] **lesser fire elementals** ([lesser fire elemental stats])
+1,2d4 **salamanders** led by *[salamander]* ([salamander stats])
+1,[2d4] **hell hounds** ([hell hound stats])
+1,[1d2+1] **fire giants** led by *[fire giant name]* ([fire giant stats])
 
 ;fire elemental boss
-1,1 **fire elemental lord** ([greater fire elemental stats])
-1,The **red dragon** *[here red dragon name as dragon name]*[dragon portrait] ([red dragon stats]) 
+1,a **pyrohydra* ([pyrohydra stats])
+1,a **fire elemental lord** ([greater fire elemental stats])[store ancient as treasure type]
+1,the **red dragon** *[here red dragon name as dragon name]*[dragon portrait] ([red dragon stats])[store dragon as treasure type]
 
 
 #LIZARD THEME
@@ -1878,11 +1885,11 @@
 1,[1d8+1] **troglodytes** [monster activities] ([troglodyte stats])
 
 ;lizard boss
-1,1 **lizardfolk oracle** (level [1d3+1 as level]). [spellbook for magic user] and [his|her] [2d6] devoted **kobolds** [monster activities] ([kobold stats]) 
-1,1 **brutishly huge lizard [matriarch|patriarch]** ([ogre stats]), fanatically guarded by [lizard encounter]
-1,1 **troglodyte stench-mage** (level [1d3+4 as level]) who currently smells of [smells], teaching the aromatic arts to [1d8+1] **troglodytes** ([troglodyte stats])
-1,*[naga name]* the **[Cobra Hooded|Rattle Tail|Coral Striped|Reticulated] Naga** ([naga stats]; <span class="treasure">a *naga tongue* is worth 1000gp to an alchemist</span> and her [charmed|ensorcelled|adoring] [lizard encounter]
-1,The **red dragon** *[here red dragon name as dragon name]*[dragon portrait] ([red dragon stats])
+1,1 **lizardfolk oracle** (level [1d3+1 as level]). [spellbook for magic user] and [his|her] [2d6] devoted **kobolds** [monster activities] ([kobold stats])[store poor as treasure type]
+1,1 **brutishly huge lizard [matriarch|patriarch]** ([ogre stats]), fanatically guarded by [lizard encounter][store robber as treasure type]
+1,1 **troglodyte stench-mage** (level [1d3+4 as level]) who currently smells of [smells], teaching the aromatic arts to [1d8+1] **troglodytes** ([troglodyte stats])[store poor as treasure type]
+1,*[naga name]* the **[Cobra Hooded|Rattle Tail|Coral Striped|Reticulated] Naga** ([naga stats]; <span class="treasure">a *naga tongue* is worth 1000gp to an alchemist</span> and her [charmed|ensorcelled|adoring] [lizard encounter][store terror as treasure type]
+1,the **red dragon** *[here red dragon name as dragon name]*[dragon portrait] ([red dragon stats])[store dragon as treasure type]
 
 
 #MAGIC USER THEME
@@ -1901,7 +1908,7 @@
 2,[2d4] **floating eyes** glaring [balefully|inquisitively|unblinkingly] ([floating eye stats])
 
 ;magic user boss
-1,The [infamous|well-known|cruel|absent-minded|callous|calculating|misunderstood|desperate|greedy|power-hungry|maniacal|stark-raving mad|corrupted|cursed|dangerous|studious|apprentice-seeking|unhinged|unnervingly polite] **[magic user]** [human with portrait][here store [same human name] as alchemist patron] (level [1d3+4 as level]). [spellbook for magic user] [leader treasure for magic user]
+1,the [infamous|well-known|cruel|absent-minded|callous|calculating|misunderstood|desperate|greedy|power-hungry|maniacal|stark-raving mad|corrupted|cursed|dangerous|studious|apprentice-seeking|unhinged|unnervingly polite] **[magic user]** [human with portrait][here store [same human name] as alchemist patron] (level [1d3+4 as level]). [spellbook for magic user] [leader treasure for magic user][store poor as treasure type]
 
 #LYCANTHROPE THEME
 #Still working on how to handle this
@@ -1910,7 +1917,7 @@
 1,[2d6] **giant beetles** ([giant beetle stats])
 
 ;wererat boss
-1,1 *wererat* ([werewolf stats]) [poor treasure]
+1,a *wererat* ([werewolf stats])[store poor as treasure type]
 
 #BANDIT THEME
 ;bandit encounter
@@ -1923,7 +1930,7 @@
 1,[ogre leader] ([ogre stats]) who claims a large part of the bandit’s spoils
 
 ;bandit boss
-1,The [infamous|wanted|recently escaped] **[human class]** [human with portrait] (level [1d4+1 as level]) leads these bandits.[here store the bandit *[same human name]* as wanted dead or alive] [spellbook for [same class]] [leader treasure for [same class]]
+1,the [infamous|wanted|recently escaped] **[human class]** [human with portrait] (level [1d4+1 as level]) leads these bandits.[here store the bandit *[same human name]* as wanted dead or alive] [spellbook for [same class]] [leader treasure for [same class]][store poor as treasure type]
 
 
 #SNAKE THEME
@@ -1932,10 +1939,10 @@
 1,[1d8 snakes]
 
 ;snake boss
-1,a **gorgon** named *[medusa]* ([gorgon stats])
-1,a **medusa** named *[medusa]* ([medusa stats])
-1,a **naga** named *[naga name]* ([naga stats])
-1,[2d6] **snake people** ([lizard people stats]; *charm person* 3×/day) led by *[lizard leader]* (HD [1d4+4 as level], *lightning bolt* ([same level]d6) 2×/day). [leader treasure]
+1,a **gorgon** named *[medusa]* ([gorgon stats])[store terror as treasure type]
+1,a **medusa** named *[medusa]* ([medusa stats])[store terror as treasure type]
+1,a **naga** named *[naga name]* ([naga stats])[store terror as treasure type]
+1,[2d6] **snake people** ([lizard people stats]; *charm person* 3×/day) led by *[lizard leader]* (HD [1d4+4 as level], *lightning bolt* ([same level]d6) 2×/day). [leader treasure][store poor as treasure type]
 
 #AMALGAM THEME
 #This one just takes entries from the other themes and mashes them together for a true gonzo random dungeon experience
@@ -4900,7 +4907,7 @@
 1,a squat fortress, grey, with horizontal slits. The entrance is hidden and fortified with many iron gates in narrow tunnels. These days narrow wooden ladders simply lead up to one of the those slits. A human would have to crawl into the opening. At night, wild howling can be heard.<p>[2d6] **werewolves** live here ([werewolf stats]). During the day, the place looks like a field lazaret with mauled humans lying on dirty rags. During the night, they succumb to their madness, slipping back into close quarter bunker fighting, never quite managing to kill each other for good. [poor treasure]
 1,a blocky [stone mat] fortress, its great [iron|steel] gates bent, crushed, and broken, and covered in rust. An inner courtyard is littered with the bleached bones of dwarves, long stripped of their armor; only broken axes and chipped mattocks remain. [dungeon]
 1,a [stone mat] citadel, its [iron|steel] gate impregnable, but next to it the charred, collapsed stones of the wall had exploded inward. [dwarven clan fame] Investigating and moving some of the rocks will reveal some of their quality [same dwarven equipment], unsullied by time.
-1,a conical tower of early dwarven construction, as attested by a cone shape formed as each of its four floors tapers inward: [save dungeontype as monsters] <ol><li>[[same monsters] encounter]. [encounter treasure]</li><li>[[same monsters] encounter]. [encounter treasure]</li><li>[[same monsters] encounter]. [encounter treasure]</li><li>[[same monsters] boss] [final room treasure].</li></ol>
+1,a conical tower of early dwarven construction, as attested by a cone shape formed as each of its four floors tapers inward: [save dungeontype as monsters] <ol><li>[[same monsters] encounter]. [encounter treasure]</li><li>[[same monsters] encounter]. [encounter treasure]</li><li>[[same monsters] encounter]. [encounter treasure]</li><li>[[same monsters] boss] [final room treasure]</li></ol>
 
 ;mountain valley
 1,The upper valley is rocky and bare.

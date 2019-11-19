@@ -1176,6 +1176,16 @@ sub describe {
       # $log->debug("rolling dice: $word = $r");
       $locals{$save_as} = $r if $save_as;
       push(@descriptions, $r) unless $just_save;
+    } elsif (index($word, "||") != -1) {
+      # make sure there is a or b: [a||b]
+      for my $html (split(/\|\|/, $word)) {
+	my $copy = $html;
+	$copy =~ s/<.*?>//g; # strip tags, e.g. span elements
+	if ($copy =~ /\S/) {
+	  push(@descriptions, $html);
+	  last;
+	}
+      }
     } elsif (index($word, "|") != -1) {
       # super shorthand for [a|b]
       push(@descriptions, one(split(/\|/, $word)));
@@ -2539,6 +2549,20 @@ doing quick and dirty prototyping: using a vertical line to separate options.
 
 ;ogre
 1,[Mad|Big|Much|Bone] [Eye|Tooth|Pain|Crusher]
+% end
+
+<p>
+Note that two vertical lines separate are read like an "or". Use these for
+rules stuff like treasure, for example:
+
+%= example begin
+;treasure
+1,[[50% gold]|you find some copper]
+
+# assuming you use this a lot and often want there to be no gold
+;50% gold
+1,you find some gold
+1,
 % end
 
 <p>
