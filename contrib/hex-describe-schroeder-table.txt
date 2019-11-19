@@ -409,13 +409,13 @@
 1,Scrublands
 
 ;elephant stats
-1,HD 9 AC 5 4d8 *with +4 to hit* F5 MV 12 ML 8 XP 900<img class="landscape" src="/contrib/pics/Elephant.jpg" alt="" title="elephant"/>
+1,HD 9 AC 5 4d8 *with +4 to hit* F5 MV 12 ML 8 XP 900
 
 ;straw golem stats
 1,HD 1 AC 9 1d6 MV 12 ML 12 XP 100; immune to *arrows*, immune to *poison*; immune to *spells*
 
 ;basilisk stats
-1,HD 6+1 AC 4 1d10 F6 MV 6 ML 9 XP 600; save vs. poison if closer than 30ft because of the *poisoned air*, or when its *killing gaze* falls on you, or when bitten by the *poisonous fangs*; <span class="treasure">*basilisk bile* is worth 5000gp to an alchemist</span>[here store basilisk bile as alchemist quest]<img class="landscape" src="/contrib/pics/Basilisk.jpg" alt="" title="Basilisk"/>
+1,HD 6+1 AC 4 1d10 F6 MV 6 ML 9 XP 600; save vs. poison if closer than 30ft because of the *poisoned air*, or when its *killing gaze* falls on you, or when bitten by the *poisonous fangs*; <span class="treasure">*basilisk bile* is worth 5000gp to an alchemist</span>[here store basilisk bile as alchemist quest]
 
 ;horse archers
 1,[1d4x10] **humans** ([human stats]) led by *[archer leader name as human name]*[human portrait]. They are hunters and gatherers, following the herds of *[cows]*, and they are also excellent *horse archers*. [horse archer activities] They will trade dried meat and finely woven cloth for jewelry or [gem]. Their wool tents are decorated with [with colour] and [and colour] banners and protected by [human companions]. [average treasure]
@@ -534,10 +534,10 @@
 1,[bandits]
 
 ;invisible stalker stats
-1,HD 8 AC 3 2d8 F8 MV 12 ML 12 XP 800; surprise on 1–5 in 6<img class="portrait" src="/contrib/pics/Invisible-Stalker.jpg" alt="" title="invisible stalker"/>
+1,HD 8 AC 3 2d8 F8 MV 12 ML 12 XP 800; surprise on 1–5 in 6
 
 ;gnoll stats
-1,HD 2+1 AC 5 1d10 F2 MV 9 ML 8 XP 200<img class="portrait" src="/contrib/pics/Gnoll.jpg" alt="" title="gnoll"/>
+1,HD 2+1 AC 5 1d10 F2 MV 9 ML 8 XP 200
 
 ;gnoll name
 1,Crusher
@@ -553,7 +553,7 @@
 9,[1d19+1] drunken **centaurs** led by *[centaur]* ([centaur stats])
 
 ;centaur stats
-1,HD 4 AC 5 1d6/1d6/1d8 F4 MV 18 ML 8 XP 400<img class="landscape" src="/contrib/pics/Centaur.jpg" alt="" title="centaur"/>
+1,HD 4 AC 5 1d6/1d6/1d8 F4 MV 18 ML 8 XP 400
 
 ;centaur
 1,[strange name for men]
@@ -695,7 +695,7 @@
 1,Lady
 
 ;medusa stats
-1,HD 4 AC 8 1d6 or *poison* F6 MV 9 ML 8 XP 400; *petrification*; <span class="treasure">a *medusa’s head* is worth 5000gp to an alchemist</span>[here store medusa head as alchemist quest]<img class="portrait" src="/contrib/pics/Medusa.jpg" alt="" title="medusa"/>
+1,HD 4 AC 8 1d6 or *poison* F6 MV 9 ML 8 XP 400; *petrification*; <span class="treasure">a *medusa’s head* is worth 5000gp to an alchemist</span>[here store medusa head as alchemist quest]
 
 ;warlocks
 1,a **warlock** ([warlock stats]) and his **giant scorpion** mount ([giant scorpion stats])
@@ -709,7 +709,7 @@
 5,[1d5+1] **giant scorpions**
 
 ;giant scorpion stats
-1,HD 4 AC 2 1d10/1d10/1d4 + *poison* F2 MV 15 ML 11 XP 400<img class="landscape" src="/contrib/pics/Scorpion.jpg" alt="" title="giant scorpion"/>
+1,HD 4 AC 2 1d10/1d10/1d4 + *poison* F2 MV 15 ML 11 XP 400
 
 ;some canyon wights
 1,the **wight** *[old name]* [the necromaner] who surfaces from his watery grave every night and searches the [gorge] for fools to drown
@@ -1317,7 +1317,7 @@
 1,Ynyra
 
 ;wight stats
-1,HD 3 AC 5 *drain* F3 MV 9 ML 12 XP 300; only harmed by magic or magic weapons; immune to *sleep* and *charm*<img class="portrait" src="/contrib/pics/Spectre.jpg" alt="" title="wight"/>
+1,HD 3 AC 5 *drain* F3 MV 9 ML 12 XP 300; only harmed by magic or magic weapons; immune to *sleep* and *charm*
 
 ;mountain
 1,The green valley up here has some [mountain animals] and a **kid** called *[human name]* guarding them.
@@ -1977,13 +1977,13 @@
 1,AC 1 HD 8 MV 180' (60') Fly/Swim DMG 3d8 Save F8 ML 9 AL N XP 2,060 Special: Breath Weapon [boiling jets of steam|blasting rays of salt and sand]
 
 ;giant crab stats
-1,AC 2 HD 3 MV 60'(20') DMG 2d6/2d6 Save F2 ML 7 AL N XP 50<img class="landscape" src="/contrib/pics/Crab.jpg" alt="" title="crab"/>
+1,AC 2 HD 3 MV 60'(20') DMG 2d6/2d6 Save F2 ML 7 AL N XP 50
 
 ;aboleth stats
 1,AC 4 HD 8    MV Swim 180'(60') DMG 1d6/1d6/1d6/1d6 Save F8 ML 10    AL C XP    2,060 Special: slime and enslavement abilities. Ground movement 30'(10')
 
 ;giant centipede stats
-1,AC 9 HD 1d4 hp  MV 60' (20')  DMG Poison  Save NM  ML 7  AL N  XP 5<img class="landscape" src="/contrib/pics/Centipede.jpg" alt="" title="giant centipede"/>
+1,AC 9 HD 1d4 hp  MV 60' (20')  DMG Poison  Save NM  ML 7  AL N  XP 5
 
 ;corpse crawler stats
 1,AC 7 HD 3 + 1*  MV 120' (40')  DMG Paralysis  Save F2  ML 9 AL N  XP  75  
@@ -2016,20 +2016,20 @@
 1,AC 7 HD 1d4 hp MV 60' (20') DMG 1d4 or weapon-1 Save NM ML 6 AL C XP 5 
 
 ;amber golem stats
-1,AC 6 HD 10** MV 180' (60') DMG 2d6/2d6/2d10 Save F5 ML 12 AL N XP 2,300<img class="portrait" src="/contrib/pics/Golem.jpg" alt="" title="amber golem"/>
+1,AC 6 HD 10** MV 180' (60') DMG 2d6/2d6/2d10 Save F5 ML 12 AL N XP 2,300 
 
 #always fun to sprinkle one of these in an Undead dungeon :)
 ;bone golem stats
-1,AC 2 HD 8 MV 120' (40') DMG By weapons Save F4 ML 12 AL N XP 650<img class="portrait" src="/contrib/pics/Skeleton.jpg" alt="" title="bone golem"/>
+1,AC 2 HD 8 MV 120' (40') DMG By weapons Save F4 ML 12 AL N XP 650 
 
 ;giant bronze golem stats
-1,AC 0 HD 20** MV 240' (80') DMG 3d10 + special Save F10 ML 12 AL N XP 4,300<img class="portrait" src="/contrib/pics/Golem.jpg" alt="" title="giant bronze golem"/>
+1,AC 0 HD 20** MV 240' (80') DMG 3d10 + special Save F10 ML 12 AL N XP 4,300 
 
 ;water elemental stats
 1,AC 0 HD 12 MV 60' (20'), Swim 180' (60') DMG 2d8 Save F12 ML 10 AL N XP 1,100 
 
 ;greater water elemental stats
-1,AC -2 HD 16 MV 60' (20'), Swim 180' (60') DMG 3d8 Save F16 ML 10 AL N XP 1,350<img class="portrait" src="/contrib/pics/Marid.jpg" alt="" title="greater water elemental"/>
+1,AC -2 HD 16 MV 60' (20'), Swim 180' (60') DMG 3d8 Save F16 ML 10 AL N XP 1,350 
 
 ;lesser water elemental stats
 1, AC 2 HD 8 MV 60' (20'), Swim 180' (60') DMG 1d8 Save F8 ML 10 AL N XP 650 
@@ -2056,7 +2056,7 @@
 1,AC 0 HD 12 MV 120' (40') DMG 2d8 Save F12 ML 10 AL N XP 1,100 
 
 ;greater fire elemental stats
-1,AC -2 HD 16 MV 120' (40') DMG 3d8 Save F16 ML 10 AL N XP 1,350<img class="landscape" src="/contrib/pics/Ifrit.jpg" alt="" title="greater fire elemental"/>
+1,AC -2 HD 16 MV 120' (40') DMG 3d8 Save F16 ML 10 AL N XP 1,350 
 
 ;lesser fire elemental stats
 1,AC 2 HD 8 120' (40') DMG 1d8 Save F8 ML 10 AL N XP 650 
@@ -5625,7 +5625,7 @@
 1,[ice devil]
 
 ;griffon stats
-1,HD 4+1 AC 6 1d6/1d6/1d8 F4 MV 24 ML 10 XP 400<img class="landscape" src="/contrib/pics/Gryphon.jpg" alt="" title="griffon"/>
+1,HD 4+1 AC 6 1d6/1d6/1d8 F4 MV 24 ML 10 XP 400
 
 ;maybe griffon eggs
 1,
@@ -5672,7 +5672,7 @@
 1,pet **white dragon** *[here white dragon name as dragon name]*[dragon portrait] ([white dragon stats])
 
 ;white gorilla stats
-1,HD 3 AC 7 1d6/1d6 F3 MV 12 ML 5 XP 300<img class="landscape" src="/contrib/pics/Ape.jpg" alt="" title="white gorilla"/>
+1,HD 3 AC 7 1d6/1d6 F3 MV 12 ML 5 XP 300
 
 ;four armed white gorilla stats
 1,HD 4+1 AC 6 1d6/1d6/1d6/1d6/1d8 F4 MV 24 ML 10 XP 400
@@ -5859,7 +5859,7 @@
 1,The ruin is now home to the **white dragon** *[here white dragon name as dragon name]*[dragon portrait] ([white dragon stats]). [dragon treasure]
 
 ;balor stats
-1,HD 9+1 AC 4 1d6/2d6 F9 MV 12 ML 11; flying; *aura of fire* (anybody in melee takes automatic 1d6 fire damage); if the first attack with the flaming whip hits, the second attack with the flaming sword is at +4; only harmed by magic or magic weapons; immune to fire<img class="landscape" src="/contrib/pics/Ifrit.jpg" alt="" title="balor"/>
+1,HD 9+1 AC 4 1d6/2d6 F9 MV 12 ML 11; flying; *aura of fire* (anybody in melee takes automatic 1d6 fire damage); if the first attack with the flaming whip hits, the second attack with the flaming sword is at +4; only harmed by magic or magic weapons; immune to fire
 
 ;balor servants
 1,The chambers around the fire gate are occupied by creates from the other side. [salamanders]
@@ -5869,7 +5869,7 @@
 1,2d4 **salamanders** ([salamander stats]) live here, led by *[salamander]*. [terror treasure]
 
 ;salamander stats
-1,HD 8 AC 2 1d4/1d4/1d8 F8 MV 12 ML 8 XP 800; *aura of fire* (anybody in melee takes automatic 1d6 fire damage); immune to fire; only harmed by magic or magic weapons; immune to *sleep* and *charm*<img class="landscape" src="/contrib/pics/Salamander.jpg" alt="" title="salamander"/>
+1,HD 8 AC 2 1d4/1d4/1d8 F8 MV 12 ML 8 XP 800; *aura of fire* (anybody in melee takes automatic 1d6 fire damage); immune to fire; only harmed by magic or magic weapons; immune to *sleep* and *charm*
 
 ;salamander
 1,Hot
@@ -5881,7 +5881,7 @@
 1,Ash
 
 ;bronze golem stats
-1,HD 10 AC 0 3d10 MV 12 ML 12 XP 1000; immune to *arrows*, immune to *poison*; immune to *spells*; when dealing damage to a bronze golem with a melee weapon, save vs. death or suffer 2d6 damage from molten metal splashes<img class="portrait" src="/contrib/pics/Golem.jpg" alt="" title="bronze golem"/>
+1,HD 10 AC 0 3d10 MV 12 ML 12 XP 1000; immune to *arrows*, immune to *poison*; immune to *spells*; when dealing damage to a bronze golem with a melee weapon, save vs. death or suffer 2d6 damage from molten metal splashes
 
 ;green tower in the mountains
 1,High up on on a ridge is an old elven tower made of green glass. [green tower description] In *[old elf ballad name]*, they call it *[elf tower name]*. [green tower in the mountains content]
@@ -6209,7 +6209,7 @@
 1,Karumbe
 
 ;turtle people stats
-1,HD 3 AC 2 1d8 F3 MV 6 ML 8 XP 300; *two attacks* when damaged<img class="portrait" src="/contrib/pics/Kappa.jpg" alt="" title="turtle people"/>
+1,HD 3 AC 2 1d8 F3 MV 6 ML 8 XP 300; *two attacks* when damaged
 
 ;turtle people activity
 1,averting their eyes as you approach for at least an hour
@@ -6360,7 +6360,7 @@
 1,[2d6] **sea serpents** ([sea serpent stats]).
 
 ;sea serpent stats
-1,HD 6 AC 5 2d6 and 1d10 vs. ships F3 MV 15 ML 8 XP 600<img class="landscape" src="/contrib/pics/Sea-Serpent.jpg" alt="" title="sea serpent"/>
+1,HD 6 AC 5 2d6 and 1d10 vs. ships F3 MV 15 ML 8 XP 600
 
 ;mountain hill giants
 1,Some boulders have been assembled into a crude stone tower inhabited [hill giants]
@@ -6506,20 +6506,20 @@
 7,[1d5+1] **wraiths**
 
 ;wraith stats
-1,HD 4 AC 3 1d6 + *drain* F4 MV 24 ML 12 XP 400; only harmed by magic or magic weapons; immune to *sleep* and *charm*<img class="portrait" src="/contrib/pics/Wraith.jpg" alt="" title="wraith"/>
+1,HD 4 AC 3 1d6 + *drain* F4 MV 24 ML 12 XP 400; only harmed by magic or magic weapons; immune to *sleep* and *charm*
 
 ;ice monster
 1,gorgon
 1,cryohydra
 
 ;gorgon stats
-1,HD 8 AC 7 2d6 F8 MV 12 ML 8 XP 800; *poison breath* 30ft; *charge* into combat for double damage<img class="portrait" src="/contrib/pics/Gorgon.jpg" alt="" title="gorgon"/>
+1,HD 8 AC 7 2d6 F8 MV 12 ML 8 XP 800; *poison breath* 30ft; *charge* into combat for double damage
 
 ;cryohydra stats
-1,[1d8+4 as heads] heads, HD [same heads] (8hp per head) AC 5 1d10 per head F[same heads] MV 12 ML 9 XP [same heads]00; whenever a head is lost, *two heads regrow* the next round (up to 12) unless the wound is cauterised using ice or fire (a melee attack with a torch will do); *ice* (as much as the hydra has hp left, save vs. dragon breath for half); *poisonous blood* (cutting off a head with a melee weapon exposes the attacker to it: save vs. poison or die; <span class="treasure">*hydra’s blood* is worth 5000gp each to an alchemist</span>[here store hydra blood as alchemist quest])<img class="landscape" src="/contrib/pics/Hydra.jpg" alt="" title="cryohydra"/>
+1,[1d8+4 as heads] heads, HD [same heads] (8hp per head) AC 5 1d10 per head F[same heads] MV 12 ML 9 XP [same heads]00; whenever a head is lost, *two heads regrow* the next round (up to 12) unless the wound is cauterised using ice or fire (a melee attack with a torch will do); *ice* (as much as the hydra has hp left, save vs. dragon breath for half); *poisonous blood* (cutting off a head with a melee weapon exposes the attacker to it: save vs. poison or die; <span class="treasure">*hydra’s blood* is worth 5000gp each to an alchemist</span>[here store hydra blood as alchemist quest])
 
 ;pyrohydra stats
-1,[1d8+4 as heads] heads, HD [same heads] (8hp per head) AC 5 1d10 per head F[same heads]MV 12 ML 9 XP is [same heads]00; whenever a head is lost, *two heads regrow* the next round (up to 12) unless the wound is cauterised using ice or fire (a melee attack with a torch will do); *fire* (as much as the hydra has hp left, save vs. dragon breath for half); *poisonous blood* (cutting off a head with a melee weapon exposes the attacker to it: save vs. poison or die; <span class="treasure">*hydra’s blood* is worth 5000gp each to an alchemist</span>[here store hydra blood as alchemist quest])<img class="landscape" src="/contrib/pics/Hydra.jpg" alt="" title="pyrohydra"/>
+1,[1d8+4 as heads] heads, HD [same heads] (8hp per head) AC 5 1d10 per head F[same heads]MV 12 ML 9 XP is [same heads]00; whenever a head is lost, *two heads regrow* the next round (up to 12) unless the wound is cauterised using ice or fire (a melee attack with a torch will do); *fire* (as much as the hydra has hp left, save vs. dragon breath for half); *poisonous blood* (cutting off a head with a melee weapon exposes the attacker to it: save vs. poison or die; <span class="treasure">*hydra’s blood* is worth 5000gp each to an alchemist</span>[here store hydra blood as alchemist quest])
 
 ;gorgon lair
 1,A piece of the glacier has broken off and revealed an old temple of *[good power]*, razed, defiled, and cursed with the presence of a gorgon. There are plenty of dead birds which have died due to the poisonous fumes.
@@ -8367,7 +8367,7 @@
 4,[1d4+1] **giant toads** ([giant toad stats])
 
 ;giant toad stats
-1,HD 4+1 AC 7 1d6 + *swallow* F2 MV 3 ML 6 XP 400; human children, elves, halflings and dwarves are swallowed when hit: save vs. death once per round or suffocate<img class="landscape" src="/contrib/pics/Toad.jpg" alt="" title="giant toad"/>
+1,HD 4+1 AC 7 1d6 + *swallow* F2 MV 3 ML 6 XP 400; human children, elves, halflings and dwarves are swallowed when hit: save vs. death once per round or suffocate
 
 ;forest name
 1,[name for forest/forest-hill/trees/fir-forest/firs/swamp/swamp2]
@@ -8601,7 +8601,7 @@
 4,[1d5+1] **war bears** ([war bear stats])
 
 ;war bear stats
-1,HD 4 AC 4 1d4/1d4/1d6 + *hug* F2 MV 12 ML 5 XP 400; when both claws hit, their *bear hug* deals an extra 2d8<img class="portrait" src="/contrib/pics/Bear.jpg" alt="" title="bear"/>
+1,HD 4 AC 4 1d4/1d4/1d6 + *hug* F2 MV 12 ML 5 XP 400; when both claws hit, their *bear hug* deals an extra 2d8
 
 # http://random-generator.com/index.php?title=Orc_Tribe_Name
 # by Mike Banks
@@ -8848,7 +8848,7 @@
 4,guarded by [1d4+1] **boars** ([boar stats]). [orc feature]
 
 ;boar stats
-1,HD 3+1 AC 6 1d8 F1 MV 15 ML 9 XP 300<img class="landscape" src="/contrib/pics/Boar.jpg" alt="" title="boar"/>
+1,HD 3+1 AC 6 1d8 F1 MV 15 ML 9 XP 300
 
 ;orc feature
 1,There are [some] big skull pyramids near the entrance with about 200 skulls each.
@@ -9352,7 +9352,7 @@
 7,[1d7+1] **shadows** ([shadow stats])
 
 ;shadow stats
-1,HD 2 AC 7 1d4 + 1 *strenth* F2 MV 15 ML 8 XP 200; *surprise* on 1–5 in 6; only harmed by magic or magic weapons; immune to *sleep* and *charm*<img class="landscape" src="/contrib/pics/Shadow.jpg" alt="" title="shadow"/>
+1,HD 2 AC 7 1d4 + 1 *strenth* F2 MV 15 ML 8 XP 200; *surprise* on 1–5 in 6; only harmed by magic or magic weapons; immune to *sleep* and *charm*
 
 ;ogre hill
 1,One hill is inhabited by [1d6 ogres]. [ogre lair] [robber treasure]
@@ -9559,7 +9559,7 @@
 1,tiger
 
 ;puma stats
-1,HD 3 AC 6 1d6 F1 MV 24 ML 7 XP 300; surprise on 1–4 in 6<img class="portrait" src="/contrib/pics/Cat.jpg" alt="" title="puma"/>
+1,HD 3 AC 6 1d6 F1 MV 24 ML 7 XP 300; surprise on 1–4 in 6
 
 ;jaguar stats
 1,HD 4 AC 6 1d4/1d4/1d8 F2 MV 21 ML 8 XP 400; surprise on 1–4 in 6
@@ -9589,13 +9589,13 @@
 1,[2d4] **hell hounds** ([hell hound stats])
 
 ;werewolf stats
-1,HD 4 AC 5 1d10 F4 MV 18 ML 8 XP 400; only harmed by magic, magic weapons or silver weapons; call 2d6 wolves which arrive within 10min: [wolf stats]<img class="portrait" src="/contrib/pics/Lycanthrope.jpg" alt="" title="werewolf"/>
+1,HD 4 AC 5 1d10 F4 MV 18 ML 8 XP 400; only harmed by magic, magic weapons or silver weapons; call 2d6 wolves which arrive within 10min: [wolf stats]
 
 ;zombie stats
-1,HD 2 AC 8 1d8 F1 MV 12 ML 12 XP 200; immune to *sleep* and *charm*<img class="portrait" src="/contrib/pics/Zombie.jpg" alt="" title="zombie"/>
+1,HD 2 AC 8 1d8 F1 MV 12 ML 12 XP 200; immune to *sleep* and *charm*
 
 ;ghoul stats
-1,HD 2 AC 6 1d4/1d4/1d4 + *paralysis* F2 MV 9 ML 9 XP 200; *aura of fear* (save vs. spells or flee for two rounds); when bitten, save vs. paralysis or be *paralysed* for 1h; *limited shape shift* into a hyena<img class="portrait" src="/contrib/pics/Ghoul.jpg" alt="" title="ghoul"/>
+1,HD 2 AC 6 1d4/1d4/1d4 + *paralysis* F2 MV 9 ML 9 XP 200; *aura of fear* (save vs. spells or flee for two rounds); when bitten, save vs. paralysis or be *paralysed* for 1h; *limited shape shift* into a hyena
 
 ;necromancer tower
 1,It is surrounded by a moat and inside the moat lives a **pyrohydra** chained to the foundations of the tower ([pyrohydra stats]).
@@ -9807,7 +9807,7 @@
 1,The caves are an ancient burial complex. There are thousands of dessicated corpses down here.
 
 ;hobgoblin stats
-1,HD 1+1 AC 6 1d8 F1 MV 9 ML 8 XP 100<img class="portrait" src="/contrib/pics/Hobgoblin.jpg" alt="" title="hobgoblin"/>
+1,HD 1+1 AC 6 1d8 F1 MV 9 ML 8 XP 100
 
 ;hobgoblin
 1,[hobgoblin 1] of [hobgoblin 2]
@@ -9834,7 +9834,7 @@
 1,[1d5+1] **giant apes** ([giant ape stats])
 
 ;giant ape stats
-1,HD 3 AC 7 1d6/1d6 F3 MV 12 ML 5 XP 300<img class="landscape" src="/contrib/pics/Ape.jpg" alt="" title="white gorilla"/>
+1,HD 3 AC 7 1d6/1d6 F3 MV 12 ML 5 XP 300
 
 ;green dragon stats
 1,HD 8 AC 1 1d6/1d6/3d8 F8 MV 24 ML 9 XP 1000; *poison* (if HD 4 or lower, save vs. poison or die; otherwise suffer 1/rd)
@@ -9884,7 +9884,7 @@
 2,
 
 ;manticore stats
-1,HD 6+1 AC 4 1d6/1d6/1d10 or *spikes* F6 MV 18 ML 9 XP 600; 24 *spikes* (60ft, 1d6), up to 6/rd<img class="landscape" src="/contrib/pics/Manticore.jpg" alt="" title="manticore"/>
+1,HD 6+1 AC 4 1d6/1d6/1d10 or *spikes* F6 MV 18 ML 9 XP 600; 24 *spikes* (60ft, 1d6), up to 6/rd
 
 ;halfling valley
 1,Often cliffs block your way. But here’s a crack in the cliff and if you follow the small creek into the [gorge] you can reach a hidden valley. Small pigs rooting between the oak trees, here.
@@ -10412,7 +10412,7 @@
 5,[1d5+1] **vampires** led by *[same old names for women]* ([vampire stats])
 
 ;vampire stats
-1,HD 9 AC 2 1d10 + *drain* F9 MV 18 ML 11 XP 900; only harmed by magic or magic weapons; immune to *sleep* and *charm*; *charming gaze*: save vs. spells when looking into its eyes as it speaks or be charmed for a day; *limited shape shift* into a bat or mist; *coffin bound*: when reduced to 0hp, turns into mist and slowly creeps back to its coffin; *regenerate*: in its coffin, regenerates completely within a few hours; *vulnerability*: to kill it, expose it to sunlight or submerge it under running water for 10min<img class="portrait" src="/contrib/pics/Vampire.jpg" alt="" title="vampire"/>
+1,HD 9 AC 2 1d10 + *drain* F9 MV 18 ML 11 XP 900; only harmed by magic or magic weapons; immune to *sleep* and *charm*; *charming gaze*: save vs. spells when looking into its eyes as it speaks or be charmed for a day; *limited shape shift* into a bat or mist; *coffin bound*: when reduced to 0hp, turns into mist and slowly creeps back to its coffin; *regenerate*: in its coffin, regenerates completely within a few hours; *vulnerability*: to kill it, expose it to sunlight or submerge it under running water for 10min
 
 ;vampire foe
 1,<p>Quietly, [same human name] is trying to find a way to topple [same old names for women] reign, for they themselves are a **werewolf** and as long as no moon rises in this mirror realm, their disguise is perfect ([werewolf stats]).
@@ -10718,7 +10718,7 @@
 5,[1d5+1] [precious metal mat] [metal jewelry plural]
 
 ;doppelgänger stats
-1,HD 4 AC 5 1d12 F10 MV 9 ML 10 XP 400; *shape change* at will<img class="portrait" src="/contrib/pics/Doppelganger.jpg" alt="" title="doppelgänger"/>
+1,HD 4 AC 5 1d12 F10 MV 9 ML 10 XP 400; *shape change* at will
 
 ;what you can see of the sunken temple
 1,two columns commemorating the founding of this temple by *[old name]*.
@@ -10727,7 +10727,7 @@
 1,the old altar itself, and the old blood stone.
 
 ;swamp crane stats
-1,HD 1 AC 7 1d4 F2 MV 18 ML 9 XP 100; shoots feathers like darts for 60ft until they roll a 1 for damage; from then on they attack with their beaks; afraid of loud rattling, drumming or bells ringing; <span class="treasure">*swamp crane feathers* are worth 50gp each to an alchemist</span>[here store swamp crane feathers as alchemist quest]<img class="landscape" src="/contrib/pics/Swamp-Crane.jpg" alt="" title="swamp crane"/>
+1,HD 1 AC 7 1d4 F2 MV 18 ML 9 XP 100; shoots feathers like darts for 60ft until they roll a 1 for damage; from then on they attack with their beaks; afraid of loud rattling, drumming or bells ringing; <span class="treasure">*swamp crane feathers* are worth 50gp each to an alchemist</span>[here store swamp crane feathers as alchemist quest]
 
 ;black dragon activity
 1,has built its lair on a huge pile of rotting [seaweed|lili pads|leaves|plant material] that form a steaming island in the warm water
@@ -11029,7 +11029,7 @@
 1,These lizard people like to sing some of the *Songs from the Dead*, songs about doomed heroes in the old liberation wars which the lizard people lost oh so long ago.
 
 ;lizard people stats
-1,HD 2+1 AC 5 1d8 F2 MV 12 ML 7 XP 200<img class="portrait" src="/contrib/pics/Lizard-People.jpg" alt="" title="lizard people"/>
+1,HD 2+1 AC 5 1d8 F2 MV 12 ML 7 XP 200
 
 ;lizard leader
 1,Son of Set
@@ -11051,10 +11051,10 @@
 5,[1d4+1] **giant lizards** ([giant lizard stats])
 
 ;giant wasp stats
-1,HD 4+1 AC 5 1d6 + *poison* F2 MV 15 ML 9 XP 400; when stung, save vs. poison or die<img class="landscape" src="/contrib/pics/Bee.jpg" alt="" title="giant wasp"/>
+1,HD 4+1 AC 5 1d6 + *poison* F2 MV 15 ML 9 XP 400; when stung, save vs. poison or die
 
 ;giant lizard stats
-1,HD 4 AC 5 1d10 F3 MV 12 ML 7 XP 400<img class="landscape" src="/contrib/pics/Lizard.jpg" alt="" title="giant lizard"/>
+1,HD 4 AC 5 1d10 F3 MV 12 ML 7 XP 400
 
 # These are the monsters for larger villages
 ;trees
@@ -11077,7 +11077,7 @@
 1,[orcs] They keep a low profile, living deep in the forest, but lone travellers, or fools that don’t make it back to the village before sunset, or reckless idiots looking for trouble, they’ll all find the orcs to be more than willing to kill.
 
 ;harpy stats
-1,HD 3 AC 7 1d4/1d4/1d6 F6 MV 15 ML 7 XP 300; *charm song*<img class="portrait" src="/contrib/pics/Harpy.jpg" alt="" title="harpy"/>
+1,HD 3 AC 7 1d4/1d4/1d6 F6 MV 15 ML 7 XP 300; *charm song*
 
 ;ettin
 1,Bert and Bob
@@ -11122,7 +11122,7 @@
 1,Gin and Tonic
 
 ;ettin stats
-1,HD 11 AC 3 3d6/3d6 F10 MV 12 ML 9 XP 1100; only surprised on a 1 in 6<img class="landscape" src="/contrib/pics/Ettin.jpg" alt="" title="ettin"/>
+1,HD 11 AC 3 3d6/3d6 F10 MV 12 ML 9 XP 1100; only surprised on a 1 in 6
 
 ;bog wights
 1,At night, [wight crawls] [dead treasure]
@@ -11186,13 +11186,13 @@
 1,[goblin town entrance]
 
 ;goblin stats
-1,HD 1-1 AC 6 1d6 F1 MV 6 ML 7 XP 100<img class="landscape" src="/contrib/pics/Goblin.jpg" alt="" title="goblin"/>
+1,HD 1-1 AC 6 1d6 F1 MV 6 ML 7 XP 100
 
 ;giant spider stats
 1,HD 4 AC 6 1d6 + *paralysis* F2 MV 15 ML 7 XP 400; *climb*
 
 ;giant beetle stats
-1,HD 4 AC 3 2d6 F2 MV 9 ML 9 XP 400<img class="landscape" src="/contrib/pics/Beetle.jpg" alt="" title="giant beetle"/>
+1,HD 4 AC 3 2d6 F2 MV 9 ML 9 XP 400
 
 ;goblin companions
 2,intelligent **giant wolves** ([giant wolf stats]).
@@ -12024,7 +12024,7 @@
 3,a small family of [1d3+1] **bears**
 
 ;bear stats
-1,HD 4 AC 6 1d4/1d4/1d6 + *hug* F2 MV 12 ML 5 XP 400; when both claws hit, their *bear hug* deals an extra 2d8<img class="portrait" src="/contrib/pics/Bear.jpg" alt="" title="bear"/>
+1,HD 4 AC 6 1d4/1d4/1d6 + *hug* F2 MV 12 ML 5 XP 400; when both claws hit, their *bear hug* deals an extra 2d8
 
 ;owlbear
 1,[1d4 owlbears]
@@ -12533,7 +12533,7 @@
 2,They are accompanied by [1d2+1] **weasels** ([weasel stats])
 
 ;myconid stats
-1,HD 3 AC 8 – F3 MV 6 ML 7 XP 300; *read mind*, *dominate*, *knockout*, *gravity control* (3d8): save vs. spells to avoid; *silent message*<img class="portrait" src="/contrib/pics/Myconid.jpg" alt="" title="myconid"/>
+1,HD 3 AC 8 – F3 MV 6 ML 7 XP 300; *read mind*, *dominate*, *knockout*, *gravity control* (3d8): save vs. spells to avoid; *silent message*
 
 ;do something interesting
 1,save vs. poison or die. The locals use this to kill criminals.
@@ -12600,20 +12600,20 @@
 5, a group of [5d6] female **boars** and their young ([boar stats])
 
 ;demon boar stats
-1,HD 9+1 AC 3 1d12 F9 MV 15 ML 9 XP 900; *charm person* 3×/day; *shape change* into human form at will; only harmed by magic, magic weapons or silver weapons<img class="landscape" src="/contrib/pics/Boar.jpg" alt="" title="demon boar"/>
+1,HD 9+1 AC 3 1d12 F9 MV 15 ML 9 XP 900; *charm person* 3×/day; *shape change* into human form at will; only harmed by magic, magic weapons or silver weapons
 
 ;1d6 weasels
 1,a **giant weasel**
 5,[1d5+1] **giant weasels**
 
 ;weasel stats
-1,HD 5 AC 7 1d8 F3 MV 15 ML 8 XP 500<img class="landscape" src="/contrib/pics/Weasel.jpg" alt="" title="weasel"/>
+1,HD 5 AC 7 1d8 F3 MV 15 ML 8 XP 500
 
 ;animated tree stats
 1,HD 8 AC 2 2d6/2d6 F8 MV 6
 
 ;treant stats
-1,[animated tree stats] ML 6 XP 800; *surprise* on 1–3 in 6; *animate trees* two trees each, using the same stats<img class="portrait" src="/contrib/pics/Treant.jpg" alt="" title="treant"/>
+1,[animated tree stats] ML 6 XP 800; *surprise* on 1–3 in 6; *animate trees* two trees each, using the same stats
 
 ;1d8 treants
 1,the **treant** called [treant]
@@ -12691,7 +12691,7 @@
 1,HD 1 AC 7 1d4 F1 MV 12 ML 6 XP 100; *entanglement*: save vs. spells or unable to move for an hour; *illusion*; *sleep*
 
 ;stone golem stats
-1,HD 9 AC 1 3d6 MV 12 ML 12 XP 900; immune to *arrows*, immune to *poison*; immune to *spells*<img class="portrait" src="/contrib/pics/Golem.jpg" alt="" title="stone golem"/>
+1,HD 9 AC 1 3d6 MV 12 ML 12 XP 900; immune to *arrows*, immune to *poison*; immune to *spells*
 
 ;elf with portrait
 1,*[elf name]*<img class="portrait" src="[[redirect https://campaignwiki.org/face/redirect/alex/elf?seed=$seed]]" alt="[same elf name]" title="[same elf name]"/>[store [same elf name] as elf patron]
@@ -13889,7 +13889,7 @@
 1,[1d4+1] **unicorns** ([unicorn stats]) led by *[unicorn]* and [1d3+1] **sprites** ([sprite stats])
 
 ;unicorn stats
-1,HD 4 AC 2 1d8/1d8/1d8 F8 MV 24 ML 7 XP 400; short teleport jump (360ft) 1×/day; <span class="treasure">a *unicorn horn* is worth 5000gp to an alchemist; each unicorn also has d100 strands of hair long enough to be sold to an alchemist, each worth 50gp</span>[here store unicorn horn as alchemist quest]<img class="landscape" src="/contrib/pics/Unicorn.jpg" alt="" title="unicorn"/>
+1,HD 4 AC 2 1d8/1d8/1d8 F8 MV 24 ML 7 XP 400; short teleport jump (360ft) 1×/day; <span class="treasure">a *unicorn horn* is worth 5000gp to an alchemist; each unicorn also has d100 strands of hair long enough to be sold to an alchemist, each worth 50gp</span>[here store unicorn horn as alchemist quest]
 
 ;unicorn spells
 1,[save elf spellbook as spellbook]*[with [same spellbook] 1]*, *[and [same spellbook] 1]*, *[[same spellbook] 2]*
@@ -14001,16 +14001,16 @@
 1,HD 5 AC 7 1d6 F5 MV 9 ML 7 XP 500; *party tunes*: when playing the flute, anybody listening must save vs. spells or join the party; *chill-out tunes*: when playing the flute, anybody listening must save vs. spells fall into a magical slumber; only harmed by magic, magic weapons or silver weapons
 
 ;wolf stats
-1,HD 2+1 AC 7 1d6 F1 MV 18 ML 6 XP 200<img class="portrait" src="/contrib/pics/Wolf.jpg" alt="" title="wolf"/>
+1,HD 2+1 AC 7 1d6 F1 MV 18 ML 6 XP 200
 
 ;giant wolf stats
-1,HD 4+1 AC 6 1d8 F2 MV 15 ML 8 XP 400<img class="portrait" src="/contrib/pics/Wolf.jpg" alt="" title="giant wolf"/>
+1,HD 4+1 AC 6 1d8 F2 MV 15 ML 8 XP 400
 
 ;winter wolf stats
-1,HD 5 AC 4 1d6 F5 MV 12 ML 9 XP 500; 2 in 6 chance that instead of biting, it breathes a *cloud of ice* (5d6); *see invisible*; <span class="treasure">*winter wolf icicles* growing inside them are worth 500gp to an alchemist</span>[here store winter wolf icicles as alchemist quest]<img class="portrait" src="/contrib/pics/Wolf.jpg" alt="" title="winter wolf"/>
+1,HD 5 AC 4 1d6 F5 MV 12 ML 9 XP 500; 2 in 6 chance that instead of biting, it breathes a *cloud of ice* (5d6); *see invisible*; <span class="treasure">*winter wolf icicles* growing inside them are worth 500gp to an alchemist</span>[here store winter wolf icicles as alchemist quest]
 
 ;hell hound stats
-1,HD 5 AC 4 1d6 F5 MV 12 ML 9 XP 500; 2 in 6 chance that instead of biting, it breathes *fire* (5d6); *see invisible*; <span class="treasure">*hell hound embers* burning inside them are worth 500gp to an alchemist</span>[here store hell hound embers as alchemist quest]<img class="portrait" src="/contrib/pics/Hellhound.jpg" alt="" title="hell hound"/>
+1,HD 5 AC 4 1d6 F5 MV 12 ML 9 XP 500; 2 in 6 chance that instead of biting, it breathes *fire* (5d6); *see invisible*; <span class="treasure">*hell hound embers* burning inside them are worth 500gp to an alchemist</span>[here store hell hound embers as alchemist quest]
 
 ;cerberus stats
 1,HD 7 AC 4 1d10/1d10/1d10 F7 MV 12 ML 10 XP 700; 2 in 6 chance that instead of biting, a head breathes *fire* (7d6); *see invisible*; <span class="treasure">*hell hound embers* burning inside them are worth 500gp to an alchemist</span>[here store hell hound embers as alchemist quest]
@@ -14020,7 +14020,7 @@
 7,[1d11+1] **bugbears** led by *[bugbear]* belonging to the *[a bugbear band]* band
 
 ;bugbear stats
-1,HD 3+1 AC 5 1d10 F3 MV 9 ML 9 XP 300; surprise on 1–5 in 6<img class="portrait" src="/contrib/pics/Bugbear.jpg" alt="" title="bugbear"/>
+1,HD 3+1 AC 5 1d10 F3 MV 9 ML 9 XP 300; surprise on 1–5 in 6
 
 ;bugbear
 6,[bugbear 1] [bugbear 2]
@@ -14086,7 +14086,7 @@
 1,Hill
 
 ;troll stats
-1,HD 6+1 AC 4 1d6/1d6/1d10 F6 MV 12 ML 10 XP 600; *regenerate* unless burned or dissolved in acid<img class="portrait" src="/contrib/pics/Troll.jpg" alt="" title="troll"/>
+1,HD 6+1 AC 4 1d6/1d6/1d10 F6 MV 12 ML 10 XP 600; *regenerate* unless burned or dissolved in acid
 
 ;1d8 trolls
 1,a **troll** called *[troll]*
@@ -14200,14 +14200,14 @@
 1,[1d5+1] **crocodiles** ([crocodile stats])
 
 ;crocodile stats
-1,HD 6 AC 3 2d8 F3 MV 9 ML 8 XP 600; surprise on 1–5 in 6<img class="landscape" src="/contrib/pics/Crocodile.jpg" alt="" title="crocodile"/>
+1,HD 6 AC 3 2d8 F3 MV 9 ML 8 XP 600; surprise on 1–5 in 6
 
 ;undead guardians
 1,[4d6] **zombies** ([zombie stats])
 1,[3d10] **skeletons** ([skeleton stats])
 
 ;skeleton stats
-1,HD 1 AC 7 2d10 F1 MV 6 ML 7 XP 100; immune to *sleep* and *charm*<img class="portrait" src="/contrib/pics/Skeleton.jpg" alt="" title="skeleton"/>
+1,HD 1 AC 7 2d10 F1 MV 6 ML 7 XP 100; immune to *sleep* and *charm*
 
 ;cultists
 1,[1d4x10] **cultists** ([human stats]) live here. [average treasure] They are led by their cult leader [human with portrait] (level [1d6+1 as level]), [cult leader description]. [leader treasure for magic user]
@@ -14795,7 +14795,7 @@
 1,griffon
 
 ;pegasus stats
-1,HD 2+1 AC 6 1d6/1d6 F2 MV 48 ML 8 XP 200<img class="landscape" src="/contrib/pics/Pegasus.jpg" alt="" title="pegasus"/>
+1,HD 2+1 AC 6 1d6/1d6 F2 MV 48 ML 8 XP 200
 
 #new tables for potential inclusion in settlement events
 #Other possible ideas if anyone wants to have a run at them: hard winter, storms, unseasonable weather (might need to do some kind of season storing for this), raining frogs, livestock disease
@@ -15938,7 +15938,7 @@
 3,[1d3+1] **giant snakes** ([giant snake stats])
 
 ;giant snake stats
-1,HD 5 AC 6 2d6 + *constrict* F3 MV 9 ML 8 XP 500; *constrict*: when hit, victims are *helpless* and every round there after, roll on the *death & dismemberment* table<img class="landscape" src="/contrib/pics/Snake.jpg" alt="" title="giant snake"/>
+1,HD 5 AC 6 2d6 + *constrict* F3 MV 9 ML 8 XP 500; *constrict*: when hit, victims are *helpless* and every round there after, roll on the *death & dismemberment* table
 
 ;1d8 snakes
 1,a **snake** ([snake stats])
@@ -15956,7 +15956,7 @@
 1,The temple is a burial mound with various secret crypts, each sealed and secured. Falling rocks, swinging blades, spiked pits, and hidden spears await the fools intent on disturbing the draugar, the restless dead, champions of old, warriors and sorcerers all, awakened and animated by the Earth Blood, waiting for their signal. When Fenrir devours the sun, the undead will smash their prison gates and it will be the end of all that is good. The [1d4+1] crypts house [1d8 wights without a name] ([wight stats]) and [1d4 spectres] ([spectre stats]). [ancient treasure]
 
 ;spectre stats
-1,HD 6 AC 2 1d8 + *drain* 2 levels F6 MV 15 ML 11 XP 600; only harmed by magic or magic weapons; immune to *sleep* and *charm*<img class="portrait" src="/contrib/pics/Spectre.jpg" alt="" title="spectre"/>
+1,HD 6 AC 2 1d8 + *drain* 2 levels F6 MV 15 ML 11 XP 600; only harmed by magic or magic weapons; immune to *sleep* and *charm*
 
 ;1d4 spectres
 1,a **spectre** called *[an old hero]*
@@ -15975,7 +15975,7 @@
 5,[1d5+1] **vampires** led by *[devil name]* ([vampire stats])
 
 ;mummy stats
-1,HD 5+1 AC 6 1d12 F6 MV 6 ML 12 XP 500; anybody who sees them must save vs. paralysis or be *held*; only harmed by magic or magic weapons; immune to *sleep* and *charm*; always fail their saves vs. fire spells<img class="portrait" src="/contrib/pics/Mummy.jpg" alt="" title="mummy"/>
+1,HD 5+1 AC 6 1d12 F6 MV 6 ML 12 XP 500; anybody who sees them must save vs. paralysis or be *held*; only harmed by magic or magic weapons; immune to *sleep* and *charm*; always fail their saves vs. fire spells
 
 ;1d8 mummies
 1,a **mummy** called *[an old hero]*
@@ -16037,7 +16037,7 @@
 1,Terrible Endings
 
 ;tengu stats
-1,HD 5+1 AC 6 1d8 F10 MV 15 ML 8; flying<img class="portrait" src="/contrib/pics/Tengu.jpg" alt="" title="tengu"/>
+1,HD 5+1 AC 6 1d8 F10 MV 15 ML 8; flying
 
 ;demon name
 1,The [special noun] of [pazuzu place]
@@ -16119,7 +16119,7 @@
 1,three-headed **winter wolf** ([winter wolf stats])
 
 ;chimera stats
-1,HD 6 AC 5 1d6/1d6/1d10/2d10 or *fire* F6 MV 9 ML 10 XP 600; *fire* (3×/day): as much as the chimera has hp left, save vs. dragon breath for half; <span class="treasure">*chimera blood* is worth 5000gp to an alchemist</span>[here store chimera blood as alchemist quest]<img class="landscape" src="/contrib/pics/Chimera.jpg" alt="" title="chimera"/>
+1,HD 6 AC 5 1d6/1d6/1d10/2d10 or *fire* F6 MV 9 ML 10 XP 600; *fire* (3×/day): as much as the chimera has hp left, save vs. dragon breath for half; <span class="treasure">*chimera blood* is worth 5000gp to an alchemist</span>[here store chimera blood as alchemist quest]
 
 ;small temple dedicated to Freya
 1,[small temple]
@@ -18601,7 +18601,7 @@
 1,Valla
 
 ;fire giant stats
-1,HD 11+1 AC 4 5d6 or 3d6 *ranged* F11 MV 12 ML 9 XP 1100<img class="landscape" src="/contrib/pics/Giant.jpg" alt="" title="fire giant"/>
+1,HD 11+1 AC 4 5d6 or 3d6 *ranged* F11 MV 12 ML 9 XP 1100
 
 ;spectre throne shards
 1,steel blades
@@ -39347,7 +39347,7 @@
 1,Spririt Guide
 
 ;minotaur stats
-1,HD 6 AC 6 2d6 F6 MV 12; *mesmerize* any listeners at will, i.e. listeners must save vs. spells or cease all hostilities and speak nothing but the truth; immune to *sleep* and *charm*<img class="landscape" src="/contrib/pics/Minotaur.jpg" alt="" title="minotaur"/>
+1,HD 6 AC 6 2d6 F6 MV 12; *mesmerize* any listeners at will, i.e. listeners must save vs. spells or cease all hostilities and speak nothing but the truth; immune to *sleep* and *charm*
 
 ;summoned hunter general
 1,[hunter general name], from Unugal, Marduk’s hall in Midgard

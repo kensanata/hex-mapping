@@ -542,20 +542,6 @@ get '/strom/table' => sub {
   $c->render(text => decode_utf8($strom_table->slurp), format => 'txt');
 };
 
-=item get /contrib/pics/*
-
-This gets you the files in the contrib/pics folder. Only required for testing.
-
-=cut
-
-plugin 'RenderFile';
-
-get '/contrib/pics/:file' => sub {
-  my $self = shift;
-  my $file = $self->param('file');
-  $self->render_file('filepath' => "$dir/pics/$file.jpg");
-};
-
 =item get /source
 
 This gets you the source code of Hex Describe in case the source repository is
