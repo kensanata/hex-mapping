@@ -1,5 +1,5 @@
 #!/usr/bin/perl
-# Copyright (C) 2009-2018  Alex Schroeder <alex@gnu.org>
+# Copyright (C) 2009-2019  Alex Schroeder <alex@gnu.org>
 #
 # This program is free software: you can redistribute it and/or modify it under
 # the terms of the GNU General Public License as published by the Free Software
@@ -745,7 +745,7 @@ sub system_svg {
 ################################################################################
 
 package Traveller::Mapper;
-use List::Util qw(shuffle);
+use List::Util qw(shuffle reduce);
 use Moose;
 with 'Traveller::Util';
 
@@ -933,21 +933,32 @@ sub background {
   my $self = shift;
   my $scale = 100;
   my $doc;
-  my @colours = shuffle(1..28); # must match the number of colours in the CSS
-  my $i = 0;
+  # We want to colour cultures such that the same colours result from the same
+  # names. The number of colours is given by the CSS. We must therefore hash all
+  # the names to one these colours; but index 0 is white background so don't use
+  # that.
+  my $colours = 28;
   my %id;
   my %seen;
+  my %used;
   for my $hex (@{$self->hexes}) {
     if ($hex->culture) {
       my $coord = $hex->x . $hex->y;
       if ($seen{$hex->culture}) {
 	$id{$coord} = $seen{$hex->culture};
       } else {
-	$seen{$hex->culture} = $id{$coord} = $colours[$i];
-	$i = ($i + 1) % @colours;
+	my $colour = 1 + unpack("%32W*", lc $hex->culture) % $colours; # checksum
+	# reduce collisions
+	for (1 .. 3) {
+	  last unless $used{$colour};
+	  $colour = 1+ ($colour + 1) % $colours;
+	}
+	$seen{$hex->culture} = $id{$coord} = $colour;
+	$used{$colour} = $hex->culture;
       }
     }
   }
+  # warn scalar(keys %used) . " colours used\n";
   $doc .= join("\n",
 	       map {
 		 my $n = shift;
@@ -988,7 +999,7 @@ sub legend {
   my $self = shift;
   my $scale = 100;
   my $doc;
-  my $uwp;
+  my $uwp = '';
   if ($self->source) {
     $uwp = ' – <a xlink:href="' . $self->source . '">UWP</a>';
   }
@@ -1045,20 +1056,8 @@ sub initialize {
     $self->height($y) if $y > $self->height;
     my @tokens = split(' ', $rest);
     my %trade = map { $_ => 1 } grep(/^[A-Z][A-Za-z]$/, @tokens);
-    # culture would be the last one, and it's non-standard
-    my $culture;
-    if (@tokens) {
-      ($culture) = $tokens[$#tokens] =~ /\[(.*)\]\s*$/; # culture in square brackets at the end (non-standard!)
-      pop @tokens if $culture;
-    }
-    # alert code would be the last one, and it's standard
-    my $code;
-    if (@tokens) {
-      ($code) = $tokens[$#tokens] =~ /^([AR])$/;
-      pop @tokens if $code;
-    }
-    # with the alert out of the way, all remaining single letter tokens are lone bases (non-standard order)
-    $bases .= join('', grep(/^[PCTRNSG]$/, @tokens));
+    my ($culture) = grep /^\[.*\]$/, @tokens; # culture in square brackets
+    my ($code) = grep /^([AR])$/, @tokens;    # amber or red alert
     # avoid uninitialized values warnings in the rest of the code
     map { $$_ //= '' } (\$size,
 			\$atmosphere,
@@ -1088,8 +1087,10 @@ sub initialize {
       trade => \%trade,
       culture  =>  $culture || '');
     $hex->url("$wiki$name") if $wiki;
-    for my $base (split(//, $bases)) {
-      $hex->base($base);
+    if ($bases) {
+      for my $base (split(//, $bases)) {
+	$hex->base($base);
+      }
     }
     $self->add($hex);
   }
