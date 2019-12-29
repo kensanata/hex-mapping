@@ -6983,7 +6983,7 @@
 1,[dwarf name for men] [dwarf clan]
 1,[dwarf name for women] [dwarf clan]
 
-# https://dwarrowscholar.wordpress.com/general-documents/female-dwarf-outer-names/
+# https://dwarrowscholar.wordpress.com/general-documents/male-dwarf-outer-names/
 ;dwarf name for men
 1,Aín
 1,Áiskjald
