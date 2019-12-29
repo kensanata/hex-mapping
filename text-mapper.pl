@@ -4069,7 +4069,7 @@ Alternatively:
 %= label_for square => 'Square'
 
 <p>
-%= submit_button
+%= submit_button "Generate Map"
 </p>
 %= end
 
@@ -4091,7 +4091,7 @@ You'll find the map description in a comment within the SVG file.
 </td></tr><tr><td>Height:</td><td>
 %= number_field height => 10, min => 5, max => 99
 </td></tr></table>
-%= submit_button
+%= submit_button "Generate Map Data"
 % end
 <p>
 <%= link_to alpine => begin %>Alpine<% end %> will generate map data based on Alex
@@ -4134,7 +4134,7 @@ explanation of what these parameters do.
 %= radio_button type => 'square', id => 'square'
 %= label_for square => 'Square'
 </p>
-%= submit_button
+%= submit_button "Generate Map Data"
 % end
 <p>
 <%= link_to url_for('gridmapper')->query(type => 'square') => begin %>Gridmapper<% end %>
@@ -4157,7 +4157,7 @@ No rooms with pillars
 %= select_field rooms => [5, 7, 10, 12, 14]
 </td></tr></table>
 <p>
-%= submit_button
+%= submit_button "Generate Map Data"
 % end
 
 @@ render.svg.ep
