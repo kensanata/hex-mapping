@@ -748,13 +748,12 @@ sub comm_svg {
   my $self = shift;
   my $data = '';
   my $scale = 100;
-  my $sqrt_3 = sqrt(3);
   my ($x1, $y1) = ($self->x, $self->y);
   foreach my $to (@{$self->comm}) {
     my ($x2, $y2) = ($to->x, $to->y);
     $data .= sprintf(qq{    <line class="comm" x1="%.3f" y1="%.3f" x2="%.3f" y2="%.3f" />\n},
-                     (1 + ($x1-1) * 1.5) * $scale, ($y1 - $x1%2/2) * $sqrt_3 * $scale,
-                     (1 + ($x2-1) * 1.5) * $scale, ($y2 - $x2%2/2) * $sqrt_3 * $scale);
+		     (1 + ($x1-1) * 1.5) * $scale, ($y1 - $x1%2/2) * sqrt(3) * $scale,
+		     (1 + ($x2-1) * 1.5) * $scale, ($y2 - $x2%2/2) * sqrt(3) * $scale);
   }
   return $data;
 }
@@ -777,52 +776,51 @@ sub system_svg {
   $data .= qq{  <a xlink:href="$url">\n} if $url;
   $data .= qq{$lead  <g id="$name">\n};
   my $scale = 100;
-  my $sqrt_3 = sqrt(3);
   # travel zone red painted first, so it appears at the bottom
   $data .= sprintf(qq{$lead    <circle class="travelzone red" cx="%.3f" cy="%.3f" r="%.3f" />\n},
 		   (1 + ($x-1) * 1.5) * $scale,
-		   ($y - $x%2/2) * $sqrt_3 * $scale, 0.52 * $scale)
+		   ($y - $x%2/2) * sqrt(3) * $scale, 0.52 * $scale)
     if $self->travelzone eq 'R';
   $data .= sprintf(qq{$lead    <circle cx="%.3f" cy="%.3f" r="%.3f" />\n},
 		   (1 + ($x-1) * 1.5) * $scale,
-		   ($y - $x%2/2) * $sqrt_3 * $scale, 11 + $size);
+		   ($y - $x%2/2) * sqrt(3) * $scale, 11 + $size);
   $data .= sprintf(qq{$lead    <circle class="travelzone amber" cx="%.3f" cy="%.3f" r="%.3f" />\n},
 		   (1 + ($x-1) * 1.5) * $scale,
-		   ($y - $x%2/2) * $sqrt_3 * $scale, 0.52 * $scale)
+		   ($y - $x%2/2) * sqrt(3) * $scale, 0.52 * $scale)
     if $self->travelzone eq 'A';
   $data .= sprintf(qq{$lead    <text class="starport" x="%.3f" y="%.3f">$starport</text>\n},
 		   (1 + ($x-1) * 1.5) * $scale,
-		   ($y - $x%2/2 - 0.17) * $sqrt_3 * $scale);
+		   ($y - $x%2/2 - 0.17) * sqrt(3) * $scale);
   $data .= sprintf(qq{$lead    <text class="name" x="%.3f" y="%.3f">$display</text>\n},
 		   (1 + ($x-1) * 1.5) * $scale,
-		   ($y - $x%2/2 + 0.4) * $sqrt_3 * $scale);
+		   ($y - $x%2/2 + 0.4) * sqrt(3) * $scale);
   $data .= sprintf(qq{$lead    <text class="consulate base" x="%.3f" y="%.3f">■</text>\n},
 		   (0.6 + ($x-1) * 1.5) * $scale,
-		   ($y - $x%2/2 + 0.25) * $sqrt_3 * $scale)
+		   ($y - $x%2/2 + 0.25) * sqrt(3) * $scale)
     if $self->consulate;
   $data .= sprintf(qq{$lead    <text class="TAS base" x="%.3f" y="%.3f">☼</text>\n},
   		   (0.4 + ($x-1) * 1.5) * $scale,
-		   ($y - $x%2/2 + 0.1) * $sqrt_3 * $scale)
+		   ($y - $x%2/2 + 0.1) * sqrt(3) * $scale)
     if $self->TAS;
   $data .= sprintf(qq{$lead    <text class="scout base" x="%.3f" y="%.3f">▲</text>\n},
   		   (0.4 + ($x-1) * 1.5) * $scale,
-		   ($y - $x%2/2 - 0.1) * $sqrt_3 * $scale)
+		   ($y - $x%2/2 - 0.1) * sqrt(3) * $scale)
     if $self->scout;
   $data .= sprintf(qq{$lead    <text class="naval base" x="%.3f" y="%.3f">★</text>\n},
   		   (0.6 + ($x-1) * 1.5) * $scale,
-		   ($y - $x%2/2 - 0.25) * $sqrt_3 * $scale)
+		   ($y - $x%2/2 - 0.25) * sqrt(3) * $scale)
     if $self->naval;
   $data .= sprintf(qq{$lead    <text class="gasgiant base" x="%.3f" y="%.3f">◉</text>\n},
    		   (1.4 + ($x-1) * 1.5) * $scale,
-		   ($y - $x%2/2 - 0.25) * $sqrt_3 * $scale)
+		   ($y - $x%2/2 - 0.25) * sqrt(3) * $scale)
     if $self->gasgiant;
   $data .= sprintf(qq{$lead    <text class="research base" x="%.3f" y="%.3f">π</text>\n},
    		   (1.6 + ($x-1) * 1.5) * $scale,
-		   ($y - $x%2/2 - 0.1) * $sqrt_3 * $scale)
+		   ($y - $x%2/2 - 0.1) * sqrt(3) * $scale)
     if $self->research;
   $data .= sprintf(qq{$lead    <text class="pirate base" x="%.3f" y="%.3f">☠</text>\n},
    		   (1.6 + ($x-1) * 1.5) * $scale,
-		   ($y - $x%2/2 + 0.1) * $sqrt_3 * $scale)
+		   ($y - $x%2/2 + 0.1) * sqrt(3) * $scale)
     if $self->pirate;
   # last slot unused
   $data .= qq{$lead  </g>\n};
@@ -888,13 +886,12 @@ sub example {
 
 # The empty hex is centered around 0,0 and has a side length of 1,
 # a maximum diameter of 2, and a minimum diameter of √3.
-my $sqrt_3 = sqrt(3);
 my @hex = (  -1,          0,
-	   -0.5,  $sqrt_3/2,
-	    0.5,  $sqrt_3/2,
+	   -0.5,  sqrt(3)/2,
+	    0.5,  sqrt(3)/2,
 	      1,          0,
-	    0.5, -$sqrt_3/2,
-	   -0.5, -$sqrt_3/2);
+	    0.5, -sqrt(3)/2,
+	   -0.5, -sqrt(3)/2);
 
 sub header {
   my ($self, $width, $height) = @_;
@@ -1010,16 +1007,15 @@ sub header {
 
 EOT
   my $scale = 100;
-  my $sqrt_3 = sqrt(3);
   return sprintf($template,
 		 map { sprintf("%.3f", $_ * $scale) }
 		 # viewport
-		 -0.5, -0.5, 3 + ($self->width - 1) * 1.5, ($self->height + 1.5) * $sqrt_3,
+		 -0.5, -0.5, 3 + ($self->width - 1) * 1.5, ($self->height + 1.5) * sqrt(3),
 		 # empty hex, once for the backgrounds and once for the stroke
 		 @hex,
 		 @hex,
 		 # framing rectangle
-		 -0.5, -0.5, 3 + ($self->width - 1) * 1.5, ($self->height + 1.5) * $sqrt_3);
+		 -0.5, -0.5, 3 + ($self->width - 1) * 1.5, ($self->height + 1.5) * sqrt(3));
 }
 
 sub background {
@@ -1070,7 +1066,6 @@ sub background {
 sub grid {
   my $self = shift;
   my $scale = 100;
-  my $sqrt_3 = sqrt(3);
   my $doc;
   $doc .= join("\n",
 	       map {
@@ -1079,11 +1074,11 @@ sub grid {
 		 my $y = $_ % $self->height + 1;
 		 my $svg = sprintf(qq{    <use xlink:href="#hex" x="%.3f" y="%.3f"/>\n},
 				   (1 + ($x-1) * 1.5) * $scale,
-				   ($y - $x%2/2) * $sqrt_3 * $scale);
+				   ($y - $x%2/2) * sqrt(3) * $scale);
 		 $svg   .= sprintf(qq{    <text class="coordinates" x="%.3f" y="%.3f">}
 		 		 . qq{%02d%02d</text>\n},
 				   (1 + ($x-1) * 1.5) * $scale,
-				   ($y - $x%2/2) * $sqrt_3 * $scale - 0.6 * $scale,
+				   ($y - $x%2/2) * sqrt(3) * $scale - 0.6 * $scale,
 				   $x, $y);
 	       } (0 .. $self->width * $self->height - 1));
   return $doc;
@@ -1092,7 +1087,6 @@ sub grid {
 sub legend {
   my $self = shift;
   my $scale = 100;
-  my $sqrt_3 = sqrt(3);
   my $doc;
   my $uwp = '';
   if ($self->source) {
@@ -1103,17 +1097,17 @@ sub legend {
 		  . qq{ – ★ naval base – π research station – ☠ pirate base}
 		  . qq{ – <tspan class="comm">▮</tspan> communication}
 		  . qq{ – <tspan class="trade">▮</tspan> trade$uwp</text>\n},
-		  -10, ($self->height + 1) * $sqrt_3 * $scale);
+		  -10, ($self->height + 1) * sqrt(3) * $scale);
   $doc .= sprintf(qq{    <text class="direction" x="%.3f" y="%.3f">coreward</text>\n},
 		  $self->width/2 * 1.5 * $scale, -0.13 * $scale);
   $doc .= sprintf(qq{    <text transform="translate(%.3f,%.3f) rotate(90)"}
 		  . qq{ class="direction">trailing</text>\n},
-		  ($self->width + 0.4) * 1.5 * $scale, $self->height/2 * $sqrt_3 * $scale);
+		  ($self->width + 0.4) * 1.5 * $scale, $self->height/2 * sqrt(3) * $scale);
   $doc .= sprintf(qq{    <text class="direction" x="%.3f" y="%.3f">rimward</text>\n},
-		  $self->width/2 * 1.5 * $scale, ($self->height + 0.7) * $sqrt_3 * $scale);
+		  $self->width/2 * 1.5 * $scale, ($self->height + 0.7) * sqrt(3) * $scale);
   $doc .= sprintf(qq{    <text transform="translate(%.3f,%.3f) rotate(-90)"}
 		  . qq{ class="direction">spinward</text>\n},
-		  -0.1 * $scale, $self->height/2 * $sqrt_3 * $scale);
+		  -0.1 * $scale, $self->height/2 * sqrt(3) * $scale);
   return $doc;
 }
 
@@ -1369,15 +1363,14 @@ sub trade_svg {
   my $self = shift;
   my $data = '';
   my $scale = 100;
-  my $sqrt_3 = sqrt(3);
   foreach my $edge (@{$self->routes}) {
     my $u = @{$edge}[0];
     my $v = @{$edge}[1];
     my ($x1, $y1) = ($u->x, $u->y);
     my ($x2, $y2) = ($v->x, $v->y);
     $data .= sprintf(qq{    <line class="trade" x1="%.3f" y1="%.3f" x2="%.3f" y2="%.3f" />\n},
-                     (1 + ($x1-1) * 1.5) * $scale, ($y1 - $x1%2/2) * $sqrt_3 * $scale,
-                     (1 + ($x2-1) * 1.5) * $scale, ($y2 - $x2%2/2) * $sqrt_3 * $scale);
+		     (1 + ($x1-1) * 1.5) * $scale, ($y1 - $x1%2/2) * sqrt(3) * $scale,
+		     (1 + ($x2-1) * 1.5) * $scale, ($y2 - $x2%2/2) * sqrt(3) * $scale);
   }
   return $data;
 }
@@ -1507,7 +1500,6 @@ sub trade_svg {
   my $self = shift;
   my $data = '';
   my $scale = 100;
-  my $sqrt_3 = sqrt(3);
   foreach my $edge (sort { $b->[2] cmp $a->[2] } @{$self->routes}) {
     my $u = @{$edge}[0];
     my $v = @{$edge}[1];
@@ -1515,8 +1507,8 @@ sub trade_svg {
     my ($x1, $y1) = ($u->x, $u->y);
     my ($x2, $y2) = ($v->x, $v->y);
     $data .= sprintf(qq{    <line class="trade d$d" x1="%.3f" y1="%.3f" x2="%.3f" y2="%.3f" />\n},
-                     (1 + ($x1-1) * 1.5) * $scale, ($y1 - $x1%2/2) * $sqrt_3 * $scale,
-                     (1 + ($x2-1) * 1.5) * $scale, ($y2 - $x2%2/2) * $sqrt_3 * $scale);
+		     (1 + ($x1-1) * 1.5) * $scale, ($y1 - $x1%2/2) * sqrt(3) * $scale,
+		     (1 + ($x2-1) * 1.5) * $scale, ($y2 - $x2%2/2) * sqrt(3) * $scale);
   }
   return $data;
 }
@@ -1524,13 +1516,12 @@ sub trade_svg {
 sub legend {
   my $self = shift;
   my $scale = 100;
-  my $sqrt_3 = sqrt(3);
   my $doc;
   $doc .= sprintf(qq{    <text class="legend" x="%.3f" y="%.3f">◉ gas giant}
 		  . qq{ – ▲ scout base}
 		  . qq{ – ★ navy base}
 		  . qq{ – <tspan class="trade">▮</tspan> trade},
-		  -10, ($self->height + 1) * $sqrt_3 * $scale);
+		  -10, ($self->height + 1) * sqrt(3) * $scale);
   if ($self->source) {
     $doc .= ' – <a xlink:href="' . $self->source . '">UWP</a>';
   }
@@ -1539,12 +1530,12 @@ sub legend {
 		  $self->width/2 * 1.5 * $scale, -0.13 * $scale);
   $doc .= sprintf(qq{    <text transform="translate(%.3f,%.3f) rotate(90)"}
 		  . qq{ class="direction">trailing</text>\n},
-		  ($self->width + 0.4) * 1.5 * $scale, $self->height/2 * $sqrt_3 * $scale);
+		  ($self->width + 0.4) * 1.5 * $scale, $self->height/2 * sqrt(3) * $scale);
   $doc .= sprintf(qq{    <text class="direction" x="%.3f" y="%.3f">rimward</text>\n},
-		  $self->width/2 * 1.5 * $scale, ($self->height + 0.7) * $sqrt_3 * $scale);
+		  $self->width/2 * 1.5 * $scale, ($self->height + 0.7) * sqrt(3) * $scale);
   $doc .= sprintf(qq{    <text transform="translate(%.3f,%.3f) rotate(-90)"}
 		  . qq{ class="direction">spinward</text>\n},
-		  -0.1 * $scale, $self->height/2 * $sqrt_3 * $scale);
+		  -0.1 * $scale, $self->height/2 * sqrt(3) * $scale);
   return $doc;
 }
 
