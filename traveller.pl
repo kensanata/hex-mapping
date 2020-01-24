@@ -1,5 +1,6 @@
 #!/usr/bin/perl
 # Copyright (C) 2009-2019  Alex Schroeder <alex@gnu.org>
+# Copyright (C) 2020       Christian Carey
 #
 # This program is free software: you can redistribute it and/or modify it under
 # the terms of the GNU General Public License as published by the Free Software
@@ -17,6 +18,8 @@
 
 use Modern::Perl;
 use utf8;
+
+use 5.010_000; # ensure availability of // operator
 
 my $debug;
 
@@ -102,7 +105,7 @@ has 'naval' => (is => 'rw', isa => 'Str');
 has 'scout' => (is => 'rw', isa => 'Str');
 has 'gasgiant' => (is => 'rw', isa => 'Str');
 has 'tradecodes' => (is => 'rw', isa => 'Str');
-has 'travelcode' => (is => 'rw', isa => 'Str');
+has 'travelzone' => (is => 'rw', isa => 'Str');
 has 'culture' => (is => 'rw', isa => 'Str');
 
 sub compute_name {
@@ -300,22 +303,23 @@ sub compute_tradecodes {
     and $self->hydro >= 4 and $self->hydro <= 8;
   $tradecodes .= " Hi" if $self->population >= 9;
   $tradecodes .= " Ht" if $self->tech >= 12;
-  $tradecodes .= " IC" if $self->atmosphere <= 1 and $self->hydro >= 1;
-  $tradecodes .= " In" if $self->atmosphere =~ /[012479]/ and $self->population >= 9;
+  $tradecodes .= " Ic" if $self->atmosphere <= 1 and $self->hydro >= 1;
+  $tradecodes .= " In" if $self->atmosphere =~ /^[012479]$/ and $self->population >= 9;
   $tradecodes .= " Lo" if $self->population >= 1 and $self->population <= 3;
   $tradecodes .= " Lt" if $self->tech >= 1 and $self->tech <= 5;
   $tradecodes .= " Na" if $self->atmosphere <= 3 and $self->hydro <= 3
     and $self->population >= 6;
-  $tradecodes .= " NI" if $self->population >= 4 and $self->population <= 6;
+  $tradecodes .= " Ni" if $self->population >= 4 and $self->population <= 6;
   $tradecodes .= " Po" if $self->atmosphere >= 2 and $self->atmosphere <= 5
     and $self->hydro <= 3;
-  $tradecodes .= " Ri" if $self->atmosphere =~ /[68]/ and $self->population =~ /[678]/;
+  $tradecodes .= " Ri" if $self->atmosphere =~ /^[68]$/
+    and $self->population >= 6 and $self->population <= 8;
   $tradecodes .= " Wa" if $self->hydro >= 10;
   $tradecodes .= " Va" if $self->atmosphere == 0;
   return $tradecodes;
 }
 
-sub compute_travelcode {
+sub compute_travelzone {
   my $self = shift;
   my $danger = 0;
   $danger++ if $self->atmosphere >= 10;
@@ -345,9 +349,8 @@ sub init {
   $self->tech($self->compute_tech);
   $self->check_doom;
   $self->tradecodes($self->compute_tradecodes);
-  $self->travelcode($self->compute_travelcode);
+  $self->travelzone($self->compute_travelzone);
   return $self;
-
 }
 
 sub code {
@@ -378,10 +381,10 @@ sub str {
   $bases .= 'G' if $self->gasgiant;
   $uwp .= sprintf("%7s", $bases);
   $uwp .= '  ' . $self->tradecodes;
-  $uwp .= ' ' . $self->travelcode if $self->travelcode;
+  $uwp .= ' ' . $self->travelzone if $self->travelzone;
   if ($self->culture) {
     my $spaces = 20 - length($self->tradecodes);
-    $spaces -= 1 + length($self->travelcode) if $self->travelcode;
+    $spaces -= 1 + length($self->travelzone) if $self->travelzone;
     $uwp .= ' ' x $spaces;
     $uwp .= '[' . $self->culture . ']';
   }
@@ -391,6 +394,7 @@ sub str {
 ################################################################################
 
 package Traveller::System::Classic;
+use List::Util qw(min max);
 use Moose;
 extends 'Traveller::System';
 
@@ -403,8 +407,7 @@ sub compute_starport {
 
 sub compute_bases {
   my $self = shift;
-  if ($self->starport eq 'A'
-      or $self->starport eq 'B') {
+  if ($self->starport =~ /^[AB]$/) {
     $self->naval($self->roll2d6() >= 8);
   }
   if ($self->starport eq 'A') {
@@ -419,21 +422,25 @@ sub compute_bases {
   $self->gasgiant($self->roll2d6() < 10);
 }
 
+sub compute_atmosphere {
+  my $self = shift;
+  my $atmosphere = $self->size == 0 ? 0 : ($self->roll2d6() - 7 + $self->size);
+  $atmosphere = min(max($atmosphere, 0), 15);
+  return $atmosphere;
+}
+
 sub compute_temperature {
   # do nothing
 }
 
 sub compute_hydro {
   my $self = shift;
-  my $hydro = $self->roll2d6() - 7 + $self->size;
+  my $hydro = $self->roll2d6() - 7 + $self->atmosphere; # erratum
   $hydro -= 4
-    if $self->atmosphere == 0
-      or $self->atmosphere == 1
+    if $self->atmosphere <= 1
       or $self->atmosphere >= 10;
-  $hydro = 0
-    if $self->size <= 1
-      or $hydro < 0;
-  $hydro = 10 if $hydro > 10;
+  $hydro = 0 if $self->size <= 1;
+  $hydro = min(max($hydro, 0), 10);
   return $hydro;
 }
 
@@ -454,7 +461,6 @@ sub compute_tech {
   $tech += 4 if $self->population == 10;
   $tech += 1 if $self->government == 0 or $self->government == 5;
   $tech -= 2 if $self->government == 13;
-  $tech = 0 if $self->population == 0;
   return $tech;
 }
 
@@ -462,29 +468,107 @@ sub check_doom {
   # do nothing
 }
 
-sub compute_travelcode {
+sub compute_travelzone {
   # do nothing
 }
 
 sub compute_tradecodes {
   my $self = shift;
   my $tradecodes = '';
-  $tradecodes .= " Ag" if $self->atmosphere >= 4 and $self->atmosphere <= 9
+  $tradecodes .= ' Ri' if $self->atmosphere =~ /^[68]$/
+      and $self->population >= 6 and $self->population <= 8
+      and $self->government >= 4 and $self->government <= 9;
+  $tradecodes .= ' Po' if $self->atmosphere >= 2 and $self->atmosphere <= 5
+      and $self->hydro <= 3;
+  $tradecodes .= ' Ag' if $self->atmosphere >= 4 and $self->atmosphere <= 9
       and $self->hydro >= 4 and $self->hydro <= 8
       and $self->population >= 5 and $self->population <= 7;
-  $tradecodes .= " Na" if $self->atmosphere <= 3 and $self->hydro <= 3
+  $tradecodes .= ' Na' if $self->atmosphere <= 3 and $self->hydro <= 3
       and $self->population >= 6;
-  $tradecodes .= " In" if $self->atmosphere =~ /[012479]/ and $self->population >= 9;
-  $tradecodes .= " NI" if $self->population <= 6;
-  $tradecodes .= " Ri" if $self->atmosphere =~ /[68]/ and $self->population =~ /[678]/
-      and $self->government =~ /[456789]/;
-  $tradecodes .= " Po" if $self->atmosphere >= 2 and $self->atmosphere <= 5
-    and $self->hydro <= 3;
-  $tradecodes .= " Wa" if $self->hydro == 10;
-  $tradecodes .= " De" if $self->atmosphere >= 2 and $self->hydro == 0;
-  $tradecodes .= " Va" if $self->atmosphere == 0;
-  $tradecodes .= " As" if $self->size == 0;
-  $tradecodes .= " IC" if $self->atmosphere <= 1 and $self->hydro >= 1;
+  $tradecodes .= ' In' if $self->atmosphere =~ /^[012479]$/ and $self->population >= 9;
+  $tradecodes .= ' Ni' if $self->population <= 6;
+  $tradecodes .= ' Wa' if $self->hydro == 10;
+  $tradecodes .= ' De' if $self->atmosphere >= 2 and $self->hydro == 0;
+  $tradecodes .= ' Va' if $self->atmosphere == 0;
+  $tradecodes .= ' As' if $self->size == 0;
+  $tradecodes .= ' Ic' if $self->atmosphere <= 1 and $self->hydro >= 1;
+  return $tradecodes;
+}
+
+sub code {
+  my $num = shift;
+  my $code = '0123456789ABCDEFGHJKLMNPQRSTUVWXYZ'; # 'I' and 'O' are omitted
+  return '?' if !defined $num or $num !~ /^\d{1,2}$/ or $num >= length($code);
+  return substr($code, $num, 1);
+}
+
+sub str {
+  my $self = shift;
+  my $uwp = sprintf('%-16s %02u%02u  ', $self->name, $self->x, $self->y);
+  $uwp .= $self->starport;
+  $uwp .= code($self->size);
+  $uwp .= code($self->atmosphere);
+  $uwp .= code($self->hydro);
+  $uwp .= code($self->population);
+  $uwp .= code($self->government);
+  $uwp .= code($self->law);
+  $uwp .= '-';
+  $uwp .= code($self->tech);
+  my $bases = '';
+  $bases .= 'N' if $self->naval;
+  $bases .= 'S' if $self->scout;
+  $bases .= 'R' if $self->research;
+  $bases .= 'T' if $self->TAS;
+  $bases .= 'C' if $self->consulate;
+  $bases .= 'P' if $self->pirate;
+  $bases .= 'G' if $self->gasgiant;
+  $uwp .= sprintf('%7s', $bases);
+  $uwp .= '  ' . $self->tradecodes;
+  $uwp .= ' ' . $self->travelzone if $self->travelzone;
+  if ($self->culture) {
+    my $spaces = 20 - length($self->tradecodes);
+    $spaces -= 1 + length($self->travelzone) if $self->travelzone;
+    $uwp .= ' ' x $spaces;
+    $uwp .= '[' . $self->culture . ']';
+  }
+  return $uwp;
+}
+
+################################################################################
+
+package Traveller::System::Classic::MPTS;
+use Moose;
+extends 'Traveller::System::Classic';
+
+sub compute_tradecodes {
+  my $self = shift;
+  my $tradecodes = '';
+  $tradecodes .= ' Ag' if $self->atmosphere >= 4 and $self->atmosphere <= 9
+      and $self->hydro >= 4 and $self->hydro <= 8
+      and $self->population >= 5 and $self->population <= 7;
+  $tradecodes .= ' As' if $self->size == 0
+      and $self->atmosphere == 0
+      and $self->hydro == 0;
+  $tradecodes .= ' Ba' if $self->population == 0
+      and $self->government == 0
+      and $self->law == 0;
+  $tradecodes .= ' De' if $self->atmosphere >= 2 and $self->hydro == 0;
+  $tradecodes .= ' Fl' if $self->atmosphere =~ /^[ABC]$/ # erratum
+      and $self->hydro >= 1;
+  $tradecodes .= ' Hi' if $self->population >= 9;
+  $tradecodes .= ' Ic' if $self->atmosphere <= 1 and $self->hydro >= 1;
+  $tradecodes .= ' In' if $self->atmosphere =~ /^[012479]$/ and $self->population >= 9;
+  $tradecodes .= ' Lo' if $self->population <= 3;
+  $tradecodes .= ' Na' if $self->atmosphere <= 3 and $self->hydro <= 3
+      and $self->population >= 6;
+  $tradecodes .= ' Ni' if $self->population <= 6;
+  $tradecodes .= ' Po' if $self->atmosphere >= 2 and $self->atmosphere <= 5
+      and $self->hydro <= 3;
+  $tradecodes .= ' Ri' if $self->atmosphere =~ /^[68]$/
+      and $self->population >= 6 and $self->population <= 8
+      and $self->government >= 4 and $self->government <= 9;
+  $tradecodes .= ' Va' if $self->atmosphere == 0;
+  $tradecodes .= ' Wa' if $self->hydro == 10;
   return $tradecodes;
 }
 
@@ -526,18 +610,20 @@ sub add {
 }
 
 sub init {
-  my ($self, $width, $height, $classic) = @_;
+  my ($self, $width, $height, $classic, $mpts) = @_;
   my $digraphs = $self->compute_digraphs;
   $width //= 8;
   $height //= 10;
   for my $x (1..$width) {
     for my $y (1..$height) {
       if (int(rand(2))) {
-	if ($classic) {
-	  $self->add(new Traveller::System::Classic()->init($x, $y, $digraphs));
-	} else {
-	  $self->add(new Traveller::System()->init($x, $y, $digraphs));
-	}
+        if ($mpts) {
+          $self->add(new Traveller::System::Classic::MPTS()->init($x, $y, $digraphs));
+        } elsif ($classic) {
+          $self->add(new Traveller::System::Classic()->init($x, $y, $digraphs));
+        } else {
+          $self->add(new Traveller::System()->init($x, $y, $digraphs));
+        }
       }
     }
   }
@@ -615,7 +701,7 @@ has 'research' => (is => 'rw', isa => 'Str');
 has 'naval' => (is => 'rw', isa => 'Str');
 has 'scout' => (is => 'rw', isa => 'Str');
 has 'gasgiant' => (is => 'rw', isa => 'Str');
-has 'code' => (is => 'ro', isa => 'Str');
+has 'travelzone' => (is => 'ro', isa => 'Str');
 has 'url' => (is => 'rw', isa => 'Str');
 has 'map' => (is => 'rw', isa => 'Traveller::Mapper');
 has 'comm' => (is => 'rw', isa => 'ArrayRef', default => sub { [] });
@@ -662,12 +748,13 @@ sub comm_svg {
   my $self = shift;
   my $data = '';
   my $scale = 100;
+  my $sqrt_3 = sqrt(3);
   my ($x1, $y1) = ($self->x, $self->y);
   foreach my $to (@{$self->comm}) {
     my ($x2, $y2) = ($to->x, $to->y);
     $data .= sprintf(qq{    <line class="comm" x1="%.3f" y1="%.3f" x2="%.3f" y2="%.3f" />\n},
-		     (1 + ($x1-1) * 1.5) * $scale, ($y1 - $x1%2/2) * sqrt(3) * $scale,
-		     (1 + ($x2-1) * 1.5) * $scale, ($y2 - $x2%2/2) * sqrt(3) * $scale);
+                     (1 + ($x1-1) * 1.5) * $scale, ($y1 - $x1%2/2) * $sqrt_3 * $scale,
+                     (1 + ($x2-1) * 1.5) * $scale, ($y2 - $x2%2/2) * $sqrt_3 * $scale);
   }
   return $data;
 }
@@ -690,51 +777,52 @@ sub system_svg {
   $data .= qq{  <a xlink:href="$url">\n} if $url;
   $data .= qq{$lead  <g id="$name">\n};
   my $scale = 100;
-  # code red painted first, so it appears at the bottom
-  $data .= sprintf(qq{$lead    <circle class="code red" cx="%.3f" cy="%.3f" r="%.3f" />\n},
+  my $sqrt_3 = sqrt(3);
+  # travel zone red painted first, so it appears at the bottom
+  $data .= sprintf(qq{$lead    <circle class="travelzone red" cx="%.3f" cy="%.3f" r="%.3f" />\n},
 		   (1 + ($x-1) * 1.5) * $scale,
-		   ($y - $x%2/2) * sqrt(3) * $scale, 0.52 * $scale)
-    if $self->code eq 'R';
+		   ($y - $x%2/2) * $sqrt_3 * $scale, 0.52 * $scale)
+    if $self->travelzone eq 'R';
   $data .= sprintf(qq{$lead    <circle cx="%.3f" cy="%.3f" r="%.3f" />\n},
 		   (1 + ($x-1) * 1.5) * $scale,
-		   ($y - $x%2/2) * sqrt(3) * $scale, 11 + $size);
-  $data .= sprintf(qq{$lead    <circle class="code amber" cx="%.3f" cy="%.3f" r="%.3f" />\n},
+		   ($y - $x%2/2) * $sqrt_3 * $scale, 11 + $size);
+  $data .= sprintf(qq{$lead    <circle class="travelzone amber" cx="%.3f" cy="%.3f" r="%.3f" />\n},
 		   (1 + ($x-1) * 1.5) * $scale,
-		   ($y - $x%2/2) * sqrt(3) * $scale, 0.52 * $scale)
-    if $self->code eq 'A';
+		   ($y - $x%2/2) * $sqrt_3 * $scale, 0.52 * $scale)
+    if $self->travelzone eq 'A';
   $data .= sprintf(qq{$lead    <text class="starport" x="%.3f" y="%.3f">$starport</text>\n},
 		   (1 + ($x-1) * 1.5) * $scale,
-		   ($y - $x%2/2 - 0.17) * sqrt(3) * $scale);
+		   ($y - $x%2/2 - 0.17) * $sqrt_3 * $scale);
   $data .= sprintf(qq{$lead    <text class="name" x="%.3f" y="%.3f">$display</text>\n},
 		   (1 + ($x-1) * 1.5) * $scale,
-		   ($y - $x%2/2 + 0.4) * sqrt(3) * $scale);
+		   ($y - $x%2/2 + 0.4) * $sqrt_3 * $scale);
   $data .= sprintf(qq{$lead    <text class="consulate base" x="%.3f" y="%.3f">■</text>\n},
 		   (0.6 + ($x-1) * 1.5) * $scale,
-		   ($y - $x%2/2 + 0.25) * sqrt(3) * $scale)
+		   ($y - $x%2/2 + 0.25) * $sqrt_3 * $scale)
     if $self->consulate;
   $data .= sprintf(qq{$lead    <text class="TAS base" x="%.3f" y="%.3f">☼</text>\n},
   		   (0.4 + ($x-1) * 1.5) * $scale,
-		   ($y - $x%2/2 + 0.1) * sqrt(3) * $scale)
+		   ($y - $x%2/2 + 0.1) * $sqrt_3 * $scale)
     if $self->TAS;
   $data .= sprintf(qq{$lead    <text class="scout base" x="%.3f" y="%.3f">▲</text>\n},
   		   (0.4 + ($x-1) * 1.5) * $scale,
-		   ($y - $x%2/2 - 0.1) * sqrt(3) * $scale)
+		   ($y - $x%2/2 - 0.1) * $sqrt_3 * $scale)
     if $self->scout;
   $data .= sprintf(qq{$lead    <text class="naval base" x="%.3f" y="%.3f">★</text>\n},
   		   (0.6 + ($x-1) * 1.5) * $scale,
-		   ($y - $x%2/2 - 0.25) * sqrt(3) * $scale)
+		   ($y - $x%2/2 - 0.25) * $sqrt_3 * $scale)
     if $self->naval;
   $data .= sprintf(qq{$lead    <text class="gasgiant base" x="%.3f" y="%.3f">◉</text>\n},
    		   (1.4 + ($x-1) * 1.5) * $scale,
-		   ($y - $x%2/2 - 0.25) * sqrt(3) * $scale)
+		   ($y - $x%2/2 - 0.25) * $sqrt_3 * $scale)
     if $self->gasgiant;
   $data .= sprintf(qq{$lead    <text class="research base" x="%.3f" y="%.3f">π</text>\n},
    		   (1.6 + ($x-1) * 1.5) * $scale,
-		   ($y - $x%2/2 - 0.1) * sqrt(3) * $scale)
+		   ($y - $x%2/2 - 0.1) * $sqrt_3 * $scale)
     if $self->research;
   $data .= sprintf(qq{$lead    <text class="pirate base" x="%.3f" y="%.3f">☠</text>\n},
    		   (1.6 + ($x-1) * 1.5) * $scale,
-		   ($y - $x%2/2 + 0.1) * sqrt(3) * $scale)
+		   ($y - $x%2/2 + 0.1) * $sqrt_3 * $scale)
     if $self->pirate;
   # last slot unused
   $data .= qq{$lead  </g>\n};
@@ -755,43 +843,43 @@ has 'source' => (is => 'rw');
 has 'width' => (is => 'rw', isa => 'Int');
 has 'height' => (is => 'rw', isa => 'Int');
 
-my $example = q!Inedgeus     0101 D7A5579-8        G  Fl NI          A
+my $example = q!Inedgeus     0101 D7A5579-8        G  Fl Ni          A
 Geaan        0102 E66A999-7        G  Hi Wa          A
 Orgemaso     0103 C555875-5       SG  Ga Lt
 Veesso       0105 C5A0369-8        G  De Lo          A
 Ticezale     0106 B769799-7    T  SG  Ri             A
-Maatonte     0107 C6B3544-8   C    G  Fl NI          A
-Diesra       0109 D510522-8       SG  NI
+Maatonte     0107 C6B3544-8   C    G  Fl Ni          A
+Diesra       0109 D510522-8       SG  Ni
 Esarra       0204 E869100-8        G  Lo             A
 Rience       0205 C687267-8        G  Ga Lo
-Rearreso     0208 C655432-5   C    G  Ga Lt NI
-Laisbe       0210 E354663-3           Ag Lt NI
-Biveer       0302 C646576-9   C    G  Ag Ga NI
+Rearreso     0208 C655432-5   C    G  Ga Lt Ni
+Laisbe       0210 E354663-3           Ag Lt Ni
+Biveer       0302 C646576-9   C    G  Ag Ga Ni
 Labeveri     0303 A796100-9   CT N G  Ga Lo          A
 Sotexe       0408 E544778-3        G  Ag Ga Lt       A
-Zamala       0409 A544658-13   T N G  Ag Ga Ht NI
-Sogeeran     0502 A200443-14  CT N G  Ht NI Va
+Zamala       0409 A544658-13   T N G  Ag Ga Ht Ni
+Sogeeran     0502 A200443-14  CT N G  Ht Ni Va
 Aanbi        0503 E697102-7        G  Ga Lo          A
 Bemaat       0504 C643384-9   C R  G  Lo Po
-Diare        0505 A254430-11   TRN G  NI             A
-Esgeed       0507 A8B1579-11    RN G  Fl NI          A
+Diare        0505 A254430-11   TRN G  Ni             A
+Esgeed       0507 A8B1579-11    RN G  Fl Ni          A
 Leonbi       0510 B365789-9    T  SG  Ag Ri          A
-Reisbeon     0604 C561526-8     R  G  NI
+Reisbeon     0604 C561526-8     R  G  Ni
 Atcevein     0605 A231313-11  CT   G  Lo Po
 Usmabe       0607 A540A84-15   T   G  De Hi Ht In Po
-Onbebior     0608 B220530-10       G  De NI Po       A
+Onbebior     0608 B220530-10       G  De Ni Po       A
 Raraxema     0609 B421768-8    T NSG  Na Po
 Xeerri       0610 C210862-9        G  Na
 Onreon       0702 D8838A9-2       S   Lt Ri          A
-Ismave       0703 E272654-4           Lt NI
+Ismave       0703 E272654-4           Lt Ni
 Lara         0704 C0008D9-5       SG  As Lt Na Va    A
-Lalala       0705 C140473-9     R  G  De NI Po
+Lalala       0705 C140473-9     R  G  De Ni Po
 Maxereis     0707 A55A747-12  CT NSG  Ht Wa
 Requbire     0802 C9B4200-10       G  Fl Lo          A
-Azaxe        0804 B6746B9-8   C    G  Ag Ga NI       A
-Rieddige     0805 B355578-7        G  Ag NI          A
+Azaxe        0804 B6746B9-8   C    G  Ag Ga Ni       A
+Rieddige     0805 B355578-7        G  Ag Ni          A
 Usorce       0806 E736110-3        G  Lo Lt          A
-Solacexe     0810 D342635-4  P    S   Lt NI Po       R
+Solacexe     0810 D342635-4  P    S   Lt Ni Po       R
 !;
 
 sub example {
@@ -800,28 +888,32 @@ sub example {
 
 # The empty hex is centered around 0,0 and has a side length of 1,
 # a maximum diameter of 2, and a minimum diameter of √3.
+my $sqrt_3 = sqrt(3);
 my @hex = (  -1,          0,
-	   -0.5,  sqrt(3)/2,
-	    0.5,  sqrt(3)/2,
+	   -0.5,  $sqrt_3/2,
+	    0.5,  $sqrt_3/2,
 	      1,          0,
-	    0.5, -sqrt(3)/2,
-	   -0.5, -sqrt(3)/2);
+	    0.5, -$sqrt_3/2,
+	   -0.5, -$sqrt_3/2);
 
 sub header {
-  my $self = shift;
+  my ($self, $width, $height) = @_;
+  # TO DO: support an option for North American “A” paper dimensions (width 215.9 mm, length 279.4 mm)
+  $width //= 210;
+  $height //= 297;
   my $template = <<EOT;
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <svg xmlns="http://www.w3.org/2000/svg" version="1.1"
      xmlns:xlink="http://www.w3.org/1999/xlink"
-     width="210mm"
-     height="297mm"
+     width="${width}mm"
+     height="${height}mm"
      viewBox="%s %s %s %s">
   <desc>Traveller Subsector</desc>
   <defs>
     <style type="text/css"><![CDATA[
       text {
         font-size: 16pt;
-        font-family: Optima, Helvetica, sans-serif;
+        font-family: Optima, "Optima Regular", Optima-Regular, Helvetica, sans-serif;
         text-anchor: middle;
       }
       text a {
@@ -856,7 +948,7 @@ sub header {
         stroke: #afeeee; /* pale turquoise */
         fill: none;
       }
-      .code {
+      .travelzone {
         opacity: 0.3;
       }
       .amber {
@@ -918,15 +1010,16 @@ sub header {
 
 EOT
   my $scale = 100;
+  my $sqrt_3 = sqrt(3);
   return sprintf($template,
 		 map { sprintf("%.3f", $_ * $scale) }
 		 # viewport
-		 -0.5, -0.5, 3 + ($self->width - 1) * 1.5, ($self->height + 1.5) * sqrt(3),
+		 -0.5, -0.5, 3 + ($self->width - 1) * 1.5, ($self->height + 1.5) * $sqrt_3,
 		 # empty hex, once for the backgrounds and once for the stroke
 		 @hex,
 		 @hex,
 		 # framing rectangle
-		 -0.5, -0.5, 3 + ($self->width - 1) * 1.5, ($self->height + 1.5) * sqrt(3));
+		 -0.5, -0.5, 3 + ($self->width - 1) * 1.5, ($self->height + 1.5) * $sqrt_3);
 }
 
 sub background {
@@ -935,8 +1028,8 @@ sub background {
   my $doc;
   # We want to colour cultures such that the same colours result from the same
   # names. The number of colours is given by the CSS. We must therefore hash all
-  # the names to one these colours; but index 0 is white background so don't use
-  # that.
+  # the names to one of these colours; but index 0 is a white background, so
+  # don't use that.
   my $colours = 28;
   my %id;
   my %seen;
@@ -965,7 +1058,7 @@ sub background {
 		 my $x = int($_/$self->height+1);
 		 my $y = $_ % $self->height + 1;
 		 my $coord = sprintf('%02d%02d', $x, $y);
-		 my $class = $id{$coord} || 0;
+		 my $class = $id{$coord} // 0;
 		 my $svg = sprintf(qq{    <use xlink:href="#bg" x="%.3f" y="%.3f" class="culture$class"/>},
 				   (1 + ($x-1) * 1.5) * $scale,
 				   ($y - $x%2/2) * sqrt(3) * $scale);
@@ -977,6 +1070,7 @@ sub background {
 sub grid {
   my $self = shift;
   my $scale = 100;
+  my $sqrt_3 = sqrt(3);
   my $doc;
   $doc .= join("\n",
 	       map {
@@ -985,11 +1079,11 @@ sub grid {
 		 my $y = $_ % $self->height + 1;
 		 my $svg = sprintf(qq{    <use xlink:href="#hex" x="%.3f" y="%.3f"/>\n},
 				   (1 + ($x-1) * 1.5) * $scale,
-				   ($y - $x%2/2) * sqrt(3) * $scale);
+				   ($y - $x%2/2) * $sqrt_3 * $scale);
 		 $svg   .= sprintf(qq{    <text class="coordinates" x="%.3f" y="%.3f">}
 		 		 . qq{%02d%02d</text>\n},
 				   (1 + ($x-1) * 1.5) * $scale,
-				   ($y - $x%2/2) * sqrt(3) * $scale - 0.6 * $scale,
+				   ($y - $x%2/2) * $sqrt_3 * $scale - 0.6 * $scale,
 				   $x, $y);
 	       } (0 .. $self->width * $self->height - 1));
   return $doc;
@@ -998,27 +1092,28 @@ sub grid {
 sub legend {
   my $self = shift;
   my $scale = 100;
+  my $sqrt_3 = sqrt(3);
   my $doc;
   my $uwp = '';
   if ($self->source) {
     $uwp = ' – <a xlink:href="' . $self->source . '">UWP</a>';
   }
   $doc .= sprintf(qq{    <text class="legend" x="%.3f" y="%.3f">◉ gas giant}
-		  . qq{ – ■ imperial consulate – ☼ TAS – ▲ scout base}
-		  . qq{ – ★ navy base – π research base – ☠ pirate base}
+		  . qq{ – ■ Imperial consulate – ☼ TAS facility – ▲ scout base}
+		  . qq{ – ★ naval base – π research station – ☠ pirate base}
 		  . qq{ – <tspan class="comm">▮</tspan> communication}
 		  . qq{ – <tspan class="trade">▮</tspan> trade$uwp</text>\n},
-		  -10, ($self->height + 1) * sqrt(3) * $scale);
+		  -10, ($self->height + 1) * $sqrt_3 * $scale);
   $doc .= sprintf(qq{    <text class="direction" x="%.3f" y="%.3f">coreward</text>\n},
 		  $self->width/2 * 1.5 * $scale, -0.13 * $scale);
   $doc .= sprintf(qq{    <text transform="translate(%.3f,%.3f) rotate(90)"}
 		  . qq{ class="direction">trailing</text>\n},
-		  ($self->width + 0.4) * 1.5 * $scale, $self->height/2 * sqrt(3) * $scale);
+		  ($self->width + 0.4) * 1.5 * $scale, $self->height/2 * $sqrt_3 * $scale);
   $doc .= sprintf(qq{    <text class="direction" x="%.3f" y="%.3f">rimward</text>\n},
-		  $self->width/2 * 1.5 * $scale, ($self->height + 0.7) * sqrt(3) * $scale);
+		  $self->width/2 * 1.5 * $scale, ($self->height + 0.7) * $sqrt_3 * $scale);
   $doc .= sprintf(qq{    <text transform="translate(%.3f,%.3f) rotate(-90)"}
 		  . qq{ class="direction">spinward</text>\n},
-		  -0.1 * $scale, $self->height/2 * sqrt(3) * $scale);
+		  -0.1 * $scale, $self->height/2 * $sqrt_3 * $scale);
   return $doc;
 }
 
@@ -1046,10 +1141,10 @@ sub initialize {
     my ($name, $x, $y,
 	$starport, $size, $atmosphere, $hydrographic, $population,
 	$government, $law, $tech, $bases, $rest) =
-	  /([^>\r\n\t]*?)\s+(\d\d)(\d\d)\s+([A-EX])([0-9A])([0-9A-F])([0-9A])([0-9A-C])([0-9A-F])([0-9A-L])-(\d?\d|[A-Z])(?:\s+([PCTRNSG ]+)\b)?(.*)/;
-    # alternative super simple name, coordinates, optional size (0-9), optional bases (PCTRNSG), optional warning codes (AR)
+	  /([^>\r\n\t]*?)\s+(\d\d)(\d\d)\s+([A-EX])([\dA])([\dA-F])([\dA])([\dA-C])([\dA-F])([\dA-L])-(\d{1,2}|[\dA-HJ-NP-Z])(?:\s+([PCTRNSG ]+)\b)?(.*)/;
+    # alternative super simple name, coordinates, optional size (0-9), optional bases (PCTRNSG), optional travel zones (AR)
     ($name, $x, $y, $size, $bases, $rest) =
-      /([^>\r\n\t]*?)\s+(\d\d)(\d\d)(?:\s+([0-9])\b)?(?:\s+([PCTRNSG ]+)\b)?(.*)/
+      /([^>\r\n\t]*?)\s+(\d\d)(\d\d)(?:\s+(\d)\b)?(?:\s+([PCTRNSG ]+)\b)?(.*)/
 	unless $name;
     next unless $name;
     $self->width($x) if $x > $self->width;
@@ -1057,7 +1152,7 @@ sub initialize {
     my @tokens = split(' ', $rest);
     my %trade = map { $_ => 1 } grep(/^[A-Z][A-Za-z]$/, @tokens);
     my ($culture) = grep /^\[.*\]$/, @tokens; # culture in square brackets
-    my ($code) = grep /^([AR])$/, @tokens;    # amber or red alert
+    my ($travelzone) = grep /^([AR])$/, @tokens;    # amber or red travel zone
     # avoid uninitialized values warnings in the rest of the code
     map { $$_ //= '' } (\$size,
 			\$atmosphere,
@@ -1066,9 +1161,11 @@ sub initialize {
 			\$government,
 			\$law,
 			\$starport,
-			\$code);
-    # get "hex" values, but accept letters beyond F!
-    map { $$_ = $$_ ge 'A' ? 10 + ord($$_) - 65
+			\$travelzone);
+    # get "hex" values, but accept letters beyond F! (excepting I and O)
+    map { $$_ = $$_ ge 'P' and $$_ le 'Z' ? 23 + ord($$_) - 80
+	      : $$_ ge 'J' and $$_ le 'N' ? 18 + ord($$_) - 74
+	      : $$_ ge 'A' and $$_ le 'H' ? 10 + ord($$_) - 65
 	      : $$_ eq '' ? 0
 	      : $$_ } (\$size,
 		       \$atmosphere,
@@ -1083,9 +1180,9 @@ sub initialize {
       starport => $starport,
       population => $population,
       size => $size,
-      code => $code,
+      travelzone => $travelzone,
       trade => \%trade,
-      culture  =>  $culture || '');
+      culture => $culture // '');
     $hex->url("$wiki$name") if $wiki;
     if ($bases) {
       for my $base (split(//, $bases)) {
@@ -1102,7 +1199,7 @@ sub add {
 }
 
 sub communications {
-  # connect all the class A starports, naval bases, and imperial
+  # connect all the class A starports, naval bases, and Imperial
   # consulates
   my ($self) = @_;
   my @candidates = ();
@@ -1117,10 +1214,10 @@ sub communications {
     my @ar = nearby($hex, 2, \@candidates);
     $hex->comm(\@ar);
   }
-  # eliminate all but the best connections if the system has code
-  # amber or code red
+  # eliminate all but the best connections if the system has
+  # amber or red travel zone
   foreach my $hex (@candidates) {
-    next unless $hex->code;
+    next unless $hex->travelzone;
     my $best;
     foreach my $other (@{$hex->comm}) {
       if (not $best
@@ -1135,18 +1232,18 @@ sub communications {
 }
 
 sub trade {
-  # connect In or Ht with As, De, IC, NI
+  # connect In or Ht with As, De, Ic, Ni
   # connect Hi or Ri with Ag, Ga, Wa
   my ($self) = @_;
-  # candidates need to be on a travel route, ie. must have fuel
-  # available; skip worlds with a red travel code
+  # candidates need to be on a travel route, i.e. must have fuel
+  # available; skip worlds with a red travel zone
   my @candidates = ();
   foreach my $hex (@{$self->hexes}) {
     push(@candidates, $hex)
-      if ($hex->starport =~ /[A-D]/
+      if ($hex->starport =~ /^[A-D]$/
 	  or $hex->gasgiant
 	  or $hex->trade->{Wa})
-	and $hex->code ne 'R';
+	and $hex->travelzone ne 'R';
   }
   # every system has a link to its partners
   foreach my $hex (@candidates) {
@@ -1155,8 +1252,8 @@ sub trade {
       foreach my $other (nearby($hex, 4, \@candidates)) {
 	if ($other->trade->{As}
 	    or $other->trade->{De}
-	    or $other->trade->{IC}
-	    or $other->trade->{NI}) {
+	    or $other->trade->{Ic}
+	    or $other->trade->{Ni}) {
 	  my @route = $self->route($hex, $other, 4, \@candidates);
 	  push(@routes, \@route) if @route;
 	}
@@ -1272,21 +1369,22 @@ sub trade_svg {
   my $self = shift;
   my $data = '';
   my $scale = 100;
+  my $sqrt_3 = sqrt(3);
   foreach my $edge (@{$self->routes}) {
     my $u = @{$edge}[0];
     my $v = @{$edge}[1];
     my ($x1, $y1) = ($u->x, $u->y);
     my ($x2, $y2) = ($v->x, $v->y);
     $data .= sprintf(qq{    <line class="trade" x1="%.3f" y1="%.3f" x2="%.3f" y2="%.3f" />\n},
-		     (1 + ($x1-1) * 1.5) * $scale, ($y1 - $x1%2/2) * sqrt(3) * $scale,
-		     (1 + ($x2-1) * 1.5) * $scale, ($y2 - $x2%2/2) * sqrt(3) * $scale);
+                     (1 + ($x1-1) * 1.5) * $scale, ($y1 - $x1%2/2) * $sqrt_3 * $scale,
+                     (1 + ($x2-1) * 1.5) * $scale, ($y2 - $x2%2/2) * $sqrt_3 * $scale);
   }
   return $data;
 }
 
 sub svg {
-  my ($self) = @_;
-  my $data = $self->header;
+  my ($self, $width, $height) = @_;
+  my $data = $self->header($width, $height);
   $data .= qq{  <g id='background'>\n};
   $data .= $self->background;
   $data .= qq{  </g>\n\n};
@@ -1354,7 +1452,7 @@ sub trade {
   # see https://talestoastound.wordpress.com/2015/10/30/traveller-out-of-the-box-interlude-the-1977-edition-over-the-1981-edition/
   my ($self) = @_;
   my @edges;
-  my @candidates = grep { $_->starport =~ /[A-E]/ } @{$self->hexes};
+  my @candidates = grep { $_->starport =~ /^[A-E]$/ } @{$self->hexes};
   my @others = @candidates;
   # every system has a link to its partners
   foreach my $hex (@candidates) {
@@ -1409,6 +1507,7 @@ sub trade_svg {
   my $self = shift;
   my $data = '';
   my $scale = 100;
+  my $sqrt_3 = sqrt(3);
   foreach my $edge (sort { $b->[2] cmp $a->[2] } @{$self->routes}) {
     my $u = @{$edge}[0];
     my $v = @{$edge}[1];
@@ -1416,8 +1515,8 @@ sub trade_svg {
     my ($x1, $y1) = ($u->x, $u->y);
     my ($x2, $y2) = ($v->x, $v->y);
     $data .= sprintf(qq{    <line class="trade d$d" x1="%.3f" y1="%.3f" x2="%.3f" y2="%.3f" />\n},
-		     (1 + ($x1-1) * 1.5) * $scale, ($y1 - $x1%2/2) * sqrt(3) * $scale,
-		     (1 + ($x2-1) * 1.5) * $scale, ($y2 - $x2%2/2) * sqrt(3) * $scale);
+                     (1 + ($x1-1) * 1.5) * $scale, ($y1 - $x1%2/2) * $sqrt_3 * $scale,
+                     (1 + ($x2-1) * 1.5) * $scale, ($y2 - $x2%2/2) * $sqrt_3 * $scale);
   }
   return $data;
 }
@@ -1425,12 +1524,13 @@ sub trade_svg {
 sub legend {
   my $self = shift;
   my $scale = 100;
+  my $sqrt_3 = sqrt(3);
   my $doc;
   $doc .= sprintf(qq{    <text class="legend" x="%.3f" y="%.3f">◉ gas giant}
 		  . qq{ – ▲ scout base}
 		  . qq{ – ★ navy base}
 		  . qq{ – <tspan class="trade">▮</tspan> trade},
-		  -10, ($self->height + 1) * sqrt(3) * $scale);
+		  -10, ($self->height + 1) * $sqrt_3 * $scale);
   if ($self->source) {
     $doc .= ' – <a xlink:href="' . $self->source . '">UWP</a>';
   }
@@ -1439,14 +1539,20 @@ sub legend {
 		  $self->width/2 * 1.5 * $scale, -0.13 * $scale);
   $doc .= sprintf(qq{    <text transform="translate(%.3f,%.3f) rotate(90)"}
 		  . qq{ class="direction">trailing</text>\n},
-		  ($self->width + 0.4) * 1.5 * $scale, $self->height/2 * sqrt(3) * $scale);
+		  ($self->width + 0.4) * 1.5 * $scale, $self->height/2 * $sqrt_3 * $scale);
   $doc .= sprintf(qq{    <text class="direction" x="%.3f" y="%.3f">rimward</text>\n},
-		  $self->width/2 * 1.5 * $scale, ($self->height + 0.7) * sqrt(3) * $scale);
+		  $self->width/2 * 1.5 * $scale, ($self->height + 0.7) * $sqrt_3 * $scale);
   $doc .= sprintf(qq{    <text transform="translate(%.3f,%.3f) rotate(-90)"}
 		  . qq{ class="direction">spinward</text>\n},
-		  -0.1 * $scale, $self->height/2 * sqrt(3) * $scale);
+		  -0.1 * $scale, $self->height/2 * $sqrt_3 * $scale);
   return $doc;
 }
+
+################################################################################
+
+package Traveller::Mapper::Classic::MPTS;
+use Moose;
+extends 'Traveller::Mapper::Classic';
 
 ################################################################################
 
@@ -1464,14 +1570,16 @@ get '/random' => sub {
   my $c = shift;
   my $id = int(rand(INT_MAX));
   my $classic = $c->param('classic');
-  $c->redirect_to($c->url_for('uwp', id => $id)->query(classic => $classic));
+  my $mpts = $c->param('mpts');
+  $c->redirect_to($c->url_for('uwp', id => $id)->query(classic => $classic, mpts => $mpts));
 } => 'random';
 
 get '/random/sector' => sub {
   my $c = shift;
   my $id = int(rand(INT_MAX));
   my $classic = $c->param('classic');
-  $c->redirect_to($c->url_for('uwp-sector', id => $id)->query(classic => $classic));
+  my $mpts = $c->param('mpts');
+  $c->redirect_to($c->url_for('uwp-sector', id => $id)->query(classic => $classic, mpts => $mpts));
 } => 'random-sector';
 
 get '/:id' => [id => qr/\d+/] => sub {
@@ -1484,24 +1592,27 @@ get '/uwp/:id' => [id => qr/\d+/] => sub {
   my $c = shift;
   my $id = $c->param('id');
   my $classic = $c->param('classic');
+  my $mpts = $c->param('mpts');
   srand($id);
-  my $uwp = new Traveller::Subsector()->init(8,10,$classic)->str;
-  $c->render(template => 'uwp', id => $id, classic => $classic, uwp => $uwp);
+  my $uwp = new Traveller::Subsector()->init(8, 10, $classic, $mpts)->str;
+  $c->render(template => 'uwp', id => $id, classic => $classic, mpts => $mpts, uwp => $uwp);
 } => 'uwp';
 
 get '/uwp/sector/:id' => [id => qr/\d+/] => sub {
   my $c = shift;
   my $id = $c->param('id');
   my $classic = $c->param('classic');
+  my $mpts = $c->param('mpts');
   srand($id);
-  my $uwp = new Traveller::Subsector()->init(32,40,$classic)->str;
-  $c->render(template => 'uwp-sector', id => $id, classic => $classic, uwp => $uwp, sector => 1);
+  my $uwp = new Traveller::Subsector()->init(32, 40, $classic, $mpts)->str;
+  $c->render(template => 'uwp-sector', id => $id, classic => $classic, mpts => $mpts, uwp => $uwp, sector => 1);
 } => 'uwp-sector';
 
 get '/help' => sub {
   my $c = shift;
   my $classic = $c->param('classic');
-  $c->render(classic => $classic);
+  my $mpts = $c->param('mpts');
+  $c->render(classic => $classic, mpts => $mpts);
 };
 
 get '/source' => sub {
@@ -1514,25 +1625,28 @@ get '/source' => sub {
 get '/edit' => sub {
   my $c = shift;
   my $classic = $c->param('classic');
-  $c->render(template => 'edit', uwp => Traveller::Mapper::example(), classic => $classic);
+  my $mpts = $c->param('mpts');
+  $c->render(template => 'edit', uwp => Traveller::Mapper::example(), classic => $classic, mpts => $mpts);
 } => 'main';
 
 get '/edit/:id' => sub {
   my $c = shift;
   my $id = $c->param('id');
   my $classic = $c->param('classic');
+  my $mpts = $c->param('mpts');
   srand($id);
-  my $uwp = new Traveller::Subsector()->init(8,10,$classic)->str;
-  $c->render(template => 'edit', uwp => $uwp, classic => $classic);
+  my $uwp = new Traveller::Subsector()->init(8, 10, $classic, $mpts)->str;
+  $c->render(template => 'edit', uwp => $uwp, classic => $classic, mpts => $mpts);
 } => 'edit';
 
 get '/edit/sector/:id' => sub {
   my $c = shift;
   my $id = $c->param('id');
   my $classic = $c->param('classic');
+  my $mpts = $c->param('mpts');
   srand($id);
-  my $uwp = new Traveller::Subsector()->init(32,40,$classic)->str;
-  $c->render(template => 'edit-sector', uwp => $uwp, classic => $classic);
+  my $uwp = new Traveller::Subsector()->init(32, 40, $classic, $mpts)->str;
+  $c->render(template => 'edit-sector', uwp => $uwp, classic => $classic, mpts => $mpts);
 } => 'edit-sector';
 
 get '/map/:id' => [id => qr/\d+/] => sub {
@@ -1540,15 +1654,18 @@ get '/map/:id' => [id => qr/\d+/] => sub {
   my $wiki = $c->param('wiki');
   my $id = $c->param('id');
   my $classic = $c->param('classic');
+  my $mpts = $c->param('mpts');
   srand($id);
-  my $uwp = new Traveller::Subsector()->init(8,10,$classic)->str;
+  my $uwp = new Traveller::Subsector()->init(8, 10, $classic, $mpts)->str;
   my $map;
-  if ($classic) {
+  if ($mpts) {
+    $map = new Traveller::Mapper::Classic::MPTS;
+  } elsif ($classic) {
     $map = new Traveller::Mapper::Classic;
   } else {
     $map = new Traveller::Mapper;
   }
-  $map->initialize($uwp, $wiki, $c->url_for('uwp', id => $id)->query(classic => $classic));
+  $map->initialize($uwp, $wiki, $c->url_for('uwp', id => $id)->query(classic => $classic, mpts => $mpts));
   $map->communications();
   $map->trade();
   $c->render(text => $map->svg, format => 'svg');
@@ -1559,15 +1676,18 @@ get '/map/sector/:id' => [id => qr/\d+/] => sub {
   my $wiki = $c->param('wiki');
   my $id = $c->param('id');
   my $classic = $c->param('classic');
+  my $mpts = $c->param('mpts');
   srand($id);
-  my $uwp = new Traveller::Subsector()->init(32,40,$classic)->str;
+  my $uwp = new Traveller::Subsector()->init(32, 40, $classic, $mpts)->str;
   my $map;
-  if ($classic) {
+  if ($mpts) {
+    $map = new Traveller::Mapper::Classic::MPTS;
+  } elsif ($classic) {
     $map = new Traveller::Mapper::Classic;
   } else {
     $map = new Traveller::Mapper;
   }
-  $map->initialize($uwp, $wiki, $c->url_for('uwp-sector', id => $id)->query(classic => $classic));
+  $map->initialize($uwp, $wiki, $c->url_for('uwp-sector', id => $id)->query(classic => $classic, mpts => $mpts));
   $map->communications();
   $map->trade();
   $c->render(text => $map->svg, format => 'svg');
@@ -1578,10 +1698,13 @@ get '/trade/:id' => [id => qr/\d+/] => sub {
   my $wiki = $c->param('wiki');
   my $id = $c->param('id');
   my $classic = $c->param('classic');
+  my $mpts = $c->param('mpts');
   srand($id);
-  my $uwp = new Traveller::Subsector()->init(8,10,$classic)->str;
+  my $uwp = new Traveller::Subsector()->init(8, 10, $classic, $mpts)->str;
   my $map;
-  if ($classic) {
+  if ($mpts) {
+    $map = new Traveller::Mapper::Classic::MPTS;
+  } elsif ($classic) {
     $map = new Traveller::Mapper::Classic;
   } else {
     $map = new Traveller::Mapper;
@@ -1598,15 +1721,18 @@ any '/map' => sub {
   my $trade = $c->param('trade');
   my $uwp = $c->param('map');
   my $classic = $c->param('classic');
+  my $mpts = $c->param('mpts');
   my $source;
   if (!$uwp) {
     my $id = int(rand(INT_MAX));
     srand($id);
-    $uwp = new Traveller::Subsector()->init(8,10,$classic)->str;
+    $uwp = new Traveller::Subsector()->init(8, 10, $classic, $mpts)->str;
     $source = $c->url_for('uwp', id => $id);
   }
   my $map;
-  if ($classic) {
+  if ($mpts) {
+    $map = new Traveller::Mapper::Classic::MPTS;
+  } elsif ($classic) {
     $map = new Traveller::Mapper::Classic;
   } else {
     $map = new Traveller::Mapper;
@@ -1627,15 +1753,18 @@ any '/map-sector' => sub {
   my $trade = $c->param('trade');
   my $uwp = $c->param('map');
   my $classic = $c->param('classic');
+  my $mpts = $c->param('mpts');
   my $source;
   if (!$uwp) {
     my $id = int(rand(INT_MAX));
     srand($id);
-    $uwp = new Traveller::Subsector()->init(32,40,$classic)->str;
+    $uwp = new Traveller::Subsector()->init(32, 40, $classic, $mpts)->str;
     $source = $c->url_for('uwp', id => $id);
   }
   my $map;
-  if ($classic) {
+  if ($mpts) {
+    $map = new Traveller::Mapper::Classic::MPTS;
+  } elsif ($classic) {
     $map = new Traveller::Mapper::Classic;
   } else {
     $map = new Traveller::Mapper;
@@ -1657,27 +1786,37 @@ __DATA__
 =encoding utf8
 
 @@ uwp-footer.html.ep
-<% if ($classic) { =%>
+<% if ($mpts) { =%>
                        ||||||| |
-Ag Agricultural        ||||||| +- Tech      NI Non-Industrial
-As Asteroid            ||||||+- Law         Po Poor
-De Desert              |||||+- Government   Ri Rich
-IC Ice-Capped          ||||+- Population    Wa Water World
-In Industrial          |||+- Hydro	    Va Vacuum
+Ag Agricultural        ||||||| +- Tech        In Industrial
+As Asteroid            ||||||+- Law           Na Non-Agricultural
+Ba Barren              |||||+- Government     Ni Non-Industrial
+De Desert              ||||+- Population      Po Poor
+Fl Fluid Oceans        |||+- Hydro            Ri Rich
+Hi High Population     ||+- Atmosphere        Va Vacuum
+Lo Low Population      |+- Size               Wa Water World
+Ic Ice-Capped          +- Starport
+<% } elsif ($classic) { =%>
+                       ||||||| |
+Ag Agricultural        ||||||| +- Tech        Ni Non-Industrial
+As Asteroid            ||||||+- Law           Po Poor
+De Desert              |||||+- Government     Ri Rich
+Ic Ice-Capped          ||||+- Population      Va Vacuum
+In Industrial          |||+- Hydro            Wa Water World
 Na Non-Agricultural    ||+- Atmosphere
                        |+- Size
                        +- Starport
 <% } else { =%>
                        ||||||| |       |
-Ag Agricultural        ||||||| |    Bases  In Industrial
-As Asteroid            ||||||| +- Tech     Lo Low Population
-Ba Barren              ||||||+- Law        Lt Low Technology
-De Desert              |||||+- Government  Na Non-Agricultural
-Fl Fluid Oceans        ||||+- Population   NI Non-Industrial
-Ga Garden              |||+- Hydro         Po Poor
-Hi High Population     ||+- Atmosphere     Ri Rich
-Ht High Technology     |+- Size            Wa Water World
-IC Ice-Capped          +- Starport         Va Vacuum
+Ag Agricultural        ||||||| |    Bases     In Industrial
+As Asteroid            ||||||| +- Tech        Lo Low Population
+Ba Barren              ||||||+- Law           Lt Low Technology
+De Desert              |||||+- Government     Na Non-Agricultural
+Fl Fluid Oceans        ||||+- Population      Ni Non-Industrial
+Ga Garden              |||+- Hydro            Po Poor
+Hi High Population     ||+- Atmosphere        Ri Rich
+Ht High Technology     |+- Size               Va Vacuum
+Ic Ice-Capped          +- Starport            Wa Water World
 
 Bases: Naval – Scout – Research – TAS – Consulate – Pirate – Gas Giant
 % }
@@ -1691,10 +1830,10 @@ Bases: Naval – Scout – Research – TAS – Consulate – Pirate – Gas Gia
 <%= include 'uwp-footer' =%>
 </pre>
 <p>
-<%= link_to url_for('map')->query(classic => $classic) => begin %>Generate Map<% end %>
-<%= link_to url_for('edit')->query(classic => $classic) => begin %>Edit UWP List<% end %>
-<%= link_to url_for('random')->query(classic => $classic) => begin %>Random Subsector<% end %>
-<%= link_to url_for('random-sector')->query(classic => $classic) => begin %>Random Sector<% end %>
+<%= link_to url_for('map')->query(classic => $classic, mpts => $mpts) => begin %>Generate Map<% end %>&#x2003;
+<%= link_to url_for('edit')->query(classic => $classic, mpts => $mpts) => begin %>Edit UWP List<% end %>&#x2003;
+<%= link_to url_for('random')->query(classic => $classic, mpts => $mpts) => begin %>Random Subsector<% end %>&#x2003;
+<%= link_to url_for('random-sector')->query(classic => $classic, mpts => $mpts) => begin %>Random Sector<% end %>
 </p>
 
 @@ uwp-sector.html.ep
@@ -1706,16 +1845,16 @@ Bases: Naval – Scout – Research – TAS – Consulate – Pirate – Gas Gia
 <%= include 'uwp-footer' =%>
 </pre>
 <p>
-<%= link_to url_for('map-sector')->query(classic => $classic) => begin %>Generate Map<% end %>
-<%= link_to url_for('edit-sector')->query(classic => $classic) => begin %>Edit UWP List<% end %>
-<%= link_to url_for('random')->query(classic => $classic) => begin %>Random Subsector<% end %>
-<%= link_to url_for('random-sector')->query(classic => $classic) => begin %>Random Sector<% end %>
+<%= link_to url_for('map-sector')->query(classic => $classic, mpts => $mpts) => begin %>Generate Map<% end %>&#x2003;
+<%= link_to url_for('edit-sector')->query(classic => $classic, mpts => $mpts) => begin %>Edit UWP List<% end %>&#x2003;
+<%= link_to url_for('random')->query(classic => $classic, mpts => $mpts) => begin %>Random Subsector<% end %>&#x2003;
+<%= link_to url_for('random-sector')->query(classic => $classic, mpts => $mpts) => begin %>Random Sector<% end %>
 </p>
 
 @@ edit-footer.html.ep
 <p>
 <b>URL</b>:
-If provided, every systems will be linked to an appropriate page.
+If provided, every system will be linked to an appropriate page.
 Feel free to create a <a href="https://campaignwiki.org/">campaign wiki</a> for your game.
 </p>
 <p>
@@ -1728,49 +1867,49 @@ Click the link to print it, save it, or to make manual changes.
 <i>name</i>, some whitespace,
 <i>coordinates</i> (four digits between 0101 and 0810),
 some whitespace,
-<i>starport</i> (A-E or X)
-<i>size</i> (0-9 or A)
-<i>atmosphere</i> (0-9 or A-F)
-<i>hydrographic</i> (0-9 or A)
-<i>population</i> (0-9 or A-C)
-<i>government</i> (0-9 or A-F)
-<i>law level</i> (0-9 or A-L) a dash,
-<i>tech level</i> (0-99) optionally a non-standard group of bases and a gas giant indicator, optionally separated by whitespace:
-<i>pirate base</i> (P)
-<i>imperial consulate</i> (C)
-<i>TAS base</i> (T)
-<i>research base</i> (R)
-<i>naval base</i> (N)
-<i>scout base</i> (S)
-<i>gas giant</i> (G), followed by trade codes (see below), and optionally a
-<i>travel code</i> (A or R).
+<i>starport</i> (A-E or X),
+<i>size</i> (0-9 or A),
+<i>atmosphere</i> (0-9 or A-F),
+<i>hydrographic</i> (0-9 or A),
+<i>population</i> (0-9 or A-C),
+<i>government</i> (0-9 or A-F),
+<i>law level</i> (0-9 or A-L), a dash,
+<i>tech level</i> (0-99), optionally a non-standard group of bases and a gas giant indicator, optionally separated by whitespace:
+<i>pirate base</i> (P),
+<i>Imperial consulate</i> (C),
+<i>Travellers’ Aid Society facility</i> (T),
+<i>research station</i> (R),
+<i>naval base</i> (N),
+<i>scout base</i> (S),
+<i>gas giant</i> (G), followed by <i>trade codes</i> (see below), and optionally a
+<i>travel zone</i> (A or R).
 Whitespace can be one or more spaces and tabs.
 </p>
 <p>Trade codes:</p>
 <pre>
     Ag Agricultural     Hi High Population    Na Non-Agricultural
-    As Asteroid         Ht High Technology    NI Non-Industrial
-    Ba Barren           IC Ice-Capped         Po Poor
+    As Asteroid         Ht High Technology    Ni Non-Industrial
+    Ba Barren           Ic Ice-Capped         Po Poor
     De Desert           In Industrial         Ri Rich
-    Fl Fluid Oceans     Lo Low Population     Wa Water World
-    Ga Garden           Lt Low Technology     Va Vacuum
+    Fl Fluid Oceans     Lo Low Population     Va Vacuum
+    Ga Garden           Lt Low Technology     Wa Water World
 </pre>
 <p>
 <b>Alternative format for quick maps</b>:
 <i>name</i>, some whitespace,
 <i>coordinates</i> (four digits between 0101 and 0810), some whitespace,
-<i>size</i> (0-9)
+<i>size</i> (0-9),
 optionally a non-standard group of bases and a gas giant indicator,
 optionally separated by whitespace:
-<i>pirate base</i> (P)
-<i>imperial consulate</i> (C)
-<i>TAS base</i> (T)
-<i>research base</i> (R)
-<i>naval base</i> (N)
-<i>scout base</i> (S)
+<i>pirate base</i> (P),
+<i>Imperial consulate</i> (C),
+<i>Travellers’ Aid Society facility</i> (T),
+<i>research station</i> (R),
+<i>naval base</i> (N),
+<i>scout base</i> (S),
 <i>gas giant</i> (G),
-followed by trade codes (see below),
-and optionally a <i>travel code</i> (A or R).
+followed by <i>trade codes</i> (see above),
+and optionally a <i>travel zone</i> (A or R).
 </p>
 
 @@ edit.html.ep
@@ -1778,8 +1917,8 @@ and optionally a <i>travel code</i> (A or R).
 % title 'Traveller Subsector Generator';
 <h1>Traveller Subsector Generator</h1>
 <p>Submit your UWP list, or generate a
-<%= link_to url_for('random')->query(classic => $classic) => begin %>Random Subsector<% end %> or a
-<%= link_to url_for('random-sector')->query(classic => $classic) => begin %>Random Sector<% end %>.
+<%= link_to url_for('random')->query(classic => $classic, mpts => $mpts) => begin %>Random Subsector<% end %> or a
+<%= link_to url_for('random-sector')->query(classic => $classic, mpts => $mpts) => begin %>Random Sector<% end %>.
 </p>
 %= form_for 'random-map' => (method => 'POST') => begin
 <p>
@@ -1794,6 +1933,7 @@ URL (optional):
 %= text_field 'wiki' => 'http://campaignwiki.org/wiki/NameOfYourWiki/' => (id => 'wiki')
 </p>
 %= hidden_field classic => $classic
+%= hidden_field mpts => $mpts
 %= submit_button 'Submit'
 %= end
 
@@ -1804,8 +1944,8 @@ URL (optional):
 % title 'Traveller Sector Generator';
 <h1>Traveller Sector Generator</h1>
 <p>Submit your UWP list, or generate a
-<%= link_to url_for('random')->query(classic => $classic) => begin %>Random Subsector<% end %> or a
-<%= link_to url_for('random-sector')->query(classic => $classic) => begin %>Random Sector<% end %>.
+<%= link_to url_for('random')->query(classic => $classic, mpts => $mpts) => begin %>Random Subsector<% end %> or a
+<%= link_to url_for('random-sector')->query(classic => $classic, mpts => $mpts) => begin %>Random Sector<% end %>.
 </p>
 %= form_for 'random-map-sector' => (method => 'POST') => begin
 <p>
@@ -1820,6 +1960,7 @@ URL (optional):
 %= text_field 'wiki' => 'http://campaignwiki.org/wiki/NameOfYourWiki/' => (id => 'wiki')
 </p>
 %= hidden_field classic => $classic
+%= hidden_field mpts => $mpts
 %= submit_button 'Submit'
 %= end
 
@@ -1830,12 +1971,13 @@ URL (optional):
 % title 'Traveller Subsector Generator';
 <h1>Traveller Subsector Generator</h1>
 <p>This generator can generate
-<%= link_to url_for('random')->query(classic => $classic) => begin %>random subsectors<% end %> and
-<%= link_to url_for('random-sector')->query(classic => $classic) => begin %>random sector<% end %>
-for <em>Classic Traveller</em> (CT) and for <em>Mongoose Traveller</em> (MGT).
-You can switch between the two using the link at the bottom.</p>
+<%= link_to url_for('random')->query(classic => $classic, mpts => $mpts) => begin %>random subsectors<% end %> and
+<%= link_to url_for('random-sector')->query(classic => $classic, mpts => $mpts) => begin %>random sectors<% end %>
+for <cite>Classic Traveller</cite> (CT), <cite>Classic Traveller</cite> with the <cite>Merchant Prince</cite>
+trade system (CT+MPTS), and <cite>Mongoose Traveller</cite> (MGT).
+You can switch between them using the link at the bottom.</p>
 
-<p>If you generate a random map, it will have a link to it's UWP list at the
+<p>If you generate a random map, it will have a link to its UWP list at the
 bottom of the map.</p>
 
 <p>You can edit a random UWP list and generate a new map. In this case, however,
@@ -1843,9 +1985,10 @@ there will be no link back to the UWP list. You need to keep it safe in a text
 file on your system somewhere.</p>
 
 <h2>Trade</h2>
-<p>For <em>Classic Traveller</em> I'm using the 1977 rules to generate trade
-routes, as discussed as discussed in the blog post <a href="https://talestoastound.wordpress.com/2015/10/30/traveller-out-of-the-box-interlude-the-1977-edition-over-the-1981-edition/">Two
-Points Where I Prefer the 1977 Edition Over the 1981 Edition</a> by C. Kubasik.
+<p>For <cite>Classic Traveller</cite> (with or without the <cite>Merchant Prince</cite> trade system)
+I’m using the 1977 rules to generate trade routes,
+as discussed in the blog post <a href="https://talestoastound.wordpress.com/2015/10/30/traveller-out-of-the-box-interlude-the-1977-edition-over-the-1981-edition/"><cite>Interlude: Two
+Points Where I Prefer the 1977 Edition Over the 1981 Edition</cite></a> by Chris Kubasik.
 
 @@ layouts/default.html.ep
 <!DOCTYPE html>
@@ -1857,14 +2000,14 @@ Points Where I Prefer the 1977 Edition Over the 1981 Edition</a> by C. Kubasik.
 body {
   width: 600px;
   padding: 1em;
-  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+  font-family: "Palatino Linotype", PalatinoLinotype-Roman, "Book Antiqua", BookAntiqua, Palatino, Palatino-Roman, serif;
 }
 form {
   display: inline;
 }
 textarea, #wiki {
   width: 100%;
-  font-family: "Andale Mono", Monaco, "Courier New", Courier, monospace, "Symbola";
+  font-family: "Andale Mono", AndaleMono, Monaco, "Courier New", CourierNewPSMT, Courier, Symbola, monospace;
   font-size: 100%;
 }
 table {
@@ -1872,6 +2015,9 @@ table {
 }
 td, th {
   padding-right: 0.5em;
+}
+cite {
+  font-style: italic;
 }
 .example {
   font-size: smaller;
@@ -1884,10 +2030,15 @@ td, th {
 <hr>
 <p>
 <a href="https://campaignwiki.org/traveller">Subsector Generator</a>&#x2003;
-% if ($classic) {
-<%= link_to url_for()->query(classic => undef) => begin %>MGT<% end %>
+% if ($mpts) {
+<%= link_to url_for()->query(classic => 1, mpts => undef) => begin %>CT<% end %>&#x2003;
+<%= link_to url_for()->query(classic => undef, mpts => undef) => begin %>MGT<% end %>
+% } elsif ($classic) {
+<%= link_to url_for()->query(classic => undef, mpts => 1) => begin %>CT+MPTS<% end %>&#x2003;
+<%= link_to url_for()->query(classic => undef, mpts => undef) => begin %>MGT<% end %>
 % } else {
-<%= link_to url_for()->query(classic => 1) => begin %>CT<% end %>
+<%= link_to url_for()->query(classic => 1, mpts => undef) => begin %>CT<% end %>&#x2003;
+<%= link_to url_for()->query(classic => undef, mpts => 1) => begin %>CT+MPTS<% end %>
 % }
 &#x2003;
 <%= link_to 'Help' => 'help' %>&#x2003;
