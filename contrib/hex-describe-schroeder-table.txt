@@ -14255,7 +14255,7 @@
 ;the presence of refugees is a problem
 # no captain!
 1,As the wounded start dying, the stench is spreading. Flies are everywhere. Soon, cholera and typhus will be showing up. The locals want the refugees gone, but who is going to argue with armed men? Better to stab them during the night, some might say.
-1,The locals are no longer willing to support the refugees, calling them maggots and worms and worse. Nobody is willing to kill, however, and so the situation just lingers, the refugees too weak to kill the locals simply take what they need and the locals to afraid to do away with the extra mouths.
+1,The locals are no longer willing to support the refugees, calling them maggots and worms and worse. Nobody is willing to kill, however, and so the situation just lingers, the refugees too weak to kill the locals and simply take what they need and the locals to afraid to do away with the extra mouths.
 1,The young **[human class]** *[human with portrait]* is a devout servant of [good power]. They are trying to find a solution to the problem. Surely some land could be cleared for these poor souls? Let them settle.
 1,The young **[human class]** *[human with portrait]* is a devout servant of [evil power]. They have shrewdly insinuated that the locals are simply waiting for them to weaken even further until one night they’ll all just stab them. So why not take things into your own hands and act first? Strike now and take what you need!
 
