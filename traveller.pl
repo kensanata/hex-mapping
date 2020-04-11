@@ -836,7 +836,9 @@ use Moose;
 with 'Traveller::Util';
 
 has 'hexes' => (is => 'rw', isa => 'ArrayRef[Traveller::Hex]', default => sub { [] });
-has 'routes' => (is => 'rw', isa => 'ArrayRef');
+has 'routes' => (is => 'rw', isa => 'ArrayRef', default => sub { [] });
+has 'comm_set' => (is => 'rw', isa => 'Bool');
+has 'trade_set' => (is => 'rw', isa => 'Bool');
 has 'source' => (is => 'rw');
 has 'width' => (is => 'rw', isa => 'Int');
 has 'height' => (is => 'rw', isa => 'Int');
@@ -1130,7 +1132,14 @@ sub initialize {
   $self->source($source);
   $self->width(0);
   $self->height(0);
-  foreach (split(/\n/, $map)) {
+  my @lines = split(/\n/, $map);
+  $self->initialize_map($wiki, \@lines);
+  $self->initialize_routes(\@lines);
+}
+
+sub initialize_map {
+  my ($self, $wiki, $lines) = @_;
+  foreach (@$lines) {
     # parse Traveller UWP
     my ($name, $x, $y,
 	$starport, $size, $atmosphere, $hydrographic, $population,
@@ -1192,10 +1201,38 @@ sub add {
   push(@{$self->hexes}, $hex);
 }
 
+sub initialize_routes {
+  my ($self, $lines) = @_;
+  foreach (@$lines) {
+    # parse non-standard routes
+    my ($from, $to, $type) = /^(\d\d\d\d)-(\d\d\d\d)\s+(C|T)\b/i;
+    next unless $type;
+    if (lc($type) eq 'c') {
+      $self->comm_set(1); # at least one hex here has comm
+      push(@{$self->at($from)->comm}, $self->at($to)); # a property of the hex
+    } else {
+      $self->trade_set(1); # at least one hex here has trade
+      my $from_hex = $self->at($from);
+      my $to_hex = $self->at($to);
+
+      push(@{$self->routes}, [$from_hex, $to_hex]); # a property of the mapper
+    }
+  }
+}
+
+sub at {
+  my ($self, $coord) = @_;
+  my ($x, $y) = $coord =~ /(\d\d)(\d\d)/;
+  foreach my $hex (@{$self->hexes}) {
+    return $hex if $hex->x == $x and $hex->y == $y;
+  }
+}
+
 sub communications {
   # connect all the class A starports, naval bases, and Imperial
   # consulates
   my ($self) = @_;
+  return if $self->comm_set;
   my @candidates = ();
   foreach my $hex (@{$self->hexes}) {
     push(@candidates, $hex)
@@ -1229,6 +1266,7 @@ sub trade {
   # connect In or Ht with As, De, Ic, Ni
   # connect Hi or Ri with Ag, Ga, Wa
   my ($self) = @_;
+  return if $self->trade_set;
   # candidates need to be on a travel route, i.e. must have fuel
   # available; skip worlds with a red travel zone
   my @candidates = ();
