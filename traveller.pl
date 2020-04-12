@@ -1940,6 +1940,19 @@ optionally separated by whitespace:
 followed by <i>trade codes</i> (see above),
 and optionally a <i>travel zone</i> (A or R).
 </p>
+<p>Example:</p>
+<pre>Inedgeus     0101 7 G  Fl Ni A
+Geaan        0102 6 G  Hi Wa A</pre>
+<p>
+<b>Manual communication and trade routes</b>: If you don't want to rely on the
+algorithm that creates these routes, you can provide your own using the
+following format: <i>coordinates</i> (four digits between 0101 and 0810), a
+minus, <i>coordinates</i>, some whitespace, and the <i>type</i> (the letter C or
+T).
+</p>
+<p>Example:</p>
+<pre>0101-0102 C
+0102-0103 T</pre>
 
 @@ edit.html.ep
 % layout 'default';
