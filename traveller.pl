@@ -1482,6 +1482,7 @@ sub trade {
   # connect starports to each other based on a table
   # see https://talestoastound.wordpress.com/2015/10/30/traveller-out-of-the-box-interlude-the-1977-edition-over-the-1981-edition/
   my ($self) = @_;
+  return if $self->trade_set;
   my @edges;
   my @candidates = grep { $_->starport =~ /^[A-E]$/ } @{$self->hexes};
   my @others = @candidates;
