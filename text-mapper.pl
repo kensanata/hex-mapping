@@ -25,9 +25,10 @@ my $contrib;
 package Point;
 
 use Modern::Perl '2018';
-use Class::Struct;
+use Mojo::Base -base;
 
-struct Point => { x => '$', y => '$', };
+has 'x';
+has 'y';
 
 sub equal {
   my ($self, $other) = @_;
@@ -44,26 +45,24 @@ sub coordinates {
 package Line;
 
 use Modern::Perl '2018';
-use Class::Struct;
 use URI::Escape;
+use Mojo::Base -base;
 
-struct Line => {
-		id => '$',
-		points => '@',
-		type => '$',
-		label => '$',
-		map => 'Mapper',
-	       };
+has 'id';
+has 'points';
+has 'type';
+has 'label';
+has 'map';
 
 sub compute_missing_points {
   my $self = shift;
   my $i = 0;
-  my $current = $self->points($i++);
+  my $current = $self->points->[$i++];
   my @result = ($current);
-  while ($self->points($i)) {
-    $current = $self->one_step($current, $self->points($i));
+  while ($self->points->[$i]) {
+    $current = $self->one_step($current, $self->points->[$i]);
     push(@result, $current);
-    $i++ if $current->equal($self->points($i));
+    $i++ if $current->equal($self->points->[$i]);
   }
 
   return @result;
@@ -126,7 +125,7 @@ sub svg {
 
   my $id = $self->id;
   my $type = $self->type;
-  my $attributes = $self->map->path_attributes($type);
+  my $attributes = $self->map->path_attributes->{$type};
   my $data = qq{    <path id="$id" $attributes d="$path"/>\n};
   $data .= $self->debug($closed) if $debug;
   return $data;
@@ -191,7 +190,7 @@ sub circle {
 package Line::Hex;
 
 use Modern::Perl '2018';
-use parent -norequire, 'Line';
+use Mojo::Base 'Line';
 
 sub pixels {
   my ($self, $point) = @_;
@@ -236,7 +235,7 @@ sub one_step {
 package Line::Square;
 
 use Modern::Perl '2018';
-use parent -norequire, 'Line';
+use Mojo::Base 'Line';
 
 sub pixels {
   my ($self, $point) = @_;
@@ -262,17 +261,15 @@ sub one_step {
 package Hex;
 
 use Modern::Perl '2018';
-use Class::Struct;
 use URI::Escape;
+use Mojo::Base -base;
 
-struct Hex => {
-  x => '$',
-  y => '$',
-  type => '$',
-  label => '$',
-  size => '$',
-  map => 'Mapper',
-};
+has 'x';
+has 'y';
+has 'type';
+has 'label';
+has 'size';
+has 'map';
 
 sub str {
   my $self = shift;
@@ -357,17 +354,15 @@ sub svg_label {
 package Square;
 
 use Modern::Perl '2018';
-use Class::Struct;
 use URI::Escape;
+use Mojo::Base -base;
 
-struct Square => {
-  x => '$',
-  y => '$',
-  type => '$',
-  label => '$',
-  size => '$',
-  map => 'Mapper',
-};
+has 'x';
+has 'y';
+has 'type';
+has 'label';
+has 'size';
+has 'map';
 
 sub str {
   my $self = shift;
@@ -447,28 +442,25 @@ sub svg_label {
 package Mapper;
 
 use Modern::Perl '2018';
-use Class::Struct;
 use LWP::UserAgent;
+use Mojo::Base -base;
 
-struct Mapper => {
-		  regions => '@',
-		  attributes => '%',
-		  defs => '@',
-		  map => '$',
-		  path => '%',
-		  lines => '@',
-		  things => '@',
-		  path_attributes => '%',
-		  text_attributes => '$',
-		  glow_attributes => '$',
-		  label_attributes => '$',
-		  messages => '@',
-		  seen => '%',
-		  license => '$',
-		  other => '@',
-		  url => '$',
-		 };
-
+has 'map';
+has 'regions' => sub { [] };
+has 'attributes' => sub { {} };
+has 'defs' => sub { [] };
+has 'path' => sub { {} };
+has 'lines' => sub { [] };
+has 'things' => sub { [] };
+has 'path_attributes' => sub { {} };
+has 'text_attributes' => '';
+has 'glow_attributes' => '';
+has 'label_attributes' => '';
+has 'messages' => sub { [] };
+has 'seen' => sub { {} };
+has 'license' => '';
+has 'other' => sub { [] };
+has 'url' => '';
 
 sub example {
   return <<"EOT";
@@ -528,7 +520,7 @@ sub process {
       $line->points(\@points);
       push(@{$self->lines}, $line);
     } elsif (/^(\S+)\s+attributes\s+(.*)/) {
-      $self->attributes($1, $2);
+      $self->attributes->{$1} = $2;
     } elsif (/^(\S+)\s+lib\s+(.*)/) {
       $self->def(qq{<g id="$1">$2</g>});
     } elsif (/^(\S+)\s+xml\s+(.*)/) {
@@ -536,9 +528,9 @@ sub process {
     } elsif (/^(<.*>)/) {
       $self->def($1);
     } elsif (/^(\S+)\s+path\s+attributes\s+(.*)/) {
-      $self->path_attributes($1, $2);
+      $self->path_attributes->{$1} = $2;
     } elsif (/^(\S+)\s+path\s+(.*)/) {
-      $self->path($1, $2);
+      $self->path->{$1} = $2;
     } elsif (/^text\s+(.*)/) {
       $self->text_attributes($1);
     } elsif (/^glow\s+(.*)/) {
@@ -555,8 +547,8 @@ sub process {
       if (scalar keys %{$self->seen} > 5) {
 	push(@{$self->messages},
 	     "Includes are limited to five to prevent loops");
-      } elsif (not $self->seen($1)) {
-	$self->seen($1, 1);
+      } elsif (not $self->seen->{$1}) {
+	$self->seen->{$1} = 1;
 	my $ua = LWP::UserAgent->new(ssl_opts => { verify_hostname => 1 });
 	my $response = $ua->get($1);
 	if ($response->is_success) {
@@ -638,10 +630,10 @@ sub svg_defs {
   }
   # now go through them all
   foreach my $type (sort keys %types) {
-    my $path = $self->path($type);
-    my $attributes = merge_attributes($self->attributes($type));
-    my $path_attributes = merge_attributes($self->path_attributes('default'),
-					   $self->path_attributes($type));
+    my $path = $self->path->{$type};
+    my $attributes = merge_attributes($self->attributes->{$type});
+    my $path_attributes = merge_attributes($self->path_attributes->{'default'},
+					   $self->path_attributes->{$type});
     my $glow_attributes = $self->glow_attributes;
     if ($path || $attributes) {
       $doc .= qq{    <g id="$type">\n};
@@ -673,7 +665,7 @@ sub svg_backgrounds {
     # make a copy
     my @types = @{$thing->type};
     # keep attributes
-    $thing->type([grep { $self->attributes($_) } @{$thing->type}]);
+    $thing->type([grep { $self->attributes->{$_} } @{$thing->type}]);
     $doc .= $thing->svg();
     # reset copy
     $thing->type(\@types);
@@ -687,7 +679,7 @@ sub svg_things {
   my $doc = qq{  <g id="things">\n};
   foreach my $thing (@{$self->things}) {
     # drop attributes
-    $thing->type([grep { not $self->attributes($_) } @{$thing->type}]);
+    $thing->type([grep { not $self->attributes->{$_} } @{$thing->type}]);
     $doc .= $thing->svg();
   }
   $doc .= qq{  </g>\n};
@@ -717,7 +709,7 @@ sub svg_lines {
 sub svg_regions {
   my ($self) = @_;
   my $doc = qq{  <g id="regions">\n};
-  my $attributes = $self->attributes('default') || qq{fill="none"};
+  my $attributes = $self->attributes->{default} || qq{fill="none"};
   foreach my $region (@{$self->regions}) {
     $doc .= $region->svg_region($attributes);
   }
@@ -776,7 +768,7 @@ sub svg {
 package Mapper::Hex;
 
 use Modern::Perl '2018';
-use parent -norequire, 'Mapper';
+use Mojo::Base 'Mapper';
 
 sub make_region {
   my $self = shift;
@@ -806,7 +798,7 @@ sub viewbox {
 package Mapper::Square;
 
 use Modern::Perl '2018';
-use parent -norequire, 'Mapper';
+use Mojo::Base 'Mapper';
 
 sub make_region {
   my $self = shift;
@@ -1254,14 +1246,11 @@ sub generate_map {
     . "include $contrib/gnomeyland.txt\n";
 }
 
-package Schroeder;
+package Schroeder::Alpine;
 
 use Modern::Perl '2018';
-use Class::Struct;
+use Mojo::Base -base;
 use List::Util 'shuffle';
-
-# Currently empty
-struct Schroeder => {};
 
 # We're assuming that $width and $height have two digits (10 <= n <= 99).
 
@@ -2130,10 +2119,10 @@ sub generate_map {
   return $map;
 }
 
-package Schroeder::Hex;
+package Schroeder::Alpine::Hex;
 
 use Modern::Perl '2018';
-use parent -norequire, 'Schroeder';
+use Mojo::Base 'Schroeder::Alpine';
 
 sub neighbors { 0 .. 5 }
 
@@ -2213,10 +2202,10 @@ sub arrows {
   } ($self->neighbors());
 }
 
-package Schroeder::Square;
+package Schroeder::Alpine::Square;
 
 use Modern::Perl '2018';
-use parent -norequire, 'Schroeder';
+use Mojo::Base 'Schroeder::Alpine';
 
 sub neighbors { 0 .. 3 }
 
@@ -2275,28 +2264,27 @@ sub arrows {
 package Gridmapper;
 
 use Modern::Perl '2018';
-use Class::Struct;
 use List::Util qw'shuffle none any min max';
 use List::MoreUtils qw'pairwise';
 use URI::Escape;
+use Mojo::Base -base;
 
-# Currently empty
-struct Gridmapper => {
-  # This is the meta grid for the geomorphs. Normally this is (3,3) for simple
-  # dungeons. We need to recompute these when smashing two geomorphs together.
-  dungeon_dimensions => '@',
-  # This is the grid for a particular geomorph. This is space for actual tiles.
-  room_dimensions => '@',
-  # Rows and columns, for the tiles. Add two tiles for the edges, so the first
-  # two rows and the last two rows, and the first two columns and the last two
-  # columns should be empty. This is the empty space where stairs can be added.
-  # (0,0) starts at the top left and goes rows before columns, like text. Max
-  # tiles is the maximum number of tiles. We need to recompute these values when
-  # smashing two geomorphs together.
-  row => '$',
-  col => '$',
-  max_tiles => '$',
-};
+# This is the meta grid for the geomorphs. Normally this is (3,3) for simple
+# dungeons. We need to recompute these when smashing two geomorphs together.
+has 'dungeon_dimensions';
+
+# This is the grid for a particular geomorph. This is space for actual tiles.
+has 'room_dimensions';
+
+# Rows and columns, for the tiles. Add two tiles for the edges, so the first
+# two rows and the last two rows, and the first two columns and the last two
+# columns should be empty. This is the empty space where stairs can be added.
+# (0,0) starts at the top left and goes rows before columns, like text. Max
+# tiles is the maximum number of tiles. We need to recompute these values when
+# smashing two geomorphs together.
+has 'row';
+has 'col';
+has 'max_tiles';
 
 sub init {
   my $self = shift;
@@ -2307,11 +2295,11 @@ sub init {
 
 sub recompute {
   my $self = shift;
-  $self->row($self->dungeon_dimensions(0)
-	     * $self->room_dimensions(0)
+  $self->row($self->dungeon_dimensions->[0]
+	     * $self->room_dimensions->[0]
 	     + 4);
-  $self->col($self->dungeon_dimensions(1)
-	     * $self->room_dimensions(1)
+  $self->col($self->dungeon_dimensions->[1]
+	     * $self->room_dimensions->[1]
 	     + 4);
   $self->max_tiles($self->row * $self->col - 1);
 }
@@ -2356,12 +2344,12 @@ sub generate_random_room {
   # $log->debug("New room starting at (@start) for dimensions (@dimensions)");
   for my $x ($start[0] .. $start[0] + $dimensions[0] - 1) {
     for my $y ($start[1] .. $start[1] + $dimensions[1] - 1) {
-      $tiles[$x + $y * $self->room_dimensions(0)] = ["empty"];
+      $tiles[$x + $y * $self->room_dimensions->[0]] = ["empty"];
     }
   }
   my $x = $start[0] + int($dimensions[0]/2);
   my $y = $start[1] + int($dimensions[1]/2);
-  push(@{$tiles[$x + $y * $self->room_dimensions(0)]}, "\"$num\"");
+  push(@{$tiles[$x + $y * $self->room_dimensions->[0]]}, "\"$num\"");
   return \@tiles;
 }
 
@@ -2374,18 +2362,18 @@ sub generate_fancy_corner_room {
   # $log->debug("New room starting at (@start) for dimensions (@dimensions)");
   for my $x ($start[0] .. $start[0] + $dimensions[0] - 1) {
     for my $y ($start[1] .. $start[1] + $dimensions[1] - 1) {
-      push(@{$tiles[$x + $y * $self->room_dimensions(0)]}, "empty");
-      # $log->debug("$x $y @{$tiles[$x + $y * $self->room_dimensions(0)]}");
+      push(@{$tiles[$x + $y * $self->room_dimensions->[0]]}, "empty");
+      # $log->debug("$x $y @{$tiles[$x + $y * $self->room_dimensions->[0]]}");
     }
   }
   my $type = rand() < 0.5 ? "arc" : "diagonal";
-  $tiles[$start[0] + $start[1] * $self->room_dimensions(0)] = ["$type-se"];
-  $tiles[$start[0] + $dimensions[0] + $start[1] * $self->room_dimensions(0) -1] = ["$type-sw"];
-  $tiles[$start[0] + ($start[1] + $dimensions[1] - 1) * $self->room_dimensions(0)] = ["$type-ne"];
-  $tiles[$start[0] + $dimensions[0] + ($start[1] + $dimensions[1] - 1) * $self->room_dimensions(0) - 1] = ["$type-nw"];
+  $tiles[$start[0] + $start[1] * $self->room_dimensions->[0]] = ["$type-se"];
+  $tiles[$start[0] + $dimensions[0] + $start[1] * $self->room_dimensions->[0] -1] = ["$type-sw"];
+  $tiles[$start[0] + ($start[1] + $dimensions[1] - 1) * $self->room_dimensions->[0]] = ["$type-ne"];
+  $tiles[$start[0] + $dimensions[0] + ($start[1] + $dimensions[1] - 1) * $self->room_dimensions->[0] - 1] = ["$type-nw"];
   my $x = $start[0] + int($dimensions[0]/2);
   my $y = $start[1] + int($dimensions[1]/2);
-  push(@{$tiles[$x + $y * $self->room_dimensions(0)]}, "\"$num\"");
+  push(@{$tiles[$x + $y * $self->room_dimensions->[0]]}, "\"$num\"");
   return \@tiles;
 }
 
@@ -2401,16 +2389,16 @@ sub generate_pillar_room {
     for my $y ($start[1] .. $start[1] + $dimensions[1] - 1) {
       if ($type eq "|" and ($x == $start[0] or $x == $start[0] + $dimensions[0] - 1)
 	  or $type eq "-" and ($y == $start[1] or $y == $start[1] + $dimensions[1] - 1)) {
-	push(@{$tiles[$x + $y * $self->room_dimensions(0)]}, "pillar");
+	push(@{$tiles[$x + $y * $self->room_dimensions->[0]]}, "pillar");
       } else {
-	push(@{$tiles[$x + $y * $self->room_dimensions(0)]}, "empty");
-	# $log->debug("$x $y @{$tiles[$x + $y * $self->room_dimensions(0)]}");
+	push(@{$tiles[$x + $y * $self->room_dimensions->[0]]}, "empty");
+	# $log->debug("$x $y @{$tiles[$x + $y * $self->room_dimensions->[0]]}");
       }
     }
   }
   my $x = $start[0] + int($dimensions[0]/2);
   my $y = $start[1] + int($dimensions[1]/2);
-  push(@{$tiles[$x + $y * $self->room_dimensions(0)]}, "\"$num\"");
+  push(@{$tiles[$x + $y * $self->room_dimensions->[0]]}, "\"$num\"");
   return \@tiles;
 }
 
@@ -2627,11 +2615,11 @@ sub shape_flip {
   # $r = 1;
   if ($r < 0.20) {
     # flip vertically
-    $shape = [map{ $_->[1] = $self->dungeon_dimensions(1) - 1 - $_->[1]; $_ } @$shape];
+    $shape = [map{ $_->[1] = $self->dungeon_dimensions->[1] - 1 - $_->[1]; $_ } @$shape];
     # $log->debug("flip vertically: " . join(", ", map { "[@$_]"} @$shape));
   } elsif ($r < 0.4) {
     # flip horizontally
-    $shape = [map{ $_->[0] = $self->dungeon_dimensions(0) - 1 - $_->[0]; $_ } @$shape];
+    $shape = [map{ $_->[0] = $self->dungeon_dimensions->[0] - 1 - $_->[0]; $_ } @$shape];
     # $log->debug("flip horizontally: " . join(", ", map { "[@$_]"} @$shape));
   } elsif ($r < 0.6) {
     # flip diagonally
@@ -2639,8 +2627,8 @@ sub shape_flip {
     # $log->debug("flip diagonally: " . join(", ", map { "[@$_]"} @$shape));
   } elsif ($r < 0.8) {
     # flip diagonally
-    $shape = [map{ $_->[0] = $self->dungeon_dimensions(0) - 1 - $_->[0];
-		   $_->[1] = $self->dungeon_dimensions(1) - 1 - $_->[1];
+    $shape = [map{ $_->[0] = $self->dungeon_dimensions->[0] - 1 - $_->[0];
+		   $_->[1] = $self->dungeon_dimensions->[1] - 1 - $_->[1];
 		   $_ } @$shape];
     # $log->debug("flip both: " . join(", ", map { "[@$_]"} @$shape));
   }
@@ -2740,12 +2728,12 @@ sub shape_merge {
 sub debug_shapes {
   my $self = shift;
   my $shapes = shift;
-  my $map = [map { [ map { " " } 0 .. $self->dungeon_dimensions(0) - 1] } 0 .. $self->dungeon_dimensions(1) - 1];
-  $log->debug(join(" ", " ", 0 .. $self->dungeon_dimensions(0) - 1));
+  my $map = [map { [ map { " " } 0 .. $self->dungeon_dimensions->[0] - 1] } 0 .. $self->dungeon_dimensions->[1] - 1];
+  $log->debug(join(" ", " ", 0 .. $self->dungeon_dimensions->[0] - 1));
   for my $shape (@$shapes) {
     $map->[ $shape->[1] ]->[ $shape->[0] ] = "X";
   }
-  for my $y (0 .. $self->dungeon_dimensions(1) - 1) {
+  for my $y (0 .. $self->dungeon_dimensions->[1] - 1) {
     $log->debug(join(" ", "$y", @{$map->[$y]}));
   }
 }
@@ -2786,8 +2774,8 @@ sub debug_tiles {
   $log->debug(
     join('', " " x 5,
 	 map {
-	   sprintf("% " . $self->room_dimensions(0) . "d", $_ * $self->room_dimensions(0))
-	 } 1 .. $self->dungeon_dimensions(0)));
+	   sprintf("% " . $self->room_dimensions->[0] . "d", $_ * $self->room_dimensions->[0])
+	 } 1 .. $self->dungeon_dimensions->[0]));
   while ($i < @$tiles) {
     $log->debug(
       sprintf("%4d ", $i)
@@ -2808,13 +2796,13 @@ sub add_rooms {
     my $delta = $b;
     # $log->debug("Draw room shifted by delta (@$delta)");
     # copy the room, shifted appropriately
-    for my $x (0 .. $self->room_dimensions(0) - 1) {
-      for my $y (0 .. $self->room_dimensions(0) - 1) {
+    for my $x (0 .. $self->room_dimensions->[0] - 1) {
+      for my $y (0 .. $self->room_dimensions->[0] - 1) {
 	# my $v =
-	$tiles[$x + $delta->[0] * $self->room_dimensions(0) + 2
-	       + ($y + $delta->[1] * $self->room_dimensions(1) + 2)
+	$tiles[$x + $delta->[0] * $self->room_dimensions->[0] + 2
+	       + ($y + $delta->[1] * $self->room_dimensions->[1] + 2)
 	       * $self->row]
-	    = $room->[$x + $y * $self->room_dimensions(0)];
+	    = $room->[$x + $y * $self->room_dimensions->[0]];
       }
     }
   } @$rooms, @$deltas;
@@ -2887,10 +2875,10 @@ sub position_in {
   # Return a position in the big array corresponding to the midpoint in a room.
   # Don't forget the two-tile border.
   my $delta = shift;
-  my $x = int($self->room_dimensions(0)/2) + 2;
-  my $y = int($self->room_dimensions(1)/2) + 2;
-  return $x + $delta->[0] * $self->room_dimensions(0)
-      + ($y + $delta->[1] * $self->room_dimensions(1)) * $self->row;
+  my $x = int($self->room_dimensions->[0]/2) + 2;
+  my $y = int($self->room_dimensions->[1]/2) + 2;
+  return $x + $delta->[0] * $self->room_dimensions->[0]
+      + ($y + $delta->[1] * $self->room_dimensions->[1]) * $self->row;
 }
 
 sub add_corridor {
@@ -3464,9 +3452,9 @@ sub alpine_map {
       );
   my $type = $c->param('type') // 'hex';
   if ($type eq 'hex') {
-    return Schroeder::Hex->new()->generate_map(@params);
+    return Schroeder::Alpine::Hex->new()->generate_map(@params);
   } else {
-    return Schroeder::Square->new()->generate_map(@params);
+    return Schroeder::Alpine::Square->new()->generate_map(@params);
   }
 }
 
@@ -3522,7 +3510,7 @@ get '/alpine/document' => sub {
   };
   $c->stash("maps" => \@maps);
 
-  # the documentation needs all the defaults of Schroeder::generate_map (but
+  # the documentation needs all the defaults of Alpine::generate_map (but
   # we'd like to use a smaller map because it is so slow)
   my $width = $c->param('width') // 20;
   my $height = $c->param('height') // 5; # instead of 10
