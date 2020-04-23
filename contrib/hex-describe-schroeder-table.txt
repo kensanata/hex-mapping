@@ -11033,7 +11033,7 @@
 1,These lizard people like to sing the *Songs of Loss and Longing*, a cycle of heroic poems involving the wars against *[an old wight leader]*.
 1,These lizard people like to sing the *Songs of Remembrance*, a cycle of ballads involving the wars against *[an old wight leader]*.
 1,These lizard people like to sing songs from the *Epics of Reason*, long and winding poems about ancient machines in the Philosophers’ War.
-1,These lizard people like to sing some of the *Songs from the Dead*, songs about doomed heroes in the old liberation wars which the lizard people lost oh so long ago.
+1,These lizard people like to sing some of the *Songs from the Dead*, songs about doomed heroes in the Old Liberation Wars which the lizard people lost oh so long ago.
 
 ;lizard people stats
 1,HD 2+1 AC 5 1d8 F2 MV 12 ML 7 XP 200
@@ -39393,8 +39393,8 @@
 1,The ancient spear *Fur Hunter* +1/+3 vs. mammals, a relic of the Old Lizard Wars, blessed by Set.
 1,The long sword *Moonfire* +1/+3 vs. lycanthropes, inscribed with silver runes of death and banishment, forged by the high inquisitors of *[wight realm]*.
 1,The long sword *Razorblade* +1/+3 vs. spell casters, forged by ancient machines in the Philosophers’ War.
-1,The holy long sword *Angelfire* +1/+3 vs. undead, forged in Asgard by *[dwarf name]*.
-1,The long sword *Meteorstrike* +1/+3 vs. dragons, an old elven sword forged in the dragon wars.
+1,The holy long sword *Angelfire* +1/+3 vs. undead, forged in Asgard by *[dwarf name]* during the Vampire Wars.
+1,The long sword *Meteorstrike* +1/+3 vs. dragons, an old elven sword forged in the Dragon Wars.
 1,The long sword *Dragonslayer* +1/+3 vs. dragons, blessed by Marduk.
 1,The dwarven hammer *Ironslayer* +1/+3 vs. armoured foes, made by the legendary *[dwarf name]* of *[dwarf forge]*.
 1,A *long sword of light* +3 (60ft), made in Asgard for the valkyrie *[valkyrie name]* (the sword rejects anybody who refuses to join three fights while carrying the sword).
