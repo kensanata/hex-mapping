@@ -2119,10 +2119,9 @@ sub generate_map {
   return $map;
 }
 
-package Schroeder::Alpine::Hex;
-
+package Schroeder::Hex;
 use Modern::Perl '2018';
-use Mojo::Base 'Schroeder::Alpine';
+use Mojo::Base -role;
 
 sub neighbors { 0 .. 5 }
 
@@ -2202,10 +2201,9 @@ sub arrows {
   } ($self->neighbors());
 }
 
-package Schroeder::Alpine::Square;
-
+package Schroeder::Square;
 use Modern::Perl '2018';
-use Mojo::Base 'Schroeder::Alpine';
+use Mojo::Base -role;
 
 sub neighbors { 0 .. 3 }
 
@@ -2260,6 +2258,7 @@ sub arrows {
 	qq{<path id="arrow$_" transform="rotate($angle)" d="M-15,0 H30" style="stroke: black; stroke-width: 3px; fill: none; marker-start: url(#arrow);"/>},
   } ($self->neighbors());
 }
+
 
 package Gridmapper;
 
@@ -3452,9 +3451,9 @@ sub alpine_map {
       );
   my $type = $c->param('type') // 'hex';
   if ($type eq 'hex') {
-    return Schroeder::Alpine::Hex->new()->generate_map(@params);
+    return Schroeder::Alpine->with_roles('Schroeder::Hex')->generate_map(@params);
   } else {
-    return Schroeder::Alpine::Square->new()->generate_map(@params);
+    return Schroeder::Alpine->with_roles('Schroeder::Square')->generate_map(@params);
   }
 }
 
