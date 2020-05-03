@@ -5,10 +5,7 @@ NB. display map for visuals
 decimal =:16"_#.'0123456789abcdef'"_ i.]
 
 NB. colors for viewmat
-rgb =: 3 : 0
-  n =. decimal }. y     NB. strip leading #
-  (<.n % 65536), ((<.n % 256) |~ 256), (n |~ 256)
-)
+rgb=: _2 (+/ .*&16 1)\ '0123456789abcdef'&i. @ }.
 ocean      =: rgb '#1c86ee'
 water      =: rgb '#6ebae7'
 sand       =: rgb '#e3bea3'
