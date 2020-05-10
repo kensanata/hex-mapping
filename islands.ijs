@@ -36,21 +36,19 @@ change =: 3 : 0
   (u * h) - d * -. h
 )
 
-NB. a biased list of steps to take
-d =: _1j1 1j1 0j1 0j1 0j1
-
 NB. a table of altitudes
 a =: (my, mx) $ 0
 
 NB. compute the meandering path of the hotspot across the map
 NB. compute the change for each step and add it to the altitude
-NB. no negative values
+NB. no negative values (always go east)
 3 : 0''
 for. i. mx - 2  * hr do.
-  hc =: hc+(?#d){d
+  r =. ? my
+  if. r < {. +. hc do. d =. _1j1 else. d =. 1j1 end.
+  smoutput r, d, hc
+  hc =: hc + d
   a =: 0 & >. a + change hc
-  NB. visualize the step
-  NB. show a
 end.
 )
 
@@ -63,7 +61,7 @@ colors =: 'ocean', 'water', 'light-green', 'green', 'dark-green',: 'light-grey'
 for_i. i. my do.
   for_j. i. mx do.
     color =. (j { i { a) { colors
-    smoutput (>'r<0>2.d' 8!:0 j) , (>'r<0>2.d' 8!:0 i) , ' ', color
+    NB. smoutput (>'r<0>2.d' 8!:0 j) , (>'r<0>2.d' 8!:0 i) , ' ', color
   end.
 end.
 )
