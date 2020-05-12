@@ -30,7 +30,7 @@ hc =: hx j. hy
 
 NB. a function to compute altitude changes based on where the hotspot is
 change =: 3 : 0
-  h =. hr > {. & *. c - y     NB. hotspot = 1
+  h =. hr > {. & *. c - y    NB. hotspot = 1
   u =. 0.8 < ? (my, mx) $ 0  NB. regions atop the hotspot might move up
   d =. 0.9 < ? (my, mx) $ 0  NB. regions off the hotspot might move down
   (u * h) - d * -. h

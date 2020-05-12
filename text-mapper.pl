@@ -2135,13 +2135,9 @@ with 'Schroeder::Base';
 
 use List::Util 'shuffle';
 
-has 'steepness';
-has 'peaks';
-has 'peak';
-has 'bumps';
-has 'bump';
-has 'bottom';
-has 'arid';
+has 'bottom' => 0;
+has 'radius' => 5;
+has 'hotspot';
 
 sub ocean {
   my $self = shift;
@@ -2157,6 +2153,33 @@ sub ocean {
 	$ocean = 0;
       }
       $world->{$coordinates} = $ocean ? "ocean" : "water";
+    }
+  }
+}
+
+sub change {
+  my $self = shift;
+  my $altitude = shift;
+  # advance hotspot
+  $self->hotspot->[0]++;
+  if (rand() > $self->hotspot->[1] / $self->height) {
+    $self->hotspot->[1]++;
+  } else {
+    $self->hotspot->[1]--;
+  }
+  # change the land
+  for my $x (1 .. $self->width) {
+    for my $y (1 .. $self->height) {
+      my $change = 0;
+      if ($self->distance($x, $y, @{$self->hotspot}) <= $self->radius and rand() < 0.2) {
+	# rising from the ocean atop the hotspot
+	my $coordinates = coordinates($x, $y);
+	$altitude->{$coordinates}++;
+      } elsif (rand() < 0.3) {
+	# sinking back into the ocean everywhere else
+	my $coordinates = coordinates($x, $y);
+	$altitude->{$coordinates}-- if $altitude->{$coordinates} > $self->bottom;
+      }
     }
   }
 }
@@ -2584,10 +2607,13 @@ sub generate {
   # %flow indicates that there is actually a river in this hex
   my $flow = {};
 
-  my @code = (
-    sub { $self->flat($altitude) },
-    sub { $self->ocean($world, $altitude); },
-      );
+  $self->hotspot([int($self->radius / 2), int($self->height / 3 + rand() * $self->height / 3)]);
+
+  my @code = (sub { $self->flat($altitude) });
+  for (1 .. $self->width - 2 * $self->radius) {
+    push(@code, sub { $self->change($altitude) });
+  }
+  push(@code, sub { $self->ocean($world, $altitude) });
 
   # $step 0 runs all the code; note that we can't simply cache those results
   # because we need to start over with the same seed!
@@ -2602,14 +2628,7 @@ sub generate_map {
   my $self = shift;
   # The parameters turn into class variables.
   $self->width(shift // 30);
-  $self->height(shift // 10);
-  $self->steepness(shift // 3);
-  $self->peaks(shift // int($self->width * $self->height / 40));
-  $self->peak(shift // 10);
-  $self->bumps(shift // int($self->width * $self->height / 40));
-  $self->bump(shift // 2);
-  $self->bottom(shift // 0);
-  $self->arid(shift // 2);
+  $self->height(shift // 20);
   my $seed = shift||time;
   my $url = shift;
   my $step = shift||0;
@@ -4748,6 +4767,12 @@ No rooms with pillars
 <p>
 %= submit_button "Generate Map Data"
 % end
+
+<hr>
+
+<p>Reload
+<%= link_to url_for('islandrandom') => begin %>Hex Island<% end %>
+or <%= link_to url_for('islandrandom')->query(type => 'square') => begin %>Square Island<% end %>.
 
 @@ render.svg.ep
 
