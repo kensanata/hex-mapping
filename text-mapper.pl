@@ -3231,7 +3231,7 @@ sub shape_merge {
       # second shape got added) is 2, at y=1 it is 2, and at y=2 it is 3. Thus,
       # either (4,0) should connect to (2,0) or (3,1) should connect to (1,1).
       my @candidates;
-      my $distance = $shift + $self->width;
+      my $distance = $shift + $width;
       for my $y (0 .. $max) {
 	my $smallest_x = min(map { $_->[0] } grep { $_->[0] >= $shift and $_->[1] == $y } @$result);
 	my $biggest_x = max(map { $_->[0] } grep { $_->[0] < $shift and $_->[1] == $y } @$result);
@@ -3275,11 +3275,11 @@ sub shape_merge {
 	push(@{$result->[$from]}, $to);
       }
     }
-    $shift += $self->width;
+    $shift += $width;
     $rooms += $n;
   }
   # Update globals
-  $self->dungeon_dimensions(0, $shift);
+  $self->dungeon_dimensions->[0] = $shift;
   $self->recompute();
   return $result;
 }
