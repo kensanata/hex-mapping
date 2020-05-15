@@ -2159,10 +2159,15 @@ sub ocean {
 
 sub change {
   my $self = shift;
+  return if $self->hotspot->[0] > $self->width - 2 * $self->radius;
   my $world = shift;
   my $altitude = shift;
   # advance hotspot
-  $self->hotspot->[0]++;
+  if (rand() < 0.2) {
+    $self->hotspot->[0] += 1.5 * $self->radius;
+  } else {
+    $self->hotspot->[0]++;
+  }
   if (rand() < 0.5) {
     if (rand() > $self->hotspot->[1] / $self->height) {
       $self->hotspot->[1]++;
@@ -2172,13 +2177,11 @@ sub change {
   }
   # figure out who goes up and who goes down, if the hotspot is active
   my %hot;
-  if (1) {
-    for my $x (max(1, $self->hotspot->[0] - $self->radius) .. min($self->width, $self->hotspot->[0] + $self->radius)) {
-      for my $y (max(1, $self->hotspot->[1] - $self->radius) .. min($self->height, $self->hotspot->[1] + $self->radius)) {
-	if ($self->distance($x, $y, @{$self->hotspot}) <= $self->radius) {
-	  my $coordinates = coordinates($x, $y);
-	  $hot{$coordinates} = 1;
-	}
+  for my $x (max(1, $self->hotspot->[0] - $self->radius) .. min($self->width, $self->hotspot->[0] + $self->radius)) {
+    for my $y (max(1, $self->hotspot->[1] - $self->radius) .. min($self->height, $self->hotspot->[1] + $self->radius)) {
+      if ($self->distance($x, $y, @{$self->hotspot}) <= $self->radius) {
+	my $coordinates = coordinates($x, $y);
+	$hot{$coordinates} = 1;
       }
     }
   }
@@ -2190,7 +2193,7 @@ sub change {
       $change = 1 if rand() < 0.2;
     } else {
       # off the hotspot the land sinks
-      $change = -1 if rand() < 0.3;
+      $change = -1 if rand() < 0.2;
     }
     next unless $change;
     # rising from the ocean atop the hotspot
@@ -2199,17 +2202,17 @@ sub change {
     $altitude->{$coordinates} = $self->top if $altitude->{$coordinates} > $self->top;
   }
   # land with higher neighbours on the hotspot goes up
-  # for my $coordinates (keys %hot) {
-  #   my $change = 0;
-  #   for my $i ($self->neighbors()) {
-  #     my ($x, $y) = $self->neighbor($coordinates, $i);
-  #     my $legal = $self->legal($x, $y);
-  #     my $other = coordinates($x, $y);
-  #     $change = 1 if $altitude->{$coordinates} < $altitude->{$other};
-  #     last;
-  #   }
-  #   $altitude->{$coordinates}++ if $change and rand() < 1;
-  # }
+  for my $coordinates (keys %hot) {
+    my $change = 0;
+    for my $i ($self->neighbors()) {
+      my ($x, $y) = $self->neighbor($coordinates, $i);
+      next unless $self->legal($x, $y);
+      my $other = coordinates($x, $y);
+      $change = 1 if $altitude->{$other} - $altitude->{$coordinates} > 1;
+      last;
+    }
+    $altitude->{$coordinates}++ if $change;
+  }
   # note height for debugging purposes
   for my $coordinates (keys %$altitude) {
     $world->{$coordinates} = "height$altitude->{$coordinates}";
@@ -2221,7 +2224,8 @@ sub forests {
   my ($world, $altitude) = @_;
   # higher up is forests
   for my $coordinates (keys %$altitude) {
-    next if $world->{$coordinates} =~ /mountain/;
+    next unless $altitude->{$coordinates}; # skip ocean
+    next if $world->{$coordinates} =~ /mountain|lake/;
     if ($altitude->{$coordinates} == 1) {
       $world->{$coordinates} = "light-grey bushes";
     } elsif ($altitude->{$coordinates} == 2) {
@@ -2267,7 +2271,7 @@ sub islands {
       my $other = coordinates($x, $y);
       next HEX if $altitude->{$other} > 0;
     }
-    $world->{$coordinates} = "water mountain";
+    $world->{$coordinates} = "water mountains";
   }
 }
 
@@ -2306,7 +2310,7 @@ sub generate {
 sub generate_map {
   my $self = shift;
   # The parameters turn into class variables.
-  $self->width(shift // 30);
+  $self->width(shift // 40);
   $self->height(shift // 15);
   $self->radius(shift // 4);
   my $seed = shift||time;
