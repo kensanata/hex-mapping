@@ -13749,7 +13749,7 @@
 
 ;special ant
 1,**giant bombardier ant** ([giant ant stats]; *more acid*: can spray cone of corrosive acids for 3d6, save vs. dragon breath for half)
-1,**giant suicide ant** ([giant ant stats]; *suicide: in a ball of fire for 5d6, save vs. dragon breath for half)
+1,**giant suicide ant** ([giant ant stats]; *suicide*: in a ball of fire for 5d6, save vs. dragon breath for half)
 1,**giant trap jaw ant** ([giant ant stats]; *hold*: holds on after a bite and continues to deal damage, no additional to-hit rolls required)
 1,**giant door-headed ant** ([giant ant stats]; *huge head*: can block tunnels using head)
 1,**giant weaver ant** ([giant ant stats]; *sticky*: sticky saliva to immobilise victims reduced to 0hp; *camouflage*: surprise on 1–4 in 6)
