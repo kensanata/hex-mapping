@@ -10289,7 +10289,7 @@
 1,HD 5 AC 6 1d6/1d6 F5 MV 15 ML 7 XP 500; <a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#beauty">beauty</a>, <a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#charm-person">charm person</a>, <a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#invisibility">invisibility</a>, <a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#voice-of-the-master">voice of the master</a>, <a class="spell" href="https://campaignwiki.org/wiki/Spellcasters/Spells#curse-the-land">curse the land</a>
 
 ;faerie witch
-1,Hidden deep in the [forest name] is a [witch cottage] [witch cottage door] [witch cottage other entry]<p>[witch cottage main room]<p>This house belongs to [here old names for women as witch] the **witch** ([witch stats]). She is working on [witch product]. [terror treasure] [witch annex]
+1,Hidden deep in the [forest name] is a [witch cottage] [witch cottage door] [witch cottage other entry]<p>[witch cottage main room]<p>This house belongs to *[here old names for women as witch]* the **witch** ([witch stats]). She is working on [witch product]. [terror treasure] [witch annex]
 
 ;witch product
 1,some poultice
