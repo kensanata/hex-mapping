@@ -1801,7 +1801,7 @@
 
 ;Gygaxian boss
 1,a **balor** named *[devil name]* ([balor stats])[store terror as treasure type]
-1,a [wererat boss][store poor as treasure type]
+1,[wererat boss][store poor as treasure type]
 1,an **ettin** ([ettin stats])[store robber as treasure type]
 
 #UNDEAD THEME
