@@ -10536,9 +10536,9 @@
 
 ;maybe barrow
 10,
-1,<p>Close by, on a little hill, one can see **barrow** [barrow]
-1,<p>A tiny foot trail leads into a copse of [tree] trees. There, one finds **barrow** [barrow]
-1,<p>Between two rocky outcrops, one can find **barrow** [barrow]
+1,<p>Close by, on a little hill, one can see [barrow]
+1,<p>A tiny foot trail leads into a copse of [tree] trees. There, one finds [barrow]
+1,<p>Between two rocky outcrops, one can find [barrow]
 
 ;maybe island barrow
 1,
@@ -10556,10 +10556,10 @@
 1,[with neolith], [and neolith], and [and neolith]. <span class="treasure">[neolithic magic item]</span>
 
 ;number of mounds
-5,one [barrow shape] barrow,
-1,two [barrow shape] barrows, each
-1,three [barrow shape] barrows, each
-1,four [barrow shape] barrows, each
+5,one [barrow shape] **barrow**,
+1,two [barrow shape] **barrows**, each
+1,three [barrow shape] **barrows**, each
+1,four [barrow shape] **barrows**, each
 
 ;barrow shape
 1,bank
