@@ -15612,9 +15612,9 @@
 
 # the second variant has a temple at the end
 ;village
-1,<p>This is [here village name], a village of [5d6x10] **humans** ([human stats]). The [human houses] are protected by [human companions] and a [human defense]. There is a small *[village building]*. [small [same village building]] [average treasure]<p>The [human leader] lives in the [same village building]. [spellbook for [same class]] [leader treasure for [same class]]<p>[human retainer]<p>[human friends]<p>[And a secret society]<p>[law and order jobs]<p>[settlement event]
-1,<p>This is [here village name], a village of [5d6x10] **humans** ([human stats]). The [human houses] are protected by [human companions] and a [human defense]. There is a small *[village building]*. [small [same village building]] [average treasure]<p>The [human leader] lives in the [same village building]. [spellbook for [same class]] [leader treasure for [same class]]<p>[human retainer]<p>[human friends]<p>[And a secret society]<p>[law and order jobs]<p>[temple]<p>[settlement event]
-1,<p>This is [here village name], a village of [5d6x10] **humans** ([human stats]). The [human houses] are protected by [an earthen rampart|a wooden palisade]. [average treasure]<p>The [human leader] lives in the [village building]. [spellbook for [same class]] [leader treasure for [same class]]<p>[human retainer]<p>[human friends]<p>[And two secret societies feuding]<p>[law and order jobs]<p>[temple]<p>[settlement event]
+1,<p>This is [here village name], a village of [5d6x10] **humans** ([human stats]). The [human houses] are protected by [human companions] and a [human defense]. There is a small *[village building]*. [small [same village building]] [average treasure]<p>The [human leader] lives in the [same village building]. [spellbook for [same class]] [leader treasure for [same class]][maybe fallen for a witch]<p>[human retainer]<p>[human friends]<p>[And a secret society]<p>[law and order jobs]<p>[settlement event]
+1,<p>This is [here village name], a village of [5d6x10] **humans** ([human stats]). The [human houses] are protected by [human companions] and a [human defense]. There is a small *[village building]*. [small [same village building]] [average treasure]<p>The [human leader] lives in the [same village building]. [spellbook for [same class]] [leader treasure for [same class]][maybe fallen for a witch]<p>[human retainer]<p>[human friends]<p>[And a secret society]<p>[law and order jobs]<p>[temple]<p>[settlement event]
+1,<p>This is [here village name], a village of [5d6x10] **humans** ([human stats]). The [human houses] are protected by [an earthen rampart|a wooden palisade]. [average treasure]<p>The [human leader] lives in the [village building]. [spellbook for [same class]] [leader treasure for [same class]][maybe fallen for a witch]<p>[human retainer]<p>[human friends]<p>[And two secret societies feuding]<p>[law and order jobs]<p>[temple]<p>[settlement event]
 
 ;town
 1,<p>This is [here village name], a town of [1d6x100] **humans** ([human stats]). The [human houses] are protected by a keep, a town wall and the river. [average treasure]<p>The [human leader] lives in the keep. [spellbook for [same class]] [leader treasure for [same class]]<p>[human retainer]<p>[human friends]<p>[And two secret societies feuding]<p>[law and order jobs]<p>[temple]<p>There is also [town feature]<p>[settlement event]
@@ -15796,6 +15796,10 @@
 1,, the owner of the largest cow herd
 1,, the owner of the most sheep
 1,, the owner of the most goats
+
+;maybe fallen for a witch
+1, *[same human patron]* is secretly enthralled by the witch *[nearby witch]*.
+2,
 
 ;law and order jobs
 1,*[same human patron]* is willing to pay 500gp to whoever brings back [nearby wanted dead or alive], dead or alive.
