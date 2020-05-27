@@ -5863,6 +5863,8 @@
 1,The ruin is abandoned and dead. If you explore the ruins, you will soon find the **balor** *[demon name]* who caused its downfall ([balor stats]). It guards a portal to the realm of eternal fire, to Muspelheim.<p>[balor servants]
 1,[forge orcs]
 1,The ruin is full of broken machinery. In its depths, however, a **bronze golem** still wanders the halls ([bronze golem stats]).
+1,This is a graveyard of rust. [Giant pistons in broken tubes.|Black crystals growing in iron shafts.] This realm is ruled over by an **iron golem** animated by the soul of [dwarf name], [howling madly|forever trying to rebuild the past|lamenting the passage of time|resenting the presence of living beings] ([iron golem stats]). They have animated some of the junk, turning it into a pack of [3d6] **iron wolves** ([wolf stats]; immune to *arrows*; immune to *poison*; immune to *spells*).
+1,The ceilings have collapsed in many places, opening up the halls and tunnels to air and sun above. Trees and bushes have reclaimed the place. The cistern has turned into a pond, the forges have become a sky altar. [a post-apocalyptic monster]
 1,The ruin is now home to the **white dragon** *[here white dragon name as dragon name]*[dragon portrait] ([white dragon stats]). [dragon treasure]
 
 ;balor stats
@@ -5888,7 +5890,16 @@
 1,Ash
 
 ;bronze golem stats
-1,HD 10 AC 0 3d10 MV 12 ML 12 XP 1000; immune to *arrows*, immune to *poison*; immune to *spells*; when dealing damage to a bronze golem with a melee weapon, save vs. death or suffer 2d6 damage from molten metal splashes
+1,HD 10 AC 0 3d10 MV 12 ML 12 XP 1000; immune to *arrows*; immune to *poison*; immune to *spells*; when dealing damage to a bronze golem with a melee weapon, save vs. death or suffer 2d6 damage from molten metal splashes
+
+;iron golem stats
+1,HD 11 AC -1 2d6/2d6 MV 12 ML 12 XP 1100; *gas* 3×/day, anybody within 10ft must save vs. death or fall asleep; immune to *arrows*; immune to *poison*; immune to *spells*
+1,HD 11 AC -1 2d6/2d6 MV 12 ML 12 XP 1100; *gas* 3×/day, anybody within 10ft must save vs. death or die; immune to *arrows*; immune to *poison*; immune to *spells*
+
+;a post-apocalyptic monster
+1,Statues of dwarven warriors and scholars remind us of the former power of this place. Here lives a **medusa** *[medusa name]* ([medusa stats]). [terror treasure]
+1,There are grass mounds and moss patches everywhere. Underneath the greenery are the skulls and bones of dwarves. This is where the beautiful **araneina** *[old names for women]* lives ([araneina stats]).
+1,This is the realm of the beautiful **spectre** of *[old name]*, who cares for all the graves up here, the [eater of souls|eater of dreams|warden of the long peace] ([spectre stats]). [ancient treasure]
 
 ;green tower in the mountains
 1,High up on on a ridge is an old elven tower made of green glass. [green tower description] In *[old elf ballad name]*, they call it *[elf tower name]*. [green tower in the mountains content]
