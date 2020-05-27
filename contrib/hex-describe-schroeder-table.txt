@@ -1554,7 +1554,7 @@
 #ENTRANCES/FIRST AREA SECTION
 #It's very tempting to add a chance of consolidating these with the rooms below
 ;entrance room
-1,<u>Catacombs:</u> *In one wall of the entrance are many deep niches, each containing a [human|elf|dwarf|goblin|half-orc|frogling] skeleton.*
+1,<u>Catacombs:</u> *In one wall of the entrance are many deep niches, each containing a [human|elf|dwarf|goblin|orc|frogling] skeleton.*
 1,<u>Charnel Pit:</u> *Most of the entrance is around a deep pit, filled with bones and corpses of indeterminate type.*
 1,<u>Cave:</u> *[capitalize cave description]*.
 1,<u>Latrine:</u> *The entrance to this dungeon has the overwhelming stench of recently used latrine pits.*
