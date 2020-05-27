@@ -649,7 +649,7 @@
 1,The sun-bleached bones of [thousands of|hundreds of|several|a dozen] [horses|antelope|bison|sheep|goats] [fill|dot|blanket] the [dale|gorge|valley|basin|glen|dell|vale|swale|coulee|lowland] here.
 
 ;a warlock fortress
-1,a ruined fortress currently occupied by [warlocks]. [average treasure]<p>The fortress and its surrounding land is ruled by the **medusa** *[medusa]* ([medusa stats]). The courtyard and rooms are full of her petrified victims and the bones of the dead. [luxurious context] [terror treasure]
+1,a ruined fortress currently occupied by [warlocks]. [average treasure]<p>The fortress and its surrounding land is ruled by the **medusa** *[medusa name]* ([medusa stats]). The courtyard and rooms are full of her petrified victims and the bones of the dead. [luxurious context] [terror treasure]
 
 ;name for hills
 1,[hill 1a] [hill 2a] hills
@@ -679,7 +679,7 @@
 1,land
 1, Country
 
-;medusa
+;medusa name
 1,[medusa 1] [medusa 2]
 
 ;medusa 1
@@ -1787,7 +1787,7 @@
 ;Greek mythology boss
 1,a **gorgon** ([gorgon stats])[store terror as treasure type]
 1,a **manticore** named *[manticore]* ([manticore stats])[store robber as treasure type]
-1,a **medusa** named *[medusa]* ([medusa stats])[store terror as treasure type]
+1,a **medusa** named *[medusa name]* ([medusa stats])[store terror as treasure type]
 1,a **minotaur** named *[minotaur name]* ([minotaur stats])[store poor as treasure type]
 
 #GYGAXIAN THEME
@@ -1836,7 +1836,7 @@
 ;earth elemental boss
 2,[2d3] **earth elementals** ([earth elemental stats])[store unguarded as treasure type]
 1,an **earth elemental lord** ([greater earth elemental stats])[store ancient as treasure type]
-3,the **medusa** *[medusa]* ([medusa stats]) protected by [earth elemental encounter][store terror as treasure type]
+3,the **medusa** *[medusa name]* ([medusa stats]) protected by [earth elemental encounter][store terror as treasure type]
 1,a **basilisk** ([basilisk stats])[store terror as treasure type]
 
 #WATER
@@ -1939,8 +1939,8 @@
 1,[1d8 snakes]
 
 ;snake boss
-1,a **gorgon** named *[medusa]* ([gorgon stats])[store terror as treasure type]
-1,a **medusa** named *[medusa]* ([medusa stats])[store terror as treasure type]
+1,a **gorgon** named *[medusa name]* ([gorgon stats])[store terror as treasure type]
+1,a **medusa** named *[medusa name]* ([medusa stats])[store terror as treasure type]
 1,a **naga** named *[naga name]* ([naga stats])[store terror as treasure type]
 1,[2d6] **snake people** ([lizard people stats]; *charm person* 3×/day) led by *[lizard leader]* (HD [1d4+4 as level], *lightning bolt* ([same level]d6) 2×/day). [leader treasure][store poor as treasure type]
 
