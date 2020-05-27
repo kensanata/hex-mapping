@@ -1872,7 +1872,7 @@
 1,[1d2+1] **fire giants** led by *[fire giant name]* ([fire giant stats])
 
 ;fire elemental boss
-1,a **pyrohydra* ([pyrohydra stats])
+1,a **pyrohydra** ([pyrohydra stats])
 1,a **fire elemental lord** ([greater fire elemental stats])[store ancient as treasure type]
 1,the **red dragon** *[here red dragon name as dragon name]*[dragon portrait] ([red dragon stats])[store dragon as treasure type]
 
