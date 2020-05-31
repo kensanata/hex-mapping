@@ -9713,7 +9713,7 @@
 1,<span style="font-weight:bold;color:#623034;">burnt sienna
 1,<span style="font-weight:bold;color:#02A4D3;">cerulean
 1,<span style="font-weight:bold;background-color:#C3CDE6;">periwinkle
-1,<span style="font-weight:bold;color:#e34234;">cimmabar
+1,<span style="font-weight:bold;color:#e34234;">cinnabar
 1,<span style="font-weight:bold;color:#8D90A1;">manatee
 1,<span style="font-weight:bold;color:#C9A0DC;">wisteria
 1,<span style="font-weight:bold;color:#66023C;">tyrian purple
