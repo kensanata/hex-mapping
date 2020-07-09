@@ -147,9 +147,9 @@ sub svg_label {
     $side = ' side="right"';
   }
   my $data = qq{    <g>\n};
-  $data .= qq{      <text $attributes $glow><textPath$side href='#$id'>$label</textPath></text>\n>} if $glow;
+  $data .= qq{      <text $attributes $glow><textPath$side href='#$id'>$label</textPath></text>\n} if $glow;
   $data .= qq{      <a xlink:href="$url">} if $url;
-  $data .= qq{      <text $attributes><textPath href='#$id'>$label</textPath></text>\n>};
+  $data .= qq{      <text $attributes><textPath href='#$id'>$label</textPath></text>\n};
   $data .= qq{      </a>} if $url;
   $data .= qq{    </g>\n};
   return $data;
