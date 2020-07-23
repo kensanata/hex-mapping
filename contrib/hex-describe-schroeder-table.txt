@@ -1348,19 +1348,19 @@
 
 #MAIN GENERATOR
 ;dungeon header
-1,[save dungeontype as monsters]This is *[here dungeon name]*.<p class="sidebar">Wandering Monster: [[same monsters] encounter].<p>
+1,[save dungeontype as monsters]This is *[here dungeon name]*.<p class="sidebar">Wandering monsters: [[same monsters] encounter].<p>
 
 ;dungeon
 # 5 rooms
-5,[dungeon header][dungeon map with 5 rooms]<ol><li>[entrance room]</li><li>[with interior room]<ul><li>[room feature]</i></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[final room]<ul><li>Boss Monster: [[same monsters] boss]</li><li>Treasure: [final room treasure]</li></ul></li></ol>
+5,[dungeon header][dungeon map with 5 rooms]<ol><li>[entrance room]</li><li>[with interior room]<ul><li>[room feature]</i></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[final room]<ul><li>[[same monsters] boss]</li><li>[final room treasure]</li></ul></li></ol>
 # 7 rooms
-4,[dungeon header][dungeon map with 7 rooms]<ol><li>[entrance room]</li><li>[with interior room]<ul><li>[room feature]</i></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[final room]<ul><li><u>Boss Monster:</u> [[same monsters] boss]</li><li>Treasure: [final room treasure]</li></ul></li></ol>
+4,[dungeon header][dungeon map with 7 rooms]<ol><li>[entrance room]</li><li>[with interior room]<ul><li>[room feature]</i></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[final room]<ul><li>[[same monsters] boss]</li><li>[final room treasure]</li></ul></li></ol>
 # 10 rooms
-3,[dungeon header][dungeon map with 10 rooms]<ol><li>[entrance room]</li><li>[with interior room]<ul><li>[room feature]</i></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[final room]<ul><li>Boss Monster: [[same monsters] boss]</li><li>Treasure: [final room treasure]</li></ul></li><li>[entrance room]</li><li>[with interior room]<ul><li>[room feature]</i></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[final room]<ul><li><u>Boss Monster:</u> [[same monsters] boss]</li><li>Treasure: [final room treasure]</li></ul></li></ol>
+3,[dungeon header][dungeon map with 10 rooms]<ol><li>[entrance room]</li><li>[with interior room]<ul><li>[room feature]</i></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[final room]<ul><li>[[same monsters] boss]</li><li>[final room treasure]</li></ul></li><li>[entrance room]</li><li>[with interior room]<ul><li>[room feature]</i></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[final room]<ul><li>[[same monsters] boss]</li><li>[final room treasure]</li></ul></li></ol>
 # 12 rooms
-2,[dungeon header][dungeon map with 12 rooms]<ol><li>[entrance room]</li><li>[with interior room]<ul><li>[room feature]</i></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[final room]<ul><li>Boss Monster: [[same monsters] boss]</li><li>Treasure: [final room treasure]</li></ul></li><li>[entrance room]</li><li>[with interior room]<ul><li>[room feature]</i></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[final room]<ul><li><u>Boss Monster:</u> [[same monsters] boss]</li><li>Treasure: [final room treasure]</li></ul></li></ol>
+2,[dungeon header][dungeon map with 12 rooms]<ol><li>[entrance room]</li><li>[with interior room]<ul><li>[room feature]</i></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[final room]<ul><li>[[same monsters] boss]</li><li>[final room treasure]</li></ul></li><li>[entrance room]</li><li>[with interior room]<ul><li>[room feature]</i></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[final room]<ul><li>[[same monsters] boss]</li><li>[final room treasure]</li></ul></li></ol>
 # 14 rooms
-1,[dungeon header][dungeon map with 14 rooms]<ol><li>[entrance room]</li><li>[with interior room]<ul><li>[room feature]</i></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[final room]<ul><li><u>Boss Monster:</u> [[same monsters] boss]</li><li>Treasure: [final room treasure]</li></ul></li><li>[entrance room]</li><li>[with interior room]<ul><li>[room feature]</i></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[final room]<ul><li><u>Boss Monster:</u> [[same monsters] boss]</li><li>Treasure: [final room treasure]</li></ul></li></ol>
+1,[dungeon header][dungeon map with 14 rooms]<ol><li>[entrance room]</li><li>[with interior room]<ul><li>[room feature]</i></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[final room]<ul><li>[[same monsters] boss]</li><li>[final room treasure]</li></ul></li><li>[entrance room]</li><li>[with interior room]<ul><li>[room feature]</i></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[final room]<ul><li>[[same monsters] boss]</li><li>[final room treasure]</li></ul></li></ol>
 
 ;dungeon map with 5 rooms
 1,<img class="map" src="[[redirect https://campaignwiki.org/text-mapper/gridmapper/redirect?pillars=0&seed=$seed]]" alt="5 room dungeon" title="5 room dungeon"/>
@@ -1615,16 +1615,16 @@
 #AREA FEATURES - These should appear as sub-bullets
 #Moldvay Stocking rules: Contents: 1-2 Monster, 3 Trap, 4 Special, 5-6 Empty
 ;room feature
-2, Monster: [[same monsters] encounter]. [encounter treasure]
-1, Trap: [trap]. [trap treasure]
-1, Special: [capitalize special]. [sense feature] [empty treasure]
-2, Empty: [capitalize empty dressing]. [sense feature] [empty treasure]
+2, [[same monsters] encounter]. [encounter treasure]
+1, [trap]. [trap treasure]
+1, [capitalize special]. [sense feature] [empty treasure]
+2, [capitalize empty dressing]. [sense feature] [empty treasure]
 
 ;sense feature
 #base 25% chance of an additional sensory bullet in Empty/Special Rooms
 2,
-1,</li><li>Sound: One can hear a [sound volume] [sounds] ([sound direction]).
-1,</li><li>Smell: The [faint|strong|distinct|unmistakable|cloying] odor of [smells].
+1,</li><li>One can hear a [sound volume] [sounds] ([sound direction]).
+1,</li><li>The [faint|strong|distinct|unmistakable|cloying] odor of [smells].
 
 #moved neolithic treasure calls to [unguarded treasure] tables
 #Need More Special Rooms. I think eventually this could house staircases that lead up/down
@@ -1676,15 +1676,15 @@
 
 ;encounter treasure
 1,
-1,</li><li>Treasure: [unguarded treasure]</li>
+1,</li><li>[unguarded treasure]</li>
 
 ;trap treasure
 2,
-1,</li><li>Treasure: [unguarded treasure]</li>
+1,</li><li>[unguarded treasure]</li>
 
 ;empty treasure
 6,
-1,</li><li>Treasure: [unguarded treasure]</li>
+1,</li><li>[unguarded treasure]</li>
 
 
 # Using the treasure type assigned with the boss monster (including “unguarded”)
@@ -1962,29 +1962,23 @@
 1,[lizard boss]
 1,[magic user boss]
 
-
-
-
-
-#NEW MONSTER STAT Blocks and subtables (might need to “Hex-Describe/H&H friendly these”)
-#Monster    AC    HD    Move    # Attacks    Attack Types    Damage    Save    Morale    AL    XP    Notes
 ;aerial servant stats
-1,AC 3 HD 16 MV 240'(80') DMG 8d4 Save F10 ML 10 AL C XP 3,300 Special Surprises on 1-4. May pin human-sized creatures
+1,HD 16 AC 3 8d4 F10 MV 24 ML 10 XP 1600; surprise on 1–4 in 6; pins human-sized creatures on a hit
 
 ;cave fisher stats
-1,AC 4 HD 3 MV 10'(3') DMG 2d4/2d4 Save F2 ML 9 AL N XP 65 Special 60' sticky filament, +3 to hit, reels in prey at 15'/rd
+1,HD 3 AC 4 2d4/2d4 F2 MV 3 ML 9 XP 300; 60' sticky filament, +3 to hit, reels in prey at 15ft/rd
 
 ;caryatid column stats
-1,AC 5 HD 5 MV 60'(20') DMG 2d4 Save F10 ML 12 AL N XP 500 Special All have 22hp. Non-magical weapons only do half damage
+1,HD 5 AC 5 2d4 F10 MV 6 ML 12 XP 500l; always 22hp; non-magical weapons only do half damage
 
 ;floating eye stats
-1,AC 9 HD ½ MV S300'(100') DMG 0 Save F1 ML 6 AL N XP 6 Special Eye hypnotizes (stuns) creatures (save negates)
+1,HD ½ AC 9 *no damage* F1 MV 30 ML 6 XP 50; *stunning gaze*: save vs. paralysis when looking into the eye
 
 ;sea dragon stats
-1,AC 1 HD 8 MV 180' (60') Fly/Swim DMG 3d8 Save F8 ML 9 AL N XP 2,060 Special: Breath Weapon [boiling jets of steam|blasting rays of salt and sand]
+1,HD 8 AC 1 3d8 F8 MV 18 ML 9 XP 800; *[boiling jets of steam|blasting rays of salt and sand]* (as much as the dragon has hp left, save vs. dragon breath for half)
 
 ;giant crab stats
-1,AC 2 HD 3 MV 60'(20') DMG 2d6/2d6 Save F2 ML 7 AL N XP 50
+1,HD 3 AC 2 2d6/2d6 F2 MV 6 ML 7 XP 300
 
 ;aboleth stats
 1,AC 4 HD 8    MV Swim 180'(60') DMG 1d6/1d6/1d6/1d6 Save F8 ML 10    AL C XP    2,060 Special: slime and enslavement abilities. Ground movement 30'(10')
@@ -11089,7 +11083,7 @@
 
 ;a monster threatening the village
 1,You shouldn’t stray too far from the trails because this forest has been cursed by the presence of [2d4] **harpies** ([harpy stats]) luring men into the depths of the forest and to their death with their magical singing. [terror treasure]
-1,Deep in the forest there is a cave where the **ettin** *[ettin]* lives ([ettin stats]). It is known for its fury and its appetite for human flesh. [robber treasure]
+1,Deep in the forest there is a cave where the **ettin** *[ettin]* lives ([ettin stats]). It is known for its fury and its appetite for human flesh. Luckily, it fears [horses|archers|armoured fighters|groups of more than a handful of people] and the locals have adapted. [robber treasure]
 1,Hiding between the trees are the watchful eyes of [1d12 bugbears] ([bugbear stats]). [scout treasure] Bugbears are usually a bad sign for they are often employed as spies by the elves of the netherworld. These carry amulets of passage bearing the [name for a clan of the netherworld elves] sigil.
 1,The camp of [1d12 bugbears] is hard to find ([bugbear stats]). [scout treasure] They hunt these woods at night and like to kill anybody that didn’t make it back to the village during daytime.
 1,[orcs] They keep a low profile, living deep in the forest, but lone travellers, or fools that don’t make it back to the village before sunset, or reckless idiots looking for trouble, they’ll all find the orcs to be more than willing to kill.
@@ -13479,7 +13473,7 @@
 1,[fir highlands] At dusk and dawn, you can sometimes see [boars]. [maybe barrow] [forest event]
 1,[fir highlands] There is a cave housing the **ettin** called *[ettin]* ([ettin stats]). [robber treasure] [maybe barrow] [forest event]
 1,[fir highlands] At the foot of [crag name], there is a cave inhabited by [1d8 trolls] ([troll stats]). [robber treasure] [maybe barrow] [forest event]
-1,[fir highlands] In this fir forest is a little campsite with [1d12 bugbears] ([bugbear stats]). [scout treasure] [maybe barrow] [forest event]
+1,[fir highlands] In this fir forest is a little campsite with [1d12 bugbears] ([bugbear stats]). They carry amulets of passage bearing the [name for a clan of the netherworld elves] sigil. [scout treasure] [maybe barrow] [forest event]
 1,[fir highlands] At night, the orcs of the *[evil tribe]* tribe hunt these lands. [orcs] Their settlement is protected by a palisade and [orc fort] [orc plans]
 1,[fir highlands] There is an abandoned shrine to *[power]* up here. It is haunted by the **spectre** of *[old name]*, the last priest who cared for it ([spectre stats]). [ancient treasure] [maybe barrow] [forest event]
 1,[fir highlands] If you wander into these woods, you’ll soon hear laughter and revelling. [satyr threat] [maybe barrow] [forest event]

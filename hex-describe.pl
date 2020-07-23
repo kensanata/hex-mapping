@@ -358,7 +358,9 @@ get '/nomap' => sub {
   my $input = $c->param('input') || '';
   my $url = $c->param('url');
   my $table = $c->param('table');
-  $c->render(template => 'nomap', input => $input, url => $url, table => $table);
+  my $seed = $c->param('seed') || time;
+  srand($c->param('seed')) if $c->param('seed');
+  $c->render(template => 'nomap', input => $input, url => $url, table => $table, seed => $seed);
 };
 
 any '/nomap/markdown' => sub {
@@ -368,7 +370,7 @@ any '/nomap/markdown' => sub {
   my $seed = $c->param('seed') || time;
   srand($c->param('seed')) if $c->param('seed');
   my $descriptions = describe_text($input, parse_table($table));
-  $c->render(text => markdown($descriptions), format => 'txt');
+  $c->render(text => markdown($descriptions), format => 'txt', seed => $seed);
 } => 'nomap_markdown';
 
 =item /rules
@@ -2060,6 +2062,7 @@ Write a text using [square brackets] to replace with data from a random table.
 %= text_area input => (cols => 60, rows => 15) => begin
 <%= $input =%>
 % end
+%= hidden_field seed => $seed
 
 <p>
 %= submit_button 'Submit', name => 'submit'
