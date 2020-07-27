@@ -4252,6 +4252,69 @@ rivers or roads, for example.
     road path attributes stroke="black" stroke-width="3" fill-opacity="0" stroke-dasharray="10 10"
     0000-0301 road
 
+=head3 Colours and Transparency
+
+Let me return for a moment to the issue of colours. We've used 24 bit colours in
+the examples above, that is: red-green-blue (RGB) definitions of colours where
+very colour gets a number between 0 and 255, but written as a hex using the
+digites 0-9 and A-F: no red, no green, no blue is #000000; all red, all green,
+all blue is #FFFFFF; just red is #FF0000.
+
+    text font-family="monospace" font-size="20px"
+    label font-family="monospace" font-size="20px"
+    glow fill="none" stroke="white" stroke-width="4px"
+    default attributes fill="none" stroke="black" stroke-width="1px"
+    sea attributes fill="#000000"
+    land attributes fill="#ffffff"
+    fire attributes fill="#ff0000"
+    0101 sea
+    0102 sea
+    0103 sea
+    0201 sea
+    0202 sea "black sea"
+    0203 sea
+    0301 land
+    0302 land "lands of Dis"
+    0303 sea
+    0401 fire "gate of fire"
+    0402 land
+    0403 sea
+
+But of course, we can write colours in all the ways L<allowed on the
+web|https://en.wikipedia.org/wiki/Web_colors>: using just three digits (#F00 for
+red), using the predefined SVG colour names (just "red"), RGB values
+("rgb(255,0,0)" for red), RGB percentages ("rgb(100%,0%,0%)" for red).
+
+What we haven't mentioned, however, is the alpha channel: you can always add a
+fourth number that specifies how transparent the colour is. It's tricky, though:
+the colour is black (#000000) then it doesn't matter how transparent it is: a
+value of zero doesn't change. But it's different when the colour is white!
+Therefore, we can define an attribute that is simply a semi-transparent white
+and use it to lighten things up. You can even use it multiple times!
+
+    text font-family="monospace" font-size="20px"
+    label font-family="monospace" font-size="20px"
+    glow fill="none" stroke="white" stroke-width="4px"
+    default attributes fill="none" stroke="black" stroke-width="1px"
+    sea attributes fill="#000000"
+    land attributes fill="#ffffff"
+    fire attributes fill="#ff0000"
+    lighter attributes fill="rgb(100%,100%,100%,40%)"
+    0101 sea
+    0102 sea
+    0103 sea
+    0201 sea lighter
+    0202 sea lighter "black sea"
+    0203 sea lighter
+    0301 land
+    0302 land "lands of Dis"
+    0303 sea lighter lighter
+    0401 fire "gate of fire"
+    0402 land
+    0403 sea lighter lighter lighter
+
+Thanks to Eric Scheid for showing me this trick.
+
 =head3 Include a Library
 
 Since these definitions get unwieldy, require a lot of work (the path
