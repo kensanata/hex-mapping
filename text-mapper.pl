@@ -3721,6 +3721,7 @@ use Mojo::DOM;
 use Mojo::Util qw(xml_escape);
 use Pod::Simple::HTML;
 use Pod::Simple::Text;
+use List::Util qw(all);
 
 plugin Config => {default => {
   loglevel => 'warn',
@@ -3930,6 +3931,68 @@ get '/alpine/document' => sub {
 get '/alpine/parameters' => sub {
   my $c = shift;
   $c->render(template => 'alpine_parameters');
+};
+
+sub border_modification {
+  my ($map, $top, $left, $right, $bottom) = @_;
+  my (@regions, @lines, @others, @temp, %seen);
+  my ($x, $y, $points, $line);
+  my ($maxx, $maxy) = (0, 0);
+  # shift map around
+  foreach (split(/\r?\n/, $map)) {
+    if (($x, $y, $line) = /^(\d\d)(\d\d)\s+(.*)/) {
+      $maxx = $x if $x > $maxx;
+      $maxy = $y if $y > $maxy;
+      $x += $left;
+      $y += $top;
+      $seen{sprintf("%02d%02d", $x, $y)} = 1;
+      push(@regions, [$x, $y, $line]);
+    } elsif (($points, $line) = /^(\d\d\d\d(?:-\d\d\d\d)+)\s+(.*)/) {
+      my @points = map { [ substr($_, 0, 2) + $left, substr($_, 2, 2) + $top ] } split(/-/, $points);
+      push(@lines, [\@points, $line]);
+    } else {
+      push(@others, $_);
+    }
+  }
+  $maxx += $left + $right;
+  $maxy += $top + $bottom;
+  @temp = ();
+  foreach (@regions) {
+    if ($_->[0] <= $maxx and $_->[0] > 0 and $_->[1] <= $maxy and $_->[1] > 0) {
+      push(@temp, $_);
+    }
+  }
+  @regions = @temp;
+  @temp = ();
+  foreach (@lines) {
+    my $outside = all {
+      not ($_->[0] <= $maxx and $_->[0] > 0 and $_->[1] <= $maxy and $_->[1] > 0)
+    } @{$_->[0]};
+    push(@temp, $_) unless $outside;
+  }
+  @lines = @temp;
+  for $x (1 .. $maxx) {
+    for $y (1 .. $maxy) {
+      if (not $seen{sprintf("%02d%02d", $x, $y)}) {
+	push(@regions, [$x, $y, "empty"]);
+      }
+    }
+  }
+  $map = join("\n",
+	      (sort map { sprintf("%02d%02d", $_->[0], $_->[1]) . " " . $_->[2] } @regions),
+	      (map { my $coords = $_->[0];
+		     my $line = $_->[1];
+		     join("-", map { sprintf("%02d%02d", $_->[0], $_->[1]) } @$coords)
+			 . " " . $line } @lines),
+	      @others, "");
+  return $map;
+}
+
+any '/borders' => sub {
+  my $c = shift;
+  my $map = border_modification(map { $c->param($_) } qw(map top left right bottom));
+  $c->param('map', $map);
+  $c->render(template => 'edit', map => $map);
 };
 
 sub island_map {
@@ -4585,12 +4648,24 @@ Alternatively:
 %= label_for hex => 'Hex'
 %= radio_button type => 'square', id => 'square'
 %= label_for square => 'Square'
-
 <p>
 %= submit_button "Generate Map"
-</p>
+
+<p>
+Add (or remove if negative) rows or columns:
+Top:
+%= number_field top => 0, class => 'small'
+Left:
+%= number_field left => 0, class => 'small'
+Right:
+%= number_field right => 0, class => 'small'
+Bottom:
+%= number_field bottom => 0, class => 'small'
+<p>
+%= submit_button "Modify Map Data", 'formaction' => $c->url_for('borders')
 %= end
 
+<hr>
 <p>
 <%= link_to smale => begin %>Random<% end %>
 will generate map data based on Erin D. Smale's <em>Hex-Based Campaign Design</em>
@@ -4609,8 +4684,11 @@ You'll find the map description in a comment within the SVG file.
 </td></tr><tr><td>Height:</td><td>
 %= number_field height => 10, min => 5, max => 99
 </td></tr></table>
+<p>
 %= submit_button "Generate Map Data"
 % end
+
+<hr>
 <p>
 <%= link_to alpine => begin %>Alpine<% end %> will generate map data based on Alex
 Schroeder's algorithm that's trying to recreate a medieval Swiss landscape, with
@@ -4651,9 +4729,12 @@ explanation of what these parameters do.
 %= label_for hex => 'Hex'
 %= radio_button type => 'square', id => 'square'
 %= label_for square => 'Square'
-</p>
+<p>
 %= submit_button "Generate Map Data"
+</p>
 % end
+
+<hr>
 <p>
 <%= link_to url_for('gridmapper')->query(type => 'square') => begin %>Gridmapper<% end %>
 will generate dungeon map data based on geomorph sketches by Robin Green. Or
@@ -4942,9 +5023,6 @@ body {
 textarea {
   width: 100%;
 }
-table {
-  padding-bottom: 1em;
-}
 td, th {
   padding-right: 0.5em;
 }
@@ -4953,6 +5031,9 @@ td, th {
 }
 .numeric {
   text-align: center;
+}
+.small {
+  width: 3em;
 }
 % end
 <meta name="viewport" content="width=device-width">
