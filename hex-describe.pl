@@ -629,7 +629,7 @@ sub get_post_data {
     }
   } else {
     my $res = $ua->post($url => form => \%data)->result;
-    return $res->body if $res->is_success;
+    return decode_utf8($res->body) if $res->is_success;
     $error = $res->code . " " . $res->message;
   }
   $log->error("get_post_data: $error");
