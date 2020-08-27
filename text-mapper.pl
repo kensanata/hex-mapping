@@ -3721,7 +3721,7 @@ use Mojo::DOM;
 use Mojo::Util qw(xml_escape);
 use Pod::Simple::HTML;
 use Pod::Simple::Text;
-use List::Util qw(all);
+use List::Util qw(none);
 
 plugin Config => {default => {
   loglevel => 'warn',
@@ -3934,63 +3934,100 @@ get '/alpine/parameters' => sub {
 };
 
 sub border_modification {
-  my ($map, $top, $left, $right, $bottom) = @_;
-  my (@regions, @lines, @others, @temp, %seen);
-  my ($x, $y, $points, $line);
+  my ($map, $top, $left, $right, $bottom, $empty) = @_;
+  my (@lines, @temp, %seen);
+  my ($x, $y, $points, $text);
   my ($maxx, $maxy) = (0, 0);
   # shift map around
   foreach (split(/\r?\n/, $map)) {
-    if (($x, $y, $line) = /^(\d\d)(\d\d)\s+(.*)/) {
+    if (($x, $y, $text) = /^(\d\d)(\d\d)\s+(.*)/) {
       $maxx = $x if $x > $maxx;
       $maxy = $y if $y > $maxy;
       $x += $left;
       $y += $top;
-      $seen{sprintf("%02d%02d", $x, $y)} = 1;
-      push(@regions, [$x, $y, $line]);
-    } elsif (($points, $line) = /^(\d\d\d\d(?:-\d\d\d\d)+)\s+(.*)/) {
+      $seen{sprintf("%02d%02d", $x, $y)} = 1 if $empty;
+      push(@lines, [$x, $y, $text]);
+    } elsif (($points, $text) = /^(\d\d\d\d(?:-\d\d\d\d)+)\s+(.*)/) {
       my @points = map { [ substr($_, 0, 2) + $left, substr($_, 2, 2) + $top ] } split(/-/, $points);
-      push(@lines, [\@points, $line]);
+      push(@lines, [\@points, $text]);
     } else {
-      push(@others, $_);
+      push(@lines, $_);
     }
   }
+  # only now do we know the extent of the map
   $maxx += $left + $right;
   $maxy += $top + $bottom;
+  # with that information we can now determine what lies outside the map
   @temp = ();
-  foreach (@regions) {
-    if ($_->[0] <= $maxx and $_->[0] > 0 and $_->[1] <= $maxy and $_->[1] > 0) {
+  foreach (@lines) {
+    if (ref eq 'ARRAY' and @$_ == 3
+	and $_->[0] <= $maxx and $_->[0] > 0
+	and $_->[1] <= $maxy and $_->[1] > 0) {
+      push(@temp, $_);
+    } elsif (ref eq 'ARRAY' and @$_ == 2) {
+      my @coords = @{$_->[0]};
+      my $outside = none {
+	($_->[0] <= $maxx and $_->[0] > 0
+	 and $_->[1] <= $maxy and $_->[1] > 0)
+      } @coords;
+      push(@temp, $_) unless $outside;
+    } else {
       push(@temp, $_);
     }
   }
-  @regions = @temp;
-  @temp = ();
-  foreach (@lines) {
-    my $outside = all {
-      not ($_->[0] <= $maxx and $_->[0] > 0 and $_->[1] <= $maxy and $_->[1] > 0)
-    } @{$_->[0]};
-    push(@temp, $_) unless $outside;
-  }
   @lines = @temp;
-  for $x (1 .. $maxx) {
-    for $y (1 .. $maxy) {
-      if (not $seen{sprintf("%02d%02d", $x, $y)}) {
-	push(@regions, [$x, $y, "empty"]);
+  # add missing hexes, if requested
+  if ($empty) {
+    for $x (1 .. $maxx) {
+      for $y (1 .. $maxy) {
+	if (not $seen{sprintf("%02d%02d", $x, $y)}) {
+	  push(@lines, [$x, $y, "empty"]);
+	}
       }
     }
+    # also, sort regions before trails before others
+    @lines = sort {
+      (# arrays come first
+       ref($b) cmp ref($a)
+       # string comparison for others
+       or not(ref($a)) and not(ref($b)) and $a cmp $b
+       # regions have 3 elements, trails have 2 elements
+       or ref($a) and ref($b) and @$b <=> @$a
+       # compare coordinates of regions
+       or @$a == 3 and @$b == 3 and (
+	 $a->[0] <=> $b->[0]
+	 or $a->[1] <=> $b->[1]
+	 or $a->[2] cmp $b->[2])
+       # compare the first two coordinates of trails
+       or @$a == 2 and @$b == 2 and (
+	 $a->[0]->[0] <=> $b->[0]->[0]
+	 or $a->[0]->[1] <=> $b->[0]->[1]
+	 or $a->[1]->[0] <=> $b->[1]->[0]
+	 or $a->[1]->[1] <=> $b->[1]->[1]))
+    } @lines;
   }
   $map = join("\n",
-	      (sort map { sprintf("%02d%02d", $_->[0], $_->[1]) . " " . $_->[2] } @regions),
-	      (map { my $coords = $_->[0];
-		     my $line = $_->[1];
-		     join("-", map { sprintf("%02d%02d", $_->[0], $_->[1]) } @$coords)
-			 . " " . $line } @lines),
-	      @others, "");
+	      map {
+		if (ref) {
+		  if (@$_ == 3) {
+		    sprintf("%02d%02d", $_->[0], $_->[1]) . " " . $_->[2]
+		  } elsif (@$_ == 2) {
+		    my $coords = $_->[0];
+		    my $line = $_->[1];
+		    join("-",
+			 map { sprintf("%02d%02d", $_->[0], $_->[1]) } @$coords)
+			. " " . $line;
+		  }
+		} else {
+		  $_;
+		}
+	      } @lines) . "\n";
   return $map;
 }
 
 any '/borders' => sub {
   my $c = shift;
-  my $map = border_modification(map { $c->param($_) } qw(map top left right bottom));
+  my $map = border_modification(map { $c->param($_) } qw(map top left right bottom empty));
   $c->param('map', $map);
   $c->render(template => 'edit', map => $map);
 };
@@ -4653,14 +4690,16 @@ Alternatively:
 
 <p>
 Add (or remove if negative) rows or columns:
-Top:
-%= number_field top => 0, class => 'small'
-Left:
-%= number_field left => 0, class => 'small'
-Right:
-%= number_field right => 0, class => 'small'
-Bottom:
-%= number_field bottom => 0, class => 'small'
+%= label_for top => 'top'
+%= number_field top => 0, class => 'small', id => 'top'
+%= label_for left => 'left'
+%= number_field left => 0, class => 'small', id => 'left'
+%= label_for right => 'right'
+%= number_field right => 0, class => 'small', id => 'right'
+%= label_for bottom => 'bottom'
+%= number_field bottom => 0, class => 'small', id => 'bottom'
+%= label_for empty => 'add empty'
+%= check_box empty => 1, id => 'empty'
 <p>
 %= submit_button "Modify Map Data", 'formaction' => $c->url_for('borders')
 %= end
