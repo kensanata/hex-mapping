@@ -32,14 +32,27 @@ has 'y';
 
 sub equal {
   my ($self, $other) = @_;
-  return $self->x == $other->x
-      && $self->y == $other->y;
+  return $self->x == $other->x && $self->y == $other->y;
+}
+
+sub cmp {
+  my ($a, $b) = @_;
+  return $a->x <=> $b->x || $a->y <=> $b->y;
 }
 
 sub coordinates {
-  my ($self, $precision) = @_;
+  my ($self) = @_;
   return $self->x, $self->y if wantarray;
   return $self->x . "," . $self->y;
+}
+
+sub coord {
+  my ($x, $y, $separator) = @_;
+  $separator //= "";
+  # print (1,1) as 0101; print (-1,-1) as -01-01
+  return sprintf("%0*d$separator%0*d",
+		 ($x < 0 ? 3 : 2), $x,
+		 ($y < 0 ? 3 : 2), $y);
 }
 
 package Line;
@@ -317,7 +330,7 @@ sub svg_coordinates {
   $data .= ' ';
   $data .= $self->map->text_attributes || '';
   $data .= '>';
-  $data .= sprintf(qq{%02d.%02d}, $x, $y);
+  $data .= Point::coord($x, $y, ".");
   $data .= qq{</text>\n};
   return $data;
 }
@@ -403,7 +416,7 @@ sub svg_coordinates {
   $data .= ' ';
   $data .= $self->map->text_attributes || '';
   $data .= '>';
-  $data .= sprintf(qq{%02d.%02d}, $x, $y);
+  $data .= Point::coord($x, $y, ".");
   $data .= qq{</text>\n};
   return $data;
 }
@@ -498,7 +511,7 @@ sub process {
   my $self = shift;
   my $line_id = 0;
   foreach (@_) {
-    if (/^(\d\d)(\d\d)\s+(.*)/) {
+    if (/^(-?\d\d)(-?\d\d)\s+(.*)/) {
       my $region = $self->make_region(x => $1, y => $2, map => $self);
       my $rest = $3;
       my ($label, $size) = $rest =~ /\"([^\"]+)\"\s*(\d+)?/;
@@ -509,14 +522,18 @@ sub process {
       $region->type(\@types);
       push(@{$self->regions}, $region);
       push(@{$self->things}, $region);
-    } elsif (/^(\d\d\d\d(?:-\d\d\d\d)+)\s+(\S+)\s*(?:"(.+)")?/) {
+    } elsif (/^(-?\d\d-?\d\d(?:--?\d\d-?\d\d)+)\s+(\S+)\s*(?:"(.+)")?/) {
       my $line = $self->make_line(map => $self);
+      my $str = $1;
       $line->type($2);
       $line->label($3);
       $line->id('line' . $line_id++);
-      my @points = map { my $point = Point->new(x => substr($_, 0, 2),
-						y => substr($_, 2, 2));
-		       } split(/-/, $1);
+      my @numbers = $str =~ /\G(-?\d\d)(-?\d\d)-?/cg;
+      my @points;
+      while (@numbers) {
+	my ($x, $y) = splice(@numbers, 0, 2);
+	push(@points, Point->new(x => $x, y => $y));
+      }
       $line->points(\@points);
       push(@{$self->lines}, $line);
     } elsif (/^(\S+)\s+attributes\s+(.*)/) {
@@ -557,6 +574,8 @@ sub process {
 	  push(@{$self->messages}, $response->status_line);
 	}
       }
+    } else {
+      $log->debug("Did not parse $_") if $_;
     }
   }
   return $self;
@@ -758,8 +777,11 @@ sub svg {
     $y += 10;
   }
 
-  # source code
-  $doc .= "<!-- Source\n" . $self->map() . "\n-->\n";
+  # source code (comments may not include -- for SGML compatibility!)
+  # https://stackoverflow.com/questions/10842131/xml-comments-and
+  my $source = $self->map();
+  $source =~ s/--/&#45;&#45;/g;
+  $doc .= "<!-- Source\n$source\n-->\n";
   $doc .= qq{</svg>\n};
 
   return $doc;
@@ -1009,7 +1031,7 @@ sub place_major {
   my $hex = one(full_hexes($x, $y));
   $x += $hex->[0];
   $y += $hex->[1];
-  my $coordinates = sprintf("%02d%02d", $x, $y);
+  my $coordinates = Point::coord($x, $y);
   my $primary = $reverse_lookup{$world{$coordinates}};
   my ($color, $terrain) = split(' ', $world{$coordinates}, 2);
   if ($encounter eq 'settlement') {
@@ -1045,10 +1067,10 @@ sub populate_region {
 sub pick_unassigned {
   my ($x, $y, @region) = @_;
   my $hex = one(@region);
-  my $coordinates = sprintf("%02d%02d", $x + $hex->[0], $y + $hex->[1]);
+  my $coordinates = Point::coord($x + $hex->[0], $y + $hex->[1]);
   while ($world{$coordinates}) {
     $hex = one(@region);
-    $coordinates = sprintf("%02d%02d", $x + $hex->[0], $y + $hex->[1]);
+    $coordinates = Point::coord($x + $hex->[0], $y + $hex->[1]);
   }
   return $coordinates;
 }
@@ -1057,7 +1079,7 @@ sub pick_remaining {
   my ($x, $y, @region) = @_;
   my @coordinates = ();
   for my $hex (@region) {
-    my $coordinates = sprintf("%02d%02d", $x + $hex->[0], $y + $hex->[1]);
+    my $coordinates = Point::coord($x + $hex->[0], $y + $hex->[1]);
     push(@coordinates, $coordinates) unless $world{$coordinates};
   }
   return @coordinates;
@@ -1101,7 +1123,7 @@ sub half_hexes {
 
 sub generate_region {
   my ($x, $y, $primary) = @_;
-  $world{sprintf("%02d%02d", $x, $y)} = one($primary{$primary});
+  $world{Point::coord($x, $y)} = one($primary{$primary});
 
   my @region = full_hexes($x, $y);
   my $terrain;
@@ -1180,14 +1202,14 @@ sub seed_region {
 
 sub agriculture {
   for my $hex (@needs_fields) {
-    verbose("looking to plant fields near " . sprintf("%02d%02d", $hex->[0], $hex->[1]));
+    verbose("looking to plant fields near " . Point::coord($hex->[0], $hex->[1]));
     my $delta = [[[-1,  0], [ 0, -1], [+1,  0], [+1, +1], [ 0, +1], [-1, +1]],  # x is even
 		 [[-1, -1], [ 0, -1], [+1, -1], [+1,  0], [ 0, +1], [-1,  0]]]; # x is odd
     my @plains;
     for my $i (0 .. 5) {
       my ($x, $y) = ($hex->[0] + $delta->[$hex->[0] % 2]->[$i]->[0],
 		     $hex->[1] + $delta->[$hex->[0] % 2]->[$i]->[1]);
-      my $coordinates = sprintf("%02d%02d", $x, $y);
+      my $coordinates = Point::coord($x, $y);
       if ($world{$coordinates}) {
 	my ($color, $terrain) = split(' ', $world{$coordinates}, 2);
 	verbose("  $coordinates is " . $world{$coordinates} . " ie. " . $reverse_lookup{$world{$coordinates}});
@@ -1263,7 +1285,7 @@ sub xy {
 
 sub coordinates {
   my ($x, $y) = @_;
-  return sprintf("%02d%02d", $x, $y);
+  return Point::coord($x, $y);
 }
 
 sub legal {
@@ -3937,19 +3959,25 @@ sub border_modification {
   my ($map, $top, $left, $right, $bottom, $empty) = @_;
   my (@lines, @temp, %seen);
   my ($x, $y, $points, $text);
-  my ($maxx, $maxy) = (0, 0);
+  my ($minx, $miny, $maxx, $maxy);
   # shift map around
   foreach (split(/\r?\n/, $map)) {
     if (($x, $y, $text) = /^(\d\d)(\d\d)\s+(.*)/) {
-      $maxx = $x if $x > $maxx;
-      $maxy = $y if $y > $maxy;
-      $x += $left;
-      $y += $top;
-      $seen{sprintf("%02d%02d", $x, $y)} = 1 if $empty;
-      push(@lines, [$x, $y, $text]);
-    } elsif (($points, $text) = /^(\d\d\d\d(?:-\d\d\d\d)+)\s+(.*)/) {
-      my @points = map { [ substr($_, 0, 2) + $left, substr($_, 2, 2) + $top ] } split(/-/, $points);
-      push(@lines, [\@points, $text]);
+      $minx = $x if not defined $minx or $x < $minx;
+      $miny = $y if not defined $miny or $y < $miny;
+      $maxx = $x if not defined $maxx or $x > $maxx;
+      $maxy = $y if not defined $maxy or $y > $maxy;
+      my $point = Point->new(x => $x + $left, y => $y + $top);
+      $seen{$point->coordinates} = 1 if $empty;
+      push(@lines, [$point, $text]);
+    } elsif (($points, $text) = /^(-?\d\d-?\d\d(?:--?\d\d-?\d\d)+)\s+(.*)/) {
+      my @numbers = $points =~ /\G(-?\d\d)(-?\d\d)-?/cg;
+      my @points;
+      while (@numbers) {
+	my ($x, $y) = splice(@numbers, 0, 2);
+	push(@points, Point->new(x => $x + $left, y => $y + $top));
+      }
+      push(@lines, [Line->new(points => \@points), $text]);
     } else {
       push(@lines, $_);
     }
@@ -3960,17 +3988,20 @@ sub border_modification {
   # with that information we can now determine what lies outside the map
   @temp = ();
   foreach (@lines) {
-    if (ref eq 'ARRAY' and @$_ == 3
-	and $_->[0] <= $maxx and $_->[0] > 0
-	and $_->[1] <= $maxy and $_->[1] > 0) {
-      push(@temp, $_);
-    } elsif (ref eq 'ARRAY' and @$_ == 2) {
-      my @coords = @{$_->[0]};
-      my $outside = none {
-	($_->[0] <= $maxx and $_->[0] > 0
-	 and $_->[1] <= $maxy and $_->[1] > 0)
-      } @coords;
-      push(@temp, $_) unless $outside;
+    if (ref) {
+      my ($it, $text) = @$_;
+      if (ref($it) eq 'Point') {
+	if ($it->x <= $maxx and $it->x >= $minx
+	    and $it->y <= $maxy and $it->y >= $miny) {
+	  push(@temp, $_);
+	}
+      } else { # Line
+	my $outside = none {
+	  ($_->x <= $maxx and $_->x >= $minx
+	   and $_->y <= $maxy and $_->y >= $miny)
+	} @{$it->points};
+	push(@temp, $_) unless $outside;
+      }
     } else {
       push(@temp, $_);
     }
@@ -3978,45 +4009,42 @@ sub border_modification {
   @lines = @temp;
   # add missing hexes, if requested
   if ($empty) {
-    for $x (1 .. $maxx) {
-      for $y (1 .. $maxy) {
-	if (not $seen{sprintf("%02d%02d", $x, $y)}) {
-	  push(@lines, [$x, $y, "empty"]);
+    for $x ($minx .. $maxx) {
+      for $y ($miny .. $maxy) {
+	my $point = Point->new(x => $x, y => $y);
+	if (not $seen{$point->coordinates}) {
+	  push(@lines, [$point, "empty"]);
 	}
       }
     }
     # also, sort regions before trails before others
     @lines = sort {
-      (# arrays come first
+      (# arrays before strings
        ref($b) cmp ref($a)
-       # string comparison for others
+       # string comparison if both are strings
        or not(ref($a)) and not(ref($b)) and $a cmp $b
-       # regions have 3 elements, trails have 2 elements
-       or ref($a) and ref($b) and @$b <=> @$a
-       # compare coordinates of regions
-       or @$a == 3 and @$b == 3 and (
-	 $a->[0] <=> $b->[0]
-	 or $a->[1] <=> $b->[1]
-	 or $a->[2] cmp $b->[2])
-       # compare the first two coordinates of trails
-       or @$a == 2 and @$b == 2 and (
-	 $a->[0]->[0] <=> $b->[0]->[0]
-	 or $a->[0]->[1] <=> $b->[0]->[1]
-	 or $a->[1]->[0] <=> $b->[1]->[0]
-	 or $a->[1]->[1] <=> $b->[1]->[1]))
+       # if we get here, we know both are arrays
+       # points before lines
+       or ref($b->[0]) cmp ref($a->[0])
+       # if both are points, compare the coordinates
+       or ref($a->[0]) eq 'Point' and $a->[0]->cmp($b->[0])
+       or ref($a->[0]) eq 'Point' and die "@$a is a duplicate!\n"
+       # otherwise, both must be lines, so compare the first two coordinates (the minimum line length)
+       or $a->[0]->points->[0]->cmp($b->[0]->points->[0])
+       or $a->[0]->points->[1]->cmp($b->[0]->points->[1]))
     } @lines;
   }
   $map = join("\n",
 	      map {
 		if (ref) {
-		  if (@$_ == 3) {
-		    sprintf("%02d%02d", $_->[0], $_->[1]) . " " . $_->[2]
-		  } elsif (@$_ == 2) {
-		    my $coords = $_->[0];
-		    my $line = $_->[1];
+		  my ($it, $text) = @$_;
+		  if (ref($it) eq 'Point') {
+		    Point::coord($it->x, $it->y) . " " . $text
+		  } else {
+		    my $points = $it->points;
 		    join("-",
-			 map { sprintf("%02d%02d", $_->[0], $_->[1]) } @$coords)
-			. " " . $line;
+			 map { Point::coord($_->x, $_->y) } @$points)
+			. " " . $text;
 		  }
 		} else {
 		  $_;
