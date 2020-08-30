@@ -503,6 +503,7 @@ EOT
 
 sub initialize {
   my ($self, $map) = @_;
+  $map =~ s/&#45;/-/g; # -- are invalid in source comments...
   $self->map($map);
   $self->process(split(/\r?\n/, $map));
 }
@@ -4600,6 +4601,11 @@ by Gregory B. MacKenzie:
     license <text x="50" y="-33" font-size="15pt" fill="#999999">Copyright Alex Schroeder 2013. <a style="fill:#8888ff" xlink:href="http://www.busygamemaster.com/art02.html">Gnomeyland Map Icons</a> Copyright Gregory B. MacKenzie 2012.</text><text x="50" y="-15" font-size="15pt" fill="#999999">This work is licensed under the <a style="fill:#8888ff" xlink:href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.</text>
 
 Unfortunately, it all has to go on a single line.
+
+The viewport for the map is determined by the hexes of the map. You need to take
+this into account when putting a license onto the map. Thus, if your map does
+not include the hex 0101, you can't use coordinates for the license text around
+the origin at (0,0) – you'll have to move it around.
 
 =head2 Examples
 
