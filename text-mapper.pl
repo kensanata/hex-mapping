@@ -4499,7 +4499,7 @@ rivers or roads, for example.
     road path attributes stroke="black" stroke-width="3" fill-opacity="0" stroke-dasharray="10 10"
     0000-0301 road
 
-=head3 Colours and Transparency
+=head2 Colours and Transparency
 
 Let me return for a moment to the issue of colours. We've used 24 bit colours in
 the examples above, that is: red-green-blue (RGB) definitions of colours where
@@ -4562,7 +4562,7 @@ and use it to lighten things up. You can even use it multiple times!
 
 Thanks to Eric Scheid for showing me this trick.
 
-=head3 Include a Library
+=head2 Include a Library
 
 Since these definitions get unwieldy, require a lot of work (the path
 elements), and to encourage reuse, you can use the B<include>
@@ -4581,7 +4581,55 @@ You can find more files ("libraries") to include in the C<contrib>
 directory:
 L<https://alexschroeder.ch/cgit/hex-mapping/tree/contrib>.
 
-=head3 Large Areas
+
+=head3 Default library
+
+Source of the map:
+L<http://themetalearth.blogspot.ch/2011/03/opd-entry.html>
+
+Example data:
+L<$contrib/forgotten-depths.txt>
+
+Library:
+L<$contrib/default.txt>
+
+Result:
+L<https://campaignwiki.org/text-mapper?map=include+$contrib/forgotten-depths.txt>
+
+=head3 Gnomeyland library
+
+Example data:
+L<$contrib/gnomeyland-example.txt>
+
+Library:
+L<$contrib/gnomeyland.txt>
+
+Result:
+L<https://campaignwiki.org/text-mapper?map=include+$contrib/gnomeyland-example.txt>
+
+=head3 Traveller library
+
+Example:
+L<$contrib/traveller-example.txt>
+
+Library:
+L<$contrib/traveller.txt>
+
+Result:
+L<https://campaignwiki.org/text-mapper?map=include+$contrib/traveller-example.txt>
+
+=head3 Dungeons library
+
+Example:
+L<$contrib/gridmapper-example.txt>
+
+Library:
+L<$contrib/gridmapper.txt>
+
+Result:
+L<https://campaignwiki.org/text-mapper?type=square&map=include+$contrib/gridmapper-example.txt>
+
+=head2 Large Areas
 
 If you want to surround a piece of land with a round shore line, a
 forest with a large green shadow, you can achieve this using a line
@@ -4606,19 +4654,6 @@ to define the green path attributes in order to do that.
 
 I<Order is important>: First we draw the sand, then the green area,
 then we drop a jungle on top of the green area.
-
-=head2 Random
-
-There's a button to generate a random landscape based on the algorithm
-developed by Erin D. Smale. See
-L<http://www.welshpiper.com/hex-based-campaign-design-part-1/> and
-L<http://www.welshpiper.com/hex-based-campaign-design-part-2/> for
-more information. The output uses the I<Gnomeyland> icons by Gregory
-B. MacKenzie. These are licensed under the Creative Commons
-Attribution-ShareAlike 3.0 Unported License. To view a copy of this
-license, visit L<http://creativecommons.org/licenses/by-sa/3.0/>.
-
-If you're curious: (11,11) is the starting hex.
 
 =head2 SVG
 
@@ -4725,54 +4760,203 @@ this into account when putting a license onto the map. Thus, if your map does
 not include the hex 0101, you can't use coordinates for the license text around
 the origin at (0,0) – you'll have to move it around.
 
-=head2 Examples
+=head2 Random
 
-=head3 Default
+The Random button generates a random landscape based on the algorithm
+developed by Erin D. Smale. See
+L<http://www.welshpiper.com/hex-based-campaign-design-part-1/> and
+L<http://www.welshpiper.com/hex-based-campaign-design-part-2/> for
+more information. The output uses the I<Gnomeyland> icons by Gregory
+B. MacKenzie. These are licensed under the Creative Commons
+Attribution-ShareAlike 3.0 Unported License. To view a copy of this
+license, visit L<http://creativecommons.org/licenses/by-sa/3.0/>.
 
-Source of the map:
-L<http://themetalearth.blogspot.ch/2011/03/opd-entry.html>
+If you're curious: (11,11) is the starting hex.
 
-Example data:
-L<$contrib/forgotten-depths.txt>
+=head2 Alpine
 
-Library:
-L<$contrib/default.txt>
+The Alpine button generates a random landscape based on an algorithm developed
+by Alex Schroeder. The output also uses the I<Gnomeyland> icons by Gregory B.
+MacKenzie. These are licensed under the Creative Commons Attribution-ShareAlike
+3.0 Unported License. To view a copy of this license, visit
+L<http://creativecommons.org/licenses/by-sa/3.0/>.
 
-Result:
-L<https://campaignwiki.org/text-mapper?map=include+$contrib/forgotten-depths.txt>
+=head2 Gridmapper
 
-=head3 Gnomeyland
+The Gridmapper button generates a random mini-dungeon based on the algorithm by
+Alex Schroeder and based on geomorph sketches by Robin Green.
 
-Example data:
-L<$contrib/gnomeyland-example.txt>
+=head2 Islands
 
-Library:
-L<$contrib/gnomeyland.txt>
+The Island links generate a random landscape based on the algorithm by Alex
+Schroeder. The output also uses the I<Gnomeyland> icons by Gregory B. MacKenzie.
+These are licensed under the Creative Commons Attribution-ShareAlike 3.0
+Unported License. To view a copy of this license, visit
+L<http://creativecommons.org/licenses/by-sa/3.0/>.
 
-Result:
-L<https://campaignwiki.org/text-mapper?map=include+$contrib/gnomeyland-example.txt>
+=head2 Stars
 
-=head3 Traveller
+The Stars link generates a random landscape based on the Stars Without Number
+algorithm by Kevin Crawford with additions by Vicky Radcliffe.
 
-Example:
-L<$contrib/traveller-example.txt>
+=head2 Border Adjustments
 
-Library:
-L<$contrib/traveller.txt>
+The border adjustments can be a little unintuitive. Let's assume the default map
+and think through some of the operations.
 
-Result:
-L<https://campaignwiki.org/text-mapper?map=include+$contrib/traveller-example.txt>
+    0101 mountain "mountain"
+    0102 swamp "swamp"
+    0103 hill "hill"
+    0104 forest "forest"
+    0201 empty pyramid "pyramid"
+    0202 tundra "tundra"
+    0203 coast "coast"
+    0204 empty house "house"
+    0301 woodland "woodland"
+    0302 wetland "wetland"
+    0303 plain "plain"
+    0304 sea "sea"
+    0401 hill tower "tower"
+    0402 sand house "house"
+    0403 jungle "jungle"
+    0502 sand "sand"
+    0205-0103-0202-0303-0402 road
+    0101-0203 river
+    0401-0303-0403 border
+    include file:///home/alex/src/hex-mapping/contrib/default.txt
+    license <text>Public Domain</text>
 
-=head3 Dungeons
+Basically, we're adding and removing rows and columns using the left, top,
+bottom, right parameters. Thus, “left +2” means adding two columns at the left.
+The mountains at 0101 thus turn into mountains at 0301.
 
-Example:
-L<$contrib/gridmapper-example.txt>
+    0301 mountain "mountain"
+    0302 swamp "swamp"
+    0303 hill "hill"
+    0304 forest "forest"
+    0401 empty pyramid "pyramid"
+    0402 tundra "tundra"
+    0403 coast "coast"
+    0404 empty house "house"
+    0501 woodland "woodland"
+    0502 wetland "wetland"
+    0503 plain "plain"
+    0504 sea "sea"
+    0601 hill tower "tower"
+    0602 sand house "house"
+    0603 jungle "jungle"
+    0702 sand "sand"
+    0405-0303-0402-0503-0602 road
+    0301-0403 river
+    0601-0503-0603 border
+    include file:///home/alex/src/hex-mapping/contrib/default.txt
+    license <text>Public Domain</text>
 
-Library:
-L<$contrib/gridmapper.txt>
+Conversely, “left -2” means removing the two columns at the left. The mountains
+at 0101 and the pyramid at 0201 would therefore disappear and the woodland at
+0301 would turn into the woodland at 0101.
 
-Result:
-L<https://campaignwiki.org/text-mapper?type=square&map=include+$contrib/gridmapper-example.txt>
+    0101 woodland "woodland"
+    0102 wetland "wetland"
+    0103 plain "plain"
+    0104 sea "sea"
+    0201 hill tower "tower"
+    0202 sand house "house"
+    0203 jungle "jungle"
+    0302 sand "sand"
+    0005--0103-0002-0103-0202 road
+    0201-0103-0203 border
+    include file:///home/alex/src/hex-mapping/contrib/default.txt
+    license <text>Public Domain</text>
+
+The tricky part is when “add empty” is not checked and you first add two columns
+on the left, and then remove two columns on the left. If you do this, you’re not
+undoing the addition of the two columns because the code just considers the
+actual columns and thus removes the columns with the mountain which moved from
+0101 to 0301 and the pyramid which moved from 0201 to 0401, leaving the woodland
+in 0301.
+
+    0301 woodland "woodland"
+    0302 wetland "wetland"
+    0303 plain "plain"
+    0304 sea "sea"
+    0401 hill tower "tower"
+    0402 sand house "house"
+    0403 jungle "jungle"
+    0502 sand "sand"
+    0205-0103-0202-0303-0402 road
+    0401-0303-0403 border
+    include file:///home/alex/src/hex-mapping/contrib/default.txt
+    license <text>Public Domain</text>
+
+This problem disappears if you check “add empty” as you add the two columns
+at the left because now all the gaps are filled, starting at 0101. You’re
+getting two empty columns on the left:
+
+    0101 empty
+    0102 empty
+    0103 empty
+    0104 empty
+    0201 empty
+    0202 empty
+    0203 empty
+    0204 empty
+    0301 mountain "mountain"
+    0302 swamp "swamp"
+    0303 hill "hill"
+    0304 forest "forest"
+    0401 empty pyramid "pyramid"
+    0402 tundra "tundra"
+    0403 coast "coast"
+    0404 empty house "house"
+    0501 woodland "woodland"
+    0502 wetland "wetland"
+    0503 plain "plain"
+    0504 sea "sea"
+    0601 hill tower "tower"
+    0602 sand house "house"
+    0603 jungle "jungle"
+    0604 empty
+    0701 empty
+    0702 sand "sand"
+    0703 empty
+    0704 empty
+    0301-0403 river
+    0405-0303-0402-0503-0602 road
+    0601-0503-0603 border
+    include file:///home/alex/src/hex-mapping/contrib/default.txt
+    license <text>Public Domain</text>
+
+When you remove two columns in the second step, you’re removing the two empty
+columns you just added. But “add empty” fills all the gaps, so in the example
+map, it also adds all the missing hexes in columns 04 and 05, so you can only
+use this option if you want those empty hexes added…
+
+    0101 mountain "mountain"
+    0102 swamp "swamp"
+    0103 hill "hill"
+    0104 forest "forest"
+    0201 empty pyramid "pyramid"
+    0202 tundra "tundra"
+    0203 coast "coast"
+    0204 empty house "house"
+    0301 woodland "woodland"
+    0302 wetland "wetland"
+    0303 plain "plain"
+    0304 sea "sea"
+    0401 hill tower "tower"
+    0402 sand house "house"
+    0403 jungle "jungle"
+    0404 empty
+    0501 empty
+    0502 sand "sand"
+    0503 empty
+    0504 empty
+    0101-0203 river
+    0205-0103-0202-0303-0402 road
+    0401-0303-0403 border
+    include file:///home/alex/src/hex-mapping/contrib/default.txt
+    license <text>Public Domain</text>
 
 =head2 Configuration
 
@@ -4855,6 +5039,9 @@ Add (or remove if negative) rows or columns:
 <p>
 %= submit_button "Modify Map Data", 'formaction' => $c->url_for('borders')
 %= end
+<p>
+See the <%= link_to url_for('help')->fragment('Border_Adjustments') => begin %>documentation<% end %>
+for an explanation of what these parameters do.
 
 <hr>
 <p>
@@ -4935,6 +5122,8 @@ just keep reloading one of these links:
 <%= link_to url_for('gridmapperrandom')->query(rooms => 10) => begin %>10 rooms<% end %>,
 <%= link_to url_for('gridmapperrandom')->query(rooms => 12) => begin %>12 rooms<% end %>,
 <%= link_to url_for('gridmapperrandom')->query(rooms => 14) => begin %>14 rooms<% end %>.
+Each map contains a “Edit in Gridmapper” link which will open the same map in the <a
+href="https://campaignwiki.org/gridmapper.svg">Gridmapper web app</a> itself.
 %= form_for gridmapper => begin
 <p>
 <label>
