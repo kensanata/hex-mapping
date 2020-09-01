@@ -516,15 +516,15 @@ sub process {
     if (/^(-?\d\d)(-?\d\d)\s+(.*)/) {
       my $region = $self->make_region(x => $1, y => $2, map => $self);
       my $rest = $3;
-      my ($label, $size) = $rest =~ /\"([^\"]+)\"\s*(\d+)?/;
+      my ($label, $size) = $rest =~ /["“]([^"”]+)["”]\s*(\d+)?/;
       $region->label($label);
       $region->size($size);
-      $rest =~ s/\"[^\"]+\"\s*\d*//; # strip label and size
+      $rest =~ s/["“][^"”]+["”]\s*\d*//; # strip label and size
       my @types = split(/\s+/, $rest);
       $region->type(\@types);
       push(@{$self->regions}, $region);
       push(@{$self->things}, $region);
-    } elsif (/^(-?\d\d-?\d\d(?:--?\d\d-?\d\d)+)\s+(\S+)\s*(?:"(.+)")?/) {
+    } elsif (/^(-?\d\d-?\d\d(?:--?\d\d-?\d\d)+)\s+(\S+)\s*(?:["“](.+)["”])?/) {
       my $line = $self->make_line(map => $self);
       my $str = $1;
       $line->type($2);
