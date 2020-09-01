@@ -4114,10 +4114,11 @@ sub border_modification {
        or ref($b->[0]) cmp ref($a->[0])
        # if both are points, compare the coordinates
        or ref($a->[0]) eq 'Point' and $a->[0]->cmp($b->[0])
-       or ref($a->[0]) eq 'Point' and die "@$a is a duplicate!\n"
-       # otherwise, both must be lines, so compare the first two coordinates (the minimum line length)
-       or $a->[0]->points->[0]->cmp($b->[0]->points->[0])
-       or $a->[0]->points->[1]->cmp($b->[0]->points->[1]))
+       # if both are lines, compare the first two coordinates (the minimum line length)
+       or ref($a->[0]) eq 'Line' and ($a->[0]->points->[0]->cmp($b->[0]->points->[0])
+				      or $a->[0]->points->[1]->cmp($b->[0]->points->[1]))
+       # if bot are the same point (!) …
+       or 0)
     } @lines;
   }
   $map = join("\n",
