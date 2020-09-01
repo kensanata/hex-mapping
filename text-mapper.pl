@@ -275,6 +275,7 @@ package Hex;
 
 use Modern::Perl '2018';
 use URI::Escape;
+use Encode qw(encode_utf8);
 use Mojo::Base -base;
 
 has 'x';
@@ -344,7 +345,7 @@ sub svg_label {
       $attributes .= ' font-size="' . $self->size . '"';
     }
   }
-  $url =~ s/\%s/uri_escape($self->label)/e or $url .= uri_escape($self->label) if $url;
+  $url =~ s/\%s/uri_escape(encode_utf8($self->label))/e or $url .= uri_escape(encode_utf8($self->label)) if $url;
   my $x = $self->x;
   my $y = $self->y;
   my $data = sprintf(qq{    <g><text text-anchor="middle" x="%.1f" y="%.1f" %s %s>}
