@@ -4168,6 +4168,16 @@ sub island_map {
   }
 }
 
+get '/island' => sub {
+  my $c = shift;
+  my $map = island_map($c);
+  if ($c->stash('format') || '' eq 'txt') {
+    $c->render(text => $map);
+  } else {
+    $c->render(template => 'edit', map => $map);
+  }
+};
+
 get '/island/random' => sub {
   my $c = shift;
   my $map = island_map($c);
@@ -4206,6 +4216,16 @@ sub archipelago_map {
     return Schroeder::Archipelago->with_roles('Schroeder::Square')->new()->generate_map(@params);
   }
 }
+
+get '/archipelago' => sub {
+  my $c = shift;
+  my $map = archipelago_map($c);
+  if ($c->stash('format') || '' eq 'txt') {
+    $c->render(text => $map);
+  } else {
+    $c->render(template => 'edit', map => $map);
+  }
+};
 
 get '/archipelago/random' => sub {
   my $c = shift;
@@ -5142,9 +5162,23 @@ No rooms with pillars
 
 <hr>
 
-<p>Reload
-<%= link_to url_for('islandrandom') => begin %>Hex Island<% end %>
-or <%= link_to url_for('islandrandom')->query(type => 'square') => begin %>Square Island<% end %>.
+<p>Ideas and work in progress…
+
+<p><%= link_to url_for('stars') => begin %>Stars<% end %> generates a star map.
+<%= link_to url_for('starsrandom') => begin %>Reload<% end %> for lots of random star maps.
+You'll find the map description in a comment within the SVG file.
+
+<p><%= link_to url_for('island') => begin %>Island<% end %> generates a hotspot-inspired island chain.
+Reload <%= link_to url_for('islandrandom') => begin %>Hex Island<% end %>
+or <%= link_to url_for('islandrandom')->query(type => 'square') => begin %>Square Island<% end %>
+for lots of random islands.
+You'll find the map description in a comment within the SVG file.
+
+<p><%= link_to url_for('archipelago') => begin %>Archipelago<% end %> is an experimenting with alternative hex heights.
+Reload <%= link_to url_for('archipelagorandom') => begin %>Hex Archipelago<% end %>
+or <%= link_to url_for('archipelagorandom')->query(type => 'square') => begin %>Square Archipelago<% end %>
+for lots of random archipelagos.
+You'll find the map description in a comment within the SVG file.
 
 @@ render.svg.ep
 
