@@ -3689,6 +3689,90 @@ sub to_gridmapper_link {
   return $url;
 }
 
+package Stars;
+
+use Modern::Perl '2018';
+use List::Util qw'shuffle';
+use Mojo::Base -base;
+
+has 'rows' => 10;
+has 'cols' => 8;
+
+sub generate_map {
+  my $self = shift;
+  # 20 + 1d10 systems from this 8×10 space
+  my @coordinates = (0 .. $self->rows * $self->cols - 1);
+  my @randomized =  shuffle(@coordinates);
+  my %systems = map { $_ => 1 } @randomized[0 .. 21 + int(rand(10))];
+  my $tiles = [map { $self->system($systems{$_}) } (@coordinates)];
+  my $comms = $self->comms(keys %systems);
+  return $self->to_text($tiles, $comms);
+}
+
+sub system {
+  my $self = shift;
+  my $n = shift;
+  return ["empty"] unless $n;
+  my $size = 2+int(rand(4)+rand(4));
+  return ["$size", qq{"$size"}];
+}
+
+sub xy {
+  my $self = shift;
+  my $i = shift;
+  my $y = int($i / $self->cols);
+  my $x = $i % $self->cols;
+  $log->debug("$i ($x, $y)");
+  return $x + 1, $y + 1;
+}
+
+# Possible connections between 1 2 3 4 5:
+# 1 -> 2 3 4 5
+# 2 -> 3 4 5
+# 3 -> 4 5
+# 4 -> 5
+sub comms {
+  my $self = shift;
+  $log->debug("@_");
+  my @systems = map { [$self->xy($_)] } @_;
+  use Data::Dumper;
+  my $from = shift(@systems);
+  my ($x1, $y1) = @$from;
+  my @comms;
+  while (@systems) {
+    for my $to (@systems) {
+      my ($x2, $y2) = @$to;
+      my $d = $self->distance($x1, $y1, $x2, $y2);
+      $log->debug(sprintf("%02d%02d-%02d%02d (d=$d)", $x1, $y1, $x2, $y2));
+      next if $d > 3;
+      next if $d > 1 and rand() < 0.5;
+      my $type = $d == 1 ? "trade" : "communication";
+      push(@comms, sprintf("%02d%02d-%02d%02d $type (d=$d)", $x1, $y1, $x2, $y2));
+    }
+    $from = shift(@systems);
+    ($x1, $y1) = @$from;
+  }
+  @comms = sort { substr($a, 10) cmp substr($b, 10) or $a cmp $b } @comms;
+  return \@comms;
+}
+
+sub to_text {
+  my $self = shift;
+  my $tiles = shift;
+  my $comms = shift;
+  my $text = "";
+  for my $x (0 .. $self->cols - 1) {
+    for my $y (0 .. $self->rows - 1) {
+      my $tile = $tiles->[$x + $y * $self->cols];
+      if ($tile) {
+	$text .= sprintf("%02d%02d @$tile\n", $x + 1, $y + 1);
+      }
+    }
+  }
+  $text .= join("\n", @$comms, "include $contrib/traveller.txt\n");
+  return $text;
+}
+
 package Mojolicious::Command::render;
 
 use Modern::Perl '2018';
@@ -4166,6 +4250,40 @@ get '/gridmapper/random' => sub {
 get '/gridmapper/random/text' => sub {
   my $c = shift;
   my $map = gridmapper_map($c);
+  $c->render(text => $map, format => 'txt');
+};
+
+
+sub star_map {
+  my $c = shift;
+  my $seed = $c->param('seed') || int(rand(1000000000));
+  my $pillars = $c->param('pillars') // 1;
+  my $rooms = $c->param('rooms') // 5;
+  srand($seed);
+  return Stars->with_roles('Schroeder::Hex')->new()->generate_map($pillars, $rooms);
+}
+
+get '/stars' => sub {
+  my $c = shift;
+  my $map = star_map($c);
+  if ($c->stash('format') || '' eq 'txt') {
+    $c->render(text => $map);
+  } else {
+    $c->render(template => 'edit', map => $map);
+  }
+};
+
+get '/stars/random' => sub {
+  my $c = shift;
+  my $map = star_map($c);
+  my $mapper = Mapper::Hex->new();
+  my $svg = $mapper->initialize($map)->svg;
+  $c->render(text => $svg, format => 'svg');
+};
+
+get '/stars/random/text' => sub {
+  my $c = shift;
+  my $map = star_map($c);
   $c->render(text => $map, format => 'txt');
 };
 
