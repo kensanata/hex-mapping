@@ -671,6 +671,7 @@ does that: it goes through the SVG and adds appropriate anchor elements.
 
 sub add_links {
   my $svg = shift;
+  $svg =~ s/<\?xml[^>]*>\s*//g; # remove processing instruction
   my $dom = Mojo::DOM->new($svg);
   $dom->find('g#coordinates text')
       ->each(sub {
@@ -1212,6 +1213,7 @@ sub describe {
 	  my $name = $line->{name};
 	  if (not $name) {
 	    $name ||= pick($map_data, $table_data, $level, $coordinates, $words, "name for $key", $redirects);
+	    $name =~ s/<[^>]+>//g; # strip HTML
 	    $line->{name} = $name;
 	  }
 	  push(@names, $name);
@@ -1243,6 +1245,7 @@ sub describe {
 	  $name = pick($map_data, $table_data, $level, $coordinates, $words, $word, $redirects);
 	  # $log->debug("... we picked a new name: $name") if $name;
 	  next unless $name;
+	  $name =~ s/<[^>]+>//g; # strip HTML
 	  push(@descriptions, $name);
 	  $line->{name} = $name;
 	  # name the first one without a name, don't keep adding names
