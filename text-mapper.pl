@@ -3727,6 +3727,11 @@ sub xy {
   return $x + 1, $y + 1;
 }
 
+sub label {
+  my ($self, $from, $to, $d, $label) = @_;
+  return sprintf("%02d%02d-%02d%02d $label", @$from, @$to);
+}
+
 # Possible connections between 1 2 3 4 5:
 # 1 -> 2 3 4 5
 # 2 -> 3 4 5
@@ -3740,21 +3745,59 @@ sub comms {
   my $from = shift(@systems);
   my ($x1, $y1) = @$from;
   my @comms;
+  my @trade;
   while (@systems) {
     for my $to (@systems) {
       my ($x2, $y2) = @$to;
       my $d = $self->distance($x1, $y1, $x2, $y2);
-      $log->debug(sprintf("%02d%02d-%02d%02d (d=$d)", $x1, $y1, $x2, $y2));
-      next if $d > 3;
-      next if $d > 1 and rand() < 0.5;
-      my $type = $d == 1 ? "trade" : "communication";
-      push(@comms, sprintf("%02d%02d-%02d%02d $type (d=$d)", $x1, $y1, $x2, $y2));
+      push(@trade, [$from, $to, $d]) if $d == 1;
+      push(@comms, [$from, $to, $d]);
     }
     $from = shift(@systems);
     ($x1, $y1) = @$from;
   }
-  @comms = sort { substr($a, 10) cmp substr($b, 10) or $a cmp $b } @comms;
-  return \@comms;
+  @comms = sort map { $self->label(@$_, "communication") } @{$self->minimal_spanning_tree(@comms)};
+  @trade = sort map { $self->label(@$_, "trade") } @trade;
+  return [sort @trade, @comms];
+}
+
+
+sub minimal_spanning_tree {
+  # http://en.wikipedia.org/wiki/Kruskal%27s_algorithm
+  my $self = shift;
+  # Initialize a priority queue Q to contain all edges in G, using the
+  # weights as keys.
+  my @Q = sort { @{$a}[2] <=> @{$b}[2] } @_;
+  # Define a forest T ← Ø; T will ultimately contain the edges of the MST
+  my @T;
+  # Define an elementary cluster C(v) ← {v}.
+  my %C;
+  my $id;
+  foreach my $edge (@Q) {
+    # edge u,v is the minimum weighted route from u to v
+    my ($u, $v) = @{$edge};
+    # prevent cycles in T; add u,v only if T does not already contain
+    # a path between u and v; also silence warnings
+    if (not $C{$u} or not $C{$v} or $C{$u} != $C{$v}) {
+      # Add edge (v,u) to T.
+      push(@T, $edge);
+      # Merge C(v) and C(u) into one cluster, that is, union C(v) and C(u).
+      if ($C{$u} and $C{$v}) {
+	my @group;
+	foreach (keys %C) {
+	  push(@group, $_) if $C{$_} == $C{$v};
+	}
+	$C{$_} = $C{$u} foreach @group;
+      } elsif ($C{$v} and not $C{$u}) {
+	$C{$u} = $C{$v};
+      } elsif ($C{$u} and not $C{$v}) {
+	$C{$v} = $C{$u};
+      } elsif (not $C{$u} and not $C{$v}) {
+	$C{$v} = $C{$u} = ++$id;
+      }
+    }
+  }
+  return \@T;
 }
 
 sub to_text {
