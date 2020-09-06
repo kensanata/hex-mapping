@@ -4888,7 +4888,7 @@ and think through some of the operations.
     0205-0103-0202-0303-0402 road
     0101-0203 river
     0401-0303-0403 border
-    include file:///home/alex/src/hex-mapping/contrib/default.txt
+    include https://campaignwiki.org/contrib/default.txt
     license <text>Public Domain</text>
 
 Basically, we're adding and removing rows and columns using the left, top,
@@ -4914,7 +4914,7 @@ The mountains at 0101 thus turn into mountains at 0301.
     0405-0303-0402-0503-0602 road
     0301-0403 river
     0601-0503-0603 border
-    include file:///home/alex/src/hex-mapping/contrib/default.txt
+    include https://campaignwiki.org/contrib/default.txt
     license <text>Public Domain</text>
 
 Conversely, “left -2” means removing the two columns at the left. The mountains
@@ -4931,7 +4931,7 @@ at 0101 and the pyramid at 0201 would therefore disappear and the woodland at
     0302 sand "sand"
     0005--0103-0002-0103-0202 road
     0201-0103-0203 border
-    include file:///home/alex/src/hex-mapping/contrib/default.txt
+    include https://campaignwiki.org/contrib/default.txt
     license <text>Public Domain</text>
 
 The tricky part is when “add empty” is not checked and you first add two columns
@@ -4951,7 +4951,7 @@ in 0301.
     0502 sand "sand"
     0205-0103-0202-0303-0402 road
     0401-0303-0403 border
-    include file:///home/alex/src/hex-mapping/contrib/default.txt
+    include https://campaignwiki.org/contrib/default.txt
     license <text>Public Domain</text>
 
 This problem disappears if you check “add empty” as you add the two columns
@@ -4989,7 +4989,7 @@ getting two empty columns on the left:
     0301-0403 river
     0405-0303-0402-0503-0602 road
     0601-0503-0603 border
-    include file:///home/alex/src/hex-mapping/contrib/default.txt
+    include https://campaignwiki.org/contrib/default.txt
     license <text>Public Domain</text>
 
 When you remove two columns in the second step, you’re removing the two empty
@@ -5020,7 +5020,7 @@ use this option if you want those empty hexes added…
     0101-0203 river
     0205-0103-0202-0303-0402 road
     0401-0303-0403 border
-    include file:///home/alex/src/hex-mapping/contrib/default.txt
+    include https://campaignwiki.org/contrib/default.txt
     license <text>Public Domain</text>
 
 =head2 Configuration
