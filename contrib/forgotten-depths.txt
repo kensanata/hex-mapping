@@ -45,7 +45,7 @@
 0601 jungle "beastkin"
 0602 jungle "sasquatch"
 0603 wetland "abandoned factory"
-0604 wetland skull pyramid"
+0604 wetland "skull pyramid"
 0605 coast "mudbugs"
 0606 jungle
 0607 jungle
