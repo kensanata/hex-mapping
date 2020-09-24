@@ -10397,7 +10397,7 @@
 
 ;witch attic
 1,her *chest of replenishing curses*. The inscription reads: "Do not open!" Opening the chest releases all her stored curses. Anybody interested in the chest must save vs. spells or be cursed by one of the following: 1. *weakness* (strength 3); 2. *shakes* (dexterity 3); 3. *wheezing cough* (constitution 3); 4. *stupidity* (intelligence 3); 5. *foolishness* (wisdom 3); 6. *foul tongue* (charisma 3); 7. *sloth* (every odd roll on a d20 is an automatic fail); 8. *lunacy* (whenever you see dogs or wolves, drop everything you are carrying, howl like mad and run for the woods to live with your kin); 9. *paranoia* (do not trust your friends, not accept their help, do not help them); 10. *swan* (turn into a swan); 11. *frog* (turn into a frog); 12. *martyrdom* (take blows for everybody, sacrifice yourself if possible).
-1,soul-dead lover in a cage. This is *[man]*, his mind long gone, his hairless body tortured and nursed back to life so many times it has achieved a waxy sheen.
+1,her soul-dead lover in a cage. This is *[man]*, his mind long gone, his hairless body tortured and nursed back to life so many times it has achieved a waxy sheen.
 1,a terrible mobile of baby skulls and rib cages, artfully arranged and carefully balanced such that the slightest whiff sets it in motion, the hollow knocking of the tiny skulls producing a soothing rhythm.
 1,a small altar of *[here evil power as temple power]*, surrounded by a hundred *eternal candles* and the names of three demons inscribed on blood soaked paper. They all owe her a boon for babies trafficked: *[demon name]*, *[demon name]*, and *[demon name]* ([vulture demon stats]).
 1,her *guard broom*, a strong willed broom that will attack intruders and raise a ruckus ([animate object stats]).
@@ -10472,7 +10472,7 @@
 1,[swamp intro] [swamp dressing] You need a boat and a guide to navigate these waterways. If you travel on foot, you’ll soon attract the attention of [1d6 crocodiles]. [maybe island barrow]
 1,[swamp intro] If you drink the water here, save vs. poison or spend the rest of the day vomiting. These lakes are home to [3d12] **swamp cranes** ([swamp crane stats]). Their dung is poisonous to most creatures on land. [maybe island barrow]
 1,[swamp intro] [swamp dressing] An abandoned temple of *[power]* stands here, half sunk. The acrid stench is overwhelming. On the small piece of solid ground rising above the water you can see [what you can see of the sunken temple] A **gorgon** has cursed this temple with its presence ([gorgon stats]). [terror treasure]
-1,[swamp intro] [swamp dressing] There’s a wooden hut here. Its inhabitant appears to be a hermit called [human with portrait]. In actual fact, this is a **doppelgänger** ([doppelgänger stats]). [poor treasure] It will try and see whether it can replace one of the party members and leave the area with you. [maybe barrow]
+1,[swamp intro] [swamp dressing] There’s a wooden hut here. Its inhabitant appears to be a friendly hermit called [human with portrait]. You are invited to stay for the night and have some dinner. This is actually a **doppelgänger** ([doppelgänger stats]). [poor treasure] It will try to lure one of the party members away by [doppelgänger ruse]. Once a party member is alone, [same human name] attacks and tries to replace their victim, leaving the area with the party. [maybe barrow]
 1,[swamp intro] [swamp dressing] The waterways eventually lead to a wooden fort rising out of the water, inhabited by [4d6] **hobgoblins** ([hobgoblin stats]) and led by *[hobgoblin]* (HD 3+1). The fort is defended by [hobgoblin companions]. [robber treasure]
 1,This section of the [forest name] swamp is a well known death trap. The trees are older here. They remember every axe wielder, every ship builder, every carpenter, every fire maker, and they hate them with the hate of the primal forest. These trees are protected by [1d8 treants] ([treant stats]) who would like nothing better than to squash anybody capable of wielding tools. [maybe barrow]
 1,[swamp ettercaps]
@@ -10728,6 +10728,13 @@
 # 1d6 jewelry
 1,a [precious metal mat] [metal jewelry singular]
 5,[1d5+1] [precious metal mat] [metal jewelry plural]
+
+;doppelgänger ruse
+1,inviting them for a romantic stroll, alone
+1,telling them about a nearby strange pool of moon light they’d like to show you – just you, sorry
+1,asking them for help to catch the their chicken *Hilda*
+1,telling them about a rune stone on a nearby island and they have a hidden row boat with just two seats
+1,ridiculing them for not daring to swim through these crocodile infested waters
 
 ;doppelgänger stats
 1,HD 4 AC 5 1d12 F10 MV 9 ML 10 XP 400; *shape change* at will
