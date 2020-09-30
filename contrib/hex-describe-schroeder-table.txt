@@ -16171,7 +16171,7 @@
 
 ;a sight of Niflheim
 1,Overhead, grey clouds are blowing over the *[dark forest]* covered in snow. This is Niflheim, the land of eternal winter. [nearest objective in Niflheim]
-1,It is dark, outside. You are surrounded by the giant trees of the *[dark forest]*. Overhead, there is a giant yellow moon. This is the *[dark forest]*. Wolves are howling in the distance. Soon, they’ll pick up your trail. [wolves or worse].<p>[nearest objective in Niflheim]
+1,It is dark, outside. You are surrounded by the giant trees of the *[dark forest]*. Overhead, there is a giant yellow moon. Wolves are howling in the distance. Soon, they’ll pick up your trail. [wolves or worse].<p>[nearest objective in Niflheim]
 1,An acrid stench lies in the air. The outside world is covered in a warm, yellow fog that smells of metal, of burned flesh, of acid rain. A soft wind moves back and forth. This is the breadth of *Niđhöggr*, the gargantuan dragon sleeping amidst the roots of *Yggdrasil* somewhere down here in Niflheim, forever poisoning the world tree.<p>[nearest objective in Niflheim]
 1,Icicles hang from giant trees and the cold is piercing. The stunted growth of the *[dark forest]* around you is covered in snow.<p>[nearest objective in Niflheim]
 
