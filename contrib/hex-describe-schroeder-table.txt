@@ -6161,14 +6161,14 @@
 1,Near the edge of the lake, surrounded by willows, [an old statue] of *[power]* still stands.
 
 ;lake inhabitants
-1,[2d20] **nixies** led by *[nixie]* live here ([nixie stats]). [poor treasure] They are worried about [nixie problem]
+1,[2d20] **nixies** led by *[nixie]* live here ([nixie stats]). [poor treasure] [nixie problem]
 1,[2d4] very polite **turtle people** led by *[turtle name]* live here ([turtle people stats]). [poor treasure] They are of the *[turtle clan name]* clan. These turtle people are [turtle people activity].
 1,<p>[green tower in this lake]
 
 ;nixie problem
-1,a herd of *centaurs* that have been carousing in the area and scaring away the wildlife.</p><blockquote>The lake shore has become the home of [centaurs].</blockquote><p>
-1,rumors of a *chimera* that has made his lair in a nearby cave.</p><blockquote>The **chimera** is guarding an iron wrought gate decorated with [Niflheim decoration] leading to *Niflheim* ([chimera stats])</blockquote><p>
-1,a clan of *dwarves* that is erecting a waterwheel at the other end of the lake.</p><blockquote>Actually, this is going to get worse. The waterwheel is just the beginning: they are trying to start a small forge! [5d8] **dwarves** work and live here ([dwarf stats]), led by [dwarf with portrait] (level [1d6+2 as level]). [luxurious context] [dwarven treasure]</blockquote><p>
+1,A herd of *centaurs* have been carousing in the area and scaring away the wildlife.<p>The lake shore has become the home of [centaurs].<p>
+1,A *chimera* is guarding a cave on the island of their lake, terrorising them.<p>The **chimera** is guarding an iron wrought gate decorated with [Niflheim decoration] leading to *Niflheim* ([chimera stats])<p>[road to Niflheim]
+1,A clan of *dwarves* is erecting a waterwheel at the other end of the lake.<p>Actually, this is going to get worse. The waterwheel is just the beginning: they are trying to start a small forge! [5d8] **dwarves** work and live here ([dwarf stats]), led by [dwarf with portrait] (level [1d6+2 as level]). [luxurious context] [dwarven treasure]<p>
 
 ;nixie stats
 1,HD 1 AC 7 1d4 F1 MV 12 ML 6 XP 100; *charm*, *water breathing*
@@ -13476,7 +13476,7 @@
 # These are the fir forests next to thorps (thorps themselves are firs)
 ;fir-forest
 1,[fir highlands] The land up here is the hunting ground of a **manticore** called *[manticore]* living in the ruins of an old tower overlooking the area ([manticore stats]). [robber treasure] [maybe barrow]
-1,[fir highlands] This fir forest is home to a pack of [3d6] **wolves** ([wolf stats]). [maybe barrow] [forest event]
+1,[fir highlands] This fir forest is home to a pack of [3d6] **wolves** ([wolf stats]).<p>These wolves are blessed by Hel. At night, they sleep in the [Niflheim cave]. At the far end of the cave is an iron gate decorated with [Niflheim decoration]. It is guarded by a **chimera** ([chimera stats]) for it leads to *Niflheim*…<p>[road to Niflheim]
 1,[fir highlands] At dusk and dawn, you can sometimes see [boars]. [maybe barrow] [forest event]
 1,[fir highlands] There is a cave housing the **ettin** called *[ettin]* ([ettin stats]). [robber treasure] [maybe barrow] [forest event]
 1,[fir highlands] At the foot of [crag name], there is a cave inhabited by [1d8 trolls] ([troll stats]). [robber treasure] [maybe barrow] [forest event]
@@ -16132,7 +16132,7 @@
 1,These trolls are the very trolls that helped the founders settle this area and their safety is part of a covenant as old as the settlement itself.
 1,These trolls are called the Children of Hel and they are sacred. Their contact with the settlement being passed down from generation to generation. The current troll friend is **[human name]**.
 1,These trolls are the true priests of Hel.
-1,These trolls guard a secret passage to the realm of snow and black forests itself, to Niflheim. The gate to Niflheim itself at the end of this passage is further guarded by a [gate monster].
+1,The temple is dug deep into the rocks below. Unbeknownst to most, the caves down here are inhabited by [1d4+2] trolls led by *[troll]* ([troll stats]). [robber treasure] Human bones are everywhere.
 
 ;gate monster
 1,**cryohydra** ([cryohydra stats])
@@ -16143,6 +16143,55 @@
 
 ;chimera stats
 1,HD 6 AC 5 1d6/1d6/1d10/2d10 or *fire* F6 MV 9 ML 10 XP 600; *fire* (3×/day): as much as the chimera has hp left, save vs. dragon breath for half; <span class="treasure">*chimera blood* is worth 5000gp to an alchemist</span>[here store chimera blood as alchemist quest]
+
+;Niflheim cave
+1,*[Cave|Cavern|Maw] of [Groaning|Howling|Whispering] [Wolves|Ice|Snow|Rocks]*
+1,painted *[Cave|Cavern] of [Wolves|Horses|Mountain Lions]*, decorated with animals
+1,painted *[Cave|Cavern] of [the Red Plague|Blood Rain|[wight realm]]*, full of red lakes and countless dead human silhouettes
+1,painted *[Cave|Cavern] of [Men|Women|Hunters|Gatherers]*, full of red [hand stencils|human figures]
+
+;road to Niflheim
+1,[with tunnel to Niflheim] [road to Niflheim obstacle]<p>[with tunnel to Niflheim] [exit to Niflheim]
+
+;tunnel to Niflheim
+1,The tunnel is wide, the walls are black. It winds itself ever further down into the bowls of the earth.
+1,The tunnel walls are made of stone but overgrown and split by gargantuan roots. The power of Yggdrasil is all around you.
+1,The tunnel walls drop away into a black void and all you are left with is a stone bridge spanning the emptiness until it comes to apparently endless wall. There, the tunnel continues.
+1,The tunnel turns into a passage hewn into the walls of a chimney descending straight into the endless netherworld. It goes on for hours before you finally reach the bottom and the tunnel resumes.
+
+;road to Niflheim obstacle
+1,There are bigger caverns to cross every now and then. Bats can be heard overhead and their excrement covers the floor. This particular cave, however, also hosts a family of [3d6] **wolf spiders** ([giant spider stats]).
+1,The tunnel opens out onto the bark of Yggdrasil, the world tree. The black void surrounds you. A path along the contorted roots leads you further down, into a little hollow where you can see a fire burning. The entry of the next tunnel appears to be guarded. [Yggdrasil raiders]
+
+;Yggdrasil raiders
+1,[save 1d6+1 as level][save spellbook for elves][3d12] **tree elves** ([elf stats]) led by [wood|tree|night|moon] [guardian|prince|princess|custodian] [elf with portrait] (level [same level]). [same spellbook for elves] [leader treasure] [ancient treasure] [elf travelling companions]
+
+;exit to Niflheim
+1,Finally, you reach a black lake in a giant cavern, the walls covered in green ice. Far above, there’s a round opening and from it descends a long iron chain with a big bucket at it’s end. Anybody entering the bucket is carried up, but there’s no boat to carry anybody out into the cold lake towards the elevator bucket. The bucket itself is operated by [1d8 trolls] ([troll stats]) living up above, at the behest of Hel.<p>[a sight of Niflheim]
+
+;a sight of Niflheim
+1,Overhead, grey clouds are blowing over the *[dark forest]* covered in snow. This is Niflheim, the land of eternal winter. [nearest objective in Niflheim]
+1,It is dark, outside. You are surrounded by the giant trees of the *[dark forest]*. Overhead, there is a giant yellow moon. This is the *[dark forest]*. Wolves are howling in the distance. Soon, they’ll pick up your trail. [wolves or worse].<p>[nearest objective in Niflheim]
+1,An acrid stench lies in the air. The outside world is covered in a warm, yellow fog that smells of metal, of burned flesh, of acid rain. A soft wind moves back and forth. This is the breadth of *Niđhöggr*, the gargantuan dragon sleeping amidst the roots of *Yggdrasil* somewhere down here in Niflheim, forever poisoning the world tree.<p>[nearest objective in Niflheim]
+1,Icicles hang from giant trees and the cold is piercing. The stunted growth of the *[dark forest]* around you is covered in snow.<p>[nearest objective in Niflheim]
+
+;nearest objective in Niflheim
+1,In the [direction], you can see the *[dark mountain]*. On it lives the troll-king *[troll name]* with his [3d8] **trolls** ([troll stats]), [2d6] **harpies** [harpy stats], and his entourage of harpies, eternally feasting, served and defended by his [1d6x10] **human slaves** ([human stats]). [rich treasure]
+1,In the [direction], you can see a fantastic jumble of walls, gates, moat, towers with gallows jutting out over the waters, swinging cages holding the dead and the living near the bridges, ravens on every rooftop. This festering castle is *Ejudnir*, Hel’s hall in Niflheim, guarded by [2d6x100] **trolls** ([troll stats]), watched over by [2d6x10] **harpies** ([harpy stats]), and filled with ten thousand despairing souls of cowards and the weak, moaning.<p>Truly, this is hell.
+
+;dark forest
+1,[Dark|Black|Troll] [Forest|Wood]
+1,[Forest|Wood] of [the Night|Winter|Snow|Ice|Ash|Lead]
+1,[Forest|Wood] of [Endless|Eternal|Unending] [Despair|Hopelessness|Loss]
+1,[Forest|Wood] of the [dark mountain]
+
+;dark mountain
+1,[Singing|Trembling|Weeping|Bleeding|Whispering] [Stone|Rock|Column|Mountain|Cave][|s]
+1,[Needle|Mountain|Peak] of [Chained|Bound|Imprisoned|Cursed|Forgotten|Crushed] [Souls|Men|Women|Humans|Children]
+
+;wolves or worse
+1,[3d8] **wolves** ([wolf stats])
+1,[2d6] **winter wolves** ([winter wolf stats])
 
 ;small temple dedicated to Freya
 1,[small temple]
