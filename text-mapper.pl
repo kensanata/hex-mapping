@@ -3690,6 +3690,73 @@ sub to_gridmapper_link {
   return $url;
 }
 
+package Apocalypse;
+
+use Modern::Perl '2018';
+use List::Util qw'shuffle';
+use Mojo::Base -base;
+
+has 'rows' => 10;
+has 'cols' => 20;
+has 'region_size' => 5;
+has 'settlement_chance' => 0.1;
+
+my @tiles = qw(forest desert mountain jungle swamp grass);
+my @settlements = qw(ruin fort);
+
+sub generate_map {
+  my $self = shift;
+  my @coordinates = shuffle(0 .. $self->rows * $self->cols - 1);
+  my $seeds = $self->rows * $self->cols / $self->region_size;
+  my $tiles = [];
+  $tiles->[$_] = [$tiles[int(rand(@tiles))]] for splice(@coordinates, 0, $seeds);
+  $tiles->[$_] = [$self->close_to($_, $tiles)] for @coordinates;
+  # warn "$_\n" for $self->neighbours(@coordinates[0]);
+  # $tiles->[$_] = ["red"] for $self->neighbours(@coordinates[0]);
+  for my $tile (@$tiles) {
+    push(@$tile, $settlements[int(rand(@settlements))]) if rand() < $self->settlement_chance;
+  }
+  return $self->to_text($tiles);
+}
+
+sub neighbours {
+  my $self = shift;
+  my $coordinate = shift;
+  my @offsets;
+  if ($coordinate % 2) {
+    @offsets = shuffle(-1, +1, -$self->cols, $self->cols, $self->cols -1, $self->cols +1);
+  } else {
+    @offsets = shuffle(-1, +1, -$self->cols, $self->cols, -$self->cols -1, -$self->cols +1);
+  }
+  return map { ($coordinate + $_) % ($self->rows * $self->cols) } @offsets;
+}
+
+sub close_to {
+  my $self = shift;
+  my $coordinate = shift;
+  my $tiles = shift;
+  for ($self->neighbours($coordinate)) {
+    return $tiles->[$_]->[0] if $tiles->[$_];
+  }
+  return $tiles[int(rand(@tiles))];
+}
+
+sub to_text {
+  my $self = shift;
+  my $tiles = shift;
+  my $text = "";
+  for my $x (0 .. $self->cols - 1) {
+    for my $y (0 .. $self->rows - 1) {
+      my $tile = $tiles->[$x + $y * $self->cols];
+      if ($tile) {
+	$text .= sprintf("%02d%02d @$tile\n", $x + 1, $y + 1);
+      }
+    }
+  }
+  $text .= "\ninclude $contrib/apocalypse.txt\n";
+  return $text;
+}
+
 package Stars;
 
 use Modern::Perl '2018';
@@ -4318,14 +4385,42 @@ get '/gridmapper/random/text' => sub {
   $c->render(text => $map, format => 'txt');
 };
 
+sub apocalypse_map {
+  my $c = shift;
+  my $seed = $c->param('seed') || int(rand(1000000000));
+  srand($seed);
+  return Apocalypse->with_roles('Schroeder::Hex')->new()->generate_map();
+}
+
+get '/apocalypse' => sub {
+  my $c = shift;
+  my $map = apocalypse_map($c);
+  if ($c->stash('format') || '' eq 'txt') {
+    $c->render(text => $map);
+  } else {
+    $c->render(template => 'edit', map => $map);
+  }
+};
+
+get '/apocalypse/random' => sub {
+  my $c = shift;
+  my $map = apocalypse_map($c);
+  my $mapper = Mapper::Hex->new();
+  my $svg = $mapper->initialize($map)->svg;
+  $c->render(text => $svg, format => 'svg');
+};
+
+get '/apocalypse/random/text' => sub {
+  my $c = shift;
+  my $map = apocalypse_map($c);
+  $c->render(text => $map, format => 'txt');
+};
 
 sub star_map {
   my $c = shift;
   my $seed = $c->param('seed') || int(rand(1000000000));
-  my $pillars = $c->param('pillars') // 1;
-  my $rooms = $c->param('rooms') // 5;
   srand($seed);
-  return Stars->with_roles('Schroeder::Hex')->new()->generate_map($pillars, $rooms);
+  return Stars->with_roles('Schroeder::Hex')->new()->generate_map();
 }
 
 get '/stars' => sub {
@@ -5207,6 +5302,10 @@ No rooms with pillars
 <hr>
 
 <p>Ideas and work in progress…
+
+<p><%= link_to url_for('apocalypse') => begin %>Apocalypse<% end %> generates a post-apocalyptic map.
+<%= link_to url_for('apocalypserandom') => begin %>Reload<% end %> for lots of post-apocalyptic maps.
+You'll find the map description in a comment within the SVG file.
 
 <p><%= link_to url_for('stars') => begin %>Stars<% end %> generates a star map.
 <%= link_to url_for('starsrandom') => begin %>Reload<% end %> for lots of random star maps.
