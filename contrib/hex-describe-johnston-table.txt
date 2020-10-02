@@ -1,5 +1,5 @@
 # The Post-Apocalyptic table
-# Written by Josh Johnston
+# Written by Josh Johnston and Alex Schroeder
 
 ;forest
 1,The trees surround you and grow towards the sun in tight spirals.
@@ -28,8 +28,8 @@
 1,The swamp reeks of dead bodies and ruin. Unknown creatures shriek in the distance.
 
 ;grass
-1,The grasses hum with a radioactive intensity.
-1,There seems to be no end to the neon pink grasslands.
+1,The grasses hum with a radioactive intensity. [grass people]
+1,There seems to be no end to the neon pink grasslands. [grass people]
 1,Neon pink grass stretches in all directions. Large buzzing insects hover menacingly.
 1,Two meter tall crickets chew the rainbow grass contentedly.
 
@@ -42,3 +42,31 @@
 ;fort
 1,An old Police station has been repurposed into a crumbling shelter. Several figures can be seen moving through the shadows. There is a large laser weapon on the roof.
 1,A collapsing crater hides an entrance to a well fortified station.
+
+# Grass lands
+
+;grass people
+1,There is a camp of [25+3d6] **bovinoids** ([bovinoid stats]) of the [bovinoid tribe name] led by [bovinoid name] (HD 3+3). They are herding [herd animal]. [bovinoid trouble]
+
+;bovinoid name
+1,*[Mad|Chill|Strong|Calm] [Bull|Cow|Horns|Head|Father|Mother]*
+
+;bovinoid tribe name
+1,*The [Twinkling|Shining|Blinking] [Stars|Planets|Moon] [People|Tribe|Clan]*
+
+;bovinoid stats
+1,AC 8 HD 1+1 1d6 MV 120; a successful charge of 16+ throws the target 10’ back and prone
+
+;herd animal
+1,llama
+1,cattle
+1,sheep
+1,goats
+1,buffalos
+
+;bovinoid trouble
+1,A pride of **lions** ([lion stats]) has found that [same herd animal] hunting is super easy. [same bovinoid name] is asking you for help.
+
+;lion stats
+1,HD 5 AC 6 1d6/1d6/1d10 MV 150; surprise on 1–4 in 6
+
