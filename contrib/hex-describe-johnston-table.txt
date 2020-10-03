@@ -2,7 +2,7 @@
 # Written by Josh Johnston and Alex Schroeder
 
 ;forest
-1,The trees surround you and grow towards the sun in tight spirals.
+1,The trees surround you and grow towards the sun in tight spirals. [forest people]
 1,The forest is quiet except for the sound of two mutated animals ripping each other apart.
 1,Strange looking birds call out high above the trees.
 1,An occasional eye stalk pokes through the mounds of pine needles.
@@ -48,17 +48,18 @@
 1,This ancient manufacturing city covers several square miles. The sounds of machinery echo from some of the larger buildings. Have the robots been running their programs since the Cataclysm?
 
 ;fort
-1,An old Police station has been repurposed into a crumbling shelter. Several figures can be seen moving through the shadows. There is a large laser weapon on the roof. [fort people]
-1,A collapsing crater hides an entrance to a well fortified station. [fort people]
+1,<p>An old Police station has been repurposed into a crumbling shelter. Several figures can be seen moving through the shadows. There is a large laser weapon on the roof. [fort people]
+1,<p>A collapsing crater hides an entrance to a well fortified station. [fort people]
 
 ;cave
-1,The cave entrance is barely big enough to squeeze into. The smell is overpowering and impossible to identify.
-1,This cave system stretches for many hundreds of meters in different directions. It looks to have been abandoned long ago. Hopefully the radiation levels aren't as high underground.
+1,<p>There is a hidden cave entrance barely big enough to squeeze into. The smell is overpowering and impossible to identify. [cave people]
+1,<p>There’s an entrance to one of the old radiation shelters, here. This cave system stretches for many hundreds of meters in different directions. It looks to have been abandoned long ago. [cave people]
 
 # Grass lands
 
 ;grass people
 1,There is a camp of [3d6+25] **bovinoids** ([bovinoid stats]) of the *[bovinoid tribe name]* led by *[bovinoid name]* (HD 3+3). They are herding [herd animal]. [bovinoid trouble]
+1,There’s a camp of [3d6+25] **[here humanoid raiders as raiders]** ([human stats]) led by *[human fancy name]* (TODO).
 
 ;bovinoid name
 1,[Mad|Chill|Strong|Calm] [Bull|Cow|Horns|Head|Father|Mother]
@@ -81,6 +82,20 @@
 
 ;lion stats
 1,HD 5 AC 6 1d6/1d6/1d10 MV 150; surprise on 1–4 in 6
+
+# Forest
+
+;forest people
+1,There’s a camp of [3d6+15] **[here ursoid raiders as raiders]** ([ursoid stats]) led by *[bear name]* (TODO).
+
+;ursoid stats
+1,TODO
+
+;bear name
+1,Honey
+1,Claw
+1,Bear
+1,Strong
 
 # Forts
 
@@ -478,6 +493,277 @@
 1,Kayla
 1,Bradley
 1,Charlotte
+
+# Caves
+
+;cave people
+1,The [1d6x10] **morlocks** ([morlock stats])living in these caves have no access to the deeper levels. All they seek is shelter from the elements and a defensible home. At night, they emerge from the underground to do their hunting and gathering. [morlock witch]<p>[morlock trouble]
+
+;morlock stats
+1,TODO
+
+;morlock witch
+1,They are led by *[morlock name]* the **morlock witch** (TODO), a natural [necromant|healer|bat person].
+
+;morlock trouble
+1,The morlocks are being harassed on a regular bases by a band of [nearby raiders]. *[same morlock name]* asks you to help out: [“Soon they’ll be back. Help us defend these caves!”|“We must confront our enemies. Help us attack their camp!”]
+
+;morlock name
+1,According
+1,Account
+1,Activity
+1,Actually
+1,Addition
+1,Administration
+1,Afternoon
+1,Against
+1,Agreement
+1,Already
+1,Although
+1,America
+1,Analysis
+1,Another
+1,Anything
+1,Apparently
+1,Appear
+1,Apply
+1,Approach
+1,Association
+1,Attention
+1,Attitude
+1,Audience
+1,Available
+1,Average
+1,Beautiful
+1,Because
+1,Beginning
+1,Believe
+1,Between
+1,Bring
+1,Building
+1,Business
+1,Carry
+1,Central
+1,Century
+1,Certain
+1,Changes
+1,Character
+1,Clear
+1,College
+1,Committee
+1,Community
+1,Company
+1,Complete
+1,Concern
+1,Condition
+1,Congress
+1,Consider
+1,Continue
+1,Control
+1,Country
+1,Current
+1,Decide
+1,Decision
+1,Defence
+1,Democrat
+1,Department
+1,Describe
+1,Design
+1,Despite
+1,Determine
+1,Develop
+1,Development
+1,Difference
+1,Different
+1,Difficult
+1,Direction
+1,Directly
+1,Distance
+1,District
+1,Division
+1,Early
+1,Economic
+1,Education
+1,Effect
+1,Effective
+1,Effort
+1,Element
+1,English
+1,Equipment
+1,Establish
+1,Evening
+1,Everything
+1,Evidence
+1,Example
+1,Existence
+1,Expectation
+1,Experience
+1,Factor
+1,Federal
+1,Feeling
+1,Figure
+1,Finally
+1,Follow
+1,Foreign
+1,Forward
+1,Freedom
+1,Friend
+1,Function
+1,Further
+1,General
+1,Government
+1,Great
+1,Grow
+1,History
+1,Hospital
+1,However
+1,Immediately
+1,Important
+1,Include
+1,Increase
+1,Indicate
+1,Individual
+1,Industry
+1,Influence
+1,Information
+1,Instead
+1,Interest
+1,International
+1,Involve
+1,Justice
+1,Knowledge
+1,Language
+1,Leader
+1,Learn
+1,Letter
+1,Limited
+1,Literature
+1,Look
+1,Material
+1,Meaning
+1,Medic
+1,Meeting
+1,Member
+1,Method
+1,Military
+1,Million
+1,Minute
+1,Morning
+1,Movement
+1,National
+1,Natural
+1,Necessary
+1,Neither
+1,Nothing
+1,Nuclear
+1,Number
+1,Obtain
+1,Obviously
+1,Operation
+1,Opportunity
+1,Organization
+1,Outside
+1,Particular
+1,Pattern
+1,Performance
+1,Perhaps
+1,Person
+1,Personal
+1,Physical
+1,Picture
+1,Political
+1,Population
+1,Position
+1,Possible
+1,Present
+1,President
+1,Pressure
+1,Principle
+1,Private
+1,Probably
+1,Problem
+1,Process
+1,Product
+1,Production
+1,Professional
+1,Program
+1,Progress
+1,Property
+1,Provide
+1,Purpose
+1,Quality
+1,Question
+1,Reach
+1,Reaction
+1,Read
+1,Receive
+1,Recently
+1,Religion
+1,Remain
+1,Remember
+1,Report
+1,Republican
+1,Require
+1,Research
+1,Respect
+1,Responsibility
+1,Result
+1,Return
+1,Running
+1,School
+1,Science
+1,Secretary
+1,Section
+1,Serious
+1,Service
+1,Several
+1,Similar
+1,Situation
+1,Society
+1,Something
+1,Sometime
+1,Somewhat
+1,Special
+1,Specific
+1,Standard
+1,Start
+1,Statement
+1,Station
+1,Stop
+1,Straight
+1,Strength
+1,Student
+1,Subject
+1,Suddenly
+1,Suggest
+1,Support
+1,Surface
+1,System
+1,Technical
+1,Temperature
+1,Therefore
+1,Thinking
+1,Thought
+1,Throughout
+1,Together
+1,Training
+1,Treatment
+1,Trouble
+1,Understand
+1,University
+1,Usually
+1,Various
+1,Waiting
+1,Washington
+1,Western
+1,Whatever
+1,Whether
+1,William
+1,Without
+1,Working
+1,Writing
+
+
 
 # General
 
