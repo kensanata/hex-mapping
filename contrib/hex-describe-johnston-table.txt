@@ -49,7 +49,7 @@
 
 ;fort
 1,An old Police station has been repurposed into a crumbling shelter. Several figures can be seen moving through the shadows. There is a large laser weapon on the roof. [fort people]
-1,A collapsing crater hides an entrance to a well fortified station.
+1,A collapsing crater hides an entrance to a well fortified station. [fort people]
 
 ;cave
 1,The cave entrance is barely big enough to squeeze into. The smell is overpowering and impossible to identify.
