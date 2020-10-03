@@ -1372,7 +1372,7 @@ sub describe {
     } elsif ($word =~ /^here (.+?)(?: as (.+))?$/) {
       my ($key, $alias) = ($1, $2);
       my $text = pick($map_data, $table_data, $level, $coordinates, $words, $key, $redirects);
-      next unless $text;
+      $text //= $key;
       $locals{$key} = $text;
       $locals{$alias} = $text if $alias;
       $globals->{$key}->{$coordinates} = $text;
