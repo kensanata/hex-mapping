@@ -3,7 +3,7 @@
 
 ;forest
 1,The trees surround you and grow towards the sun in tight spirals.
-1,THe forest is quiet except for the sound of two mutated animals ripping each other apart.
+1,The forest is quiet except for the sound of two mutated animals ripping each other apart.
 1,Strange looking birds call out high above the trees.
 1,An occasional eye stalk pokes through the mounds of pine needles.
 
@@ -26,7 +26,7 @@
 ;swamp
 1,The foul smelling quicksand pulls at your feet.
 1,The tidal quicksand reveals an android graveyard.
-1,Mutated frogs bright purple in color crunch beneath your feet.
+1,Mutated frogs bright purple in colour crunch beneath your feet.
 1,The swamp reeks of dead bodies and ruin. Unknown creatures shriek in the distance.
 
 ;grass
@@ -38,17 +38,17 @@
 ;ruin
 1,Piles of ash are all that remain where a small town once stood. Partial skeletons are scattered indiscriminately.
 1,Multiple craters litter the landscape. It's impossible to tell what once stood here.
-1,A partially standing library smolders in the distance. The bookshelves poke through the crumbled masonry like old bones.
+1,A partially standing library smoulders in the distance. The bookshelves poke through the crumbled masonry like old bones.
 1,A wreck of a gas station lies in several burning piles. The underground tanks have been long siphoned dry.
 1,What was an airport once stood here. Craters both large and small have shattered the runway. The control tower is still intact although leaning heavily to one side.
 1,Large parts of planes litter the ground. Animal hides hang over the entrances on the remaining fuselages of the Old Earth machines. A humanoid hangs from the control tower as a warning.
-1,The scorch marks on the battered concrete slab are all that remain of this Starport. Was this a place to travel to the stars or to escape the Cataclysm?
+1,The scorch marks on the battered concrete slab are all that remain of this starport. Was this a place to travel to the stars or to escape the Cataclysm?
 1,A sign on the corner of a burned out brick building points to a bomb shelter up ahead. You hope you can reach it before the radioactive rains start again.
-1,The ruins of a sprawling hospital complex cover several acres. There are rumors that medical supplies as well as mutant horrors can still be found inside.
+1,The ruins of a sprawling hospital complex cover several acres. There are rumours that medical supplies as well as mutant horrors can still be found inside.
 1,This ancient manufacturing city covers several square miles. The sounds of machinery echo from some of the larger buildings. Have the robots been running their programs since the Cataclysm?
 
 ;fort
-1,An old Police station has been repurposed into a crumbling shelter. Several figures can be seen moving through the shadows. There is a large laser weapon on the roof.
+1,An old Police station has been repurposed into a crumbling shelter. Several figures can be seen moving through the shadows. There is a large laser weapon on the roof. [fort people]
 1,A collapsing crater hides an entrance to a well fortified station.
 
 ;cave
@@ -58,13 +58,13 @@
 # Grass lands
 
 ;grass people
-1,There is a camp of [25+3d6] **bovinoids** ([bovinoid stats]) of the [bovinoid tribe name] led by [bovinoid name] (HD 3+3). They are herding [herd animal]. [bovinoid trouble]
+1,There is a camp of [3d6+25] **bovinoids** ([bovinoid stats]) of the *[bovinoid tribe name]* led by *[bovinoid name]* (HD 3+3). They are herding [herd animal]. [bovinoid trouble]
 
 ;bovinoid name
-1,*[Mad|Chill|Strong|Calm] [Bull|Cow|Horns|Head|Father|Mother]*
+1,[Mad|Chill|Strong|Calm] [Bull|Cow|Horns|Head|Father|Mother]
 
 ;bovinoid tribe name
-1,*The [Twinkling|Shining|Blinking] [Stars|Planets|Moon] [People|Tribe|Clan]*
+1,The [Twinkling|Shining|Blinking] [Stars|Planets|Moon] [People|Tribe|Clan]
 
 ;bovinoid stats
 1,AC 8 HD 1+1 1d6 MV 120; a successful charge of 16+ throws the target 10’ back and prone
@@ -74,11 +74,428 @@
 1,cattle
 1,sheep
 1,goats
-1,buffalos
+1,buffaloes
 
 ;bovinoid trouble
-1,A pride of **lions** ([lion stats]) has found that [same herd animal] hunting is super easy. [same bovinoid name] is asking you for help.
+1,A pride of **lions** ([lion stats]) has found that [same herd animal] hunting is super easy. *[same bovinoid name]* is asking you for help.
 
 ;lion stats
 1,HD 5 AC 6 1d6/1d6/1d10 MV 150; surprise on 1–4 in 6
 
+# Forts
+
+;fort people
+1,About  [2d6x10] **humans** ([human stats]) led by *[human fancy name]* (TODO) live here.<p>[fort speciality]<p>[secret society presence]
+
+;fort speciality
+1,Visitors are mostly travelling merchants. The trade post run by *[here human name as trader]* is fairly well known. The *[guest house name]* is open to all.
+
+;guest house name
+1,[hotel] of [Rich|Epic|Successful|Long [Fingered|Legged]] [Traders|Merchants|Business [Men|Women]]
+1,[hotel] of the [Rising|Shining|Dominating|Radioactive|Nuclear|Atomic] [Sun|Moon|Flag|[capitalize colour] Banner]
+
+;hotel
+1,House
+1,Caravansary
+1,Hotel
+1,Motel
+
+;secret society presence
+1,No secret society has taken hold in this settlement.
+1,This settlement is firmly in the hands of the *[name for a secret society[1|2|3]]* led by *[human fancy name]*. “Join us and enjoy all these benefits! [capitalize secret society benefit]!”
+1,[save 1 as a][save [2|3] as b][secret society conflict]
+1,[save 2 as a][save [1|3] as b][secret society conflict]
+1,[save 3 as a][save [1|2] as b][secret society conflict]
+
+;secret society conflict
+1,Two secret societies are involved in a turf war, here: The *[name for a secret society[same a]]* have arrived and are putting the pressure on the *[name for a secret society[same b]]*. The *[name for a secret society[same a]]* are led by *[human fancy name as boss a]*. They need your help. The *[name for a secret society[same b]]* are led by *[human fancy name]* who is in fact [human crime]. “Help me get rid of them!” says *[same boss a]*
+1,Two secret societies are involved in a turf war, here: The *[name for a secret society[same a]]* have arrived and are in the process of kicking the *[name for a secret society[same b]]* out. The *[name for a secret society[same a]]* are led by *[human fancy name]* who claims that the *[name for a secret society[same b]]* are no good and failing their members. They are led by *[human fancy name]* who is a sad excuse of a leader and deserves to be kicked out. If you talk to *[same human fancy name]*, however, it sounds that this is not true at all and you get a proposal to double-cross the *[name for a secret society[same a]]*. “Let’s set them a trap!” says *[same human fancy name]*.
+1,The *[name for a secret society[same a]]* are trying to get a foothold. Their leader *[human fancy name]* and needs to know how the layout of the *[name for a secret society[same b]]* headquarter, and so *[human fancy name]* is asking for your help: “Will you be our eyes and ears? Infiltrate this hive of scum and villainy for us!”
+
+;human crime
+1,a cannibal
+1,a mass-murderer
+1,a predator
+# what’s the rating we’re aiming for, here?
+
+;secret society benefit
+1,free food
+1,free lodging
+1,a free ride on the monthly caravan heading [direction]
+
+;a secret society
+1,[name for a secret society1]
+1,[name for a secret society2]
+1,[name for a secret society3]
+
+;name for a secret society1
+1,[secret society]
+
+;name for a secret society2
+1,[secret society]
+
+;name for a secret society3
+1,[secret society]
+
+;secret society
+1,[secret society prefix][secret society adjective] [computer] [people prefix][people]
+1,[secret society prefix][secret society adjective] [people prefix][computer] [people]
+1,[secret society prefix][secret society adjective] [biology] [people prefix][people]
+1,[secret society prefix][secret society adjective] [people prefix][biology] [people]
+
+;secret society prefix
+9,
+1,All-
+
+;secret society adjective
+1,Friendly
+1,Great
+1,Powerful
+1,Knowing
+1,Wise
+
+;computer
+1,C[64|65|128]
+1,Commodore
+1,6502
+1,SID
+1,NES
+1,HAL
+1,Amiga
+1,Atari
+1,Apple
+1,Skynet
+1,Usenet
+1,Fidonet
+1,Nokia
+1,Acorn
+1,Archimedes
+1,Spectrum
+
+;people prefix
+1,Arch-
+1,Neo-
+1,Ur-
+1,True-
+1,Honest-
+1,Über-
+1,Cyber-
+1,Security-
+
+;people
+1,Men
+1,Women
+1,People
+1,Philosophers
+1,Programmers
+1,Bros
+1,Hackers
+1,Cooperative
+1,Association
+1,Foundation
+1,Corporation
+1,Machines
+1,Syndicate
+1,Anarchists
+1,Communists
+1,Capitalists
+1,Socialists
+1,Fascists
+1,Clans
+1,Ladies
+1,Lords
+1,Kings
+1,Queens
+1,Priests
+1,Knights
+1,Defenders
+1,Servants
+1,Savants
+1,Scholars
+1,Sophonts
+1,Librarians
+1,Libertarians
+1,Scribes
+1,Sisters
+1,Family
+1,Families
+1,Huggers
+1,Lovers
+1,Fighters
+
+;biology
+1,Plant
+1,Fungus
+1,Tree
+1,Horticulture
+1,Fruit
+1,Vegetable
+1,Fish
+1,Meat
+1,Cheese
+1,Dairy
+1,Garden
+
+;human stats
+1,TODO
+
+;human fancy name
+1,[human name] [epithet]
+1,[title] [human name]
+
+# to be used as a title or as part of the epithet
+# must be without gender 
+;person word
+1,Wise
+1,Great
+1,All-Knowing
+1,Ponderous
+1,Strong
+1,Mighty
+1,Smart
+1,Good
+1,Evil
+1,Saint
+1,Sinner
+1,Powerful
+1,Hungry
+1,Monster
+1,Cruel
+1,Kind
+1,Quiet
+1,Old
+1,Young
+
+;epithet
+1,the [person word]
+1,the Defender of all [people]
+1,the Best of all [people]
+
+# must be without gender 
+;title
+1,Law & Order
+10,[person word]
+
+# https://www.ssa.gov/OACT/babynames/decades/century.html
+;human name
+1,James
+1,Mary
+1,John
+1,Patricia
+1,Robert
+1,Jennifer
+1,Michael
+1,Linda
+1,William
+1,Elizabeth
+1,David
+1,Barbara
+1,Richard
+1,Susan
+1,Joseph
+1,Jessica
+1,Thomas
+1,Sarah
+1,Charles
+1,Karen
+1,Christopher
+1,Nancy
+1,Daniel
+1,Lisa
+1,Matthew
+1,Margaret
+1,Anthony
+1,Betty
+1,Donald
+1,Sandra
+1,Mark
+1,Ashley
+1,Paul
+1,Dorothy
+1,Steven
+1,Kimberly
+1,Andrew
+1,Emily
+1,Kenneth
+1,Donna
+1,Joshua
+1,Michelle
+1,Kevin
+1,Carol
+1,Brian
+1,Amanda
+1,George
+1,Melissa
+1,Edward
+1,Deborah
+1,Ronald
+1,Stephanie
+1,Timothy
+1,Rebecca
+1,Jason
+1,Laura
+1,Jeffrey
+1,Sharon
+1,Ryan
+1,Cynthia
+1,Jacob
+1,Kathleen
+1,Gary
+1,Amy
+1,Nicholas
+1,Shirley
+1,Eric
+1,Angela
+1,Jonathan
+1,Helen
+1,Stephen
+1,Anna
+1,Larry
+1,Brenda
+1,Justin
+1,Pamela
+1,Scott
+1,Nicole
+1,Brandon
+1,Samantha
+1,Benjamin
+1,Katherine
+1,Samuel
+1,Emma
+1,Frank
+1,Ruth
+1,Gregory
+1,Christine
+1,Raymond
+1,Catherine
+1,Alexander
+1,Debra
+1,Patrick
+1,Rachel
+1,Jack
+1,Carolyn
+1,Dennis
+1,Janet
+1,Jerry
+1,Virginia
+1,Tyler
+1,Maria
+1,Aaron
+1,Heather
+1,Jose
+1,Diane
+1,Henry
+1,Julie
+1,Adam
+1,Joyce
+1,Douglas
+1,Victoria
+1,Nathan
+1,Kelly
+1,Peter
+1,Christina
+1,Zachary
+1,Lauren
+1,Kyle
+1,Joan
+1,Walter
+1,Evelyn
+1,Harold
+1,Olivia
+1,Jeremy
+1,Judith
+1,Ethan
+1,Megan
+1,Carl
+1,Cheryl
+1,Keith
+1,Martha
+1,Roger
+1,Andrea
+1,Gerald
+1,Frances
+1,Christian
+1,Hannah
+1,Terry
+1,Jacqueline
+1,Sean
+1,Ann
+1,Arthur
+1,Gloria
+1,Austin
+1,Jean
+1,Noah
+1,Kathryn
+1,Lawrence
+1,Alice
+1,Jesse
+1,Teresa
+1,Joe
+1,Sara
+1,Bryan
+1,Janice
+1,Billy
+1,Doris
+1,Jordan
+1,Madison
+1,Albert
+1,Julia
+1,Dylan
+1,Grace
+1,Bruce
+1,Judy
+1,Willie
+1,Abigail
+1,Gabriel
+1,Marie
+1,Alan
+1,Denise
+1,Juan
+1,Beverly
+1,Logan
+1,Amber
+1,Wayne
+1,Theresa
+1,Ralph
+1,Marilyn
+1,Roy
+1,Danielle
+1,Eugene
+1,Diana
+1,Randy
+1,Brittany
+1,Vincent
+1,Natalie
+1,Russell
+1,Sophia
+1,Louis
+1,Rose
+1,Philip
+1,Isabella
+1,Bobby
+1,Alexis
+1,Johnny
+1,Kayla
+1,Bradley
+1,Charlotte
+
+# General
+
+;colour
+1,red
+1,green
+1,blue
+1,purple
+1,pink
+1,cyan
+1,orange
+1,yellow
+1,brown
+1,black
+1,white
+
+;direction
+1,north
+1,south
+1,east
+1,west
