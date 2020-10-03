@@ -493,6 +493,7 @@ sub example {
 0401 hill tower "tower"
 0402 sand house "house"
 0403 jungle "jungle"
+0501 mountain cave "cave"
 0502 sand "sand"
 0205-0103-0202-0303-0402 road
 0101-0203 river
@@ -4979,6 +4980,7 @@ and think through some of the operations.
     0401 hill tower "tower"
     0402 sand house "house"
     0403 jungle "jungle"
+    0501 mountain cave "cave"
     0502 sand "sand"
     0205-0103-0202-0303-0402 road
     0101-0203 river
@@ -5005,6 +5007,7 @@ The mountains at 0101 thus turn into mountains at 0301.
     0601 hill tower "tower"
     0602 sand house "house"
     0603 jungle "jungle"
+    0701 mountain cave "cave"
     0702 sand "sand"
     0405-0303-0402-0503-0602 road
     0301-0403 river
@@ -5023,6 +5026,7 @@ at 0101 and the pyramid at 0201 would therefore disappear and the woodland at
     0201 hill tower "tower"
     0202 sand house "house"
     0203 jungle "jungle"
+    0301 mountain cave "cave"
     0302 sand "sand"
     0005--0103-0002-0103-0202 road
     0201-0103-0203 border
@@ -5043,6 +5047,7 @@ in 0301.
     0401 hill tower "tower"
     0402 sand house "house"
     0403 jungle "jungle"
+    0501 mountain cave "cave"
     0502 sand "sand"
     0205-0103-0202-0303-0402 road
     0401-0303-0403 border
@@ -5077,7 +5082,7 @@ getting two empty columns on the left:
     0602 sand house "house"
     0603 jungle "jungle"
     0604 empty
-    0701 empty
+    0701 mountain cave "cave"
     0702 sand "sand"
     0703 empty
     0704 empty
@@ -5108,7 +5113,7 @@ use this option if you want those empty hexes added…
     0402 sand house "house"
     0403 jungle "jungle"
     0404 empty
-    0501 empty
+    0501 mountain cave "cave"
     0502 sand "sand"
     0503 empty
     0504 empty
