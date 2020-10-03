@@ -68,6 +68,7 @@
 1,The [Twinkling|Shining|Blinking] [Stars|Planets|Moon] [People|Tribe|Clan]
 
 ;bovinoid stats
+# TODO: use a different system for stats?
 1,AC 8 HD 1+1 1d6 MV 120; a successful charge of 16+ throws the target 10’ back and prone
 
 ;herd animal
@@ -91,6 +92,7 @@
 ;ursoid stats
 1,TODO
 
+# TODO: nead better bear/ursoid names
 ;bear name
 1,Honey
 1,Claw
@@ -131,7 +133,7 @@
 1,a cannibal
 1,a mass-murderer
 1,a predator
-# what’s the rating we’re aiming for, here?
+# TODO: what’s the rating we’re aiming for, here?
 
 ;secret society benefit
 1,free food
@@ -292,6 +294,7 @@
 10,[person word]
 
 # https://www.ssa.gov/OACT/babynames/decades/century.html
+# TODO: what would human names in the post-apocalypse be? Add some product names?
 ;human name
 1,James
 1,Mary
@@ -508,6 +511,7 @@
 ;morlock trouble
 1,The morlocks are being harassed on a regular bases by a band of [nearby raiders]. *[same morlock name]* asks you to help out: [“Soon they’ll be back. Help us defend these caves!”|“We must confront our enemies. Help us attack their camp!”]
 
+# Names based on longer, common words from the Brown corpus
 ;morlock name
 1,According
 1,Account
@@ -762,8 +766,6 @@
 1,Without
 1,Working
 1,Writing
-
-
 
 # General
 
