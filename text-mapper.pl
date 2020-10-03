@@ -3703,7 +3703,7 @@ has 'region_size' => 5;
 has 'settlement_chance' => 0.1;
 
 my @tiles = qw(forest desert mountain jungle swamp grass);
-my @settlements = qw(ruin fort);
+my @settlements = qw(ruin fort cave);
 
 sub generate_map {
   my $self = shift;
