@@ -99,6 +99,20 @@
 1,Bear
 1,Strong
 
+# Desert
+
+;desert people
+1,There’s a camp of [3d6+15] **[here cactoid raiders as raiders]** ([cactoid stats]) led by *[cactoid name]* (TODO).
+
+;cactoid stats
+1,TODO
+
+# TODO: nead better cactus/cactoid names
+;cactoid name
+1,Spikey [McSpike|McSpikeface|Face|Destiny]
+1,[Spine|Thorn|Blade] [Head|Man|Woman|Fist]
+1,[Needle|Syringe|Lancet] of [Death|Pain]
+
 # Forts
 
 ;fort people
@@ -500,7 +514,28 @@
 # Caves
 
 ;cave people
-1,The [1d6x10] **morlocks** ([morlock stats])living in these caves have no access to the deeper levels. All they seek is shelter from the elements and a defensible home. At night, they emerge from the underground to do their hunting and gathering. [morlock witch]<p>[morlock trouble]
+1,The [1d6x10] **morlocks** ([morlock stats]) living in these caves have no access to the deeper levels. All they seek is shelter from the elements and a defensible home. At night, they emerge from the underground to do their hunting and gathering. [morlock witch]<p>[morlock trouble]
+1,The [3d6] **vat people** ([human stats]) living in these caves have gained access to bio-genesis labs and have used them for self-improvement. The chief [scientist|grower|lab master|bio wizard|genetic improviser] *[here human fancy name as scientist]* is in charge of the research program. It requires a lot of organic base material from the surface.<p>[vat people servants]<p>[vat people trouble]
+
+;vat people servants
+1,The vat people are served by [6d6] of **weaker morlocks** – siblings the elders judged to be “unfit” for lab work ([human stats]). It’s a terribly unjust society and if you spend any amount of time in the labs, or if you manage to catch one of them on their material gathering expeditions, they’ll beg for your help. [“Please, free us from these eugenitocracy!”|“Help us topple the genetic purists!”]
+1,The vat people are served by [6d6] **plantoids** ([plantoid stats]). They are mobile, mute, appear to be totally subservient. If you can communicate with them telepathically, however, you’ll soon discover that they often squirrel away nutrients and have an entire *hidden* community of [3d6x10] mobile plantoids living in the canals and sewers below the lab. Revolution is brewing, down there…
+
+;plantoid stats
+1,TODO
+
+;vat people trouble
+1,Sadly, the vat solutions have contracted some sort of infection. *[same scientist]* says that *[nearby scientist]* might be able to help. [“Will you go and ask them to come and have a look?”|“I know would hate coming. Can’t you just go and kidnap them?”|“Here’s a tube of [tube content] to give them in exchange for their coming.”]
+
+;tube content
+1,mutagenic acid
+1,neurotransmitter [inhibitors|catalysts]
+1,radioactive [contrast|tracer]
+1,undetectable radiation poison
+1,potassium iodide to counter radiation poisoning
+1,multi-vitamins and trace elements
+1,monoxide inhibitors
+1,valuable dihydro oxide
 
 ;morlock stats
 1,TODO
