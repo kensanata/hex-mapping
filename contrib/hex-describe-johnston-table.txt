@@ -1,6 +1,10 @@
 # The Post-Apocalyptic table
 # Written by Josh Johnston and Alex Schroeder
 
+;TOP
+1,These are the lands of the post-apocalypse.
+# TODO: add global threats and powers to the introduction.
+
 ;forest
 1,The trees of the *[name for forest]* surround you and grow towards the sun in tight spirals. [forest people]
 1,The *[name for forest]* is quiet except for the sound of two mutated animals ripping each other apart.
@@ -147,7 +151,7 @@
 1,About  [2d6x10] **humans** ([human stats]) led by *[human fancy name]* (TODO) live here.<p>[fort speciality]<p>[secret society presence]
 
 ;fort speciality
-1,Visitors are mostly travelling merchants. The trade post run by *[here human name as trader]* is fairly well known. The *[guest house name]* is open to all.
+1,Visitors are mostly travelling merchants. The trade post run by *[here human fancy name as trader]* is fairly well known. The *[guest house name]* is open to all.
 
 ;guest house name
 1,[hotel] of [Rich|Epic|Successful|Long [Fingered|Legged]] [Traders|Merchants|Business [Men|Women]]
@@ -324,6 +328,7 @@
 1,Quiet
 1,Old
 1,Young
+1,Elder
 
 ;epithet
 1,the [person word]
