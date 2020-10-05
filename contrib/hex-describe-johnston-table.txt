@@ -560,6 +560,13 @@
 ;vat people trouble
 1,Sadly, the vat solutions have contracted some sort of infection. *[same scientist]* says that *[nearby scientist]* might be able to help. [“Will you go and ask them to come and have a look?”|“I know would hate coming. Can’t you just go and kidnap them?”|“Here’s a tube of [tube content] to give them in exchange for their coming.”]
 
+;vat people problems
+1,A swarm of acid worms have eaten into the n-field generator. With the n-field generator down, the vat people's body banks are left unprotected.
+1,The vat banks have not been sterilized in a lunar cycle because of a nesting dirt devil. If the dirt devil can be killed or captured, the eggs can be harvested and the vats resterilized.
+1,The entrances to the vat people's caves have been blocked due to the annual migration of the incredibly aggressive and frighteningly poisonous cactoids. If we could lure the cactoids away with their favorite food, the vat people would reward us with free healing and DNA splicing.
+1,The vat people's long time enemies, the nuclear wizards, have raided and stolen data integral to the body bank's manufacturing process. Perhaps with the help of the vat people's mobile AI station, we could hack into the nuclear wizard's matrix, reroute the subroutine, and steal back the code.
+1,The vat people's body banks have gone haywire, and are generating body parts with too many unsuitable mutations. Perhaps the knowledge of the Atom Gazers can help the vat people reprogram their AI loop?
+
 ;tube content
 1,mutagenic acid
 1,neurotransmitter [inhibitors|catalysts]
