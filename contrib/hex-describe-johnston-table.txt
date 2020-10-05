@@ -2,38 +2,37 @@
 # Written by Josh Johnston and Alex Schroeder
 
 ;forest
-1,The trees surround you and grow towards the sun in tight spirals. [forest people]
-1,The forest is quiet except for the sound of two mutated animals ripping each other apart.
-1,Strange looking birds call out high above the trees.
-1,An occasional eye stalk pokes through the mounds of pine needles.
+1,The trees of the *[name for forest]* surround you and grow towards the sun in tight spirals. [forest people]
+1,The *[name for forest]* is quiet except for the sound of two mutated animals ripping each other apart.
+1,Strange looking birds call out high above the trees of the *[name for forest]*.
+1,An occasional eye stalk pokes through the mounds beneath the towering trees of the *[name for forest]*.
 
 ;desert
-1,A lizard as large as an Old Earth automobile basks in the unrelenting sun.
-1,The desert sun bakes you to the point of blacking out.
-1,Tall orange cactus slowly creep along the desert floor in search of food.
-1,A dust devil spins in the distance with several humanoids inside.
+1,A lizard as large as an Old Earth automobile basks in the unrelenting sun of the *[name for desert]*.<p>[desert people]
+1,The *[name for desert]* sun bakes you to the point of blacking out.<p>[desert people]
+1,Tall orange cactus slowly creep along the *[name for desert]* floor in search of food.<p>[desert people]
 
 ;mountain
-1,The fresh mountain air is a nice change from the smell of burning mutants and androids.
-1,You are surrounded by steep peaks in all directions. The going will be difficult.
-1,The air is cold and the atmosphere feels thin. It's getting harder and harder to catch your breath. You wonder what could possibly survive up here.
-1,The climbing is steep and the trails are slippery with ice and slush. It's impossible to tell if you're walking on bones or thin ice.
+1,The fresh mountain air up in the *[name for mountain]* is a nice change from the smell of burning mutants and androids.
+1,You are surrounded by the steep peaks of the *[name for mountain]* in all directions. The going will be difficult.
+1,The air of the *[name for mountain]* is cold and thin. It's getting harder and harder to catch your breath. What could possibly survive up here?
+1,The slopes up the the *[name for mountain]* are steep and the trails are slippery with ice and slush. It's impossible to tell if you're walking on bones or thin ice.
 
 ;jungle
-1,The extreme humidity makes breathing difficult, but has the added benefit of disabling most robots.
-1,The jungle seems to be extra hostile today.
+1,The extreme humidity of the *[name for jungle]* makes breathing difficult, but has the added benefit of disabling most robots.
+1,The *[name for jungle]* seems to be extra hostile today.
 
 ;swamp
-1,The foul smelling quicksand pulls at your feet.
-1,The tidal quicksand reveals an android graveyard.
-1,Mutated frogs bright purple in colour crunch beneath your feet.
-1,The swamp reeks of dead bodies and ruin. Unknown creatures shriek in the distance.
+1,The foul smelling quicksand of the *[name for swamp]* pulls at your feet.
+1,The tidal quicksand of the *[name for swamp]* reveals an android graveyard.
+1,Mutated *[colour]* frogs crunch beneath your feet as you slog through the *[name for swamp]*.
+1,The *[name for swamp]* reeks of dead bodies and ruin. Unknown creatures shriek in the distance.
 
 ;grass
-1,The grasses hum with a radioactive intensity. [grass people]
-1,There seems to be no end to the neon pink grasslands. [grass people]
-1,Neon pink grass stretches in all directions. Large buzzing insects hover menacingly.
-1,Two meter tall crickets chew the rainbow grass contentedly.
+1,The *[name for grass]* grasses hum with a radioactive intensity. [grass people]
+1,There seems to be no end to the *[name for grass]*. [grass people]
+1,The *[name for grass]* stretches in all directions. Large buzzing insects hover menacingly.
+1,Two meter tall crickets chew the rainbow grass contentedly. This is the *[name for grass]*.
 
 ;ruin
 1,Piles of ash are all that remain where a small town once stood. Partial skeletons are scattered indiscriminately.
@@ -55,7 +54,26 @@
 1,<p>There is a hidden cave entrance barely big enough to squeeze into. The smell is overpowering and impossible to identify. [cave people]
 1,<p>There’s an entrance to one of the old radiation shelters, here. This cave system stretches for many hundreds of meters in different directions. It looks to have been abandoned long ago. [cave people]
 
+# Mountain
+
+;name for mountain
+1;[White|Black|Grey|Low|High|Hell|Rocky] [Mountains|Atlas|Alps|Peaks|Wall]
+
+# Jungle
+
+;name for jungle
+1,[Green|Great|Big|Rain] [Hell|Forest|Jungle|Ur-Forest]
+
+# Swamp
+
+;name for swamp
+1,[Gray|Grey|Black|Bleak] [Wasteland|Swamp|Bog|Fenn|Wetland]
+1,[Gator|Crane|Eel] [Lands|Flats|Country]
+
 # Grass lands
+
+;name for grass
+1,[capitalize colour] [Sea|Ocean|Grassland|Sea of Blades|Flats]
 
 ;grass people
 1,There is a camp of [3d6+25] **bovinoids** ([bovinoid stats]) of the *[bovinoid tribe name]* led by *[bovinoid name]* (HD 3+3). They are herding [herd animal]. [bovinoid trouble]
@@ -86,6 +104,9 @@
 
 # Forest
 
+;name for forest
+1,[Green|Dark|Black|Petrified|Hungry] Forest
+
 ;forest people
 1,There’s a camp of [3d6+15] **[here ursoid raiders as raiders]** ([ursoid stats]) led by *[bear name]* (TODO).
 
@@ -101,8 +122,15 @@
 
 # Desert
 
+;name for desert
+1,[Big|Great|Cursed|Dead|Death] [Valley|Flat|Desert|Dry]
+1,[Sea|Plain|Dunes] of [Sand|Rock|Pebbles|Bones|[capitalize colour] Sand]
+1,[Forever|Endless|Merciless] [Sands|Rocks|Bones|Graveyard]
+
 ;desert people
 1,There’s a camp of [3d6+15] **[here cactoid raiders as raiders]** ([cactoid stats]) led by *[cactoid name]* (TODO).
+1,A dust devil spins in the distance with several [humans|cactoids] inside. (TODO)
+1,Out of the sand rise giant ribs like towers, and between the ribs is a tent town of [2d6x10] **humans** ([human stats]) led by *[human fancy name]* (TODO).
 
 ;cactoid stats
 1,TODO
@@ -810,6 +838,10 @@
 1,blue
 1,purple
 1,pink
+1,neon-pink
+1,ultra-violet
+1,jale
+1,ulfire
 1,cyan
 1,orange
 1,yellow
