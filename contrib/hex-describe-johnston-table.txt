@@ -3431,6 +3431,16 @@
 1,Working
 1,Writing
 
+# Treasure
+
+;vehicle
+1,magna car
+1,magna bike
+1,magna truck
+1,rocket sled
+1,old earth truck
+1,old earth car
+
 # General
 
 ;colour
