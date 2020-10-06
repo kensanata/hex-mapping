@@ -87,7 +87,7 @@
 
 ;grass people
 1,There is a camp of [3d6+25] **bovinoids** ([bovinoid stats]) of the *[bovinoid tribe name]* led by *[bovinoid name]* (HD 3+3). They are herding [herd animal]. [bovinoid trouble]
-1,There’s a camp of [3d6+25] **[here humanoid raiders as raiders]** ([human stats]) led by *[human fancy name]* (TODO).
+1,There’s a camp of [3d6+25] **[here humanoid raiders as raiders]** ([human stats]) led by *[human fancy name]* ([human npc stats]).
 
 ;bovinoid name
 1,[Mad|Chill|Strong|Calm] [Bull|Cow|Horns|Head|Father|Mother]
@@ -138,9 +138,9 @@
 1,[Forever|Endless|Merciless] [Sands|Rocks|Bones|Graveyard]
 
 ;desert people
-1,There’s a camp of [3d6+15] **[here cactoid raiders as raiders]** ([cactoid stats]) led by *[cactoid name]* (TODO). [vehicle park].
+1,There’s a camp of [3d6+15] **[here cactoid raiders as raiders]** ([cactoid stats]) led by *[cactoid name]* ([plant npc stats]). [vehicle park].
 1,A dust devil spins in the distance with several [humans|cactoids] inside. (TODO)
-1,Out of the sand rise giant ribs like towers, and between the ribs is a tent town of [2d6x10] **humans** ([human stats]) led by *[human fancy name]* (TODO).
+1,Out of the sand rise giant ribs like towers, and between the ribs is a tent town of [2d6x10] **humans** ([human stats]) led by *[human fancy name]* ([human npc stats]) belonging to the *[faction]*.
 
 ;cactoid stats
 1,TODO
@@ -154,7 +154,7 @@
 # Forts
 
 ;fort people
-1,About  [2d6x10] **humans** ([human stats]) led by *[human fancy name]* (TODO) live here.<p>[fort speciality]<p>[secret society presence]
+1,About  [2d6x10] **humans** ([human stats]) led by *[human fancy name]* ([human npc stats]) live here.<p>[fort speciality]<p>[secret society presence]
 
 ;fort speciality
 1,Visitors are mostly travelling merchants. The trade post run by *[here human fancy name as trader]* is fairly well known. The *[guest house name]* is open to all.
@@ -629,10 +629,94 @@
 1,Working
 1,Writing
 
-# Humans
+# NPCs
+
+;npc stats
+1,[android stats]
+3,[synthetic stats]
+1,[replicant stats]
+1,[mutant animal stats]
+4,[mutant human stats]
+2,[mutant plant stats]
+5,[pure human stats]
+
+;human npc stats
+1,[mutant human stats]
+2,[pure human stats]
 
 ;human stats
-1,TODO
+1,HD 10 AC 7 1d6 L1 HP 10d8 MV 120; average pure human
+
+;android stats
+3,STR [3d6] DEX [3d6] CON [3d6] INT [3d6] WIL [3d6] CHA [3d6] HP 50; android; immune to poisons, blinding, stun; radiation -3 class levels; no additional mutations; resistant to heat and cold, +1 to saves vs. heat or cold; *[mutation]*; *[mutation]*; *[mutation]*
+1,STR [3d6+2] DEX [3d6+1] CON [3d6] INT [3d6-3] WIL [3d6] CHA [3d6] HP 50; combat android; immune to poisons, blinding, stun;radiation -3 class levels; no additional mutations; resistant to heat and cold, +1 to saves vs. heat or cold; *[mutation]*; *[mutation]*; *[mutation]*
+1,STR [3d6+1] DEX [3d6+2] CON [3d6] INT [3d6] WIL [3d6] CHA [3d6-3] HP 50; basic android; immune to poisons, blinding, stun; radiation -3 class levels; no additional mutations; resistant to heat and cold, +1 to saves vs. heat or cold; *[mutation]*; *[mutation]*; *[mutation]*
+
+;synthetic stats
+3,STR [3d6] DEX [3d6] CON [3d6] INT [3d6] WIL [3d6] CHA [3d6] HP 50; synthetic; immune to poisons, blinding, stun; radiation -1 class level; no additional mutations; resistant to heat and cold, +3 to saves vs. heat or cold; *[mutation]*; *[mutation]*; *[mutation]*
+
+;replicant stats
+3,STR [3d6] DEX [3d6] CON [3d6 as con] INT [3d6] WIL [3d6] CHA [3d6] HP [[same con]d6]; replicant; radiation causes wasting disease instead of mutations; resistant to heat and cold, +2 to saves vs. heat or cold; *[mutation]*; *[mutation]*; *[mutation]*
+
+;mutant animal stats
+1,TODO: mutant animal
+
+;mutant human stats
+1,STR [3d6] DEX [3d6] CON [3d6 as con] INT [3d6] WIL [3d6] CHA [3d6] HP [[same con]d6]; mutant human; [standard mutations]
+
+;standard mutations
+1,[1d4 standard physical mutations], [1d4 standard mental mutations]
+
+;1d4 standard physical mutations
+1,*[physical mutation]*
+1,*[physical mutation]*, *[physical mutation]*
+1,*[physical mutation]*, *[physical mutation]*, *[physical mutation]*
+1,*[physical mutation]*, *[physical mutation]*, *[physical mutation]*, *[physical mutation]*
+
+;1d4 standard mental mutations
+1,and *[mental mutation]*
+1,*[mental mutation]*, and *[mental mutation]*
+1,*[mental mutation]*, *[mental mutation]*, and *[mental mutation]*
+1,*[mental mutation]*, *[mental mutation]*, *[mental mutation]* and *[mental mutation]*
+
+;mutant plant stats
+1,TODO: mutant plant
+
+;pure human stats
+1,STR [3d6] DEX [3d6] CON [3d6+3 as con] INT [3d6+3] WIL [3d6] CHA [3d6+3] HP [[max18([same con])]d8]; pure human; no additional mutations
+
+;max18(6)
+1,6
+;max18(7)
+1,7
+;max18(8)
+1,8
+;max18(9)
+1,9
+;max18(10)
+1,10
+;max18(11)
+1,11
+;max18(12)
+1,12
+;max18(13)
+1,13
+;max18(14)
+1,14
+;max18(15)
+1,15
+;max18(16)
+1,16
+;max18(17)
+1,17
+;max18(18)
+1,18
+;max18(19)
+1,18
+;max18(20)
+1,18
+;max18(21)
+1,18
 
 ;human fancy name
 1,[human name] [epithet]
@@ -3444,9 +3528,15 @@
 1,Zentarō
 1,Zenzō
 
+# Mutations
+
+;mutation
+1,[mental mutation]
+1,[physical mutation]
+
 # Beneficial Mental Mutations
 
-;mental mutations
+;mental mutation
 1,mind melt
 1,control mind
 1,plant telepathy
@@ -3482,7 +3572,7 @@
 
 # Beneficial Physical Mutations
 
-;physical mutations
+;physical mutation
 1,crushing tail
 1,exoskeleton
 1,phosphorescent skin
