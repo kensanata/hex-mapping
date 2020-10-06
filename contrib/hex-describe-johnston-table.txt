@@ -138,7 +138,7 @@
 1,[Forever|Endless|Merciless] [Sands|Rocks|Bones|Graveyard]
 
 ;desert people
-1,There’s a camp of [3d6+15] **[here cactoid raiders as raiders]** ([cactoid stats]) led by *[cactoid name]* (TODO).
+1,There’s a camp of [3d6+15] **[here cactoid raiders as raiders]** ([cactoid stats]) led by *[cactoid name]* (TODO). [vehicle park].
 1,A dust devil spins in the distance with several [humans|cactoids] inside. (TODO)
 1,Out of the sand rise giant ribs like towers, and between the ribs is a tent town of [2d6x10] **humans** ([human stats]) led by *[human fancy name]* (TODO).
 
@@ -3433,13 +3433,33 @@
 
 # Treasure
 
+;vehicle park
+1,[vehicle]
+1,[2d4] [bike]s
+1,[2d4] [bike]s and a [car]
+1,[2d4] [bike]s and a [truck]
+1,[2d4] [bike]s and [2d2] [car]s
+1,[2d4] [car]s
+1,[2d4] [car]s and a [truck]
+1,[2d4] [bike]s, [2d2] [car]s, and a [truck]
+
 ;vehicle
-1,magna car
-1,magna bike
-1,magna truck
+5,[bike]
+3,[car]
+1,[truck]
+
+;bike
 1,rocket sled
-1,old earth truck
-1,old earth car
+1,magna bike
+2,gasoline-powered bike
+
+;car
+2,magna car
+3,gasoline-powered muscle car
+
+;truck
+1,magna truck
+2,gasoline-powered truck
 
 # General
 
