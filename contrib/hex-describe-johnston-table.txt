@@ -305,6 +305,17 @@
 1,Dairy
 1,Garden
 
+;faction
+1,The House of the Falling Sun
+1,Plasteel Patriots
+1,Cybernetic Squatters
+1,The Mission for Truth and Reconciliation
+1,Our Lord Hydrogen
+1,Kill All Freaks
+1,Green Machine
+1,Manimals United
+1,Atom Gazers
+
 # Caves
 
 ;cave people
