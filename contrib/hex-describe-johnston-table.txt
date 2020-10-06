@@ -3430,6 +3430,70 @@
 1,Without
 1,Working
 1,Writing
+# Beneficial Mental Mutations
+
+;mental mutations
+1,mind melt
+1,control mind
+1,plant telepathy
+1,animal telepathy
+1,sense foe
+1,teleport
+1,sense animal
+1,sense mutant
+1,mind shield
+1,mind gate
+1,energy drain
+1,emp blast
+1,mass control mind
+1,paralyzing touch
+1,telekinesis
+1,telepathic projection
+1,heal self
+1,resist heat
+1,resist cold
+1,cure poison
+1,eye eruption
+1,animal friendship
+1,plant friendship
+1,invisibility
+1,heat metal
+1,freeze metal
+1,cloak of darkness
+1,slow motion
+1,mind death
+1,fear glance
+1,blur
+1,confusion
+
+# Beneficial Physical Mutations
+
+;physical mutations
+1,crushing tail
+1,exoskeleton
+1,phosphorescent skin
+1,photosynthesis
+1,fire breath
+1,wings
+1,far sight
+1,far hearing
+1,unihorn
+1,x-ray vision
+1,vice grip
+1,relect light
+1,chameleon
+1,tentacles
+1,shape alter
+1,prehensile tail
+1,poison resist
+1,radiation resist
+1,poison vomit
+1,electric touch
+1,stoneskin
+1,spit web
+1,gills
+1,glue touch
+1,acid touch
 
 # Treasure
 
