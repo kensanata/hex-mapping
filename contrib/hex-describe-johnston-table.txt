@@ -3537,6 +3537,7 @@
 # Beneficial Mental Mutations
 
 ;mental mutation
+1,mind freeze
 1,mind melt
 1,control mind
 1,plant telepathy
@@ -3546,6 +3547,7 @@
 1,sense animal
 1,sense mutant
 1,mind shield
+1,mind mirror
 1,mind gate
 1,energy drain
 1,emp blast
@@ -3553,10 +3555,10 @@
 1,paralyzing touch
 1,telekinesis
 1,telepathic projection
-1,heal self
+1,heal other
 1,resist heat
 1,resist cold
-1,cure poison
+1,counteract poison other
 1,eye eruption
 1,animal friendship
 1,plant friendship
