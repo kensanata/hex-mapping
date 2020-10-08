@@ -225,13 +225,13 @@ any '/describe' => sub {
   my $descriptions = describe_map(parse_map($map), parse_table($table), $faces);
   if ($markdown) {
     my $texts = [];
-    if ($descriptions->{TOP}) {
-      push(@$texts, $descriptions->{TOP});
-      delete $descriptions->{TOP};
-    }
+    my $top = delete $descriptions->{TOP};
+    my $end = delete $descriptions->{END};
+    push(@$texts, $top) if $top;
     for my $hex (sort keys %$descriptions) {
       push(@$texts, "**$hex**: $descriptions->{$hex}");
     }
+    push(@$texts, $end) if $end;
     $c->render(text => markdown($texts), format => 'txt');
   } else {
     $map = add_labels($map) if $labels;
@@ -1661,9 +1661,9 @@ sub describe_map {
   my $table_data = shift;
   my $redirects = shift;
   my %descriptions;
-  # first, add special rule for TOP key which the description template knows
-  $descriptions{TOP} = process(describe($map_data, $table_data, 1, 'TOP', ['TOP'], $redirects),
-			       $redirects); # with redirects means we keep images
+  # first, add special rule for TOP and END keys which the description template knows
+  $descriptions{$_} = process(describe($map_data, $table_data, 1, $_, [$_], $redirects),
+			      $redirects) for qw(TOP END); # with redirects means we keep images
   for my $coord (keys %$map_data) {
     $descriptions{$coord} = process(describe($map_data, $table_data, 1,
 					     $coord, $map_data->{$coord}, $redirects),
@@ -2066,8 +2066,16 @@ Alternatively, just paste your tables here:
 % }
 
 % for my $hex (sort keys %$descriptions) {
+%   next if $hex eq "END";
 <p><strong class="coordinates" id="desc<%= $hex =%>"><a href="#hex<%= $hex =%>"><%= $hex =%></a></strong>: <%== $descriptions->{$hex} =%>
 </p>
+% }
+
+% if ($descriptions->{END}) {
+<p>
+<%== $descriptions->{END} %>
+</p>
+%   delete $descriptions->{END};
 % }
 </div>
 
@@ -2825,6 +2833,11 @@ valid HTML.
 <p>
 The introduction would be a good place to set up <a href="#global">global
 values</a>.
+</p>
+
+<p>
+There's a similar special table for the end of the text, the <code>END</code>
+rule.
 </p>
 
 <h2 id="same">Reuse: same</h2>
