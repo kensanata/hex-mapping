@@ -48,6 +48,32 @@
 1,The *[name for grass]* stretches in all directions. Large buzzing insects hover menacingly.
 1,Two meter tall crickets chew the rainbow grass contentedly. This is the *[name for grass]*.
 
+;river-start river
+1,<p>[name for river] starts here.
+
+;river
+1,<p>[name for river] flows through here.
+
+;river-merge river
+1,<p>[names for river] merge here.
+
+;name for river
+5,*[river 1] [river 2]*
+1,*[human name]’s [river 2]*
+
+;river 1
+5,[element]
+1,[climate prefix]
+2,[chemical prefix]
+1,[fecal prefix]
+2,[water prefix]
+1,[war prefix]
+1,[colour prefix]
+
+;river 2
+1,River
+1,Creek
+
 ;ruin
 1,Piles of ash are all that remain where a small town once stood. Partial skeletons are scattered indiscriminately.
 1,Multiple craters litter the landscape. It’s impossible to tell what once stood here.
@@ -3777,6 +3803,87 @@
 1,brown
 1,black
 1,white
+
+;colour prefix
+1,[capitalize colour]
+
+;war prefix
+1,Battle
+1,Bone
+1,Boiling
+1,Blood
+1,Corpse
+1,Dead
+1,Massacre
+1,War
+1,Old
+1,Long
+
+;water prefix
+1,Undrinkable
+1,Dead Fish
+1,Deep
+1,Loud
+
+;fecal prefix
+1,Shit
+1,Fecal
+
+;chemical prefix
+1,Acetate
+1,Acid
+1,Lye
+1,Noxious
+1,Poison
+
+;climate prefix
+1,Cold
+1,Hot
+
+;element
+1,Argon
+1,Arsenic
+1,Barium
+1,Beryllium
+1,Cadmium
+1,Calcium
+1,Cerium
+1,Chlorine
+1,Chromium
+1,Copper
+1,Dysprosium
+1,Erbium
+1,Gadolinium
+1,Hafnium
+1,Helium
+1,Iron
+1,Krypton
+1,Lead
+1,Magnesium
+1,Mercury
+1,Molybdenum
+1,Neodymium
+1,Neon
+1,Nickel
+1,Osmium
+1,Palladium
+1,Plutonium
+1,Quantum
+1,Ruthenium
+1,Samarium
+1,Selenium
+1,Strontium
+1,Sulphur
+1,Tellurium
+1,Thorium
+1,Tin
+1,Titanium
+1,Tungsten
+1,Uranium
+1,Xenon
+1,Ytterbium
+1,Zinc
+1,Zirconium
 
 ;direction
 1,north
