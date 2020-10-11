@@ -643,6 +643,74 @@
 1,Working
 1,Writing
 
+# Animal
+
+;animal
+1,rad bear
+1,electric crab
+1,acid worm
+1,giant ant
+1,mothowl
+1,dragonbird
+1,rad hare
+1,sky jelly
+1,algaefish
+1,swamp thing
+1,fel dog
+1,hellhound
+1,grasschopper
+1,horse fly
+1,burke's hawk
+1,rad rattler
+1,wolfling
+1,fire ant
+1,no see um
+1,sky whale
+1,salam ander
+
+;plant
+1,weeping willow
+1,razor grass
+1,jumping juniper
+1,oak herder
+1,cattail
+1,land anemone
+1,mars fly trap
+1,octopus grass
+1,zombie vine
+1,dirt devil
+1,eyestalk stalker
+1,box cactus
+1,poison-tipped peony
+1,catch you sleeping vine
+1,baby jade
+1,elephant cactus
+1,pygmy palm
+1,tiger tree
+
+;robot
+1,house bot
+1,library bot
+1,mechanic droid
+1,construction bot
+1,agri droid
+1,engineer bot
+1,mover droid
+1,war droid
+1,secure droid
+1,tank droid
+1,sub bot
+1,aero droid
+1,trash bot
+1,delivery droid
+1,containment bot
+1,defense droid
+1,med droid
+1,mobile AI station
+1,death droid
+1,manu bot
+1,assault droid
+
 # NPCs
 
 ;npc stats
@@ -3614,7 +3682,54 @@
 1,Vice Grip
 1,Wings
 
+# Equipment
+
+;weapon
+1,laser pistol
+1,laser rifle
+1,para pistol
+1,para rifle
+1,rail pistol
+1,rail rifle
+1,para baton
+1,control baton
+1,auto pistol
+1,auto rifle
+1,plasteel dagger
+1,plasteel sword
+1,plasteel club
+1,radiation rifle
+1,plutonium pistol
+1,plasma rifle
+1,plasma pistol
+1,emp grenade
+1,emp pistol
+1,emp rifle
+1,frag grenade
+1,para grenade
+1,atomic glass dagger
+1,atomic glass sword
+1,atomic glass club
+1,plasteel bow
+1,atomic glass arrows
+1,plasteel arrows
+
+;armor
+1,power armor class 1
+1,power armor class 2
+1,power armor class 3
+1,carapace armor
+1,plasteel armor
+1,carapace helm
+1,atomic glass helm
+1,plasteel helm
+1,atomic glass armor
+
 # Treasure
+
+;computer
+1,n-field generator
+1,ai terminal
 
 ;vehicle park
 1,[vehicle]
