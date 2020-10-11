@@ -68,7 +68,7 @@
 ;cave
 1,<p>There is a hidden cave entrance barely big enough to squeeze into. The smell is overpowering and impossible to identify. [cave people]
 1,<p>There’s an entrance to one of the old radiation shelters, here. This cave system stretches for many hundreds of meters in different directions. It looks to have been abandoned long ago. [cave people]
-1,<p>This large cave was once a shelter to an entire family of bovinoids. Why they would shelter here and not in the *[name for grass]* is a mystery. [cave people]
+1,<p>Cave paintings of grass and hoof stencils show that this was once a bovinoid shelter. Why they would shelter here and not out in the open grassland is a mystery. [cave people]
 
 # Mountain
 
