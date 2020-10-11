@@ -192,7 +192,7 @@
 # Forts
 
 ;fort people
-1,About  [2d6x10] **humans** ([human stats]) led by *[human fancy name]* ([human npc stats]) live here.<p>[fort speciality]<p>[secret society presence]
+1,About  [2d6x10] **humans** live here ([human stats]), led by *[human fancy name]* ([human npc stats]).<p>[fort speciality]<p>[secret society presence]
 
 ;fort speciality
 1,Visitors are mostly travelling merchants. The trade post run by *[here human fancy name as trader]* is fairly well known. The *[guest house name]* is open to all.
@@ -756,21 +756,21 @@
 1,HD 10 AC 7 1d6 L1 HP 10d8 MV 36m; average pure human
 
 ;android stats
-3,STR [3d6] DEX [3d6] CON [3d6] INT [3d6] WIL [3d6] CHA [3d6] HP 50; android; immune to poisons, blinding, stun; radiation -3 class levels; no additional mutations; resistant to heat and cold, +1 to saves vs. heat or cold; *[mutation]*; *[mutation]*; *[mutation]*
-1,STR [3d6+2] DEX [3d6+1] CON [3d6] INT [3d6-3] WIL [3d6] CHA [3d6] HP 50; combat android; immune to poisons, blinding, stun;radiation -3 class levels; no additional mutations; resistant to heat and cold, +1 to saves vs. heat or cold; *[mutation]*; *[mutation]*; *[mutation]*
-1,STR [3d6+1] DEX [3d6+2] CON [3d6] INT [3d6] WIL [3d6] CHA [3d6-3] HP 50; basic android; immune to poisons, blinding, stun; radiation -3 class levels; no additional mutations; resistant to heat and cold, +1 to saves vs. heat or cold; *[mutation]*; *[mutation]*; *[mutation]*
+3,STR [3d6] DEX [3d6] CON [3d6] INT [3d6] WIL [3d6] CHA [3d6] HP 50; [armor]; [weapon]; android; immune to poisons, blinding, stun; radiation -3 class levels; no additional mutations; resistant to heat and cold, +1 to saves vs. heat or cold; *[mutation]*; *[mutation]*; *[mutation]*
+1,STR [3d6+2] DEX [3d6+1] CON [3d6] INT [3d6-3] WIL [3d6] CHA [3d6] HP 50; [armor]; [weapon]; combat android; immune to poisons, blinding, stun;radiation -3 class levels; no additional mutations; resistant to heat and cold, +1 to saves vs. heat or cold; *[mutation]*; *[mutation]*; *[mutation]*
+1,STR [3d6+1] DEX [3d6+2] CON [3d6] INT [3d6] WIL [3d6] CHA [3d6-3] HP 50; [armor]; [weapon]; basic android; immune to poisons, blinding, stun; radiation -3 class levels; no additional mutations; resistant to heat and cold, +1 to saves vs. heat or cold; *[mutation]*; *[mutation]*; *[mutation]*
 
 ;synthetic stats
-3,STR [3d6] DEX [3d6] CON [3d6] INT [3d6] WIL [3d6] CHA [3d6] HP 50; synthetic; immune to poisons, blinding, stun; radiation -1 class level; no additional mutations; resistant to heat and cold, +3 to saves vs. heat or cold; *[mutation]*; *[mutation]*; *[mutation]*
+1,STR [3d6] DEX [3d6] CON [3d6] INT [3d6] WIL [3d6] CHA [3d6] HP 50; [armor]; [weapon]; synthetic; immune to poisons, blinding, stun; radiation -1 class level; no additional mutations; resistant to heat and cold, +3 to saves vs. heat or cold; *[mutation]*; *[mutation]*; *[mutation]*
 
 ;replicant stats
-3,STR [3d6] DEX [3d6] CON [3d6 as con] INT [3d6] WIL [3d6] CHA [3d6] HP [[same con]d6]; replicant; radiation causes wasting disease instead of mutations; resistant to heat and cold, +2 to saves vs. heat or cold; *[mutation]*; *[mutation]*; *[mutation]*
+1,STR [3d6] DEX [3d6] CON [3d6 as con] INT [3d6] WIL [3d6] CHA [3d6] HP [[same con]d6]; [armor]; [weapon]; replicant; radiation causes wasting disease instead of mutations; resistant to heat and cold, +2 to saves vs. heat or cold; *[mutation]*; *[mutation]*; *[mutation]*
 
 ;mutant animal stats
 1,TODO: mutant animal
 
 ;mutant human stats
-1,STR [3d6] DEX [3d6] CON [3d6 as con] INT [3d6] WIL [3d6] CHA [3d6] HP [[same con]d6]; mutant human; [standard mutations]
+1,STR [3d6] DEX [3d6] CON [3d6 as con] INT [3d6] WIL [3d6] CHA [3d6] HP [[same con]d6]; [armor]; [weapon]; mutant human; [standard mutations]
 
 ;standard mutations
 1,[1d4 standard physical mutations], [1d4 standard mental mutations]
@@ -791,7 +791,7 @@
 1,TODO: mutant plant
 
 ;pure human stats
-1,STR [3d6] DEX [3d6] CON [3d6+3 as con] INT [3d6+3] WIL [3d6] CHA [3d6+3] HP [[max18([same con])]d8]; pure human; no additional mutations
+1,STR [3d6] DEX [3d6] CON [3d6+3 as con] INT [3d6+3] WIL [3d6] CHA [3d6+3] HP [[max18([same con])]d8]; [armor]; [weapon]; pure human; no additional mutations
 
 ;max18(6)
 1,6
