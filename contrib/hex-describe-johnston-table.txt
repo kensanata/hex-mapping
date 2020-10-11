@@ -7,30 +7,40 @@
 
 ;forest
 1,The trees of the *[name for forest]* surround you and grow towards the sun in tight spirals. [forest people]
-1,The *[name for forest]* is quiet except for the sound of two mutated animals ripping each other apart.
-1,Strange looking birds call out high above the trees of the *[name for forest]*.
-1,An occasional eye stalk pokes through the mounds beneath the towering trees of the *[name for forest]*.
+1,The *[name for forest]* is quiet and peaceful except for the sound of mutated animals ripping each other apart.
+1,Strange looking birds call out high above the trees of the *[name for forest]*. Is this a warning to you or others?
+1,An occasional eye stalk pokes through the mounds of leaves beneath the towering trees of the *[name for forest]*.
+1,Giant, large-trunked trees dominate the *[name for forest]*. They've broken through the road here and there creating insurmountable obstacles that require extra travel time. 
+1,Trees that resemble Old Earth mushrooms climb to heights of 50 to 70 meters in the *[name for forest]*. The *[colour]* spores from the trees litter the road. 
 
 ;desert
 1,A lizard as large as an Old Earth automobile basks in the unrelenting sun of the *[name for desert]*.<p>[desert people]
 1,The *[name for desert]* sun bakes you to the point of blacking out.<p>[desert people]
 1,Tall orange cactus slowly creep along the *[name for desert]* floor in search of food.<p>[desert people]
+1,It's easy to get lost in the *[name for desert]*. The hard-packed sand stretches out for kilometers in every direction. Bones of previous travellers have been pushed to the side of the road.<p>[desert people]
+1,You were warned that the *[name for desert]* is a wasteland. There's no sign of life anywhere except for the tracks of an Old Earth vehicle stretching to the horizon.
+1,The *[name for desert]* has turned into a vast ancient lake bed of salt. Various abandoned salt mines litter the surface. At least there will be shelter tonight.<p>[desert people]
+1,High clouds crawl slowly by providing a little relief in the *[name for desert]*. The road has begun to enter a maze of giant rocks. Could this be the site of an ambush?<p>[desert people]
+1,Time seems to stand still in the *[name for desert]* and the mind wanders with boredom. A churning black smoke suddenly  erupts on the horizon. Is this the caravan that *[human fancy name]* was telling us about?
+1,The *[name for desert]* is quiet and bleak today as always. A multitude of giant lizard tracks cross the road at odd angles. You remember *[human fancy name]* telling you about the seasonal migration and wonder if lizard is on the menu tonight.
+1,The *[name for desert]* flowers are in full bloom and there are thousands of mutated insects flying here and there collecting pollen. You notice giant buzzards overhead circling ominously.
 
 ;mountain
 1,The fresh mountain air up in the *[name for mountain]* is a nice change from the smell of burning mutants and androids.
-1,You are surrounded by the steep peaks of the *[name for mountain]* in all directions. The going will be difficult.
+1,You are surrounded by the steep peaks of the *[name for mountain]* in all directions. Any further travel will be difficult.
 1,The air of the *[name for mountain]* is cold and thin. It’s getting harder and harder to catch your breath. What could possibly survive up here?<p>[mountain people]
 1,The slopes up the the *[name for mountain]* are steep and the trails are slippery with ice and slush. It’s impossible to tell if you’re walking on bones or thin ice.
 
 ;jungle
 1,The extreme humidity of the *[name for jungle]* makes breathing difficult, but has the added benefit of disabling most robots.
-1,The *[name for jungle]* seems to be extra hostile today.
+1,The *[name for jungle]* seems to be extra hostile today. Swaying vines grab at your arms and legs.
 
 ;swamp
 1,The foul smelling quicksand of the *[name for swamp]* pulls at your feet.
-1,The tidal quicksand of the *[name for swamp]* reveals an android graveyard.
-1,Mutated *[colour]* frogs crunch beneath your feet as you slog through the *[name for swamp]*.
+1,The tidal quicksand of the *[name for swamp]* reveals an android graveyard. Is this hallowed ground you're wading through?
+1,Mutated *[colour]* frogs crunch beneath your feet as you slog through the *[name for swamp]*. You suspect there are even bigger amphibians here.
 1,The *[name for swamp]* reeks of dead bodies and ruin. Unknown creatures shriek in the distance.
+1,The sulfurous smell of the *[name for swamp]* has you gagging and retching. You don't know if you can, or want to, push through. 
 
 ;grass
 1,The *[name for grass]* grasses hum with a radioactive intensity. [grass people]
@@ -53,10 +63,12 @@
 ;fort
 1,<p>An old Police station has been repurposed into a crumbling shelter. Several figures can be seen moving through the shadows. There is a large laser weapon on the roof. [fort people]
 1,<p>A collapsing crater hides an entrance to a well fortified station. [fort people]
+1,<p>An old convenience store has been repurposed as an impressive fortification. Sturdy wooden scaffolding surrounds the second floor. [fort people]
 
 ;cave
 1,<p>There is a hidden cave entrance barely big enough to squeeze into. The smell is overpowering and impossible to identify. [cave people]
 1,<p>There’s an entrance to one of the old radiation shelters, here. This cave system stretches for many hundreds of meters in different directions. It looks to have been abandoned long ago. [cave people]
+1,<p>This large cave was once a shelter to an entire family of bovinoids. Why they would shelter here and not in the *[name for grass]* is a mystery. [cave people]
 
 # Mountain
 
@@ -97,7 +109,7 @@
 
 ;bovinoid stats
 # TODO: use a different system for stats?
-1,AC 8 HD 1+1 1d6 MV 120; a successful charge of 16+ throws the target 10’ back and prone
+1,AC 8 HD 1+1 1d6 MV 36m; a successful charge of 16+ throws the target 10’ back and prone
 
 ;herd animal
 1,llama
@@ -110,7 +122,7 @@
 1,A pride of **lions** ([lion stats]) has found that [same herd animal] hunting is super easy. *[same bovinoid name]* is asking you for help.
 
 ;lion stats
-1,HD 5 AC 6 1d6/1d6/1d10 MV 150; surprise on 1–4 in 6
+1,HD 5 AC 6 1d6/1d6/1d10 MV 45m; surprise on 1–4 in 6
 
 # Forest
 
@@ -307,14 +319,16 @@
 
 ;faction
 1,The House of the Falling Sun
-1,Plasteel Patriots
-1,Cybernetic Squatters
+1,The Plasteel Patriots
+1,The Cybernetic Squatters
 1,The Mission for Truth and Reconciliation
 1,Our Lord Hydrogen
 1,Kill All Freaks
-1,Green Machine
-1,Manimals United
-1,Atom Gazers
+1,The Green Machine
+1,The Manimals United
+1,The Atom Gazers
+1,The Gamma Lords
+1,The Necromagisters
 
 # Caves
 
@@ -645,7 +659,7 @@
 2,[pure human stats]
 
 ;human stats
-1,HD 10 AC 7 1d6 L1 HP 10d8 MV 120; average pure human
+1,HD 10 AC 7 1d6 L1 HP 10d8 MV 36m; average pure human
 
 ;android stats
 3,STR [3d6] DEX [3d6] CON [3d6] INT [3d6] WIL [3d6] CHA [3d6] HP 50; android; immune to poisons, blinding, stun; radiation -3 class levels; no additional mutations; resistant to heat and cold, +1 to saves vs. heat or cold; *[mutation]*; *[mutation]*; *[mutation]*
