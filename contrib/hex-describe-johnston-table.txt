@@ -24,9 +24,10 @@
 1,Time seems to stand still in the *[name for desert]* and the mind wanders with boredom. A churning black smoke suddenly  erupts on the horizon. Is this the caravan that *[human fancy name]* was telling us about?
 1,The *[name for desert]* is quiet and bleak today as always. A multitude of giant lizard tracks cross the road at odd angles. You remember *[human fancy name]* telling you about the seasonal migration and wonder if lizard is on the menu tonight.
 1,The *[name for desert]* flowers are in full bloom and there are thousands of mutated insects flying here and there collecting pollen. You notice giant buzzards overhead circling ominously.
+1,Time seems to stand still in the *[name for desert]* and the mind wanders with boredom. *[point of interest in flat lands]*
 
 ;mountain
-1,The fresh mountain air up in the *[name for mountain]* is a nice change from the smell of burning mutants and androids.
+1,The fresh mountain air up in the *[name for mountain]* is a nice change from the smell of burning mutants and androids. [point of interest in the mountains]
 1,You are surrounded by the steep peaks of the *[name for mountain]* in all directions. Any further travel will be difficult.
 1,The air of the *[name for mountain]* is cold and thin. It’s getting harder and harder to catch your breath. What could possibly survive up here?<p>[mountain people]
 1,The slopes up the the *[name for mountain]* are steep and the trails are slippery with ice and slush. It’s impossible to tell if you’re walking on bones or thin ice.
@@ -40,7 +41,8 @@
 1,The tidal quicksand of the *[name for swamp]* reveals an android graveyard. Is this hallowed ground you're wading through?
 1,Mutated *[colour]* frogs crunch beneath your feet as you slog through the *[name for swamp]*. You suspect there are even bigger amphibians here.
 1,The *[name for swamp]* reeks of dead bodies and ruin. Unknown creatures shriek in the distance.
-1,The sulfurous smell of the *[name for swamp]* has you gagging and retching. You don't know if you can, or want to, push through. 
+1,The sulfurous smell of the *[name for swamp]* has you gagging and retching. You don't know if you can, or want to, push through.
+1,The *[name for swamp]* is water logged hard to navigate on foot. You really need a boat, here. [point of interest in the swamp]
 
 ;grass
 1,The *[name for grass]* grasses hum with a radioactive intensity. [grass people]
@@ -101,6 +103,12 @@
 ;name for mountain
 1,[White|Black|Grey|Low|High|Hell|Rocky] [Mountains|Atlas|Alps|Peaks|Wall]
 
+;point of interest in the mountains
+1,On one of the cliffs overhead you see the narrow slits of bunker windows. There must an entrance around here somehere. [bunker]
+
+;bunker
+1,TODO
+
 ;mountain people
 1,At the top of the highest mountain [2d6] **atom gazers** ([atom gazer stats]) led by *[here human fancy name as atom gazer]* have settled one of the old observatories. Their library is still intact!
 
@@ -117,6 +125,16 @@
 ;name for swamp
 1,[Gray|Grey|Black|Bleak] [Wasteland|Swamp|Bog|Fenn|Wetland]
 1,[Gator|Crane|Eel] [Lands|Flats|Country]
+
+;point of interest in the swamp
+1,There's a crashed, half sunken airplane, here. The hull serves as a campsite. [tech hermit]
+1,There's a sunk wheel steamer boat, here. Most of the wood has rotten away but the wheels are still there. The hull serves as a lair. [swamp creature]
+
+;tech hermit
+1,TODO
+
+;swamp creature
+1,TODO
 
 # Grass lands
 
@@ -174,6 +192,14 @@
 1,[Big|Great|Cursed|Dead|Death] [Valley|Flat|Desert|Dry]
 1,[Sea|Plain|Dunes] of [Sand|Rock|Pebbles|Bones|[capitalize colour] Sand]
 1,[Forever|Endless|Merciless] [Sands|Rocks|Bones|Graveyard]
+
+# grass lands and deserts
+;point of interest in flat lands
+1,A churning black smoke suddenly erupts on the horizon. Is this the *[caravan name]* that *[human fancy name]* was telling us about?
+1,In the distance, you see faint camp-fire smoke. This is *[human fancy name]'s trading post.
+
+;caravan name
+1,TODO
 
 ;desert people
 1,There’s a camp of [3d6+15] **[here cactoid raiders as raiders]** ([cactoid stats]) led by *[cactoid name]* ([mutant plant stats]). [vehicle park].
