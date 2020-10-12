@@ -245,8 +245,8 @@
 1,[secret society]
 
 ;secret society
-1,[secret society prefix][secret society adjective] [computer] [people prefix][people]
-1,[secret society prefix][secret society adjective] [people prefix][computer] [people]
+1,[secret society prefix][secret society adjective] [old computer] [people prefix][people]
+1,[secret society prefix][secret society adjective] [people prefix][old computer] [people]
 1,[secret society prefix][secret society adjective] [biology] [people prefix][people]
 1,[secret society prefix][secret society adjective] [people prefix][biology] [people]
 
@@ -261,7 +261,7 @@
 1,Knowing
 1,Wise
 
-;computer
+;old computer
 1,C[64|65|128]
 1,Commodore
 1,6502
