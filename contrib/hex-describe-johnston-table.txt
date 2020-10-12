@@ -3711,6 +3711,11 @@
 # Equipment
 
 ;weapon
+1,[future weapon]
+1,[future ranged weapons]
+3,[medieval weapon]
+
+;future weapon
 1,laser pistol
 1,laser rifle
 1,para pistol
@@ -3721,9 +3726,6 @@
 1,control baton
 1,auto pistol
 1,auto rifle
-1,plasteel dagger
-1,plasteel sword
-1,plasteel club
 1,radiation rifle
 1,plutonium pistol
 1,plasma rifle
@@ -3736,11 +3738,53 @@
 1,atomic glass dagger
 1,atomic glass sword
 1,atomic glass club
-1,plasteel bow
+1,atomic glass mace
+1,atomic glass spear
+1,atomic glass halberd
+1,atomic glass poleaxe
+1,atomic glass axe
 1,atomic glass arrows
-1,plasteel arrows
+
+;medieval weapon
+3,[medieval melee weapon]
+1,[medieval ranged weapon]
+
+;medieval melee weapon
+5,spear
+4,club
+3,dagger
+2,mace
+1,axe
+1,sword
+1,halberd
+1,poleaxe
+1,quarterstaff
+
+;medieval ranged weapon
+1,[2d3] throwing knives
+1,bow and [2d10] arrows
+1,crossbow and [2d6] bolts
+1,sling and [2d6] bullets
+
+;future ranged weapons
+1,[2d3] atomic glass throwing knives
+1,atomic glass bow and [2d10] atomic glass arrows
+1,atomic glass crossbow and [2d6] atomic glass bolts
+1,sling and [2d6] atomic glass bullets
+1,[1d6] atomic glass darts
 
 ;armor
+1,[future armor]
+3,[medieval armor]
+
+;medieval armor
+1,leather armor
+1,studded leather
+1,chain mail
+1,plate mail
+1,primitive shield
+
+;future armor
 1,power armor class 1
 1,power armor class 2
 1,power armor class 3
