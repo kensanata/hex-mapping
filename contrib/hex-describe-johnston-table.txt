@@ -6,25 +6,32 @@
 # TODO: add global threats and powers to the introduction.
 
 ;forest
-1,The trees of the *[name for forest]* surround you and grow towards the sun in tight spirals. [forest people]
+1,The *[colour]* trees of the *[name for forest]* surround you and grow towards the sun in tight spirals. [forest people]
 1,The *[name for forest]* is quiet and peaceful except for the sound of mutated animals ripping each other apart.
-1,Strange looking birds call out high above the trees of the *[name for forest]*. Is this a warning to you or others?
-1,An occasional eye stalk pokes through the mounds of leaves beneath the towering trees of the *[name for forest]*.
-1,Giant, large-trunked trees dominate the *[name for forest]*. They've broken through the road here and there creating insurmountable obstacles that require extra travel time. 
+1,Strange looking birds call out high above the *[colour]* trees of the *[name for forest]*. Is this a warning to you or others?
+1,An occasional *[colour]* eye stalk pokes through the mounds of leaves beneath the towering trees of the *[name for forest]*.
+1,Giant, large-trunked *[colour]* trees dominate the *[name for forest]*. They've broken through the road here and there creating insurmountable obstacles that require extra travel time.
 1,Trees that resemble Old Earth mushrooms climb to heights of 50 to 70 meters in the *[name for forest]*. The *[colour]* spores from the trees litter the road. 
 
 ;desert
-1,A lizard as large as an Old Earth automobile basks in the unrelenting sun of the *[name for desert]*.<p>[desert people]
-1,The *[name for desert]* sun bakes you to the point of blacking out.<p>[desert people]
-1,Tall orange cactus slowly creep along the *[name for desert]* floor in search of food.<p>[desert people]
-1,It's easy to get lost in the *[name for desert]*. The hard-packed sand stretches out for kilometers in every direction. Bones of previous travellers have been pushed to the side of the road.<p>[desert people]
-1,You were warned that the *[name for desert]* is a wasteland. There's no sign of life anywhere except for the tracks of an Old Earth vehicle stretching to the horizon.
-1,The *[name for desert]* has turned into a vast ancient lake bed of salt. Various abandoned salt mines litter the surface. At least there will be shelter tonight.<p>[desert people]
-1,High clouds crawl slowly by providing a little relief in the *[name for desert]*. The road has begun to enter a maze of giant rocks. Could this be the site of an ambush?<p>[desert people]
-1,Time seems to stand still in the *[name for desert]* and the mind wanders with boredom. A churning black smoke suddenly  erupts on the horizon. Is this the caravan that *[human fancy name]* was telling us about?
-1,The *[name for desert]* is quiet and bleak today as always. A multitude of giant lizard tracks cross the road at odd angles. You remember *[human fancy name]* telling you about the seasonal migration and wonder if lizard is on the menu tonight.
-1,The *[name for desert]* flowers are in full bloom and there are thousands of mutated insects flying here and there collecting pollen. You notice giant buzzards overhead circling ominously.
-1,Time seems to stand still in the *[name for desert]* and the mind wanders with boredom. *[point of interest in flat lands]*
+1,A lizard as large as an Old Earth automobile basks in the unrelenting sun of the *[name for desert]*.<p>[desert people] *[desert point of interest]*
+1,The *[name for desert]* sun bakes you to the point of blacking out.<p>[desert people] *[desert point of interest]*
+1,Tall *[colour]* cacti slowly creep along the *[name for desert]* floor in search of food.<p>[desert people] *[desert point of interest]*
+1,It's easy to get lost in the *[name for desert]*. The hard-packed sand stretches out for kilometers in every direction. Bones of previous travellers have been pushed to the side of the road.<p>[desert people] *[desert point of interest]*
+1,You were warned that the *[name for desert]* is a wasteland. *[desert point of interest]*
+1,The *[name for desert]* has turned into a vast ancient lake bed of salt. *[desert point of interest]*
+1,High clouds crawl slowly by providing little relief in the *[name for desert]*. *[desert point of interest]*
+1,Time seems to stand still in the *[name for desert]* and the mind wanders with boredom. *[desert point of interest]*
+1,The *[name for desert]* is quiet and bleak today as always.*[desert point of interest]*
+1,The *[name for desert]* flowers are in full bloom and there are thousands of *[colour]* mutated insects flying here and there collecting pollen. *[desert point of interest]*
+
+;desert point of interest
+1,You notice giant buzzards overhead circling ominously.
+1,A churning black smoke suddenly erupts on the horizon. Is this the caravan that *[human fancy name]* was telling us about?
+1,There's no sign of life anywhere except for the tracks of an Old Earth vehicle stretching to the horizon.
+1,A multitude of giant lizard tracks cross the road at odd angles. You remember *[human fancy name]* telling you about the seasonal migration and wonder if lizard is on the menu tonight.
+1,Various abandoned salt mines litter the surface. At least there will be shelter tonight.<p>[desert people]
+1,The road has begun to enter a maze of giant rocks. Could this be the site of an ambush?<p>[desert people]
 
 ;mountain
 1,The fresh mountain air up in the *[name for mountain]* is a nice change from the smell of burning mutants and androids. [point of interest in the mountains]
@@ -41,7 +48,7 @@
 1,The tidal quicksand of the *[name for swamp]* reveals an android graveyard. Is this hallowed ground you're wading through?
 1,Mutated *[colour]* frogs crunch beneath your feet as you slog through the *[name for swamp]*. You suspect there are even bigger amphibians here.
 1,The *[name for swamp]* reeks of dead bodies and ruin. Unknown creatures shriek in the distance.
-1,The sulfurous smell of the *[name for swamp]* has you gagging and retching. You don't know if you can, or want to, push through.
+1,The sulfurous smell of the *[name for swamp]* has you gagging and retching. You don't know if you want to push through.
 1,The *[name for swamp]* is water logged hard to navigate on foot. You really need a boat, here. [point of interest in the swamp]
 
 ;grass
@@ -204,7 +211,7 @@
 ;desert people
 1,There’s a camp of [3d6+15] **[here cactoid raiders as raiders]** ([cactoid stats]) led by *[cactoid name]* ([mutant plant stats]). [vehicle park].
 1,A dust devil spins in the distance with several [humans|cactoids] inside. (TODO)
-1,Out of the sand rise giant ribs like towers, and between the ribs is a tent town of [2d6x10] **humans** ([human stats]) led by *[human fancy name]* ([human npc stats]) belonging to the *[faction]*.
+1,Out of the sand rise giant ribs like towers, and between the ribs is a tent town of [2d6x10] **humans** ([human stats]) led by *[human fancy name]* ([human npc stats]) belonging to *[faction]*.
 
 ;cactoid stats
 1,TODO
@@ -374,8 +381,8 @@
 1,The Plasteel Patriots
 1,The Cybernetic Squatters
 1,The Mission for Truth and Reconciliation
-1,Our Lord Hydrogen
-1,Kill All Freaks
+1,The Our Lord Hydrogen Ministry
+1,The Kill All Freaks Collective
 1,The Green Machine
 1,The Manimals United
 1,The Atom Gazers
@@ -3776,28 +3783,29 @@
 1,[medieval ranged weapon]
 
 ;medieval melee weapon
-5,spear
-4,club
-3,dagger
-2,mace
-1,axe
-1,sword
-1,halberd
-1,poleaxe
-1,quarterstaff
+5,spear (1d6)
+4,club (1d6)
+3,dagger (1d4)
+2,mace (1d6)
+1,axe (1d8)
+1,sword (1d8)
+1,halberd (1d10)
+1,poleaxe (1d8)
+1,quarterstaff (1d6)
 
 ;medieval ranged weapon
-1,[2d3] throwing knives
-1,bow and [2d10] arrows
-1,crossbow and [2d6] bolts
-1,sling and [2d6] bullets
+1,[2d3] throwing knives (1d4)
+1,bow and [2d10] arrows (1d6)
+1,crossbow and [2d6] bolts (2d4)
+1,sling and [2d6] bullets (1d4)
+1,dart (1d3)
 
 ;future ranged weapons
-1,[2d3] atomic glass throwing knives
-1,atomic glass bow and [2d10] atomic glass arrows
-1,atomic glass crossbow and [2d6] atomic glass bolts
-1,sling and [2d6] atomic glass bullets
-1,[1d6] atomic glass darts
+1,[2d3] atomic glass throwing knives (2d4)
+1,atomic glass bow and [2d10] atomic glass arrows (2d6)
+1,atomic glass crossbow and [2d6] atomic glass bolts (3d4)
+1,sling and [2d6] atomic glass bullets (2d4)
+1,[1d6] atomic glass darts (1d6)
 
 ;armor
 1,[future armor]
@@ -3809,11 +3817,14 @@
 1,chain mail
 1,plate mail
 1,primitive shield
+1,leather helm
+1,chain helm
+1,plate helm
 
 ;future armor
-1,light power armor 
-1,medium power armor 
-1,heavy power armor 
+1,light power armor
+1,medium power armor
+1,heavy power armor
 1,carapace armor
 1,plasteel armor
 1,carapace helm
@@ -3878,6 +3889,24 @@
 1,brown
 1,black
 1,white
+1,dark brown
+1,dirty white
+1,light blue
+1,navy blue
+1,dark blue
+1,bright orange
+1,dull orange
+1,bright red
+1,dark red
+1,dull red
+1,bright yellow
+1,bright purple
+1,dark purple
+1,crimson
+1,dark green
+1,bright green
+1,forest green
+1,dirty yellow
 
 ;colour prefix
 1,[capitalize colour]
@@ -3910,10 +3939,52 @@
 1,Lye
 1,Noxious
 1,Poison
+1,Alkaline
+1,Basic
+1,Oxide
+1,Agent
+1,Compound
+1,Cyanide
+1,Formaldehyde
+1,Ethyl
+1,Sulfide
+1,Ether
+1,Methyl
 
 ;climate prefix
 1,Cold
 1,Hot
+1,Blazing
+1,Fiery
+1,Scorching
+1,Muggy
+1,Steamy
+1,Sticky
+1,Damp
+1,Arid
+1,Suffocating
+1,Clear
+1,Mild
+1,Temperate
+1,Crisp
+1,Refreshing
+1,Clammy
+1,Bracing
+1,Gloomy
+1,Bleak
+1,Dreary
+1,Icy
+1,Glacial
+1,Bone-chilling
+1,Unforgiving
+1,Raw
+1,Harsh
+1,Biting
+1,Violent
+1,Deluge
+1,Rainy
+1,Foggy
+1,Sunny
 
 ;element
 1,Argon
