@@ -22,7 +22,7 @@
 1,The *[name for desert]* has turned into a vast ancient lake bed of salt.<p>[desert point of interest]
 1,High clouds crawl slowly by providing little relief in the *[name for desert]*.<p>[desert point of interest]
 1,Time seems to stand still in the *[name for desert]* and the mind wanders with boredom.<p>[desert point of interest]
-1,The *[name for desert]* is quiet and bleak today as always.*[desert point of interest]*
+1,The *[name for desert]* is quiet and bleak today as always.<p>[desert point of interest]
 1,The *[name for desert]* flowers are in full bloom and there are thousands of [colour] mutated insects flying here and there collecting pollen.<p>[desert point of interest]
 
 ;mountain
