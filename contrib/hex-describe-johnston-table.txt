@@ -76,16 +76,16 @@
 1,Creek
 
 ;ruin
-1,Piles of ash are all that remain where a small town once stood. Partial skeletons are scattered indiscriminately.
-1,Multiple craters litter the landscape. It’s impossible to tell what once stood here.
-1,A partially standing library smoulders in the distance. The bookshelves poke through the crumbled masonry like old bones.
-1,A wreck of a gas station lies in several burning piles. The underground tanks have been long siphoned dry.
-1,What was an airport once stood here. Craters both large and small have shattered the runway. The control tower is still intact although leaning heavily to one side.
-1,Large parts of planes litter the ground. Animal hides hang over the entrances on the remaining fuselages of the Old Earth machines. A humanoid hangs from the control tower as a warning.
-1,The scorch marks on the battered concrete slab are all that remain of this starport. Was this a place to travel to the stars or to escape the Cataclysm?
-1,A sign on the corner of a burned out brick building points to a bomb shelter up ahead. You hope you can reach it before the radioactive rains start again.
-1,The ruins of a sprawling hospital complex cover several acres. There are rumours that medical supplies as well as mutant horrors can still be found inside.
-1,This ancient manufacturing city covers several square miles. The sounds of machinery echo from some of the larger buildings. Have the robots been running their programs since the Cataclysm?
+1,<p>Piles of ash are all that remain where a small town once stood. Partial skeletons are scattered indiscriminately.
+1,<p>Multiple craters litter the landscape. It’s impossible to tell what once stood here.
+1,<p>A partially standing library smoulders in the distance. The bookshelves poke through the crumbled masonry like old bones.
+1,<p>A wreck of a gas station lies in several burning piles. The underground tanks have been long siphoned dry.
+1,<p>What was an airport once stood here. Craters both large and small have shattered the runway. The control tower is still intact although leaning heavily to one side.
+1,<p>Large parts of planes litter the ground. Animal hides hang over the entrances on the remaining fuselages of the Old Earth machines. A humanoid hangs from the control tower as a warning.
+1,<p>The scorch marks on the battered concrete slab are all that remain of this starport. Was this a place to travel to the stars or to escape the Cataclysm?
+1,<p>A sign on the corner of a burned out brick building points to a bomb shelter up ahead. You hope you can reach it before the radioactive rains start again.
+1,<p>The ruins of a sprawling hospital complex cover several acres. There are rumours that medical supplies as well as mutant horrors can still be found inside.
+1,<p>This ancient manufacturing city covers several square miles. The sounds of machinery echo from some of the larger buildings. Have the robots been running their programs since the Cataclysm?
 
 ;fort
 1,<p>An old Police station has been repurposed into a crumbling shelter. Several figures can be seen moving through the shadows. There is a large laser weapon on the roof. [fort people]
