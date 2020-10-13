@@ -3879,9 +3879,8 @@
 1,pink
 1,neon-pink
 1,ultra-violet
-# these two are impossible colours from Carcosa
-# 1,jale
-# 1,ulfire
+1,jale
+1,ulfire
 1,cyan
 1,orange
 1,yellow
