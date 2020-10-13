@@ -16165,9 +16165,16 @@
 
 ;Yggdrasil raiders
 1,[save 1d6+1 as level][save spellbook for elves][3d12] **tree elves** ([elf stats]) led by [wood|tree|night|moon] [guardian|prince|princess|custodian] [elf with portrait] (level [same level]). [same spellbook for elves] [leader treasure] [ancient treasure] [elf travelling companions]
+1,[save 1d6+1 as level][save spellbook for elves][3d12] **netherworld elves** ([elf stats]) led by [earth|tunnel|night|moon] [prince|princess|daughter|son|hunter|justicar|inquisitor] [elf with portrait] (level [same level]). [same spellbook for elves] [leader treasure] [ancient treasure] [netherworld elf travelling companions]
+
+;netherworld elf travelling companions
+3,
+1,They are accompanied by a **wolf spider** ([giant spider stats])
+2,They are accompanied by [1d2+1] **wolf spiders** ([giant spider stats])
 
 ;exit to Niflheim
 1,Finally, you reach a black lake in a giant cavern, the walls covered in green ice. Far above, there’s a round opening and from it descends a long iron chain with a big bucket at it’s end. Anybody entering the bucket is carried up, but there’s no boat to carry anybody out into the cold lake towards the elevator bucket. The bucket itself is operated by [1d8 trolls] ([troll stats]) living up above, at the behest of Hel.<p>[a sight of Niflheim]
+1,Finally, the tunnels lead you to the underground [lair of the netherworld elves]<p>The [colour] gate from the [direction]ern courtyard is decorated with [Niflheim decoration]. It leads to the other side, to Niflheim.<p>[a sight of Niflheim]
 
 ;a sight of Niflheim
 1,Overhead, grey clouds are blowing over the *[dark forest]* covered in snow. This is Niflheim, the land of eternal winter. [nearest objective in Niflheim]
@@ -18615,7 +18622,7 @@
 1,Palace
 
 ;gate of the netherworld elves
-1,The entrance of is protected by a chasm 100ft wide. A thin bridge without rails crosses the chasm. If you climb along the walls, this alerts the [2d4] **giant spiders** ([giant spider stats]) living in the chasm itself.
+1,The entrance is protected by a chasm 100ft wide. A thin bridge without rails crosses the chasm. If you climb along the walls, this alerts the [2d4] **giant spiders** ([giant spider stats]) living in the chasm itself.
 1,The bronze gates lead to the eternal throne room of *[same elf name]*, an ancient **spectre** that still sits here on a throne of [spectre throne shards] and [spectre throne bones] ([spectre stats]). [ancient treasure] The elves live amongst the vaults and mausoleums of [same elf name]’s servants and retainers, their sarcophagi serving as decorations and altars.
 1,This is the former dwarven forge *[here dwarf forge]*. The bronze iris gate leads to the abandoned barracks and a maze of spiders webs by [2d4] **giant spiders** ([giant spider stats]). The main stair shaft leads from the barracks down to the core forge which is still operational.<p>The **fire giant** *[fire giant name]* ([fire giant stats]) works the forge. [rich treasure] [same fire giant name] is served by [2d8] **duergar** ([duergar stats]).<p>[dwarf forge taken over by netherworld elves]
 1,The iron gates lead into a cavern illuminated by a [evil light colour] light, dominated by a giant statue of *[evil power]* about 50ft high [giant statue standing somewhere]. The sacrificial altar is tended to by [guardian of [same evil power]]
