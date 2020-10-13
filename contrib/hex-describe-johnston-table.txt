@@ -206,7 +206,10 @@
 1,In the distance, you see faint camp-fire smoke. This is *[human fancy name]'s trading post.
 
 ;caravan name
-1,TODO
+1,Easy Riders
+1,[Silver|Golden] [Boys|Girls|Riders]
+1,[chemical prefix] [Boys|Girls|Riders]
+1,[war prefix] [Boys|Girls|Riders]
 
 ;desert people
 1,There’s a camp of [3d6+15] **[here cactoid raiders as raiders]** ([cactoid stats]) led by *[cactoid name]* ([mutant plant stats]). [vehicle park].
