@@ -109,7 +109,11 @@
 1,TODO
 
 ;mountain people
-1,At the top of the highest mountain [2d6] **atom gazers** ([atom gazer stats]) led by *[here human fancy name as atom gazer]* have settled one of the old observatories. Their library is still intact!
+1,At the top of the highest mountain [2d6] **atom gazers** ([atom gazer stats]) led by *[here human fancy name as atom gazer]* have settled one of the old observatories. Their library is still intact! Example books: *[here book 1]* and *[here book 2]*.<p>[atom gazer library mission]
+
+;atom gazer library mission
+1,Actually, *[same atom gazer]* would love nothing more than getting a copy of *[nearby book [1|2]]* to add to their library. “Will you help me get this book, [by hook or by crook|legally, of course|discreetly]?”
+1,If you show some interest in the library, *[same atom gazer]* pulls you aside and says: “You seem like an honest person! Will you help me recover a book? *[nearby book thief]* recently [stole a book from me|failed to return a book to me they had borrowed]. [Get it back to me and I will make it worth your while|I’ll reward you both for the book and their head]!”
 
 ;atom gazer stats
 1,TODO
@@ -142,7 +146,7 @@
 
 ;grass people
 1,There is a camp of [3d6+25] **bovinoids** ([bovinoid stats]) of the *[bovinoid tribe name]* led by *[bovinoid name]* (HD 3+3). They are herding [herd animal]. [bovinoid trouble]
-1,There’s a camp of [3d6+25] **[here humanoid raiders as raiders]** ([human stats]) led by *[human fancy name]* ([human npc stats]).
+1,There’s a camp of [3d6+25] **[here humanoid raiders as raiders]** ([human stats]) led by *[human fancy name]* ([human npc stats]). Treasure: a book called [here store [same human fancy name] as book thief]*[book]*.
 
 ;bovinoid name
 1,[Mad|Chill|Strong|Calm] [Bull|Cow|Horns|Head|Father|Mother]
@@ -417,6 +421,7 @@
 1,The entrances to the vat people’s caves have been blocked due to the annual migration of the incredibly aggressive cactoids ([cactoid stats]). If we could lure the cactoids away with their favourite food ([food]), the vat people would reward us with free healing and DNA splicing.
 1,The vat people’s long time enemies, the nuclear wizards led by *[nearby nuclear wizard]*, have raided and stolen data integral to the body bank’s manufacturing process. “With the help of our mobile AI station, we could hack into their matrix, reroute the subroutines, and steal back the code! All we need is to get close to them. Will you escort us?”
 1,The vat people’s body banks have gone haywire, and are generating body parts with too many unsuitable mutations. “Only the [knowledge|wisdom|library] of *[nearby atom gazer]* can help us reprogram the AI loop. Will you [go and fetch them|escort one of us]?”
+1,*[same scientist]* is missing a book for their current research: *[nearby book [1|2]]*. “Will you borrow this book for me? You might have to [beg them|threaten them|steal it], I don’t care. Just get me the book.”
 
 ;food
 1,canned beef
@@ -3834,6 +3839,135 @@
 1,fusion battery
 1,hydrogen cell
 1,plutonium pack
+
+# Books
+
+;book
+1,[book 1]
+1,[book 2]
+# TODO add more books
+
+# We have two kinds of books here so that we can quickly generate two
+# books in a library that cannot be the same.
+
+;book 1
+1,[save science as topic][book title]
+
+;book 2
+1,[save applied science as topic][book title]
+
+;book title
+1,[same topic]
+1,[same topic] For Dummies
+1,[same topic] Basics
+1,An Introduction to [same topic]
+1,The History of [same topic]
+1,Advanced [same topic]
+1,Expert [same topic]
+1,[same topic] For Professionals
+1,Ultimate [same topic]
+1,[same topic]: An Overview
+1,[same topic] In Depth
+1,[same topic] in the Space Age
+1,[same topic] on Alien Worlds
+
+;science
+3,[formal science]
+15,[natural science]
+15,[social science]
+
+;formal science
+1,Logic
+1,Mathematics
+1,Statistics
+
+;natural science
+1,Physics
+1,Chemistry
+1,Biochemistry
+1,Biology
+1,Microbiology
+1,Botany
+1,Zoology
+1,Ethology
+1,Ecology
+1,Geology
+1,Geography
+1,Oceanography
+1,Meteorology
+1,Astronomy
+
+;social science
+1,Sociology
+1,Ethnography
+1,Anthropology
+1,Archaeology
+1,Economics
+1,Linguistics
+1,Management Science
+1,Media Studies
+1,Political Science
+1,Psychology
+1,Philosophy
+1,Ethics
+
+;applied science
+20,[applied physics]
+20,[engineering science]
+3,[medicine]
+1,Business Administration
+1,Jurisprudence
+1,Pedagogy
+
+;medicine
+1,Medicine
+1,Dentistry
+1,Pharmacy
+
+;applied physics
+1,Optics
+1,Quantum Physics
+1,Materials Science
+1,Applied Mechanics
+1,Electronics
+1,Nanotechnology
+1,Microfabrication
+1,Microelectronics
+1,Computing
+1,Photonics
+1,Mechanical Engineering
+1,Electrical Engineering
+1,Nuclear Engineering
+1,Biophysics
+1,Control Theory
+1,Aerodynamics
+1,Energy
+1,Solid-State Physics
+
+;engineering science
+1,Fluid Dynamics
+1,Quantum Physics
+1,Economics
+1,Plasma Physics
+1,Relativity
+1,Solid Mechanics
+1,Operations Research
+1,Quantitative Finance
+1,Information Technology
+1,Information Engineering
+1,Dynamical Systems
+1,Bioengineering
+1,Environmental Engineering
+1,Computational Engineering
+1,Engineering Mathematics
+1,Engineering Statistics
+1,Solid-State Devices
+1,Materials Science
+1,Electromagnetism
+1,Nanoscience
+1,Nanotechnology
+1,Energy
+1,Optics
 
 # Treasure
 
