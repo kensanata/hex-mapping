@@ -4694,6 +4694,14 @@ Here, we add a bit of grass to the appropriate hex type:
     0201 grass "promised land"
     0202 sea "deep blue sea" 20
 
+If you want to read up on the SVG Path syntax, check out the official
+L<specification|https://www.w3.org/TR/SVG11/paths.html>. You can use a tool like
+L<Linja Lili|https://campaignwiki.org/linja-lili> to work on it: paste “M
+-20,-20 l 10,40 M 0,-20 v 40 M 20,-20 l -10,40” in the the Path field, use the
+default transform of “scale(2) translate(50,50)” and import it. Make some
+changes, export it, and copy the result from the Path field back into your map.
+Linja Lili was written just for this! 😁
+
 Here, we add a settlement. The village doesn't have type attributes (it never
 says C<village attributes>) and therefore it's not a hex type.
 
