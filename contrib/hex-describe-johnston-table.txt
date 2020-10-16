@@ -30,24 +30,30 @@
 1,You are surrounded by the steep peaks of the *[name for mountain]* in all directions. Any further travel will be difficult.
 1,The air of the *[name for mountain]* is cold and thin. It’s getting harder and harder to catch your breath. What could possibly survive up here?<p>[mountain people]
 1,The slopes up the the *[name for mountain]* are steep and the trails are slippery with ice and slush. It’s impossible to tell if you’re walking on bones or thin ice.
+1,Climbing, climbing, climbing. It's all that's left to do up here in the *[name for mountain]*.
+1,The high canyon walls feel like they're closing in on you in the *[name for mountain]*. The trail winds ahead like a snake.
 
 ;jungle
 1,The extreme humidity of the *[name for jungle]* makes breathing difficult, but has the added benefit of disabling most robots.
-1,The *[name for jungle]* seems to be extra hostile today. Swaying vines grab at your arms and legs.
+1,The *[name for jungle]* seems to be extra hostile today. Swaying [colour] vines grab at your arms and legs.
+1,The *[name for jungle]* is thick with *[colour]* vegetation and surprisingly unyielding.
+1,The rain is unceasing as you stumble your way through the *[name of jungle]*. The trail is slowly being eroded away.
+1,The under and overgrowth are heavy tangled in the *[name for jungle]*. 
 
 ;swamp
 1,The foul smelling quicksand of the *[name for swamp]* pulls at your feet.
-1,The tidal quicksand of the *[name for swamp]* reveals an android graveyard. Is this hallowed ground you're wading through?
-1,Mutated [colour] frogs crunch beneath your feet as you slog through the *[name for swamp]*. You suspect there are even bigger amphibians here.
+1,The tidal quicksand of the *[name for swamp]* ebbs and flows, and you feel yourself sinking in deeper and deeper.
+1,Mutated [colour] frogs crunch beneath your feet as you slog through the *[name for swamp]*. You suspect there are even bigger amphibians under the surface.
 1,The *[name for swamp]* reeks of dead bodies and ruin. Unknown creatures shriek in the distance.
 1,The sulfurous smell of the *[name for swamp]* has you gagging and retching. You don't know if you want to push through.
-1,The *[name for swamp]* is water logged hard to navigate on foot. You really need a boat, here.<p>[point of interest in the swamp]
+1,The *[name for swamp]* is waterlogged and hard to navigate on foot. You're going to need a boat here.<p>[point of interest in the swamp]
 
 ;grass
-1,The *[name for grass]* grasses hum with a radioactive intensity. [grass people]
+1,The *[name for grass]* hums with a radioactive intensity. [grass people]
 1,There seems to be no end to the *[name for grass]*. [grass people]
-1,The *[name for grass]* stretches in all directions. Large buzzing insects hover menacingly.
-1,Two meter tall crickets chew the rainbow grass contentedly. This is the *[name for grass]*.
+1,The *[name for grass]* stretches in all directions. Large buzzing [colour] insects hover menacingly.
+1,One meter tall [colour] crickets chew the rainbow grass contentedly. This is the *[name for grass]*.
+1,Lush [with colour] and [and colour] grasses flow with the wind in the *[name for grass]*.
 
 ;river-start river
 1,<p>[name for river] starts here.
@@ -86,6 +92,25 @@
 1,<p>A sign on the corner of a burned out brick building points to a bomb shelter up ahead. You hope you can reach it before the radioactive rains start again.
 1,<p>The ruins of a sprawling hospital complex cover several acres. There are rumours that medical supplies as well as mutant horrors can still be found inside.
 1,<p>This ancient manufacturing city covers several square miles. The sounds of machinery echo from some of the larger buildings. Have the robots been running their programs since the Cataclysm?
+
+;ruins
+1,Airport
+1,Armory
+1,Bomb Shelter
+1,Body Bank
+1,Factory
+1,Farm
+1,Hotel
+1,Medical Facility
+1,Military Base
+1,Mine
+1,Missile Silo
+1,Nuclear Facility
+1,Police Station
+1,Power Plant
+1,Resort
+1,Mall
+1,Spaceport
 
 ;fort
 1,<p>An old Police station has been repurposed into a crumbling shelter. Several figures can be seen moving through the shadows. There is a large laser weapon on the roof. [fort people]
@@ -131,7 +156,9 @@
 
 ;point of interest in the swamp
 1,There's a crashed, half sunken airplane, here. The hull serves as a campsite. [tech hermit]
-1,There's a sunk wheel steamer boat, here. Most of the wood has rotten away but the wheels are still there. The hull serves as a lair. [swamp creature]
+1,There's a sunk wheel steamer boat here. Most of the wood has rotten away but the wheels are still there. The hull serves as a lair. [swamp creature]
+1,A whirlpool spins lazily. Something large and shapeless swims through it. *[swamp creature]*
+1,The bubbling swamp wastewater reveals an android graveyard. A metallic crucifix embedded in the ground sags to one side. Is this hallowed ground you're wading through?
 
 ;tech hermit
 1,TODO
@@ -189,6 +216,12 @@
 1,Bear
 1,Strong
 
+# Jungle
+
+;point of interest in the jungle
+1,An old dirty grey temple stands here almost completely hidden by *[colour]* vines and *[colour]* undergrowth. The ashes of a recent fire by the entrance are still warm.
+1,Up ahead through the *[colour]* vines is a ramshackle shelter with light blue smoke wafting out a crude chimney. Does *[fancy human name]* still live here after all this time?
+
 # Desert
 
 ;name for desert
@@ -202,7 +235,7 @@
 1,There's no sign of life anywhere except for the tracks of an Old Earth vehicle stretching to the horizon.
 1,A multitude of giant lizard tracks cross the road at odd angles. You remember *[human fancy name]* telling you about the seasonal migration and wonder if lizard is on the menu tonight.
 1,Various abandoned salt mines litter the surface. At least there will be shelter tonight.<p>[desert people]
-1,The road has begun to enter a maze of giant rocks. Could this be the site of an ambush?<p>[desert people]
+1,The road has begun to enter a maze of giant [colour] rocks. Could this be the site of an ambush?<p>[desert people]
 
 ;caravan name
 1,Easy Riders
@@ -3754,86 +3787,86 @@
 3,[medieval weapon]
 
 ;future weapon
-1,laser pistol (4d6) 150 meter range
-1,laser rifle (5d6) 450 meter range
-1,para pistol stun (2d4) rounds 75 meter range
-1,para rifle stun (2d4) rounds 150 meter range
-1,rail pistol (6d6) 650 meter range
-1,rail rifle (7d6) 1000 meter range
+1,laser pistol (4d6) 150m
+1,laser rifle (5d6) 450m
+1,para pistol stun (2d4) rounds 75m
+1,para rifle stun (2d4) rounds 150m
+1,rail pistol (6d6) 650m
+1,rail rifle (7d6) 1000m
 1,para baton stun (2d6), stun (1d6) rounds
-1,auto pistol (1d10) 200 meter range
-1,auto rifle (1d12) 350 meter range
-1,radiation rifle 14 radiation intensity 50 meter range
-1,plasma rifle (4d6), (4d6) explosion in 10 meter sphere, 300 meter range
-1,plasma pistol (4d6), (3d6) explosion in 10 meter sphere, 150 meter range
-1,EMP grenade (5d8) robots, androids
-1,EMP pistol (4d8) robots, androids 50 meter range
-1,EMP rifle (5d8) robots, androids 100 meter range
+1,auto pistol (1d10) 200m
+1,auto rifle (1d12) 350m
+1,radiation rifle (1d10+6) radiation intensity 50m
+1,plasma rifle (4d6), (4d6) 300m plus explosion in 10m radius
+1,plasma pistol (4d6), (3d6) 150m plus explosion in 10m radius
+1,EMP grenade (5d8) robots, androids 25m
+1,EMP pistol (4d8) robots, androids 50m
+1,EMP rifle (5d8) robots, androids 100m
 1,frag grenade (4d4), 10 meter radius
-1,para grenade stun (2d4) rounds, 10 meter sphere
-1,atomic glass dagger
-1,atomic glass sword
-1,atomic glass club
-1,atomic glass mace
-1,atomic glass spear
-1,atomic glass halberd
-1,atomic glass poleaxe
-1,atomic glass axe
-1,atomic glass arrows
+1,para grenade (2d6) stun (2d4) rounds, 10m radius
+1,atomic glass dagger (2d4)
+1,atomic glass sword (2d8)
+1,atomic glass club (2d6)
+1,atomic glass mace (2d6)
+1,atomic glass spear (2d6)
+1,atomic glass halberd (2d10)
+1,atomic glass poleaxe (2d8)
+1,atomic glass axe (2d8)
+1,atomic glass arrows (2d6)
 
 ;medieval weapon
 3,[medieval melee weapon]
 1,[medieval ranged weapon]
 
 ;medieval melee weapon
-5,spear (1d6)
-4,club (1d6)
-3,dagger (1d4)
-2,mace (1d6)
-1,axe (1d8)
-1,sword (1d8)
-1,halberd (1d10)
-1,poleaxe (1d8)
-1,quarterstaff (1d6)
+5,primitive spear (1d6) 25m
+4,stone club (1d6)
+3,primitive dagger (1d4)
+2,rock mace (1d6)
+1,stone axe (1d8)
+1,primitive sword (1d8)
+1,primitive halberd (1d10)
+1,primitive poleaxe (1d8)
+1,primitive quarterstaff (1d6)
 
 ;medieval ranged weapon
-1,[2d3] throwing knives (1d4)
-1,bow and [2d10] arrows (1d6)
-1,crossbow and [2d6] bolts (2d4)
-1,sling and [2d6] bullets (1d4)
-1,dart (1d3)
+1,[2d3] throwing knives (1d4) 10m
+1,simple bow and [2d10] arrows (1d6) 50m
+1,simple crossbow and [2d6] bolts (2d4) 75m
+1,simple sling and [2d6] bullets (1d4) 40m
+1,[2d3] darts (1d3) 10m
 
 ;future ranged weapons
-1,[2d3] atomic glass throwing knives (2d4)
-1,atomic glass bow and [2d10] atomic glass arrows (2d6)
-1,atomic glass crossbow and [2d6] atomic glass bolts (3d4)
-1,sling and [2d6] atomic glass bullets (2d4)
-1,[1d6] atomic glass darts (1d6)
+1,[2d3] atomic glass throwing knives (2d4) 10M
+1,atomic glass bow and [2d10] atomic glass arrows (2d6) 75M
+1,atomic glass crossbow and [2d6] atomic glass bolts (3d4) 125M
+1,sling and [2d6] atomic glass bullets (2d4) 60M
+1,[2d3] atomic glass darts (1d6) 20M
 
 ;armor
 1,[future armor]
 3,[medieval armor]
 
 ;medieval armor
-1,leather armor
-1,studded leather
-1,chain mail
-1,plate mail
-1,primitive shield
-1,leather helm
-1,chain helm
-1,plate helm
+1,leather armor (AC 8)
+1,studded leather (AC 7)
+1,chain mail (AC 5)
+1,plate mail (AC 3)
+1,primitive shield (AC -1)
+1,leather helm (AC -1)
+1,chain helm (AC -1)
+1,plate helm (AC -1)
 
 ;future armor
 1,light power armor
 1,medium power armor
 1,heavy power armor
-1,carapace armor
-1,plasteel armor
-1,carapace helm
-1,atomic glass helm
-1,plasteel helm
-1,atomic glass armor
+1,carapace armor (AC 5)
+1,plasteel armor (AC 2)
+1,carapace helm (AC -1)
+1,atomic glass helm (AC -1)
+1,plasteel helm (AC -1)
+1,atomic glass armor (AC 3)
 
 ;power sources
 1,fusion battery
@@ -3992,8 +4025,8 @@
 
 ;bike
 1,rocket sled
-1,magna bike
-2,gasoline-powered bike
+1,magna cycle
+2,gasoline-powered motorcycle
 
 ;car
 2,magna car
