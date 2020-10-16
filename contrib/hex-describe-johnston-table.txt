@@ -92,25 +92,36 @@
 1,<p>A sign on the corner of a burned out brick building points to a bomb shelter up ahead. You hope you can reach it before the radioactive rains start again.
 1,<p>The ruins of a sprawling hospital complex cover several acres. There are rumours that medical supplies as well as mutant horrors can still be found inside.
 1,<p>This ancient manufacturing city covers several square miles. The sounds of machinery echo from some of the larger buildings. Have the robots been running their programs since the Cataclysm?
+1,<p>[An old|An abandoned|A destroyed|A crumbling|A ruined] [building] can be found nearby. [ruin dwellers]
 
-;ruins
-1,Airport
-1,Armory
-1,Bomb Shelter
-1,Body Bank
-1,Factory
-1,Farm
-1,Hotel
-1,Medical Facility
-1,Military Base
-1,Mine
-1,Missile Silo
-1,Nuclear Facility
-1,Police Station
-1,Power Plant
-1,Resort
-1,Mall
-1,Spaceport
+;building
+1,airport
+1,armory
+1,bomb shelter
+1,body bank
+1,factory
+1,farm
+1,hotel
+1,medical facility
+1,military base
+1,mine
+1,missile silo
+1,nuclear facility
+1,police station
+1,power plant
+1,resort
+1,mall
+1,spaceport
+
+;ruin dwellers
+1,A small band of desperados has settled in the remains. [3d6] **[here humanoid raiders as raiders]** ([human stats]) led by *[human fancy name]* ([human npc stats]). Treasure: [humanoid treasure]
+
+;humanoid treasure
+1,it’s all scraps and garbage, as far as you can tell.
+1,textiles for some clothes, a pile of rags, nothing of value.
+1,a bunch of tools, hammers, nails, some wire, a pair of tongs.
+1,a big, wooden loom, and wool to operate it, if you know how to weave.
+1,a book called [here store [same human fancy name] as book thief]*[book]*.
 
 ;fort
 1,<p>An old Police station has been repurposed into a crumbling shelter. Several figures can be seen moving through the shadows. There is a large laser weapon on the roof. [fort people]
@@ -173,7 +184,7 @@
 
 ;grass people
 1,There is a camp of [3d6+25] **bovinoids** ([bovinoid stats]) of the *[bovinoid tribe name]* led by *[bovinoid name]* (HD 3+3). They are herding [herd animal]. [bovinoid trouble]
-1,There’s a camp of [3d6+25] **[here humanoid raiders as raiders]** ([human stats]) led by *[human fancy name]* ([human npc stats]). Treasure: a book called [here store [same human fancy name] as book thief]*[book]*.
+1,There’s a camp of [3d6+25] **[here humanoid raiders as raiders]** ([human stats]) led by *[human fancy name]* ([human npc stats]). Treasure: [humanoid treasure]
 
 ;bovinoid name
 1,[Mad|Chill|Strong|Calm] [Bull|Cow|Horns|Head|Father|Mother]
