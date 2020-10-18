@@ -37,7 +37,7 @@
 1,The extreme humidity of the *[name for jungle]* makes breathing difficult, but has the added benefit of disabling most robots.
 1,The *[name for jungle]* seems to be extra hostile today. Swaying [colour] vines grab at your arms and legs.
 1,The *[name for jungle]* is thick with *[colour]* vegetation and surprisingly unyielding.
-1,The rain is unceasing as you stumble your way through the *[name of jungle]*. The trail is slowly being eroded away.
+1,The rain is unceasing as you stumble your way through the *[name for jungle]*. The trail is slowly being eroded away.
 1,The under and overgrowth are heavy tangled in the *[name for jungle]*. 
 
 ;swamp
@@ -114,14 +114,15 @@
 1,spaceport
 
 ;ruin dwellers
-1,A small band of desperados has settled in the remains. [3d6] **[here humanoid raiders as raiders]** ([human stats]) led by *[human fancy name]* ([human npc stats]). Treasure: [humanoid treasure]
+1,A small band of desperados has settled in the remains. [3d6] **[here humanoid raiders as raiders]** ([human stats]) led by *[human fancy name as leader]* ([human npc stats]). Treasure: [raider treasure]
 
-;humanoid treasure
+;raider treasure
 1,it’s all scraps and garbage, as far as you can tell.
 1,textiles for some clothes, a pile of rags, nothing of value.
 1,a bunch of tools, hammers, nails, some wire, a pair of tongs.
 1,a big, wooden loom, and wool to operate it, if you know how to weave.
-1,a book called [here store [same human fancy name] as book thief]*[book]*.
+1,a book called [here store [same leader] as book thief]*[book]*.
+1,[ammunition stash]
 
 ;fort
 1,<p>An old Police station has been repurposed into a crumbling shelter. Several figures can be seen moving through the shadows. There is a large laser weapon on the roof. [fort people]
@@ -184,7 +185,7 @@
 
 ;grass people
 1,There is a camp of [3d6+25] **bovinoids** ([bovinoid stats]) of the *[bovinoid tribe name]* led by *[bovinoid name]* (HD 3+3). They are herding [herd animal]. [bovinoid trouble]
-1,There’s a camp of [3d6+25] **[here humanoid raiders as raiders]** ([human stats]) led by *[human fancy name]* ([human npc stats]). Treasure: [humanoid treasure]
+1,There’s a camp of [3d6+25] **[here humanoid raiders as raiders]** ([human stats]) led by *[human fancy name as leader]* ([human npc stats]). Treasure: [raider treasure]
 
 ;bovinoid name
 1,[Mad|Chill|Strong|Calm] [Bull|Cow|Horns|Head|Father|Mother]
@@ -215,10 +216,10 @@
 1,[Green|Dark|Black|Petrified|Hungry] Forest
 
 ;forest people
-1,There’s a camp of [3d6+15] **[here ursoid raiders as raiders]** ([ursoid stats]) led by *[bear name]* (TODO).
+1,There’s a camp of [3d6+15] **[here ursoid raiders as raiders]** ([ursoid stats]) led by *[bear name as leader]* (add [physical mutation]). Treasure: [raider treasure]
 
 ;ursoid stats
-1,TODO
+1,HD 10 AC 6 #AT3 1d8/1d8/1d10 HP 10d6 Wil 13 SV L5 MV 36m
 
 # TODO: nead better bear/ursoid names
 ;bear name
@@ -271,7 +272,10 @@
 # Forts
 
 ;fort people
-1,About  [2d6x10] **humans** live here ([human stats]), led by *[human fancy name]* ([human npc stats]).<p>[fort speciality]<p>[secret society presence]
+1,About  [2d6x10] **humans** live here ([human stats]), led by *[human fancy name]* ([human npc stats]). Treasure: [fort treasure]<p>[fort speciality]<p>[secret society presence]
+
+;fort treasure
+1,[ammunition stash]
 
 ;fort speciality
 1,Visitors are mostly travelling merchants. The trade post run by *[here human fancy name as trader]* is fairly well known. The *[guest house name]* is open to all.
@@ -870,9 +874,9 @@
 1,*[mental mutation]*, *[mental mutation]*, *[mental mutation]* and *[mental mutation]*
 
 ;mutant plant stats
-1,STR [3d6] DEX [3d6] CON [3d6 as con] INT [3d6] WIL [3d6] CHA [3d6] HP [[same con]d6]; [armor]; [weapon]; mutant plant; [plant mutation], [plant mutation], [and 1d6 human mutations]
+1,STR [3d6] DEX [3d6] CON [3d6 as con] INT [3d6] WIL [3d6] CHA [3d6] HP [[same con]d6]; [armor]; [weapon]; mutant plant; [plant mutation], [plant mutation], [plus 1d6 human mutations]
 
-;and 1d6 human mutations
+;plus 1d6 human mutations
 1,and *[physical mutation]*
 1,and *[mental mutation]*
 2,*[physical mutation]*, and *[mental mutation]*
@@ -3802,6 +3806,8 @@
 1,Wings
 
 # Plant Mutations
+
+;plant mutation
 1,Accumulated Resistance
 1,Acid Sap
 1,Carnivore
@@ -3829,24 +3835,27 @@
 3,[medieval weapon]
 
 ;future weapon
-1,laser pistol (4d6) 150m
-1,laser rifle (5d6) 450m
-2,para pistol stun (2d4) rounds 75m
-2,para rifle stun (2d4) rounds 150m
-1,rail pistol (6d6) 650m
-1,rail rifle (7d6) 1000m
+1,laser pistol (4d6) 150m, with [1d10] charges
+1,laser rifle (5d6) 450m, with [1d20] charges
+2,para pistol stun (2d4) rounds 75m, with [1d10] charges
+2,para rifle stun (2d4) rounds 150m, with [1d20] charges
+1,rail pistol (6d6) 650m, with [1d10] charges
+1,rail rifle (7d6) 1000m, with [1d20] charges
 1,para baton stun (2d6), stun (1d6) rounds
-5,auto pistol (1d10) thrice a round, 200m
-5,auto rifle (1d12) thrice a round, 350m
-1,radiation pistol Class 4 radiation (4d6, save for half) 25m
-1,radiation rifle Class 5 radiation (5d6, save for half) 50m
-1,plasma rifle (4d6) 300m, plus (4d6) explosion in 10m radius
-1,plasma pistol (4d6) 150m, plus (3d6) explosion in 10m radius
+5,auto pistol (1d10) thrice a round, 200m, with [1d10] charges
+5,auto rifle (1d12) thrice a round, 350m, with [1d20] charges
+1,radiation pistol Class 4 radiation (4d6, save for half) 25m, with [1d10] charges
+1,radiation rifle Class 5 radiation (5d6, save for half) 50m, with [1d20] charges
+1,plasma rifle (4d6) 300m, plus (4d6) explosion in 10m radius, with [1d20] charges
+1,plasma pistol (4d6) 150m, plus (3d6) explosion in 10m radius, with [1d10] charges
 1,EMP grenade (5d8) robots/androids 25m
-1,EMP pistol (4d8) robots/androids 50m
-1,EMP rifle (5d8) robots/androids 100m
-5,frag grenade (4d4), 10 meter radius
+1,[1d5+1] EMP grenades (5d8) robots/androids 25m
+1,EMP pistol (4d8) robots/androids 50m, with [1d10] charges
+1,EMP rifle (5d8) robots/androids 100m, with [1d20] charges
+1,frag grenade (4d4), 10 meter radius
+5,[1d5+1] frag grenades (4d4), 10 meter radius
 1,para grenade (2d6) stun (2d4) rounds, 10m radius
+1,[1d5+1] para grenades (2d6) stun (2d4) rounds, 10m radius
 1,atomic glass dagger (2d4)
 1,atomic glass sword (2d8)
 1,atomic glass club (2d6)
@@ -3901,9 +3910,9 @@
 1,plate helm (AC -1)
 
 ;future armor
-1,light power armor (AC 1) MV 36m, laser pistol (4d6) 150m, EMP pistol (4d8) robots/androids 50m, para grenade launcher (2d6) 50m, stun (2d4) rounds, 10m radius 
-1,medium power armor (AC 0) MV 55m, laser rifle (5d6) 450m, EMP rifle (5d8) robots/androids 100m, frag grenade launcher (4d4) 50m, 10 meter radius 
-1,heavy power armor (AC -1) MV 72m, rail rifle (7d6) 1000m, plasma rifle (4d6) 300m, plus (4d6) explosion in 10m radius, frag grenade launcher (4d4) 100m, 10 meter radius
+1,light power armor (AC 1) MV 36m, laser pistol (4d6) 150m, with [1d10] charges, EMP pistol (4d8) robots/androids 50m, with [1d10] charges, para grenade launcher (2d6) 50m, stun (2d4) rounds, 10m radius, with [2d4] grenades
+1,medium power armor (AC 0) MV 55m, laser rifle (5d6) 450m, with [1d20] charges, EMP rifle (5d8) robots/androids 100m, with [1d20] charges, frag grenade launcher (4d4) 50m, 10 meter radius, with [2d4] grenades
+1,heavy power armor (AC -1) MV 72m, rail rifle (7d6) 1000m, plasma rifle (4d6) 300m, plus (4d6) explosion in 10m radius, with [1d20] charges, frag grenade launcher (4d4) 100m, 10 meter radius, with [2d6] grenades
 1,carapace armor (AC 5)
 1,plasteel armor (AC 2)
 1,carapace helm (AC -1)
@@ -3916,23 +3925,32 @@
 1,hydrogen cell
 1,plutonium pack
 
+# this does not match what people are carrying!
+;ammunition stash
+1,[ammunition]
+1,[ammunition], and [ammunition]
+1,[ammunition], [ammunition], and [ammunition]
+1,[ammunition], [ammunition], [ammunition], and [ammunition]
+1,[ammunition], [ammunition], [ammunition], [ammunition], and [ammunition]
+1,[ammunition], [ammunition], [ammunition], [ammunition], [ammunition], and [ammunition]
+
 ;ammunition
 1,laser rifle mag with [1d20] charges
-1,laser pistol mag wih [1d10] charges
+1,laser pistol mag with [1d10] charges
 2,para rifle mag with [1d20] charges
-2,para pistol mag wih [1d10] charges
+2,para pistol mag with [1d10] charges
 1,rail rifle mag with [1d20] charges
-1,rail pistol mag wih [1d10] charges
+1,rail pistol mag with [1d10] charges
 1,laser rifle mag with [1d20] charges
-1,laser pistol mag wih [1d10] charges
+1,laser pistol mag with [1d10] charges
 4,auto rifle mag with [1d20] charges
-5,auto pistol mag wih [1d10] charges
+5,auto pistol mag with [1d10] charges
 1,radiation rifle mag with [1d20] charges
-1,radiation pistol mag wih [1d10] charges
+1,radiation pistol mag with [1d10] charges
 1,plasma rifle mag with [1d20] charges
-1,plasma pistol mag wih [1d10] charges
+1,plasma pistol mag with [1d10] charges
 1,EMP rifle mag with [1d20] charges
-1,EMP pistol mag wih [1d10] charges
+1,EMP pistol mag with [1d10] charges
 
 # Books
 
