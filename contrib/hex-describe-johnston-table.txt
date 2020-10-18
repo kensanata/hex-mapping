@@ -8,7 +8,7 @@
 ;forest
 1,The [colour] trees of the *[name for forest]* surround you and grow towards the sun in tight spirals. [forest people]
 1,The *[name for forest]* is quiet and peaceful except for the sound of mutated animals ripping each other apart.
-1,Strange looking birds call out high above the [colour] trees of the *[name for forest]*. Is this a warning to you or others?
+1,Strange looking birds call out high above the [colour] trees of the *[name for forest]*.
 1,An occasional [colour] eye stalk pokes through the mounds of leaves beneath the towering trees of the *[name for forest]*.
 1,Giant, large-trunked [colour] trees dominate the *[name for forest]*. They've broken through the road here and there creating insurmountable obstacles that require extra travel time.
 1,Trees that resemble Old Earth mushrooms climb to heights of 50 to 70 meters in the *[name for forest]*. The [colour] spores from the trees litter the road. 
@@ -28,7 +28,7 @@
 ;mountain
 1,The fresh mountain air up in the *[name for mountain]* is a nice change from the smell of burning mutants and androids.<p>[point of interest in the mountains]
 1,You are surrounded by the steep peaks of the *[name for mountain]* in all directions. Any further travel will be difficult.
-1,The air of the *[name for mountain]* is cold and thin. It’s getting harder and harder to catch your breath. What could possibly survive up here?<p>[mountain people]
+1,The air of the *[name for mountain]* is cold and thin. It’s getting harder and harder to catch your breath.<p>[mountain people]
 1,The slopes up the the *[name for mountain]* are steep and the trails are slippery with ice and slush. It’s impossible to tell if you’re walking on bones or thin ice.
 1,Climbing, climbing, climbing. It's all that's left to do up here in the *[name for mountain]*.
 1,The high canyon walls feel like they're closing in on you in the *[name for mountain]*. The trail winds ahead like a snake.
@@ -88,10 +88,10 @@
 1,<p>A wreck of a gas station lies in several burning piles. The underground tanks have been long siphoned dry.
 1,<p>What was an airport once stood here. Craters both large and small have shattered the runway. The control tower is still intact although leaning heavily to one side.
 1,<p>Large parts of planes litter the ground. Animal hides hang over the entrances on the remaining fuselages of the Old Earth machines. A humanoid hangs from the control tower as a warning.
-1,<p>The scorch marks on the battered concrete slab are all that remain of this starport. Was this a place to travel to the stars or to escape the Cataclysm?
+1,<p>The scorch marks on the battered concrete slab are all that remain of this starport.
 1,<p>A sign on the corner of a burned out brick building points to a bomb shelter up ahead. You hope you can reach it before the radioactive rains start again.
 1,<p>The ruins of a sprawling hospital complex cover several acres. There are rumours that medical supplies as well as mutant horrors can still be found inside.
-1,<p>This ancient manufacturing city covers several square miles. The sounds of machinery echo from some of the larger buildings. Have the robots been running their programs since the Cataclysm?
+1,<p>This ancient manufacturing city covers several square miles. The sounds of machinery echo from some of the larger buildings.
 1,<p>[An old|An abandoned|A destroyed|A crumbling|A ruined] [building] can be found nearby. [ruin dwellers]
 
 ;building
@@ -246,7 +246,7 @@
 1,There's no sign of life anywhere except for the tracks of an Old Earth vehicle stretching to the horizon.
 1,A multitude of giant lizard tracks cross the road at odd angles. You remember *[human fancy name]* telling you about the seasonal migration and wonder if lizard is on the menu tonight.
 1,Various abandoned salt mines litter the surface. At least there will be shelter tonight.<p>[desert people]
-1,The road has begun to enter a maze of giant [colour] rocks. Could this be the site of an ambush?<p>[desert people]
+1,The road has begun to enter a maze of giant [colour] rocks.<p>[desert people]
 
 ;caravan name
 1,Easy Riders
@@ -752,27 +752,27 @@
 # Animal
 
 ;animal
-1,rad bear
-1,electric crab
-1,acid worm
-1,giant ant
-1,mothowl
-1,dragonbird
-1,rad hare
-1,sky jelly
-1,algaefish
-1,swamp thing
-1,fel dog
-1,hellhound
-1,grasschopper
-1,horse fly
-1,burke's hawk
-1,rad rattler
-1,wolfling
-1,fire ant
-1,no see um
-1,sky whale
-1,salam ander
+1,rad bear, HD 10 AC 6 1d8/1d8/1d10 HP 10d6 13 Wil MV 36m, Radiation Vomit mutation
+1,electric crab HD 8 AC 4 2d8/2d8 HP 8d6 12 Wil MV 36m, Electric Touch mutation
+1,acid worm HD 7 AC 6 1d8 HP 7d6 12 Wil MV 36m, Acid Touch mutation
+1,giant ant HD 10 AC 3 1d12 Hp 10d6 11 Wil MV 36m, Animal Telepathy mutation
+1,mothowl HD 5 AC 6 HP 5d6 14 Wil MV 36m, Energy Drain mutation
+1,dragonbird HD 12 AC 3 1d8/1d8/1d10 HP 12d6 15 Wil MV 55m 1d8/1d8/1d10, Heat Metal mutation
+1,rad hare HD 4 AC 5 HP 4d6 MV 13 Wil 55m, Radiation Vomit mutation
+1,sky jelly HD 3 AC 7 HP 3d6 15 Wil MV 18m, Paralyzing Touch, Energy Drain mutation
+1,algaefish HD 9 AC 5 1d12 HP 9d6 MV 36m, Confusion mutation
+1,swamp thing HD 20 AC 2 HP 20d6 17 Wil MV 36m, Heal Self, Poison Vomit, Eye Eruption mutation
+1,fel dog HD 8 AC 5 1d8/1d8/1d10 HP 8d6 8 Wil MV 36m, Chameleon mutation
+1,hellhound HD 11 AC 0 1d8/1d8/1d10 HP 11d6 12 Wil MV 36m, Exoskeleton, Fire Breath mutation
+1,grasschopper HD 8 AC 4 1d10 HP 8d6 7 Wil MV 36m, Far Hearing, Photosynthesis mutation
+1,horse fly HD 3 AC 6 1d12 HP 3d6 8 Wil MV 54m, Poison Resist mutation
+1,burke's hawk HD 4 AC 4 1d8/1d8/1d10 HP 4d6 10 Wil MV 54m, Reflect Light mutation
+1,rad rattler HD 7 AC 4 1d12 HP 7d6 14 Wil MV 36m, Radiation Vomit, Poison Vomit mutation
+1,wolfling HD 12 AC 5 1d8/1d8/1d10 HP 12d6 10 Wil MV 36m, Tentacles, Blur mutation
+1,fire ant HD 8 AC 5 1d12 HP 8d6 13 Wil MV 36m, Resist Heat, Fire Breath mutation
+1,no see um HD 2 AC 5 1d8/1d8 HP 2d6 10 Wil MV 36m, Invisibility Mutation
+1,sky whale HD 20 AC 5 1d20 HP 20d6 16 Wil MV 36m, Mass Control Mind, Gills, Chameleon, Eye Eruption mutation
+1,salam ander HD 7 AC 6 1d8 HP 8d6 14 Wil MV 36m, Acid Touch mutation
 
 ;plant
 1,weeping willow
@@ -3800,20 +3800,21 @@
 ;future weapon
 1,laser pistol (4d6) 150m
 1,laser rifle (5d6) 450m
-1,para pistol stun (2d4) rounds 75m
-1,para rifle stun (2d4) rounds 150m
+2,para pistol stun (2d4) rounds 75m
+2,para rifle stun (2d4) rounds 150m
 1,rail pistol (6d6) 650m
 1,rail rifle (7d6) 1000m
 1,para baton stun (2d6), stun (1d6) rounds
-1,auto pistol (1d10) 200m
-1,auto rifle (1d12) 350m
-1,radiation rifle (1d10+6) radiation intensity 50m
-1,plasma rifle (4d6), (4d6) 300m plus explosion in 10m radius
-1,plasma pistol (4d6), (3d6) 150m plus explosion in 10m radius
-1,EMP grenade (5d8) robots, androids 25m
-1,EMP pistol (4d8) robots, androids 50m
-1,EMP rifle (5d8) robots, androids 100m
-1,frag grenade (4d4), 10 meter radius
+5,auto pistol (1d10) thrice a round, 200m
+5,auto rifle (1d12) thrice a round, 350m
+1,radiation pistol (1d8+6) radiation intensity, 25m
+1,radiation rifle (1d10+6) radiation intensity, 50m
+1,plasma rifle (4d6) 300m, plus (4d6) explosion in 10m radius
+1,plasma pistol (4d6) 150m, plus (3d6) explosion in 10m radius
+1,EMP grenade (5d8) robots/androids 25m
+1,EMP pistol (4d8) robots/androids 50m
+1,EMP rifle (5d8) robots/androids 100m
+5,frag grenade (4d4), 10 meter radius
 1,para grenade (2d6) stun (2d4) rounds, 10m radius
 1,atomic glass dagger (2d4)
 1,atomic glass sword (2d8)
@@ -3841,18 +3842,18 @@
 1,primitive quarterstaff (1d6)
 
 ;medieval ranged weapon
-1,[2d3] throwing knives (1d4) 10m
-1,simple bow and [2d10] arrows (1d6) 50m
+2,[2d3] throwing knives (1d4) 10m
+2,simple bow and [2d10] arrows (1d6) 50m
 1,simple crossbow and [2d6] bolts (2d4) 75m
-1,simple sling and [2d6] bullets (1d4) 40m
-1,[2d3] darts (1d3) 10m
+3,simple sling and [2d6] bullets (1d4) 40m
+2,[2d3] darts (1d3) 10m
 
 ;future ranged weapons
-1,[2d3] atomic glass throwing knives (2d4) 10M
-1,atomic glass bow and [2d10] atomic glass arrows (2d6) 75M
-1,atomic glass crossbow and [2d6] atomic glass bolts (3d4) 125M
-1,sling and [2d6] atomic glass bullets (2d4) 60M
-1,[2d3] atomic glass darts (1d6) 20M
+1,[2d3] atomic glass throwing knives (2d4) 10m
+1,atomic glass bow and [2d10] atomic glass arrows (2d6) 75m
+1,atomic glass crossbow and [2d6] atomic glass bolts (3d4) 125m
+1,sling and [2d6] atomic glass bullets (2d4) 60m
+1,[2d3] atomic glass darts (1d6) 20m
 
 ;armor
 1,[future armor]
@@ -3869,9 +3870,9 @@
 1,plate helm (AC -1)
 
 ;future armor
-1,light power armor
-1,medium power armor
-1,heavy power armor
+1,light power armor (AC 1) MV 36m, laser pistol (4d6) 150m, EMP pistol (4d8) robots/androids 50m, para grenade launcher (2d6) 50m, stun (2d4) rounds, 10m radius 
+1,medium power armor (AC 0) MV 55m, laser rifle (5d6) 450m, EMP rifle (5d8) robots/androids 100m, frag grenade launcher (4d4) 50m, 10 meter radius 
+1,heavy power armor (AC -1) MV 72m, rail rifle (7d6) 1000m, plasma rifle (4d6) 300m, plus (4d6) explosion in 10m radius, frag grenade launcher (4d4) 100m, 10 meter radius
 1,carapace armor (AC 5)
 1,plasteel armor (AC 2)
 1,carapace helm (AC -1)
@@ -3883,6 +3884,24 @@
 1,fusion battery
 1,hydrogen cell
 1,plutonium pack
+
+;ammunition
+1,laser rifle mag with [1d20] charges
+1,laser pistol mag wih [1d10] charges
+2,para rifle mag with [1d20] charges
+2,para pistol mag wih [1d10] charges
+1,rail rifle mag with [1d20] charges
+1,rail pistol mag wih [1d10] charges
+1,laser rifle mag with [1d20] charges
+1,laser pistol mag wih [1d10] charges
+4,auto rifle mag with [1d20] charges
+5,auto pistol mag wih [1d10] charges
+1,radiation rifle mag with [1d20] charges
+1,radiation pistol mag wih [1d10] charges
+1,plasma rifle mag with [1d20] charges
+1,plasma pistol mag wih [1d10] charges
+1,EMP rifle mag with [1d20] charges
+1,EMP pistol mag wih [1d10] charges
 
 # Books
 
