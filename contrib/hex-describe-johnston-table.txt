@@ -870,7 +870,18 @@
 1,*[mental mutation]*, *[mental mutation]*, *[mental mutation]* and *[mental mutation]*
 
 ;mutant plant stats
-1,TODO: mutant plant
+1,STR [3d6] DEX [3d6] CON [3d6 as con] INT [3d6] WIL [3d6] CHA [3d6] HP [[same con]d6]; [armor]; [weapon]; mutant plant; [plant mutation], [plant mutation], [and 1d6 human mutations]
+
+;and 1d6 human mutations
+1,and *[physical mutation]*
+1,and *[mental mutation]*
+2,*[physical mutation]*, and *[mental mutation]*
+1,*[physical mutation]*, *[physical mutation]*, and *[mental mutation]*
+1,*[physical mutation]*, *[mental mutation]*, and *[mental mutation]*
+2,*[physical mutation]*, *[physical mutation]*, *[mental mutation]*, and *[mental mutation]*
+1,*[physical mutation]*, *[physical mutation]*, *[physical mutation]*, *[mental mutation]*, and *[mental mutation]*
+1,*[physical mutation]*, *[physical mutation]*, *[mental mutation]*, *[mental mutation]*, and *[mental mutation]*
+2,*[physical mutation]*, *[physical mutation]*, *[physical mutation]*, *[mental mutation]*, *[mental mutation]*, and *[mental mutation]*
 
 ;pure human stats
 1,STR [3d6] DEX [3d6] CON [3d6+3 as con] INT [3d6+3] WIL [3d6] CHA [3d6+3] HP [[max18([same con])]d8]; [armor]; [weapon]; pure human; no additional mutations
