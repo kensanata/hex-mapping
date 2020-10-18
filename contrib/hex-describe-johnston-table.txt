@@ -752,27 +752,27 @@
 # Animal
 
 ;animal
-1,rad bear, HD 10 AC 6 1d8/1d8/1d10 HP 10d6 13 Wil MV 36m, Radiation Vomit mutation
-1,electric crab HD 8 AC 4 2d8/2d8 HP 8d6 12 Wil MV 36m, Electric Touch mutation
-1,acid worm HD 7 AC 6 1d8 HP 7d6 12 Wil MV 36m, Acid Touch mutation
-1,giant ant HD 10 AC 3 1d12 Hp 10d6 11 Wil MV 36m, Animal Telepathy mutation
-1,mothowl HD 5 AC 6 HP 5d6 14 Wil MV 36m, Energy Drain mutation
-1,dragonbird HD 12 AC 3 1d8/1d8/1d10 HP 12d6 15 Wil MV 55m 1d8/1d8/1d10, Heat Metal mutation
-1,rad hare HD 4 AC 5 HP 4d6 MV 13 Wil 55m, Radiation Vomit mutation
-1,sky jelly HD 3 AC 7 HP 3d6 15 Wil MV 18m, Paralyzing Touch, Energy Drain mutation
-1,algaefish HD 9 AC 5 1d12 HP 9d6 MV 36m, Confusion mutation
-1,swamp thing HD 20 AC 2 HP 20d6 17 Wil MV 36m, Heal Self, Poison Vomit, Eye Eruption mutation
-1,fel dog HD 8 AC 5 1d8/1d8/1d10 HP 8d6 8 Wil MV 36m, Chameleon mutation
-1,hellhound HD 11 AC 0 1d8/1d8/1d10 HP 11d6 12 Wil MV 36m, Exoskeleton, Fire Breath mutation
-1,grasschopper HD 8 AC 4 1d10 HP 8d6 7 Wil MV 36m, Far Hearing, Photosynthesis mutation
-1,horse fly HD 3 AC 6 1d12 HP 3d6 8 Wil MV 54m, Poison Resist mutation
-1,burke's hawk HD 4 AC 4 1d8/1d8/1d10 HP 4d6 10 Wil MV 54m, Reflect Light mutation
-1,rad rattler HD 7 AC 4 1d12 HP 7d6 14 Wil MV 36m, Radiation Vomit, Poison Vomit mutation
-1,wolfling HD 12 AC 5 1d8/1d8/1d10 HP 12d6 10 Wil MV 36m, Tentacles, Blur mutation
-1,fire ant HD 8 AC 5 1d12 HP 8d6 13 Wil MV 36m, Resist Heat, Fire Breath mutation
-1,no see um HD 2 AC 5 1d8/1d8 HP 2d6 10 Wil MV 36m, Invisibility Mutation
-1,sky whale HD 20 AC 5 1d20 HP 20d6 16 Wil MV 36m, Mass Control Mind, Gills, Chameleon, Eye Eruption mutation
-1,salam ander HD 7 AC 6 1d8 HP 8d6 14 Wil MV 36m, Acid Touch mutation
+1,rad bear HD 10 AC 6 #AT3 1d8/1d8/1d10 HP 10d6 Wil 13 SV L5 MV 36m, Radiation Vomit mutation
+1,electric crab HD 8 AC 4 #AT2 2d8/2d8 HP 8d6 Wil 12 SV 4 MV 36m Electric Touch mutation
+1,acid worm HD 7 AC 6 #AT1 1d8 HP 7d6 Wil 12 SV L3 MV 36m, Acid Touch mutation
+1,giant ant HD 10 AC 3 #AT1 1d12 HP 10d6 Wil 11 SV 5 MV 36m, Animal Telepathy mutation
+1,mothowl HD 5 AC 6 HP 5d6 Wil 14 SV 2 MV 36m, Energy Drain mutation
+1,dragonbird HD 12 AC 3 #AT3 1d8/1d8/1d10 HP 12d6 Wil 15 MV 55m, Heat Metal mutation
+1,rad hare HD 4 AC 5 HP 4d6 MV 13 Wil 8 SV 2 55m, Radiation Vomit mutation
+1,sky jelly HD 3 AC 7 HP 3d6 Wil 15 SV 1 MV 18m Paralyzing Touch, Energy Drain mutation
+1,algaefish HD 9 AC 5 #AT1 1d12 HP 9d6 Wil 9 SV 4 MV 36m, Confusion mutation
+1,swamp thing HD 20 AC 2 HP 20d6 Wil 17 SV 10 MV 36m, Heal Self, Poison Vomit, Eye Eruption mutation
+1,fel dog HD 8 AC 5 #AT3 1d8/1d8/1d10 HP 8d6 Wil 8 SV 4 MV 36m, Chameleon mutation
+1,hellhound HD 11 AC 0 #AT3 1d8/1d8/1d10 HP 11d6 Wil 12 SV 5 MV 36m, Exoskeleton, Fire Breath mutation
+1,grasschopper HD 8 AC 4 #AT1 1d10 HP 8d6 Wil 7 SV 4 MV 36m, Far Hearing, Photosynthesis mutation
+1,horse fly HD 3 AC 6 #AT1 1d12 HP 3d6 Wil 8 SV 1 MV 54m, Poison Resist mutation
+1,burke's hawk HD 4 AC 4 #AT3 1d8/1d8/1d10 HP 4d6 Wil 10 SV 2 MV 54m, Reflect Light mutation
+1,rad rattler HD 7 AC 4 #AT1 1d12 HP 7d6 Wil 14 SV 3 MV 36m, Radiation Vomit, Poison Vomit mutation
+1,wolfling HD 12 AC 5 #AT3 1d8/1d8/1d10 HP 12d6 Wil 10 SV 6 MV 36m, Tentacles, Blur mutation
+1,fire ant HD 8 AC 5 #AT1 1d12 HP 8d6 Wil 13 SV 4 MV 36m, Resist Heat, Fire Breath mutation
+1,no see um HD 2 AC 5 #AT3 1d8/1d8 HP 2d6 Wil 10 SV 1 MV 36m, Invisibility Mutation
+1,sky whale HD 20 AC 5 #AT1 1d20 HP 20d6 Wil 16 SV 10 MV 36m, Mass Control Mind, Gills, Chameleon, Eye Eruption mutation
+1,salam ander HD 7 AC 6 #AT1 1d8 HP 8d6 Wil 14 SV 3 MV 36m, Acid Touch mutation
 
 ;plant
 1,weeping willow
@@ -3724,7 +3724,7 @@
 1,[mental mutation]
 1,[physical mutation]
 
-# Beneficial Mental Mutations
+# Mental Mutations
 
 ;mental mutation
 1,Animal Friendship
@@ -3762,7 +3762,7 @@
 1,Telepathic Projection
 1,Teleport
 
-# Beneficial Physical Mutations
+# Physical Mutations
 
 ;physical mutation
 1,Acid Touch
@@ -3790,6 +3790,26 @@
 1,Vice Grip
 1,Wings
 
+# Plant Mutations
+1,Accumulated Resistance
+1,Acid Sap
+1,Carnivore
+1,Cellulose Armor
+1,Cellulose Reflection
+1,Constrictive Tendrils
+1,Electric Generation
+1,Favorite Fragrance
+1,Free Movement
+1,Irradiated Foliage
+1,Parasite
+1,Plant Chameleon
+1,Poison Sap
+1,Poison Spore
+1,Shriek
+1,Tendrils
+1,Thorn Darts
+1,Vegetal Weapons
+
 # Equipment
 
 ;weapon
@@ -3807,8 +3827,8 @@
 1,para baton stun (2d6), stun (1d6) rounds
 5,auto pistol (1d10) thrice a round, 200m
 5,auto rifle (1d12) thrice a round, 350m
-1,radiation pistol (1d8+6) radiation intensity, 25m
-1,radiation rifle (1d10+6) radiation intensity, 50m
+1,radiation pistol Class 4 radiation (4d6, save for half) 25m
+1,radiation rifle Class 5 radiation (5d6, save for half) 50m
 1,plasma rifle (4d6) 300m, plus (4d6) explosion in 10m radius
 1,plasma pistol (4d6) 150m, plus (3d6) explosion in 10m radius
 1,EMP grenade (5d8) robots/androids 25m
