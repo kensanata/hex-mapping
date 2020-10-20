@@ -179,7 +179,7 @@
 1,TODO
 
 ;swamp people
-1,There’s a camp of [3d6+10] **[here anuraoid raiders as raiders]** ([anuraoid stats]) led by *[frog name as leader]* (add [physical mutation]). Treasure: [raider treasure]
+1,There’s a camp of [3d6+10] **[here anuraoid raiders as raiders]** ([anuraoid stats]) led by *[frog name as leader]* (add *[physical mutation]*). Treasure: [raider treasure]
 
 ;frog name
 1,[Long|Far|Fast] [Tongue|Jump]
@@ -229,7 +229,7 @@
 1,[Green|Dark|Black|Petrified|Hungry] Forest
 
 ;forest people
-1,There’s a camp of [3d6+15] **[here ursoid raiders as raiders]** ([ursoid stats]) led by *[bear name as leader]* (add [physical mutation]). Treasure: [raider treasure]
+1,There’s a camp of [3d6+15] **[here ursoid raiders as raiders]** ([ursoid stats]) led by *[bear name as leader]* (add *[physical mutation]*). Treasure: [raider treasure]
 
 ;ursoid stats
 1,HD 10 AC 6 #AT3 1d8/1d8/1d10 HP 10d6 Wil 13 SV L5 MV 36m
@@ -278,9 +278,8 @@
 
 # TODO: nead better cactus/cactoid names
 ;cactoid name
-1,Spikey [McSpike|McSpikeface|Face|Destiny]
-1,[Spine|Thorn|Blade] [Head|Man|Woman|Fist]
-1,[Needle|Syringe|Lancet] of [Death|Pain]
+1,[Spikey|Spine|Thorn|Blade] [Head|Face|Boss|Man|Woman|Fist|Death|Destiny]
+1,[Needle|Syringe|Lancet] of [Death|Pain|Poison]
 
 # Forts
 
@@ -887,7 +886,7 @@
 1,*[mental mutation]*, *[mental mutation]*, *[mental mutation]* and *[mental mutation]*
 
 ;mutant plant stats
-1,STR [3d6] DEX [3d6] CON [3d6 as con] INT [3d6] WIL [3d6] CHA [3d6] HP [[same con]d6]; [armor]; [weapon]; mutant plant; [plant mutation], [plant mutation], [plus 1d6 human mutations]
+1,STR [3d6] DEX [3d6] CON [3d6 as con] INT [3d6] WIL [3d6] CHA [3d6] HP [[same con]d6]; [armor]; [weapon]; mutant plant; *[plant mutation]*, *[plant mutation]*, [plus 1d6 human mutations]
 
 ;plus 1d6 human mutations
 1,and *[physical mutation]*
