@@ -43,9 +43,9 @@
 ;swamp
 1,The foul smelling quicksand of the *[name for swamp]* pulls at your feet.
 1,The tidal quicksand of the *[name for swamp]* ebbs and flows, and you feel yourself sinking in deeper and deeper.
-1,Mutated [colour] frogs crunch beneath your feet as you slog through the *[name for swamp]*. You suspect there are even bigger amphibians under the surface.
-1,The *[name for swamp]* reeks of dead bodies and ruin. Unknown creatures shriek in the distance.
-1,The sulfurous smell of the *[name for swamp]* has you gagging and retching. You don't know if you want to push through.
+1,Mutated [colour] frogs crunch beneath your feet as you slog through the *[name for swamp]*. You suspect there are even bigger amphibians under the surface. [swamp people]
+1,The *[name for swamp]* reeks of dead bodies and ruin. [River|Water|Swamp] [duckers|rhinos|hulks] [bay|call|cronk|cry|honk|trumpet] in the distance. [swamp people]
+1,The sulfurous smell of the *[name for swamp]* has you gagging and retching. [swamp people]
 1,The *[name for swamp]* is waterlogged and hard to navigate on foot. You're going to need a boat here.<p>[point of interest in the swamp]
 
 ;grass
@@ -177,6 +177,19 @@
 
 ;swamp creature
 1,TODO
+
+;swamp people
+1,There’s a camp of [3d6+10] **[here anuraoid raiders as raiders]** ([anuraoid stats]) led by *[frog name as leader]* (add [physical mutation]). Treasure: [raider treasure]
+
+;frog name
+1,[Long|Far|Fast] [Tongue|Jump]
+1,[Googly|Staring|Piercing] Eyes
+1,[capitalize colour] [King|Queen|Boss|Brain]
+1,[Strong|Long|Fast|Jumping] Legs
+1,[Strong|Sticky] [Fingers|Hands]
+
+;anuraoid stats
+1,HD 4 AC 7 #AT1 1d8 HP 4d6 Wil 8 SV 4 36m; surprise on 1–5 in 6; jumping charge for double damage
 
 # Grass lands
 
