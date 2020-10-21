@@ -13476,7 +13476,7 @@
 # These are the fir forests next to thorps (thorps themselves are firs)
 ;fir-forest
 1,[fir highlands] The land up here is the hunting ground of a **manticore** called *[manticore]* living in the ruins of an old tower overlooking the area ([manticore stats]). [robber treasure] [maybe barrow]
-1,[fir highlands] This fir forest is home to a pack of [3d6] **wolves** ([wolf stats]).<p>These wolves are blessed by Hel. At night, they sleep in the [Niflheim cave]. At the far end of the cave is an iron gate decorated with [Niflheim decoration]. It is guarded by a **chimera** ([chimera stats]) for it leads to *Niflheim*…<p>[road to Niflheim]
+1,[fir highlands] This fir forest is home to a pack of [3d6] **wolves** ([wolf stats]). [maybe a road to Niflheim]
 1,[fir highlands] At dusk and dawn, you can sometimes see [boars]. [maybe barrow] [forest event]
 1,[fir highlands] There is a cave housing the **ettin** called *[ettin]* ([ettin stats]). [robber treasure] [maybe barrow] [forest event]
 1,[fir highlands] At the foot of [crag name], there is a cave inhabited by [1d8 trolls] ([troll stats]). [robber treasure] [maybe barrow] [forest event]
@@ -13486,6 +13486,10 @@
 1,[fir highlands] If you wander into these woods, you’ll soon hear laughter and revelling. [satyr threat] [maybe barrow] [forest event]
 1,[fir highlands] [druids]
 1,[fir highlands] Within this wood is a dungeon. [dungeon]
+
+;maybe a road to Niflheim
+3,
+1,<p>These wolves are blessed by Hel. At night, they sleep in the [Niflheim cave]. At the far end of the cave is an iron gate decorated with [Niflheim decoration]. It is guarded by a **chimera** ([chimera stats]) for it leads to *Niflheim*.<p>[road to Niflheim]
 
 ;druids
 1,[druid warning sign] Here stands [druid circle] [the locals call it] *[druid circle name]*. [druid allies] [druid trails]
