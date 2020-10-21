@@ -2007,10 +2007,6 @@ Include images (faces, dungeon maps) in the HTML output (slow)
 </p>
 
 <p>
-%= submit_button 'Submit', name => 'submit'
-</p>
-
-<p>
 What random tables should be used to generate the descriptions?
 </p>
 
@@ -2046,6 +2042,11 @@ Alternatively, just paste your tables here:
 %= text_area table => (cols => 60, rows => 15) => begin
 <%= $table =%>
 % end
+
+<p>
+%= submit_button 'Submit', name => 'submit'
+</p>
+
 %= end
 
 
@@ -2127,10 +2128,6 @@ Write a text using [square brackets] to replace with data from a random table.
 %= hidden_field seed => $seed
 
 <p>
-%= submit_button 'Submit', name => 'submit'
-</p>
-
-<p>
 What random tables should be used to generate the text?
 </p>
 
@@ -2166,6 +2163,11 @@ Alternatively, just paste your tables here:
 %= text_area table => (cols => 60, rows => 15) => begin
 <%= $table =%>
 % end
+
+<p>
+%= submit_button 'Submit', name => 'submit'
+</p>
+
 %= end
 
 
