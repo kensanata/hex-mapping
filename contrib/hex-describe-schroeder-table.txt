@@ -1867,7 +1867,7 @@
 ;fire elemental encounter
 #more fire creatures go here: Salamanders, Fire Giants, Hell Hounds, etc
 1,[1d4+1] **lesser fire elementals** ([lesser fire elemental stats])
-1,2d4 **salamanders** led by *[salamander]* ([salamander stats])
+1,2d4 **salamanders** led by *[salamander name]* ([salamander stats])
 1,[2d4] **hell hounds** ([hell hound stats])
 1,[1d2+1] **fire giants** led by *[fire giant name]* ([fire giant stats])
 
@@ -5854,7 +5854,7 @@
 1,Trees
 
 ;forge ruin
-1,The ruin is abandoned and dead. If you explore the ruins, you will soon find the **balor** *[demon name]* who caused its downfall ([balor stats]). It guards a portal to the realm of eternal fire, to Muspelheim.<p>[balor servants]
+1,The ruin is abandoned and dead. If you explore the ruins, you will soon find the **balor** *[demon name]* who caused its downfall ([balor stats]).<p>[balor servants]<p>*[same demon name]* guards an iron portal to the realm of eternal fire, to Muspelheim, at the bottom of *[same dwarf forge]*.<p>[road to Muspelheim]
 1,[forge orcs]
 1,The ruin is full of broken machinery. In its depths, however, a **bronze golem** still wanders the halls ([bronze golem stats]).
 1,This is a graveyard of rust. [Giant pistons in broken tubes.|Black crystals growing in iron shafts.] This realm is ruled over by an **iron golem** animated by the soul of [dwarf name], [howling madly|forever trying to rebuild the past|lamenting the passage of time|resenting the presence of living beings] ([iron golem stats]). They have animated some of the junk, turning it into a pack of [3d6] **iron wolves** ([wolf stats]; immune to *arrows*; immune to *poison*; immune to *spells*).
@@ -5869,12 +5869,12 @@
 1,The orcs of the *[evil tribe]* tribe serve *[same demon name]*. [orcs] [forge orc leader specialty]<p>[forge orc settlement]
 
 ;salamanders
-1,2d4 **salamanders** ([salamander stats]) live here, led by *[salamander]*. [terror treasure]
+1,2d4 **salamanders** ([salamander stats]) live here, led by *[salamander name]*. [terror treasure]
 
 ;salamander stats
 1,HD 8 AC 2 1d4/1d4/1d8 F8 MV 12 ML 8 XP 800; *aura of fire* (anybody in melee takes automatic 1d6 fire damage); immune to fire; only harmed by magic or magic weapons; immune to *sleep* and *charm*
 
-;salamander
+;salamander name
 1,Hot
 1,Melt
 1,Flow
@@ -5890,6 +5890,29 @@
 1,HD 11 AC -1 2d6/2d6 MV 12 ML 12 XP 1100; *gas* 3×/day, anybody within 10ft must save vs. death or fall asleep; immune to *arrows*; immune to *poison*; immune to *spells*
 1,HD 11 AC -1 2d6/2d6 MV 12 ML 12 XP 1100; *gas* 3×/day, anybody within 10ft must save vs. death or die; immune to *arrows*; immune to *poison*; immune to *spells*
 
+;road to Muspelheim
+1,[with tunnel to Muspelheim] [road to Muspelheim obstacle]<p>[and tunnel to Muspelheim] [exit to Muspelheim]
+
+;tunnel to Muspelheim
+1,The tunnels is a vertical cave, going down for thousands of feet. If you can’t fly and rely on ropes to get you down safely, it takes a week of climbing.
+1,Steep tunnels twist themselves into the bowels of the earth. There are sharp edges everywhere, but at least you can walk.
+1,The tunnel passes through cavern after cavern on the way down. The tunnel walls are smooth and warm to the touch.
+1,The passages leading down are small cracks and shafts, barely enough to squeeze through. The rocks are warm and the air is dry and hot.
+1,Sulphur vapours make it hard to see far. Yellow mud cakes the walls and hot steam is bubbling in tiny cracks wherever you go.
+1,Impossible as it seems, this passage seems to be dug into charred wood, as if bored by huge beetles into Yggdrasil itself.
+
+;road to Muspelheim obstacle
+1,You enter a cave with that smells of stomach acid and wet dog. The air is warm and the sound of breathing surrounds you. This is the home of the **three-headed giant hell hound** *[cerberus name]* ([cerberus stats]). [terror treasure]
+1,The tunnels start branching off in all directions and the heat grows more intense. Some of these passages glowing red hot. These are the hunting grounds of [2d4] **hell hounds* led by *[hell hound name]* ([hell hound stats]).
+1,The air grows hotter, a red glow fills the tunnel, and finally it opens into a cavern filled with a lava lake inhabited by [2d4] **salamanders** led by *[salamander name]* ([salamander stats]). [terror treasure]
+1,The tunnel opens up into a cavern 100ft across and at the far end, the exit is guarded by a **pyrohydra** ([pyrohydra stats]).
+1,The tunnel leads up to a great iron gate. This is the upper gate of the dwarven forge *[here dwarf forge]*. [5d8] **dwarves** live and work here ([dwarf stats]) led by [dwarf with portrait] (level [1d6+2 as level]). [luxurious context] [dwarven treasure] From the lower gate, the tunnel continues towards Muspelheim.
+1,The tunnel opens up into a huge vertical shaft, disappearing into darkness above and ending in a bubbling lava lake at the bottom. Narrow stairs lead down to the lake. This is the home of the **red dragon** *[here red dragon name as dragon name]*[dragon portrait] ([red dragon stats])[store dragon as treasure type] A path continues along the lava lake and leads to the next tunnel entrance.
+
+;exit to Muspelheim
+1,Eventually, you feel a light draught and then at last, there’s light: the tunnel opens up into a steep valley dug by a lava river. The sky above you is black but there are lava falls on all sides, pouring into the river. A trail turns [left|right] and leads you up to a giant building on a cliff overlooking the valley of fire.<p>[store lava as liquid][fire giant building]
+1,The tunnel ends at a huge iron gate. There’s a [hammer on a chain|a big ring] fastened to the gate, a kind of knocker. Using it will summon the **ifrit** called *Furnace of a Thousand Hell Hounds* ([ifrit stats]). He guards this entrance into *Ysabala’s Tower* and will happily escort polite visitors past the 12 **hell hounds** ([hell hound stats]) to the outside.<p>The **sorceress** *Ysabala*[store 10 as level] also lives in this tower (hp [10d4] AC 9 MU10). [store ysabala as spellbook] She’s the author of [[same spellbook]]: [spellbook 10]. [leader treasure for magic user]<p>Just above her quarter lives her best friend, the **red dragon** *Reykja* ([red dragon stats]). [dragon treasure]
+
 ;a post-apocalyptic monster
 1,Statues of dwarven warriors and scholars remind us of the former power of this place. Here lives a **medusa** *[medusa name]* ([medusa stats]). [terror treasure]
 1,There are grass mounds and moss patches everywhere. Underneath the greenery are the skulls and bones of dwarves. This is where the beautiful **araneina** *[old names for women]* lives ([araneina stats]).
@@ -5904,7 +5927,7 @@
 
 ;green mountain tower entrance
 1,<p>There is no visible entrance, but a person carrying an amulet of passage bearing the [name for a clan of the netherworld elves] sigil will see the hidden door.
-1,<p>Attempting to enter the tower draws the attention of *[a jinn name]*, a **jinn** who guards the tower ([stats for a jinn]).
+1,<p>Attempting to enter the tower draws the attention of *[a jinn name]*, a **jinn** who guards the tower ([jinn]). stats
 1,<p>An ornate archway stands open at the base of the tower allowing any to pass within. In the archway, however, lie [victims of lightning]. Those who do are struck by a *rune of protection* unless copper or iron wiring is used to short-circuit the trap: *lightning bolt* (5d6 damage, save vs. spells for half)
 1,<p>The delicately carved [tree] wood doors of the tower have been ripped open and splintered. The bottom floor of the tower is home to [[den type]], [den mood] ([[same den type] stats]).
 1,<p>Inside the tower, in the entry hall, [1d2+1] **crystal living statues** stand silent guard ([stone golem stats]). Unless the party speaks the name of the tower’s builder, *[elf name]*, the guardians will attack any who attempt to ascend to the next level.
@@ -6365,7 +6388,7 @@
 ;green tower underwater room
 1,<p>In the murky darkness below lies the lair of [a water monster]
 1,<p>A school of silver and blue minnows swirl and spin before the opening to a cave under the tower.
-1,<p>Attempting to enter the tower draws the attention of *[a marid name]*, a **marid** who guards the tower ([stats for a marid]).
+1,<p>Attempting to enter the tower draws the attention of *[a marid name]*, a **marid** who guards the tower ([marid]). stats
 
 ;a water monster
 1,[2d20] **nixies** led by *[nixie]* ([nixie stats]). [poor treasure]
@@ -6783,8 +6806,7 @@
 1,the Sleeper
 
 ;fire giant fortress
-1,[fire giant passage]<p>[fire giant opening]<p>[fire giant tower]
-1,[fire giant passage]<p>[fire giant opening]<p>[fire giant temple]
+1,[fire giant passage]<p>[fire giant opening]<p>[fire giant building]
 
 ;fire giant passage
 1,A narrow stair winds itself into the [depths|bowels] of the earth. [what does the hot earth feel like]
@@ -6804,6 +6826,11 @@
 1,[At long last|Finally], you arrive at a huge cave with a lava lake at its bottom. The floor descends steeply towards its shores. The air is hot and acrid. Glowing ashes and poisonous gases make breathing difficult.[store lava as liquid]
 1,[At long last|Finally], you arrive at a huge cave with a boiling lake at its bottom. The floor descends steeply towards its shores. The stones are slick and slippery as the water vapours swirl and churn. The sound of bubbling water fills the air.[store boiling water as liquid]
 
+# requires a liquid!
+;fire giant building
+1,[fire giant tower]
+1,[fire giant temple]
+
 ;fire giant tower
 1,[fire giant ground floor]<p>[fire giant top floor]
 
@@ -6816,7 +6843,7 @@
 1,The temple looks like it is but a heap of dead bodies made of stone. Everywhere are hands, feet, faces, bones.
 
 ;fire giant temple of Hel
-1,The entrance to the temple is shrouded in magical darkness. Inside the blackness is the guardian of this temple, a **three-headed giant hell-hound** ([cerberus stats]).
+1,The entrance to the temple is shrouded in magical darkness. Inside the blackness is the guardian of this temple, a **three-headed giant hell-hound** named *[cerberus name]* ([cerberus stats]).
 1,The path leading up to the temple passes beneath two rows of giant [fire material] ribs rising 50ft into the air.
 
 ;fire giant temple of Mitra
@@ -6874,7 +6901,7 @@
 
 ;fire giant reception
 1,At the foot of the fortress are some workshops. This is where blackened  [3d8] **dwarves** ([dwarf stats]) slave at the anvils and bellows led by [dwarf with portrait] (level [1d4+2 as level]). They are chained to their workstations, their bedrolls right next to their tools. The food and water they require is stored inside the fortress, behind locked doors in [fire material] coffers.
-1,At the foot of the fortress is a hot pool of [same liquid] where orange worm people can be seen: [2d4] **salamanders** led by *[salamander]* ([salamander stats]) live here.
+1,At the foot of the fortress is a hot pool of [same liquid] where orange worm people can be seen: [2d4] **salamanders** led by *[salamander name]* ([salamander stats]) live here.
 
 ;fire giant top floor
 1,The top of the fortress is a big room with a throne surrounded by many giant statues. These are the personifications of *[with fire person]* and *[and fire person]*. [1d4 fire giants]
@@ -6905,11 +6932,11 @@
 
 # ;fire giant companions
 # 2,[2d4] **hell hounds** ([hell hound stats])
-# 1,[2d4] **salamanders** led by *[salamander]* ([salamander stats])
+# 1,[2d4] **salamanders** led by *[salamander name]* ([salamander stats])
 # 1,a **pyrohydra** ([pyrohydra stats])
 # 1,a **red dragon** named *[here red dragon name as dragon name]*[dragon portrait] ([red dragon stats])
 
-# On an island in the middle of this lake stands a black arch. On the arch itself stands the tower of the **ifrit** [an ifrit name] ([stats for an ifrit]). It guards this portal to *Muspelheim*. If you can fly, or if you have a ship that can sail the sea of flames, and you managed to convince the elemental lord to let you pass, you may reach that realm of fire.
+# On an island in the middle of this lake stands a black arch. On the arch itself stands the tower of the **ifrit** [an ifrit name] ([ifrit stats]). It guards this portal to *Muspelheim*. If you can fly, or if you have a ship that can sail the sea of flames, and you managed to convince the elemental lord to let you pass, you may reach that realm of fire.
 # 1,The fortress of these giants is surrounded by a flaming moat. [salamanders]
 
 # ;fire giant top floor
@@ -14035,8 +14062,15 @@
 ;hell hound stats
 1,HD 5 AC 4 1d6 F5 MV 12 ML 9 XP 500; 2 in 6 chance that instead of biting, it breathes *fire* (5d6); *see invisible*; <span class="treasure">*hell hound embers* burning inside them are worth 500gp to an alchemist</span>[here store hell hound embers as alchemist quest]
 
+;hell hound name
+1,[Jaws|Teeth|Bite|Death|Night|Howl]
+1,[Night|Fire|Death][jaws|teeth|bite]
+
 ;cerberus stats
 1,HD 7 AC 4 1d10/1d10/1d10 F7 MV 12 ML 10 XP 700; 2 in 6 chance that instead of biting, a head breathes *fire* (7d6); *see invisible*; <span class="treasure">*hell hound embers* burning inside them are worth 500gp to an alchemist</span>[here store hell hound embers as alchemist quest]
+
+;cerberus name
+1,[Fire|Old|Triple|Eternal|Great|Red|Laval|Stone] [Hound|Guardian|Dog|Gobbler]
 
 ;1d12 bugbears
 1,the **bugbear** *[bugbear]*
@@ -16155,7 +16189,7 @@
 1,painted *[Cave|Cavern] of [Men|Women|Hunters|Gatherers]*, full of red [hand stencils|human figures]
 
 ;road to Niflheim
-1,[with tunnel to Niflheim] [road to Niflheim obstacle]<p>[with tunnel to Niflheim] [exit to Niflheim]
+1,[with tunnel to Niflheim] [road to Niflheim obstacle]<p>[and tunnel to Niflheim] [exit to Niflheim]
 
 ;tunnel to Niflheim
 1,The tunnel is wide, the walls are black. It winds itself ever further down into the bowls of the earth.
@@ -39618,13 +39652,13 @@
 1,Death of Eleven Cities
 1,Destroy and Rebuild
 
-;stats for a jinn
+;jinn stats
 1,HD 7+1 AC 5 2d8 F14 MV 24 ML 12 XP 700; *illusion*, *invisibility*, *gaseous form*, *whirlwind* and *creation* at will; only harmed by magic or magic weapons
 
-;stats for a marid
+;marid stats
 1,HD 12 AC 1 3d6 F24 MV 24 ML 12 XP 1200; *water*, *fog*, *flood* and *destruction* at will; only harmed by magic or magic weapons
 
-;stats for an ifrit
+;ifrit stats
 1,HD 10 AC 3 2d8 + 1d8 *fire* F20 MV 24 ML 12 XP 1000; *illusion*, permanent *living flame*, *invisibility*, *wall of fire* and *creation* at will; only harmed by magic or magic weapons
 
 ;dwarven inscription
