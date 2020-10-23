@@ -3008,7 +3008,7 @@
 1,[snake people]
 
 ;temple naga
-1,This is where the **spirit naga** *[naga name]* guards the passages to Svartalfheim ([naga stats]; <span class="treasure">a *naga tongue* is worth 1000gp to an alchemist</span>[here store naga tongue as alchemist quest]) and where pools of Earth Blood corrupt both the living and the dead. If you spend an hour here, your death warrant is sealed: slowly, you will die, or turn into an ettin, or a goblin, or some other dreadful creature.
+1,This is where the **spirit naga** *[naga name]* guards the passages to Myrkheim ([naga stats]; <span class="treasure">a *naga tongue* is worth 1000gp to an alchemist</span>[here store naga tongue as alchemist quest]) and where pools of Earth Blood corrupt both the living and the dead. If you spend an hour here, your death warrant is sealed: slowly, you will die, or turn into an ettin, or a goblin, or some other dreadful creature.
 1,This is where *[naga name]*, the **spirit naga** resides. ([naga stats]; <span class="treasure">a *naga tongue* is worth 1000gp to an alchemist</span>[here store naga tongue as alchemist quest]) She has spent centuries contemplating and planning. Her minions operate in secret in towns and villages. Parties bringing tribute or valuable information may survive a parley.
 
 ;snake place
@@ -5963,7 +5963,7 @@
 1,Muspelheim
 1,Niflheim
 1,Alfheim
-1,Svartalfheim
+1,Myrkheim
 
 ;Vanaheim decoration
 1,vultures
@@ -5993,7 +5993,7 @@
 1,musical instruments
 1,flying sprites
 
-;Svartalfheim decoration
+;Myrkheim decoration
 1,endless caves
 1,sinister looking dwarves
 1,a seven headed snake
@@ -12566,7 +12566,7 @@
 
 ;fey realm
 1,Alfheim
-1,Svartalfheim
+1,Myrkheim
 
 ;elf stats
 # This requires the establishment a [spellbook for elves]. Typically you’d use it like this:
@@ -15961,7 +15961,7 @@
 1,The temple is nothing but a pit in the earth with a stone ceiling and the statue of a giant snake in the back. In front of the snake there are burning candles and wooden poles with strings attached and at the end of every string is an accusation: names of villagers and their misdeed, the punishment requested, and counter claims, and peace offerings. This is where the elders decide upon blood money to be paid and punishments to be exacted.
 1,Between some rocks, a crack leads deeper into the earth and into a cave. There, a giant snake made of stone watches over all who pray to Set. A deep pit contains the polished bones of all who where killed in revenge for their misdeeds. There are always wooden accusation plates to be found naming bandits, thieves, murders, adulterers, and cowards who ran from a battle, deserting their village comrades. Will you take a plate and exact revenge in the name of Set?
 1,An old stairway leads into the bowels of the earth where warm vapours make your head swim. Down here, the **spirit naga** *[naga name]* will guide your hand, should you need her words ([naga stats]; <span class="treasure">a *naga tongue* is worth 1000gp to an alchemist</span>[here store naga tongue as alchemist quest]). Spend an hour down here and any soul dedicated to Set will tell you of the past and the future, for all time goes in circles and the big snake eats itself.
-1,Deep below, where the **spirit naga** *[naga name]* guards the passages to Svartalfheim ([naga stats]; <span class="treasure">a *naga tongue* is worth 1000gp to an alchemist</span>[here store naga tongue as alchemist quest]), pools of Earth Blood corrupt both the living and the dead. If you spend an hour here, your death warrant is sealed: slowly, you will die, or turn into an ettin, or a goblin, or some other dreadful creature.
+1,Deep below, where the **spirit naga** *[naga name]* guards the passages to Myrkheim ([naga stats]; <span class="treasure">a *naga tongue* is worth 1000gp to an alchemist</span>[here store naga tongue as alchemist quest]), pools of Earth Blood corrupt both the living and the dead. If you spend an hour here, your death warrant is sealed: slowly, you will die, or turn into an ettin, or a goblin, or some other dreadful creature.
 1,This is a snake pit, a breeding ground for [1d4 giant snakes] and [1d8 snakes], a place dangerous to every warm blooded creature. And yet, the terror of these snakes also keeps bandits at bay and no orc will set foot near this place, such is the power of Set. They say that those with the secret knowledge can use snake poison to poison their blades and they say that all who serve the temple have done just that.
 1,The temple is a school for assassins. This is where you learn to sneak, to lie, to conceal, to poison, to stab, to strangle. Students learn the secrets of the garrote, of the hidden blade and of the crossbow. All of this is known and yet the farce continues: this is where the young ones learn discipline and strength, diligence and respect. It’s a way to put food on the table, and it’s a useful skill to have available if you’re trying to get ahead.
 
@@ -18637,7 +18637,7 @@
 1,Muspelheim
 1,Niflheim
 1,Alfheim
-1,Svartalfheim
+1,Myrkheim
 1,[adjective]
 
 ;netherworld elf 4
@@ -39482,7 +39482,7 @@
 1,HD 8+1 AC 5 1d4/1d4/1d6/1d6/1d8 F16 MV 18 ML 11; flying; only harmed by magic or magic weapons
 
 ;summoned naga
-1,*[naga name]*, from Eiterhorg, Set’s hall in Svartalfheim
+1,*[naga name]*, from Eiterhorg, Set’s hall in Myrkheim
 
 ;naga stats
 1,HD 9 AC 7 1d8+*poison* F18 MV 6; *fireball* (7d6) 3×/day; *charm person* at will; only harmed by magic or magic weapons
