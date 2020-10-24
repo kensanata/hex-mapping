@@ -5900,6 +5900,7 @@
 1,The passages leading down are small cracks and shafts, barely enough to squeeze through. The rocks are warm and the air is dry and hot.
 1,Sulphur vapours make it hard to see far. Yellow mud cakes the walls and hot steam is bubbling in tiny cracks wherever you go.
 1,Impossible as it seems, this passage seems to be dug into charred wood, as if bored by huge beetles into Yggdrasil itself.
+1,[Yggdrasil camp]
 
 ;road to Muspelheim obstacle
 1,You enter a cave with that smells of stomach acid and wet dog. The air is warm and the sound of breathing surrounds you. This is the home of the **three-headed giant hell hound** *[cerberus name]* ([cerberus stats]). [terror treasure]
@@ -16199,11 +16200,32 @@
 
 ;road to Niflheim obstacle
 1,There are bigger caverns to cross every now and then. Bats can be heard overhead and their excrement covers the floor. This particular cave, however, also hosts a family of [3d6] **wolf spiders** ([giant spider stats]).
+1,[Yggdrasil camp]
+
+;Yggdrasil camp
 1,The tunnel opens out onto the bark of Yggdrasil, the world tree. The black void surrounds you. A path along the contorted roots leads you further down, into a little hollow where you can see a fire burning. The entry of the next tunnel appears to be guarded. [Yggdrasil raiders]
 
 ;Yggdrasil raiders
-1,[save 1d6+1 as level][save spellbook for elves][3d12] **tree elves** ([elf stats]) led by [wood|tree|night|moon] [guardian|prince|princess|custodian] [elf with portrait] (level [same level]). [same spellbook for elves] [leader treasure] [ancient treasure] [elf travelling companions]
-1,[save 1d6+1 as level][save spellbook for elves][3d12] **netherworld elves** ([elf stats]) led by [earth|tunnel|night|moon] [prince|princess|daughter|son|hunter|justicar|inquisitor] [elf with portrait] (level [same level]). [same spellbook for elves] [leader treasure] [ancient treasure] [netherworld elf travelling companions]
+1,[save 1d6+1 as level][save spellbook for elves][3d12] **tree elves** ([elf stats]) led by [wood|tree|night|moon] [guardian|prince|princess|custodian] [elf with portrait] (level [same level]). [same spellbook for elves] [leader treasure] [ancient treasure] [elf travelling companions]<blockquote>[Yggdrasil mission]</blockquote><p>
+1,[save 1d6+1 as level][save spellbook for elves][3d12] **netherworld elves** ([elf stats]) led by [earth|tunnel|night|moon] [prince|princess|daughter|son|hunter|justicar|inquisitor] [elf with portrait] (level [same level]). [same spellbook for elves] [leader treasure] [ancient treasure] [netherworld elf travelling companions]<blockquote>[Yggdrasil mission]</blockquote><p>
+1,[save 1d6+4 as level][save spellbook for elves][4d6] **light elves** ([elf stats]) in gleaming armour, with spears and shields, led by [elf with portrait] (level [same level]). [same spellbook for elves] [leader treasure]. They are accompanied by [2d4] *elfhounds* ([wolf stats]).<blockquote>[Yggdrasil mission]</blockquote><p>
+
+;Yggdrasil mission
+1,They want to avenge the death of *elf name*, legendary author of [store elf as singing humanoid]*[story]*, killed by the fire giant *[fire giant name]* in Muspelheim. Their current location is unknown. This is going to be a long side-quest.
+1,They went to see the demon-oracle of *[demon name]* and got the answer they needed. Now all they need to do is get back home.
+1,They succeeded in bringing down the thief of the elven *long sword* +1 with [elven inscription][here store the sword of [same owner] as elf treasure]
+1,They failed in tracking the thief of the elven *long sword* +1 with [elven inscription]. It must still be down there somewhere, in Muspelheim.
+1,They succeeded in bringing down the thief of [elven ring of power][here store the ring of [same owner] as elf treasure]
+1,They failed in tracking the thief of [elven ring of power] It must still be down there somewhere, in Muspelheim.
+
+;elven ring of power
+1,the elven *ring of anticipation* (AC -1) with [elven inscription]
+1,the elven *ring of the silver tongue* (*charm*, 3×/day) with [elven inscription]
+1,the elven *ring of the soft tongue* (*sleep*, 3×/day) with [elven inscription]
+1,the elven *ring of silence* (*move silently*, 1×/day) with [elven inscription]
+1,the elven *ring of wrath* (*magic missile*, 3×/day) with [elven inscription]
+1,the elven *ring of luck* (change any roll of a d20 by ±1, 3×/day) with [elven inscription]
+1,the elven *ring of purification* (*neutralise poison*, 1×/day) with [elven inscription]
 
 ;netherworld elf travelling companions
 3,
