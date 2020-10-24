@@ -2935,7 +2935,8 @@ include https://campaignwiki.org/contrib/gnomeyland.txt
 <p>
 Sometimes you need to write a lot of things that depend on the results of
 previous tables. In order to make this easier, there are two keywords that store
-things without producing any output.
+things without producing any output: "save … as …" does a table lookup and
+stores it, where as "store … as …" just stores whatever text you give it.
 </p>
 
 %= example begin
