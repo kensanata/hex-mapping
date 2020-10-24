@@ -5928,7 +5928,7 @@
 
 ;green mountain tower entrance
 1,<p>There is no visible entrance, but a person carrying an amulet of passage bearing the [name for a clan of the netherworld elves] sigil will see the hidden door.
-1,<p>Attempting to enter the tower draws the attention of *[a jinn name]*, a **jinn** who guards the tower ([jinn]). stats
+1,<p>Attempting to enter the tower draws the attention of *[jinn name]*, a **jinn** who guards the tower ([jinn stats]).
 1,<p>An ornate archway stands open at the base of the tower allowing any to pass within. In the archway, however, lie [victims of lightning]. Those who do are struck by a *rune of protection* unless copper or iron wiring is used to short-circuit the trap: *lightning bolt* (5d6 damage, save vs. spells for half)
 1,<p>The delicately carved [tree] wood doors of the tower have been ripped open and splintered. The bottom floor of the tower is home to [[den type]], [den mood] ([[same den type] stats]).
 1,<p>Inside the tower, in the entry hall, [1d2+1] **crystal living statues** stand silent guard ([stone golem stats]). Unless the party speaks the name of the tower’s builder, *[elf name]*, the guardians will attack any who attempt to ascend to the next level.
@@ -6389,7 +6389,7 @@
 ;green tower underwater room
 1,<p>In the murky darkness below lies the lair of [a water monster]
 1,<p>A school of silver and blue minnows swirl and spin before the opening to a cave under the tower.
-1,<p>Attempting to enter the tower draws the attention of *[a marid name]*, a **marid** who guards the tower ([marid]). stats
+1,<p>Attempting to enter the tower draws the attention of *[marid name]*, a **marid** who guards the tower ([marid stats]).
 
 ;a water monster
 1,[2d20] **nixies** led by *[nixie]* ([nixie stats]). [poor treasure]
@@ -6867,7 +6867,7 @@
 
 ;fire giant legend summary
 1,who separated fire from earth at the beginning of time
-1,who enslaved the ifrit *[an ifrit name]* and forced it to [fire giant legendary project]
+1,who enslaved the ifrit *[ifrit name]* and forced it to [fire giant legendary project]
 1,who fought over *[and fire giant name]* and [both died|destroyed the city at the centre of the world] in the process
 1,who fought over *[and fire giant name]* and how *[same fire giant name]* was then [crushed|buried|chained for all eternity] under the mountain of *[Sky|Earth|Despair|Hopelessness]*
 
@@ -39643,32 +39643,33 @@
 1,*horn of [demon name]* (summons a vulture demon from Vanaheim: [vulture demon stats]; when killed, they are released from their bond to the horn)
 
 ;elemental prison
-1,[elemental prison object] containing the elemental prison of [elemental lord] called *[[same elemental lord] name]* ([stats for [same elemental lord]]).
+1,[elemental prison object] containing the elemental prison of [elemental lord] called *[[same lord] name]* ([[same lord] stats]).
 
 ;elemental prison object
 1,A jar
 1,An oil lamp
 1,A necklace with a big gem set in silver
 
+# some complications because of the indefinite article!
 ;elemental lord
-3,a jinn
-2,an ifrit
-1,a marid
+3,a jinn[store jinn as lord]
+2,an ifrit[store ifrit as lord]
+1,a marid[store marid as lord]
 
-;a jinn name
+;jinn name
 1,Builder of the Seven Towers
 1,White Beard of Wisdom
 1,Eye of the Storm
 1,Master of the Seven Winds
 
-;a marid name
+;marid name
 1,Tyranny of Water
 1,Flood at the End of Times
 1,Drowning of a Million Souls
 1,Slow Suffocation
 1,Eels Eating Your Eyes
 
-;an ifrit name
+;ifrit name
 1,Slow Burning Anger
 1,Consuming Flame of Hate
 1,Death of Eleven Cities
