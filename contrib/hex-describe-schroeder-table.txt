@@ -6931,18 +6931,6 @@
 1,The **fire giant** *[fire giant name]* ([fire giant stats]) lives here. [rich treasure]
 3,[1d3+1] **fire giants** led by *[fire giant name]* live here ([fire giant stats]). [rich treasure]
 
-# ;fire giant companions
-# 2,[2d4] **hell hounds** ([hell hound stats])
-# 1,[2d4] **salamanders** led by *[salamander name]* ([salamander stats])
-# 1,a **pyrohydra** ([pyrohydra stats])
-# 1,a **red dragon** named *[here red dragon name as dragon name]*[dragon portrait] ([red dragon stats])
-
-# On an island in the middle of this lake stands a black arch. On the arch itself stands the tower of the **ifrit** [an ifrit name] ([ifrit stats]). It guards this portal to *Muspelheim*. If you can fly, or if you have a ship that can sail the sea of flames, and you managed to convince the elemental lord to let you pass, you may reach that realm of fire.
-# 1,The fortress of these giants is surrounded by a flaming moat. [salamanders]
-
-# ;fire giant top floor
-# 1,The upper level of this tower is giant hall with a huge throne, tables, [rich treasure]
-
 ;frost giant stats
 1,HD 10+1 AC 4 4d6 or 3d6 *ranged* F10 MV 12 ML 9 XP 1000; *stone shape* and *control weather* at will
 
