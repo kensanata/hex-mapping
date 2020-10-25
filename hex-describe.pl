@@ -1032,19 +1032,23 @@ sub parse_table {
   my $text = shift;
   $log->debug("parse_table: parsing " . length($text) . " characters");
   my $data = {};
-  my %aliases;
-  my $key;
   my $words = "[^\[\]\n]*";
+  my (%aliases, $key, $c, $t);
   for my $line (split(/\r?\n/, $text)) {
     if ($line =~ /^;([^#\r\n]+)/) {
       $key = $1;
       $log->warn("parse_table: reset '$key'") if exists $data->{$key};
       $data->{$key} = {}; # reset, don't merge
-    } elsif ($key and $line =~ /^(\d+),(.*)/) {
-      $data->{$key}->{total} += $1;
-      my %h = (count => $1, text => $2);
-      $h{text} =~ s/\*\*(.*?)\*\*/<strong>$1<\/strong>/g;
-      $h{text} =~ s/\*(.*?)\*/<em>$1<\/em>/g;
+    } elsif ($key and ($c, $t) = $line =~ /^(\d+),(.*)/) {
+      $t =~ s/\*\*(.*?)\*\*/<strong>$1<\/strong>/g;
+      $t =~ s/\*(.*?)\*/<em>$1<\/em>/g;
+      my %h = (text => $t);
+      if ($c == 0) {
+	$h{unique} = 1;
+	$c = 1;
+      }
+      $h{count} = $c;
+      $data->{$key}->{total} += $c;
       push(@{$data->{$key}->{lines}}, \%h);
       # [foo as bar]
       for my $alias ($h{text} =~ /\[$words as ($words)\]/g) {
@@ -1085,16 +1089,24 @@ Pick a description from a given table. In the example above, pick a random
 number between 1 and 3 and then go through the list, addin up counts until you
 hit that number.
 
+If the result picked is unique, remove it from the list. That is, set it's count
+to 0 such that it won't ever get picked again.
+
 =cut
 
 sub pick_description {
-  my $total = shift;
-  my $lines = shift;
+  my $h = shift;
+  my $total = $h->{total};
+  my $lines = $h->{lines};
   my $roll = int(rand($total)) + 1;
   my $i = 0;
   for my $line (@$lines) {
     $i += $line->{count};
     if ($i >= $roll) {
+      if ($line->{unique}) {
+	$h->{total} -= $line->{count};
+	$line->{count} = 0;
+      }
       return $line->{text};
     }
   }
@@ -1168,9 +1180,7 @@ sub pick {
     my $key = ($context eq $word ? $word : "$context $word");
     # $log->debug("$coordinates: looking for a $key table") if $coordinates eq "0109";
     if ($table_data->{$key}) {
-      my $total = $table_data->{$key}->{total};
-      my $lines = $table_data->{$key}->{lines};
-      $text = pick_description($total, $lines);
+      $text = pick_description($table_data->{$key});
       # $log->debug("$coordinates → $key → $text");
       my $seed = int(rand(~0)); # maxint
       $text =~ s/\[\[redirect (https:.*?)\]\]/my $url = $1; $url =~ s!\$seed!$seed!; resolve_redirect($url, $redirects)/ge;
@@ -2392,6 +2402,7 @@ page is my attempt at writing a tutorial.
 <li><a href="#combining">Combining it: here, save, store</a></li>
 <li><a href="#here">Reuse: here, same, and nearby</a></li>
 <li><a href="#global">Reuse: global, save, store, and same</a></li>
+<li><a href="#unique">Unique results</a></li>
 <li><a href="#later">Delayed nested lookup: later</a></li>
 <li><a href="#lists">Lists of unique things: with, and</a></li>
 <li><a href="#capitalization">Capitalization</a></li>
@@ -3635,33 +3646,38 @@ include https://campaignwiki.org/contrib/gnomeyland.txt
 1,The grass is very green.
 % end
 
-<h2 id="unique">Unique results: using global</h2>
+<h2 id="unique">Unique results</h2>
 
 <p>
-We can use globals to make results unique. In the following example, the
-introduction sets up a global that tells us that "King Boris" in still a
-potential result. Whenever the "orcs" table is used, it refers to the "boris"
-value to determine whether to use "orcs yes" ("King Boris" is a potential
-result) or "orcs no" (the usual orcs).
+For unique results, use a count of 0. It gets treated as a count of 1 until it
+is picked. In the following example, thief Brenda can only be in one of the
+villages. Remember, though: a unique result must not necesarily make an
+appearance. It will simply appear no more than once – not exactly once!
 </p>
 
 %= example begin
-;TOP
-1,This is the introduction.[global store yes as boris]
+0101 green grass village
+0201 green grass
+0301 green grass village
+0401 green grass
+0501 green grass village
+0601 green grass
+0701 green grass village
+0801 green grass
+0901 green grass village
+1001 green grass
+1101 green grass village
+1201 green grass
+1301 green grass village
+include https://campaignwiki.org/contrib/gnomeyland.txt
 
-;hills
-1,Hills: [orcs]
+;grass
+1,The grass is green.
 
-;orcs
-1,This is orc country. [orcs [same boris]]
-
-;orcs yes
-1,[orcs no]
-1,This is where King Boris lives.[global store no as boris]
-
-;orcs no
-1,The orcs here are all followers of King Boris.
-% end
+;village
+1,This is an ordinary village.
+0,This is village is where thief Brenda is hiding!
+%end
 
 <h2 id="later">Delayed nested lookup: later</h2>
 
