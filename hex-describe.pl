@@ -3635,6 +3635,34 @@ include https://campaignwiki.org/contrib/gnomeyland.txt
 1,The grass is very green.
 % end
 
+<h2 id="unique">Unique results: using global</h2>
+
+<p>
+We can use globals to make results unique. In the following example, the
+introduction sets up a global that tells us that "King Boris" in still a
+potential result. Whenever the "orcs" table is used, it refers to the "boris"
+value to determine whether to use "orcs yes" ("King Boris" is a potential
+result) or "orcs no" (the usual orcs).
+</p>
+
+%= example begin
+;TOP
+1,This is the introduction.[global store yes as boris]
+
+;hills
+1,Hills: [orcs]
+
+;orcs
+1,This is orc country. [orcs [same boris]]
+
+;orcs yes
+1,[orcs no]
+1,This is where King Boris lives.[global store no as boris]
+
+;orcs no
+1,The orcs here are all followers of King Boris.
+% end
+
 <h2 id="later">Delayed nested lookup: later</h2>
 
 <p>
