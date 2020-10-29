@@ -11,7 +11,7 @@
 1,Strange looking birds call out high above the [colour] trees of the *[name for forest]*.
 1,An occasional [colour] eye stalk pokes through the mounds of leaves beneath the towering trees of the *[name for forest]*.
 1,Giant, large-trunked [colour] trees dominate the *[name for forest]*. They've broken through the road here and there creating insurmountable obstacles that require extra travel time.
-1,Trees that resemble Old Earth mushrooms climb to heights of 50 to 70 meters in the *[name for forest]*. The [colour] spores from the trees litter the road. 
+1,Trees that resemble Old Earth mushrooms climb to heights of 50 to 70 meters in the *[name for forest]*. The [colour] spores from the trees litter the road.
 
 ;desert
 1,A lizard as large as an Old Earth automobile basks in the unrelenting sun of the *[name for desert]*.<p>[desert people]<p>[desert point of interest]
@@ -41,7 +41,7 @@
 1,The *[name for jungle]* seems to be extra hostile today. Swaying [colour] vines grab at your arms and legs.
 1,The *[name for jungle]* is thick with *[colour]* vegetation and surprisingly unyielding.
 1,The rain is unceasing as you stumble your way through the *[name for jungle]*. The trail is slowly being eroded away.
-1,The under and overgrowth are heavy tangled in the *[name for jungle]*. 
+1,The under and overgrowth are heavy tangled in the *[name for jungle]*.
 
 ;swamp
 1,The foul smelling quicksand of the *[name for swamp]* pulls at your feet.
@@ -804,67 +804,67 @@
 1,The problem in this area has a name: **giant ants**. They carve their trails through the undergrowth, making travel easy. The problem is that these trails always lead to their nests. Just as the jungle clears up a bit, you stumble onto one of these trails and are suddenly confronted by [1d6] of these ants ([giant ant stats]).
 
 ;rad bear stats
-1,HD 10 AC 6 #AT3 1d8/1d8/1d10 HP 10d6 Wil 13 SV L5 MV 36m, Radiation Vomit 
+1,HD 10 AC 6 #AT3 1d8/1d8/1d10 HP 10d6 Wil 13 SV L5 MV 36m, Radiation Vomit
 
 ;electric crab stats
-1,HD 8 AC 4 #AT2 2d8/2d8 HP 8d6 Wil 12 SV 4 MV 36m, Electric Touch 
+1,HD 8 AC 4 #AT2 2d8/2d8 HP 8d6 Wil 12 SV 4 MV 36m, Electric Touch
 
 ;acid worm stats
-1,HD 7 AC 6 #AT1 1d8 HP 7d6 Wil 12 SV L3 MV 36m, Acid Touch 
+1,HD 7 AC 6 #AT1 1d8 HP 7d6 Wil 12 SV L3 MV 36m, Acid Touch
 
 ;giant ant stats
-1,HD 10 AC 3 #AT1 1d12 HP 10d6 Wil 11 SV 5 MV 36m, Animal Telepathy 
+1,HD 10 AC 3 #AT1 1d12 HP 10d6 Wil 11 SV 5 MV 36m, Animal Telepathy
 
 ;mothowl stats
-1,HD 5 AC 6 HP 5d6 Wil 14 SV 2 MV 36m, Energy Drain 
+1,HD 5 AC 6 HP 5d6 Wil 14 SV 2 MV 36m, Energy Drain
 
 ;dragonbird stats
-1,HD 12 AC 3 #AT3 1d8/1d8/1d10 HP 12d6 Wil 15 MV 55m, Heat Metal 
+1,HD 12 AC 3 #AT3 1d8/1d8/1d10 HP 12d6 Wil 15 MV 55m, Heat Metal
 
 ;rad hare stats
-1,HD 4 AC 5 HP 4d6 MV 13 Wil 8 SV 2 55m, Radiation Vomit 
+1,HD 4 AC 5 HP 4d6 MV 13 Wil 8 SV 2 55m, Radiation Vomit
 
 ;sky jelly stats
-1,HD 3 AC 7 HP 3d6 Wil 15 SV 1 MV 18m, Paralyzing Touch, Energy Drain 
+1,HD 3 AC 7 HP 3d6 Wil 15 SV 1 MV 18m, Paralyzing Touch, Energy Drain
 
 ;algaefish stats
-1,HD 9 AC 5 #AT1 1d12 HP 9d6 Wil 9 SV 4 MV 36m, Confusion 
+1,HD 9 AC 5 #AT1 1d12 HP 9d6 Wil 9 SV 4 MV 36m, Confusion
 
 ;swamp thing stats
-1,HD 20 AC 2 HP 20d6 Wil 17 SV 10 MV 36m, Heal Self, Poison Vomit, Eye Eruption 
+1,HD 20 AC 2 HP 20d6 Wil 17 SV 10 MV 36m, Heal Self, Poison Vomit, Eye Eruption
 
 ;fel dog stats
-1,HD 8 AC 5 #AT3 1d8/1d8/1d10 HP 8d6 Wil 8 SV 4 MV 36m, Chameleon 
+1,HD 8 AC 5 #AT3 1d8/1d8/1d10 HP 8d6 Wil 8 SV 4 MV 36m, Chameleon
 
 ;hellhound stats
-1,HD 11 AC 0 #AT3 1d8/1d8/1d10 HP 11d6 Wil 12 SV 5 MV 36m, Exoskeleton, Fire Breath 
+1,HD 11 AC 0 #AT3 1d8/1d8/1d10 HP 11d6 Wil 12 SV 5 MV 36m, Exoskeleton, Fire Breath
 
 ;grasschopper stats
-1,HD 8 AC 4 #AT1 1d10 HP 8d6 Wil 7 SV 4 MV 36m, Far Hearing, Photosynthesis 
+1,HD 8 AC 4 #AT1 1d10 HP 8d6 Wil 7 SV 4 MV 36m, Far Hearing, Photosynthesis
 
 ;horse fly stats
-1,HD 3 AC 6 #AT1 1d12 HP 3d6 Wil 8 SV 1 MV 54m, Poison Resist 
+1,HD 3 AC 6 #AT1 1d12 HP 3d6 Wil 8 SV 1 MV 54m, Poison Resist
 
 ;burke's hawk stats
-1,HD 4 AC 4 #AT3 1d8/1d8/1d10 HP 4d6 Wil 10 SV 2 MV 54m, Reflect Light 
+1,HD 4 AC 4 #AT3 1d8/1d8/1d10 HP 4d6 Wil 10 SV 2 MV 54m, Reflect Light
 
 ;rad rattler stats
-1,HD 7 AC 4 #AT1 1d12 HP 7d6 Wil 14 SV 3 MV 36m, Radiation Vomit, Poison Vomit 
+1,HD 7 AC 4 #AT1 1d12 HP 7d6 Wil 14 SV 3 MV 36m, Radiation Vomit, Poison Vomit
 
 ;wolfling stats
-1,HD 12 AC 5 #AT3 1d8/1d8/1d10 HP 12d6 Wil 10 SV 6 MV 36m, Tentacles, Blur 
+1,HD 12 AC 5 #AT3 1d8/1d8/1d10 HP 12d6 Wil 10 SV 6 MV 36m, Tentacles, Blur
 
 ;fire ant stats
-1,HD 8 AC 5 #AT1 1d12 HP 8d6 Wil 13 SV 4 MV 36m, Resist Heat, Fire Breath 
+1,HD 8 AC 5 #AT1 1d12 HP 8d6 Wil 13 SV 4 MV 36m, Resist Heat, Fire Breath
 
 ;no see um stats
-1,HD 2 AC 5 #AT3 1d8/1d8 HP 2d6 Wil 10 SV 1 MV 36m, Invisibility 
+1,HD 2 AC 5 #AT3 1d8/1d8 HP 2d6 Wil 10 SV 1 MV 36m, Invisibility
 
 ;sky whale stats
-1,HD 20 AC 5 #AT1 1d20 HP 20d6 Wil 16 SV 10 MV 36m, Mass Control Mind, Gills, Chameleon, Eye Eruption 
+1,HD 20 AC 5 #AT1 1d20 HP 20d6 Wil 16 SV 10 MV 36m, Mass Control Mind, Gills, Chameleon, Eye Eruption
 
 ;slime ander stats
-1,HD 7 AC 6 #AT1 1d8 HP 7d6 Wil 14 SV 3 MV 36m, Acid Touch 
+1,HD 7 AC 6 #AT1 1d8 HP 7d6 Wil 14 SV 3 MV 36m, Acid Touch
 
 # Plants
 
@@ -896,22 +896,22 @@
 1,There’s a rocky outcrop in the area, providing an excellent view of the surrounding area from above the tree cover. Unfortunately, it is also colonised by a pack of [3d6] **land anemones** ([land anemone stats]). The way back down is blocked by three of them, and every three round another one arrives, as they slowly close in on any disturbance.
 
 ;weeping willow stats
-1,HD 7 AC 6 HP 7d6 Wil 14 SV 3, Favorite Fragrance, Constrictive Tendrils 
+1,HD 7 AC 6 HP 7d6 Wil 14 SV 3, Favorite Fragrance, Constrictive Tendrils
 
 ;razor grass stats
-1,HD 3 AC 6 HP 3d6 Wil 11 SV 1, Free Movement, Vegetal Weapons 
+1,HD 3 AC 6 HP 3d6 Wil 11 SV 1, Free Movement, Vegetal Weapons
 
 ;jumping juniper stats
-1,HD 11 AC 5 HP 11d6 Wil 10 SV 5, Movement, Electric Shock  
+1,HD 11 AC 5 HP 11d6 Wil 10 SV 5, Movement, Electric Shock
 
 ;oak herder stats
 1,HD 12 AC 4 HP 12d6 Wil 14 SV 5, Free Movement, Plant Telepathy, Irradiated Foliage
 
 ;cattail stats
-1,HD 6 AC 7 HP 6d6 Wil 10 SV 2, Shriek 
+1,HD 6 AC 7 HP 6d6 Wil 10 SV 2, Shriek
 
 ;land anemone stats
-1,HD 4 AC 8 HP 4d6 Wil 10 SV 2, Paralytic Poison, Tendrils 
+1,HD 4 AC 8 HP 4d6 Wil 10 SV 2, Paralytic Poison, Tendrils
 
 ;mars fly trap stats
 1,HD 8 AC 5 HP 8d6 Wil 10 SV 4, Carnivore
@@ -1081,7 +1081,7 @@
 1,[title] [human name]
 
 # to be used as a title or as part of the epithet
-# must be without gender 
+# must be without gender
 ;person word
 1,Wise
 1,Great
@@ -1109,7 +1109,7 @@
 1,the Defender of all [people]
 1,the Best of all [people]
 
-# must be without gender 
+# must be without gender
 ;title
 1,Law & Order
 10,[person word]
