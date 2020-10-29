@@ -34,6 +34,9 @@
 1,The high canyon walls feel like they're closing in on you in the *[name for mountain]*. The trail winds ahead like a snake.
 
 ;jungle
+1,[jungle description] [jungle encounter]
+
+;jungle description
 1,The extreme humidity of the *[name for jungle]* makes breathing difficult, but has the added benefit of disabling most robots.
 1,The *[name for jungle]* seems to be extra hostile today. Swaying [colour] vines grab at your arms and legs.
 1,The *[name for jungle]* is thick with *[colour]* vegetation and surprisingly unyielding.
@@ -765,50 +768,188 @@
 1,Working
 1,Writing
 
+# Terrain encounter tables
+
+;jungle encounter
+1,[jungle animal encounter]
+1,[jungle plant encounter]
+
 # Animal
 
+# don’t forget an appropriate stat block!
 ;animal
-1,rad bear HD 10 AC 6 #AT3 1d8/1d8/1d10 HP 10d6 Wil 13 SV L5 MV 36m, Radiation Vomit 
-1,electric crab HD 8 AC 4 #AT2 2d8/2d8 HP 8d6 Wil 12 SV 4 MV 36m, Electric Touch 
-1,acid worm HD 7 AC 6 #AT1 1d8 HP 7d6 Wil 12 SV L3 MV 36m, Acid Touch 
-1,giant ant HD 10 AC 3 #AT1 1d12 HP 10d6 Wil 11 SV 5 MV 36m, Animal Telepathy 
-1,mothowl HD 5 AC 6 HP 5d6 Wil 14 SV 2 MV 36m, Energy Drain 
-1,dragonbird HD 12 AC 3 #AT3 1d8/1d8/1d10 HP 12d6 Wil 15 MV 55m, Heat Metal 
-1,rad hare HD 4 AC 5 HP 4d6 MV 13 Wil 8 SV 2 55m, Radiation Vomit 
-1,sky jelly HD 3 AC 7 HP 3d6 Wil 15 SV 1 MV 18m, Paralyzing Touch, Energy Drain 
-1,algaefish HD 9 AC 5 #AT1 1d12 HP 9d6 Wil 9 SV 4 MV 36m, Confusion 
-1,swamp thing HD 20 AC 2 HP 20d6 Wil 17 SV 10 MV 36m, Heal Self, Poison Vomit, Eye Eruption 
-1,fel dog HD 8 AC 5 #AT3 1d8/1d8/1d10 HP 8d6 Wil 8 SV 4 MV 36m, Chameleon 
-1,hellhound HD 11 AC 0 #AT3 1d8/1d8/1d10 HP 11d6 Wil 12 SV 5 MV 36m, Exoskeleton, Fire Breath 
-1,grasschopper HD 8 AC 4 #AT1 1d10 HP 8d6 Wil 7 SV 4 MV 36m, Far Hearing, Photosynthesis 
-1,horse fly HD 3 AC 6 #AT1 1d12 HP 3d6 Wil 8 SV 1 MV 54m, Poison Resist 
-1,burke's hawk HD 4 AC 4 #AT3 1d8/1d8/1d10 HP 4d6 Wil 10 SV 2 MV 54m, Reflect Light 
-1,rad rattler HD 7 AC 4 #AT1 1d12 HP 7d6 Wil 14 SV 3 MV 36m, Radiation Vomit, Poison Vomit 
-1,wolfling HD 12 AC 5 #AT3 1d8/1d8/1d10 HP 12d6 Wil 10 SV 6 MV 36m, Tentacles, Blur 
-1,fire ant HD 8 AC 5 #AT1 1d12 HP 8d6 Wil 13 SV 4 MV 36m, Resist Heat, Fire Breath 
-1,no see um HD 2 AC 5 #AT3 1d8/1d8 HP 2d6 Wil 10 SV 1 MV 36m, Invisibility 
-1,sky whale HD 20 AC 5 #AT1 1d20 HP 20d6 Wil 16 SV 10 MV 36m, Mass Control Mind, Gills, Chameleon, Eye Eruption 
-1,slime ander HD 7 AC 6 #AT1 1d8 HP 7d6 Wil 14 SV 3 MV 36m, Acid Touch 
+1,rad bear
+1,electric crab
+1,acid worm
+1,giant ant
+1,mothowl
+1,dragonbird
+1,rad hare
+1,sky jelly
+1,algaefish
+1,swamp thing
+1,fel dog
+1,hellhound
+1,grasschopper
+1,horse fly
+1,burke's hawk
+1,rad rattler
+1,wolfling
+1,fire ant
+1,no see um
+1,sky whale
+1,slime ander
 
+;jungle animal encounter
+1,The problem in this area has a name: **giant ants**. They carve their trails through the undergrowth, making travel easy. The problem is that these trails always lead to their nests. Just as the jungle clears up a bit, you stumble onto one of these trails and are suddenly confronted by [1d6] of these ants ([giant ant stats]).
+
+;rad bear stats
+1,HD 10 AC 6 #AT3 1d8/1d8/1d10 HP 10d6 Wil 13 SV L5 MV 36m, Radiation Vomit 
+
+;electric crab stats
+1,HD 8 AC 4 #AT2 2d8/2d8 HP 8d6 Wil 12 SV 4 MV 36m, Electric Touch 
+
+;acid worm stats
+1,HD 7 AC 6 #AT1 1d8 HP 7d6 Wil 12 SV L3 MV 36m, Acid Touch 
+
+;giant ant stats
+1,HD 10 AC 3 #AT1 1d12 HP 10d6 Wil 11 SV 5 MV 36m, Animal Telepathy 
+
+;mothowl stats
+1,HD 5 AC 6 HP 5d6 Wil 14 SV 2 MV 36m, Energy Drain 
+
+;dragonbird stats
+1,HD 12 AC 3 #AT3 1d8/1d8/1d10 HP 12d6 Wil 15 MV 55m, Heat Metal 
+
+;rad hare stats
+1,HD 4 AC 5 HP 4d6 MV 13 Wil 8 SV 2 55m, Radiation Vomit 
+
+;sky jelly stats
+1,HD 3 AC 7 HP 3d6 Wil 15 SV 1 MV 18m, Paralyzing Touch, Energy Drain 
+
+;algaefish stats
+1,HD 9 AC 5 #AT1 1d12 HP 9d6 Wil 9 SV 4 MV 36m, Confusion 
+
+;swamp thing stats
+1,HD 20 AC 2 HP 20d6 Wil 17 SV 10 MV 36m, Heal Self, Poison Vomit, Eye Eruption 
+
+;fel dog stats
+1,HD 8 AC 5 #AT3 1d8/1d8/1d10 HP 8d6 Wil 8 SV 4 MV 36m, Chameleon 
+
+;hellhound stats
+1,HD 11 AC 0 #AT3 1d8/1d8/1d10 HP 11d6 Wil 12 SV 5 MV 36m, Exoskeleton, Fire Breath 
+
+;grasschopper stats
+1,HD 8 AC 4 #AT1 1d10 HP 8d6 Wil 7 SV 4 MV 36m, Far Hearing, Photosynthesis 
+
+;horse fly stats
+1,HD 3 AC 6 #AT1 1d12 HP 3d6 Wil 8 SV 1 MV 54m, Poison Resist 
+
+;burke's hawk stats
+1,HD 4 AC 4 #AT3 1d8/1d8/1d10 HP 4d6 Wil 10 SV 2 MV 54m, Reflect Light 
+
+;rad rattler stats
+1,HD 7 AC 4 #AT1 1d12 HP 7d6 Wil 14 SV 3 MV 36m, Radiation Vomit, Poison Vomit 
+
+;wolfling stats
+1,HD 12 AC 5 #AT3 1d8/1d8/1d10 HP 12d6 Wil 10 SV 6 MV 36m, Tentacles, Blur 
+
+;fire ant stats
+1,HD 8 AC 5 #AT1 1d12 HP 8d6 Wil 13 SV 4 MV 36m, Resist Heat, Fire Breath 
+
+;no see um stats
+1,HD 2 AC 5 #AT3 1d8/1d8 HP 2d6 Wil 10 SV 1 MV 36m, Invisibility 
+
+;sky whale stats
+1,HD 20 AC 5 #AT1 1d20 HP 20d6 Wil 16 SV 10 MV 36m, Mass Control Mind, Gills, Chameleon, Eye Eruption 
+
+;slime ander stats
+1,HD 7 AC 6 #AT1 1d8 HP 7d6 Wil 14 SV 3 MV 36m, Acid Touch 
+
+# Plants
+
+# don’t forget an appropriate stat block!
 ;plant
-1,weeping willow HD 7 AC 6 HP 7d6 Wil 14 SV 3, Favorite Fragrance, Constrictive Tendrils 
-1,razor grass HD 3 AC 6 HP 3d6 Wil 11 SV 1, Free Movement, Vegetal Weapons 
-1,jumping juniper HD 11 AC 5 HP 11d6 Wil 10 SV 5, Movement, Electric Shock  
-1,oak herder HD 12 AC 4 HP 12d6 Wil 14 SV 5, Free Movement, Plant Telepathy, Irradiated Foliage
-1,cattail HD 6 AC 7 HP 6d6 Wil 10 SV 2, Shriek 
-1,land anemone HD 4 AC 8 HP 4d6 Wil 10 SV 2, Paralytic Poison, Tendrils 
-1,mars fly trap HD 8 AC 5 HP 8d6 Wil 10 SV 4, Carnivore
-1,octopus grass HD 5 AC 6 HP 5d6 Wil 16 SV 2, Plant Chameleon, Constrictive Tendrils
-1,zombie vine HD 3 AC 8 HP 3d6 Wil 10 SV 1, Parasite, Tendrils
-1,dirt devil HD 13 AC 3 HP 13d6 Wil 16 SV 6, Poison Spore, Exploding Fruit, Electric Shock
-1,eye stalker HD 5 AC 6 HP 5d6 Wil 10 SV 2, Free Movement, Acid Sap
-1,box cactus HD 10 AC 4 HP 10d6 Wil 11 SV 5, Projectile Thorns, Plant Telepathy
-1,poison-tipped peony HD 3 AC 8 HP 3d6 Wil 11 SV 1, Poison Sap
-1,catch you sleeping vine HD 7 AC 7 HP 7d6 Wil 8 SV 3, Paralytic Poison, Tendrils
-1,baby jade HD 5 AC 7 HP 5d6 Wil 9 SV 2, Irradiated Foliage
-1,elephant cactus HD 13 AC 4 HP 13d6 Wil 15 SV 6, Accumulated Resistance, Acid Sap, Vegetal Weapons
-1,pygmy palm HD 5 AC 4 HP 5d6 Wil 12 SV 2, Poison Sap, Projectile Thorns
-1,tiger tree HD 9 AC 4 HP 9d6 Wil 15 SV 4, Shriek, Plant Chameleon, Free Movement
+1,weeping willow
+1,razor grass
+1,jumping juniper
+1,oak herder
+1,cattail
+1,land anemone
+1,mars fly trap
+1,octopus grass
+1,zombie vine
+1,dirt devil
+1,eye stalker
+1,box cactus
+1,poison-tipped peony
+1,catch you sleeping vine
+1,baby jade
+1,elephant cactus
+1,pygmy palm
+1,tiger tree
+
+;jungle plant encounter
+1,If you make camp in this jungle, a **catch you sleeping vine** will sneak up to the camp ([catch you sleeping vine stats]).
+1,Making your way through the jungle risks walking into a copse of [2d3] **mars fly traps** ([mars fly trap stats]). If you’re surprised, you start inside the copse, surrounded, as the red maws open…
+1,Resting in this area is dangerous, for you’re sure to attract the attention of a pack of [[2d6]] **eye stalkers** ([eye stalker stats]).
+1,There’s a rocky outcrop in the area, providing an excellent view of the surrounding area from above the tree cover. Unfortunately, it is also colonised by a pack of [3d6] **land anemones** ([land anemone stats]). The way back down is blocked by three of them, and every three round another one arrives, as they slowly close in on any disturbance.
+
+;weeping willow stats
+1,HD 7 AC 6 HP 7d6 Wil 14 SV 3, Favorite Fragrance, Constrictive Tendrils 
+
+;razor grass stats
+1,HD 3 AC 6 HP 3d6 Wil 11 SV 1, Free Movement, Vegetal Weapons 
+
+;jumping juniper stats
+1,HD 11 AC 5 HP 11d6 Wil 10 SV 5, Movement, Electric Shock  
+
+;oak herder stats
+1,HD 12 AC 4 HP 12d6 Wil 14 SV 5, Free Movement, Plant Telepathy, Irradiated Foliage
+
+;cattail stats
+1,HD 6 AC 7 HP 6d6 Wil 10 SV 2, Shriek 
+
+;land anemone stats
+1,HD 4 AC 8 HP 4d6 Wil 10 SV 2, Paralytic Poison, Tendrils 
+
+;mars fly trap stats
+1,HD 8 AC 5 HP 8d6 Wil 10 SV 4, Carnivore
+
+;octopus grass stats
+1,HD 5 AC 6 HP 5d6 Wil 16 SV 2, Plant Chameleon, Constrictive Tendrils
+
+;zombie vine stats
+1,HD 3 AC 8 HP 3d6 Wil 10 SV 1, Parasite, Tendrils
+
+;dirt devil stats
+1,HD 13 AC 3 HP 13d6 Wil 16 SV 6, Poison Spore, Exploding Fruit, Electric Shock
+
+;eye stalker stats
+1,HD 5 AC 6 HP 5d6 Wil 10 SV 2, Free Movement, Acid Sap
+
+;box cactus stats
+1,HD 10 AC 4 HP 10d6 Wil 11 SV 5, Projectile Thorns, Plant Telepathy
+
+;poison-tipped peony stats
+1,HD 3 AC 8 HP 3d6 Wil 11 SV 1, Poison Sap
+
+;catch you sleeping vine stats
+1,HD 7 AC 7 HP 7d6 Wil 8 SV 3, Paralytic Poison, Tendrils
+
+;baby jade stats
+1,HD 5 AC 7 HP 5d6 Wil 9 SV 2, Irradiated Foliage
+
+;elephant cactus stats
+1,HD 13 AC 4 HP 13d6 Wil 15 SV 6, Accumulated Resistance, Acid Sap, Vegetal Weapons
+
+;pygmy palm stats
+1,HD 5 AC 4 HP 5d6 Wil 12 SV 2, Poison Sap, Projectile Thorns
+
+;tiger tree stats
+1,HD 9 AC 4 HP 9d6 Wil 15 SV 4, Shriek, Plant Chameleon, Free Movement
+
+# Robots
 
 ;consumer robot
 1,house bot
