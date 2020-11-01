@@ -12216,7 +12216,7 @@
 1,There are [save 1d6+4 as level][save spellbook for elves][4d6] **light elves** ([elf stats]) in gleaming armour, with lances and shields on impossibly thin grey horses with long manes, led by [elf with portrait] (level [same level]). [same spellbook for elves] [leader treasure]<blockquote>[light elf mission]</blockquote><p>
 
 ;light elf mission
-1,The flowing letters on their white banners identify them as *[name for a clan of the light elves 1]* elves. “Have you seen the *[name for a light elf legendary item]*? If you bring it to us, we will grant you realm of your own on the Astral Sea! But if you are hiding it from us, you will die a very slow death.”
+1,The flowing letters on their white banners identify them as *[name for a clan of the light elves 1]* elves. “Have you seen the *[name for a light elf legendary item]*? If you bring it to us, we will grant you a realm of your own on the Astral Sea! But if you are hiding it from us, you will die a very slow death.”
 1,The flowing letters on their white banners identify them as *[name for a clan of the light elves 2]* elves. “Have you seen any other light elves? Take heed for the *[name for a clan of the light elves 1]* are ridden by a strange madness. Avoid them if you can.”
 
 ;clan of the light elves
