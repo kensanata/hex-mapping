@@ -12216,7 +12216,7 @@
 1,There are [save 1d6+4 as level][save spellbook for elves][4d6] **light elves** ([elf stats]) in gleaming armour, with lances and shields on impossibly thin grey horses with long manes, led by [elf with portrait] (level [same level]). [same spellbook for elves] [leader treasure]<blockquote>[light elf mission]</blockquote><p>
 
 ;light elf mission
-1,The flowing letters on their white banners identify them as *[name for a clan of the light elves 1]* elves. “Have you seen the *[name for a light elf legendary item]*? If you bring it to us, we will grant you a realm of your own on the Astral Sea! But if you are hiding it from us, you will die a very slow death.”
+1,The flowing letters on their white banners identify them as *[name for a clan of the light elves 1]* elves. “Have you seen the *[nearby name for a light elf legendary item]*? If you bring it to us, we will grant you a realm of your own on the Astral Sea! But if you are hiding it from us, you will die a very slow death.”
 1,The flowing letters on their white banners identify them as *[name for a clan of the light elves 2]* elves. “Have you seen any other light elves? Take heed for the *[name for a clan of the light elves 1]* are ridden by a strange madness. Avoid them if you can.”
 
 ;clan of the light elves
@@ -38529,7 +38529,7 @@
 1,Silver cutlery and beautiful wine glasses.
 
 ;dragon treasure
-1,<span class="treasure">[50% 1d6x10 gold] [30% 4d6 platinum] [50% 1d8x10 gems] [50% 1d8x10 jewelry] [20% magic item] [20% magic item] [20% magic item] [20% magic item] [20% magic item] [20% magic item] [20% magic item] [20% magic item]</span>
+1,<span class="treasure">[50% 1d6x10 gold] [30% 4d6 platinum] [50% 1d8x10 gems] [50% 1d8x10 jewelry] [20% magic item] [20% magic item] [20% magic item] [20% magic item] [20% magic item] [20% magic item] [20% magic item] [20% magic item] [unique item]</span>
 
 ;dwarven treasure
 1,<span class="treasure">[50% 1d6x10 silver] [50% 1d6x10 gold] [50% 1d4 platinum] [30% 2d8 gems] [20% 1d10 jewelry] [30% magic item] [30% magic item] [30% magic item] [30% magic item] [30% magic item] [30% magic item] [5% per item type]</span>
@@ -38544,19 +38544,19 @@
 1,<span class="treasure average">[30% 1d6 silver] [30% 1d6 gold] [10% 1d6 platinum] [10% 1d6 gems] [10% 1d6 jewelry] [10% magic item]</span>
 
 ;rich treasure
-1,<span class="treasure rich">[50% 2d6 silver] [50% 1d10 gold] [30% 1d6 platinum] [30% 3d6 gems] [30% 3d6 jewelry] [30% magic item] [30% magic item] [30% magic item]</span>
+1,<span class="treasure rich">[50% 2d6 silver] [50% 1d10 gold] [30% 1d6 platinum] [30% 3d6 gems] [30% 3d6 jewelry] [30% magic item] [30% magic item] [30% magic item] [unique item]</span>
 
 ;robber treasure
 1,<span class="treasure robber">[40% 2d6 silver] [40% 2d6 gold] [40% 2d6 gems] [10% 1d6 jewelry] [10% magic item]</span>
 
 ;ancient treasure
-1,<span class="treasure ancient">[10% 1d6 silver] [10% 1d6 gold] [30% 1d6 platinum] [30% 2d6 gems] [30% 2d6 jewelry] [20% magic item] [20% magic item]</span>
+1,<span class="treasure ancient">[10% 1d6 silver] [10% 1d6 gold] [30% 1d6 platinum] [30% 2d6 gems] [30% 2d6 jewelry] [20% magic item] [20% magic item] [unique item]</span>
 
 ;scout treasure
 1,<span class="treasure scout">[10% 1d4 silver] [10% 1d4 gold] [30% 1d4 platinum] [10% 1d4 gems] [10% 1d4 jewelry] [20% magic item]</span>
 
 ;terror treasure
-1,<span class="treasure terror">[30% 2d6 silver] [30% 2d6 gold] [30% 1d6 platinum] [30% 3d6 gems] [30% 1d6 jewelry] [20% magic item] [20% magic item] [20% magic item] [20% magic item]</span>
+1,<span class="treasure terror">[30% 2d6 silver] [30% 2d6 gold] [30% 1d6 platinum] [30% 3d6 gems] [30% 1d6 jewelry] [20% magic item] [20% magic item] [20% magic item] [20% magic item] [unique item]</span>
 
 ;dead treasure
 1,<span class="treasure dead">[30% 1d6 silver] [20% 1d6 gold] [10% 1d6 platinum] [20% 1d10 jewelry] [20% magic item]</span>
@@ -39689,3 +39689,7 @@
 1,vulture, allows you to fly
 1,horse, allows you to ride
 1,black cat, allows you to sneak
+
+;unique item
+1,
+0,The *[here name for a light elf legendary item]*, an ancient light elf heirloom.
