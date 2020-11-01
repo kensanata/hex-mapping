@@ -4843,7 +4843,7 @@
 1,Trials
 
 ;orc antagonist
-1,orc
+1,orc name
 1,ice devil
 1,red dragon name
 1,white dragon name
