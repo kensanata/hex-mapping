@@ -1073,7 +1073,7 @@ sub parse_table {
 	next if $subtable =~ /^(?:capitalize|titlecase|highlightcase|normalize-elvish) (.*)/ and $data->{$1};
 	next if $subtable =~ /^adjacent hex$/; # experimental
 	next if $subtable =~ /^same (.*)/ and ($data->{$1} or $aliases{$1} or $1 eq 'adjacent hex');
-	next if $subtable =~ /^(?:here|nearby|other|later|with|and|save|store) (.+?)( as (.+))?$/ and $data->{$1};
+	next if $subtable =~ /^(?:here|nearby|other|append|later|with|and|save|store) (.+?)( as (.+))?$/ and $data->{$1};
 	$subtable = $1 if $subtable =~ /^(.+) as (.+)/;
 	$log->error("Error in table $table: subtable $subtable is missing")
 	    unless $data->{$subtable};
@@ -1328,6 +1328,12 @@ sub describe {
     } elsif ($word =~ /^(?:nearby|other|later) ./) {
       # skip on the first pass
       return "｢$word｣";
+    } elsif ($word =~ /^append (.*)/) {
+      my $text = pick($map_data, $table_data, $level, $coordinates, $words, $1, $redirects);
+      # remember it's legitimate to have no result for a table
+      next unless $text;
+      $locals{$word} = $text;
+      push(@descriptions, "｢append $text｣");
     } elsif ($word =~ /^same (.+)/) {
       return $locals{$1}->[0] if exists $locals{$1} and ref($locals{$1}) eq 'ARRAY';
       return $locals{$1} if exists $locals{$1};
@@ -1496,11 +1502,31 @@ sub process {
   return $text;
 }
 
+=item resolve_appends
+
+This removes text marked for appending and adds it at the end of a hex
+description. This modifies the third parameter, C<$descriptions>.
+
+=cut
+
+sub resolve_appends {
+  my $map_data = shift;
+  my $table_data = shift;
+  my $descriptions = shift;
+  my $redirects = shift;
+  my $text;
+  for my $coord (keys %$descriptions) {
+    while ($descriptions->{$coord} =~ s/｢append ([^][｣]*)｣/$text = $1; ""/ge) {
+      $descriptions->{$coord} .= ' ' . $text;
+    }
+  }
+}
+
 =item resolve_nearby
 
-This is a second phase. We have nearly everything resolved except for references
-starting with the word "nearby" because these require all of the other data to
-be present. This modifies the third parameter, C<$descriptions>.
+We have nearly everything resolved except for references starting with the word
+"nearby" because these require all of the other data to be present. This
+modifies the third parameter, C<$descriptions>.
 
 =cut
 
@@ -1677,6 +1703,7 @@ sub describe_map {
 					     $coord, $map_data->{$coord}, $redirects),
 				    $redirects); # with redirects means we keep images
   }
+  resolve_appends($map_data, $table_data, \%descriptions, $redirects);
   resolve_nearby($map_data, $table_data, \%descriptions, $redirects);
   resolve_other($map_data, $table_data, \%descriptions, $redirects);
   resolve_later($map_data, $table_data, \%descriptions, $redirects);
@@ -2403,6 +2430,7 @@ page is my attempt at writing a tutorial.
 <li><a href="#here">Reuse: here, same, and nearby</a></li>
 <li><a href="#global">Reuse: global, save, store, and same</a></li>
 <li><a href="#unique">Unique results</a></li>
+<li><a href="#append">Rearranging the output: append</a></li>
 <li><a href="#later">Delayed nested lookup: later</a></li>
 <li><a href="#lists">Lists of unique things: with, and</a></li>
 <li><a href="#capitalization">Capitalization</a></li>
@@ -3645,6 +3673,62 @@ include https://campaignwiki.org/contrib/gnomeyland.txt
 1,The grass is green.
 1,The grass is very green.
 % end
+
+<h2 id="append">Rearranging the output: append</h2>
+
+<p>
+Sometimes we're deep into a nested table and we want to introduce a few more
+paragraphs, but we really don't want to have it right here, just somewhere
+further down the line, at the end of the current hex.
+</p>
+
+<p>
+In the following example, there are villages, villages have temples, and
+sometimes, these temples have a monster lair beneath them. We don't want this
+little dungeon to appear in the middle of the village description, however.
+</p>
+
+%= example begin
+0101 green grass
+0201 green grass
+0301 green grass village
+0401 green grass
+0501 green grass
+0601 green grass
+0701 green grass
+0801 green grass
+0901 green grass village
+1001 green grass
+1101 green grass
+1201 green grass
+1301 green grass
+include https://campaignwiki.org/contrib/gnomeyland.txt
+
+;TOP
+1,This is the example land.
+
+;grass
+1,The land is flat.
+
+;village
+1,A village was built here, long ago. At it's center stands a [temple of [power]]. [more]
+
+;more
+1,The local believe that it is the favour of [same power] that protects them from their neighbours.
+
+;power
+1,Odin
+1,Thor
+
+;temple of Odin
+1,A temple of Odin[append dungeon]
+
+;temple of Thor
+1,A temple of Thor[append dungeon]
+
+;dungeon
+1,&lt;p&gt;Beneath the temple of [same power] the ancients built a deadly maze.
+%end
 
 <h2 id="unique">Unique results</h2>
 
