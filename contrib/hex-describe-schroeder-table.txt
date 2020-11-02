@@ -13499,7 +13499,6 @@
 1,[fir highlands] In this fir forest is a little campsite with [1d12 bugbears] ([bugbear stats]). They carry amulets of passage bearing the [name for a clan of the netherworld elves] sigil. [scout treasure] [maybe barrow] [forest event]
 1,[fir highlands] At night, the orcs of the *[evil tribe]* tribe hunt these lands. [orcs] Their settlement is protected by a palisade and [orc fort] [orc plans]
 1,[fir highlands] There is an abandoned shrine to *[power]* up here. It is haunted by the **spectre** of *[old name]*, the last priest who cared for it ([spectre stats]). [ancient treasure] [maybe barrow] [forest event]
-1,[fir highlands] If you wander into these woods, you’ll soon hear laughter and revelling. [satyr threat] [maybe barrow] [forest event]
 1,[fir highlands] [druids]
 1,[fir highlands] Within this wood is a dungeon. [dungeon]
 
@@ -14153,6 +14152,7 @@
 1,[fir highlands] [signs of human activity in a fir-forest] Sometimes you can see some deer.
 1,[fir highlands] [signs of human activity in a fir-forest] At dusk and dawn a pack of [3d6] **wolves** roam these lands ([wolf stats]).
 1,[fir highlands] [signs of human activity in a fir-forest] At dusk and dawn, you can sometimes see [boars].
+1,[fir highlands] If you wander into these woods, you’ll soon hear laughter and revelling. [satyr threat]
 
 ;fir highlands
 1,A few stunted [conifers] grow in these highlands. This is the edge of the [forest name].
@@ -14992,8 +14992,8 @@
 1,Local [food veg] farmer *[human name]* couldn't believe their luck when every one of their [livestock] gave birth to healthy triplets this year.
 1,Seen as an omen of good fortune, a [baby livestock] was born as white as the purest snow with a birthmark that eerily resembles [[good power] decoration]. Sacred to [same good power], the animal seems to be able to *[sacred ability]*.
 1,The unruly geese tended to by the locals have recently been laying quite the surprise. Every few clutches contains a golden egg worth 25gp. As of yet, no one has held onto one long enough to see what hatches from them.
-1,The old herder *[human name]* was distraught when one of their favorite [livestock] wandered off. When they finally tracked the beast down, it was found munching on a patch of valuable *[magic plant]*.
-1,The settlement was recently spared from a **bugbear** raid due to a stampede of brave [livestock]. Herders have already begun breeding them for their fearlessness.
+1,The old herder *[human name]* was distraught when one of their favorite [livestock] wandered off. When they finally tracked the beast down, it was found munching on a patch of valuable *[here magic plant]*.
+1,The settlement was recently spared from a **[bandit|bugbear|goblin|orc]** raid due to a stampede of brave [livestock]. Herders have already begun breeding them for their fearlessness.
 
 ;holiday event
 1,It is the festival of *Saint [old names for women]*, celebrated throughout the land for her miraculous ability to *[sacred ability]*. For the duration of the festival, all visitors are treated to a free meal of [rural meat prep] [food meat] [seasoning method] [with food seasonings] and as much [fruit] [distilled beverage] as they can drink.
