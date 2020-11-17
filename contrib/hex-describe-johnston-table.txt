@@ -12,6 +12,10 @@
 1,An occasional [colour] eye stalk pokes through the mounds of leaves beneath the towering trees of the *[name for forest]*.
 1,Giant, large-trunked [colour] trees dominate the *[name for forest]*. They've broken through the road here and there creating insurmountable obstacles that require extra travel time.
 1,Trees that resemble Old Earth mushrooms climb to heights of 50 to 70 meters in the *[name for forest]*. The [colour] spores from the trees litter the road.
+1,Irradiated [colour] trees and [colour] meadows form an eye pleasing patchwork of colour in the *[name for forest]*.
+1,A recent fire has left this part of the *[name for forest]* a hellish landscape of brittle trunks and ashen ground.
+1,Twisted, gnarled tree roots have made this region of the *[name for forest]* famous for tripping up and slowing down uwary travelers.
+1,Deep in the heart of the *[name for forest]*, the long tree branches overhead rub together creating a haunting melody.
 
 ;desert
 1,A lizard as large as an Old Earth automobile basks in the unrelenting sun of the *[name for desert]*.<p>[desert people]<p>[desert point of interest]
@@ -32,6 +36,10 @@
 1,The slopes up the the *[name for mountain]* are steep and the trails are slippery with ice and slush. It’s impossible to tell if you’re walking on bones or thin ice.
 1,Climbing, climbing, climbing. It's all that's left to do up here in the *[name for mountain]*.
 1,The high canyon walls feel like they're closing in on you in the *[name for mountain]*. The trail winds ahead like a snake.
+1,The atmosphere in the *[name for mountain]* feels slightly less radioactive at 3,000m. The clouds look mesmerisingly beautiful.
+1,The views in the *[name for mountain]* are spectacular, and the saw-toothed peaks dominate the horizon.
+1,Rising peaks in the *[name for mountain]* resemble man-made pyramids of lava rock.
+1,Visibility in the *[name for mountain]* is extremely limited as the snow begins to fall at an accelerated pace.
 
 ;jungle
 1,[jungle description] [jungle encounter]
@@ -39,17 +47,26 @@
 ;jungle description
 1,The extreme humidity of the *[name for jungle]* makes breathing difficult, but has the added benefit of disabling most robots.
 1,The *[name for jungle]* seems to be extra hostile today. Swaying [colour] vines grab at your arms and legs.
-1,The *[name for jungle]* is thick with *[colour]* vegetation and surprisingly unyielding.
+1,The *[name for jungle]* is thick with [colour] vegetation and surprisingly unyielding.
 1,The rain is unceasing as you stumble your way through the *[name for jungle]*. The trail is slowly being eroded away.
-1,The under and overgrowth are heavy tangled in the *[name for jungle]*.
+1,The [colour] under and overgrowth are heavy tangled in the *[name for jungle]*.
+1,The *[name for jungle]* is alive with animal grunts and growls which are nearly deafening and definitely terrifying.
+1,There are sudden cliffs and precarious paths hiddden by choking, thorny vines in the *[name for jungle]*.
+1,The triple canopies in the *[name for jungle]* have trapped almost all of the heat and humidity close to the ground making it feel like a madman's greenhouse. 
+1,The *[name for jungle]* seems to be alive and waiting for you to let down your guard.
+1,[capitalize colour] dew drips unceasingly from all species of foliage in the *[name for jungle]*.
 
 ;swamp
-1,The foul smelling quicksand of the *[name for swamp]* pulls at your feet.
+1,The foul smelling quicksand of the *[name for swamp]* pulls at your feet as you trudge along.
 1,The tidal quicksand of the *[name for swamp]* ebbs and flows, and you feel yourself sinking in deeper and deeper.
 1,Mutated [colour] frogs crunch beneath your feet as you slog through the *[name for swamp]*. You suspect there are even bigger amphibians under the surface. [swamp people]
 1,The *[name for swamp]* reeks of dead bodies and ruin. [River|Water|Swamp] [duckers|rhinos|hulks] [bay|call|cronk|cry|honk|trumpet] in the distance. [swamp people]
 1,The sulfurous smell of the *[name for swamp]* has you gagging and retching. [swamp people]
 1,The *[name for swamp]* is waterlogged and hard to navigate on foot. You're going to need a boat here.<p>[point of interest in the swamp]
+1,Scummy, brackish water and mangrove trees dominate this area of the *[name for swamp]*.
+1,The algae-laden mud in the *[name for swamp]* has covered you from head to foot.
+1,The *[name for swamp]* is vast and fetid, and defies your sense of direction.
+1,The rumours are that the *[name for swamp]* has swallowed up unwary travelers with no trace.
 
 ;grass
 1,The *[name for grass]* hums with a radioactive intensity. [grass people]
@@ -57,6 +74,11 @@
 1,The *[name for grass]* stretches in all directions. Large buzzing [colour] insects hover menacingly.
 1,One meter tall [colour] crickets chew the rainbow grass contentedly. This is the *[name for grass]*.
 1,Lush [with colour] and [and colour] grasses flow with the wind in the *[name for grass]*.
+1,The wide open grasses of the *[name for grass]* undulate gently in the constant breeze.
+1,The *[name for grass]* was once a dense forest ages ago, but all that's left of the forest are fallen trunks amid the unending grasses.
+1,The [colour] grasses of the *[name for grass]* seem unnaturally still and flat.
+1,The *[name for grass]* seems healthier than the surrounding areas. The [colour] grasses teem with insect life.
+1,The ground in the *[name for grass]* is much rockier and drier here.
 
 ;river-start river
 1,<p>[name for river] starts here.
@@ -224,7 +246,7 @@
 1,A pride of **lions** ([lion stats]) has found that [same herd animal] hunting is super easy. *[same bovinoid name]* is asking you for help.
 
 ;lion stats
-1,HD 5 AC 6 1d6/1d6/1d10 MV 45m; surprise on 1–4 in 6
+1,HD 5 AC 6 1d6/1d6/1d10 MV 45m; surprise on 1–4 in 6
 
 # Forest
 
@@ -247,8 +269,8 @@
 # Jungle
 
 ;point of interest in the jungle
-1,An old dirty grey temple stands here almost completely hidden by *[colour]* vines and *[colour]* undergrowth. The ashes of a recent fire by the entrance are still warm.
-1,Up ahead through the *[colour]* vines is a ramshackle shelter with light blue smoke wafting out a crude chimney. Does *[fancy human name]* still live here after all this time?
+1,An old dirty grey temple stands here almost completely hidden by [colour] vines and [colour] undergrowth. The ashes of a recent fire by the entrance are still warm.
+1,Up ahead through the [colour] vines is a ramshackle shelter with light blue smoke wafting out a crude chimney. Does *[fancy human name]* still live here after all this time?
 
 # Desert
 
@@ -995,15 +1017,15 @@
 1,HD 10 AC 7 1d6 L1 HP 10d8 MV 36m; average pure human
 
 ;android stats
-3,STR [3d6] DEX [3d6] CON [3d6] INT [3d6] WIL [3d6] CHA [3d6] HP 50; [armor]; [weapon]; android; immune to poisons, blinding, stun; radiation -3 class levels; no additional mutations; resistant to heat and cold, +1 to saves vs. heat or cold; *[mutation]*; *[mutation]*; *[mutation]*
-1,STR [3d6+2] DEX [3d6+1] CON [3d6] INT [3d6-3] WIL [3d6] CHA [3d6] HP 50; [armor]; [weapon]; combat android; immune to poisons, blinding, stun;radiation -3 class levels; no additional mutations; resistant to heat and cold, +1 to saves vs. heat or cold; *[mutation]*; *[mutation]*; *[mutation]*
-1,STR [3d6+1] DEX [3d6+2] CON [3d6] INT [3d6] WIL [3d6] CHA [3d6-3] HP 50; [armor]; [weapon]; basic android; immune to poisons, blinding, stun; radiation -3 class levels; no additional mutations; resistant to heat and cold, +1 to saves vs. heat or cold; *[mutation]*; *[mutation]*; *[mutation]*
+3,STR [3d6] DEX [3d6] CON [3d6] INT [3d6] WIL [3d6] CHA [3d6] HP 50; [armor]; [weapon]; android; immune to poisons, blinding, stun; radiation -3 class levels; no additional mutations; resistant to heat and cold, +1 to saves vs. heat or cold; *[mutation]*; *[mutation]*; *[mutation]*
+1,STR [3d6+2] DEX [3d6+1] CON [3d6] INT [3d6-3] WIL [3d6] CHA [3d6] HP 50; [armor]; [weapon]; combat android; immune to poisons, blinding, stun;radiation -3 class levels; no additional mutations; resistant to heat and cold, +1 to saves vs. heat or cold; *[mutation]*; *[mutation]*; *[mutation]*
+1,STR [3d6+1] DEX [3d6+2] CON [3d6] INT [3d6] WIL [3d6] CHA [3d6-3] HP 50; [armor]; [weapon]; basic android; immune to poisons, blinding, stun; radiation -3 class levels; no additional mutations; resistant to heat and cold, +1 to saves vs. heat or cold; *[mutation]*; *[mutation]*; *[mutation]*
 
 ;synthetic stats
-1,STR [3d6] DEX [3d6] CON [3d6] INT [3d6] WIL [3d6] CHA [3d6] HP 50; [armor]; [weapon]; synthetic; immune to poisons, blinding, stun; radiation -1 class level; no additional mutations; resistant to heat and cold, +3 to saves vs. heat or cold; *[mutation]*; *[mutation]*; *[mutation]*
+1,STR [3d6] DEX [3d6] CON [3d6] INT [3d6] WIL [3d6] CHA [3d6] HP 50; [armor]; [weapon]; synthetic; immune to poisons, blinding, stun; radiation -1 class level; no additional mutations; resistant to heat and cold, +3 to saves vs. heat or cold; *[mutation]*; *[mutation]*; *[mutation]*
 
 ;replicant stats
-1,STR [3d6] DEX [3d6] CON [3d6 as con] INT [3d6] WIL [3d6] CHA [3d6] HP [[same con]d6]; [armor]; [weapon]; replicant; radiation causes wasting disease instead of mutations; resistant to heat and cold, +2 to saves vs. heat or cold; *[mutation]*; *[mutation]*; *[mutation]*
+1,STR [3d6] DEX [3d6] CON [3d6 as con] INT [3d6] WIL [3d6] CHA [3d6] HP [[same con]d6]; [armor]; [weapon]; replicant; radiation causes wasting disease instead of mutations; resistant to heat and cold, +2 to saves vs. heat or cold; *[mutation]*; *[mutation]*; *[mutation]*
 
 ;mutant animal stats
 1,TODO: mutant animal
