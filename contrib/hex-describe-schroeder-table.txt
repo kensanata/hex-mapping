@@ -1638,7 +1638,7 @@
 1,magic mouth reciting [terrible poetry|[store human as singing humanoid][story]|a loud warning to the denizens of the dungeon|praises to [power]|curses to followers of [power]]
 1,filled [ankle-high|waist-high|to the brim] with [colour] [mist|fog]
 1,narrow path along a charnel pit with [random corpses]
-1,[blood spattered|hastily engraved|gouged|painted] runes in the wall spelling out [dwarf name]
+1,[blood spattered|hastily engraved|gouged|painted] runes in the wall spelling out *[dwarf name]*
 1,a concealed entrance/exit to the surface, a [narrow|tight|barely wide enough] fit for a [halfling|dwarf|elf]
 1,a stairwell down leads into a maze of unmappable corridors, filled with the skeletons of past [human|elf|dwarf|goblin] visitors
 
@@ -5939,7 +5939,7 @@
 1,<p>Further up, in a beautiful room with a terrace encircling the entire tower, is the roost of [1d12 tengu] For the price of 500gp *[same tengu name]* will tell you how to open the secret door to the top of the tower.
 
 ;green mountain tower 3
-1,<p>The room above, with its polished floor, arching columns and a beautiful mosaic of [with elf decoration] and [and elf decoration] and scenes from [old elf ballad name], is inhabited by a **blue dragon** called *[here blue dragon name as dragon name]*[dragon portrait] ([blue dragon stats]). Exposure to elven dweomers has made the dragon surprisingly [dragon mood]. [dragon treasure]
+1,<p>The room above, with its polished floor, arching columns and a beautiful mosaic of [with elf decoration] and [and elf decoration] and scenes from *[old elf ballad name]*, is inhabited by a **blue dragon** called *[here blue dragon name as dragon name]*[dragon portrait] ([blue dragon stats]). Exposure to elven dweomers has made the dragon surprisingly [dragon mood]. [dragon treasure]
 1,<p>The walls of this room near the top are cracked and all the windows are broken. This is the lair of [2d8] very protective **griffons** ([griffon stats]). They are often seen hunting the land around this tower. [maybe griffon eggs]
 1,<p>The large room up here has an opening in the [direction]ern wall leading to a platform with a beautiful view. The room itself is filled with glass pipes, ventilators and copper cauldrons. This laboratory is home to [gargoyles] ([gargoyle stats]). [poor treasure]
 1,<p>Furter up, where heaven and earth appear to meet, the Earth Blood has turned previous visitors into [2d6] [slimes].
