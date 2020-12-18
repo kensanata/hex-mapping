@@ -1329,7 +1329,7 @@
 1,Somewhere up here between the cliffs there is a secret door. [secret door to the realm of the netherworld elves]
 1,[green tower in the mountains]
 1,On one of the rock faces you can still see the markings of the old dwarf forge *[here dwarf forge]*. [forge ruin]
-1,The *Pass of [old name]* on the way to [name for white big mountains] is guarded by [a warlock fortress]
+1,The *Pass of [old name]* on the way to [nearby village name] is guarded by [a warlock fortress]
 1,[lindwurm]
 1,[mountain orcs]
 1,[necropolis]
@@ -38968,10 +38968,10 @@
 1,[potion], a [7 potions]
 
 ;potion
-1,potion of *healing* ([name for a potion of healing], 1d6+1)
-1,potion of *flying* ([name for a potion of flying], 1h)
-1,potion of *fire resistance* ([name for a potion of fire resistance], 1h)
-1,potion of *cold resistance* ([name for a potion of cold resistance], 1h)
+5,potion of *healing* ([name for a potion of healing], 1d6+1)
+4,potion of *flying* ([name for a potion of flying], 1h)
+3,potion of *fire resistance* ([name for a potion of fire resistance], 1h)
+2,potion of *cold resistance* ([name for a potion of cold resistance], 1h)
 1,potion of *fire belching* ([name for a potion of fire belching], 20min, 3d6, save vs. dragon breath for half)
 1,potion of *invisibility* ([name for a potion of invisibility], 20min, no attacks)
 1,potion of *strength* ([name for a potion of strength], 20min, strength 18)
@@ -38982,6 +38982,54 @@
 1,potion of *jaws* ([name for a potion of jaws], 20min, turns your jaws and teeth into a huge, supernatural shark demon jaw able to bite through any material, if you can get it between your new teeth; deal 2d6 in melee)
 1,potion of *shrinking* ([name for a potion of shrinking], 1h, shrinks you and everything you are carrying by a factor of 12 including the effect of any spells you cast and any damage you deal)
 1,potion of *bellowing* ([name for a potion of bellowing], 1h, allows you to bellow so loud that your voice can be heard for many miles)
+1,potion of *flooding* ([name for a potion of flooding], 1h, makes you vomit forth water at an extremely painful rate, filling a 20ft cube; move at half speed and no other actions possible)
+1,potion of *snake bite* ([name for a potion of snake bite], 1h, gives you three venomous bites, victims must save vs. poison or die)
+1,potion of *transformation* ([name for a potion of transformation], 1h, *shape change* like a doppelgänger)
+1,potion of *transcendence* ([name for a potion of transcendence], 10min, 60ft, *true seeing* past all illusions, transformations, through all matter)
+1,potion of *bonding* ([name for a potion of bonding], one year, all who share this potion with you will know where they all are: distance, direction, and emotional state)
+1,potion of *a golden aura* ([name for a potion of golden saliva], 1h, makes your insides and your eyes and everything your body produces glow in a golden light: when you open your mouth, when you spit, sweat, pee, or poo, everything glows)
+1,potion of the *harpy* ([name for a potion of the harpy], 8h, grow wings that allow you to fly, claws that allow you to fight, a voice that charms; and you look like a hundred years old, shrivelled, elongated, sinewy, and ugly; anybody who hears you sing must save vs. spells or be charmed; deal 1d6/1d6 in melee; drop most clothes and gear due to the growth)
+1,potion of *knockout* ([name for a potion of knockout], 1h, save vs. poison or lose consciousness; tasteless, can be mixed with water and wine)
+1,potion of *hearing* ([name for a potion of hearing], 1h, ears grow painfully sensitive; you can locate every breath, heartbeat, and movement within 30ft)
+1,potion of *smelling* ([name for a potion of smelling], 8h, nose grow painfully sensitive; you can track people and beasts like the best bloodhound)
+1,potion of the *gizzard* ([name for a potion of the gizzard], 1h, allows you to eat anything without fear of injury or poison)
+1,potion of *dreaming* ([name for a potion of dreaming], 8h, grants you a dream where you can appear elsewhere to do whatever you like; if you die in your dream, or the rays of the sun strike you, the dream body dissolves in smoke and you wake up back in your bed)
+
+;name for a potion of dreaming
+1,[potion description]
+
+;name for a potion of the gizzard
+1,[potion description]
+
+;name for a potion of smelling
+1,[potion description]
+
+;name for a potion of hearing
+1,[potion description]
+
+;name for a potion of knockout
+1,[potion description]
+
+;name for a potion of the harpy
+1,[potion description]
+
+;name for a potion of a golden aura
+1,[potion description]
+
+;name for a potion of bonding
+1,[potion description]
+
+;name for a potion of transcendence
+1,[potion description]
+
+;name for a potion of transformation
+1,[potion description]
+
+;name for a potion of flooding
+1,[potion description]
+
+;name for a potion of snake bite
+1,[potion description]
 
 ;name for a potion of healing
 1,[potion description]
