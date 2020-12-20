@@ -1356,7 +1356,7 @@
 # 7 rooms
 4,[dungeon header][dungeon map with 7 rooms]<ol><li>[entrance room]</li><li>[with interior room]<ul><li>[room feature]</i></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[final room]<ul><li>[[same monsters] boss]</li><li>[final room treasure]</li></ul></li></ol>
 # 10 rooms
-3,[dungeon header][dungeon map with 10 rooms]<ol><li>[entrance room]</li><li>[with interior room]<ul><li>[room feature]</i></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[final room]<ul><li>[[same monsters] boss]</li><li>[final room treasure]</li></ul></li><li>[entrance room]</li><li>[with interior room]<ul><li>[room feature]</i></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[final room]<ul><li>[[same monsters] boss]</li><li>[final room treasure]</li></ul></li></ol>
+3,[dungeon header][dungeon map with 10 rooms]<ol><li>[entrance room]</li><li>[with interior room]<ul><li>[room feature]</i></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[final room]<ul><li>[[same monsters] boss]</li><li>[final room treasure]</li></ul></li><li>[entrance room]</li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[final room]<ul><li>[[same monsters] boss]</li><li>[final room treasure]</li></ul></li></ol>
 # 12 rooms
 2,[dungeon header][dungeon map with 12 rooms]<ol><li>[entrance room]</li><li>[with interior room]<ul><li>[room feature]</i></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[final room]<ul><li>[[same monsters] boss]</li><li>[final room treasure]</li></ul></li><li>[entrance room]</li><li>[with interior room]<ul><li>[room feature]</i></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[final room]<ul><li>[[same monsters] boss]</li><li>[final room treasure]</li></ul></li></ol>
 # 14 rooms
@@ -2086,7 +2086,6 @@
 1,air
 1,water
 
-
 #Called by Insect Swarm, but will probably be useful for other things
 ;insect swarm type
 1,flies
@@ -2500,9 +2499,12 @@
 #removing treasure call for now
 ;treasure room desc
 1,The treasure room has long been looted. Among the rubble, though, might be something, to one who looks long.
-1,The treasury contains [chests], all open and empty, except for one, which glitters in torchlight. (It is, of course, a mimic.)
+1,The treasury contains [chests], all open and empty, except for one, which glitters in torchlight. It is, of course, a *mimic* ([mimic stats]).
 1,All that remains are [chests] and a shelf full of assorted locks and keys. 
 1,[vault desc]
+
+;mimic stats
+1,AC 5 HD 5 MV 30 DMG 1d10 F7 ML 10 AL N XP 500
 
 #removing treasure call for now
 ;vault desc
@@ -38987,11 +38989,11 @@
 1,potion of *transformation* ([name for a potion of transformation], 1h, *shape change* like a doppelgänger)
 1,potion of *transcendence* ([name for a potion of transcendence], 10min, 60ft, *true seeing* past all illusions, transformations, through all matter)
 1,potion of *bonding* ([name for a potion of bonding], one year, all who share this potion with you will know where they all are: distance, direction, and emotional state)
-1,potion of *a golden aura* ([name for a potion of golden saliva], 1h, makes your insides and your eyes and everything your body produces glow in a golden light: when you open your mouth, when you spit, sweat, pee, or poo, everything glows)
+1,potion of the *golden aura* ([name for a potion of the golden aura], 1h, makes your insides and your eyes and everything your body produces glow in a golden light: when you open your mouth, when you spit, sweat, pee, or poo, everything glows)
 1,potion of the *harpy* ([name for a potion of the harpy], 8h, grow wings that allow you to fly, claws that allow you to fight, a voice that charms; and you look like a hundred years old, shrivelled, elongated, sinewy, and ugly; anybody who hears you sing must save vs. spells or be charmed; deal 1d6/1d6 in melee; drop most clothes and gear due to the growth)
 1,potion of *knockout* ([name for a potion of knockout], 1h, save vs. poison or lose consciousness; tasteless, can be mixed with water and wine)
 1,potion of *hearing* ([name for a potion of hearing], 1h, ears grow painfully sensitive; you can locate every breath, heartbeat, and movement within 30ft)
-1,potion of *smelling* ([name for a potion of smelling], 8h, nose grow painfully sensitive; you can track people and beasts like the best bloodhound)
+1,potion of *smelling* ([name for a potion of smelling], 8h, nose grows painfully sensitive; you can track people and beasts like the best bloodhound)
 1,potion of the *gizzard* ([name for a potion of the gizzard], 1h, allows you to eat anything without fear of injury or poison)
 1,potion of *dreaming* ([name for a potion of dreaming], 8h, grants you a dream where you can appear elsewhere to do whatever you like; if you die in your dream, or the rays of the sun strike you, the dream body dissolves in smoke and you wake up back in your bed)
 
@@ -39013,7 +39015,7 @@
 ;name for a potion of the harpy
 1,[potion description]
 
-;name for a potion of a golden aura
+;name for a potion of the golden aura
 1,[potion description]
 
 ;name for a potion of bonding
