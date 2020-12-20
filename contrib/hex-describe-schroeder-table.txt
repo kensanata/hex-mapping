@@ -15535,7 +15535,7 @@
 # https://blog.d4caltrops.com/2019/05/these-village-folk-are-d100-table.html
 1,able to heal broken bones/burns with a touch (or 1 HP)
 1,hawking superstitious wind-chimes/mobiles
-1,about to burn/just burnt a witch
+1,about to burn *[here old names for women as witch]* the witch, also known as [the witch]
 1,heavily taxed, to the point of destitution
 1,advertising a bounty on a local deaf and toothless giant
 1,hoping to marry off eligible bachelors
