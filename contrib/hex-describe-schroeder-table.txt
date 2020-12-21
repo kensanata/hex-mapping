@@ -1351,16 +1351,24 @@
 1,[save dungeontype as monsters]This is *[here dungeon name]*.<p class="sidebar">Wandering monsters: [[same monsters] encounter].<p>
 
 ;dungeon
-# 5 rooms
-5,[dungeon header][dungeon map with 5 rooms]<ol><li>[entrance room]</li><li>[with interior room]<ul><li>[room feature]</i></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[final room]<ul><li>[[same monsters] boss]</li><li>[final room treasure]</li></ul></li></ol>
-# 7 rooms
-4,[dungeon header][dungeon map with 7 rooms]<ol><li>[entrance room]</li><li>[with interior room]<ul><li>[room feature]</i></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[final room]<ul><li>[[same monsters] boss]</li><li>[final room treasure]</li></ul></li></ol>
-# 10 rooms
-3,[dungeon header][dungeon map with 10 rooms]<ol><li>[entrance room]</li><li>[with interior room]<ul><li>[room feature]</i></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[final room]<ul><li>[[same monsters] boss]</li><li>[final room treasure]</li></ul></li><li>[entrance room]</li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[final room]<ul><li>[[same monsters] boss]</li><li>[final room treasure]</li></ul></li></ol>
-# 12 rooms
-2,[dungeon header][dungeon map with 12 rooms]<ol><li>[entrance room]</li><li>[with interior room]<ul><li>[room feature]</i></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[final room]<ul><li>[[same monsters] boss]</li><li>[final room treasure]</li></ul></li><li>[entrance room]</li><li>[with interior room]<ul><li>[room feature]</i></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[final room]<ul><li>[[same monsters] boss]</li><li>[final room treasure]</li></ul></li></ol>
-# 14 rooms
-1,[dungeon header][dungeon map with 14 rooms]<ol><li>[entrance room]</li><li>[with interior room]<ul><li>[room feature]</i></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[final room]<ul><li>[[same monsters] boss]</li><li>[final room treasure]</li></ul></li><li>[entrance room]</li><li>[with interior room]<ul><li>[room feature]</i></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[and interior room]<ul><li>[room feature]</li></ul></li><li>[final room]<ul><li>[[same monsters] boss]</li><li>[final room treasure]</li></ul></li></ol>
+# 5 rooms (the first being an entrance and the last being the “boss”)
+5,[dungeon header][dungeon map with 5 rooms]<ol>[entrance room html][interior room html][interior room html][interior room html][final room html]</ol>
+# 7 rooms (the first being an entrance and the last being the “boss”)
+4,[dungeon header][dungeon map with 7 rooms]<ol>[entrance room html][interior room html][interior room html][interior room html][interior room html][interior room html][final room html]</ol>
+# 10 rooms (5+5)
+3,[dungeon header][dungeon map with 10 rooms]<ol>[entrance room html][interior room html][interior room html][interior room html][final room html][entrance room html][interior room html][interior room html][interior room html][final room html]</ol>
+# 12 rooms (5+7)
+2,[dungeon header][dungeon map with 12 rooms]<ol>[entrance room html][interior room html][interior room html][interior room html][final room html][entrance room html][interior room html][interior room html][interior room html][interior room html][interior room html][final room html]</ol>
+# 14 rooms (7+7)
+1,[dungeon header][dungeon map with 14 rooms]<ol>[entrance room html][interior room html][interior room html][interior room html][interior room html][interior room html][final room html][entrance room html][interior room html][interior room html][interior room html][interior room html][interior room html][final room html]</ol>
+
+# Anytime we repeat things, such as rooms, we want have liked to make sure no element repeats itself, but every change in dungeon denizen numbers would already count as a difference and so we’re not going to pay attention to all that.
+;entrance room html
+1,<li>[entrance room]</li>
+;interior room html
+1,<li>[interior room]<ul><li>[room feature]</li></ul></li>
+;final room html
+1,<li>[final room]<ul><li>[[same monsters] boss]</li><li>[final room treasure]</li></ul></li>
 
 ;dungeon map with 5 rooms
 1,<img class="map" src="[[redirect https://campaignwiki.org/text-mapper/gridmapper/redirect?pillars=0&seed=$seed]]" alt="5 room dungeon" title="5 room dungeon"/>
@@ -1376,8 +1384,6 @@
 
 ;dungeon map with 14 rooms
 1,<img class="map" src="[[redirect https://campaignwiki.org/text-mapper/gridmapper/redirect?pillars=0&rooms=14&seed=$seed]]" alt="14 room dungeon" title="14 room dungeon"/>
-
-# add Wandering Monster: [[same monsters] encounter]...this might be possible as a sub-table floating to the side (like the gem stuff in hex describe)
 
 #new "dungeon themes" can be added here, but will need [boss] and [encounter] tables in the ENCOUNTER section
 ;dungeontype
@@ -1550,58 +1556,56 @@
 
 #AREA SECTION
 
-
 #ENTRANCES/FIRST AREA SECTION
 #It's very tempting to add a chance of consolidating these with the rooms below
 ;entrance room
-1,<u>Catacombs:</u> *In one wall of the entrance are many deep niches, each containing a [human|elf|dwarf|goblin|orc|frogling] skeleton.*
-1,<u>Charnel Pit:</u> *Most of the entrance is around a deep pit, filled with bones and corpses of indeterminate type.*
-1,<u>Cave:</u> *[capitalize cave description]*.
-1,<u>Latrine:</u> *The entrance to this dungeon has the overwhelming stench of recently used latrine pits.*
-1,<u>Mine Shaft:</u> *The beginnings of a mine for a vein that soon tapped out. Some abandoned mattock and pick blades are here, their wooden handles long rotted.*
-1,<u>Natural Cavern:</u> *[capitalize entrance description].*
+1,<u>Catacombs:</u> In one wall of the entrance are many deep niches, each containing a [human|elf|dwarf|goblin|orc|frogling] skeleton.
+1,<u>Charnel Pit:</u> Most of the entrance is around a deep pit, filled with bones and corpses of indeterminate type.
+1,<u>Cave:</u> [capitalize cave description].
+1,<u>Latrine:</u> The entrance to this dungeon has the overwhelming stench of recently used latrine pits.
+1,<u>Mine Shaft:</u> The beginnings of a mine for a vein that soon tapped out. Some abandoned mattock and pick blades are here, their wooden handles long rotted.
+1,<u>Natural Cavern:</u> [capitalize entrance description].
 
 #There might be a better way to call and format these eventually
 #I made the common rooms all a 4 in frequency and rare rooms (e.g., Vestry, Chantry) a 1
 ;interior room
 18,[interior religious room]
-4,<u>Antechamber:</u> *[antechamber desc]*
-4,<u>Arena:</u> *[arena desc]*
-4,<u>Barracks:</u> *[barracks desc]*
-4,<u>Bedroom:</u> *[bedroom desc]*
-4,<u>Cistern:</u> *[cistern desc]*
-4,<u>Common Room:</u> *[common room desc]*
-4,<u>Crypt:</u> *[crypt desc]*
-4,<u>Debris Room:</u> *[debris room desc]*
-4,<u>Dining Room:</u> *[dining room desc]*
-4,<u>Firewood Room:</u> *[firewood room desc]*
-4,<u>Guano Pit:</u> *[guano pit desc]*
-4,<u>Guard Chamber:</u> *[guard chamber desc]*
-4,<u>Guardroom:</u> *[guardroom desc]*
-4,<u>Kiln:</u> *[kiln desc]*
-4,<u>Kitchen:</u> *[kitchen desc]*
-4,<u>Larder:</u> *[larder desc]*
-4,<u>Living Quarters:</u> *[living quarters desc]*
-4,<u>Mined Wall:</u> *[mined wall desc]*
-4,<u>Mushroom Farm:</u> *[mushroom farm desc]*
-4,<u>Nursery:</u> *[nursery desc]*
-4,<u>Prison Cells:</u> *[prison cells desc]*
-4,<u>Slave Pen:</u> *[slave pen desc]*
-4,<u>Smithy:</u> *[smithy desc]*
-4,<u>Storeroom:</u> *[storeroom desc]*
-4,<u>Torture Chamber:</u> *[torture chamber desc]* 
-4,<u>Vault:</u> *[vault desc]*
-4,<u>Well:</u> *[well desc]*
-4,<u>Workshop:</u> *[workshop desc]*
+4,<u>Antechamber:</u> [antechamber desc]
+4,<u>Arena:</u> [arena desc]
+4,<u>Barracks:</u> [barracks desc]
+4,<u>Bedroom:</u> [bedroom desc]
+4,<u>Cistern:</u> [cistern desc]
+4,<u>Common Room:</u> [common room desc]
+4,<u>Crypt:</u> [crypt desc]
+4,<u>Debris Room:</u> [debris room desc]
+4,<u>Dining Room:</u> [dining room desc]
+4,<u>Firewood Room:</u> [firewood room desc]
+4,<u>Guano Pit:</u> [guano pit desc]
+4,<u>Guard Chamber:</u> [guard chamber desc]
+4,<u>Guardroom:</u> [guardroom desc]
+4,<u>Kiln:</u> [kiln desc]
+4,<u>Kitchen:</u> [kitchen desc]
+4,<u>Larder:</u> [larder desc]
+4,<u>Living Quarters:</u> [living quarters desc]
+4,<u>Mined Wall:</u> [mined wall desc]
+4,<u>Mushroom Farm:</u> [mushroom farm desc]
+4,<u>Nursery:</u> [nursery desc]
+4,<u>Prison Cells:</u> [prison cells desc]
+4,<u>Slave Pen:</u> [slave pen desc]
+4,<u>Smithy:</u> [smithy desc]
+4,<u>Storeroom:</u> [storeroom desc]
+4,<u>Torture Chamber:</u> [torture chamber desc]
+4,<u>Vault:</u> [vault desc]
+4,<u>Well:</u> [well desc]
+4,<u>Workshop:</u> [workshop desc]
 
 ;interior religious room
-4,<u>Altar:</u> *[altar desc]*
-1,<u>Chantry:</u> *[chantry desc]*
-4,<u>Chapel:</u> *[chapel desc]*
-4,<u>Shrine:</u> *[shrine desc]*
-4,<u>Temple:</u> *[temple desc]*
-1,<u>Vestry:</u> *[vestry desc]*
-
+4,<u>Altar:</u> [altar desc]
+1,<u>Chantry:</u> [chantry desc]
+4,<u>Chapel:</u> [chapel desc]
+4,<u>Shrine:</u> [shrine desc]
+4,<u>Temple:</u> [temple desc]
+1,<u>Vestry:</u> [vestry desc]
 
 ;shortcut
 #not currently used
@@ -1609,25 +1613,23 @@
 #this is a little trickier, might need to call this with a new "room feature" subtable with no Encounter chances instead
 1,bat cave
 1,dusty room
-1,spider cave: Trapdoor Spider, triggered on 1 in 6 per PC to fall in pit with a *giant spider* ([giant spider stats])
-1,spider ceiling: *giant spider* ([giant spider stats]) waits patiently to drop on smallest party member
+1,spider cave: fake floor made by a trapdoor spider: 1 in 6 per PC to fall into a pit (1d6) with a **giant spider** ([giant spider stats])
+1,spider hiding along the ceiling: **giant spider** ([giant spider stats]) waits patiently to drop on the last party member
 
 #AREA FEATURES - These should appear as sub-bullets
 #Moldvay Stocking rules: Contents: 1-2 Monster, 3 Trap, 4 Special, 5-6 Empty
 ;room feature
-2, [[same monsters] encounter]. [encounter treasure]
-1, [trap]. [trap treasure]
-1, [capitalize special]. [sense feature] [empty treasure]
-2, [capitalize empty dressing]. [sense feature] [empty treasure]
+2, [[same monsters] encounter] [encounter treasure]
+1, [trap] [trap treasure]
+1, [capitalize special] [sense feature] [empty treasure]
+2, [capitalize empty dressing] [sense feature] [empty treasure]
 
 ;sense feature
 #base 25% chance of an additional sensory bullet in Empty/Special Rooms
-2,
+6,
 1,</li><li>One can hear a [sound volume] [sounds] ([sound direction]).
 1,</li><li>The [faint|strong|distinct|unmistakable|cloying] odor of [smells].
 
-#moved neolithic treasure calls to [unguarded treasure] tables
-#Need More Special Rooms. I think eventually this could house staircases that lead up/down
 ;special
 1,[2d4] [strange|fizzing|murky|limpid] pools, filled with [with colour] and [and colour] liquids. 
 1,[2d3] [crumbling|moss covered|vandalized|smashed] [stone|bronze|iron|terracotta] statues
@@ -1645,32 +1647,51 @@
 ;empty dressing
 1,Cobwebs
 1,Small organized [mounds|piles|domes] of [sand|dirt|pebbles]
-1,Rubbish heap
-1,Garbage pile
-1,Midden
+1,A heap of [bird|rat|snake|[race]|goat] bones
+1,A heap of rotten [rags|apples|tubers]
+1,A [midden|dung heap|heap of broken shells]
 1,Phosphorescent Fungus [softly|brightly|balefully] glowing [colour]
 1,Rat tunnels
 1,Rodent nests
-1,Rockfall
+1,A minor rockfall, the remaining ceiling seems stable enough
 1,An incomplete [race] skeleton
+1,Partial cave-in and a half buried [race] skeleton
 1,Partial cave-in
 1,[entrance description]
 1,[goblin junk]
 1,Thousands of dead [insect swarm type] that crunch underfoot
+1,An empty [crate|barrel]
+1,A [crate|barrel] full of rotten [furs|apples|tubers]
+1,An abandoned [bag|backpack] containing a salvageable [hemp rope of 50ft|dagger|dart]
+1,A pile of rags
+1,A small pool
+1,A small curtain concealing an empty small alcove
+1,A [beautiful|desecrated|mutilated|defaced|painted|blood smeared] wooden statue of [power]
+1,An empty shelf
+1,A doll lying inside a dingy crib
+1,A table and two benches
+1,A table and [three|four|five] stools
+1,A bag full of flour
+1,A slaughtered pig, hanging from a hook
+1,Some [pig|goat|sheep] bones
+1,The remains of a fireplace, cold
+1,Unusable torch remains
+1,A small bag with a collection of [race] teeth
+1,A small bag with a collection of [bear|lion] claws
 
 #these may eventually be merged with "interior room" hoards should probably be handled with treasure calls
 ;final room
-1,<u>Banquet Hall:</u> *[banquet hall desc]*
-1,<u>Great Hall:</u> *[great hall desc]*
-1,<u>Hoard:</u> *[hoard desc]*
-1,<u>Leader’s Room:</u> *[leader’s room desc]*
-1,<u>Temple:</u> *[temple desc]*
-1,<u>Throne Room:</u> *[throne room desc]*
-1,<u>Treasure Room:</u> *[treasure room desc]*
+1,<u>Banquet Hall:</u> [banquet hall desc]
+1,<u>Great Hall:</u> [great hall desc]
+1,<u>Hoard:</u> [hoard desc]
+1,<u>Leader’s Room:</u> [leader’s room desc]
+1,<u>Temple:</u> [temple desc]
+1,<u>Throne Room:</u> [throne room desc]
+1,<u>Treasure Room:</u> [treasure room desc]
 1,[interior room]
 
 
-#TREASURE: a chance for treasure exists by Room Feature, this would generally be in addition to carried treasure (but that's not currently handled by stat blocks)
+#TREASURE: a chance for treasure exists by Room Feature, this would generally be in addition to carried treasure
 #Moldvay Unguarded Treasure Stocking:
 #Monsters have treasure on 1-3 dice roll (50% of the time), Traps have treasure on a 1-2 dice roll (33%), and Empty rooms have treasure on dice roll of 1 (16% of the time).
 
@@ -1692,7 +1713,7 @@
 1,[[[same treasure type] treasure]||unguarded: [unguarded treasure]] ([treasure where])
 
 ;unguarded treasure
-1,<span class="treasure unguarded">[1d6][1d100] silver coins [50% 1d6×10 gold]</span> ([treasure where])
+1,[treasure where]: <span class="treasure unguarded">[1d6][1d100] silver coins [50% 1d6×10 gold]</span>
 
 ;50% 1d6×10 gold
 1,[1d6]0 gold coins.
@@ -1700,35 +1721,20 @@
 
 #these are kind of neat, maybe some prepositions eventually to make more logical statements
 ;treasure where
-1,[treasure state]; [treasure location]
-
-;treasure state
-1,concealed
-1,hidden
-1,secreted
-1,buried
-1,covered
-1,exposed
-1,uncovered
-1,obvious
-1,embedded
-1,within
-1,set in
-1,enclosed within
-1,stacked
-1,piled
-
-;treasure location
-1,wall
-1,floor
-1,ceiling
-1,flagstone
-1,panel
-1,[chest|barrel|box|chair|table|bench|bookshelf|coffin|door|stool]
-1,corner
-1,alcove
-1,niche
-
+1,a [barrel|crate] full of rotten [furs|apples|tubers] → at the bottom
+1,an empty [barrel|crate] → hidden in the double bottom
+1,an abandoned [bag|backpack]
+1,a [lose flagstone|pile of rags] → gravel
+1,a small pool → muddy bottom → buried
+1,a dingy curtain → hiding a small alcove
+1,a [beautiful|desecrated|mutilated|defaced|painted|blood smeared] wooden statue of [power] → hidden inside
+1,an empty [barrel|crate] → move aside to reveal a box hidden beneath
+1,a [beautiful|desecrated|mutilated|defaced|painted|blood smeared] [power] statue → on a [wooden|stone] pedestal → hidden inside
+1,a [rafter|shelf] above → hidden in the shadows → a bag
+1,a brick wall → a fake brick → behind it is a small hollow
+1,a painted wall → plastered → a small hollow stuffed with straw and rat bones → behind it
+1,a decomposing doll lying inside a dingy crib → inside the doll, tightly wrapped
+1,a decomposing doll lying inside a dingy crib → inside the crib → beneath the fake floor
 
 # ENCOUNTER/MONSTER TABLES (New Stat Blocks at the end for ease of
 # organization). Placing Encounter and Boss Blocks together for ease of
@@ -2121,53 +2127,46 @@
 1,singing
 1,starving
 
-
-
-#TRAP ROOM FEATURES
-#Need [trap location], [trap trigger] and [trap disable] triggers, might just procedurally generate these based on these lists
-#Adding some CSS here to make these stand out more for DMs running from these descriptions
-#a class would make this shorter :)
-
-
+# TRAP ROOM FEATURES
+# Need [trap location], [trap trigger] and [trap disable] triggers,
+# might just procedurally generate these based on these lists
 ;concealed trap
-1,<i style="font-weight:bold;color:maroon;">Net</i>, net falls from the ceiling, roll d20 under your dexterity or be caught
-1,<i style="font-weight:bold;color:maroon;">Trap Door</i>, triggered on 1 in 6 per PC for 10-foot fall and 1d6 damage; trap door springs shut (roll under your strength to open)
-1,<i style="font-weight:bold;color:maroon;">Tripwire Arrows</i>, save vs poison (1d6 damage plus poison)
+1,**Net**: net falls from the ceiling; save vs. rays or be caught for 1d6 rounds; wood blocks attached along the edges cause a ruckus and attracts wandering monsters
+1,**Trap door**: hollow sound if tapped; triggered on 1 in 6 per person: 10ft deep pit, take 1d6 damage
+1,**Tripwire poison arrow**: triggered by a pole; wall is nicked where arrows missed their target; single hole on the opposing side; visible wire when moving with a light source; roll an attack against the first person: 1d6 damage and save vs. poison or die
 
 ;trap
 3,[concealed trap]
 #1,<i style="font-weight:bold;color:maroon;">Acid Spray</i>
-1,<i style="font-weight:bold;color:maroon;">Checkerboard Floor</i>, move like a [chess piece] from its starting position or save vs breath or 2d6 dmg
-#could generalize to different types of gas (poison, etc.)
-1,<i style="font-weight:bold;color:maroon;">Chest</i> ([chest]), booby-trapped with sleep gas, roll d20 under your constitution or sleep that many turns
-1,<i style="font-weight:bold;color:maroon;">Darts</i>, darts like crossbow bolts fire from the walls
-1,<i style="font-weight:bold;color:maroon;">Deep Pit</i>, save vs wands or fall 30 feet (3d6 damage)
-1,<i style="font-weight:bold;color:maroon;">Falling Rocks</i>, stones crash from the ceiling; save vs death
+1,**Checkerboard floor**: traces of dirt on the safe tiles; save vs. breath or take 2d6 damage unless you move like a [chess piece]
+# could generalize to different types of gas (poison, etc.)
+1,**Chest**: [chest], sweet smell if examined closely; booby-trapped with sleep gas, all must save vs. poison or lose consciousness for 20min
+1,**Darts**: walls nicked and holes on the opposing side; raised floor segment indicates pressure plate; roll attacks against the first person: 1d4/1d4/1d4 damage
+1,**Deep pit**: a deep pit with a visibly crumbling edge supported by rotting wooden beams; anybody approaching the pit has a 2 in 6 chance of triggering a collapse and falls 30ft for 3d6 damage
+1,**Falling rocks**: rickety construction with frail, rotten support beams; anything but careful sneaking triggers a ceiling collapse: all must save vs. death or die
 # Buffalo Castle 24A!
-1,<i style="font-weight:bold;color:maroon;">Fog Chest</i> ([chest]), on a d4 a green fog dissolves all copper (1), silver (2), electrum (3), or gold (4) coins carried
-1,<i style="font-weight:bold;color:maroon;">Oil</i>, hot oil pours down
-1,<i style="font-weight:bold;color:maroon;">Pendulum Blade</i>, roll d20 under your dexterity to get past, or take 1d6 damage
-1,<i style="font-weight:bold;color:maroon;">Rope Trap</i>, roll d20 under your dexterity or end up hanging from the ceiling
-1,<i style="font-weight:bold;color:maroon;">Scorched Pedestal with Treasure</i>, touching the [gem] unleashes a *fireball*, 3d6 damage to all in the room
-1,<i style="font-weight:bold;color:maroon;">Skunk Chest</i> ([chest]), booby-trapped with skunk oil, take 1d6 damage and be odoriferous for the next 3 days (fail all Charisma checks)
-1,<i style="font-weight:bold;color:maroon;">Smoke Trap</i>, obscures visibility while attackers enter from another room
-1,<i style="font-weight:bold;color:maroon;">Spiked Ball</i>, save vs breath or 2d6 dmg
-1,<i style="font-weight:bold;color:maroon;">Stagnant Pool</i>, boat on the far side
+1,**Fog chest**: [chest], traces of a metallic green condensate all over it; transformation magic detectable; a tiny plaque reads (roll 1d4):  1. “🜁:🜚→🝗” (gold to ashes), 2. “🜁:🜛→🝗” (silver to ashes), 3. “🜁:🜠→🝗” (copper to ashes), 4. “🜁:🜜→🝗” (iron to ashes); opening the chest releases the fog which will transform any exposed metal of the indicated type to dust: armour, unsheathed weapons, rings, diadems, or bracelets worn, etc
+1,**Oil**: a small coal fire up above is heating a cauldron suspended on a metal rod just below the ceiling; a pressure plate turns the cauldron over, dousing everybody in boiling oil for 1d8 damage; a 2 in 6 chance for the fire falling into the oil and igniting it, causing another 1d8/rd for the next two rounds
+1,**Pendulum blade**: a vertical slit on both sides and on the ceiling; a pressure plate: roll an attack against the first person: 1d8 damage; anybody has a 4 in 6 chance of evading the pendulum’s attack
+1,**Rope Trap**: roll d20 under your dexterity or end up hanging from the ceiling
+1,**Scorched pedestal with treasure**: touching the [gem] unleashes a *fireball*, 3d6 damage to all in the room
+1,**Skunk chest**: [chest], booby-trapped with skunk oil, take 1d6 damage and be odoriferous for the next 3 days (fail all Charisma checks)
+1,**Smoke trap**: obscures visibility while attackers enter from another room
+1,**Spiked ball**: save vs breath or 2d6 dmg
+1,**Stagnant pool**: boat on the far side
 # from Holmes’ sample dungeon!
-1,<i style="font-weight:bold;color:maroon;">Statue Pointing</i>, points at door just entered; must be rotated on base to point to another door; any door it is pointed at can’t be opened
-1,<i style="font-weight:bold;color:maroon;">Statue with Diadem</i>, [gem] booby-trapped with poison gas, save vs poison (3d6 damage plus poison)
-1,<i style="font-weight:bold;color:maroon;">Trapdoor Spider Pit</i>, triggered on 1 in 6 per PC to fall in pit with a *giant spider* ([giant spider stats])
+1,**Statue pointing**: points at door just entered; must be rotated on base to point to another door; any door it is pointed at can’t be opened
+1,**Statue with diadem**: [gem] booby-trapped with poison gas, save vs poison (3d6 damage plus poison)
+1,**Trapped floor**: triggered on 1 in 6 per PC to fall in pit with a **giant spider** ([giant spider stats])
 #H/T Buffalo Castle!
-1,<i style="font-weight:bold;color:maroon;">Treasure Mirage</i>, a hoard of gold pieces that has alerted the nearest monsters to come and attack, at which point the gold pieces will disappear
-1,<i style="font-weight:bold;color:maroon;">Underground Stream</i>, leads to rapids out of the dungeon, 3d6 damage
-1,<i style="font-weight:bold;color:maroon;">Walls Closing In</i>, once every player has wedged a weapon between the wall and floor, the wall stops closing in, but the weapons are ruined, otherwise roll d20 under your dexterity or be crushed
-1,<i style="font-weight:bold;color:maroon;">Wide Pit</i>, roll d20 under your dexterity to jump across or fall 30 feet (3d6 damage)
-
+1,**Treasure mirage**: a hoard of gold pieces that has alerted the nearest monsters to come and attack, at which point the gold pieces will disappear
+1,**Underground stream**: leads to rapids out of the dungeon, 3d6 damage
+1,**Walls closing in**: once every player has wedged a weapon between the wall and floor, the wall stops closing in, but the weapons are ruined, otherwise roll d20 under your dexterity or be crushed
+1,**Wide pit**: roll d20 under your dexterity to jump across or fall 30 feet (3d6 damage)
 
 #INTERIOR ROOM DRESSINGS
 #Included to provide a little descriptive text to the interior room types. These have a chance of triggering a [sound] or a [smells] so we want to try to keep those out of descriptions whenever they can be handled by random calls.
 #Treasure and Monsters are tricky to include here too, so we might need to modify a few of those
-
 
 #more new stuff below 08/23/2019. Not active yet, test in “no map,” feel free to embellish/add
 #used for stone construction material mostly, feel free to expand
@@ -2206,7 +2205,7 @@
 
 ;chest
 3,[a locked|an unlocked|a] wooden chest
-2,an iron chest, [locked|unlocked],
+2,an iron chest, [locked|unlocked]
 1,a chest with a broken lock
 1,a [cheap metal|wood] box [with a lid|]
 
