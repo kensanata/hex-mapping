@@ -2020,7 +2020,7 @@
 1,AC 5 HD 2* MV 120' (40') DMG 1d4/1d4/1d4 Save F2 ML 9 AL C XP 25 Special They have a chameleon ability that lets them surprise others on a 1 to 4. They secrete oil that smells that nauseates unless a save versus poison is successful. Anyone nauseated will suffer -2 to attack.
 
 ;kobold stats
-1,AC 7 HD 1d4 hp MV 60' (20') DMG 1d4 or weapon-1 Save NM ML 6 AL C XP 5 
+1,HD ½ hp 1d4 AC 7 1d4 NM MV 6 ML 6 XP 50
 
 ;amber golem stats
 1,AC 6 HD 10** MV 180' (60') DMG 2d6/2d6/2d10 Save F5 ML 12 AL N XP 2,300 
@@ -10621,12 +10621,12 @@
 1,stone walls
 
 ;random corpses
-4,one [race] corpse
-2,two [race] corpses
-1,three [race] corpses
-1,four [race] corpses
-1,six [race] corpses
-2,two dozen [race] corpses
+4,one corpse
+2,two corpses
+1,three corpses
+1,four corpses
+1,six corpses
+2,two dozen corpses
 
 ;resting place
 1,sarcophagus
@@ -12208,6 +12208,18 @@
 1,The [forest name] is full of rustling and bustling sounds as **giant ants** can be seen scurrying back and forth along invisible trails and up and down the giant [tree] trees. [giant ant lair] [forest event]
 1,The [forest name] is flooded with soothing sun light (or moon light). [unicorns] [forest event]
 1,Among the trees of [forest name] lies a dungeon. [dungeon]
+1,The smell of burning wood is in the air and if you go looking for its source, you’ll soon find a burning kiln and a nearby wooden hut. Here lives the charcoal burner [human with portrait]. They lead a lonely life out here in the [forest name]. [charcoal burner extra] [forest event]
+
+;charcoal burner extra
+1,Out in the back you can find a crude statue of [power] cut from wood.
+1,They used to be an important player in the [name for a secret society ([chaos|law|neutrality])].
+1,They [fled|were exiled] from [nearby village name] many years ago. They don’t want to speak about it. [cause for exile]
+
+;cause for exile
+1,In fact, they murdered [human name] and where seen by [human name], so they had to go.
+1,In a hunting accident, they had mortally wounded [human name], but the others thought it looked suspiciously like murder since they had so much to gain from hit, so they had to go.
+1,Back then, they were framed for the murder of [human name] by the lying murderer [human name] but could not prove it, so they had to go.
+1,Years ago, they fell madly in love with [human name], but their love was unrequited. It broke their heart and so they had to leave.
 
 ;forest event
 # add it to [forest] and [fir-forest] if the entry is small, but not
@@ -14988,8 +15000,8 @@
 1,Inexplicably clement weather has led to a bumper crop of [with food veg], the villagers are practically giving it away by the bushel-full.
 1,Whilst plowing their fields with their [domestic animal adjective] [draft animals], farmers uncovered a cache of ancient coins: [3d100] gold pieces have been equitably split within the community. Each is emblazoned with on one side with a forgotten queen and a mysterious tower on the other.
 1,The [food veg] are growing exceptionally tall this year. Locals have discovered that clumps of medicinal herb *[magic plant]s* are thriving. This is one of the few non-magical cures for the horrid *[diseases]* and the villagers have made a tidy profit selling it off to visitors and travelling alchemists.
-1,Visitors hear only laughter as [conveyances] groan and occasionally break under the weight of a record-breaking harvest of [food veg]. Since armies march on their stomach, [a war party]*[the war party]*'s quartermasters will soon be buying up most of the surplus.
-1,With [fruit]s ripening in abundance, the town [title] has distilled a new tasty and potent spirit. This *[same fruit] [distilled beverage]* is quite delicious and already they are in trade-talks with the **dwarf** [dwarf with portrait].
+1,Visitors hear only laughter as [conveyances] groan and occasionally break under the weight of a record-breaking harvest of [food veg]. Since armies march on their stomach, [a war party]*[the war party]*'s agents have already indicated that their quartermasters intends to buy all of their surplus.
+1,With [fruit]s ripening in abundance, the townsfolk have distilled a new tasty and potent spirit. This *[same fruit] [distilled beverage]* is quite delicious and already they are in trade-talks with the **dwarf** [dwarf with portrait], who plans to sell it in [nearby village] ([dwarf stats]). “Will you travel with me?”
 
 ;animal event
 1,Local [food veg] farmer *[human name]* couldn't believe their luck when every one of their [livestock] gave birth to healthy triplets this year.
@@ -15640,6 +15652,67 @@
 
 ;thorp
 1,<p>This is [here village name], a thorp of [1d4x10] **humans** ([human stats]) led by [human with portrait][human job]. The [human houses] are protected by [human companions]. [average treasure] These village-folk are [thorp activity].<p>[local smith]<p>[settlement event]
+1,<p>This is [here village name], a mining camp of [1d4x10] **humans** ([human stats]) led by [human with portrait], the owner. [mundane mine]<p>The [human houses] are protected by [human companions]. [average treasure] These village-folk are [thorp activity].<p>[local smith]<p>[settlement event]
+
+;mundane mine
+1,This is a surface mine where hushing is used to wash away the debris of created by the miners as they hammer away at the rocks. The water of a small creek is collected behind a large dam a bit further up and them released every now and then to wash away the debris. The miners are following a [silver|gold|tin|copper] vein. [mining machine]
+1,This is a surface mine where the water of a small creek is collected behind a dam and the overflow forms a jet of water that is used to break down deposits that is carried there from the surrounding pits. A small [silver|gold|tin|copper] vein lies just below the surface, here.
+1,This is a surface mine where hushing is used to wash away the debris of created by the miners as they hammer away at the rocks. The water of a small creek is collected behind a large dam a bit further up and them released every now and then to wash away the debris. The miners are following an iron vein. [mining machine|sawing machine|charcoal production]
+1,This is a deep-vein mine. A tunnel has been dug into the hill side, with multiple ventilation shafts to the surface. The miners are trying to follow a [silver|gold] vein that is disappearing back underground. [mining dangers]
+
+;mining dangers
+1,This is dangerous work. A few weeks ago, [human name] and [human name] died in a tunnel collapse.
+1,This is dangerous work. Just recently, a bunch of gnomes showed up and threatened more accidents if the miners do not leave. “Will you help us get rid of these envy-ridden bastards?” [append envious gnomes]
+1,This is dangerous work. Just recently, kobolds have started appearing in the tunnels below, threatening the operation. “Will you help us get rid of this wretched vermin? The miners are superstitious and are refusing to enter the mines, now.” [append threatening kobolds]
+
+;envious gnomes
+1,<p>5d8 **gnomes** ([gnome stats]) led by [gnome with portrait] (HD 5) have recently moved in and would like to take over the mine. [rich treasure] They’ve set up camp a bit further up, protected by [gnome companions].
+
+;threatening kobolds
+1,<p>[6d10] **kobolds** live here, led by [kobold] ([kobold stats]). [poor treasure]
+
+;kobold
+1,[kobold 1] [kobold 2]
+
+;kobold 1
+1,Stone
+1,Bone
+1,Lord
+1,Lady
+1,King
+1,Queen
+1,Dragon
+1,Poison
+
+;kobold 2
+1,Piercer
+1,Biter
+1,Gnawer
+1,Chewer
+1,Snapper
+1,Tooth
+1,Dog
+1,Rat
+1,Snake
+
+;mining machine
+1,The mine is [mine state]. The old stamp-mill no longer works, the waterwheel is being used to drive a grain mill instead of trip-hammers.
+1,The mine is [mine state]. The old stamp-mill no longer works, the waterwheel is broken and nobody knows how to repair it.
+1,The mine is [mine state]. The mechanism driving the trip-hammers of the old stamp-mill is broken and the waterwheel spins uselessly.
+1,The water is also used to drive a stamp-mill via a waterwheel: the banging of the trip-hammers during the day is deafening as they crush metal ores down to smaller size.
+
+;mine state
+1,old and dilapidated
+1,in disrepair
+1,fighting to survive
+
+;sawing machine
+1,The mine is [mine state]. [The old saw-mill no longer works|The saw-mill is still being built] and so most of the people here are busy logging trees, splitting wood and carrying it to the forge. An iron forge requires a lot of wood.
+1,The water is used to drive a saw-mill via a waterwheel and so most of the people here are busy logging trees and dragging the wood to the saw mill. An iron forge requires a lot of wood.
+
+;charcoal production
+1,The smoke of many [charcoal piles|kilns] is heavy in this valley. All day you can hear people logging trees somewhere.
+1,There are [1d4+1] **charcoal burners** here, with their donkeys and their bags, selling charcoal to the **quartermaster** [human with portrait].
 
 # the second variant has a temple at the end
 ;village
@@ -17650,7 +17723,6 @@
 1,Questor
 1,Rajah
 1,Raven
-1,Reagent
 1,Refectorian
 1,Regent
 1,Regulator General
