@@ -31,7 +31,7 @@
 1,[procedures]<p>[spells][gems]<p>[treasure]<p>[history]
 
 ;procedures
-1,<strong>Procedures</strong>: <em>random encounters</em> are 1 in 6 per day and 1 in 6 per night if you’re not behind walls. If you’re <em>looking for something</em> that isn’t as obvious as a town or village built in plain sight, your chance of finding it is also just 1 in 6 per day.
+1,<strong>Procedures</strong>: <em>random encounters</em> are 1 in 6 per day and 1 in 6 per night if you’re not behind walls. If you’re <em>looking for something</em> that isn’t as obvious as a town or village built in plain sight, your chance of finding it is also just 1 in 6 per day; underground encounters are 1 in 6 every two turns, e.g. whenever leaving a room.
 
 ;spells
 1,<strong>Scrolls, prayers and spells</strong>: a <em>scroll</em> can only be read by magic users and elves that know the spell or have access to <em>read magic</em>; a <em>prayer</em> can be read by anyone. The spells used are from the <a href="https://alexschroeder.ch/pdfs/spellcasters/">Spellcasters</a> project.
@@ -1559,7 +1559,7 @@
 #ENTRANCES/FIRST AREA SECTION
 #It's very tempting to add a chance of consolidating these with the rooms below
 ;entrance room
-1,<u>Catacombs:</u> In one wall of the entrance are many deep niches, each containing a [human|elf|dwarf|goblin|orc|frogling] skeleton.
+1,<u>Catacombs:</u> In one wall of the entrance are many deep niches, each containing [a human|an elf|a dwarf|a goblin|an orc|a frogling] skeleton.
 1,<u>Charnel Pit:</u> Most of the entrance is around a deep pit, filled with bones and corpses of indeterminate type.
 1,<u>Cave:</u> [capitalize cave description].
 1,<u>Latrine:</u> The entrance to this dungeon has the overwhelming stench of recently used latrine pits.
@@ -1710,7 +1710,7 @@
 
 # Using the treasure type assigned with the boss monster (including “unguarded”)
 ;final room treasure
-1,[[[same treasure type] treasure]||unguarded: [unguarded treasure]] ([treasure where])
+1,[[[same treasure type] treasure]||[treasure where]: [unguarded treasure]]
 
 ;unguarded treasure
 1,[treasure where]: <span class="treasure unguarded">[1d6][1d100] silver coins [50% 1d6×10 gold]</span>
@@ -1724,7 +1724,7 @@
 1,a [barrel|crate] full of rotten [furs|apples|tubers] → at the bottom
 1,an empty [barrel|crate] → hidden in the double bottom
 1,an abandoned [bag|backpack]
-1,a [lose flagstone|pile of rags] → gravel
+1,a [lose flagstone|pile of rags] → gravel → buried beneath it
 1,a small pool → muddy bottom → buried
 1,a dingy curtain → hiding a small alcove
 1,a [beautiful|desecrated|mutilated|defaced|painted|blood smeared] wooden statue of [power] → hidden inside
@@ -2127,42 +2127,40 @@
 1,singing
 1,starving
 
-# TRAP ROOM FEATURES
-# Need [trap location], [trap trigger] and [trap disable] triggers,
-# might just procedurally generate these based on these lists
+# Trap room features. General format: hint; hint; hint → effect;
+# effect (no trailing punctuation; the intended use is as a list item.
+
 ;concealed trap
-1,**Net**: net falls from the ceiling; save vs. rays or be caught for 1d6 rounds; wood blocks attached along the edges cause a ruckus and attracts wandering monsters
-1,**Trap door**: hollow sound if tapped; triggered on 1 in 6 per person: 10ft deep pit, take 1d6 damage
-1,**Tripwire poison arrow**: triggered by a pole; wall is nicked where arrows missed their target; single hole on the opposing side; visible wire when moving with a light source; roll an attack against the first person: 1d6 damage and save vs. poison or die
+1,**net**: tripwires trigger a net falling from the ceiling → save vs. rays or be caught for 1d6 rounds; wood blocks attached along the edges cause a ruckus and attracts wandering monsters
+1,**trap door**: hollow sound if tapped → triggered on 1 in 6 per person: 10ft deep pit, take 1d6 damage
+1,**tripwire poison arrow**: triggered by a pole; wall is nicked where arrows missed their target; single hole on the opposing side; visible wire when moving with a light source → roll an attack against the first person: 1d6 damage and save vs. poison or die
 
 ;trap
 3,[concealed trap]
-#1,<i style="font-weight:bold;color:maroon;">Acid Spray</i>
-1,**Checkerboard floor**: traces of dirt on the safe tiles; save vs. breath or take 2d6 damage unless you move like a [chess piece]
-# could generalize to different types of gas (poison, etc.)
-1,**Chest**: [chest], sweet smell if examined closely; booby-trapped with sleep gas, all must save vs. poison or lose consciousness for 20min
-1,**Darts**: walls nicked and holes on the opposing side; raised floor segment indicates pressure plate; roll attacks against the first person: 1d4/1d4/1d4 damage
-1,**Deep pit**: a deep pit with a visibly crumbling edge supported by rotting wooden beams; anybody approaching the pit has a 2 in 6 chance of triggering a collapse and falls 30ft for 3d6 damage
-1,**Falling rocks**: rickety construction with frail, rotten support beams; anything but careful sneaking triggers a ceiling collapse: all must save vs. death or die
+1,**checkerboard floor**: traces of dirt on the safe tiles; save vs. breath or take 2d6 damage unless you move like a [chess piece]
+1,**chest**: [chest], sweet smell if examined closely → booby-trapped with sleep gas, all must save vs. poison or lose consciousness for 20min
+1,**darts**: walls nicked and holes on the opposing side; raised floor segment indicates pressure plate → roll attacks against the first person: 1d4/1d4/1d4 damage
+1,**deep pit**: a deep pit with a visibly crumbling edge supported by rotting wooden beams → anybody approaching the pit has a 2 in 6 chance of triggering a collapse and falls 30ft for 3d6 damage
+1,**falling rocks**: rickety construction with frail, rotten support beams → anything but careful sneaking triggers a ceiling collapse: all must save vs. death or die
 # Buffalo Castle 24A!
-1,**Fog chest**: [chest], traces of a metallic green condensate all over it; transformation magic detectable; a tiny plaque reads (roll 1d4):  1. “🜁:🜚→🝗” (gold to ashes), 2. “🜁:🜛→🝗” (silver to ashes), 3. “🜁:🜠→🝗” (copper to ashes), 4. “🜁:🜜→🝗” (iron to ashes); opening the chest releases the fog which will transform any exposed metal of the indicated type to dust: armour, unsheathed weapons, rings, diadems, or bracelets worn, etc
-1,**Oil**: a small coal fire up above is heating a cauldron suspended on a metal rod just below the ceiling; a pressure plate turns the cauldron over, dousing everybody in boiling oil for 1d8 damage; a 2 in 6 chance for the fire falling into the oil and igniting it, causing another 1d8/rd for the next two rounds
-1,**Pendulum blade**: a vertical slit on both sides and on the ceiling; a pressure plate: roll an attack against the first person: 1d8 damage; anybody has a 4 in 6 chance of evading the pendulum’s attack
-1,**Rope Trap**: roll d20 under your dexterity or end up hanging from the ceiling
-1,**Scorched pedestal with treasure**: touching the [gem] unleashes a *fireball*, 3d6 damage to all in the room
-1,**Skunk chest**: [chest], booby-trapped with skunk oil, take 1d6 damage and be odoriferous for the next 3 days (fail all Charisma checks)
-1,**Smoke trap**: obscures visibility while attackers enter from another room
-1,**Spiked ball**: save vs breath or 2d6 dmg
-1,**Stagnant pool**: boat on the far side
+1,**fog chest**: [chest], traces of a metallic green condensate all over it; transformation magic detectable; a tiny plaque reads (roll 1d4): 1. “🜁:🜚→🝗” (gold to ashes), 2. “🜁:🜛→🝗” (silver to ashes), 3. “🜁:🜠→🝗” (copper to ashes), 4. “🜁:🜜→🝗” (iron to ashes) → opening the chest releases the fog which will transform any exposed metal of the indicated type to dust: armour, unsheathed weapons, rings, diadems, or bracelets worn, etc
+1,**oil**: a small coal fire up above is heating a cauldron suspended on a metal rod just below the ceiling; a pressure plate turns the cauldron over → dousing everybody in boiling oil for 1d8 damage; a 2 in 6 chance for the fire falling into the oil and igniting it, causing another 1d8/rd for the next two rounds
+1,**pendulum blade**: a vertical slit on both sides and on the ceiling; a pressure plate → roll an attack against the first person: 1d8 damage; anybody has a 4 in 6 chance of evading the pendulum’s attack
+1,**rope trap**: straw covers the floor; sweeping the straw reveals the rope; a curtain hides a large stone on a rope above a small well → stepping on the trigger releases the stone, pulling the rope, ripping the victim off its feet and leaves it dangling above the well; loud crash of the stone attracts wandering monsters
+1,**scorched pedestal with statue of [power] holding a [gem]**: fire magic detectable; statue’s hand with the gem is connected to the arm with a hinge → movement of the hand unleashes a *fireball*, 5d6 damage to all in the room, save vs. explosions for half
+1,**skunk chest**: [chest], musty smell if examined closely → booby-trapped with skunk oil spray; all present are odoriferous for the next 3 days, i.e. fail all Charisma checks, random encounters underground are doubled: roll 2d6 instead of 1d6
+1,**smoke trap**: obscures visibility while attackers enter from another room
+1,**spiked ball**: save vs breath or 2d6 dmg
+1,**stagnant pool**: boat on the far side
 # from Holmes’ sample dungeon!
-1,**Statue pointing**: points at door just entered; must be rotated on base to point to another door; any door it is pointed at can’t be opened
-1,**Statue with diadem**: [gem] booby-trapped with poison gas, save vs poison (3d6 damage plus poison)
-1,**Trapped floor**: triggered on 1 in 6 per PC to fall in pit with a **giant spider** ([giant spider stats])
+1,**statue pointing**: points at door just entered; must be rotated on base to point to another door; any door it is pointed at can’t be opened
+1,**statue of [power] with diadem**: the diadem holds a [gem] → the diadem is tied to the statue’s head with a very thin wire → pulling the wire releases corrosive gas, save vs. poison or suffer 3d6 damage
+1,**trapped floor**: triggered on 1 in 6 per PC to fall in pit with a **giant spider** ([giant spider stats])
 #H/T Buffalo Castle!
-1,**Treasure mirage**: a hoard of gold pieces that has alerted the nearest monsters to come and attack, at which point the gold pieces will disappear
-1,**Underground stream**: leads to rapids out of the dungeon, 3d6 damage
-1,**Walls closing in**: once every player has wedged a weapon between the wall and floor, the wall stops closing in, but the weapons are ruined, otherwise roll d20 under your dexterity or be crushed
-1,**Wide pit**: roll d20 under your dexterity to jump across or fall 30 feet (3d6 damage)
+1,**treasure mirage**: a hoard of gold pieces that has alerted the nearest monsters to come and attack, at which point the gold pieces will disappear
+1,**underground stream**: leads to rapids out of the dungeon, 3d6 damage
+1,**walls closing in**: once every player has wedged a weapon between the wall and floor, the wall stops closing in, but the weapons are ruined, otherwise roll d20 under your dexterity or be crushed
+1,**wide pit**: roll d20 under your dexterity to jump across or fall 30 feet (3d6 damage)
 
 #INTERIOR ROOM DRESSINGS
 #Included to provide a little descriptive text to the interior room types. These have a chance of triggering a [sound] or a [smells] so we want to try to keep those out of descriptions whenever they can be handled by random calls.
@@ -2399,11 +2397,15 @@
 
 #might need to do this differently to format treasure properly
 ;hoard desc
-1,A mass of [1d10x1000] silver coins, some cut in half, others melted together, forms a great pile in the center of this room. [concealed trap]
+1,[hoard]
+1,[hoard]; protected by a [concealed trap]
+
+;hoard
+1,A mass of <span class="treasure">[1d10x1000] silver</span>, some cut in half, others melted together, forms a great pile in the center of this room
 #inspired by: https://www.history.com/news/viking-treasure-trove-unearthed-from-english-field
-1,[Four|Five|Six|Seven] pieces of jewelry (silver armbands, each worth 10 silver pieces), [3d6] silver ingots, and [3d16] worth of hacksilver, form a hoard here.  [concealed trap]
-1,This hoard is a collection of [silver|gold] tableware, including bowls, dishes, cups, and spoons, worth [1d10x1000] coins.
-1,A mound of [2d100] rare [copper|electrum|silver|gold] coins, some broken and fragmented, make up a hoard here.
+1,<span class="treasure">[Four|Five|Six|Seven] silver armbands worth 10 silver each, [3d6] silver ingots worth 10 silver each, and [3d6] pieces of hacksilver also worth 10 silver each</span> form a tiny hoard
+1,This hoard is a collection of <span class="treasure">[silver|gold] tableware, including bowls, dishes, cups, and spoons, worth [1d10x1000] gold</span>
+1,A mound of <span class="treasure">[2d10x10+100] rare [copper|electrum|silver|gold] coins</span>, some broken and fragmented, make up a small hoard
 
 ;kiln desc
 1,A great stone kiln rests here, holding a melted pile of clay where a pot once stood ready to be fired. 
@@ -10619,12 +10621,12 @@
 1,stone walls
 
 ;random corpses
-4,one corpse
-2,two corpses
-1,three corpses
-1,four corpses
-1,six corpses
-2,two dozen corpses
+4,one [race] corpse
+2,two [race] corpses
+1,three [race] corpses
+1,four [race] corpses
+1,six [race] corpses
+2,two dozen [race] corpses
 
 ;resting place
 1,sarcophagus
