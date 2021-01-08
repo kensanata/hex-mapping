@@ -188,8 +188,8 @@
 # Swamp
 
 ;name for swamp
-1,[Gray|Grey|Black|Bleak] [Wasteland|Swamp|Bog|Fenn|Wetland]
-1,[Gator|Crane|Eel] [Lands|Flats|Country]
+1,[Gray|Grey|Black|Bleak|Drowning|Mirrored] [Wasteland|Swamp|Bog|Fenn|Wetland|Morass|Mire]
+1,[Gator|Crane|Eel] [Lands|Flats|Country|Marsh]
 
 ;point of interest in the swamp
 1,There's a crashed, half sunken airplane, here. The hull serves as a campsite. [tech hermit]
@@ -251,7 +251,7 @@
 # Forest
 
 ;name for forest
-1,[Green|Dark|Black|Petrified|Hungry] Forest
+1,[Green|Dark|Black|Petrified|Hungry|Withered|Lost] Forest
 
 ;forest people
 1,There’s a camp of [3d6+15] **[here ursoid raiders as raiders]** ([ursoid stats]) led by *[bear name as leader]* (add *[physical mutation]*). Treasure: [raider treasure]
@@ -265,12 +265,14 @@
 1,Claw
 1,Bear
 1,Strong
+1,Fearless
+1,Mauler
 
 # Jungle
 
 ;point of interest in the jungle
 1,An old dirty grey temple stands here almost completely hidden by [colour] vines and [colour] undergrowth. The ashes of a recent fire by the entrance are still warm.
-1,Up ahead through the [colour] vines is a ramshackle shelter with light blue smoke wafting out a crude chimney. Does *[fancy human name]* still live here after all this time?
+1,Up ahead through the [colour] vines is a ramshackle shelter with light blue smoke wafting out a crude chimney.
 
 # Desert
 
@@ -289,9 +291,9 @@
 
 ;caravan name
 1,Easy Riders
-1,[Silver|Golden] [Boys|Girls|Riders]
-1,[chemical prefix] [Boys|Girls|Riders]
-1,[war prefix] [Boys|Girls|Riders]
+1,[Silver|Golden] [Boys|Girls|Riders|Mauraders|Corsairs|Outlaws]
+1,[chemical prefix] [Boys|Girls|Riders|Mauraders|Corsairs|Outlaws]
+1,[war prefix] [Boys|Girls|Riders|Mauraders|Corsairs|Outlaws]
 
 ;desert people
 1,There’s a camp of [3d6+15] **[here cactoid raiders as raiders]** ([cactoid stats]) led by *[cactoid name]* ([mutant plant stats]). [vehicle park].
@@ -315,7 +317,7 @@
 1,[ammunition stash]
 
 ;fort speciality
-1,Visitors are mostly travelling merchants. The trade post run by *[here human fancy name as trader]* is fairly well known. The *[guest house name]* is open to all.
+1,Visitors are mostly travelling [merchants|tradesmen|settlers|nomads|androids|manimals|traders]. The [trade post|pub|tavern|market] run by *[here human fancy name as trader]* is fairly well known. The *[guest house name]* is open to all.
 
 ;guest house name
 1,[hotel] of [Rich|Epic|Successful|Long [Fingered|Legged]] [Traders|Merchants|Business [Men|Women]]
@@ -326,6 +328,10 @@
 1,Caravansary
 1,Hotel
 1,Motel
+1,Inn
+1,Hostelry
+1,Hospice
+1,Public House
 
 ;secret society presence
 1,No secret society has taken hold in this settlement.
@@ -349,6 +355,7 @@
 1,free food
 1,free lodging
 1,a free ride on the monthly caravan heading [direction]
+1,protection from [raiders|pirates|marauders|thieves]
 
 ;a secret society
 1,[name for a secret society1]
@@ -487,9 +494,11 @@
 1,TODO
 
 ;energy weapons
-1,lasers
+1,laser weapons
 1,rail guns
 1,needle guns
+1,plasma weapons
+1,EMP defenses
 # TODO
 
 ;vat people servants
@@ -513,6 +522,22 @@
 1,canned sausages
 1,canned beans
 1,phosphorous beer
+1,bovinoid carcasses
+1,anuroid carcasses
+1,lion meat
+1,rad bear meat
+1,electric crab meat
+1,worm skin
+1,ant antenae
+1,mothowl wings
+1,dragonbirs meat
+1,rad hare meat
+1,fel dog meat
+1,hellhound meat
+1,grasschopper legs
+1,rad rattler meat
+1,wolfling meat
+1,sky whale blubber
 # TODO
 
 ;tube content
@@ -532,7 +557,7 @@
 1,They are led by *[morlock name]* the **morlock witch** (TODO), a natural [necromant|healer|bat person].
 
 ;morlock trouble
-1,The morlocks are being harassed on a regular bases by a band of [nearby raiders]. *[same morlock name]* asks you to help out: [“Soon they’ll be back. Help us defend these caves!”|“We must confront our enemies. Help us attack their camp!”]
+1,The morlocks are being harassed on a regular basis by a band of [nearby raiders]. *[same morlock name]* asks you to help out: [“Soon they’ll be back. Help us defend these caves!”|“We must confront our enemies. Help us attack their camp!”]
 
 # Names based on longer, common words from the Brown corpus
 ;morlock name
@@ -4460,7 +4485,10 @@
 1,south
 1,east
 1,west
-
+1,northwest
+1,northeast
+1,southwest
+1,southeast
 # The explanations at the end… big HTML blobs
 
 ;END
