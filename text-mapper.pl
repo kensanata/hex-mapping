@@ -2681,7 +2681,7 @@ sub arrows {
 package Gridmapper;
 
 use Modern::Perl '2018';
-use List::Util qw'shuffle none any min max';
+use List::Util qw'shuffle none any min max all';
 use List::MoreUtils qw'pairwise';
 use URI::Escape;
 use Mojo::Base -base;
@@ -2725,15 +2725,18 @@ sub generate_map {
   my $self = shift;
   my $pillars = shift;
   my $n = shift;
+  my $caves = shift;
   $self->init;
-  my $rooms = [map { $self->generate_room($_, $pillars) } (1 .. $n)];
+  my $rooms = [map { $self->generate_room($_, $pillars, $caves) } (1 .. $n)];
   my ($shape, $stairs) = $self->shape(scalar(@$rooms));
   my $tiles = $self->add_rooms($rooms, $shape);
   $tiles = $self->add_corridors($tiles, $shape);
-  $tiles = $self->add_doors($tiles);
-  $tiles = $self->add_stair($tiles, $stairs);
+  $tiles = $self->add_doors($tiles) unless $caves;
+  $tiles = $self->add_stair($tiles, $stairs) unless $caves;
+  $tiles = $self->add_small_stair($tiles, $stairs) if $caves;
   $tiles = $self->fix_corners($tiles);
   $tiles = $self->fix_pillars($tiles) if $pillars;
+  $tiles = $self->to_rocks($tiles) if $caves;
   return $self->to_text($tiles);
 }
 
@@ -2741,10 +2744,11 @@ sub generate_room {
   my $self = shift;
   my $num = shift;
   my $pillars = shift;
+  my $caves = shift;
   my $r = rand();
   if ($r < 0.9) {
     return $self->generate_random_room($num);
-  } elsif ($r < 0.95 and $pillars) {
+  } elsif ($r < 0.95 and $pillars or $caves) {
     return $self->generate_pillar_room($num);
   } else {
     return $self->generate_fancy_corner_room($num);
@@ -3496,6 +3500,30 @@ sub add_stair {
   return $tiles;
 }
 
+sub add_small_stair {
+  my $self = shift;
+  my $tiles = shift;
+  my $stairs = shift;
+  my %delta = (n => -$self->row, e => 1, s => $self->row, w => -1);
+ STAIR:
+  for my $room (@$stairs) {
+    # find the middle using the label
+    my $start;
+    for my $i (0 .. scalar(@$tiles) - 1) {
+      next unless $tiles->[$i];
+      $start = $i;
+      last if grep { $_ eq qq{"$room"} } @{$tiles->[$i]};
+    }
+    for (shuffle qw(n e w s)) {
+      if (grep { $_ eq "empty" } @{$tiles->[$start + $delta{$_}]}) {
+	push(@{$tiles->[$start + $delta{$_}]}, "stair-spiral");
+	next STAIR;
+      }
+    }
+  }
+  return $tiles;
+}
+
 sub fix_corners {
   my $self = shift;
   my $tiles = shift;
@@ -3520,6 +3548,9 @@ sub fix_corners {
 sub fix_pillars {
   my $self = shift;
   my $tiles = shift;
+  # This is: $test{n}->[0] is straight ahead (e.g. looking north), $test{n}->[1]
+  # is to the left (e.g. looking north-west), $test{n}->[2] is to the right
+  # (e.g. looking north-east).
   my %test = (n => [-$self->row, -$self->row - 1, -$self->row + 1],
 	      e => [1, 1 - $self->row, 1 + $self->row],
 	      s => [$self->row, $self->row - 1, $self->row + 1],
@@ -3543,6 +3574,80 @@ sub fix_pillars {
     }
   }
   return $tiles;
+}
+
+sub to_rocks {
+  my $self = shift;
+  my $tiles = shift;
+  # These are the directions we know (where m is the center). Order is important
+  # so that list comparison is made easy.
+  my @dirs = qw(n e w s);
+  my %delta = (n => -$self->row, e => 1, s => $self->row, w => -1);
+  # these are all the various rock configurations we know about; listed are the
+  # fields that must be "empty" for this to work
+  my %rocks = ("rock-n" => [qw(e w s)],
+	       "rock-ne" => [qw(w s)],
+	       "rock-ne-alternative" => [qw(w s)],
+	       "rock-e" => [qw(n w s)],
+	       "rock-se" => [qw(n w)],
+	       "rock-se-alternative" => [qw(n w)],
+	       "rock-s" => [qw(n e w)],
+	       "rock-sw" => [qw(n e)],
+	       "rock-sw-alternative" => [qw(n e)],
+	       "rock-w" => [qw(n e s)],
+	       "rock-nw" => [qw(e s)],
+	       "rock-nw-alternative" => [qw(e s)],
+	       "rock-dead-end-n" => [qw(s)],
+	       "rock-dead-end-e" => [qw(w)],
+	       "rock-dead-end-s" => [qw(n)],
+	       "rock-dead-end-w" => [qw(e)],
+	       "rock-corridor-n" => [qw(n s)],
+	       "rock-corridor-s" => [qw(n s)],
+	       "rock-corridor-e" => [qw(e w)],
+	       "rock-corridor-w" => [qw(e w)], );
+  # my $first = 1;
+  for my $here (0 .. scalar(@$tiles) - 1) {
+  TILE:
+    for (@{$tiles->[$here]}) {
+      next unless grep { $_ eq "empty" } @{$tiles->[$here]};
+      if (not $_) {
+	$_ = "rock" if all { grep { $_ } $self->something($tiles, $here, $_) } qw(n e w s);
+      } else {
+	# loop through all the rock tiles and compare the patterns
+      ROCK:
+	for my $rock (keys %rocks) {
+	  my $expected = $rocks{$rock};
+	  my @actual = grep {
+	    my $dir = $_;
+	     $self->something($tiles, $here, $delta{$dir});
+	  } @dirs;
+	  if (list_equal($expected, \@actual)) {
+	    $_ = $rock;
+	    # $_ = $first ? "pillar" : $rock; $first = 0;
+	    $log->warn("(" . $self->coordinates($here) . ") $_: @$expected vs @actual");
+	    next TILE;
+	  }
+        }
+      }
+    }
+  }
+  return $tiles;
+}
+
+sub list_equal {
+  my $a1 = shift;
+  my $a2 = shift;
+  return 0 if @$a1 ne @$a2;
+  for (my $i = 0; $i <= $#$a1; $i++) {
+    return unless $a1->[$i] eq $a2->[$i];
+  }
+  return 1;
+}
+
+sub coordinates {
+  my $self = shift;
+  my $here = shift;
+  return sprintf("%d,%d", int($here/$self->row), $here % $self->row);
 }
 
 sub legal {
@@ -3677,6 +3782,27 @@ sub to_gridmapper_link {
 	elsif ($_ eq "stair-n") { $code .= "sss" }
 	elsif ($_ eq "stair-e") { $code .= "ssss" }
 	elsif ($_ eq "stair-spiral") { $code .= "svv" }
+	elsif ($_ eq "rock") { $finally = "g" }
+	elsif ($_ eq "rock-n") { $finally = "g" }
+	elsif ($_ eq "rock-ne") { $finally = "g" }
+	elsif ($_ eq "rock-ne-alternative") { $finally = "g" }
+	elsif ($_ eq "rock-e") { $finally = "g" }
+	elsif ($_ eq "rock-se") { $finally = "g" }
+	elsif ($_ eq "rock-se-alternative") { $finally = "g" }
+	elsif ($_ eq "rock-s") { $finally = "g" }
+	elsif ($_ eq "rock-sw") { $finally = "g" }
+	elsif ($_ eq "rock-sw-alternative") { $finally = "g" }
+	elsif ($_ eq "rock-w") { $finally = "g" }
+	elsif ($_ eq "rock-nw") { $finally = "g" }
+	elsif ($_ eq "rock-nw-alternative") { $finally = "g" }
+	elsif ($_ eq "rock-dead-end-n") { $finally = "g" }
+	elsif ($_ eq "rock-dead-end-e") { $finally = "g" }
+	elsif ($_ eq "rock-dead-end-s") { $finally = "g" }
+	elsif ($_ eq "rock-dead-end-w") { $finally = "g" }
+	elsif ($_ eq "rock-corridor-n") { $finally = "g" }
+	elsif ($_ eq "rock-corridor-s") { $finally = "g" }
+	elsif ($_ eq "rock-corridor-e") { $finally = "g" }
+	elsif ($_ eq "rock-corridor-w") { $finally = "g" }
 	else {
 	  $log->warn("Tile $_ not known for Gridmapper link");
 	}
@@ -4459,8 +4585,9 @@ sub gridmapper_map {
   my $seed = $c->param('seed') || int(rand(1000000000));
   my $pillars = $c->param('pillars') // 1;
   my $rooms = $c->param('rooms') // 5;
+  my $caves = $c->param('caves') // 0;
   srand($seed);
-  return Gridmapper->new()->generate_map($pillars, $rooms);
+  return Gridmapper->new()->generate_map($pillars, $rooms, $caves);
 }
 
 get '/gridmapper' => sub {
@@ -5403,6 +5530,10 @@ href="https://campaignwiki.org/gridmapper.svg">Gridmapper web app</a> itself.
 <label>
 %= check_box pillars => 0
 No rooms with pillars
+</label>
+<label>
+%= check_box caves => 1
+Just caves
 </label>
 %= hidden_field type => 'square'
 <table>
