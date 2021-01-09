@@ -4221,9 +4221,11 @@ get '/:type/redirect' => sub {
   my $type = $self->param('type');
   my $rooms = $self->param('rooms');
   my $seed = $self->param('seed');
+  my $caves = $self->param('caves');
   my %params = ();
   $params{rooms} = $rooms if $rooms;
   $params{seed} = $seed if $seed;
+  $params{caves} = $caves if $caves;
   $self->redirect_to($self->url_for($type . "random")->query(%params));
 } => 'redirect';
 
