@@ -311,7 +311,7 @@
 # Forts
 
 ;fort people
-1,About  [2d6x10] **humans** live here ([human stats]), led by *[human fancy name]* ([human npc stats]). Treasure: [fort treasure]<p>[fort speciality]<p>[secret society presence]
+1,About  [2d6x10] **humans** live here ([human stats]), led by *[human fancy name]* ([human npc stats]). Treasure: [fort treasure]<p>[fort speciality]<p>[secret society presence]<p>[settlement mission]
 
 ;fort treasure
 1,[ammunition stash]
@@ -483,11 +483,17 @@
 1,The Gamma Lords
 1,The Necromagisters
 
+;settlement mission
+1,All is quiet here.
+1,The people really don’t like outsiders disturbing the delicate power balance.
+1,Currently, [marshal|sheriff|boss] *[here human fancy name as sheriff]* is in the area, looking for a fugitive. “I’m looking for *[nearby wanted criminal]*. [Do me a favour and let me know if you find them|I’ll reward you if you lead me to them|There’s a reward waiting for your if you bring them here, dead or alive]. [You can be on the good side of the law, you know|You know what you have to do|Think about it|Do this for me and all is forgiven|Enough is enough]!”
+
 # Caves
 
 ;cave people
 1,The [1d6x10] **morlocks** ([morlock stats]) living in these caves have no access to the deeper levels. All they seek is shelter from the elements and a defensible home. At night, they emerge from the underground to do their hunting and gathering. [morlock witch]<p>[morlock trouble]
 1,The [3d6] **vat people** ([human stats]) living in these caves have gained access to bio-genesis labs and have used them for self-improvement. The chief [scientist|grower|lab master|bio wizard|genetic improviser] *[here human fancy name as scientist]* is in charge of the research program. It requires a lot of organic base material from the surface.<p>[vat people servants]<p>[vat people trouble]
+1,[vat dungeon]
 1,The [2d6] **nuclear wizards** ([nuclear wizard stats]) led by *[here human fancy name as nuclear wizard]* living in these caves have gained control of the power banks and the geothermal vents far below the earth surface. Endless energy to power the shield generators and charge their [energy weapons] (there’s but one per nuclear wizard).
 
 ;nuclear wizard stats
@@ -814,6 +820,92 @@
 1,Without
 1,Working
 1,Writing
+
+# Cave Dungeon
+
+# Before calling [dungeon] you need to save [store vat as monsters],
+# for example. This makes sure the “vat” subtables are used for
+# monsters. Alternatively, if instead you have an appropriate table,
+# use [save cave theme as monsters] to pick an entry from the “cave
+# theme” table. If you’re looking for an example, search the file for
+# “#VAT”.
+
+#VAT
+;vat dungeon
+1,[store vat as monsters][dungeon]
+
+;dungeon
+# 5 rooms (the first being an entrance and the last being the “boss”)
+5,[dungeon header][cave map with 5 rooms]<ol>[entrance room html][interior room html][interior room html][interior room html][final room html]</ol>
+# 7 rooms (the first being an entrance and the last being the “boss”)
+4,[dungeon header][cave map with 7 rooms]<ol>[entrance room html][interior room html][interior room html][interior room html][interior room html][interior room html][final room html]</ol>
+# 10 rooms (5+5)
+3,[dungeon header][cave map with 10 rooms]<ol>[entrance room html][interior room html][interior room html][interior room html][final room html][entrance room html][interior room html][interior room html][interior room html][final room html]</ol>
+# 12 rooms (5+7)
+2,[dungeon header][cave map with 12 rooms]<ol>[entrance room html][interior room html][interior room html][interior room html][final room html][entrance room html][interior room html][interior room html][interior room html][interior room html][interior room html][final room html]</ol>
+# 14 rooms (7+7)
+1,[dungeon header][cave map with 14 rooms]<ol>[entrance room html][interior room html][interior room html][interior room html][interior room html][interior room html][final room html][entrance room html][interior room html][interior room html][interior room html][interior room html][interior room html][final room html]</ol>
+
+;dungeon header
+1,This is *[here [same monsters] dungeon name]*.<p class="sidebar">Wandering monsters: [[same monsters] encounter].<p>
+
+#VAT
+;vat dungeon name
+1,The vats of [Doom|Pain|Purity|the Masters|Pink Flesh]
+
+#VAT
+;vat encounter
+1,[3d6] **vat people** ([human stats])
+
+;entrance room html
+1,<li>[[same monsters] entrance]</li>
+;interior room html
+1,<li>[[same monsters] interior room]<ul><li>[[same monsters] room feature]</li></ul></li>
+;final room html
+1,<li>[[same monsters] final room]<ul><li>[[same monsters] boss]</li><li>[[same monsters] treasure]</li></ul></li>
+
+;cave map with 5 rooms
+1,<img class="map" src="[[redirect https://campaignwiki.org/text-mapper/gridmapper/redirect?pillars=0&seed=$seed&caves=1]]" alt="5 room cave" title="5 room cave"/>
+
+;cave map with 7 rooms
+1,<img class="map" src="[[redirect https://campaignwiki.org/text-mapper/gridmapper/redirect?pillars=0&rooms=7&seed=$seed&caves=1]]" alt="7 room cave" title="7 room cave"/>
+
+;cave map with 10 rooms
+1,<img class="map" src="[[redirect https://campaignwiki.org/text-mapper/gridmapper/redirect?pillars=0&rooms=10&seed=$seed&caves=1]]" alt="10 room cave" title="10 room cave"/>
+
+;cave map with 12 rooms
+1,<img class="map" src="[[redirect https://campaignwiki.org/text-mapper/gridmapper/redirect?pillars=0&rooms=12&seed=$seed&caves=1]]" alt="12 room cave" title="12 room cave"/>
+
+;cave map with 14 rooms
+1,<img class="map" src="[[redirect https://campaignwiki.org/text-mapper/gridmapper/redirect?pillars=0&rooms=14&seed=$seed&caves=1]]" alt="14 room cave" title="14 room cave"/>
+
+#VAT
+;vat entrance
+1,<u>Hidden entrance</u>. Once of the big boulders on the surface uses a solar-powered camouflage-tarpaulin to hide a narrow shaft leading downwards. Improvised stairs built of tarred logs lead into the cave below. The air is warm and humid.
+
+#VAT
+;vat interior room
+1,<u>Bunks</u>. Narrow beds made of thin metal frames and covered in rags, wooden crates full of worthless junk, candles, pictures on the wall showing [a peaceful forest and some deer|the ocean|a ship on a lake|a grey fish smiling in the water].
+
+#VAT
+;vat room feature
+1,A partial collapse of the ceiling has destroyed the old equipment here. The floor is full of broken glass, twisted tubes and rocks. Nobody has cleaned this up.
+1,The cave walls are humid and black slime has been spreading.
+1,A pile of bones. Looks like [human|horse|pig|cow|bird] bones. Rats. Cockroaches. The usual.
+1,Along the wall are plastic bottles full of [colour] liquid. The inscriptions are faded. The caps have been opened many times.
+
+#VAT
+;vat final room
+1,<u>Regeneration tank</u>. This is a working treasure from the before times: a <i>regeneration tank</i>, humming quietly. It is filled with green, semi-transparent liquid and bubbling softly. Inside floats a human body, motionless, pierced with tubes. This is *[here human fancy name as wanted criminal]* ([human stats]), a rich [mercenary captain|bandit leader|gang leader|gangster|mobster] being stitched together again after a gunfight that went bad.
+
+#VAT
+;vat boss
+1,The chief [scientist|grower|lab master|bio wizard|genetic improviser] *[here human fancy name as scientist]* runs the lab down here ([human npc stats]).
+
+#VAT
+;vat treasure
+1,There’s a canister of *regenerating goo*, good for all sorts of trauma.
+1,There’s a canister of *sulphuric acid*, good for dissolving all sorts of organic material.
 
 # Terrain encounter tables
 
