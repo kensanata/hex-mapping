@@ -9539,7 +9539,7 @@
 1,This camp has a renowned **healer**: [human with portrait] knows how to *cure disease* using *[nearby magic plant]*.
 1,The scouts in this camp know all the creatures of [link to adjacent hex].
 1,The outlaws are eager to trade for alcohol and gold.
-1,<p>This camp has a talented **bard** called [human with portrait] who was chased out of *[nearby village name]*.[store human as singing humanoid] The songs they like to perform are *[with story]* and *[and story]*. If you ask them about the war, they’ll say that [nearby war fact]. [maybe a book thief]
+1,<p>This camp has a talented **bard** called [human with portrait] who was chased out of *[nearby village name]*.[store human as singing humanoid] The songs they like to perform are *[with story]* and *[and story]*. If you ask them about the war, they’ll say that [nearby war fact]. [maybe a book]
 
 ;outlaw companions
 1,[1d6+1] **hunting hounds** ([wolf stats])
@@ -12364,7 +12364,7 @@
 2,At the foot of the tree lies a human skeleton. She is looking for a new lover!
 1,She’s crying because her lover [man] (a level [1d6+1 as level] [human class]) just left her. Bring him back, she implores you!
 1,She’s coy and flirtatious because she knows full well that her lover [man] (a level [1d6+1 as level] [human class]) is bound to show up any minute now. Oh how she loves to see those peacocks fight! [spellbook for [same class]] [leader treasure for [same class]]
-1,She’s sad and melancholy for it seems that both her lovers have learned of each other. There’s the [lover type] *[man]* (a level [1d6+1 as level] [human class]), and she loves him dearly. [spellbook for [same class]] [leader treasure for [same class]] But there’s also the [lover type] *[man]* (a level [1d6+1 as level] [human class]), and she loves him just as much! [spellbook for [same class]] [leader treasure for [same class]]
+1,She’s sad and melancholy for it seems that both her lovers have learned of each other. There’s the [lover type] *[man]* (a level [1d6+1 as level] [human class]), and she loves him dearly. [spellbook for [same class]] [leader treasure for [same class]] But there’s also the [lover type] *[man as human name]* (a level [1d6+1 as level] [human class]), and she loves him just as much! [spellbook for [same class]] [leader treasure for [same class]]
 1,She sends her lover [man] (a level [1d6+1 as level] [human class]) to deal with you. [spellbook for [same class]] [leader treasure for [same class]]
 1,She’s happy to see you and will trade a kiss for a little help: somebody needs to take care of the annoying [forest monster]
 
@@ -14227,8 +14227,8 @@
 1,a small hospice dedicated to *St. [old name]*. There are currently [1d6+1] terminally ill **humans** up here, all hoping to be closer to heaven if they die.
 
 ;maybe a sage
-1,These days, there are no vistors.
-1,These days it is frequented by the [magic user] [human with portrait] (level [1d3+4 as level]). [spellbook for magic user] [leader treasure for magic user]
+1,These days, there are no visitors.
+1,These days it is frequented by the [magic user] [human with portrait] (level [1d3+4 as level]). [spellbook for magic user] [leader treasure for magic user] [library mission]
 
 ;monks or nuns
 1,[1d4x10] **humans** ([human stats]) live up here. [average treasure] They are led by [abbot] (level [1d6+1 as level]). [leader treasure for magic user]
@@ -14680,13 +14680,13 @@
 
 ;caravan special
 3,
-2,<p>The caravan has a **bard** called [human with portrait] who is on their way to *[nearby village name]*.[store human as singing humanoid] [maybe a book thief] The songs they like to perform are *[with story]* and *[and story]*.
-2,<p>*[[same race] name]* is a **secret agent** of the [one of the secret societies]. [description for a secret society ([same alignment])]
+2,<p>The caravan has a **bard** called [human with portrait] who is on their way to *[nearby village name]*.[store human as singing humanoid] [maybe a book] The songs they like to perform are *[with story]* and *[and story]*.
+2,<p>*[[same race] name]* is a **secret agent** of the *[one of the secret societies]*. [description for a secret society ([same alignment])]
 2,<p>*[[same race] name]* is selling blessed [metal mat] amulets of [good power].
 2,<p>*[[same race] name as cultist]* is an **evil cultist** of [evil power]. If you know the cult, you will recognise their amulet: it shows [[same evil power] decoration]. They already befriended a kid called *[human name]* but swore them to secrecy. Before the caravan leaves, *[same cultist]* is planning to sacrifice them to their demon lord.
 1,<p>One of the members of the trade caravan is a **witch** in disguise. Travelling under the name *[[same race] name]*, her real name is *[here old names for women as witch]*, [the witch]. [caravan witch goal] ([witch stats]). Any valuables are well hidden in her wagon. [terror treasure]
-1,<p>The caravan has a **travelling alchemist** called [human with portrait] who can supply a [with scroll], a [and scroll], a [and scroll] at 1000gp each. They also have a [with potion] and a [and potion] for sale at 500gp each. [maybe a book thief]
-1,<p>The caravan has a **botanist** called [human with portrait] who will sell potted *[with magic plant]* or *[and magic plant]* at 50gp each (20 of each available), and the very costly *[and magic plant]* at 500gp each (just 2 available). [maybe a book thief]
+1,<p>The caravan has a **travelling alchemist** called [human with portrait] who can supply a [with scroll], a [and scroll], a [and scroll] at 1000gp each. They also have a [with potion] and a [and potion] for sale at 500gp each. [maybe a book]
+1,<p>The caravan has a **botanist** called [human with portrait] who will sell potted *[with magic plant]* or *[and magic plant]* at 50gp each (20 of each available), and the very costly *[and magic plant]* at 500gp each (just 2 available). [maybe a book]
 
 ;caravan witch goal
 1,She uses the caravan as cover to travel from town to town selling love potions to gullible young folk in exchange for secrets.
@@ -14702,13 +14702,13 @@
 # note:
 # goblin patron is not the same thing!
 ;treasure hunter
-1,The treasure hunter **[human class]** [human with portrait] (level [1d4+1 as level]) is trying to hire some fools for they have a [treasure map]. [spellbook for [same class]] [leader treasure for [same class]] [maybe a book thief] “[sharing agreement]”
-1,The treasure hunter **[human class]** [human with portrait] (level [1d4+1 as level]) is trying to hire some fools to find *[magic plant]* (in [link to adjacent hex]). “Surely *[nearby alchemist patron]* will pay us well. [5000gp reward sharing agreement]” [spellbook for [same class]] [leader treasure for [same class]] [maybe a book thief]<blockquote>[magic plant guardian]</blockquote><p>
-1,The treasure hunter **[human class]** [human with portrait] (level [1d4+1 as level]) is trying to hire some fools to steal *[magic plant]* from the witch *[nearby witch]* who grows it amongst the other herbs, vegetables, and flowers of her garden. “Surely *[nearby alchemist patron]* will pay us well. [5000gp reward sharing agreement]” [spellbook for [same class]] [leader treasure for [same class]] [maybe a book thief]
+1,The treasure hunter **[human class]** [human with portrait] (level [1d4+1 as level]) is trying to hire some fools for they have a [treasure map]. [spellbook for [same class]] [leader treasure for [same class]] “[sharing agreement]”
+1,The treasure hunter **[human class]** [human with portrait] (level [1d4+1 as level]) is trying to hire some fools to find *[magic plant]* (in [link to adjacent hex]). “Surely *[nearby alchemist patron]* will pay us well. [5000gp reward sharing agreement]” [spellbook for [same class]] [leader treasure for [same class]]<blockquote>[magic plant guardian]</blockquote><p>
+1,The treasure hunter **[human class]** [human with portrait] (level [1d4+1 as level]) is trying to hire some fools to steal *[magic plant]* from the witch *[nearby witch]* who grows it amongst the other herbs, vegetables, and flowers of her garden. “Surely *[nearby alchemist patron]* will pay us well. [5000gp reward sharing agreement]” [spellbook for [same class]] [leader treasure for [same class]]
 # the following item might require more travel to an existing magic planet but has no guardian
-1,The treasure hunter **[human class]** [human with portrait] (level [1d4+1 as level]) is trying to hire some fools to search for *[nearby magic plant]*. [spellbook for [same class]] [leader treasure for [same class]] [maybe a book thief] “Surely *[nearby alchemist patron]* will pay us well. [5000gp reward sharing agreement]”
-1,The treasure hunter **[human class]** [human with portrait] (level [1d4+1 as level]) is trying to hire some fools to rob an ancient tomb (in [link to adjacent hex]). [spellbook for [same class]] [leader treasure for [same class]] [maybe a book thief] “[sharing agreement]”<blockquote>[tomb guardian] [ancient treasure]</blockquote><p>
-1,The treasure hunter **[human class]** [human with portrait] (level [1d4+1 as level]) is trying to hire some fools to get some *[nearby alchemist quest]*. [spellbook for [same class]] [leader treasure for [same class]] [maybe a book thief] “Surely *[nearby alchemist patron]* will pay us well. [sales sharing agreement]”
+1,The treasure hunter **[human class]** [human with portrait] (level [1d4+1 as level]) is trying to hire some fools to search for *[nearby magic plant]*. [spellbook for [same class]] [leader treasure for [same class]] “Surely *[nearby alchemist patron]* will pay us well. [5000gp reward sharing agreement]”
+1,The treasure hunter **[human class]** [human with portrait] (level [1d4+1 as level]) is trying to hire some fools to rob an ancient tomb (in [link to adjacent hex]). [spellbook for [same class]] [leader treasure for [same class]] “[sharing agreement]”<blockquote>[tomb guardian] [ancient treasure]</blockquote><p>
+1,The treasure hunter **[human class]** [human with portrait] (level [1d4+1 as level]) is trying to hire some fools to get some *[nearby alchemist quest]*. [spellbook for [same class]] [leader treasure for [same class]] “Surely *[nearby alchemist patron]* will pay us well. [sales sharing agreement]”
 
 ;magic plant guardian
 1,*[same magic plant]* lies in a shady hollow near a crystal clear pool, guarded by [1d8 treants] ([treant stats]). They hate any living being that lives by thumb and fist.
@@ -15243,24 +15243,38 @@
 ;library book
 1,[Introduction|Pathways|Gates|Travels|A Beginner’s Guide] to [another realm]
 1,The [Inhabitants|Legends|Creatures] of [another realm]
-1,[Introduction to|Foundations of|Studies in|The Art of|Further Studies in|Advanced Studies|Secret Knowledge in] [Golemcrafting|Necromancy|Healing|Banishment|Thaumaturgy|Conjuration|Witchcraft|Animation of Objects|Fleshcrafting|Stonecrafting|Evocation|Illusions]
+1,[Introduction to|Foundations of|Studies in|The Art of|Further Studies in|Advanced Studies in|Secret Knowledge in] [Golemcrafting|Necromancy|Healing|Banishment|Thaumaturgy|Conjuration|Witchcraft|Animation of Objects|Fleshcrafting|Stonecrafting|Evocation|Illusions|Metallurgy|the Reading of Entrails|Bird Flight Interpretation|Bone Casting]
 1,[Creation of|The Creation of|Foundations of|How to create|Animation of|Base Materials for|Substitutions for|Augmentations for] [capitalize golemtype] Golems
 1,[Summoning|Banishing|Entreating with|Bargaining with|Introduction to|Binding|Dealing with] [Demons|Devils|Ghosts|Elementals|Jinn|Marid|Afarit]
 1,[Transcending|Conquering|Mastering] [Space|Time|Death|Life|Infinity|Eternity|Youth]
 1,Protection from [Lycanthropes|Werewolves|Evil|Missiles|Ghosts|Curses|the Dead|Elves|Witches|Sorcerers]
-1,[Elemental|The Lords of|Building the World:] [Fire|Air|Water|Earth]
+1,[Elemental|The Lords of|Building the World: Elemental|Introduction the Magic of|Mastering Elemental] [Fire|Air|Water|Earth]
 1,[Influencing|Charming|Seducing|Leading|Commanding] People and [Making|Dominating|Exploiting|Suffering] Friends
 1,The [Hall|Origins|End|Allies|Servants|Legend|Temples|Worship|Glory|Downfall|Eternal Victory] of [power]
 1,[Transmutation|Transubstantiation|Transformation|Elevation|Disintegration|Integration|Transcendence|Mastery|Domination] of [the Flesh|the Body|Trees|Plants|Animals]
+1,[The Secret Powers of|Preparing|The Secret of|Youth and Virility with|Base Ingredients:] [magic plant]
+1,[The Hidden Sex Life of|The Procreation of|Understanding] [Humans|Dwarves|Elves|Gnomes|Goblins|Orcs|Halflings|Dragons]
+1,[Human|Dwarf|Elf] [Architecture|Buildings]
+1,[The Ruins of|The History of|Annals of|The Kings and Queens of|Sorcerers of|The Rule of] [wight realm]
+1,[I, Orc:|Orcish Perspectives on|Elven Involvement in|I was there:|Greatest Mistakes:|Battles of] [orc war]
+1,[Oral Histories of|Ancient Accounts of|Legends of] [The Philosopher’s War|The Vampire Wars|The Dragon Wars]
+1,[The Truth about the|Exposing the|Identifying Members of the] [one of the secret societies]
+1,[Orcish|Dwarven|Elven|Human] [War Machines|Siege Engines|Stronghold Defence|Warfare|Weapons and Armour|Metallurgy]
 
 ;some books
-1,*[library book]*
-1,*[with library book]* and *[and library book]*
-1,*[with library book]*, *[and library book]* and *[and library book]*
+1,<span class="treasure book">*[here library book]*</span>
+1,<span class="treasure book">*[with library book]*</span> and <span class="treasure book">*[and library book]*</span>
+1,<span class="treasure book">*[with library book]*</span>, <span class="treasure book">*[and library book]*</span> and <span class="treasure book">*[and library book]*</span>
 
-;maybe a book thief
-2,
-1,*[here [same human name] as book thief]* also happens to own a book: *[library book]*.
+;maybe a book
+1,
+1,*[here [same human name] as book owner]* also happens to own a book: <span class="treasure book">*[library book]*</span>.
+1,*[here [same human name] as book thief]* also happens to own a book: <span class="treasure book">*[library book]*</span>.
+
+;library mission
+1,
+1,“You know, I’m missing a book. And the last visitor to this library was *[nearby book thief]*. Would you retrieve that book for the library?”
+1,“You know, I heard that *[nearby book owner]* has a book I’d love to read. Do you think you could find them and [bring them here|invite them|steal back that book|borrow that book]?”
 
 #NOTE: no space to create proper compounds, spaces are present in some second halves for some variety
 ;village name
@@ -15936,7 +15950,7 @@
 ;patron plot hook
 1, *[same human patron]* is secretly enthralled by the witch *[nearby witch]*. The servants say, “*[same human patron]* often disappears for many days. [They just returned from a five absence, in fact|They’ve been gone for [two|three|four] days, now|And when they’re here, they never eat a thing]!”
 1, *[same human patron]* is missing a book. “*[nearby book thief]* absconded with it. Bring me back [the book|the book and their head], and I’ll reward you with 500gp.”
-1, *[same human patron]* has collected a handful of books in a chest. If you manage to take a look, the ones that stand out are [some books].
+1, They keep handful of books in a chest. If you manage to take a look, you spot [some books].
 2,
 
 ;law and order jobs
@@ -15947,8 +15961,8 @@
 
 ;And a secret society
 1,Luckily, no secret societies have established themselves here.
-1,The local contact for the secret society of the [one of the secret societies] is [a boss]. [spellbook for [same class]] [leader treasure for [same class]] [description for a secret society ([same alignment])]
-1,The secret society of the [one of the secret societies] has a representative here: [a boss]. [spellbook for [same class]] [leader treasure for [same class]] [description for a secret society ([same alignment])]
+1,The local contact for the secret society of the *[one of the secret societies]* is [a boss]. [spellbook for [same class]] [leader treasure for [same class]] [description for a secret society ([same alignment])]
+1,The secret society of the *[one of the secret societies]* has a representative here: [a boss]. [spellbook for [same class]] [leader treasure for [same class]] [description for a secret society ([same alignment])]
 
 ;And two secret societies feuding
 2,[And a secret society]
@@ -15979,17 +15993,17 @@
 
 ;one of the secret societies
 # make sure there are only 3 of them
-# common usage: "the secret society of the [one of the secret societies]"
+# common usage: "the secret society of the *[one of the secret societies]*"
 1,[name for a secret society (law)][store law as alignment]
 1,[name for a secret society (chaos)][store chaos as alignment]
 1,[name for a secret society (neutrality)][store chaos as alignment]
 
 ;name for a secret society (law)
-1,*[secret society]*
+1,[secret society]
 ;name for a secret society (chaos)
-1,*[secret society]*
+1,[secret society]
 ;name for a secret society (neutrality)
-1,*[secret society]*
+1,[secret society]
 
 ;description for a secret society (law)
 1,They love knowledge and writing and sponsor map makers and merchants travelling to unknown lands. They also keep tabs on people.
@@ -38678,7 +38692,7 @@
 1,[leader treasure]
 
 ;leader treasure for magic user
-1,<span class="treasure leader">[5% per item type for magic user]</span>
+1,<span class="treasure leader">[5% per item type for magic user]</span> [maybe a book]
 
 ;10% 1d4 silver
 1,[1d4]000 silver coins.
