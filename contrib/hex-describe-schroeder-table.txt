@@ -1329,7 +1329,7 @@
 1,Somewhere up here between the cliffs there is a secret door. [secret door to the realm of the netherworld elves]
 1,[green tower in the mountains]
 1,On one of the rock faces you can still see the markings of the old dwarf forge *[here dwarf forge]*. [forge ruin]
-1,The *Pass of [old name]* on the way to [nearby village name] is guarded by [a warlock fortress]
+1,The *Pass of [old name]* on the way to *[nearby village name]* is guarded by [a warlock fortress]
 1,[lindwurm]
 1,[mountain orcs]
 1,[necropolis]
@@ -1637,7 +1637,7 @@
 1,cave paintings
 1,frescoes of [power]
 1,decorations featuring [[power] decoration]
-1,magic mouth reciting [terrible poetry|[store human as singing humanoid][story]|a loud warning to the denizens of the dungeon|praises to [power]|curses to followers of [power]]
+1,magic mouth reciting [terrible poetry|[store human as singing humanoid]*[story]*|a loud warning to the denizens of the dungeon|praises to [power]|curses to followers of [power]]
 1,filled [ankle-high|waist-high|to the brim] with [colour] [mist|fog]
 1,narrow path along a charnel pit with [random corpses]
 1,[blood spattered|hastily engraved|gouged|painted] runes in the wall spelling out *[dwarf name]*
@@ -6007,6 +6007,12 @@
 1,a seven headed snake
 1,countless daggers
 
+;Jötunheim decoration
+1,icicles
+1,mountain peaks
+1,frost giants
+1,a polar bear
+
 ;moon phase
 1,new moon (🌑)
 1,waxing crescent moon (🌒)
@@ -8994,7 +9000,7 @@
 1,the void
 
 ;orc plans
-1,These orcs are looking for allies to go to war against [nearby village name].
+1,These orcs are looking for allies to go to war against *[nearby village name]*.
 1,
 
 ;abandoned mine
@@ -9497,12 +9503,12 @@
 1,Up here on these hills and overlooking the shrublands is a massive fortress built by giants long ago. [outlaw camp]
 1,There are caves beneath these badlands. [caves]
 1,The dry lands up here are the hunting grounds of a **manticore** called *[manticore]* living in the ruins of an old tower ([manticore stats]). [robber treasure] [manticore companions]
-1,A dreadful *stench* hangs in the air as you approach the top of the hill. Dozens of decomposing [bodies|corpses|soldiers|warriors] cover the ground. [a war party]Searching the remains you find a *[the war party colour]* flag of *[the war party]*. These were mercenaries. They weren’t killed by force of arms: they were poisoned.[here store captain *[human name]* was last seen in in the badlands near *[nearby village name]* carrying the banner of *[the war party]* as war fact]
+1,A dreadful *stench* hangs in the air as you approach the top of the hill. Dozens of decomposing [bodies|corpses|soldiers|warriors] cover the ground. [a war party]Searching the remains you find a *[the war party colour]* flag of *[the war party]*. These were mercenaries. They weren’t killed by force of arms: they were poisoned.[here store captain *[human name]* was last seen in the badlands near *[nearby village name]* carrying the banner of *[the war party]* as war fact]
 1,A **green dragon** named *[here green dragon name as dragon name]*[dragon portrait] lives at [hill name], one of the hills overlooking these shrublands ([green dragon stats]). [dragon treasure]
 1,The overgrown scrub is difficult to traverse. Concealed by the thorny bracken is the entrance to a dungeon. [dungeon]
 
 ;outlaw camp
-1,There is a camp of [1d4x10] **outlaws** ([outlaw stats]) led by *[outlaw leader as human name]*[human portrait] here.[here store the outlaw *[same human name]* as wanted dead or alive] [average treasure] They call themselves the *[adjective] [organisation name]*. [outlaw feature] The camp is protected by [outlaw companions]. These outlaws are [two outlaw activities].
+1,There is a camp of [1d4x10] **outlaws** ([outlaw stats]) led by *[outlaw leader as human name]*[human portrait] here.[here store the outlaw *[same human name]* as wanted dead or alive] [average treasure] They call themselves the *[adjective] [organisation name]*. The camp is protected by [outlaw companions]. These outlaws are [two outlaw activities]. [outlaw feature] 
 
 ;outlaw stats
 1,HD 1 AC 8 1d6 F1 MV 12 ML 7 XP 100
@@ -9533,7 +9539,7 @@
 1,This camp has a renowned **healer**: [human with portrait] knows how to *cure disease* using *[nearby magic plant]*.
 1,The scouts in this camp know all the creatures of [link to adjacent hex].
 1,The outlaws are eager to trade for alcohol and gold.
-1,This camp has a talented **bard** called [human with portrait] who was chased out of [nearby village name].[store human as singing humanoid] The songs they like to perform are [with story] and [and story]. If you ask them about the war, they’ll say that [nearby war fact].
+1,<p>This camp has a talented **bard** called [human with portrait] who was chased out of *[nearby village name]*.[store human as singing humanoid] The songs they like to perform are *[with story]* and *[and story]*. If you ask them about the war, they’ll say that [nearby war fact]. [maybe a book thief]
 
 ;outlaw companions
 1,[1d6+1] **hunting hounds** ([wolf stats])
@@ -9915,7 +9921,7 @@
 ;manticore companions
 1,<p>At the foot of the tower there’s a camp of [4d6] **hobgoblins** ([hobgoblin stats]) led by *[hobgoblin]* (HD 3+1). They are trying to recruit the manticore for their war. [robber treasure]
 1,<p>Beneath the tower is a warren of [6d10] **goblins**, led by [goblin] ([goblin stats]). [poor treasure] They will happily lead fools to the manticore’s tower (and betray them).
-1,<p>Two of the buildings at the foot of the tower have been fixed up. [outlaw camp] They live here in an uneasy truce with the manticore.
+1,<p>Two of the buildings at the foot of the tower have been fixed up. Some humans live here in an uneasy truce with the manticore. [outlaw camp]
 2,
 
 ;manticore stats
@@ -12217,7 +12223,7 @@
 ;charcoal burner extra
 1,Out in the back you can find a crude statue of [power] cut from wood.
 1,They used to be an important player in the [name for a secret society ([chaos|law|neutrality])].
-1,They [fled|were exiled] from [nearby village name] many years ago. They don’t want to speak about it. [cause for exile]
+1,They [fled|were exiled] from *[nearby village name]* many years ago. They don’t want to speak about it. [cause for exile]
 
 ;cause for exile
 1,In fact, they murdered [human name] and where seen by [human name], so they had to go.
@@ -13979,7 +13985,7 @@
 1,The unicorns know of the dangers of [link to adjacent hex] and warn against going there.
 1,The unicorns are concerned about the druid [nearby druid] and would like for them to be eradicated.
 1,The unicorns fear the influence of the witch [nearby witch] and would like to see them destroyed.
-1,The unicorns hate the wood loggers of [nearby village name] and want them gone.
+1,The unicorns hate the wood loggers of *[nearby village name]* and want them gone.
 
 ;swamp gnome colony
 1,This is [here swamp gnome colony name], a colony of [1d4x10] **swamp gnomes** ([swamp gnome stats]) led by [gnome with portrait] (HD 5). [rich treasure] [colony feature] The gnomes live in [swamp gnome dwellings], protected by [swamp gnome companions]. These colony-folk are [two colony activities].
@@ -14216,7 +14222,7 @@
 1,a prayer machine.
 1,a prayer drum.
 1,a herbal garden known for its *[here magic plant]*.
-1,a small library dedicated to *St. [old name]* for travelling philosophers and sages. [maybe a sage]
+1,a small library dedicated to *St. [old name]* for travelling philosophers and sages. If you’re looking for books, you’ll find *[with library book]* and *[and library book]*. [maybe a sage]
 1,a small hospital dedicated to *St. [old name]*. There are currently [2d6] sick **humans** up here, hoping to recover in the clean, cold air of the mountains.
 1,a small hospice dedicated to *St. [old name]*. There are currently [1d6+1] terminally ill **humans** up here, all hoping to be closer to heaven if they die.
 
@@ -14346,7 +14352,7 @@
 1,The dragon hunter **[human class]** [human with portrait] (level [1d4+5 as level]) is trying to hire two score desperate peasants to go and slay *[nearby dragon name]*. “[sharing agreement]” [spellbook for [same class]] [leader treasure for [same class]]
 
 ;bard
-1,The [bard adjective] [singing humanoid] **bard** *[[same singing humanoid] with portrait]* is here, playing the [instrument] and [with performing] [with story] and [and performing] [and story]. [audience reaction] If you ask them about the war, they’ll say that [nearby war fact].
+1,The [bard adjective] [singing humanoid] **bard** *[[same singing humanoid] with portrait]* is here, playing the [instrument] and [with performing] *[with story]* and [and performing] *[and story]*. [audience reaction] If you ask them about the war, they’ll say that [nearby war fact].
 
 ;bard adjective
 1,wandering
@@ -14509,13 +14515,13 @@
 1,[special adjective] [evil tribe weapon]
 
 ;story
-1,*How [hero adjective] [[same singing humanoid] story hero] [verbed] [villain adjective] [story villain]*
-1,*The [story type] of [hero adjective] [[same singing humanoid] story hero] and the [story mcguffin]*
-1,*Why [villain adjective] [story villain] [villain verbed] [hero adjective] [[same singing humanoid] story hero]’s [hero friend]*
-1,*The [story type] of [[same singing humanoid] story hero] and the [villain adjective] [story monster]*
-1,*How [hero adjective] [[same singing humanoid] story hero] [verbed] the [villain adjective] [story monster]*
-1,*[[same singing humanoid] story hero]’s Perilous Journey to the [story place]*
-1,*How the [story mcguffin] was [mcguffin verb]*
+1,How [hero adjective] [[same singing humanoid] story hero] [verbed] [villain adjective] [story villain]
+1,The [story type] of [hero adjective] [[same singing humanoid] story hero] and the [story mcguffin]
+1,Why [villain adjective] [story villain] [villain verbed] [hero adjective] [[same singing humanoid] story hero]’s [hero friend]
+1,The [story type] of [[same singing humanoid] story hero] and the [villain adjective] [story monster]
+1,How [hero adjective] [[same singing humanoid] story hero] [verbed] the [villain adjective] [story monster]
+1,[[same singing humanoid] story hero]’s Perilous Journey to the [story place]
+1,How the [story mcguffin] was [mcguffin verb]
 
 ;story type
 1,Ballad
@@ -14656,31 +14662,31 @@
 1,earthenware jars of dried [with edible mushroom] and [and edible mushroom]
 
 ;caravan facts
-1,They know rumours about the goings on in [nearby village name], having recently been through there.
+1,They know rumours about the goings on in *[nearby village name]*, having recently been through there.
 1,They claim to have supplied rare goods to [name for an emperor].
 1,The merchants would like to find a shorter route to [other village name] and will hire scouts and guards for 1gp per day and person.
-1,They are eager for news from [nearby village name], their next destination.
+1,They are eager for news from *[nearby village name]*, their next destination.
 3,[caravan war rumours]
 
 ;caravan war rumours
 10,They heard that [nearby war fact].
 # these are all wrong
-1,They saw a mercenary near company [nearby village name] bearing a *[same war party colours 1]* banner belonging to *[name for a war party 1]* (blazon: *[same war party blazon 1]*).
-1,They saw a mercenary near company [nearby village name] bearing a *[same war party colours 2]* banner belonging to *[name for a war party 2]* (blazon: *[same war party blazon 2]*).
-1,They saw a mercenary near company [nearby village name] bearing a *[same war party colours 3]* banner belonging to *[name for a war party 3]* (blazon: *[same war party blazon 3]*).
+1,They saw a mercenary near company *[nearby village name]* bearing a *[same war party colours 1]* banner belonging to *[name for a war party 1]* (blazon: *[same war party blazon 1]*).
+1,They saw a mercenary near company *[nearby village name]* bearing a *[same war party colours 2]* banner belonging to *[name for a war party 2]* (blazon: *[same war party blazon 2]*).
+1,They saw a mercenary near company *[nearby village name]* bearing a *[same war party colours 3]* banner belonging to *[name for a war party 3]* (blazon: *[same war party blazon 3]*).
 1,They heard that *[name for a war party 1]* has been seen in *[other village name]*, in person.
 1,They heard that *[name for a war party 2]* has been seen in *[other village name]*, in person.
 1,They heard that *[name for a war party 3]* has been seen in *[other village name]*, in person.
 
 ;caravan special
 3,
-2,<p>The caravan has a **bard** called [human with portrait] who is on their way to [nearby village name].[store human as singing humanoid] The songs they like to perform are [with story] and [and story].
+2,<p>The caravan has a **bard** called [human with portrait] who is on their way to *[nearby village name]*.[store human as singing humanoid] [maybe a book thief] The songs they like to perform are *[with story]* and *[and story]*.
 2,<p>*[[same race] name]* is a **secret agent** of the [one of the secret societies]. [description for a secret society ([same alignment])]
 2,<p>*[[same race] name]* is selling blessed [metal mat] amulets of [good power].
 2,<p>*[[same race] name as cultist]* is an **evil cultist** of [evil power]. If you know the cult, you will recognise their amulet: it shows [[same evil power] decoration]. They already befriended a kid called *[human name]* but swore them to secrecy. Before the caravan leaves, *[same cultist]* is planning to sacrifice them to their demon lord.
 1,<p>One of the members of the trade caravan is a **witch** in disguise. Travelling under the name *[[same race] name]*, her real name is *[here old names for women as witch]*, [the witch]. [caravan witch goal] ([witch stats]). Any valuables are well hidden in her wagon. [terror treasure]
-1,<p>The caravan has a **travelling alchemist** called [human with portrait] who can supply a [with scroll], a [and scroll], a [and scroll] at 1000gp each. They also have a [with potion] and a [and potion] for sale at 500gp each.
-1,<p>The caravan has a **botanist** called [human with portrait] who will sell potted *[with magic plant]* or *[and magic plant]* at 50gp each (20 of each available), and the very costly *[and magic plant]* at 500gp each (just 2 available).
+1,<p>The caravan has a **travelling alchemist** called [human with portrait] who can supply a [with scroll], a [and scroll], a [and scroll] at 1000gp each. They also have a [with potion] and a [and potion] for sale at 500gp each. [maybe a book thief]
+1,<p>The caravan has a **botanist** called [human with portrait] who will sell potted *[with magic plant]* or *[and magic plant]* at 50gp each (20 of each available), and the very costly *[and magic plant]* at 500gp each (just 2 available). [maybe a book thief]
 
 ;caravan witch goal
 1,She uses the caravan as cover to travel from town to town selling love potions to gullible young folk in exchange for secrets.
@@ -14696,13 +14702,13 @@
 # note:
 # goblin patron is not the same thing!
 ;treasure hunter
-1,The treasure hunter **[human class]** [human with portrait] (level [1d4+1 as level]) is trying to hire some fools for they have a [treasure map]. [spellbook for [same class]] [leader treasure for [same class]] “[sharing agreement]”
-1,The treasure hunter **[human class]** [human with portrait] (level [1d4+1 as level]) is trying to hire some fools to find *[magic plant]* (in [link to adjacent hex]). “Surely *[nearby alchemist patron]* will pay us well. [5000gp reward sharing agreement]” [spellbook for [same class]] [leader treasure for [same class]]<blockquote>[magic plant guardian]</blockquote><p>
-1,The treasure hunter **[human class]** [human with portrait] (level [1d4+1 as level]) is trying to hire some fools to steal *[magic plant]* from the witch *[nearby witch]* who grows it amongst the other herbs, vegetables, and flowers of her garden. “Surely *[nearby alchemist patron]* will pay us well. [5000gp reward sharing agreement]” [spellbook for [same class]] [leader treasure for [same class]]
+1,The treasure hunter **[human class]** [human with portrait] (level [1d4+1 as level]) is trying to hire some fools for they have a [treasure map]. [spellbook for [same class]] [leader treasure for [same class]] [maybe a book thief] “[sharing agreement]”
+1,The treasure hunter **[human class]** [human with portrait] (level [1d4+1 as level]) is trying to hire some fools to find *[magic plant]* (in [link to adjacent hex]). “Surely *[nearby alchemist patron]* will pay us well. [5000gp reward sharing agreement]” [spellbook for [same class]] [leader treasure for [same class]] [maybe a book thief]<blockquote>[magic plant guardian]</blockquote><p>
+1,The treasure hunter **[human class]** [human with portrait] (level [1d4+1 as level]) is trying to hire some fools to steal *[magic plant]* from the witch *[nearby witch]* who grows it amongst the other herbs, vegetables, and flowers of her garden. “Surely *[nearby alchemist patron]* will pay us well. [5000gp reward sharing agreement]” [spellbook for [same class]] [leader treasure for [same class]] [maybe a book thief]
 # the following item might require more travel to an existing magic planet but has no guardian
-1,The treasure hunter **[human class]** [human with portrait] (level [1d4+1 as level]) is trying to hire some fools to search for *[nearby magic plant]*. [spellbook for [same class]] [leader treasure for [same class]] “Surely *[nearby alchemist patron]* will pay us well. [5000gp reward sharing agreement]”
-1,The treasure hunter **[human class]** [human with portrait] (level [1d4+1 as level]) is trying to hire some fools to rob an ancient tomb (in [link to adjacent hex]). [spellbook for [same class]] [leader treasure for [same class]] “[sharing agreement]”<blockquote>[tomb guardian] [ancient treasure]</blockquote><p>
-1,The treasure hunter **[human class]** [human with portrait] (level [1d4+1 as level]) is trying to hire some fools to get some *[nearby alchemist quest]*. [spellbook for [same class]] [leader treasure for [same class]] “Surely *[nearby alchemist patron]* will pay us well. [sales sharing agreement]”
+1,The treasure hunter **[human class]** [human with portrait] (level [1d4+1 as level]) is trying to hire some fools to search for *[nearby magic plant]*. [spellbook for [same class]] [leader treasure for [same class]] [maybe a book thief] “Surely *[nearby alchemist patron]* will pay us well. [5000gp reward sharing agreement]”
+1,The treasure hunter **[human class]** [human with portrait] (level [1d4+1 as level]) is trying to hire some fools to rob an ancient tomb (in [link to adjacent hex]). [spellbook for [same class]] [leader treasure for [same class]] [maybe a book thief] “[sharing agreement]”<blockquote>[tomb guardian] [ancient treasure]</blockquote><p>
+1,The treasure hunter **[human class]** [human with portrait] (level [1d4+1 as level]) is trying to hire some fools to get some *[nearby alchemist quest]*. [spellbook for [same class]] [leader treasure for [same class]] [maybe a book thief] “Surely *[nearby alchemist patron]* will pay us well. [sales sharing agreement]”
 
 ;magic plant guardian
 1,*[same magic plant]* lies in a shady hollow near a crystal clear pool, guarded by [1d8 treants] ([treant stats]). They hate any living being that lives by thumb and fist.
@@ -14833,19 +14839,19 @@
 
 ;circus hooks
 1,A prized **[circus exotic animal]** ([[same circus exotic animal] stats]) has escaped from their cage. [secret circus leader] is desperate and will pay 200gp to retrieve them, alive and intact.
-1,Local children from [nearby village name] have gone missing, and many of them ran away to join *[same circus name]*. The villagers may not have much in the way of payment, but returning them would make you local heroes, and always welcome.
+1,Local children from *[nearby village name]* have gone missing, and many of them ran away to join *[same circus name]*. The villagers may not have much in the way of payment, but returning them would make you local heroes, and always welcome.
 1,*[human with portrait]*, one of the [circus performers] that travels with the *[same circus name]* is secretely a **vampire** ([vampire stats]), with a coffin of dark earth hidden away in one of the [conveyances]. They use the nomadic nature of the [same circus2] to drain victims dry and moving on before suspicion falls on the circus.
 1,The circus has been experiencing mysterious accidents lately. Just yesterday, *[human with portrait]*, one of the [circus performers], was severely injured during their act. The other performers suspect foul play, but are too busy rehearsing to properly investigate. [circus plot]
-1,On their last visit to [nearby village name], the circus managed to bilk the community out of most of their wealth. [1d4x10] villagers armed with pitchforks and torches led by *[human with portrait]* has been tracking them down to forcibly request refunds.
+1,On their last visit to *[nearby village name]*, the circus managed to bilk the community out of most of their wealth. [1d4x10] villagers armed with pitchforks and torches led by *[human with portrait]* has been tracking them down to forcibly request refunds.
 1,Times have been tough for *[same circus name]* lately, and the last performance resulted in their payment being in the form of [with trade goods] and [and trade goods], *[human with portrait]* is looking to unload them for coin.
 1,The [with circus performers] have gone on strike for better wages and more safety measures. The protest has begun to escalate, roping in the [and circus performers] and [and circus performers]. The days of ringmaster *[human with portrait]* may be numbered as [secret circus leader] and her supporters *[with human name]* and *[and human name]* are outmanoeuvring them.
-1,The [secret circus leader] is looking to retire and settle down in [nearby village name]. They’ve saved up quite a bit of coin over the years, but ringmaster *[human with portrait]* is worried that they may end up taking the [with circus performers] *[with human name]* and *[and human name]* and [and circus performers] *[and human name]* and *[and human name]* with them.
-1,A horrible accident occurred during the last [sideshow attractions] performance, and [secret circus leader] will pay 50gp for a new, exciting act for tonight’s show, and another 50gp for the same show in [nearby village name].
+1,The [secret circus leader] is looking to retire and settle down in *[nearby village name]*. They’ve saved up quite a bit of coin over the years, but ringmaster *[human with portrait]* is worried that they may end up taking the [with circus performers] *[with human name]* and *[and human name]* and [and circus performers] *[and human name]* and *[and human name]* with them.
+1,A horrible accident occurred during the last [sideshow attractions] performance, and [secret circus leader] will pay 50gp for a new, exciting act for tonight’s show, and another 50gp for the same show in *[nearby village name]*.
 1,The mascot of *[same circus name]*, the [domestic animal adjective] **[circus exotic animal]** has died. The [secret circus leader] suspects foul play and is quick to blame the [circus performers] *[with human name]* and *[and human name]* who have been getting significantly less ring-time lately.
 
 ;circus plot
 1,Indeed, the [circus performers] *[with human name]* and *[and human name]* are actually **doppelgängers** ([doppelgänger stats]). They studiously avoid any contact with alcohol in order to avoid discovery.
-1,Sadly, when they fired one of the [circus performers] back in [nearby village name], *[human name]* swore bloody vengeance and started following the circus, sneaking through the camp at night and sabotaging the equipment.
+1,Sadly, when they fired one of the [circus performers] back in *[nearby village name]*, *[human name]* swore bloody vengeance and started following the circus, sneaking through the camp at night and sabotaging the equipment.
 1,It turns out that this all started after the breakup between the [circus performers] *[with human name as a]* and *[and human name as b]* back in [nearby village name]. *[same b]* has been acting strangely ever since, losing their temper easily and secretly threatening *[same a]* with more accidents unless they come back. *[same a]* isn’t confiding in anybody because they think *[same b]* can still be saved. But how?
 
 ;circus exotic animal
@@ -15005,7 +15011,7 @@
 1,Whilst plowing their fields with their [domestic animal adjective] [draft animals], farmers uncovered a cache of ancient coins: [3d100] gold pieces have been equitably split within the community. Each is emblazoned with on one side with a forgotten queen and a mysterious tower on the other.
 1,The [food veg] are growing exceptionally tall this year. Locals have discovered that clumps of medicinal herb *[magic plant]s* are thriving. This is one of the few non-magical cures for the horrid *[diseases]* and the villagers have made a tidy profit selling it off to visitors and travelling alchemists.
 1,Visitors hear only laughter as [conveyances] groan and occasionally break under the weight of a record-breaking harvest of [food veg]. Since armies march on their stomach, [a war party]*[the war party]*'s agents have already indicated that their quartermasters intends to buy all of their surplus.
-1,With [fruit]s ripening in abundance, the townsfolk have distilled a new tasty and potent spirit. This *[same fruit] [distilled beverage]* is quite delicious and already they are in trade-talks with the **dwarf** [dwarf with portrait], who plans to sell it in [nearby village] ([dwarf stats]). “Will you travel with me?”
+1,With [fruit]s ripening in abundance, the townsfolk have distilled a new tasty and potent spirit. This *[same fruit] [distilled beverage]* is quite delicious and already they are in trade-talks with the **dwarf** [dwarf with portrait], who plans to sell it in *[nearby village name]* ([dwarf stats]). “Will you travel with me?”
 
 ;animal event
 1,Local [food veg] farmer *[human name]* couldn't believe their luck when every one of their [livestock] gave birth to healthy triplets this year.
@@ -15233,6 +15239,28 @@
 1,thievery tools @ [3d6+20]gp
 3,a tinderbox @ [1d4]gp
 1,a war hammer @ [3d6+10]gp
+
+;library book
+1,[Introduction|Pathways|Gates|Travels|A Beginner’s Guide] to [another realm]
+1,The [Inhabitants|Legends|Creatures] of [another realm]
+1,[Introduction to|Foundations of|Studies in|The Art of|Further Studies in|Advanced Studies|Secret Knowledge in] [Golemcrafting|Necromancy|Healing|Banishment|Thaumaturgy|Conjuration|Witchcraft|Animation of Objects|Fleshcrafting|Stonecrafting|Evocation|Illusions]
+1,[Creation of|The Creation of|Foundations of|How to create|Animation of|Base Materials for|Substitutions for|Augmentations for] [capitalize golemtype] Golems
+1,[Summoning|Banishing|Entreating with|Bargaining with|Introduction to|Binding|Dealing with] [Demons|Devils|Ghosts|Elementals|Jinn|Marid|Afarit]
+1,[Transcending|Conquering|Mastering] [Space|Time|Death|Life|Infinity|Eternity|Youth]
+1,Protection from [Lycanthropes|Werewolves|Evil|Missiles|Ghosts|Curses|the Dead|Elves|Witches|Sorcerers]
+1,[Elemental|The Lords of|Building the World:] [Fire|Air|Water|Earth]
+1,[Influencing|Charming|Seducing|Leading|Commanding] People and [Making|Dominating|Exploiting|Suffering] Friends
+1,The [Hall|Origins|End|Allies|Servants|Legend|Temples|Worship|Glory|Downfall|Eternal Victory] of [power]
+1,[Transmutation|Transubstantiation|Transformation|Elevation|Disintegration|Integration|Transcendence|Mastery|Domination] of [the Flesh|the Body|Trees|Plants|Animals]
+
+;some books
+1,*[library book]*
+1,*[with library book]* and *[and library book]*
+1,*[with library book]*, *[and library book]* and *[and library book]*
+
+;maybe a book thief
+2,
+1,*[here [same human name] as book thief]* also happens to own a book: *[library book]*.
 
 #NOTE: no space to create proper compounds, spaces are present in some second halves for some variety
 ;village name
@@ -15612,7 +15640,7 @@
 1,digging a new well and swearing up a storm
 1,ruled by an ivory golem ([ivory golem stats])who speaks once per week
 1,discussing a stone tower that sprouted in the field last week
-1,running to fetch a priest from [nearby village]
+1,running to fetch a priest from *[nearby village name]*
 1,dragging sledges of firewood and furniture to burn
 1,schlepping a grain sacrifice to the local lake spirit
 1,dredging the pond for little *[human name]*, a missing child
@@ -15720,12 +15748,12 @@
 
 # the second variant has a temple at the end
 ;village
-1,<p>This is [here village name], a village of [5d6x10] **humans** ([human stats]). The [human houses] are protected by [human companions] and a [human defense]. There is a small *[village building]*. [small [same village building]] [average treasure]<p>The [human leader] lives in the [same village building]. [spellbook for [same class]] [leader treasure for [same class]][maybe fallen for a witch]<p>[human retainer]<p>[human friends]<p>[And a secret society]<p>[law and order jobs]<p>[settlement event]
-1,<p>This is [here village name], a village of [5d6x10] **humans** ([human stats]). The [human houses] are protected by [human companions] and a [human defense]. There is a small *[village building]*. [small [same village building]] [average treasure]<p>The [human leader] lives in the [same village building]. [spellbook for [same class]] [leader treasure for [same class]][maybe fallen for a witch]<p>[human retainer]<p>[human friends]<p>[And a secret society]<p>[law and order jobs]<p>[temple]<p>[settlement event]
-1,<p>This is [here village name], a village of [5d6x10] **humans** ([human stats]). The [human houses] are protected by [an earthen rampart|a wooden palisade]. [average treasure]<p>The [human leader] lives in the [village building]. [spellbook for [same class]] [leader treasure for [same class]][maybe fallen for a witch]<p>[human retainer]<p>[human friends]<p>[And two secret societies feuding]<p>[law and order jobs]<p>[temple]<p>[settlement event]
+1,<p>This is [here village name], a village of [5d6x10] **humans** ([human stats]). The [human houses] are protected by [human companions] and a [human defense]. There is a small *[village building]*. [small [same village building]] [average treasure]<p>The [human leader] lives in the [same village building]. [spellbook for [same class]] [leader treasure for [same class]][patron plot hook]<p>[human retainer]<p>[human friends]<p>[And a secret society]<p>[law and order jobs]<p>[settlement event]
+1,<p>This is [here village name], a village of [5d6x10] **humans** ([human stats]). The [human houses] are protected by [human companions] and a [human defense]. There is a small *[village building]*. [small [same village building]] [average treasure]<p>The [human leader] lives in the [same village building]. [spellbook for [same class]] [leader treasure for [same class]][patron plot hook]<p>[human retainer]<p>[human friends]<p>[And a secret society]<p>[law and order jobs]<p>[temple]<p>[settlement event]
+1,<p>This is [here village name], a village of [5d6x10] **humans** ([human stats]). The [human houses] are protected by [an earthen rampart|a wooden palisade]. [average treasure]<p>The [human leader] lives in the [village building]. [spellbook for [same class]] [leader treasure for [same class]][patron plot hook]<p>[human retainer]<p>[human friends]<p>[And two secret societies feuding]<p>[law and order jobs]<p>[temple]<p>[settlement event]
 
 ;town
-1,<p>This is [here village name], a town of [1d6x100] **humans** ([human stats]). The [human houses] are protected by a keep, a town wall and the river. [average treasure]<p>The [human leader] lives in the keep. [spellbook for [same class]] [leader treasure for [same class]]<p>[human retainer]<p>[human friends]<p>[And two secret societies feuding]<p>[law and order jobs]<p>[temple]<p>There is also [town feature]<p>[settlement event]
+1,<p>This is [here village name], a town of [1d6x100] **humans** ([human stats]). The [human houses] are protected by a keep, a town wall and the river. [average treasure]<p>The [human leader] lives in the keep. [spellbook for [same class]] [leader treasure for [same class]][patron plot hook]<p>[human retainer]<p>[human friends]<p>[And two secret societies feuding]<p>[law and order jobs]<p>[temple]<p>There is also [town feature]<p>[settlement event]
 1,<p>This is [here village name], a town of [1d6x100] **humans** ([human stats]). The [human houses] are protected by a large keep, [an earthen rampart|a wooden palisade|a stone wall|town wall] and the river. The outer bailey of the keep houses the [most prosperous|richest|wealthiest] tradespeople of the [land|area|region], under the [rule|protection|shelter] of [name for a war party 2]. The inner bailey houses the castellan and [the|town|local] [garrison|guard|watch]. [Entering|Visiting] the outer bailey [requires|takes|is by] [paying|a payment of|a fee of] 1sp per [entrant|person|visitor]. [These|The following] [people|tradespeople] [can be found|have shops|work] there:<ol>[alchemist or not][antiquarian or not][cleric or not][gossip or not][guildmaster or not][herbalist or not][horse trader or not][innkeeper or not][jeweler or not]<li>The **merchant** [human name] [buys] [bulk quantities of|in bulk|wholesale] spices, [ingots|metal ingots|rare minerals], and other trade goods. [townsperson goal]</li>[moneylender or not]<li>The **provisioner** [human name] sells [all standard|all types of|adventuring|standard adventuring] equipment. [townsperson goal]</li>[zealot or not]<li>The **smith** [human name] [sells] new - and [repairs|refurbishes] old - [weapons and armor|weaponry|armor]. [townsperson goal]</li>[new shop or not]<li>The **tavern owner** [human name] runs the *[Royal|Noble|King’s|Queen’s|Prince’s|Princess|Purple|Lord’s|Lady’s] [inn name 2]* here, [visited|frequented] by the [wealthy|well-off|gentry|townspeople|propertied] and [adventure-seekers|those seeking adventure|the rabble-rousers]. [tradesperson goal or feud]</li><li>The **trader** [human name] [buys] [used|old] equipment and [any unusual|rare] finds. [townsperson goal]</li>[factional deputy or not]</ol><p>(For a rumor about allegiances, roll a d10 and a d6. On a d6 of 1-3, tell the truth about the tradesperson corresponding to the results of the d10; on a 4-6, lie about them.)<p>The inner bailey is open [by invitation only|to the select few] and houses these [notable|noted|noteworthy|singular] [officers|personages|people]:</p><ul>[bailiff or not][captain or not]<li>The **castellan** [human name]. (Trusted confident of [name for a war party 2].)</li>[corporal or not][marshal or not][scribe or not]</ul>[And two secret societies feuding]<p>[Another|A third|Yet another] secret society [bides its time|waits in the wings|waits patiently for its chance].
 
 # outer bailey
@@ -15905,8 +15933,10 @@
 1,, the owner of the most sheep
 1,, the owner of the most goats
 
-;maybe fallen for a witch
-1, *[same human patron]* is secretly enthralled by the witch *[nearby witch]*.
+;patron plot hook
+1, *[same human patron]* is secretly enthralled by the witch *[nearby witch]*. The servants say, “*[same human patron]* often disappears for many days. [They just returned from a five absence, in fact|They’ve been gone for [two|three|four] days, now|And when they’re here, they never eat a thing]!”
+1, *[same human patron]* is missing a book. “*[nearby book thief]* absconded with it. Bring me back [the book|the book and their head], and I’ll reward you with 500gp.”
+1, *[same human patron]* has collected a handful of books in a chest. If you manage to take a look, the ones that stand out are [some books].
 2,
 
 ;law and order jobs
@@ -16351,7 +16381,7 @@
 ;small temple dedicated to Odin
 1,[small temple]
 1,The temple houses an 8ft high wooden statue of Odin wielding his magic spear. An **old woman** named [woman with portrait] takes care of the temple. She knows the power of runes and will cast the stones for you, should want to locate a loved one or find a dragon.
-1,The temple is actually a feast hall housing a small college of [3d6] **bards** led by [human with portrait].[store human as singing humanoid] During the day, they sing songs, practice balads, and compete in poetry. Their best known pieces are [with story] and [and story]. In the evening, the drink. All bards are expected to deliver a yearly donation for the upkeep of the college. Failure to do so results in being placed on a list. Should you need rescuing, they will contract a secret society to do that. Should you skip your obligation, they will contract a secret society to remedy that.
+1,The temple is actually a feast hall housing a small college of [3d6] **bards** led by [human with portrait].[store human as singing humanoid] During the day, they sing songs, practice balads, and compete in poetry. Their best known pieces are *[with story]* and *[and story]*. In the evening, the drink. All bards are expected to deliver a yearly donation for the upkeep of the college. Failure to do so results in being placed on a list. Should you need rescuing, they will contract a secret society to do that. Should you skip your obligation, they will contract a secret society to remedy that.
 1,The temple is also a famous school for birds of prey. They are trained here and then sold to nobility in far away regions. The rich merchants making this trip often need guards and thus a mercenary house was established here. [mercenary house]
 1,It was built generations ago atop a pool of Earth Blood by *Wise [human name]* in order to prevent its mutagenic power from corrupting the area. Many magic users and elves have come here over the years, drawn by the small eddies of magic energy still emanating from the sealed area: get one extra spell slot of your liking while you sleep nearby. *[inn]* was built next to the temple just for this. It’s run by the **inn keeper** [human with portrait].
 1,The temple functions welcomes all wanderers and homeless people, housing people for up to week for a gold piece per person. This is the *[inn]* run by the **inn keeper** [human with portrait]. The common room has an entire altar built into it, including carved columns with eagles and ravens and showing Odin riding his eight legged horse over the rainbow bridge.

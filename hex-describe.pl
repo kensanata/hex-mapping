@@ -1537,7 +1537,8 @@ sub resolve_nearby {
   my $redirects = shift;
   for my $coord (keys %$descriptions) {
     $descriptions->{$coord} =~
-	s/｢nearby ([^][｣]*)｣/closest($map_data,$table_data,$coord,$1, $redirects) or '…'/ge;
+	s/｢nearby ([^][｣]*)｣/closest($map_data,$table_data,$coord,$1, $redirects) or '…'/ge
+	for 1 .. 2; # two levels deep of ｢nearby ...｣
     $descriptions->{$coord} =~ s!( \(<a href="#desc\d+">\d+</a>\))</em>!</em>$1!g; # fixup
   }
 }
