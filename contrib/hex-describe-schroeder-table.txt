@@ -9641,7 +9641,7 @@
 ;necromancer tower
 1,It is surrounded by a moat and inside the moat lives a **pyrohydra** chained to the foundations of the tower ([pyrohydra stats]).
 1,The stinking dungeons below the tower are filled with cells where a hundred people or more must have died over the years. A pit of rotten flesh and bones awaits all who die here.
-1,Below the tower is a conjuration room with a circle of protection. There’s a book here: [necronomicon].
+1,Below the tower is a conjuration room with a circle of protection. There’s a book here: [here necronomicon as library book].
 1,It is surrounded by permanent darkness spells, and in the darkness lie spiked pits and poison trees, and [3d6] **shadow wolves**.
 
 ;necronomicon
@@ -12362,10 +12362,10 @@
 
 ;dryad lover
 2,At the foot of the tree lies a human skeleton. She is looking for a new lover!
-1,She’s crying because her lover [man] (a level [1d6+1 as level] [human class]) just left her. Bring him back, she implores you!
-1,She’s coy and flirtatious because she knows full well that her lover [man] (a level [1d6+1 as level] [human class]) is bound to show up any minute now. Oh how she loves to see those peacocks fight! [spellbook for [same class]] [leader treasure for [same class]]
-1,She’s sad and melancholy for it seems that both her lovers have learned of each other. There’s the [lover type] *[man]* (a level [1d6+1 as level] [human class]), and she loves him dearly. [spellbook for [same class]] [leader treasure for [same class]] But there’s also the [lover type] *[man as human name]* (a level [1d6+1 as level] [human class]), and she loves him just as much! [spellbook for [same class]] [leader treasure for [same class]]
-1,She sends her lover [man] (a level [1d6+1 as level] [human class]) to deal with you. [spellbook for [same class]] [leader treasure for [same class]]
+1,She’s crying because her lover [man] (a level [1d6+1 as level] [human class]) just left her. “Bring him back,” she implores you!
+1,She’s coy and flirtatious because she knows full well that her lover [man as human name] (a level [1d6+1 as level] [human class]) is bound to show up any minute now. Oh how she loves to see those peacocks fight! [spellbook for [same class]] [leader treasure for [same class]]
+1,She’s sad and melancholy for it seems that both her lovers have learned of each other. There’s the [lover type] *[man as human name]* (a level [1d6+1 as level] [human class]), and she loves him dearly. [spellbook for [same class]] [leader treasure for [same class]] But there’s also the [lover type] *[man as human name]* (a level [1d6+1 as level] [human class]), and she loves him just as much! [spellbook for [same class]] [leader treasure for [same class]]
+1,She sends her lover [man as human name] (a level [1d6+1 as level] [human class]) to deal with you. [spellbook for [same class]] [leader treasure for [same class]]
 1,She’s happy to see you and will trade a kiss for a little help: somebody needs to take care of the annoying [forest monster]
 
 ;lover type
@@ -15260,6 +15260,7 @@
 1,[Oral Histories of|Ancient Accounts of|Legends of] [The Philosopher’s War|The Vampire Wars|The Dragon Wars]
 1,[The Truth about the|Exposing the|Identifying Members of the] [one of the secret societies]
 1,[Orcish|Dwarven|Elven|Human] [War Machines|Siege Engines|Stronghold Defence|Warfare|Weapons and Armour|Metallurgy]
+1,[necronomicon]
 
 ;some books
 1,<span class="treasure book">*[here library book]*</span>
