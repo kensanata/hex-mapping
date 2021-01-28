@@ -610,20 +610,23 @@ sub add {
 }
 
 sub init {
-  my ($self, $width, $height, $classic, $mpts) = @_;
+  my ($self, $width, $height, $rules, $density) = @_;
+  $density ||= 0.5;
   my $digraphs = $self->compute_digraphs;
   $width //= 8;
   $height //= 10;
   for my $x (1..$width) {
     for my $y (1..$height) {
-      if (int(rand(2))) {
-        if ($mpts) {
-          $self->add(new Traveller::System::Classic::MPTS()->init($x, $y, $digraphs));
-        } elsif ($classic) {
-          $self->add(new Traveller::System::Classic()->init($x, $y, $digraphs));
-        } else {
-          $self->add(new Traveller::System()->init($x, $y, $digraphs));
-        }
+      if (rand() < $density) {
+	my $system;
+        if ($rules eq 'mpts') {
+	  $system = Traveller::System::Classic::MPTS->new();
+	} elsif ($rules eq 'ct') {
+	  $system = Traveller::System::Classic->new();
+	} else {
+	  $system = Traveller::System->new();
+	}
+	$self->add($system->init($x, $y, $digraphs));
       }
     }
   }
@@ -1593,50 +1596,160 @@ use POSIX qw(INT_MAX);
 
 get '/' => sub {
   my $c = shift;
-  $c->redirect_to('edit');
+  $c->redirect_to('main');
 };
 
 get '/random' => sub {
   my $c = shift;
   my $id = int(rand(INT_MAX));
-  my $classic = $c->param('classic');
-  my $mpts = $c->param('mpts');
-  $c->redirect_to($c->url_for('uwp', id => $id)->query(classic => $classic, mpts => $mpts));
-} => 'random';
+  $c->redirect_to($c->url_for('uwp', size => 'subsector', rules => 'mgp', id => $id));
+};
 
-get '/random/sector' => sub {
+get '/random/:size' => [size => ['subsector', 'sector']] => sub {
   my $c = shift;
+  my $size = $c->param('size');
   my $id = int(rand(INT_MAX));
-  my $classic = $c->param('classic');
-  my $mpts = $c->param('mpts');
-  $c->redirect_to($c->url_for('uwp-sector', id => $id)->query(classic => $classic, mpts => $mpts));
-} => 'random-sector';
+  $c->redirect_to($c->url_for('uwp', size => $size, rules => 'mgp', id => $id));
+};
+
+get '/random/:size/:rules' => [size => ['subsector', 'sector']] => sub {
+  my $c = shift;
+  my $size = $c->param('size');
+  my $rules = $c->param('rules');
+  my $density = $c->param('density');
+  my $id = int(rand(INT_MAX));
+  $c->redirect_to($c->url_for('uwp', size => $size, rules => $rules, id => $id)->query(density => $density));
+} => 'random';
 
 get '/:id' => [id => qr/\d+/] => sub {
   my $c = shift;
   my $id = $c->param('id');
-  $c->redirect_to('uwp', id => $id);
+  $c->redirect_to($c->url_for('uwp', size => 'subsector', rules => 'mgp', id => $id));
 };
 
-get '/uwp/:id' => [id => qr/\d+/] => sub {
+get '/uwp/:size/:id' => [size => ['subsector', 'sector']] => [id => qr/\d+/] => sub {
   my $c = shift;
+  my $size = $c->param('size');
   my $id = $c->param('id');
-  my $classic = $c->param('classic');
-  my $mpts = $c->param('mpts');
+  $c->redirect_to($c->url_for('uwp', size => $size, rules => 'mgp', id => $id));
+};
+
+get '/uwp/:size/:rules/:id' => [size => ['subsector', 'sector']] => [id => qr/\d+/] => sub {
+  my $c = shift;
+  my $size = $c->param('size');
+  my $rules = $c->param('rules');
+  my $id = $c->param('id');
+  my $density = $c->param('density') || 50;
   srand($id);
-  my $uwp = new Traveller::Subsector()->init(8, 10, $classic, $mpts)->str;
-  $c->render(template => 'uwp', id => $id, classic => $classic, mpts => $mpts, uwp => $uwp);
+  if ($size eq 'sector') {
+    my $uwp = Traveller::Subsector->new()->init(32, 40, $rules, $density/100)->str;
+    $c->render(template => 'uwp-sector', id => $id, rules => $rules, uwp => $uwp, density => $density);
+  } else {
+    my $uwp = Traveller::Subsector->new()->init(8, 10, $rules, $density/100)->str;
+    $c->render(template => 'uwp', id => $id, rules => $rules, uwp => $uwp, density => $density);
+  }
 } => 'uwp';
 
-get '/uwp/sector/:id' => [id => qr/\d+/] => sub {
+any '/edit' => sub {
+  my $c = shift;
+  my $uwp = $c->param('map');
+  $c->render(template => 'edit', uwp => Traveller::Mapper::example(), size => 'subsector', rules => 'mgp', id => '');
+} => 'main';
+
+get '/edit/:id' => [id => qr/\d+/] => sub {
   my $c = shift;
   my $id = $c->param('id');
-  my $classic = $c->param('classic');
-  my $mpts = $c->param('mpts');
+  $c->redirect_to($c->url_for('edit', size => 'subsector', rules => 'mgp', id => $id));
+};
+
+get '/edit/:size/:id' => [size => ['subsector', 'sector']] => [id => qr/\d+/] => sub {
+  my $c = shift;
+  my $size = $c->param('size');
+  my $id = $c->param('id');
+  $c->redirect_to($c->url_for('edit', size => $size, rules => 'mgp', id => $id));
+};
+
+get '/edit/:size/:rules/:id' => [size => ['subsector', 'sector']] => [id => qr/\d+/] => sub {
+  my $c = shift;
+  my $size = $c->param('size');
+  my $rules = $c->param('rules');
+  my $id = $c->param('id');
+  my $density = $c->param('density');
   srand($id);
-  my $uwp = new Traveller::Subsector()->init(32, 40, $classic, $mpts)->str;
-  $c->render(template => 'uwp-sector', id => $id, classic => $classic, mpts => $mpts, uwp => $uwp, sector => 1);
-} => 'uwp-sector';
+  if ($size eq 'sector') {
+    my $uwp = Traveller::Subsector->new()->init(32, 40, $rules, $density)->str;
+    $c->render(template => 'edit-sector', id => $id, rules => $rules, uwp => $uwp);
+  } else {
+    my $uwp = Traveller::Subsector->new()->init(8, 10, $rules, $density)->str;
+    $c->render(template => 'edit', id => $id, rules => $rules, uwp => $uwp);
+  }
+} => 'edit';
+
+get '/map' => sub {
+  my $c = shift;
+  $c->render(template => 'map', uwp => Traveller::Mapper::example(), size => 'subsector', rules => 'mgp');
+};
+
+get '/map/:id' => [id => qr/\d+/] => sub {
+  my $c = shift;
+  my $id = $c->param('id');
+  $c->redirect_to($c->url_for('map', size => 'subsector', rules => 'mgp', id => $id));
+};
+
+get '/map/:size/:id' => [size => ['subsector', 'sector']] => [id => qr/\d+/] => sub {
+  my $c = shift;
+  my $size = $c->param('size');
+  my $id = $c->param('id');
+  $c->redirect_to($c->url_for('map', size => $size, rules => 'mgp', id => $id));
+};
+
+get '/map/:size/:rules/:id' => [size => ['subsector', 'sector']] => [id => qr/\d+/] => sub {
+  my $c = shift;
+  my $size = $c->param('size');
+  my $rules = $c->param('rules');
+  my $id = $c->param('id');
+  my $wiki = $c->param('wiki');
+  my $density = $c->param('density') || 50;
+  srand($id);
+  my $map = mapper($rules);
+  my $uwp;
+  if ($size eq 'sector') {
+    $uwp = Traveller::Subsector->new()->init(32, 40, $rules, $density/100)->str;
+  } else {
+    $uwp = Traveller::Subsector->new()->init(8, 10, $rules, $density/100)->str;
+  }
+  my $url = $c->url_for('uwp', size => $size, rules => $rules, id => $id);
+  $url = $url->query(density => $density) if $density and $density != 50;
+  $map->initialize($uwp, $wiki, $url);
+  $map->communications();
+  $map->trade();
+  $c->render(text => $map->svg, format => 'svg');
+} => 'map_all';
+
+post '/map' => sub {
+  my $c = shift;
+  my $wiki = $c->param('wiki');
+  my $trade = $c->param('trade');
+  my $uwp = $c->param('map');
+  my $size = $c->param('size');
+  my $rules = $c->param('rules');
+  my $source;
+  if (!$uwp) {
+    my $id = int(rand(INT_MAX));
+    srand($id);
+    $uwp = new Traveller::Subsector->new()->init(8, 10, $rules)->str;
+    $source = $c->url_for('uwp', id => $id);
+  }
+  my $map = mapper($rules);
+  $map->initialize($uwp, $wiki, $source);
+  $map->communications();
+  $map->trade();
+  if ($trade) {
+    $c->render(text => $map->text, format => 'txt');
+  } else {
+    $c->render(text => $map->svg, format => 'svg');
+  }
+} => 'map';
 
 get '/help' => sub {
   my $c = shift;
@@ -1652,162 +1765,16 @@ get '/source' => sub {
   $c->render(text => <DATA>, format => 'text');
 };
 
-get '/edit' => sub {
-  my $c = shift;
-  my $classic = $c->param('classic');
-  my $mpts = $c->param('mpts');
-  $c->render(template => 'edit', uwp => Traveller::Mapper::example(), classic => $classic, mpts => $mpts);
-} => 'main';
-
-get '/edit/:id' => sub {
-  my $c = shift;
-  my $id = $c->param('id');
-  my $classic = $c->param('classic');
-  my $mpts = $c->param('mpts');
-  srand($id);
-  my $uwp = new Traveller::Subsector()->init(8, 10, $classic, $mpts)->str;
-  $c->render(template => 'edit', uwp => $uwp, classic => $classic, mpts => $mpts);
-} => 'edit';
-
-get '/edit/sector/:id' => sub {
-  my $c = shift;
-  my $id = $c->param('id');
-  my $classic = $c->param('classic');
-  my $mpts = $c->param('mpts');
-  srand($id);
-  my $uwp = new Traveller::Subsector()->init(32, 40, $classic, $mpts)->str;
-  $c->render(template => 'edit-sector', uwp => $uwp, classic => $classic, mpts => $mpts);
-} => 'edit-sector';
-
-get '/map/:id' => [id => qr/\d+/] => sub {
-  my $c = shift;
-  my $wiki = $c->param('wiki');
-  my $id = $c->param('id');
-  my $classic = $c->param('classic');
-  my $mpts = $c->param('mpts');
-  srand($id);
-  my $uwp = new Traveller::Subsector()->init(8, 10, $classic, $mpts)->str;
-  my $map;
-  if ($mpts) {
-    $map = new Traveller::Mapper::Classic::MPTS;
-  } elsif ($classic) {
-    $map = new Traveller::Mapper::Classic;
+sub mapper {
+  my $rules = shift;
+  if ($rules eq 'mpts') {
+    return Traveller::Mapper::Classic::MPTS->new;
+  } elsif ($rules eq 'ct') {
+    return Traveller::Mapper::Classic->new;
   } else {
-    $map = new Traveller::Mapper;
+    return Traveller::Mapper->new;
   }
-  $map->initialize($uwp, $wiki, $c->url_for('uwp', id => $id)->query(classic => $classic, mpts => $mpts));
-  $map->communications();
-  $map->trade();
-  $c->render(text => $map->svg, format => 'svg');
-} => 'map';
-
-get '/map/sector/:id' => [id => qr/\d+/] => sub {
-  my $c = shift;
-  my $wiki = $c->param('wiki');
-  my $id = $c->param('id');
-  my $classic = $c->param('classic');
-  my $mpts = $c->param('mpts');
-  srand($id);
-  my $uwp = new Traveller::Subsector()->init(32, 40, $classic, $mpts)->str;
-  my $map;
-  if ($mpts) {
-    $map = new Traveller::Mapper::Classic::MPTS;
-  } elsif ($classic) {
-    $map = new Traveller::Mapper::Classic;
-  } else {
-    $map = new Traveller::Mapper;
-  }
-  $map->initialize($uwp, $wiki, $c->url_for('uwp-sector', id => $id)->query(classic => $classic, mpts => $mpts));
-  $map->communications();
-  $map->trade();
-  $c->render(text => $map->svg, format => 'svg');
-} => 'map-sector';
-
-get '/trade/:id' => [id => qr/\d+/] => sub {
-  my $c = shift;
-  my $wiki = $c->param('wiki');
-  my $id = $c->param('id');
-  my $classic = $c->param('classic');
-  my $mpts = $c->param('mpts');
-  srand($id);
-  my $uwp = new Traveller::Subsector()->init(8, 10, $classic, $mpts)->str;
-  my $map;
-  if ($mpts) {
-    $map = new Traveller::Mapper::Classic::MPTS;
-  } elsif ($classic) {
-    $map = new Traveller::Mapper::Classic;
-  } else {
-    $map = new Traveller::Mapper;
-  }
-  $map->initialize($uwp, $wiki, $c->url_for('uwp', id => $id));
-  $map->communications();
-  $map->trade();
-  $c->render(text => $map->text, format => 'txt');
-} => 'trade';
-
-any '/map' => sub {
-  my $c = shift;
-  my $wiki = $c->param('wiki');
-  my $trade = $c->param('trade');
-  my $uwp = $c->param('map');
-  my $classic = $c->param('classic');
-  my $mpts = $c->param('mpts');
-  my $source;
-  if (!$uwp) {
-    my $id = int(rand(INT_MAX));
-    srand($id);
-    $uwp = new Traveller::Subsector()->init(8, 10, $classic, $mpts)->str;
-    $source = $c->url_for('uwp', id => $id);
-  }
-  my $map;
-  if ($mpts) {
-    $map = new Traveller::Mapper::Classic::MPTS;
-  } elsif ($classic) {
-    $map = new Traveller::Mapper::Classic;
-  } else {
-    $map = new Traveller::Mapper;
-  }
-  $map->initialize($uwp, $wiki, $source);
-  $map->communications();
-  $map->trade();
-  if ($trade) {
-    $c->render(text => $map->text, format => 'txt');
-  } else {
-    $c->render(text => $map->svg, format => 'svg');
-  }
-} => 'random-map';
-
-any '/map-sector' => sub {
-  my $c = shift;
-  my $wiki = $c->param('wiki');
-  my $trade = $c->param('trade');
-  my $uwp = $c->param('map');
-  my $classic = $c->param('classic');
-  my $mpts = $c->param('mpts');
-  my $source;
-  if (!$uwp) {
-    my $id = int(rand(INT_MAX));
-    srand($id);
-    $uwp = new Traveller::Subsector()->init(32, 40, $classic, $mpts)->str;
-    $source = $c->url_for('uwp', id => $id);
-  }
-  my $map;
-  if ($mpts) {
-    $map = new Traveller::Mapper::Classic::MPTS;
-  } elsif ($classic) {
-    $map = new Traveller::Mapper::Classic;
-  } else {
-    $map = new Traveller::Mapper;
-  }
-  $map->initialize($uwp, $wiki, $source);
-  $map->communications();
-  $map->trade();
-  if ($trade) {
-    $c->render(text => $map->text, format => 'txt');
-  } else {
-    $c->render(text => $map->svg, format => 'svg');
-  }
-} => 'random-map-sector';
+}
 
 app->start;
 
@@ -1816,7 +1783,7 @@ __DATA__
 =encoding utf8
 
 @@ uwp-footer.html.ep
-<% if ($mpts) { =%>
+<% if ($rules eq 'mpts') { =%>
                        ||||||| |
 Ag Agricultural        ||||||| +- Tech        In Industrial
 As Asteroid            ||||||+- Law           Na Non-Agricultural
@@ -1826,7 +1793,7 @@ Fl Fluid Oceans        |||+- Hydro            Ri Rich
 Hi High Population     ||+- Atmosphere        Va Vacuum
 Lo Low Population      |+- Size               Wa Water World
 Ic Ice-Capped          +- Starport
-<% } elsif ($classic) { =%>
+<% } elsif ($rules eq 'ct') { =%>
                        ||||||| |
 Ag Agricultural        ||||||| +- Tech        Ni Non-Industrial
 As Asteroid            ||||||+- Law           Po Poor
@@ -1851,6 +1818,39 @@ Ic Ice-Capped          +- Starport            Wa Water World
 Bases: Naval – Scout – Research – TAS – Consulate – Pirate – Gas Giant
 % }
 
+@@ uwp-links.html.ep
+<p>
+% if ($density and $density != 50) {
+<%= link_to url_for('map_all', size => $size, rules => $rules, id => $id)->query(density => $density) => begin %>Generate Map<% end %>&#x2003;
+<%= link_to url_for('edit', size => $size, rules => $rules, id => $id)->query(density => $density) => begin %>Edit UWP List<% end %>&#x2003;
+<%= link_to url_for('random', size => 'subsector', rules => $rules)->query(density => $density) => begin %>Random Subsector<% end %>&#x2003;
+<%= link_to url_for('random', size => 'sector', rules => $rules)->query(density => $density) => begin %>Random Sector<% end %>
+% } else {
+<%= link_to url_for('map_all', size => $size, rules => $rules, id => $id) => begin %>Generate Map<% end %>&#x2003;
+<%= link_to url_for('edit', size => $size, rules => $rules, id => $id) => begin %>Edit UWP List<% end %>&#x2003;
+<%= link_to url_for('random', size => 'subsector', rules => $rules) => begin %>Random Subsector<% end %>&#x2003;
+<%= link_to url_for('random', size => 'sector', rules => $rules) => begin %>Random Sector<% end %>
+% }
+</p>
+<p>
+Or switch to
+% if ($rules eq 'ct') {
+<%= link_to url_for('random', size => $size, rules => 'mpg') => begin %>MGP<% end %> or
+<%= link_to url_for('random', size => $size, rules => 'mpts') => begin %>MPTS<% end %>.
+% } elsif ($rules eq 'mpts') {
+<%= link_to url_for('random', size => $size, rules => 'mpg') => begin %>MGP<% end %> or
+<%= link_to url_for('random', size => $size, rules => 'ct') => begin %>CT<% end %>.
+% } else {
+<%= link_to url_for('random', size => $size, rules => 'ct') => begin %>CT<% end %> or
+<%= link_to url_for('random', size => $size, rules => 'mpts') => begin %>MPTS<% end %>.
+% }
+</p>
+%= form_for random => begin
+%= label_for density => 'Change system density: '
+%= number_field density => 50, id => 'density', min => 1, max => 100
+%= submit_button
+% end
+
 @@ uwp.html.ep
 % layout 'default';
 % title 'Traveller Subsector UWP List Generator';
@@ -1859,12 +1859,7 @@ Bases: Naval – Scout – Research – TAS – Consulate – Pirate – Gas Gia
 <%= $uwp =%>
 <%= include 'uwp-footer' =%>
 </pre>
-<p>
-<%= link_to url_for('map')->query(classic => $classic, mpts => $mpts) => begin %>Generate Map<% end %>&#x2003;
-<%= link_to url_for('edit')->query(classic => $classic, mpts => $mpts) => begin %>Edit UWP List<% end %>&#x2003;
-<%= link_to url_for('random')->query(classic => $classic, mpts => $mpts) => begin %>Random Subsector<% end %>&#x2003;
-<%= link_to url_for('random-sector')->query(classic => $classic, mpts => $mpts) => begin %>Random Sector<% end %>
-</p>
+<%= include 'uwp-links' =%>
 
 @@ uwp-sector.html.ep
 % layout 'default';
@@ -1874,12 +1869,7 @@ Bases: Naval – Scout – Research – TAS – Consulate – Pirate – Gas Gia
 <%= $uwp =%>
 <%= include 'uwp-footer' =%>
 </pre>
-<p>
-<%= link_to url_for('map-sector')->query(classic => $classic, mpts => $mpts) => begin %>Generate Map<% end %>&#x2003;
-<%= link_to url_for('edit-sector')->query(classic => $classic, mpts => $mpts) => begin %>Edit UWP List<% end %>&#x2003;
-<%= link_to url_for('random')->query(classic => $classic, mpts => $mpts) => begin %>Random Subsector<% end %>&#x2003;
-<%= link_to url_for('random-sector')->query(classic => $classic, mpts => $mpts) => begin %>Random Sector<% end %>
-</p>
+<%= include 'uwp-links' =%>
 
 @@ edit-footer.html.ep
 <p>
@@ -1960,10 +1950,10 @@ T).
 % title 'Traveller Subsector Generator';
 <h1>Traveller Subsector Generator</h1>
 <p>Submit your UWP list, or generate a
-<%= link_to url_for('random')->query(classic => $classic, mpts => $mpts) => begin %>Random Subsector<% end %> or a
-<%= link_to url_for('random-sector')->query(classic => $classic, mpts => $mpts) => begin %>Random Sector<% end %>.
+<%= link_to url_for('random', size => 'subsector', rules => $rules) => begin %>Random Subsector<% end %> or a
+<%= link_to url_for('random', size => 'sector', rules => $rules) => begin %>Random Sector<% end %>.
 </p>
-%= form_for 'random-map' => (method => 'POST') => begin
+%= form_for 'map' => (method => 'POST') => begin
 <p>
 %= text_area 'map' => (cols => 60, rows => 20) => begin
 <%= $uwp =%>
@@ -1975,8 +1965,7 @@ URL (optional):
 % end
 %= text_field 'wiki' => 'http://campaignwiki.org/wiki/NameOfYourWiki/' => (id => 'wiki')
 </p>
-%= hidden_field classic => $classic
-%= hidden_field mpts => $mpts
+%= hidden_field rules => $rules
 %= submit_button 'Submit'
 %= end
 
@@ -1987,10 +1976,10 @@ URL (optional):
 % title 'Traveller Sector Generator';
 <h1>Traveller Sector Generator</h1>
 <p>Submit your UWP list, or generate a
-<%= link_to url_for('random')->query(classic => $classic, mpts => $mpts) => begin %>Random Subsector<% end %> or a
-<%= link_to url_for('random-sector')->query(classic => $classic, mpts => $mpts) => begin %>Random Sector<% end %>.
+<%= link_to url_for('random', size => 'subsector', rules => $rules) => begin %>Random Subsector<% end %> or a
+<%= link_to url_for('random', size => 'sector', rules => $rules) => begin %>Random Sector<% end %>.
 </p>
-%= form_for 'random-map-sector' => (method => 'POST') => begin
+%= form_for 'map' => (method => 'POST') => begin
 <p>
 %= text_area 'map' => (cols => 60, rows => 20) => begin
 <%= $uwp =%>
@@ -2002,8 +1991,7 @@ URL (optional):
 % end
 %= text_field 'wiki' => 'http://campaignwiki.org/wiki/NameOfYourWiki/' => (id => 'wiki')
 </p>
-%= hidden_field classic => $classic
-%= hidden_field mpts => $mpts
+%= hidden_field rules => $rules
 %= submit_button 'Submit'
 %= end
 
@@ -2013,19 +2001,22 @@ URL (optional):
 % layout 'default';
 % title 'Traveller Subsector Generator';
 <h1>Traveller Subsector Generator</h1>
-<p>This generator can generate
-<%= link_to url_for('random')->query(classic => $classic, mpts => $mpts) => begin %>random subsectors<% end %> and
-<%= link_to url_for('random-sector')->query(classic => $classic, mpts => $mpts) => begin %>random sectors<% end %>
-for <cite>Classic Traveller</cite> (CT), <cite>Classic Traveller</cite> with the <cite>Merchant Prince</cite>
-trade system (CT+MPTS), and <cite>Mongoose Traveller</cite> (MGT).
-You can switch between them using the link at the bottom.</p>
+<p>This generator can generate the Universal World Profiles (UWP) for either 8×10
+<%= link_to url_for('random', size => 'subsector') => begin %>random subsectors<% end %> or for 32×40
+<%= link_to url_for('random', size => 'sector') => begin %>random sectors<% end %>.
+This uses the <cite>Mongoose Traveller</cite> (MGT) rules (1st ed). Once you
+have the UWP list generated, you’ll find links to switch to <cite>Classic
+Traveller</cite> (CT) or to <cite>Classic Traveller</cite> with the
+<cite>Merchant Prince</cite> trade system (CT+MPTS).</p>
 
 <p>If you generate a random map, it will have a link to its UWP list at the
-bottom of the map.</p>
+bottom of the map. It links back to the numeric seed used to generate the
+list.</p>
 
-<p>You can edit a random UWP list and generate a new map. In this case, however,
-there will be no link back to the UWP list. You need to keep it safe in a text
-file on your system somewhere.</p>
+<p>You can edit a randomly generated UWP list. In this case, however, there will
+be no link back to the UWP list from the map, since the numeric seed is not
+enough. You need to keep your edited UWP list safe in a text file on your system
+somewhere.</p>
 
 <h2>Trade</h2>
 <p>For <cite>Classic Traveller</cite> (with or without the <cite>Merchant Prince</cite> trade system)
@@ -2051,7 +2042,7 @@ form {
 textarea, #wiki {
   width: 100%;
   font-family: "Andale Mono", AndaleMono, Monaco, "Courier New", CourierNewPSMT, Courier, Symbola, monospace;
-  font-size: 100%;
+  font-size: 80%;
 }
 table {
   padding-bottom: 1em;
@@ -2065,6 +2056,9 @@ cite {
 .example {
   font-size: smaller;
 }
+#density {
+  width: 3em;
+}
 % end
 <meta name="viewport" content="width=device-width">
 </head>
@@ -2073,17 +2067,6 @@ cite {
 <hr>
 <p>
 <a href="https://campaignwiki.org/traveller">Subsector Generator</a>&#x2003;
-% if ($mpts) {
-<%= link_to url_for()->query(classic => 1, mpts => undef) => begin %>CT<% end %>&#x2003;
-<%= link_to url_for()->query(classic => undef, mpts => undef) => begin %>MGT<% end %>
-% } elsif ($classic) {
-<%= link_to url_for()->query(classic => undef, mpts => 1) => begin %>CT+MPTS<% end %>&#x2003;
-<%= link_to url_for()->query(classic => undef, mpts => undef) => begin %>MGT<% end %>
-% } else {
-<%= link_to url_for()->query(classic => 1, mpts => undef) => begin %>CT<% end %>&#x2003;
-<%= link_to url_for()->query(classic => undef, mpts => 1) => begin %>CT+MPTS<% end %>
-% }
-&#x2003;
 <%= link_to 'Help' => 'help' %>&#x2003;
 <%= link_to 'Source' => 'source' %>&#x2003;
 <a href="https://alexschroeder.ch/cgit/hex-mapping/about/#traveller-subsector-generator">Git</a>&#x2003;
