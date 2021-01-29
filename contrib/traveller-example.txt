@@ -1,29 +1,29 @@
 # This file is for use with text-mapper.
 # https://github.com/kensanata/hex-mapping
 
-0101 D 7 gas amber "Inedgeus"
-0102 E 6 gas amber "GEAAN"
-0103 C 5 scout gas "Orgemaso"
+0101 starport-D size-7 gas amber "Inedgeus"
+0102 starport-E size-6 gas amber "GEAAN"
+0103 starport-C size-5 scout gas "Orgemaso"
 0104 empty
-0105 C 5 gas amber "Veesso"
-0106 B 7 tas scout gas amber "Ticezale"
-0107 C 6 consulate gas amber "Maatonte"
+0105 starport-C size-5 gas amber "Veesso"
+0106 starport-B size-7 tas scout gas amber "Ticezale"
+0107 starport-C size-6 consulate gas amber "Maatonte"
 0108 empty
-0109 D 5 scout gas "Diesra"
+0109 starport-D size-5 scout gas "Diesra"
 0110 empty
 0201 empty
 0202 empty
 0203 empty
-0204 E 8 gas amber "Esarra"
-0205 C 6 gas "Rience"
+0204 starport-E size-8 gas amber "Esarra"
+0205 starport-C size-6 gas "Rience"
 0206 empty
 0207 empty
-0208 C 6 consulate gas "Rearreso"
+0208 starport-C size-6 consulate gas "Rearreso"
 0209 empty
-0210 E 3 "Laisbe"
+0210 starport-E size-3 "Laisbe"
 0301 empty
-0302 C 6 consulate gas "Biveer"
-0303 A 7 consulate tas naval gas amber "Labeveri"
+0302 starport-C size-6 consulate gas "Biveer"
+0303 starport-A size-7 consulate tas naval gas amber "Labeveri"
 0304 empty
 0305 empty
 0306 empty
@@ -38,49 +38,49 @@
 0405 empty
 0406 empty
 0407 empty
-0408 E 5 gas amber "Sotexe"
-0409 A 5 tas naval gas "Zamala"
+0408 starport-E size-5 gas amber "Sotexe"
+0409 starport-A size-5 tas naval gas "Zamala"
 0410 empty
 0501 empty
-0502 A 2 consulate tas naval gas "Sogeeran"
-0503 E 6 gas amber "Aanbi"
-0504 C 6 consulate research gas "Bemaat"
-0505 A 2 tas research naval gas amber "Diare"
+0502 starport-A size-2 consulate tas naval gas "Sogeeran"
+0503 starport-E size-6 gas amber "Aanbi"
+0504 starport-C size-6 consulate research gas "Bemaat"
+0505 starport-A size-2 tas research naval gas amber "Diare"
 0506 empty
-0507 A 8 research naval gas amber "Esgeed"
+0507 starport-A size-8 research naval gas amber "Esgeed"
 0508 empty
 0509 empty
-0510 B 3 tas scout gas amber "Leonbi"
+0510 starport-B size-3 tas scout gas amber "Leonbi"
 0601 empty
 0602 empty
 0603 empty
-0604 C 5 research gas "Reisbeon"
-0605 A 2 consulate tas gas "Atcevein"
+0604 starport-C size-5 research gas "Reisbeon"
+0605 starport-A size-2 consulate tas gas "Atcevein"
 0606 empty
-0607 A 5 tas gas "USMABE"
-0608 B 2 gas amber "Onbebior"
-0609 B 4 tas naval scout gas "Raraxema"
-0610 C 2 gas "Xeerri"
+0607 starport-A size-5 tas gas "USMABE"
+0608 starport-B size-2 gas amber "Onbebior"
+0609 starport-B size-4 tas naval scout gas "Raraxema"
+0610 starport-C size-2 gas "Xeerri"
 0701 empty
-0702 D 8 scout amber "Onreon"
-0703 E 2 "Ismave"
-0704 C 0 scout gas amber "Lara"
-0705 C 1 research gas "Lalala"
+0702 starport-D size-8 scout amber "Onreon"
+0703 starport-E size-2 "Ismave"
+0704 starport-C size-0 scout gas amber "Lara"
+0705 starport-C size-1 research gas "Lalala"
 0706 empty
-0707 A 5 consulate tas naval scout gas "Maxereis"
+0707 starport-A size-5 consulate tas naval scout gas "Maxereis"
 0708 empty
 0709 empty
 0710 empty
 0801 empty
-0802 C 9 gas amber "Requbire"
+0802 starport-C size-9 gas amber "Requbire"
 0803 empty
-0804 B 6 consulate gas amber "Azaxe"
-0805 B 3 gas amber "Rieddige"
-0806 E 7 gas amber "Usorce"
+0804 starport-B size-6 consulate gas amber "Azaxe"
+0805 starport-B size-3 gas amber "Rieddige"
+0806 starport-E size-7 gas amber "Usorce"
 0807 empty
 0808 empty
 0809 empty
-0810 red 3 D pirate scout "Solacexe"
+0810 red size-3 starport-D pirate scout "Solacexe"
 
 # communication must come before trade routes
 0107-0208 communication

@@ -4,25 +4,25 @@
 default attributes fill="none" stroke="black" stroke-width="3"
 
 # ports
-A xml <text font-size="20pt" dy="-25px" font-family="Optima, Helvetica, sans-serif" text-anchor="middle">A</text>
-B xml <text font-size="20pt" dy="-25px" font-family="Optima, Helvetica, sans-serif" text-anchor="middle">B</text>
-C xml <text font-size="20pt" dy="-25px" font-family="Optima, Helvetica, sans-serif" text-anchor="middle">C</text>
-D xml <text font-size="20pt" dy="-25px" font-family="Optima, Helvetica, sans-serif" text-anchor="middle">D</text>
-E xml <text font-size="20pt" dy="-25px" font-family="Optima, Helvetica, sans-serif" text-anchor="middle">E</text>
-F xml <text font-size="20pt" dy="-25px" font-family="Optima, Helvetica, sans-serif" text-anchor="middle">F</text>
+starport-A xml <text font-size="20pt" dy="-25px" font-family="Optima, Helvetica, sans-serif" text-anchor="middle">A</text>
+starport-B xml <text font-size="20pt" dy="-25px" font-family="Optima, Helvetica, sans-serif" text-anchor="middle">B</text>
+starport-C xml <text font-size="20pt" dy="-25px" font-family="Optima, Helvetica, sans-serif" text-anchor="middle">C</text>
+starport-D xml <text font-size="20pt" dy="-25px" font-family="Optima, Helvetica, sans-serif" text-anchor="middle">D</text>
+starport-E xml <text font-size="20pt" dy="-25px" font-family="Optima, Helvetica, sans-serif" text-anchor="middle">E</text>
+starport-X xml <text font-size="20pt" dy="-25px" font-family="Optima, Helvetica, sans-serif" text-anchor="middle">F</text>
 
 # size
-0 xml <circle r="11"/>
-1 xml <circle r="12"/>
-2 xml <circle r="13"/>
-3 xml <circle r="14"/>
-4 xml <circle r="15"/>
-5 xml <circle r="16"/>
-6 xml <circle r="17"/>
-7 xml <circle r="18"/>
-8 xml <circle r="19"/>
-9 xml <circle r="20"/>
-10 xml <circle r="21"/>
+size-0 xml <circle r="11"/>
+size-1 xml <circle r="12"/>
+size-2 xml <circle r="13"/>
+size-3 xml <circle r="14"/>
+size-4 xml <circle r="15"/>
+size-5 xml <circle r="16"/>
+size-6 xml <circle r="17"/>
+size-7 xml <circle r="18"/>
+size-8 xml <circle r="19"/>
+size-9 xml <circle r="20"/>
+size-10 xml <circle r="21"/>
 
 # bases
 consulate xml <text font-size="20pt" dy="50px" dx="-45px" font-family="Optima, Helvetica, sans-serif" text-anchor="middle">■</text>

@@ -1,0 +1,70 @@
+# A random table collection written by Alex Schroeder and Vicky
+# Rathcliff and dedicated to the Public Domain.
+
+;starport
+1,[starport-[A|B|C|D|E]]
+
+;starport-A
+1,This is a class A starport. [shipyard] [refinery] 
+
+;starport-B
+1,This is a class B starport. [shipyard] [refinery]
+
+;starport-C
+1,This is a class C starport. [dockyard] [unrefined fuel]
+
+;starport-D
+1,This is a class D starport. [small starport building]
+
+;starport-E
+1,This is a class E starport. [no facilities]
+
+;starport-X
+1,There is no starport, here.
+
+;shipyard
+1,The *[shipyard name]* shipyards loom large over the starport’s various landing pads.
+1,The starport appears to be divided into two sections, half of it under the control of the *[with shipyard name]* shipyards, the other half under the control of the *[and shipyard name]*.
+1,A network of a gazillion workshops spread from the starport like veins.
+
+;dockyard
+1,There’s a small *[shipyard name]* subsidiary, apparently operating from some sort of garage.
+1,A small frontier style *[shipyard name]* installation is here for small repairs.
+
+;refinery
+1,A mighty plume over the fuel refineries reaches into the stratosphere, a permanent cloud tower.
+1,A bit to the [north|east|south|west] you can see [a|two] dozen huge fuel tanks.
+1,Pipelines from the refineries to the [north|east|south|west] lead to a big fuelling station.
+
+;unrefined fuel
+1,A bunch of water tanks nearby tell you all there is to know about the fuel situation. Unrefined fuel only!
+1,There’s no sign of a refinery, no sign of a pipeline. They’re probably just selling refined fuel, here.
+1,A bunch of shabby fuel vehicles nearby are a sign: there’s just unrefined fuel to be had.
+
+;shipyard name
+1,Imperial [shipyard 1] [shipyard 2]
+9,[shipyard 1] [shipyard 2]
+
+;shipyard 1
+1,Star
+1,Argo
+1,Orion
+1,Galactic
+
+;shipyard 2
+1,Industries
+1,Streamliners
+1,Corporation
+1,Engineering
+1,Collective
+1,Association
+
+;small starport building
+1,The harbour master’s building is a small two story building, big windows, antennas, nothing fancy.
+1,All you can see is the toll house. The harbour master’s office is probably there as well. A bunch of clerks look up as you enter.
+1,There’s a small house here, probably for the warden.
+
+;no facilities
+1,A flat spot, scorched but cleaned of all vegetation, with various sections demarcated with white lines. With this little traffic, that seems quite unnecessary.
+1,A flat spot, scorched but cleaned of all vegetation. There’s rubble clearly visible. This seems quite unsafe.
+1,This must be it. There are no buildings to be seen, and no markings on the ground, no lights. This is the end of the line.
