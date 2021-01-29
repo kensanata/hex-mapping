@@ -68,3 +68,72 @@
 1,A flat spot, scorched but cleaned of all vegetation, with various sections demarcated with white lines. With this little traffic, that seems quite unnecessary.
 1,A flat spot, scorched but cleaned of all vegetation. There’s rubble clearly visible. This seems quite unsafe.
 1,This must be it. There are no buildings to be seen, and no markings on the ground, no lights. This is the end of the line.
+
+# trade codes
+
+;asteroid
+1,The asteroid belt is where people live, here.
+
+;barren
+1,The system has not been settled, yet.
+
+;vacuum
+1,The lack of atmosphere has driven all settlements underground.
+1,The lack of atmosphere has led to the construction of domed settlements.
+
+;water
+1,The water covered world has led to the construction of floating cities.
+1,The rare volcanoes rising from the world-covering ocean are the only places where settlements exist.
+1,Rising water levels have drowned everything. Where the water is shallow, settlements are built on pylons.
+
+;desert
+1,The world is a rocky desert.
+1,The world is a sea of sand.
+
+;ice
+1,All that remains of the atmosphere has frozen in the polar regions.
+1,There is quite a bit of polar ice.
+1,Large ice shelves of [nitrogen|methane] cover the polar regions.
+
+;fluid
+1,The methane oceans are very cold.
+1,The oily oceans are a rich source of complex chemicals.
+
+;low
+1,Not many people live here.
+1,A small number of families have settled this system.
+1,The entire system basically belongs to a single clan.
+1,The system is settled by a big conglomerate.
+1,The system was settled by a generation ship not so long ago.
+
+;high
+1,There are people everywhere.
+
+;agriculture
+1,This is one of the worlds where agriculture is possible. They are famed for their exports of [food].
+
+;food
+1,fruit
+1,cereals
+
+;non-agriculture
+1,Not much grows here.
+
+;industrial
+1,Industries have caused some environmental damage but things are still under control.
+1,The system is famous for its [mining resource] mines.
+
+;mining resource
+1,cobalt
+1,nickel
+1,cadmium
+1,thorium
+1,plutonium
+1,uranium
+1,sulphur
+
+;rich
+1,People are rich.
+
+;poor
+1,People are poor.
