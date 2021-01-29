@@ -1,5 +1,5 @@
 #!/usr/bin/perl
-# Copyright (C) 2009-2019  Alex Schroeder <alex@gnu.org>
+# Copyright (C) 2009-2021  Alex Schroeder <alex@gnu.org>
 # Copyright (C) 2020       Christian Carey
 #
 # This program is free software: you can redistribute it and/or modify it under
