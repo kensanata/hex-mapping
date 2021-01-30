@@ -22,7 +22,7 @@ size-6 xml <circle r="17"/>
 size-7 xml <circle r="18"/>
 size-8 xml <circle r="19"/>
 size-9 xml <circle r="20"/>
-size-10 xml <circle r="21"/>
+size-A xml <circle r="21"/>
 
 # bases
 consulate xml <text font-size="20pt" dy="50px" dx="-45px" font-family="Optima, Helvetica, sans-serif" text-anchor="middle">■</text>

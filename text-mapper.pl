@@ -3997,19 +3997,17 @@ has 'digraphs';
 
 sub generate_map {
   my $self = shift;
+  $self->digraphs($self->compute_digraphs);
   my @coordinates = (0 .. $self->rows * $self->cols - 1);
   my @randomized =  shuffle(@coordinates);
-  my %systems = map { $_ => 1 } grep { roll1d6() > 3 } @randomized; # density
-  $self->digraphs($self->compute_digraphs);
-  my $tiles = [map { $self->system($systems{$_}) } (@coordinates)];
-  my $comms = $self->comms(keys %systems);
+  my %systems = map { $_ => $self->system() } grep { roll1d6() > 3 } @randomized; # density
+  my $comms = $self->comms(\%systems);
+  my $tiles = [map { $systems{$_} || ["empty"] } (@coordinates)];
   return $self->to_text($tiles, $comms);
 }
 
 sub system {
   my $self = shift;
-  my $n = shift;
-  return ["empty"] unless $n;
   my $size = roll2d6() - 2;
   my $atmosphere = max(0, roll2d6() - 7 + $size);
   $atmosphere = 0 if $size == 0;
@@ -4178,36 +4176,82 @@ sub xy {
 
 sub label {
   my ($self, $from, $to, $d, $label) = @_;
-  return sprintf("%02d%02d-%02d%02d $label", @$from, @$to);
+  return sprintf("%02d%02d-%02d%02d $label", @$from[0..1], @$to[0..1]);
 }
 
-# Possible connections between 1 2 3 4 5:
-# 1 -> 2 3 4 5
-# 2 -> 3 4 5
-# 3 -> 4 5
-# 4 -> 5
+# Communication routes have distance 1–2 and connect navy bases and A-class
+# starports.
 sub comms {
   my $self = shift;
-  $log->debug("@_");
-  my @systems = map { [$self->xy($_)] } @_;
-  use Data::Dumper;
-  my $from = shift(@systems);
-  my ($x1, $y1) = @$from;
+  my %systems = %{shift()};
+  my @coordinates = map { [ $self->xy($_), $systems{$_} ] } keys(%systems);
   my @comms;
   my @trade;
-  while (@systems) {
-    for my $to (@systems) {
-      my ($x2, $y2) = @$to;
+  while (@coordinates) {
+    my $from = shift(@coordinates);
+    my ($x1, $y1, $system1) = @$from;
+    for my $to (@coordinates) {
+      my ($x2, $y2, $system2) = @$to;
       my $d = $self->distance($x1, $y1, $x2, $y2);
-      push(@trade, [$from, $to, $d]) if $d == 1;
-      push(@comms, [$from, $to, $d]);
+      if ($d <= 2 and match(qr/^(starport-A|naval)$/, qr/^(starport-A|naval)$/, $system1, $system2)) {
+	push(@comms, [$from, $to, $d]);
+      }
+      if ($d <= 2
+	  # many of these can be eliminated, but who knows, perhaps one day
+	  # directionality will make a difference
+	  and (match(qr/^agriculture$/,
+		     qr/^(agriculture|astroid|desert|high|industrial|low|non-agriculture|rich)$/,
+		     $system1, $system2)
+	       or match(qr/^asteroid$/,
+			qr/^(asteroid|industrial|non-agriculture|rich|vacuum)$/,
+			$system1, $system2)
+	       or match(qr/^desert$/,
+			qr/^(desert|non-agriculture)$/,
+			$system1, $system2)
+	       or match(qr/^fluid$/,
+			qr/^(fluid|industrial)$/,
+			$system1, $system2)
+	       or match(qr/^high$/,
+			qr/^(high|low|rich)$/,
+			$system1, $system2)
+	       or match(qr/^ice$/,
+			qr/^industrial$/,
+			$system1, $system2)
+	       or match(qr/^industrial$/,
+			qr/^(agriculture|astroid|desert|fluid|high|industrial|non-industrial|poor|rich|vacuum|water)$/,
+			$system1, $system2)
+	       or match(qr/^low$/,
+			qr/^(industrial|rich)$/,
+			$system1, $system2)
+	       or match(qr/^non-agriculture$/,
+			qr/^(asteroid|desert|vacuum)$/,
+			$system1, $system2)
+	       or match(qr/^non-industrial$/,
+			qr/^industrial$/,
+			$system1, $system2)
+	       or match(qr/^rich$/,
+			qr/^(agriculture|desert|high|industrial|non-agriculture|rich)$/,
+			$system1, $system2)
+	       or match(qr/^vacuum$/,
+			qr/^(asteroid|industrial|vacuum)$/,
+			$system1, $system2)
+	       or match(qr/^water$/,
+			qr/^(industrial|rich|water)$/,
+			$system1, $system2))) {
+	push(@trade, [$from, $to, $d]);
+      }
     }
-    $from = shift(@systems);
-    ($x1, $y1) = @$from;
   }
   @comms = sort map { $self->label(@$_, "communication") } @{$self->minimal_spanning_tree(@comms)};
-  @trade = sort map { $self->label(@$_, "trade") } @trade;
+  @trade = sort map { $self->label(@$_, "trade") } @{$self->minimal_spanning_tree(@trade)};
   return [sort @trade, @comms];
+}
+
+sub match {
+  my ($re1, $re2, $sys1, $sys2) = @_;
+  return 1 if any { /$re1/ } @$sys1 and any { /$re2/ } @$sys2;
+  return 1 if any { /$re2/ } @$sys1 and any { /$re1/ } @$sys2;
+  return 0;
 }
 
 sub minimal_spanning_tree {
