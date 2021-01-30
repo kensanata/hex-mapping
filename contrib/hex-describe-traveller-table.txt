@@ -1,23 +1,101 @@
 # A random table collection written by Alex Schroeder and Vicky
 # Rathcliff and dedicated to the Public Domain.
 
+;system
+1,This is **[same name]**, UWP [same uwp].
+
+;gas
+4,There is a gas giant in this system.
+1,There are two gas giants in this system.
+1,There is a gas giant in this system. Sensors show the *[here ship name]* scooping up unrefined fuel.
+
+;ship name
+1,[capitalize colour] [capitalize bird]
+1,[capitalize colour] [capitalize weapon]
+
+;colour
+5,black
+4,white
+3,red
+2,green
+2,blue
+1,brown
+1,indigo
+1,magenta
+
+;bird
+1,eagle
+1,sparrow
+1,dove
+1,hawk
+1,heron
+1,duck
+
+;weapon
+1,claw
+1,cudgel
+1,rapier
+1,sword
+1,broadsword
+1,spear
+1,pike
+1,ram
+1,hammer
+1,axe
+
+# this is the first one where people actually see something.
+;size-0
+1,<p>[same name] is the name of the largest asteroid in a belt somewhere between the [third and fourth|fourth and fifth|sixth and seventh] planet.
+1,<p>[same name] is the name of the largest piece of rock in an asteroid belt.
+1,<p>[same name] is the name of asteroid belt in the planetary belt of the [third|fourth|fifth|sixth] planet.
+
+;size-1
+1,<p>[same name] is a small planet, much smaller than Luna, with a diameter of about 1600km.
+
+;size-2
+1,<p>[same name] is a small planet, about the size of Luna, with a diameter of about 3200km.
+
+;size-3
+1,<p>[same name] is a small planet, about the size of Mercury, with a diameter of about 4800km.
+
+;size-4
+1,<p>[same name] is a medium planet, about the size of Mars, with a diameter of about 6400km.
+
+;size-5
+1,<p>[same name] is a medium planet, slightly larger than Mars, with a diameter of about 8000km.
+
+;size-6
+1,<p>[same name] is a medium planet, much larger than Mars, with a diameter of about 9600km.
+
+;size-7
+1,<p>[same name] is a large planet, slightly smaller Earth, with a diameter of about 11200km.
+
+;size-8
+1,<p>[same name] is large planet, about Earth size, with a diameter of about 12800km.
+
+;size-9
+1,<p>[same name] is a large planet, larger than Earth, with a diameter of about 14400km.
+
+;size-A
+1,<p>[same name] is huge, with a diameter of about 16000km.
+
 ;starport
 1,[starport-[A|B|C|D|E]]
 
 ;starport-A
-1,This is a class A starport. [shipyard] [refinery] 
+1,<p>[same name] has a **class A** starport. [shipyard] [refinery] 
 
 ;starport-B
-1,This is a class B starport. [shipyard] [refinery]
+1,<p>[same name] has a **class B** starport. [shipyard] [refinery]
 
 ;starport-C
-1,This is a class C starport. [dockyard] [unrefined fuel]
+1,<p>[same name] has a **class C** starport. [dockyard] [unrefined fuel]
 
 ;starport-D
-1,This is a class D starport. [small starport building]
+1,<p>[same name] has a **class D** starport. [small starport building]
 
 ;starport-E
-1,This is a class E starport. [no facilities]
+1,<p>[same name] has a **class E** starport. [no facilities]
 
 ;starport-X
 1,There is no starport, here.
@@ -69,59 +147,111 @@
 1,A flat spot, scorched but cleaned of all vegetation. There’s rubble clearly visible. This seems quite unsafe.
 1,This must be it. There are no buildings to be seen, and no markings on the ground, no lights. This is the end of the line.
 
+;population-0
+1,<p>No known settlements exist on [same name].
+1,<p>There are no permanent inhabitants on [same name].
+
+;population-1
+1,<p>A few dozen people live on [same name].
+1,<p>There is a small research station on [same name]. A few dozen [science people] live here.
+1,<p>A few dozen people live on [same name].
+
+;population-2
+1,<p>There is a single settlement with a few hundred people on [same name].
+1,<p>A few hundred people live around the [same name] starport.
+
+;population-3
+1,<p>A few thousand people live around the [same name] starport.
+1,<p>Some thousand people live around the [same name] starport, with a few thousand more in smaller villages nearby.
+
+;population-4
+1,<p>A town with a few ten thousand inhabitants has grown around the [same name] starport.
+1,<p>There are two main settlements, each with a few ten thousand inhabitants on [same name]. *Old [same name]* is built around the old starport. When it fell into disrepair in the [upheaval|troubles|civil war|dark times], it was abandoned and in recent years *New [same name]* was built around the new starport. There is quite some rivalry, of course.
+
+;population-5
+1,<p>A few hundred thousand inhabitants have settled on the planet. The largest settlement is about a quarter million people around the starport.
+
+;population-6
+1,<p>A few million people live on the planet, distributed over multiple big cities, each with their own hinterlands.
+
+;population-7
+1,<p>a few dozen million people live on the planet, distributed over multiple big cities.
+
+;population-8
+1,<p>Several hundred million people live on the planet.
+
+;population-9
+1,<p>Several billion people live on the planet.
+
+;population-A
+1,<p>Several dozen billion people live on the planet.
+
+;science people
+1,zoologists
+1,botanists
+1,chemists
+1,weapon researchers
+1,nuclear physicists
+1,xenobiologists
+1,astrophysicists
+1,geologists
+1,quantum field researches
+1,background radiation researchers
+1,solar dynamics researchers
+
 # trade codes
 
 ;asteroid
-1,The asteroid belt is where people live, here.
+1,<p>The asteroid belt is where people live, here.
 
 ;barren
-1,The system has not been settled, yet.
+1,<p>The system has not been settled, yet.
 
 ;vacuum
-1,The lack of atmosphere has driven all settlements underground.
-1,The lack of atmosphere has led to the construction of domed settlements.
+1,<p>The lack of atmosphere has driven all settlements underground.
+1,<p>The lack of atmosphere has led to the construction of domed settlements.
 
 ;water
-1,The water covered world has led to the construction of floating cities.
-1,The rare volcanoes rising from the world-covering ocean are the only places where settlements exist.
-1,Rising water levels have drowned everything. Where the water is shallow, settlements are built on pylons.
+1,<p>The water covered world has led to the construction of floating cities.
+1,<p>The rare volcanoes rising from the world-covering ocean are the only places where settlements exist.
+1,<p>Rising water levels have drowned everything. Where the water is shallow, settlements are built on pylons.
 
 ;desert
-1,The world is a rocky desert.
-1,The world is a sea of sand.
+1,<p>The world is a rocky desert.
+1,<p>The world is a sea of sand.
 
 ;ice
-1,All that remains of the atmosphere has frozen in the polar regions.
-1,There is quite a bit of polar ice.
-1,Large ice shelves of [nitrogen|methane] cover the polar regions.
+1,<p>All that remains of the atmosphere has frozen in the polar regions.
+1,<p>There is quite a bit of polar ice.
+1,<p>Large ice shelves of [nitrogen|methane] cover the polar regions.
 
 ;fluid
-1,The methane oceans are very cold.
-1,The oily oceans are a rich source of complex chemicals.
+1,<p>The methane oceans are very cold.
+1,<p>The oily oceans are a rich source of complex chemicals.
 
 ;low
-1,Not many people live here.
-1,A small number of families have settled this system.
-1,The entire system basically belongs to a single clan.
-1,The system is settled by a big conglomerate.
-1,The system was settled by a generation ship not so long ago.
+1,<p>Not many people live here.
+1,<p>A small number of families have settled this system.
+1,<p>The entire system basically belongs to a single clan.
+1,<p>The system is settled by a big conglomerate.
+1,<p>The system was settled by a generation ship not so long ago.
 
 ;high
-1,There are people everywhere.
+1,<p>There are people everywhere.
 
 ;agriculture
-1,This is one of the worlds where agriculture is possible. They are famed for their exports of [food].
+1,<p>This is one of the worlds where agriculture is possible. They are famed for their exports of [food].
 
 ;food
 1,fruit
 1,cereals
 
 ;non-agriculture
-1,Not much grows here.
+1,<p>Not much grows here.
 
 ;industrial
-1,Industries have caused some environmental damage but things are still under control.
-1,The system is famous for its [mining resource] mines.
+1,<p>Industries have caused some environmental damage but things are still under control.
+1,<p>The system is famous for its [mining resource] mines.
 
 ;mining resource
 1,cobalt
@@ -133,7 +263,7 @@
 1,sulphur
 
 ;rich
-1,People are rich.
+1,<p>People are rich.
 
 ;poor
-1,People are poor.
+1,<p>People are poor.

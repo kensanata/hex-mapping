@@ -865,8 +865,6 @@ example:
 
 =cut
 
-my $hex_re = qr/^(\d\d)(\d\d)(?:\s+([^"\r\n]+)?\s*(?:"(.+)"(?:\s+(\d+))?)?|$)/;
-
 sub parse_map_data {
   my $map = shift;
   my $map_data;
@@ -874,9 +872,13 @@ sub parse_map_data {
     $map = $map->slurp();
   };
   for my $hex (split(/\r?\n/, $map)) {
-    if ($hex =~ /$hex_re/) {
-      my ($x, $y, $types) = ($1, $2, $3);
-      my @types = split(/ /, $types);
+    if (my ($x, $y) = $hex =~ /^(\d\d)(\d\d)\s*empty$/cg) {
+      # skip
+    } elsif (($x, $y) = $hex =~ /^(\d\d)(\d\d)\s+/cg) {
+      my @types = ("system");
+      while($hex =~ /\G([a-z]="[^"]+")\s*/cg or $hex =~ /(\S+)/cg) {
+	push(@types, $1);
+      }
       $map_data->{"$x$y"} = \@types;
     }
   }
@@ -1270,7 +1272,14 @@ sub describe {
   my $redirects = shift;
   $log->error("Recursion level $level exceeds 20!") if $level > 20;
   return '' if $level > 20;
-  %locals = () if $level == 1; # reset once per paragraph
+  if ($level == 1) {
+    %locals = (); # reset once per paragraph
+    for my $word (@$words) {
+      if ($word =~ /^([a-z]+)="(.*)"/) {
+	$locals{$1} = $2;
+      }
+    }
+  }
   my @descriptions;
   for my $word (@$words) {
     # valid dice rolls: 1d6, 1d6+1, 1d6x10, 1d6x10+1
