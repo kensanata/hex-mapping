@@ -7,41 +7,7 @@
 ;gas
 4,There is a gas giant in this system.
 1,There are two gas giants in this system.
-1,There is a gas giant in this system. Sensors show the *[here ship name]* scooping up unrefined fuel.
-
-;ship name
-1,[capitalize colour] [capitalize bird]
-1,[capitalize colour] [capitalize weapon]
-
-;colour
-5,black
-4,white
-3,red
-2,green
-2,blue
-1,brown
-1,indigo
-1,magenta
-
-;bird
-1,eagle
-1,sparrow
-1,dove
-1,hawk
-1,heron
-1,duck
-
-;weapon
-1,claw
-1,cudgel
-1,rapier
-1,sword
-1,broadsword
-1,spear
-1,pike
-1,ram
-1,hammer
-1,axe
+1,There is a gas giant in this system. [append streamlined ship]Sensors show the *[same ship name]* scooping up unrefined fuel.
 
 # this is the first one where people actually see something.
 ;size-0
@@ -83,13 +49,21 @@
 1,[starport-[A|B|C|D|E]]
 
 ;starport-A
-1,<p>[same name] has a **class A** starport. [shipyard] [refinery] 
+1,<p>[same name] has a **class A** starport. [shipyard] [refinery] [ship in orbit]
+1,<p>[same name] has a **class A** starport. [shipyard] [refinery] [ship at the starport] [ship in orbit]
+1,<p>[same name] has a **class A** starport. [shipyard] [refinery] [ship at the starport] [ship at the starport]
+1,<p>[same name] has a **class A** starport. [shipyard] [refinery] [ship at the starport] [ship in orbit]
+1,<p>[same name] has a **class A** starport. [shipyard] [refinery] [ship at the starport] [ship at the starport] [ship in orbit]
 
 ;starport-B
-1,<p>[same name] has a **class B** starport. [shipyard] [refinery]
+1,<p>[same name] has a **class B** starport. [shipyard] [refinery] [ship in orbit]
+1,<p>[same name] has a **class B** starport. [shipyard] [refinery] [ship at the starport] 
+1,<p>[same name] has a **class B** starport. [shipyard] [refinery] [ship at the starport] [ship in orbit]
 
 ;starport-C
-1,<p>[same name] has a **class C** starport. [dockyard] [unrefined fuel]
+1,<p>[same name] has a **class C** starport. [dockyard] [unrefined fuel] [ship at the starport] 
+1,<p>[same name] has a **class C** starport. [dockyard] [unrefined fuel] [ship in orbit] 
+1,<p>[same name] has a **class C** starport. [dockyard] [unrefined fuel] 
 
 ;starport-D
 1,<p>[same name] has a **class D** starport. [small starport building]
@@ -116,7 +90,7 @@
 
 ;unrefined fuel
 1,A bunch of water tanks nearby tell you all there is to know about the fuel situation. Unrefined fuel only!
-1,There’s no sign of a refinery, no sign of a pipeline. They’re probably just selling refined fuel, here.
+1,There’s no sign of a refinery, no sign of a pipeline. They’re probably just selling unrefined fuel, here.
 1,A bunch of shabby fuel vehicles nearby are a sign: there’s just unrefined fuel to be had.
 
 ;shipyard name
@@ -267,3 +241,177 @@
 
 ;poor
 1,<p>People are poor.
+
+# ships
+
+;ship
+2,[streamlined ship]
+1,[unstreamlined ship]
+
+;streamlined ship
+5,[scout/courier]
+4,[free trader]
+3,[subsidized merchant]
+2,[patrol cruiser]
+1,[safari ship]
+
+;unstreamlined ship
+4,[subsidized liner]
+3,[yacht]
+2,[mercenary cruiser]
+1,[laboratory ship]
+
+;ship at the starport
+2,[append streamlined ship]The *[same ship name]* is currently being [ship activity].
+1,[append streamlined ship]The *[same ship name]* is on one of the landing pads.
+
+;ship in orbit
+1,[append ship]The *[same ship name]* is in orbit, [preparing to leave|having just arrived].
+1,[append ship]The *[same ship name]* is approaching the system.
+1,[append unstreamlined ship]The *[same ship name]* is being [ship activity] in orbit.
+
+;ship activity
+5,refueled
+4,loaded
+4,unloaded
+3,serviced
+2,repaired
+1,overhauled
+1,upgraded
+
+;scout/courier
+1,<p>The *[here scout ship name as ship name]* is a **type S** scout/courier ship (100t, streamlined).
+
+;free trader
+1,<p>The *[here ship name]* is a **type A** free trader (200t, streamlined).
+
+;subsidized merchant
+1,<p>The *[here ship name]* is a **type R** subsidized merchant (400t, streamlined).
+
+;subsidized liner
+1,<p>The *[here mellow ship name as ship name]* is a **type M** subsidized liner (600t, unstreamlined).
+
+;yacht
+1,<p>The *[here mellow ship name as ship name]* is a **type Y** yacht (200t, unstreamlined).
+
+;mercenary cruiser
+1,<p>The *[here martial ship name as ship name]* is a **type M** mercenary cruiser (800t, unstreamlined).
+
+;patrol cruiser
+1,<p>The *[here martial ship name as ship name]* is a **type T** patrol cruiser (400t, streamlined).
+
+;laboratory ship
+1,<p>The *[here mellow ship name as ship name]* is a **type L** laboratory ship (400t, unstreamlined).
+
+;safari ship
+1,<p>The *[here mellow ship name as ship name]* is a **type K** safari ship (200t, streamlined).
+
+;ship name
+1,[neutral ship name]
+1,[martial ship name]
+1,[mellow ship name]
+
+;neutral ship name
+1,[ship colour] [capitalize animal]
+
+;martial ship name
+1,[ship colour] [capitalize martial animal]
+1,[ship colour] [capitalize weapon]
+
+;mellow ship name
+1,[ship colour] [capitalize mellow animal]
+
+;scout ship name
+1,[scout ship 1] [scout ship 2]
+1,[ship name]
+
+;scout ship 1
+1,Curious
+1,Inquisitive
+1,Wonderful
+1,Diligent
+1,[ship colour]
+
+;scout ship 2
+5,[capitalize animal]
+1,[capitalize weapon]
+1,Observer
+1,Intelligence
+1,Scribe
+1,Librarian
+1,Sophont
+
+;ship colour
+3,[capitalize one ship colour]
+1,[titlecase two ship colours]
+
+;one ship colour
+5,black
+4,white
+3,red
+2,green
+2,blue
+1,brown
+1,indigo
+1,magenta
+1,rose
+
+;two ship colours
+1,[with one ship colour]-[and one ship colour]
+
+;animal
+1,[mellow animal]
+1,[martial animal]
+
+;mellow animal
+# birds
+1,sparrow
+1,dove
+1,heron
+1,duck
+1,jay
+1,goose
+1,crane
+1,swallow
+1,starling
+# transport
+1,donkey
+1,horse
+1,zebra
+1,gazelle
+# other small animals
+1,mouse
+1,frog
+1,cat
+1,dog
+
+;martial animal
+1,eagle
+1,hawk
+1,merlin
+1,falcon
+1,raven
+1,crow
+1,owl
+# cats
+1,tiger
+1,lion
+1,panther
+1,leopard
+1,cheetah
+# other carnivores
+1,hyena
+1,wolf
+1,python
+
+;weapon
+1,claw
+1,cudgel
+1,rapier
+1,sword
+1,broadsword
+1,spear
+1,pike
+1,ram
+1,hammer
+1,axe
