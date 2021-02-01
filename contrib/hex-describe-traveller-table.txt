@@ -280,7 +280,7 @@
 1,upgraded
 
 ;scout/courier
-1,<p>The *[here scout ship name as ship name]* is a **type S** scout/courier ship (100t, streamlined). [ship captain]
+1,<p>The *[here scout ship name as ship name]* is a **type S** scout/courier ship (100t, streamlined). [scout ship crew]
 
 ;free trader
 1,<p>The *[here ship name]* is a **type A** free trader (200t, streamlined). [ship captain]
@@ -307,7 +307,75 @@
 1,<p>The *[here mellow ship name as ship name]* is a **type K** safari ship (200t, streamlined). [ship captain]
 
 ;ship captain
-1,The captain of this ship is *[here human name as captain]*.
+1,The captain of this ship is *[here human name as captain]*. [upp].
+
+;scout ship crew
+1,The **captain** of this ship is *[here human name as captain]*. [smart upp]. Pilot-[1d4] [scout skills].
+1,The **captain** of this ship is *[here human name as captain]*. [upp]. [scout skills]. The **pilot** is *[human name]*. [smart upp]. Pilot-[1d4] [scout skills].
+
+;scout skills
+1,[scout skill]-3 [scout skill]-1
+1,[scout skill]-2 [scout skill]-1
+1,[scout skill]-1 [scout skill]-1
+1,[scout skill]-1
+
+;scout skill
+1,Air/Raft
+1,Vacc Suit
+2,Mechanical
+2,Navigation
+2,Electronics
+3,Jack-o-T
+1,[vehicle skill]
+1,Gunnery
+2,Medical
+1,Engineering
+1,Computer
+
+;vehicle skill
+1,[aircraft skill]
+1,Grav Vehicle
+1,Tracked Vehicle
+1,[watercraft skill]
+1,Wheeled Vehicle
+
+;aircraft skill
+1,Prop-driven Fixed Wing
+1,Jet-driven Fixed Wing
+1,Helicopter
+
+;watercraft skill
+1,Large Watercraft
+1,Small Watercraft
+1,Hovercraft
+1,Submersible
+
+;upp
+1,[characteristic as strength][characteristic as dex][characteristic as end][characteristic as int][characteristic as edu][characteristic as soc]
+
+;smart upp
+1,[characteristic as strength][characteristic as dex][characteristic as end][characteristic as int][smart characteristic as edu][characteristic as soc]
+
+;characteristic
+1,2
+2,3
+3,4
+4,5
+5,6
+6,7
+5,8
+4,9
+3,A
+2,B
+1,C
+
+# advanced education table requires education 8+
+;smart characteristic
+5,8
+4,9
+3,A
+2,B
+1,C
 
 ;ship name
 1,[neutral ship name]
