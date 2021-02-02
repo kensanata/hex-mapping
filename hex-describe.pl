@@ -1763,10 +1763,11 @@ sub describe_map {
 					     $coord, $map_data->{$coord}, $redirects),
 				    $redirects); # with redirects means we keep images
   }
-  resolve_appends($map_data, $table_data, \%descriptions, $redirects);
   resolve_nearby($map_data, $table_data, \%descriptions, $redirects);
   resolve_other($map_data, $table_data, \%descriptions, $redirects);
   resolve_later($map_data, $table_data, \%descriptions, $redirects);
+  # as append might include the items above, it must come last
+  resolve_appends($map_data, $table_data, \%descriptions, $redirects);
   return \%descriptions;
 }
 

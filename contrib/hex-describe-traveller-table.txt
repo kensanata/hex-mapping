@@ -49,20 +49,20 @@
 1,[starport-[A|B|C|D|E]]
 
 ;starport-A
-1,<p>[same name] has a **class A** starport. [shipyard] [refinery] [ship in orbit]
-1,<p>[same name] has a **class A** starport. [shipyard] [refinery] [ship at the starport] [ship in orbit]
-1,<p>[same name] has a **class A** starport. [shipyard] [refinery] [ship at the starport] [ship at the starport]
-1,<p>[same name] has a **class A** starport. [shipyard] [refinery] [ship at the starport] [ship in orbit]
-1,<p>[same name] has a **class A** starport. [shipyard] [refinery] [ship at the starport] [ship at the starport] [ship in orbit]
+1,<p>[here store [same name] as big port][same name] has a **class A** starport. [shipyard] [refinery]<p>[ship in orbit]
+1,<p>[here store [same name] as big port][same name] has a **class A** starport. [shipyard] [refinery] [ship at the starport]<p>[ship in orbit]
+1,<p>[here store [same name] as big port][same name] has a **class A** starport. [shipyard] [refinery] [ship at the starport] [ship at the starport]
+1,<p>[here store [same name] as big port][same name] has a **class A** starport. [shipyard] [refinery] [ship at the starport]<p>[ship in orbit]
+1,<p>[here store [same name] as big port][same name] has a **class A** starport. [shipyard] [refinery] [ship at the starport] [ship at the starport]<p>[ship in orbit]
 
 ;starport-B
-1,<p>[same name] has a **class B** starport. [shipyard] [refinery] [ship in orbit]
-1,<p>[same name] has a **class B** starport. [shipyard] [refinery] [ship at the starport] 
-1,<p>[same name] has a **class B** starport. [shipyard] [refinery] [ship at the starport] [ship in orbit]
+1,<p>[here store [same name] as big port][same name] has a **class B** starport. [shipyard] [refinery]<p>[ship in orbit]
+1,<p>[here store [same name] as big port][same name] has a **class B** starport. [shipyard] [refinery] [ship at the starport]
+1,<p>[here store [same name] as big port][same name] has a **class B** starport. [shipyard] [refinery] [ship at the starport]<p>[ship in orbit]
 
 ;starport-C
 1,<p>[same name] has a **class C** starport. [dockyard] [unrefined fuel] [ship at the starport] 
-1,<p>[same name] has a **class C** starport. [dockyard] [unrefined fuel] [ship in orbit] 
+1,<p>[same name] has a **class C** starport. [dockyard] [unrefined fuel]<p>[ship in orbit]
 1,<p>[same name] has a **class C** starport. [dockyard] [unrefined fuel] 
 
 ;starport-D
@@ -120,10 +120,10 @@
 1,A flat spot, scorched but cleaned of all vegetation, with various sections demarcated with white lines. With this little traffic, that seems quite unnecessary.
 1,A flat spot, scorched but cleaned of all vegetation. There’s rubble clearly visible. This seems quite unsafe.
 1,This must be it. There are no buildings to be seen, and no markings on the ground, no lights. This is the end of the line.
+1,There are ruins nearby. This does not bode well.
 
-;population-0
-1,<p>No known settlements exist on [same name].
-1,<p>There are no permanent inhabitants on [same name].
+# ;population-0
+# see → barren
 
 ;population-1
 1,<p>A few dozen people live on [same name].
@@ -149,7 +149,7 @@
 1,<p>A few million people live on the planet, distributed over multiple big cities, each with their own hinterlands.
 
 ;population-7
-1,<p>a few dozen million people live on the planet, distributed over multiple big cities.
+1,<p>A few dozen million people live on the planet, distributed over multiple big cities.
 
 ;population-8
 1,<p>Several hundred million people live on the planet.
@@ -176,14 +176,19 @@
 # trade codes
 
 ;asteroid
-1,<p>The asteroid belt is where people live, here.
+1,<p>The asteroid belt is where people live, here. Most of them seem to be involved in ice mining.
+1,<p>The asteroid belt offers good mining opportunities for small, flexible mining cooperatives.
+1,<p>The asteroid belt provides a lot of space; it’s ideal for people who need to disappear for a while.
 
 ;barren
-1,<p>The system has not been settled, yet.
+1,<p>They tried to settle this system several times, but it never worked out, financially.
+1,<p>The people who tried to settle this system decided to pack up and leave again, when their mining operation failed.
+1,<p>About [fifty|a hundred|two hundred] years ago, there was a colony here, but then it disappeared.
+1,<p>There used to be a settlement, here. During the [upheaval|troubles|dark times], nobody visited and when ships returned about [a|two] dozen years ago, there was no trace of them to be found.
 
 ;vacuum
-1,<p>The lack of atmosphere has driven all settlements underground.
-1,<p>The lack of atmosphere has led to the construction of domed settlements.
+1,<p>The mining opportunities favour the construction of underground settlements.
+1,<p>The availability of light favours the construction of large domed settlements.
 
 ;water
 1,<p>The water covered world has led to the construction of floating cities.
@@ -191,8 +196,23 @@
 1,<p>Rising water levels have drowned everything. Where the water is shallow, settlements are built on pylons.
 
 ;desert
-1,<p>The world is a rocky desert.
-1,<p>The world is a sea of sand.
+1,<p>[desert description] [desert food] [desert aspect]
+
+;desert description
+1,The world is a rocky desert.
+1,The world is a sea of sand.
+1,The lack of water makes it hard to grow anything out in the open.
+
+;desert food
+1,Moisture farming supplies settlers with food.
+1,Large canyons collect some humidity and allow for some limited agriculture.
+1,The local food is produced in large underground fungal cultures.
+
+;desert aspect
+1,The locals [diligently|obsessively] collect all body fluids for recycling.
+1,Outside, people only survive wearing water reclaiming suits.
+1,Life is harsh, and people are harsh, too. Brutal honesty or death, they say.
+1,Life is dangerous and people must depend on each other. This makes for a very polite society.
 
 ;ice
 1,<p>All that remains of the atmosphere has frozen in the polar regions.
@@ -211,13 +231,16 @@
 1,<p>The system was settled by a generation ship not so long ago.
 
 ;high
-1,<p>There are people everywhere.
+1,<p>There are many big cities all over the system.
+1,<p>The population is growing and construction is lagging. Homelessness abounds.
+1,<p>Improvements in the fight against disease over the last few decades has resulted in a population explosion.
 
 ;agriculture
 1,<p>This is one of the worlds where agriculture is possible. They are famed for their exports of [food].
 
 ;food
 1,fruit
+1,vegetables
 1,cereals
 
 ;non-agriculture
@@ -262,7 +285,7 @@
 1,[laboratory ship]
 
 ;ship at the starport
-2,[append streamlined ship]The *[same ship name]* is currently being [ship activity].
+2,[append streamlined ship]The *[same ship name]* is currently being [ship activity] at the port.
 1,[append streamlined ship]The *[same ship name]* is on one of the landing pads.
 
 ;ship in orbit
@@ -286,7 +309,7 @@
 1,<p>The *[here ship name]* is a **type A** free trader (200t, streamlined). [free trader ship crew]
 
 ;subsidized merchant
-1,<p>The *[here ship name]* is a **type R** subsidized merchant (400t, streamlined). [ship captain]
+1,<p>The *[here ship name]* is a **type R** “fat trader” (400t, streamlined), subsidized by the *[nearby big port]* government. [subsidized merchant ship crew]
 
 ;subsidized liner
 1,<p>The *[here mellow ship name as ship name]* is a **type M** subsidized liner (600t, unstreamlined). [ship captain]
@@ -376,12 +399,26 @@
 1,Submersible
 
 ;free trader ship crew
-3,The **pilot** of this ship is *[here human name as captain]*. [upp]. [merchant skills] Pilot-[skilled]. The **engineer** is *[human name]*. [upp]. [merchant skills] Engineer-[skilled]. The **medic** is *[human name]*. [upp]. [merchant skills] Medic-[skilled]. The **steward** is *[human name]*. [upp]. [merchant skills] Steward-[skilled].
-1,The **pilot** of this ship is *[here human name as captain]*. [upp]. [merchant skills] Pilot-[skilled]. The **engineer** is *[human name]*. [upp]. [merchant skills] Engineer-[skilled]. The **medic** is *[human name]*. [upp]. [merchant skills] Medic-[skilled]. The **steward** is *[human name]*. [upp]. [merchant skills] Steward-[skilled]. The **gunner** is *[human name]*. [upp]. [merchant skills] Gunnery-[skilled]. The ship has one turret with [laser beams|particle beams|missile racks|sandcasters] mounted.
+# pilot, engineer, medic, steward, maybe a gunner
+1,The **pilot** of this ship is *[here human name as captain]*. [store Pilot as extra skill][merchant upp and skills]. The **engineer** is *[human name]*. [store Engineer as extra skill][merchant upp and skills]. The **medic** is *[human name]*. [store Medical as extra skill][merchant upp and skills]. The **steward** is *[human name]*. [store Steward as extra skill][merchant upp and skills]. [maybe a merchant gunner]
+
+;subsidized merchant ship crew
+# pilot, navigator, engineer, medic, steward, maybe a gunner
+1,The **pilot** of this ship is *[here human name as captain]*. [store Pilot as extra skill][merchant upp and skills]. The **navigator** is *[human name]*. [store Navigation as extra skill][merchant upp and skills]. The **engineer** is *[human name]*. [store Engineer as extra skill][merchant upp and skills]. The **medic** is *[human name]*. [store Medical as extra skill][merchant upp and skills]. The **steward** is *[human name]*. [store Steward as extra skill][merchant upp and skills]. [maybe a merchant gunner]
+
+;maybe a merchant gunner
+1,The **gunner** is *[human name]*. [store Gunnery as extra skill][merchant upp and skills]. The ship has one turret with [laser beams|particle beams|missile racks|sandcasters] mounted.
+4,
+
+# 8+ means (1+2+3+4+5=15)/36
+# store an extra skill to be listed first (based on the function)
+;merchant upp and skills
+15,[smart upp] [same extra skill]-[skilled] [smart merchant skills]
+36,[upp] [same extra skill]-[skilled] [merchant skills]
 
 ;merchant skills
-1,[merchant skill]-3 [merchant skill]-1
-2,[merchant skill]-2 [merchant skill]-1
+1,[merchant skill]-2 [merchant skill]-1 [merchant skill]-1
+2,[merchant skill]-1 [merchant skill]-1 [merchant skill]-1
 3,[merchant skill]-1 [merchant skill]-1
 4,[merchant skill]-1
 
@@ -396,7 +433,7 @@
 1,Mechanical
 # 1,Navigation
 1,Gunnery
-1,Medical
+# 1,Medical
 
 ;smart merchant skills
 1,[smart merchant skill]-3 [smart merchant skill]-1
@@ -415,7 +452,7 @@
 1,Mechanical
 # 2,Navigation
 1,Gunnery
-2,Medical
+# 2,Medical
 # 1,Engineering
 1,Computer
 # 1,Pilot
