@@ -1627,6 +1627,12 @@ get '/:id' => [id => qr/\d+/] => sub {
   $c->redirect_to($c->url_for('uwp', size => 'subsector', rules => 'mgp', id => $id));
 };
 
+get '/uwp/:id' => [id => qr/\d+/] => sub {
+  my $c = shift;
+  my $id = $c->param('id');
+  $c->redirect_to($c->url_for('uwp', size => 'subsector', rules => 'mgp', id => $id));
+};
+
 get '/uwp/:size/:id' => [size => ['subsector', 'sector']] => [id => qr/\d+/] => sub {
   my $c = shift;
   my $size = $c->param('size');
@@ -1687,20 +1693,20 @@ get '/edit/:size/:rules/:id' => [size => ['subsector', 'sector']] => [id => qr/\
 
 get '/map' => sub {
   my $c = shift;
-  $c->render(template => 'map', uwp => Traveller::Mapper::example(), size => 'subsector', rules => 'mgp');
+  $c->render(template => 'map_all', uwp => Traveller::Mapper::example(), size => 'subsector', rules => 'mgp');
 };
 
 get '/map/:id' => [id => qr/\d+/] => sub {
   my $c = shift;
   my $id = $c->param('id');
-  $c->redirect_to($c->url_for('map', size => 'subsector', rules => 'mgp', id => $id));
+  $c->redirect_to($c->url_for('map_all', size => 'subsector', rules => 'mgp', id => $id));
 };
 
 get '/map/:size/:id' => [size => ['subsector', 'sector']] => [id => qr/\d+/] => sub {
   my $c = shift;
   my $size = $c->param('size');
   my $id = $c->param('id');
-  $c->redirect_to($c->url_for('map', size => $size, rules => 'mgp', id => $id));
+  $c->redirect_to($c->url_for('map_all', size => $size, rules => 'mgp', id => $id));
 };
 
 get '/map/:size/:rules/:id' => [size => ['subsector', 'sector']] => [id => qr/\d+/] => sub {
