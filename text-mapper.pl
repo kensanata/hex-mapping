@@ -4029,26 +4029,34 @@ sub system {
   my $starport = roll2d6();
   my $naval_base = 0;
   my $scout_base = 0;
+  my $research_base = 0;
+  my $pirate_base = 0;
   my $tech = roll1d6();
   if ($starport <= 4) {
     $starport = "A";
     $tech += 6;
     $scout_base = 1 if roll2d6() >= 10;
-    $naval_base = 1 if roll2d6() >= 8
+    $naval_base = 1 if roll2d6() >= 8;
+    $research_base = 1 if roll2d6() >= 8;
   } elsif ($starport <= 6)  {
     $starport = "B";
     $tech += 4;
     $scout_base = 1 if roll2d6() >=  9;
-    $naval_base = 1 if roll2d6() >= 8
+    $naval_base = 1 if roll2d6() >= 8;
+    $research_base = 1 if roll2d6() >= 10;
   } elsif ($starport <= 8)  {
     $starport = "C";
     $tech += 2;
     $scout_base = 1 if roll2d6() >=  8;
+    $research_base = 1 if roll2d6() >= 10;
+    $pirate_base = 1 if roll2d6() >= 12;
   } elsif ($starport <= 9)  {
     $starport = "D";
     $scout_base = 1 if roll2d6() >=  7;
+    $pirate_base = 1 if roll2d6() >= 10;
   } elsif ($starport <= 11) {
     $starport = "E";
+    $pirate_base = 1 if roll2d6() >= 10;
   } else {
     $starport = "X";
     $tech -= 4;
@@ -4121,6 +4129,16 @@ sub system {
   push(@tiles, "law-" . code($law));
   push(@tiles, "naval") if $naval_base;
   push(@tiles, "scout") if $scout_base;
+  push(@tiles, "research") if $research_base;
+  push(@tiles, "pirate", "red") if $pirate_base;
+  push(@tiles, "amber")
+      if not $pirate_base
+      and ($atmosphere >= 10
+	   or $population and $government == 0
+	   or $population and $law == 0
+	   or $government == 7
+	   or $government == 10
+	   or $law >= 9);
   # last is the name
   push(@tiles, qq{name="$name"}, qq{uwp="$uwp"});
   return \@tiles;
@@ -4201,7 +4219,7 @@ sub comms {
     for my $to (@coordinates) {
       my ($x2, $y2, $system2) = @$to;
       my $d = $self->distance($x1, $y1, $x2, $y2);
-      if ($d <= 2 and match(qr/^(starport-A|naval)$/, qr/^(starport-A|naval)$/, $system1, $system2)) {
+      if ($d <= 2 and match(qr/^(starport-[AB]|naval)$/, qr/^(starport-[AB]|naval)$/, $system1, $system2)) {
 	push(@comms, [$from, $to, $d]);
       }
       if ($d <= 2

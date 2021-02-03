@@ -265,6 +265,160 @@
 ;poor
 1,<p>People are poor.
 
+# Bases
+
+;naval
+1,<p>There is a naval base in the system.
+
+;scout
+1,<p>There is a scout base in the system.
+
+# Crime
+
+;pirate
+1,<p>There is a pirate base in the system.
+1,<p>There is a base of the *[a crime syndicate]* in the system. The **crime boss** is *[here human name as crime boss]*. [smart upp]. [smart other skills]. Their right hand is **[human name]**. [upp]. [common other skills].
+
+# there are just three crime syndicates
+;a crime syndicate
+1,[name for a crime syndicate 1]
+1,[name for a crime syndicate 2]
+1,[name for a crime syndicate 3]
+
+;name for a crime syndicate 1
+1,[crime syndicate]
+
+;name for a crime syndicate 2
+1,[crime syndicate]
+
+;name for a crime syndicate 3
+1,[crime syndicate]
+
+;crime syndicate
+1,[Mutual Aid|Mutual Support|Expat|Social] [crime organisation]
+1,[crime adjective] [crime thing] [crime organisation]
+1,[crime mystics] of the [crime adjective] [crime thing]
+
+;crime organisation
+1,[Syndicate|Family|Gang|Guild|Society|Club|Association|Comrades|Friends]
+
+;crime mystics
+1,[Order|Circle|Brothers|Sisters|Prophets]
+
+;crime adjective
+1,[capitalize one ship colour]
+1,[Black|Dark|Hidden|Third|Lost|Forgotten]
+1,[Proud|Smart|Strong|Iron|Steel]
+
+;crime thing
+# weapon
+1,Shotgun
+1,Blade
+1,Sword
+1,Spear
+# place
+1,Lake
+1,Tower
+1,Star
+1,Sun
+1,Moon
+1,Cavern
+1,Fortress
+10,[capitalize martial animal]
+
+# Research
+
+;research
+1,<p>The research [station|institute] *[institute name]* in this system focuses on [research technology]. The **head scientist** is *[here human name as scientist]*. [smart upp]. Science-[1d4+2]. [smart scout skills].
+
+;institute name
+1,[Alpha|Beta|Gamma|Delta|Epsilon|Zeta|Eta|Theta|Iota|Kappa|Lambda|Mu|Nu|Xi|Omicron|Pi|Rho|Sigma|Tau|Upsilon|Phi|Chi|Psi|Omega]-[1d9]
+1,[human surname]-[1d9]
+
+;research technology
+5,[common technology]
+4,[quality of life technology]
+3,[transportation technologies]
+2,[military technologies]
+
+;common technology
+1,bio-plastics
+1,large-scale black holes
+1,mini-black holes
+1,deep planetary core soundings
+1,deep radar analysis
+1,gravitic science instruments
+1,LIDAR
+1,nebula research
+1,nova prevention and prediction
+1,stable superheavy element research
+
+;quality of life technology
+1,anagathics development
+1,antimatter containment
+1,artificial intelligence
+1,bionics
+1,cybernetics
+1,genetic engineering
+1,hand computers
+1,high temperature superconductors
+1,holocrystal memory storage
+1,holovision
+1,intelligent antibodies
+1,limb regeneration
+1,megastructures
+1,memory transfer
+1,nerve refusion
+1,meson communicators
+1,pharmaceuticals
+1,pseudo-reality communication
+1,psychohistory and mass population behavior prediction
+1,robotics
+1,terraforming
+1,total life rejuvenation
+1,ubiquitous electronic networking
+
+;transportation technologies
+1,advanced gravity manipulation
+1,alternative interstellar drive technologies
+1,instantaneous transmitter development
+1,jump drive technology
+1,ornithopters
+1,triphibian vehicles
+1,wormhole research
+
+;military technologies
+1,ablative armour
+1,aerosol defensive projectors
+1,ancients (precursor) research
+1,antimatter weapons
+1,armor technologies
+1,biological weapons
+1,black globe development
+1,chemical weapons
+1,cryptography
+1,disintegrator beams
+1,energy weapons
+1,high energy weapons
+1,jump dampers
+1,jump projectors
+1,long-range detection systems
+1,meson guns
+1,meson screens
+1,nuclear dampers
+1,personal shields
+1,proton screens
+1,psionics
+1,relativity rifles
+1,screen technologies
+1,self-aware starships
+1,sonic weapons
+1,stasis
+1,time travel research
+1,weapons of mass destruction
+1,white globe development
+1,X-ray lasers
+
 # ships
 
 ;ship
@@ -354,7 +508,7 @@
 1,Vacc Suit
 2,Mechanical
 1,Navigation
-2,Electronics
+2,Electronic
 2,Jack-o-T
 1,[vehicle skill]
 1,Gunnery
@@ -371,7 +525,7 @@
 1,Vacc Suit
 2,Mechanical
 2,Navigation
-2,Electronics
+2,Electronic
 3,Jack-o-T
 1,[vehicle skill]
 1,Gunnery
@@ -379,24 +533,6 @@
 # 1,Engineering
 1,Computer
 # 1,Pilot
-
-;vehicle skill
-1,[aircraft skill]
-1,Grav Vehicle
-1,Tracked Vehicle
-1,[watercraft skill]
-1,Wheeled Vehicle
-
-;aircraft skill
-1,Prop-driven Fixed Wing
-1,Jet-driven Fixed Wing
-1,Helicopter
-
-;watercraft skill
-1,Large Watercraft
-1,Small Watercraft
-1,Hovercraft
-1,Submersible
 
 ;free trader ship crew
 # pilot, engineer, medic, steward, maybe a gunner
@@ -427,7 +563,7 @@
 1,Vacc Suit
 1,Jack-o-T
 # 1,Steward
-2,Electronics
+2,Electronic
 1,[gun combat]
 1,Streetwise
 1,Mechanical
@@ -446,7 +582,7 @@
 1,Vacc Suit
 1,Jack-o-T
 # 1,Steward
-2,Electronics
+2,Electronic
 1,[gun combat]
 1,Streetwise
 1,Mechanical
@@ -457,6 +593,45 @@
 1,Computer
 # 1,Pilot
 1,Admin
+
+;common other skills
+1,[common other skill]-3 [common other skill]-1
+1,[common other skill]-2 [common other skill]-1
+1,[common other skill]-1 [common other skill]-1
+1,[common other skill]-1
+
+;common other skill
+1,[vehicle skill]
+2,Gambling
+2,Brawling
+1,Bribery
+1,[blade combat]
+1,[gun combat]
+1,Streetwise
+1,Mechanical
+1,Electronic
+2,Forgery
+
+;smart other skills
+1,[smart other skill]-3 [smart other skill]-1
+1,[smart other skill]-2 [smart other skill]-1
+1,[smart other skill]-1 [smart other skill]-1
+1,[smart other skill]-1
+
+;smart other skill
+1,[vehicle skill]
+2,Gambling
+2,Brawling
+1,Bribery
+1,[blade combat]
+1,[gun combat]
+2,Streetwise
+1,Mechanical
+2,Electronic
+3,Forgery
+1,Medical
+1,Computer
+1,Jack-o-T
 
 ;gun combat
 1,Body Pistol
@@ -480,6 +655,37 @@
 # 2,SMG (9+/5-/3D)
 # 1,Laser Carbine (10+/5-/4D)
 # 1,Laser Rifle (11+/6-/5D)
+
+;blade combat
+5,Dagger
+3,Blade
+1,Foil
+1,Sword
+4,Cutlass
+1,Broadsword
+2,Bayonet
+1,Spear
+1,Halberd
+1,Pike
+1,Cudgel
+
+;vehicle skill
+1,[aircraft skill]
+1,Grav Vehicle
+1,Tracked Vehicle
+1,[watercraft skill]
+1,Wheeled Vehicle
+
+;aircraft skill
+1,Prop-driven Fixed Wing
+1,Jet-driven Fixed Wing
+1,Helicopter
+
+;watercraft skill
+1,Large Watercraft
+1,Small Watercraft
+1,Hovercraft
+1,Submersible
 
 # TODO: generate titles based on social standing for nobility
 ;upp
@@ -552,12 +758,15 @@
 5,black
 4,white
 3,red
+3,golden
 2,green
 2,blue
+1,silver
 1,brown
 1,indigo
 1,magenta
 1,rose
+1,pink
 
 ;two ship colours
 1,[with one ship colour]-[and one ship colour]
@@ -627,6 +836,13 @@
 1,[chinese name]
 1,[japanese name]
 1,[arabic name]
+
+;human surname
+1,[english surname]
+1,[native american name]
+1,[chinese surname]
+1,[japanese surname]
+1,[arabic surname]
 
 ;english name
 1,[english name for a woman] [english surname]
