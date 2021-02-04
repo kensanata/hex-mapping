@@ -277,7 +277,11 @@
 
 ;pirate
 1,<p>There is a pirate base in the system.
-1,<p>There is a base of the *[a crime syndicate]* in the system. The **crime boss** is *[here human name as crime boss]*. [smart upp]. [smart other skills]. Their right hand is **[human name]**. [upp]. [common other skills].
+1,<p>There is a small station of the *[a crime syndicate]* in orbit around [same name]. [criminals]
+1,<p>There is a [safe house|hidden base|refugium] of the *[a crime syndicate]* near the starport. [criminals]
+
+;criminals
+1,The **crime boss** is *[here human name as crime boss]*. [smart upp]. [smart other skills]. Their right hand is **[human name]**. [upp]. [common other skills].
 
 # there are just three crime syndicates
 ;a crime syndicate
@@ -536,14 +540,25 @@
 
 ;free trader ship crew
 # pilot, engineer, medic, steward, maybe a gunner
-1,The **pilot** of this ship is *[here human name as captain]*. [store Pilot as extra skill][merchant upp and skills]. The **engineer** is *[human name]*. [store Engineer as extra skill][merchant upp and skills]. The **medic** is *[human name]*. [store Medical as extra skill][merchant upp and skills]. The **steward** is *[human name]*. [store Steward as extra skill][merchant upp and skills]. [maybe a merchant gunner]
+1,The **pilot** of this ship is *[here human name as captain]*. [store Pilot as extra skill][merchant upp and skills]. The **engineer** is *[human name]*. [store Engineer as extra skill][merchant upp and skills]. The **medic** is *[human name]*. [store Medical as extra skill][merchant upp and skills]. The **steward** is *[human name]*. [store Steward as extra skill][merchant upp and skills]. [maybe a merchant gunner] [maybe a criminal allegiance]
 
 ;subsidized merchant ship crew
 # pilot, navigator, engineer, medic, steward, maybe a gunner
 1,The **pilot** of this ship is *[here human name as captain]*. [store Pilot as extra skill][merchant upp and skills]. The **navigator** is *[human name]*. [store Navigation as extra skill][merchant upp and skills]. The **engineer** is *[human name]*. [store Engineer as extra skill][merchant upp and skills]. The **medic** is *[human name]*. [store Medical as extra skill][merchant upp and skills]. The **steward** is *[human name]*. [store Steward as extra skill][merchant upp and skills]. [maybe a merchant gunner]
 
 ;maybe a merchant gunner
-1,The **gunner** is *[human name]*. [store Gunnery as extra skill][merchant upp and skills]. The ship has one turret with [laser beams|particle beams|missile racks|sandcasters] mounted.
+# some guns are a sign of pirate activity!
+1,The **first gunner** is *[human name]*. [store Gunnery as extra skill][merchant upp and skills]. Their turret has a [beam laser|pulse laser] mounted. The **second gunner** is *[human name]*. [store Gunnery as extra skill][merchant upp and skills]. Their turret has a [beam laser|pulse laser|missile racks|sandcasters] mounted. [maybe a pirate ship]
+1,The **gunner** is *[human name]*. [store Gunnery as extra skill][merchant upp and skills]. The ship has one turret with [beam laser|pulse laser] mounted. [maybe a pirate ship]
+1,The **gunner** is *[human name]*. [store Gunnery as extra skill][merchant upp and skills]. The ship has one turret with [missile racks|sandcasters] mounted.
+6,
+
+;maybe a criminal allegiance
+1,Few people know that *[same captain]* is in the pockets of the *[a crime syndicate]*.[here store [same captain] as criminal captain]
+4,
+
+;maybe a pirate ship
+1,Some of the ship’s scars were caused by victims defending themselves against a boarding action, for few people know that *[same captain]* is in the pockets of the *[a crime syndicate]*.[here store [same captain] as pirate captain]
 4,
 
 # 8+ means (1+2+3+4+5=15)/36
@@ -8829,7 +8844,6 @@
 1,Pu
 1,Pun
 1,Pú
-1,QU
 1,Qi
 1,Qian
 1,Qiao
