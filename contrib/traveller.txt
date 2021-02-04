@@ -49,4 +49,5 @@ other <text font-size="24pt" y="-10px" x="600px" font-family="Optima, Helvetica,
 other <text font-size="24pt" y="1845px" x="600px" font-family="Optima, Helvetica, sans-serif">rimward</text>
 other <text font-size="24pt" x="0" y="0" transform="translate(40,930) rotate(-90) " font-family="Optima, Helvetica, sans-serif">spinward</text>
 other <text font-size="24pt" x="0" y="0" transform="translate(1310,815) rotate(90) " font-family="Optima, Helvetica, sans-serif">trailing</text>
-other <text font-size="14pt" x="0" y="0" transform="translate(-20,1850) rotate(-90) " font-family="Optima, Helvetica, sans-serif">◉ gas giant – ■ imperial consulate – ☼ TAS – ▲ scout base – ★ navy base – π research base – ☠ pirate base – <tspan fill="#ff6347">▮</tspan> communication – <tspan fill="#afeeee">▮</tspan> trade</text>
+other <text font-size="14pt" x="0" y="0" transform="translate(30,1840) rotate(-90) " font-family="Optima, Helvetica, sans-serif">◉ gas giant – ▲ scout base – ★ navy base – π research base – ☠ pirate base</text>
+other <text font-size="14pt" x="0" y="0" transform="translate(30,470) rotate(-90) " font-family="Optima, Helvetica, sans-serif">■ imperial consulate – ☼ TAS – <tspan fill="#ff6347">▮</tspan> communication – <tspan fill="#afeeee">▮</tspan> trade</text>
