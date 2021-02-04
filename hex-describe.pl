@@ -495,7 +495,7 @@ any '/rule' => sub {
   my $n = $c->param('n') || 10;
   my $input = "[$rule]\n" x $n;
   my $table = get_table($c);
-  my $seed = $c->param('seed');
+  my $seed = $c->param('seed') || time;
   srand($seed) if $seed;
   my $descriptions = describe_text($input, parse_table($table), 1); # with redirects
   $c->render(template => 'text', input => $input, load => $c->param('load'), seed => $seed,
@@ -2430,7 +2430,6 @@ These results are based on the <strong><%= $rule %></strong> table.
 <p><%== $description %></p>
 % }
 </div>
-
 
 % if ($seed) {
 %   if ($rule) {
