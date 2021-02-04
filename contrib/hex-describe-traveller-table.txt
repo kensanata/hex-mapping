@@ -498,9 +498,9 @@
 1,4
 
 ;scout skills
-1,[scout skill]-3 [scout skill]-1
-1,[scout skill]-2 [scout skill]-1
-1,[scout skill]-1 [scout skill]-1
+1,[with scout skill]-2 [and scout skill]-1 [and scout skill]-1
+1,[with scout skill]-1 [and scout skill]-1 [and scout skill]-1
+1,[with scout skill]-1 [and scout skill]-1
 1,[scout skill]-1
 
 ;scout skill
@@ -515,9 +515,9 @@
 1,Medical
 
 ;smart scout skills
-1,[smart scout skill]-3 [smart scout skill]-1
-1,[smart scout skill]-2 [smart scout skill]-1
-1,[smart scout skill]-1 [smart scout skill]-1
+1,[with smart scout skill]-2 [and smart scout skill]-1 [and smart scout skill]-1
+1,[with smart scout skill]-1 [and smart scout skill]-1 [and smart scout skill]-1
+1,[with smart scout skill]-1 [and smart scout skill]-1
 1,[smart scout skill]-1
 
 ;smart scout skill
@@ -553,9 +553,9 @@
 36,[upp] [same extra skill]-[skilled] [merchant skills]
 
 ;merchant skills
-1,[merchant skill]-2 [merchant skill]-1 [merchant skill]-1
-2,[merchant skill]-1 [merchant skill]-1 [merchant skill]-1
-3,[merchant skill]-1 [merchant skill]-1
+1,[with merchant skill]-2 [and merchant skill]-1 [and merchant skill]-1
+2,[with merchant skill]-1 [and merchant skill]-1 [and merchant skill]-1
+3,[with merchant skill]-1 [and merchant skill]-1
 4,[merchant skill]-1
 
 ;merchant skill
@@ -572,9 +572,9 @@
 # 1,Medical
 
 ;smart merchant skills
-1,[smart merchant skill]-3 [smart merchant skill]-1
-2,[smart merchant skill]-2 [smart merchant skill]-1
-3,[smart merchant skill]-1 [smart merchant skill]-1
+1,[with smart merchant skill]-2 [and smart merchant skill]-1 [and smart merchant skill]-1
+2,[with smart merchant skill]-1 [and smart merchant skill]-1 [and smart merchant skill]-1
+3,[with smart merchant skill]-1 [and smart merchant skill]-1
 4,[smart merchant skill]-1
 
 ;smart merchant skill
@@ -595,9 +595,9 @@
 1,Admin
 
 ;common other skills
-1,[common other skill]-3 [common other skill]-1
-1,[common other skill]-2 [common other skill]-1
-1,[common other skill]-1 [common other skill]-1
+1,[with common other skill]-2 [and common other skill]-1 [and common other skill]-1
+1,[with common other skill]-1 [and common other skill]-1 [and common other skill]-1
+1,[with common other skill]-1 [and common other skill]-1
 1,[common other skill]-1
 
 ;common other skill
@@ -613,9 +613,9 @@
 2,Forgery
 
 ;smart other skills
-1,[smart other skill]-3 [smart other skill]-1
-1,[smart other skill]-2 [smart other skill]-1
-1,[smart other skill]-1 [smart other skill]-1
+1,[with smart other skill]-2 [and smart other skill]-1 [and smart other skill]-1
+1,[with smart other skill]-1 [and smart other skill]-1 [and smart other skill]-1
+1,[with smart other skill]-1 [and smart other skill]-1
 1,[smart other skill]-1
 
 ;smart other skill
