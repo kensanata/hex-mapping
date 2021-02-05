@@ -9,6 +9,9 @@
 1,There are two gas giants in this system.
 1,There is a gas giant in this system. [append streamlined ship]Sensors show the *[same ship name]* scooping up unrefined fuel.
 
+;size
+1,[size-[0|1|2|3|4|5|6|7|8|9|A]]
+
 # this is the first one where people actually see something.
 ;size-0
 1,<p>[same name] is the name of the largest asteroid in a belt somewhere between the [third and fourth|fourth and fifth|sixth and seventh] planet.
@@ -46,7 +49,7 @@
 1,<p>[same name] is huge, with a diameter of about 16000km.
 
 ;starport
-1,[starport-[A|B|C|D|E]]
+1,[starport-[A|B|C|D|E|X]]
 
 ;starport-A
 1,<p>[here store [same name] as big port][same name] has a **class A** starport. [shipyard] [refinery]<p>[ship in orbit]
@@ -85,8 +88,11 @@
 
 ;refinery
 1,A mighty plume over the fuel refineries reaches into the stratosphere, a permanent cloud tower.
-1,A bit to the [north|east|south|west] you can see [a|two] dozen huge fuel tanks.
-1,Pipelines from the refineries to the [north|east|south|west] lead to a big fuelling station.
+1,A bit to the [direction] you can see [a|two] dozen huge fuel tanks.
+1,Pipelines from the refineries to the [direction] lead to a big fuelling station.
+
+;direction
+1,[north|east|south|west]
 
 ;unrefined fuel
 1,A bunch of water tanks nearby tell you all there is to know about the fuel situation. Unrefined fuel only!
@@ -125,6 +131,10 @@
 # ;population-0
 # see → barren
 
+;population
+1,[barren]
+10,[population-[1|2|3|4|5|6|7|8|9|A]]
+
 ;population-1
 1,<p>A few dozen people live on [same name].
 1,<p>There is a small research station on [same name]. A few dozen [science people] live here.
@@ -139,11 +149,11 @@
 1,<p>Some thousand people live around the [same name] starport, with a few thousand more in smaller villages nearby.
 
 ;population-4
-1,<p>A town with a few ten thousand inhabitants has grown around the [same name] starport.
-1,<p>There are two main settlements, each with a few ten thousand inhabitants on [same name]. *Old [same name]* is built around the old starport. When it fell into disrepair in the [upheaval|troubles|civil war|dark times], it was abandoned and in recent years *New [same name]* was built around the new starport. There is quite some rivalry, of course.
+1,<p>*[space name]* is town with a few ten thousand inhabitants that has grown around the [same name] starport.
+1,<p>There are two main settlements, each with a few ten thousand inhabitants on [same name]. *Old [space name]* is built around the old starport. When it fell into disrepair in the [upheaval|troubles|civil war|dark times], it was abandoned and in recent years *New [same space name]* was built around the new starport. There is quite some rivalry, of course.
 
 ;population-5
-1,<p>A few hundred thousand inhabitants have settled on the planet. The largest settlement is about a quarter million people around the starport.
+1,<p>A few hundred thousand inhabitants have settled on the planet. The largest settlement is *[space name]* with about a quarter million people around the starport.
 
 ;population-6
 1,<p>A few million people live on the planet, distributed over multiple big cities, each with their own hinterlands.
@@ -172,6 +182,137 @@
 1,quantum field researches
 1,background radiation researchers
 1,solar dynamics researchers
+
+;government
+1,[government-[0|1|2|3|4|5|6|7|8|9|A|B|C|D]]
+
+;government-0
+1,<p>There is no government to speak of. The family is the highest good, here. Marriages are alliance contracts. If you’re not connected to the right people, things are difficult.
+1,<p>This is an anarchist society. Networks of family relations and informal obligations regulate public life. Getting things done requires a lot of legwork.
+1,<p>This is an anarcho-collectivist society. Property is collectively owned outside starports. Profit is illegal.
+1,<p>This is an anarcho-communist society. A gift-economy is used to regulate obligations. Profit is illegal. No wages are earned.
+1,<p>This is an anarcho-syndicalist society. All economic activity is organised in small-scale cooperatives.
+1,<p>The original settlers were anarcho-primitivists and people still live far apart from each other, all trying to live as independently as possible.
+
+;government-1
+1,<p>The society is ruled by a number of mega-corporations, the biggest of which is *[company name]*
+1,<p>The society is ruled by a number of mega-corporations, with *[with company name]* and *[and company name]* being the biggest ones.
+1,<p>This is a mercantilist society, where the state is run by the *[company name]* company for the benefit of all.
+1,<p>This is a late stage capitalist society, where everything has been privatised; the state and the *[company name]* company are essentially the same and everybody is being exploited.
+
+;government-2
+1,<p>This is a participating democracy. Decision are made slowly because there is so much opportunity for debate at every level.
+1,<p>This is a proud society. Every voice is heard. Public exchange platforms ensure vigorous debate. Decisions are not always made rationally.
+1,<p>This is a participating democracy. Popular speakers all have their following. Media law prevents a winner-takes-all takeover and so little bubbles have formed everywhere. The area around the starport is currently under the sway of *[human name]*.
+1,<p>This is a participating democracy where policy questions are posed in public on a regular basis with advice collected and summarised at every level of government. It’s quite involved but people are happy with it because they feel their voice is being heard.
+1,<p>This is a participating democracy where councils and committees of ordinary citizens spring up for all issues. People engage vigorously.
+1,<p>This is a participating democracy where the boundaries of government and civil society are blurry. Local tasks such as neighbourhood cleaning, firefighting, policing or public constructions are often handled by volunteer associations and clubs. The citizens consider it an honour to serve in such functions and their efforts are recompensed appropriately by their regular employers.
+
+;government-3
+1,<p>The population is ruled by a self-perpetuating oligarchy: the *[human surname]* family is the oldest founding family of the settlement and managed to stay afloat all these years.
+1,<p>All the important positions in the system are filled by members of the *[human surname]* family. They are all descendants of the *[company name]* founder, the *[human name]*. They are called “the princes & princesses” and there is no touching them.
+1,<p>The ruling caste claims an genetic predisposition for rule. It is all propaganda, of course, and yet these “Sons and Daughter of [same system]” keep the reins of power and none dare oppose them.
+1,<p>A hereditary senate rules the system with [an iron fist|a lot of ceremony|many, extensive rituals] and it is impossible for others to ever enter these ranks. Apparently a system retained from the old days, a second wave of settlement making sure they got an unfair share of the economic output.
+1,<p>The system is ruled by two parliaments: the [popular|people’s|common|lower] parliament is open to all and has practically no power, where as the [senate|house of lords|inner circle|upper parliament|council of elders|council of elders] wields actual power and its membership is inherited from [father to eldest son|mother to eldest daughter].
+
+;government-4
+1,<p>The system is governed by a representative democracy. The system favours just two parties, and these two parties split the populace into two equal halves that contest bitterly for supremacy. The two parties are the *[with party]* and the *[and party]*, and where as they claim large and important differences, the actual differences are small and confined to a few key issues. The former party is currently in power, led by *[human name]*.
+1,<p>The system is governed by a representative democracy. The system favours just many small parties and unstable governments. The constitution cannot be changed without a civil war, but without the change there is no stability. Currently, a minority government under the *[party]* led by *[human name]*.
+1,<p>The system is governed by a representative democracy. The system favours a few big parties and stable governments. The *[with party]* has been in power for [1d10+9] years and has been led by *[human name]* all this time. The opposition is fragmented and weak. Currently the *[and party]* led by *[human name]* is trying to challenge the status quo. [However, they don’t stand a chance unless they make drastic changes|They are gaining ground and are set to win the upcoming elections].
+1,<p>The system is governed by a representative democracy. The system favours a handful of parties with no clear winners and stable governments. Executive power lies in a committee with representatives of all the powers. The current ceremonial head of the government is *[human name]*.
+
+;party
+1,Optimates
+1,Populares
+1,Progressives
+1,Democrats
+1,Constitutionalists
+1,Republicans
+1,Federalists
+1,Independents
+1,Communists
+1,Socialists
+1,Preservationists
+1,Conservatives
+1,Deliberalists
+1,[Freedom|Family|Values] [First|Party]
+1,Economists
+1,Agriculturalist
+1,Ruralists
+1,Urbanists
+1,Ecologists
+1,Landlords
+1,Industrialists
+1,Greens
+1,Blues
+1,Reds
+1,Blacks
+1,Browns
+1,Nationalists
+
+;government-5
+1,<p>The entire system has been divvied up between a handful of tech giants that provide civil full services for their customers. Entire families and buildings “belong” to their *[with company name]*, *[and company name]*, or *[and company name]*. Their homes, their schools, their transportation, it all belongs to one of these companies. It’s a feudal technocracy.
+1,<p>The life support systems and civil infrastructure in this system belong to a different age with a higher tech level, and now they’re starting to fail. They’re barely kept working by so called “[tech|life|building|pipe] [priests|wizards|mages|sorcerers]”, the ancient [secrets|knowledge] carefully passed [from father to son|from mother to daughter|from parent to child]. It’s a feudal technocracy.
+1,<p>Society has splintered into various group, each trying to live according to slightly different rules. In order to allow for this, an elaborate system of [labels|rituals] and [traditions|organisations] has been set up such that each person can be ruled according to their allegiance. The entire system is controlled by a caste of [programmers|administrators|tech wizards|government service providers]. It all sounds very benevolent until you find that it’s hard to switch your allegiance then it dawns on you that you’re living in a feudal technocracy.
+
+;government-6
+1,<p>This is a colony of the *[nearby big port]*. The local [administration|puppet government] is led by the *[human name]*. The locals are squeezed for all they’re worth and suffer. The [rebellion|resistance] is gaining power, led by the charismatic *[human name]*. There is going to be violence, soon. 
+1,<p>This is a colony of the *[nearby big port]*. The local [administration|puppet government] is led by the *[human name]*. The parent system has been subsidising all the recent developments, but money is starting to run out. They are no longer willing to fund the colony and *[same human name]* is struggling to prepare the locals for independence. Should the transition fail, all hell is going to break loose.
+1,<p>In a recent conflict with *[nearby big port]*, the entire local government was replaced by a new administration more [amenable|agreeable] to the victors. The leader of the new administration is *[human name]*, [acquiescent|submissive] and quick to say that now is the time to [forgive and forget|make amends], not to seek revenge for fear of reprisals.
+1,<p>When terrorists on *[nearby big port]* turned out to be locals, they decided to overthrow the old order and install a puppet government, currently led by *[human name]*. Curfews, patrols, interrogations, allegations of torture, and occasional revelations thereof provide fertile grounds for more shootings, more bombs, more assassinations. These are bad times.
+
+;government-7
+1,<p>The system has fallen apart into multiple polities: each urban centre claiming sovereignty, involved in border disputes, internal squabbles, unable to deal with the imperial order in the subsector. The starport falls within the sphere of influence of *[space name]*. It’s a mess.
+1,<p>The system was settled in different places at different times. The initial phase was rough and there never developed any cohesion. Now the system is balkanized, with the local governments appealing each to their rich past, unwilling to give up any privileges. The starport is controlled by the *[space name]*. It’s tricky.
+1,<p>After the reason upheavals and the ensuing civil war, the system has splintered into different groups, each led by a warlord. [warlord situation] The starport is controlled by warlord *[human name]*.
+1,<p>The system is balkanized but stable. Many smaller states have fought cruel wars to create the illusion of a homogeneous local population. With this goal attained and stabilised using propaganda and the self-interests of the elite, things won’t be changing any time soon. This also makes the system easy prey for imperial actors, obviously.
+
+;warlord situation
+1,There’s peace right now, and negotiations are ongoing.
+1,The cease fire has held for many years, now.
+1,There’s [a cease fire in place|peace] right now, but recent reports by the scout service indicate a buildup of forces.
+1,There’s peace right now but all the warlords are hiring military specialists so the outlook is dim.
+
+;government-8
+1,<p>Civil service bureaucracy.
+;government-9
+1,<p>Impersonal bureaucracy.
+;government-A
+1,<p>This system is ruled by a charismatic dictator.
+;government-B
+1,<p>This system is ruled by a non-charismatic leader.
+;government-C
+1,<p>This is a charismatic oligarchy.
+
+;government-D
+1,<p>The system has fallen into a religious dictatorship. A council of elders supports *[human name]*, a religious leader who mediates between this world and the next. Dissent is persecuted relentlessly. Morals are heavily regulated. Public life and private life offer a stark contrast.
+1,<p>A religious sect as taken over, the *[religious sect]* under the leadership of *[human name]*. The previous dictatorship was overthrown, political prisoners were released, and the economy was reformed. The population is jubilant but already the new government is full of sycophants, members of the old guard, just as corrupt as before.
+1,<p>A while ago, a religious dictatorship was installed by *[human name]*, the founder of the *[religious sect]*. The structures have since ossified, a theocracy has been established and all dissent is suppressed. Reform seems impossible, as hopeful candidates have been rendered [toothless|powerless] by the establishment. Currently, the [reformer|hardliner|weak] *[human name]* is head of the civil government and everybody knows: nothing will change.
+1,<p>The original settlement was made by refugees belonging to the *[religious sect]*, wanting peace and solitude. Over the generations, the religious institutions provided schooling, administration, and handled the economy. It would seem impossible to wrestle control from them, now. The head of the church is *[human name]*
+
+;religious sect
+5,[Adherents|Followers|Servants|Worshippers|Children] of the [religious object]
+1,Believers in the [religious object]
+
+;religious object
+1,[Holy|Glory|Hallowed] [Book|Word|Message|Transmission|Consciousness|Mind|Creator]
+1,[ship colour] [Book|Circle|Revelation|Altar]
+1,[First|Second|Third|Fifth|Seventh] [Church|Temple|Messiah|Prophet|Saint]
+
+;company name
+6,[company subject] [company field]
+1,[company subject] [with company field] & [and company field]
+
+;company subject
+1,[Standard|Universal|Popular|Human|Space|Ultimate]
+1,[human surname]
+
+;company field
+1,[Oil|Nuclear|Fusion|Fission]
+1,[Transmission|Transformation|Upgrades|Development|Improvement]
+1,[Production|Manufacturing|Banking|Insurances|Services|Securities]
+1,[Legal|Compliance|Computing|Logistics|Pharmaceuticals|Mining|Constructions|Buildings|Resources]
+1,[Organisation|Processes|Management]
 
 # trade codes
 
@@ -260,10 +401,13 @@
 1,sulphur
 
 ;rich
-1,<p>People are rich.
+1,<p>The palace complex of the [human surname] clan with it’s golden roofs and glass domes lies to the [direction] of the starport.
+1,<p>The area around the starport is well kept, with lush parks and well maintained buildings.
 
 ;poor
-1,<p>People are poor.
+1,<p>There is a big slum to the [direction] of the starport.
+1,<p>The maintenance systems have failed and so half of the starport is now unusable, the ground no longer suitable for landing.
+1,<p>At the starport there are multiple signs warning you of the poor neighbourhoods and the resulting threat to life and property.
 
 # Bases
 
@@ -11624,3 +11768,33 @@
 1,Zororo
 1,Zuva
 1,Zvaitika
+
+;space name
+1,[capitalize space word]
+
+;space word
+4,[with syllable][and syllable][and syllable][and syllable]
+4,[with syllable][and syllable][and syllable]
+4,[with syllable][and syllable]
+1,[syllable]
+2,[with syllable][and syllable][and syllable][and syllable][end consonants]
+2,[with syllable][and syllable][and syllable][end consonants]
+2,[with syllable][and syllable][end consonants]
+2,[syllable][end consonants]
+
+;syllable
+5,[consonants][vocal]
+1,[vocal]
+
+;consonants
+2,[b|d|f|g|h|l|m|n|p|r|s|t]
+4,[b|c|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x|y|z]
+1,[sc|ng|ch|gh|ph|rh|sh|th|wh|zh|wr|qu|st|sp|tr|tw|fl|dr|pr]
+
+;end consonants
+2,[b|d|f|g|h|l|m|n|p|r|s|t]
+4,[b|c|d|f|g|k|l|m|n|p|q|r|s|t|v|w|x|y|z]
+1,[ng|ch|gh|ph|sh|th|st|sp|fl|dr]
+
+;vocal
+1,[a|e|i|o|u]
