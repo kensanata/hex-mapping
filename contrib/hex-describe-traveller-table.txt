@@ -136,17 +136,23 @@
 10,[population-[1|2|3|4|5|6|7|8|9|A]]
 
 ;population-1
-1,<p>A few dozen people live on [same name].
-1,<p>There is a small research station on [same name]. A few dozen [science people] live here.
-1,<p>A few dozen people live on [same name].
+1,<p>A few dozen people live on [same name]. The first ship *[mellow ship name]* with which most of them arrived [1d20+5] years ago is still there, [still functional|barely functional|repairs needed|a complete overhaul would be needed before takeoff|stripped to the bones|crashed and burned|a total wreck|reduced to scrap metal].
+1,<p>There is a small and unimportant research station on [same name], at least according to imperial standards. A few dozen [science people] live here.
 
 ;population-2
-1,<p>There is a single settlement with a few hundred people on [same name].
-1,<p>A few hundred people live around the [same name] starport.
+1,<p>There is a single settlement with a few hundred people on [same name]. [colony ship]
+1,<p>A few hundred people live around the [same name] starport. [colony ship]
 
 ;population-3
-1,<p>A few thousand people live around the [same name] starport.
-1,<p>Some thousand people live around the [same name] starport, with a few thousand more in smaller villages nearby.
+1,<p>A few thousand people live around the [same name] starport. [colony ship]
+1,<p>Some thousand people live around the [same name] starport, with a few thousand more in smaller villages nearby. [colony ship]
+
+;colony ship
+1,The first settlers arrived here about [1d4+1]00 years ago with the [colony|generation] ship *[mellow ship name]*. Tracing your ancestry back to the original settlers is a source of pride for the locals.
+1,The settlement was founded by a colony ship from *[nearby big port]* about [1d4]00 years ago. These old ties are still considered to be important by the locals.
+1,The settlement was originally a penal colony for *[nearby big port]* and gained independence [1d20]0 years ago. The resentment is still strong among the locals.
+1,The settlement was founded by the *[company name]* company from *[nearby big port]* about [1d4]00 years ago. You can still the logo and their products everywhere.
+1,The settlement was founded by the *[human surname]* foundation from *[nearby big port]* about [1d20]0 years ago. Their descendants are still very important people in the system.
 
 ;population-4
 1,<p>*[space name]* is town with a few ten thousand inhabitants that has grown around the [same name] starport.
@@ -195,10 +201,10 @@
 1,<p>The original settlers were anarcho-primitivists and people still live far apart from each other, all trying to live as independently as possible.
 
 ;government-1
-1,<p>The society is ruled by a number of mega-corporations, the biggest of which is *[company name]*
-1,<p>The society is ruled by a number of mega-corporations, with *[with company name]* and *[and company name]* being the biggest ones.
-1,<p>This is a mercantilist society, where the state is run by the *[company name]* company for the benefit of all.
-1,<p>This is a late stage capitalist society, where everything has been privatised; the state and the *[company name]* company are essentially the same and everybody is being exploited.
+1,<p>The society is ruled by a number of mega-corporations, the biggest of which is *[company name]*. People are unhappy because the near system-wide monopoly on all civil cervices has given rise to increased rent-seeking. There are service fees to be paid for everything. This is seen as an inherently unfair head tax by many and *[human name]* (not their real name) is trying to organise a reform from the shadows.
+1,<p>The society is ruled by a number of mega-corporations, with *[with company name]* and *[and company name]* being the biggest ones. Competition has driven down prices, but corporate power has also made sure that everything has a price, including air and water. To them, anything without a price is worthless, or there for the taking.
+1,<p>This is a mercantilist society, where the state is run by the *[company name]* company for the benefit of all. This is only a problem for those not found in their registries: new arrivals, refugees, illegals, people avoiding the benevolent surveillance. 
+1,<p>This is a late stage capitalist society, where everything has been privatised; the state and the *[company name]* company are essentially the same and everybody is being exploited. The locals don’t know how to organise themselves: if somebody were to oppose this corporatism, how would they live and breathe without a company to pay for it? How would their voice get heard without owning media channels and public relation channels? It is inconceivable to succeed outside their system, they say.
 
 ;government-2
 1,<p>This is a participating democracy. Decision are made slowly because there is so much opportunity for debate at every level.
@@ -211,14 +217,14 @@
 ;government-3
 1,<p>The population is ruled by a self-perpetuating oligarchy: the *[human surname]* family is the oldest founding family of the settlement and managed to stay afloat all these years.
 1,<p>All the important positions in the system are filled by members of the *[human surname]* family. They are all descendants of the *[company name]* founder, the *[human name]*. They are called “the princes & princesses” and there is no touching them.
-1,<p>The ruling caste claims an genetic predisposition for rule. It is all propaganda, of course, and yet these “Sons and Daughter of [same system]” keep the reins of power and none dare oppose them.
+1,<p>The ruling caste claims an genetic predisposition for rule. It is all propaganda, of course, and yet these “Sons and Daughter of [same name]” keep the reins of power and none dare oppose them.
 1,<p>A hereditary senate rules the system with [an iron fist|a lot of ceremony|many, extensive rituals] and it is impossible for others to ever enter these ranks. Apparently a system retained from the old days, a second wave of settlement making sure they got an unfair share of the economic output.
 1,<p>The system is ruled by two parliaments: the [popular|people’s|common|lower] parliament is open to all and has practically no power, where as the [senate|house of lords|inner circle|upper parliament|council of elders|council of elders] wields actual power and its membership is inherited from [father to eldest son|mother to eldest daughter].
 
 ;government-4
-1,<p>The system is governed by a representative democracy. The system favours just two parties, and these two parties split the populace into two equal halves that contest bitterly for supremacy. The two parties are the *[with party]* and the *[and party]*, and where as they claim large and important differences, the actual differences are small and confined to a few key issues. The former party is currently in power, led by *[human name]*.
-1,<p>The system is governed by a representative democracy. The system favours just many small parties and unstable governments. The constitution cannot be changed without a civil war, but without the change there is no stability. Currently, a minority government under the *[party]* led by *[human name]*.
-1,<p>The system is governed by a representative democracy. The system favours a few big parties and stable governments. The *[with party]* has been in power for [1d10+9] years and has been led by *[human name]* all this time. The opposition is fragmented and weak. Currently the *[and party]* led by *[human name]* is trying to challenge the status quo. [However, they don’t stand a chance unless they make drastic changes|They are gaining ground and are set to win the upcoming elections].
+1,<p>The system is governed by a representative democracy. The system favours just two parties, and these two parties split the populace into two equal halves that contest bitterly for supremacy. The two parties are the *[with party]* and the *[and party]*, and where as they claim large and important differences, the actual differences are small and confined to a few key issues. The *[same party]* are currently in power, led by *[human name]*.
+1,<p>The system is governed by a representative democracy. The system favours just many small parties and unstable governments. The constitution cannot be changed without a civil war, but without the change there is no stability. Currently, a minority government under the *[party]* led by *[human name]* governs. Everyday, the press claims the government is about to fall. And yet, they’re holding on.
+1,<p>The system is governed by a representative democracy. The system favours a few big parties and stable governments. The *[with party]* have been in power for [1d10+9] years and have been led by *[human name]* all this time. The opposition is fragmented and weak. Currently the *[and party]* led by *[human name]* are trying to challenge the status quo. [However, they don’t stand a chance unless they make drastic changes|They are gaining ground and are set to win the upcoming elections].
 1,<p>The system is governed by a representative democracy. The system favours a handful of parties with no clear winners and stable governments. Executive power lies in a committee with representatives of all the powers. The current ceremonial head of the government is *[human name]*.
 
 ;party
@@ -235,9 +241,9 @@
 1,Preservationists
 1,Conservatives
 1,Deliberalists
-1,[Freedom|Family|Values] [First|Party]
+1,[Freedom|Family|Values] [First Party|Party]
 1,Economists
-1,Agriculturalist
+1,Agriculturalists
 1,Ruralists
 1,Urbanists
 1,Ecologists
@@ -259,13 +265,13 @@
 1,<p>This is a colony of the *[nearby big port]*. The local [administration|puppet government] is led by the *[human name]*. The locals are squeezed for all they’re worth and suffer. The [rebellion|resistance] is gaining power, led by the charismatic *[human name]*. There is going to be violence, soon. 
 1,<p>This is a colony of the *[nearby big port]*. The local [administration|puppet government] is led by the *[human name]*. The parent system has been subsidising all the recent developments, but money is starting to run out. They are no longer willing to fund the colony and *[same human name]* is struggling to prepare the locals for independence. Should the transition fail, all hell is going to break loose.
 1,<p>In a recent conflict with *[nearby big port]*, the entire local government was replaced by a new administration more [amenable|agreeable] to the victors. The leader of the new administration is *[human name]*, [acquiescent|submissive] and quick to say that now is the time to [forgive and forget|make amends], not to seek revenge for fear of reprisals.
-1,<p>When terrorists on *[nearby big port]* turned out to be locals, they decided to overthrow the old order and install a puppet government, currently led by *[human name]*. Curfews, patrols, interrogations, allegations of torture, and occasional revelations thereof provide fertile grounds for more shootings, more bombs, more assassinations. These are bad times.
+1,<p>When terrorists on *[nearby big port]* turned out to be locals, it didn’t take long before the navy showed up, overthrew the old order on *[same name]*, and installed a puppet government, currently led by *[human name]*. Curfews, patrols, interrogations, allegations of torture, and occasional revelations thereof provide fertile grounds for more shootings, more bombs, more assassinations. These are bad times.
 
 ;government-7
 1,<p>The system has fallen apart into multiple polities: each urban centre claiming sovereignty, involved in border disputes, internal squabbles, unable to deal with the imperial order in the subsector. The starport falls within the sphere of influence of *[space name]*. It’s a mess.
 1,<p>The system was settled in different places at different times. The initial phase was rough and there never developed any cohesion. Now the system is balkanized, with the local governments appealing each to their rich past, unwilling to give up any privileges. The starport is controlled by the *[space name]*. It’s tricky.
 1,<p>After the reason upheavals and the ensuing civil war, the system has splintered into different groups, each led by a warlord. [warlord situation] The starport is controlled by warlord *[human name]*.
-1,<p>The system is balkanized but stable. Many smaller states have fought cruel wars to create the illusion of a homogeneous local population. With this goal attained and stabilised using propaganda and the self-interests of the elite, things won’t be changing any time soon. This also makes the system easy prey for imperial actors, obviously.
+1,<p>The system is balkanized but stable. Many smaller states have fought cruel wars to create the illusion of a homogeneous local population. With this goal attained and stabilised using propaganda and the self-interests of the elite, things won’t be changing any time soon. This also makes the system easy prey for imperial actors, obviously. The starport is built in the *[space name]* region.
 
 ;warlord situation
 1,There’s peace right now, and negotiations are ongoing.
@@ -275,20 +281,35 @@
 
 ;government-8
 1,<p>Civil service bureaucracy.
+
 ;government-9
 1,<p>Impersonal bureaucracy.
+
 ;government-A
-1,<p>This system is ruled by a charismatic dictator.
+5,<p>This system is ruled by *[human name]*, a charismatic dictator. They got to power on a platform of [order|unity|fiscal discipline] and [development|progress|prosperity], and they promised to [fight corruption|break up the monopolies|enact land reform|tax the rich|find work for the young|introduce universal basic income|reform the system|regain former military glory]. [popular support]
+1,<p>This system is ruled by *[human name]*, a charismatic dictator. They deposed the old government after they had failed to put down a rebellion and got dragged into a civil war. *[same human name]* cleaned up the mess, put down the rebellion, initiated the necessary reforms, and finally deposed the government as well. [popular support]
+
+;popular support
+1,They are riding a wave of popular support, for now.
+1,The underlying causes are far from resolved, however.
+
 ;government-B
-1,<p>This system is ruled by a non-charismatic leader.
+1,<p>When *[human name]* passed away, [their protege|the vice chancellor|the vice president|the senate head] *[human name]* took over and tried to [uphold the old order|live up to their predecessor’s legacy|institute smaller reforms], but they lack charisma and slowly popular support has been eroding.
+1,<p>When *[human name as old boss]* fell ill, [their old friend|their right hand|the head of the secret service|general] *[human name]* took over daily affairs. They still consult with their predecessor, and they both emphasise how well they work together, but there’s no denying that the old leader is falling apart. It’s still too early for big changes, and so tensions are rising as people await the inevitable death of *[same old boss]*.
+1,<p>Another five year plan, but this time *[human name]* was not confirmed as party leader. Instead, *[human name]* has taken the reigns of power. Contrary to their predecessor, however, they lack charisma and made one blunder after another in their public affairs. The locals are not happy.
+1,<p>Another five year plan, but this time *[human name as old boss]* was not confirmed as party leader. Instead, *[human name]* was elected. Soon enough, *[same old boss]* was found dead, an undiagnosed heart conditions according to the party papers, murder, according to the rumour mill.
+
 ;government-C
-1,<p>This is a charismatic oligarchy.
+1,<p>This is a charismatic oligarchy: the *[human surname]* clan governs the system fairly and for the benefit of all. The spectre of drawbacks of nepotism are currently small because the rapid economic expansion of recent years has given everybody hope that they too might one day rise and marry into “the clan”.
+1,<p>[1d4]0 years ago, the *[party name]* won the last free elections and have managed to stay in power ever since, first by changing the election laws, then by changing the constitution. And yet, the system works. There is little squabbling and decisions are made swiftly and decisively, corruption is held down and press is free. The current “[elder spokesperson|elder statesperson|supreme leader|first amongst equals|party speaker|party leader|chancellor for life]” is *[human name]*.
+1,<p>The church rules the system with benevolence and foresight. The institution has survived a thousand years and shows no sign of failing. Every child spends a year in a monastery after leaving their home, and the youngest child in every family is expected to join the church for life. Thus, everybody is connected to the church, and everybody benefits. The ceremonial head of the church is *[human name]*.
+1,<p>[1d4]0 years ago, [bureaucrat|supreme accountant|supreme consultant] *[human name]* was appointed by the leaders of a military coup against the old government to reorganize the state. As *[same human name]* wasn’t part of the military it comes as no surprise that the head of state plays only a ceremonial role. The power lies in the hands of military councils. It’s been working fine until now and so there’s not a lot of grumbling. The road to advancement is obvious to all: join the army, advance in ranks, and you too can be part of the military councils.
 
 ;government-D
 1,<p>The system has fallen into a religious dictatorship. A council of elders supports *[human name]*, a religious leader who mediates between this world and the next. Dissent is persecuted relentlessly. Morals are heavily regulated. Public life and private life offer a stark contrast.
 1,<p>A religious sect as taken over, the *[religious sect]* under the leadership of *[human name]*. The previous dictatorship was overthrown, political prisoners were released, and the economy was reformed. The population is jubilant but already the new government is full of sycophants, members of the old guard, just as corrupt as before.
 1,<p>A while ago, a religious dictatorship was installed by *[human name]*, the founder of the *[religious sect]*. The structures have since ossified, a theocracy has been established and all dissent is suppressed. Reform seems impossible, as hopeful candidates have been rendered [toothless|powerless] by the establishment. Currently, the [reformer|hardliner|weak] *[human name]* is head of the civil government and everybody knows: nothing will change.
-1,<p>The original settlement was made by refugees belonging to the *[religious sect]*, wanting peace and solitude. Over the generations, the religious institutions provided schooling, administration, and handled the economy. It would seem impossible to wrestle control from them, now. The head of the church is *[human name]*
+1,<p>The original settlement was made by refugees belonging to the *[religious sect]*, wanting peace and solitude. Over generations, the religious institutions provided schooling, administration, and handled the economy. It would seem impossible to wrestle control from them, now. The head of the church is *[human name]*
 
 ;religious sect
 5,[Adherents|Followers|Servants|Worshippers|Children] of the [religious object]
@@ -364,17 +385,11 @@
 1,<p>The methane oceans are very cold.
 1,<p>The oily oceans are a rich source of complex chemicals.
 
-;low
-1,<p>Not many people live here.
-1,<p>A small number of families have settled this system.
-1,<p>The entire system basically belongs to a single clan.
-1,<p>The system is settled by a big conglomerate.
-1,<p>The system was settled by a generation ship not so long ago.
+# ;low
+# not used, see population-1 to population-5
 
-;high
-1,<p>There are many big cities all over the system.
-1,<p>The population is growing and construction is lagging. Homelessness abounds.
-1,<p>Improvements in the fight against disease over the last few decades has resulted in a population explosion.
+# ;high
+# not used, see population-9 to population-A
 
 ;agriculture
 1,<p>This is one of the worlds where agriculture is possible. They are famed for their exports of [food].
@@ -403,9 +418,11 @@
 ;rich
 1,<p>The palace complex of the [human surname] clan with it’s golden roofs and glass domes lies to the [direction] of the starport.
 1,<p>The area around the starport is well kept, with lush parks and well maintained buildings.
+1,<p>The locals are rich and well off. Economic refugees from neighbouring systems are not well treated, however. Refugee camps exist near the starport, and reports of police brutality make the rounds. The head of these refugee camps is *[human name]*.
+1,<p>The locals are rich and well off. Economic refugees from neighbouring systems are welcomed for the internal labour marked needs plenty of new hands. At the starport, various agencies are trying to enlist all who came with low passage. The biggest of these agencies is the office of *[company name]*, run by *[human name]*.
 
 ;poor
-1,<p>There is a big slum to the [direction] of the starport.
+1,<p>There is a big slum to the [direction] of the starport. There are plenty of [homeless|internally displaced] people.
 1,<p>The maintenance systems have failed and so half of the starport is now unusable, the ground no longer suitable for landing.
 1,<p>At the starport there are multiple signs warning you of the poor neighbourhoods and the resulting threat to life and property.
 
