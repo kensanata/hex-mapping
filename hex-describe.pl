@@ -1394,11 +1394,18 @@ sub describe {
       $locals{$word} = $text;
       push(@descriptions, "｢append $text｣");
     } elsif ($word =~ /^same (.+)/) {
-      return $locals{$1}->[0] if exists $locals{$1} and ref($locals{$1}) eq 'ARRAY';
-      return $locals{$1} if exists $locals{$1};
-      return $globals->{$1}->{global} if $globals->{$1} and $globals->{$1}->{global};
-      $log->error("[$1] is undefined for $coordinates");
-      return "…";
+      my $key = $1;
+      return $locals{$key}->[0] if exists $locals{$key} and ref($locals{$key}) eq 'ARRAY';
+      return $locals{$key} if exists $locals{$key};
+      return $globals->{$key}->{global} if $globals->{$key} and $globals->{$key}->{global};
+      my $text = pick($map_data, $table_data, $level, $coordinates, $words, $key, $redirects);
+      if ($text) {
+	$locals{$key} = $text;
+	push(@descriptions, $text);
+      } else {
+	$log->error("[$key] is undefined for $coordinates");
+	return "…";
+      }
     } elsif ($word =~ /^with (.+?)(?: as (.+))?$/) {
       my ($key, $alias) = ($1, $2);
       my $text = pick($map_data, $table_data, $level, $coordinates, $words, $key, $redirects);
