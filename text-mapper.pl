@@ -4021,7 +4021,7 @@ sub system {
   $atmosphere = 0 if $size == 0;
   my $hydro = roll2d6() - 7 + $atmosphere;
   $hydro -= 4 if $atmosphere < 2 or $atmosphere >= 10;
-  $hydro = 0 if $hydro < 0;
+  $hydro = 0 if $hydro < 0 or $size < 2;
   $hydro = 10 if $hydro > 10;
   my $population = roll2d6() - 2;
   my $government = max(0, roll2d6() - 7 + $population);
@@ -4098,7 +4098,9 @@ sub system {
       and $atmosphere >= 10;
   push(@tiles, "population-" . code($population));
   push(@tiles, "barren")
-      if $population eq 0;
+      if $population eq 0
+      and $law eq 0
+      and $government eq 0;
   push(@tiles, "low")
       if $population >= 1 and $population <= 3;
   push(@tiles, "high")
