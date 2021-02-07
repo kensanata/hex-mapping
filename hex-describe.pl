@@ -1587,7 +1587,7 @@ sub resolve_appends {
   my $redirects = shift;
   my $text;
   for my $coord (keys %$descriptions) {
-    while ($descriptions->{$coord} =~ s/｢append ([^][｣]*)｣/$text = $1; ""/ge) {
+    while ($descriptions->{$coord} =~ s/｢append ([^][｣]*)｣/$text = $1; ""/e) {
       $descriptions->{$coord} .= ' ' . $text;
     }
   }
