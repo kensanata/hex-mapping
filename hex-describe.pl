@@ -1202,7 +1202,7 @@ This is where I<context> is implemented. Let's start with this hex:
 
     0101 dark-green trees village river trail
 
-Remember that parsing the map added a more terrain than was noted on the map
+Remember that parsing the map added more terrain than was noted on the map
 itself. Our function will get called for each of these words, Let's assume it
 will get called for "dark-green". Before checking whether a table called
 "dark-green" exists, we want to check whether any of the other words provide
@@ -1213,6 +1213,11 @@ before checking for "dark-green".
 If such a table exists in C<$table_data>, we call C<pick_description> to pick a
 text from the table and then we go through the text and call C<describe> to
 resolve any table references in square brackets.
+
+Remember that rules for the remaining words are still being called. Thus, if you
+write a table for "trees dark-green" (which is going to be picked in preference
+to "dark-green"), then there should be no table for "trees" because that's the
+next word that's going to be processed!
 
 =cut
 
