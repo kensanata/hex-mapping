@@ -1,6 +1,15 @@
 # A random table collection written by Alex Schroeder and Vicky
 # Rathcliff and dedicated to the Public Domain.
 
+;TOP
+1,[welcome][on names]
+
+;welcome
+1,Welcome to the [global save space name as subsector][same subsector] subsector!
+
+;on names
+1,<p>**Names:** When Chinese or Japanese names are being used, the order is *surname* then *given name*; other names use the order *given name* then *surname*; some people have no surname.
+
 ;system
 1,This is **[same name]**, UWP [same uwp].
 
@@ -473,10 +482,10 @@
 1,<p>There is a scout base called *[scout base name]* in the system. The current crew is small. [scout base crew] All who served here end up joining the *[here scout base friends as association of captains]*.
 
 ;scout base crew
-1,The only person on duty is command *[human name as base commander]*. [smart upp]. [smart scout skills].
-1,The commander is *[human name as base commander]*. [smart upp]. [smart scout skills]. Their partner is *[human name]*. [smart upp]. [smart scout skills].
-1,The commander is *[human name as base commander]*. [smart upp]. [smart scout skills]. Their partner is *[human name]*. [upp]. [scout skills].
-1,The commander is *[human name as base commander]*. [smart upp]. [smart scout skills]. The senior partner in their team is *[human name]*. [upp]. [scout skills]. The junior partner is *[human name]*. [upp]. [scout skills].
+1,The only person on duty is **commander** *[human name as base commander]*. [smart upp]. [smart scout skills].
+1,The **commander** is *[human name as base commander]*. [smart upp]. [smart scout skills]. Their **partner** is *[human name]*. [smart upp]. [smart scout skills].
+1,The **commander** is *[human name as base commander]*. [smart upp]. [smart scout skills]. Their **partner** is *[human name]*. [upp]. [scout skills].
+1,The **commander** is *[human name as base commander]*. [smart upp]. [smart scout skills]. Their **senior partner** in their team is *[human name]*. [upp]. [scout skills]. Their **junior partner** is *[human name]*. [upp]. [scout skills].
 
 ;scout base name
 1,[same name] [Observatory|Intelligence|Surveillance|Exploration|Mission|Uplift|Listening Post]
@@ -489,12 +498,15 @@
 # Crime
 
 ;pirate
-1,<p>There is a pirate base in the system.
+1,<p>There is a hidden pirate base in the system. [pirates]
 1,<p>There is a small station of the *[a crime syndicate]* in orbit around [same name]. [criminals]
 1,<p>There is a [safe house|hidden base|refugium] of the *[a crime syndicate]* near the starport. [criminals]
 
+;pirates
+1,The **pirate captain** is *[here human name as crime boss]*. [smart upp]. [smart other skills]. Their **right hand** is *[human name]*. [upp]. [common other skills]. There are [2d4] more *pirates* in the building. 777777. Shotgun-1.
+
 ;criminals
-1,The **crime boss** is *[here human name as crime boss]*. [smart upp]. [smart other skills]. Their right hand is **[human name]**. [upp]. [common other skills].
+1,The **crime boss** is *[here human name as crime boss]*. [smart upp]. [smart other skills]. Their **right hand** is *[human name]*. [upp]. [common other skills]. There are [2d6] more *criminals* in the building. 777777. Shotgun-1.
 
 # there are just three crime syndicates
 ;a crime syndicate
@@ -674,16 +686,18 @@
 1,upgraded
 
 ;scout/courier
-1,<p>The *[here scout ship name as ship name]* is a **type S** scout/courier ship (100t, streamlined). [scout ship crew]
+1,<p>The *[here scout ship name as ship name]* is a **type S** scout/courier ship (100t, streamlined). This ship is limited to jump-1. [scout ship crew]
 
 ;free trader
-1,<p>The *[here ship name]* is a **type A** free trader (200t, streamlined). [free trader ship crew]
+1,<p>The *[here ship name]* is a **type A** free trader (200t, streamlined). This ship is limited to jump-1. [free trader ship crew]
 
 ;subsidized merchant
-1,<p>The *[here ship name]* is a **type R** “fat trader” (400t, streamlined), subsidized by the *[nearby big port]* government. [subsidized merchant ship crew]
+1,<p>The *[here ship name]* is a **type R** “fat trader” (400t, streamlined), subsidized by the *[nearby big port]* government. This ship is limited to jump-1. [subsidized merchant ship crew]
+1,<p>The *[here ship name]* is a **type R** “fat trader” (400t, streamlined), subsidized by the *[other big port]* government. This ship is limited to jump-1. [subsidized merchant ship crew]
 
 ;subsidized liner
-1,<p>The *[here mellow ship name as ship name]* is a **type M** subsidized liner (600t, unstreamlined). [ship captain]
+1,<p>The *[here mellow ship name as ship name]* is a **type M** subsidized liner (600t, unstreamlined), subsidized by the *[nearby big port]* government to transport passengers and freight along long-haul routes through the [same subsector] subsector. This ship supports jump-3. [subsidized liner ship crew]
+4,<p>The *[here mellow ship name as ship name]* is a **type M** subsidized liner (600t, unstreamlined), subsidized by the *[other big port]* government to transport passengers and freight along long-haul routes through the [same subsector] subsector. This ship supports jump-3. [subsidized liner ship crew]
 
 ;yacht
 1,<p>The *[here mellow ship name as ship name]* is a **type Y** yacht (200t, unstreamlined). [ship captain]
@@ -692,7 +706,7 @@
 1,<p>The *[here martial ship name as ship name]* is a **type M** mercenary cruiser (800t, unstreamlined). [ship captain]
 
 ;patrol cruiser
-1,<p>The *[here martial ship name as ship name]* is a **type T** patrol cruiser (400t, streamlined). [ship captain]
+1,<p>The *[here martial ship name as ship name]* is a **type T** patrol cruiser (400t, streamlined). [ship captain] They are looking for pirate *[nearby crime boss]*.
 
 ;laboratory ship
 1,<p>The *[here mellow ship name as ship name]* is a **type L** laboratory ship (400t, unstreamlined). [ship captain]
@@ -773,10 +787,10 @@
 ;maybe a criminal allegiance
 1,Few people know that *[same captain]* is in the pockets of the *[a crime syndicate]*.[here store [same captain] as criminal captain]
 1,[maybe a member of an association of captains]
-3,
+2,
 
 ;maybe a pirate ship
-1,Some of the ship’s scars were caused by victims defending themselves against a boarding action, for few people know that *[same captain]* is in the pockets of the *[a crime syndicate]*.[here store [same captain] as pirate captain]
+1,Some of the ship’s scars look like it might have been involved in some boarding action.[here store [same captain] as crime boss]
 4,
 
 # 8+ means (1+2+3+4+5=15)/36
@@ -826,6 +840,15 @@
 1,Computer
 # 1,Pilot
 1,Admin
+
+;subsidized liner ship crew
+# pilot, navigator, engineer, medic, steward, maybe a gunner
+1,The **pilot** of this ship is *[here human name as captain]*. [store Pilot as extra skill][merchant upp and skills]. The **navigator** is *[human name]*. [store Navigation as extra skill][merchant upp and skills]. The **first engineer** is *[human name]*. [store Engineer as extra skill][merchant upp and skills]. The **second engineer** is *[human name]*. [store Engineer as extra skill][merchant upp and skills]. The **third engineer** is *[human name]*. [store Engineer as extra skill][merchant upp and skills]. The **first steward** is *[human name]*. [store Steward as extra skill][merchant upp and skills]. The **second steward** is *[human name]*. [store Steward as extra skill][merchant upp and skills]. The **third steward** is *[human name]*. [store Steward as extra skill][merchant upp and skills]. The **medic** is *[human name]*. [store Medical as extra skill][merchant upp and skills]. [maybe a liner gunner]
+
+;maybe a liner gunner
+3,[maybe a merchant gunner]
+# some guns are a sign of pirate activity!
+1,The **first gunner** is *[human name]*. [store Gunnery as extra skill][merchant upp and skills]. Their turret has a [beam laser|pulse laser] mounted. The **second gunner** is *[human name]*. [store Gunnery as extra skill][merchant upp and skills]. Their turret has a [beam laser|pulse laser|missile racks|sandcasters] mounted. The **third gunner** is *[human name]*. [store Gunnery as extra skill][merchant upp and skills]. Their turret has a [beam laser|pulse laser|missile racks|sandcasters] mounted.
 
 ;common other skills
 1,[with common other skill]-2 [and common other skill]-1 [and common other skill]-1
@@ -7039,7 +7062,7 @@
 1,Ichiyanagi
 1,Icho
 1,Ida
-1,IDE
+1,Ide
 1,Ideguchi
 1,Idemitsu
 1,Ideue
@@ -7169,7 +7192,7 @@
 1,Ishizuka
 1,Ishizumi
 1,Isoda
-1,ISO
+1,Iso
 1,Isogai
 1,Isomura
 1,Isono
