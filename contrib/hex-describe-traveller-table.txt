@@ -132,12 +132,12 @@
 1,This must be it. There are no buildings to be seen, and no markings on the ground, no lights. This is the end of the line.
 1,There are ruins nearby. This does not bode well.
 
-# ;population-0
-# see → barren
-
 ;population
 1,[barren]
 10,[population-[1|2|3|4|5|6|7|8|9|A]]
+
+# ;population-0
+# see governments
 
 ;population-1
 1,<p>A few dozen people live on [same name]. The first ship *[mellow ship name]* with which most of them arrived [1d20+5] years ago is still there, [still functional|barely functional|repairs needed|a complete overhaul would be needed before takeoff|stripped to the bones|crashed and burned|a total wreck|reduced to scrap metal].
@@ -193,8 +193,15 @@
 1,background radiation researchers
 1,solar dynamics researchers
 
+# Government interacts with population. Government is
+# 2d6-7+population. Thus, population-0 can still result in
+# government-0 to government-5.
+
 ;government
 1,[government-[0|1|2|3|4|5|6|7|8|9|A|B|C|D]]
+
+;population-0 government-0
+1,<p>While unsettled, the system is claimed as a protectorate by *[nearby big port]*. Nobody cares about that, however.
 
 ;government-0
 1,<p>There is no government to speak of. The family is the highest good, here. Marriages are alliance contracts. If you’re not connected to the right people, things are difficult.
@@ -204,11 +211,21 @@
 1,<p>This is an anarcho-syndicalist society. All economic activity is organised in small-scale cooperatives.
 1,<p>The original settlers were anarcho-primitivists and people still live far apart from each other, all trying to live as independently as possible.
 
+;population-0 government-1
+1,<p>While unsettled, the system is claimed as a by *[company name]* from *[nearby big port]*. Economic activity without a permit draws their ire.
+1,<p>While unsettled, the system is claimed as a by *[company name]* from *[nearby big port]*. Economic activity is allowed within a 50:50 sharing agreement. Almost nobody is willing to accept this deal, however. Workarounds exist.
+
 ;government-1
 1,<p>The society is ruled by a number of mega-corporations, the biggest of which is *[company name]*. People are unhappy because the near system-wide monopoly on all civil cervices has given rise to increased rent-seeking. There are service fees to be paid for everything. This is seen as an inherently unfair head tax by many and *[human name]* (not their real name) is trying to organise a reform from the shadows.
 1,<p>The society is ruled by a number of mega-corporations, with *[with company name]* and *[and company name]* being the biggest ones. Competition has driven down prices, but corporate power has also made sure that everything has a price, including air and water. To them, anything without a price is worthless, or there for the taking.
 1,<p>This is a mercantilist society, where the state is run by the *[company name]* company for the benefit of all. This is only a problem for those not found in their registries: new arrivals, refugees, illegals, people avoiding the benevolent surveillance. 
 1,<p>This is a late stage capitalist society, where everything has been privatised; the state and the *[company name]* company are essentially the same and everybody is being exploited. The locals don’t know how to organise themselves: if somebody were to oppose this corporatism, how would they live and breathe without a company to pay for it? How would their voice get heard without owning media channels and public relation channels? It is inconceivable to succeed outside their system, they say.
+
+;population-0 government-2
+1,<p>While unsettled, there’s an old satellite system still in operation that provides a forum for visitors. A bunch of ship captains calling themselves the *[here system friends as association of captains]* uses the forum to deliberate on rare policy decisions and enforces them, using the surveillance systems of satellite network to identify trespassers. No [mining|hunting|landing] on [same name]!
+
+;system friends
+1,[Guardians|Friends|Protectors|Angels] of [same name]
 
 ;government-2
 1,<p>This is a participating democracy. Decision are made slowly because there is so much opportunity for debate at every level.
@@ -218,12 +235,18 @@
 1,<p>This is a participating democracy where councils and committees of ordinary citizens spring up for all issues. People engage vigorously.
 1,<p>This is a participating democracy where the boundaries of government and civil society are blurry. Local tasks such as neighbourhood cleaning, firefighting, policing or public constructions are often handled by volunteer associations and clubs. The citizens consider it an honour to serve in such functions and their efforts are recompensed appropriately by their regular employers.
 
+;population-0 government-3
+1,<p>While unsettled, the system belongs to the *[human surname]* family on *[nearby big port]*. All economic activity is [prohibited|requires a license].
+
 ;government-3
 1,<p>The population is ruled by a self-perpetuating oligarchy: the *[human surname]* family is the oldest founding family of the settlement and managed to stay afloat all these years.
 1,<p>All the important positions in the system are filled by members of the *[human surname]* family. They are all descendants of the *[company name]* founder, the *[human name]*. They are called “the princes & princesses” and there is no touching them.
 1,<p>The ruling caste claims an genetic predisposition for rule. It is all propaganda, of course, and yet these “Sons and Daughter of [same name]” keep the reins of power and none dare oppose them.
 1,<p>A hereditary senate rules the system with [an iron fist|a lot of ceremony|many, extensive rituals] and it is impossible for others to ever enter these ranks. Apparently a system retained from the old days, a second wave of settlement making sure they got an unfair share of the economic output.
 1,<p>The system is ruled by two parliaments: the [popular|people’s|common|lower] parliament is open to all and has practically no power, where as the [senate|house of lords|inner circle|upper parliament|council of elders|council of elders] wields actual power and its membership is inherited from [father to eldest son|mother to eldest daughter].
+
+;population-0 government-4
+1,<p>While unsettled, there is an elected representative from the *[nearby big port]* authorities, here: *[human name]*.
 
 ;government-4
 1,<p>The system is governed by a representative democracy. The system favours just two parties, and these two parties split the populace into two equal halves that contest bitterly for supremacy. The two parties are the *[with party]* and the *[and party]*, and where as they claim large and important differences, the actual differences are small and confined to a few key issues. The *[same party]* are currently in power, led by *[human name]*.
@@ -259,6 +282,9 @@
 1,Blacks
 1,Browns
 1,Nationalists
+
+;population-0 government-5
+1,<p>While unsettled, there is a system operator from *[nearby big port]* here, *[human name]*. They maintain the network in this system.
 
 ;government-5
 1,<p>The entire system has been divvied up between a handful of tech giants that provide civil full services for their customers. Entire families and buildings “belong” to their *[with company name]*, *[and company name]*, or *[and company name]*. Their homes, their schools, their transportation, it all belongs to one of these companies. It’s a feudal technocracy.
@@ -444,7 +470,21 @@
 1,<p>There is a naval base in the system.
 
 ;scout
-1,<p>There is a scout base in the system.
+1,<p>There is a scout base called *[scout base name]* in the system. The current crew is small. [scout base crew] All who served here end up joining the *[here scout base friends as association of captains]*.
+
+;scout base crew
+1,The only person on duty is command *[human name as base commander]*. [smart upp]. [smart scout skills].
+1,The commander is *[human name as base commander]*. [smart upp]. [smart scout skills]. Their partner is *[human name]*. [smart upp]. [smart scout skills].
+1,The commander is *[human name as base commander]*. [smart upp]. [smart scout skills]. Their partner is *[human name]*. [upp]. [scout skills].
+1,The commander is *[human name as base commander]*. [smart upp]. [smart scout skills]. The senior partner in their team is *[human name]*. [upp]. [scout skills]. The junior partner is *[human name]*. [upp]. [scout skills].
+
+;scout base name
+1,[same name] [Observatory|Intelligence|Surveillance|Exploration|Mission|Uplift|Listening Post]
+1,[same name]-[1d4]
+1,Imperial Listening Post [1d9][1d10-1][1d10-1]
+
+;scout base friends
+1,[Association for the Maintenance|Supporters|Friends|Alumni] of [same scout base name]
 
 # Crime
 
@@ -664,9 +704,13 @@
 1,The captain of this ship is *[here human name as captain]*. [upp].
 
 ;scout ship crew
-3,The **pilot** of this ship is *[here human name as captain]*. [smart upp]. Pilot-[skilled] Engineering-[skilled] [smart scout skills].  Their **partner** is *[human name]*. [upp]. [scout skills].
+3,The **pilot** of this ship is *[here human name as captain]*. [smart upp]. Pilot-[skilled] Engineering-[skilled] [smart scout skills].  Their **partner** is *[human name]*. [upp]. [scout skills]. [maybe a member of an association of captains]
 2,The **pilot** of this ship is *[here human name as captain]*. [smart upp]. Pilot-[skilled] Engineering-[skilled] [smart scout skills].
 1,The **pilot** of this ship is *[here human name as captain]*. [smart upp]. Pilot-[skilled] [smart scout skills]. The **engineer** is *[human name]*. [smart upp]. Engineering-[skilled] [smart scout skills].
+
+;maybe a member of an association of captains
+1,*[same captain]* is a member of the *[other association of captains]*.
+1,
 
 ;skilled
 4,1
@@ -728,7 +772,8 @@
 
 ;maybe a criminal allegiance
 1,Few people know that *[same captain]* is in the pockets of the *[a crime syndicate]*.[here store [same captain] as criminal captain]
-4,
+1,[maybe a member of an association of captains]
+3,
 
 ;maybe a pirate ship
 1,Some of the ship’s scars were caused by victims defending themselves against a boarding action, for few people know that *[same captain]* is in the pockets of the *[a crime syndicate]*.[here store [same captain] as pirate captain]
