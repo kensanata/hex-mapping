@@ -4215,6 +4215,7 @@ sub comms {
   my @coordinates = map { [ $self->xy($_), $systems{$_} ] } keys(%systems);
   my @comms;
   my @trade;
+  my @rich_trade;
   while (@coordinates) {
     my $from = shift(@coordinates);
     my ($x1, $y1, $system1) = @$from;
@@ -4268,11 +4269,19 @@ sub comms {
 			$system1, $system2))) {
 	push(@trade, [$from, $to, $d]);
       }
+      if ($d <= 3
+	  # subsidized liners only
+	  and match(qr/^rich$/,
+		    qr/^(asteroid|agriculture|desert|high|industrial|non-agriculture|water|rich|low)$/,
+		    $system1, $system2)) {
+	push(@rich_trade, [$from, $to, $d]);
+      }
     }
   }
   @comms = sort map { $self->label(@$_, "communication") } @{$self->minimal_spanning_tree(@comms)};
   @trade = sort map { $self->label(@$_, "trade") } @{$self->minimal_spanning_tree(@trade)};
-  return [sort @trade, @comms];
+  @rich_trade = sort map { $self->label(@$_, "rich") } @{$self->minimal_spanning_tree(@rich_trade)};
+  return [@rich_trade, @comms, @trade];
 }
 
 sub match {
