@@ -2,13 +2,16 @@
 # Rathcliff and dedicated to the Public Domain.
 
 ;TOP
-1,[welcome][on names]
+1,[welcome][on names][on stats]
 
 ;welcome
 1,Welcome to the [global save space name as subsector][same subsector] subsector!
 
 ;on names
 1,<p>**Names:** When Chinese or Japanese names are being used, the order is *surname* then *given name*; other names use the order *given name* then *surname*; some people have no surname.
+
+;on stats
+1,<p>**Stats:** Characteristics are given for a 2d6 system with values ranging from 2 to 12, using A, B, and C for 10, 11, and 12. For a person, the *Universal Personality Profile* (UPP) consists of strength, dexterity, endurance, intelligence, education, and social standing. For a system, the *Universal World Profile* (UWP) consists of starport (A-E, F), size, atmosphere, water, population, government, law, a dash, and tech level.
 
 ;system
 1,This is **[same name]**, UWP [same uwp].
@@ -32,31 +35,31 @@
 1,<p>[same name] is the name of asteroid belt in the planetary belt of the [third|fourth|fifth|sixth] planet.
 
 ;size-1
-1,<p>[same name] is a small planet, much smaller than Luna, with a diameter of about 1600km.
+1,<p>[same name] is much smaller than Luna, with a diameter of about 1600km.
 
 ;size-2
-1,<p>[same name] is a small planet, about the size of Luna, with a diameter of about 3200km.
+1,<p>[same name] is about the size of Luna, with a diameter of about 3200km.
 
 ;size-3
-1,<p>[same name] is a small planet, about the size of Mercury, with a diameter of about 4800km.
+1,<p>[same name] is about the size of Mercury, with a diameter of about 4800km.
 
 ;size-4
-1,<p>[same name] is a medium planet, about the size of Mars, with a diameter of about 6400km.
+1,<p>[same name] is about the size of Mars, with a diameter of about 6400km.
 
 ;size-5
-1,<p>[same name] is a medium planet, slightly larger than Mars, with a diameter of about 8000km.
+1,<p>[same name] is slightly larger than Mars, with a diameter of about 8000km.
 
 ;size-6
-1,<p>[same name] is a medium planet, much larger than Mars, with a diameter of about 9600km.
+1,<p>[same name] is quite a bit larger than Mars, with a diameter of about 9600km.
 
 ;size-7
-1,<p>[same name] is a large planet, slightly smaller Earth, with a diameter of about 11200km.
+1,<p>[same name] is slightly smaller Earth, with a diameter of about 11200km.
 
 ;size-8
-1,<p>[same name] is large planet, about Earth size, with a diameter of about 12800km.
+1,<p>[same name] is a large planet, about Earth size, with a diameter of about 12800km.
 
 ;size-9
-1,<p>[same name] is a large planet, larger than Earth, with a diameter of about 14400km.
+1,<p>[same name] is larger than Earth, with a diameter of about 14400km.
 
 ;size-A
 1,<p>[same name] is huge, with a diameter of about 16000km.
@@ -164,7 +167,7 @@
 1,The first settlers arrived here about [1d4+1]00 years ago with the [colony|generation] ship *[mellow ship name]*. Tracing your ancestry back to the original settlers is a source of pride for the locals.
 1,The settlement was founded by a colony ship from *[nearby big port]* about [1d4]00 years ago. These old ties are still considered to be important by the locals.
 1,The settlement was originally a penal colony for *[nearby big port]* and gained independence [1d20]0 years ago. The resentment is still strong among the locals.
-1,The settlement was founded by the *[company name]* company from *[nearby big port]* about [1d4]00 years ago. You can still the logo and their products everywhere.
+1,The settlement was founded by the *[company name]* company from *[nearby big port]* about [1d4]00 years ago. You can still see the logo and their products everywhere.
 1,The settlement was founded by the *[human surname]* foundation from *[nearby big port]* about [1d20]0 years ago. Their descendants are still very important people in the system.
 
 ;population-4
@@ -676,6 +679,12 @@
 1,[append ship]The *[same ship name]* is approaching the system.
 1,[append unstreamlined ship]The *[same ship name]* is being [ship activity] in orbit.
 
+;rich-end
+1,[append subsidized liner]The *[same ship name]* is in orbit, [preparing to leave|having just arrived].
+1,[append subsidized liner]The *[same ship name]* is approaching the system.
+1,[append subsidized liner]The *[same ship name]* is being [ship activity] in orbit.
+3,
+
 ;ship activity
 5,refueled
 4,loaded
@@ -706,7 +715,7 @@
 1,<p>The *[here martial ship name as ship name]* is a **type M** mercenary cruiser (800t, unstreamlined). [ship captain]
 
 ;patrol cruiser
-1,<p>The *[here martial ship name as ship name]* is a **type T** patrol cruiser (400t, streamlined). [ship captain] They are looking for pirate *[nearby crime boss]*.
+1,<p>The *[here martial ship name as ship name]* is a **type T** patrol cruiser (400t, streamlined). [patrol cruiser ship crew] The *[ship name]* is currently looking for pirate *[nearby crime boss]*.
 
 ;laboratory ship
 1,<p>The *[here mellow ship name as ship name]* is a **type L** laboratory ship (400t, unstreamlined). [ship captain]
@@ -888,6 +897,90 @@
 1,Medical
 1,Computer
 1,Jack-o-T
+
+;patrol cruiser ship crew
+# pilot, navigator, engineer, medic, steward, maybe a gunner
+1,The **pilot** of this ship is *[here human name as captain]*. [store Pilot as extra skill][navy upp and skills]. The **navigator** is *[human name]*. [store Navigation as extra skill][navy upp and skills]. The **first engineer** is *[human name]*. [store Engineer as extra skill][navy upp and skills]. The **second engineer** is *[human name]*. [store Engineer as extra skill][navy upp and skills]. The **third engineer** is *[human name]*. [store Engineer as extra skill][navy upp and skills]. The **medic** is *[human name]*. [store Medical as extra skill][navy upp and skills]. The **first gunner** is *[human name]*. [store Gunnery as extra skill][navy upp and skills]. Their turret has a [beam laser|pulse laser] mounted. The **second gunner** is *[human name]*. [store Gunnery as extra skill][navy upp and skills]. Their turret has a [beam laser|pulse laser|missile racks|sandcasters] mounted. The **third gunner** is *[human name]*. [store Gunnery as extra skill][navy upp and skills]. Their turret has a [beam laser|pulse laser|missile racks|sandcasters] mounted. The **fourth gunner** is *[human name]*. [store Gunnery as extra skill][navy upp and skills]. Their turret has a [beam laser|pulse laser|missile racks|sandcasters] mounted. [maybe navy squad]
+
+# 8+ means (1+2+3+4+5=15)/36
+# store an extra skill to be listed first (based on the function)
+;navy upp and skills
+15,[smart upp] [same extra skill]-[skilled] [smart navy skills]
+36,[upp] [same extra skill]-[skilled] [navy skills]
+
+;navy skills
+1,[with limited navy skill]-2 [and limited navy skill]-1 [and limited navy skill]-1
+2,[with limited navy skill]-1 [and limited navy skill]-1 [and limited navy skill]-1
+3,[with limited navy skill]-1 [and limited navy skill]-1
+4,[limited navy skill]-1
+
+;smart navy skills
+1,[with limited smart navy skill]-2 [and limited smart navy skill]-1 [and limited smart navy skill]-1
+2,[with limited smart navy skill]-1 [and limited smart navy skill]-1 [and limited smart navy skill]-1
+3,[with limited smart navy skill]-1 [and limited smart navy skill]-1
+4,[limited smart navy skill]-1
+
+;limited navy skill
+1,Ship’s Boat
+2,Vacc Suit
+1,Fwd Obsvr
+# 2,Gunnery
+1,[blade combat]
+1,[gun combat]
+1,Mechanical
+1,Electronic
+# 1,Engineering
+1,Jack-o-T
+
+;limited smart navy skill
+12,[navy skill]
+# 1,Medical
+# 1,Navigation
+# 1,Engineering
+1,Computer
+# 1,Pilot
+1,Admin
+
+;maybe navy squad
+1,The ship also transports a navy squad of eight: [navy lieutenant]; [navy personnel]; [navy personnel]; [navy personnel]; [navy personnel]; [navy personnel]; [navy personnel]; [navy personnel].
+1,
+
+;navy personnel
+2,**private** *[human name]*. [upp] [with navy skill]-1 [and navy skill]-1 [and navy skill]-1
+2,**private** *[human name]*. [upp] [with navy skill]-1 [and navy skill]-1 [and navy skill]-1 [and navy skill]-1
+2,**private** *[human name]*. [upp] [with navy skill]-2 [and navy skill]-1 [and navy skill]-1
+1,**ensign** *[human name]*. [upp] [with navy skill]-1 [and navy skill]-1 [and navy skill]-1 [and navy skill]-1
+1,**ensign** *[human name]*. [upp] [with navy skill]-2 [and navy skill]-1 [and navy skill]-1 [and navy skill]-1
+1,**ensign** *[human name]*. [smart upp] [with smart navy skill]-2 [and smart navy skill]-1 [and smart navy skill]-1
+1,**ensign** *[human name]*. [smart upp] [with smart navy skill]-2 [and smart navy skill]-1 [and smart navy skill]-1 [and smart navy skill]-1
+
+;navy lieutenant
+1,**lieutenant** *[human name]*. [smart upp] [with smart navy skill]-2 [and smart navy skill]-1 [and smart navy skill]-1 [and smart navy skill]-1 [and smart navy skill]-1 [and smart navy skill]-1
+1,**lieutenant** *[human name]*. [smart upp] [with smart navy skill]-2 [and smart navy skill]-2 [and smart navy skill]-1 [and smart navy skill]-1 [and smart navy skill]-1
+1,**lieutenant** *[human name]*. [smart upp] [with smart navy skill]-3 [and smart navy skill]-1 [and smart navy skill]-1 [and smart navy skill]-1 [and smart navy skill]-1
+1,**lieutenant** *[human name]*. [smart upp] [with smart navy skill]-1 [and smart navy skill]-1 [and smart navy skill]-1 [and smart navy skill]-1 [and smart navy skill]-1
+1,**lieutenant** *[human name]*. [smart upp] [with smart navy skill]-1 [and smart navy skill]-1 [and smart navy skill]-1 [and smart navy skill]-1
+
+;navy skill
+1,Ship’s Boat
+2,Vacc Suit
+1,Fwd Obsvr
+2,Gunnery
+1,[blade combat]
+1,[gun combat]
+1,Mechanical
+1,Electronic
+1,Engineering
+1,Jack-o-T
+
+;smart navy skill
+12,[navy skill]
+1,Medical
+1,Navigation
+1,Engineering
+1,Computer
+1,Pilot
+1,Admin
 
 ;gun combat
 1,Body Pistol
