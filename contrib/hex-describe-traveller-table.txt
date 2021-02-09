@@ -53,16 +53,123 @@
 1,<p>[same name] is quite a bit larger than Mars, with a diameter of about 9600km.
 
 ;size-7
-1,<p>[same name] is slightly smaller Earth, with a diameter of about 11200km.
+1,<p>[same name] is slightly smaller than Earth, with a diameter of about 11200km.
 
 ;size-8
-1,<p>[same name] is a large planet, about Earth size, with a diameter of about 12800km.
+1,<p>[same name] is about Earth size, with a diameter of about 12800km.
 
 ;size-9
 1,<p>[same name] is larger than Earth, with a diameter of about 14400km.
 
 ;size-A
 1,<p>[same name] is huge, with a diameter of about 16000km.
+
+;atmosphere
+1,[atmosphere-[0|1|2|3|4|5|6|7|8|9|A|B|C]]
+
+;atmosphere-0
+1,There is no atmosphere to speak of. The use of a *vacc suit* is mandatory.
+
+;atmosphere-1
+1,There are only trace amounts of atmosphere outside. The use of a *vacc suit* is mandatory.
+
+;atmosphere-2
+1,The atmosphere is very thin. [tainted atmosphere] Long term exertion requires a source of oxygen.
+
+;atmosphere-3
+1,The atmosphere is very thin but breathable. Long term exertion requires a source of oxygen.
+
+;atmosphere-4
+1,[thin atmosphere] [tainted atmosphere]
+
+;atmosphere-5
+1,[thin atmosphere]
+
+;atmosphere-6
+1,[standard atmosphere]
+
+;atmosphere-7
+1,[standard atmosphere] [tainted atmosphere]
+
+;atmosphere-8
+1,[dense atmosphere]
+
+;atmosphere-9
+1,[dense atmosphere] [tainted atmosphere]
+
+;very thin atmosphere
+1,The atmosphere is very thin. A *respirator* is mandatory.
+
+;thin atmosphere
+1,The atmosphere is thin.
+
+;standard atmosphere
+1,The atmosphere is standard, close to standard Earth.
+
+;dense atmosphere
+1,The atmosphere is very dense.
+
+;untainted atmosphere
+1,No special gear is required to venture outside.
+
+;tainted atmosphere
+1,The high levels of [atmospheric taint] make *filter masks* mandatory.
+
+;atmospheric taint
+1,ammonia
+1,carbon dioxide
+1,chlorine compounds
+1,fluorine compounds
+1,[argon|radon|xenon]
+1,methane
+1,nitrogen compounds
+1,sulphur compounds
+1,[spores|pollen] from the local flora
+1,volatile organic compounds
+1,ozone
+1,carcinogenic nano particles
+1,radioactive [dust|particles] from the recent [nuclear strikes|volcano eruptions]
+1,[heavy metal pollution] compounds
+1,[contagious|infectious] [viral|bacterial] pathogens
+1,trace [chemical|biological] weapons from collapse
+1,military nanites from the collapse
+
+;atmosphere-A
+1,The exotic atmosphere poses the danger of asphyxiation to humans. [exotic atmosphere] The use of *oxygen tanks* or a *vacc suit* is mandatory.
+
+;exotic atmosphere
+1,The low concentration of [corrosive atmosphere agent] mildly corrosive, as well as detrimental to lung tissue and the eyes.
+1,The high concentration of [heavy metal pollution] compounds is nerve damaging.
+1,The high levels of carbon monoxide block the oxygen update.
+
+;heavy metal pollution
+1,cadmium
+1,lead
+1,mercury
+1,arsenic
+1,nickel
+
+;atmosphere-B
+1,The corrosive atmosphere requires a *protective suit* or a *vacc suit*  to navigate. The airlocks are extra secure. [corrosive atmosphere] Suit failure during excursions is deadly. Accidents happen.
+
+;corrosive atmosphere
+1,The high concentration of [corrosive atmosphere] highly corrosive.
+
+;corrosive atmosphere agent
+1,atomic oxygen produced by the strong ultraviolet radiation eats away at all surfaces that aren’t coated in gold foil; it’s
+1,ammonia in the cold atmosphere is
+1,chlorine gas is poisonous and
+1,fluorine gas is poisonous and
+1,nitrites in the atmosphere is
+1,sulphur compounds in the atmosphere is
+
+;atmosphere-C
+1,The atmosphere here is insidious. Within [2d6] hours, [insidious atmosphere] will [disable a *protective suit* or a *vacc suit*|cause a *protective suit* or a *vacc suit* to malfunction|result in *protective suit* or a *vacc suit* failure]. The air locks still have protective suits in the lockers, but their intended use is emergency repair and evacuation only.
+
+;insidious atmosphere
+1,the volcanic dust in the atmosphere
+1,the red hot glow-dust in the air
+1,the aggressive fungal web in the air
 
 ;starport
 1,[starport-[A|B|C|D|E|X]]
