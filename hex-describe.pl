@@ -1009,6 +1009,10 @@ trail ends at a town and merges with other trails there, it doesn't "start"
 there. It can only be said to start somewhere if no other linear structure
 starts there.
 
+In case we're not talking about trails and rivers but things like routes from A
+to B, it might be important to note the fact. Therefore, both ends of the line
+get a "river-end" (if a river).
+
 =cut
 
 sub process_map_start_lines {
@@ -1018,6 +1022,8 @@ sub process_map_start_lines {
   for my $line (@$lines) {
     my $type = $line->[0];
     for my $coord ($line->[1], $line->[$#$line]) {
+      # ends get marked either way
+      push(@{$map_data->{$coord}}, "$type-end") unless grep { $_ eq "$type-end" } @{$map_data->{$coord}};
       # skip hexes outside the map
       last unless $map_data->{$coord};
       # skip merges
