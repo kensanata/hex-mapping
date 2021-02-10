@@ -586,16 +586,88 @@
 # Bases
 
 ;naval
-1,<p>There is a naval base in the system.
+1,<p>There is a naval base called *[here naval base name]* in the system under **commander** *[here upcoming as navy captain]*, [smart upp], [with smart navy skill]-2 [and smart navy skill]-2 [and smart navy skill]-1 [and smart navy skill]-1 [and smart navy skill]-1 [and smart navy skill]-1 [and smart navy skill]-1. [navy squad at the base]
+1,<p>There is a naval base called *[here naval base name]* in the system under **captain** *[here upstart as navy captain]*, [smart upp], [with smart navy skill]-3 [and smart navy skill]-2 [and smart navy skill]-2 [and smart navy skill]-1 [and smart navy skill]-1 [and smart navy skill]-1 [and smart navy skill]-1 [and smart navy skill]-1. [navy squad at the base]
+
+;naval base name
+1,[mythical beast]-[1d9]
+1,[All|United] [mythical beast]s
+3,[Glorious|Victorious|Superior|Terrible|Furious|Angry] [mythical beast][|s]
+
+;upcoming
+# modeled on [human name]
+1,[nobility +1][african name]
+1,[nobility +1][arabic name]
+1,[nobility +1][chinese name]
+1,[nobility +1][english name]
+1,[nobility +1][japanese name]
+1,[nobility +1][native american name]
+
+;upstart
+# modeled on [human name]
+1,[nobility +2][african name]
+1,[nobility +2][arabic name]
+1,[nobility +2][chinese name]
+1,[nobility +2][english name]
+1,[nobility +2][japanese name]
+1,[nobility +2][native american name]
+
+;nobility +1
+# modeled on [nobility]
+1,[store 3 as soc][save gender]
+2,[store 4 as soc][save gender]
+3,[store 5 as soc][save gender]
+4,[store 6 as soc][save gender]
+5,[store 7 as soc][save gender]
+6,[store 8 as soc][save gender]
+5,[store 9 as soc][save gender]
+4,[store A as soc][save gender]
+3,[store B as soc][knight]
+2,[store C as soc][baron]
+1,[store C as soc][baron]
+
+;nobility +2
+# modeled on [nobility]
+1,[store 4 as soc][save gender]
+2,[store 5 as soc][save gender]
+3,[store 6 as soc][save gender]
+4,[store 7 as soc][save gender]
+5,[store 8 as soc][save gender]
+6,[store 9 as soc][save gender]
+5,[store A as soc][save gender]
+4,[store B as soc][knight]
+3,[store C as soc][baron]
+2,[store C as soc][baron]
+1,[store C as soc][baron]
+
+;mythical beast
+# must allow plural with an s
+1,Dragon
+1,Minotaur
+1,Hydra
+1,Chimera
+1,Ettin
+1,Giant
+1,Ogre
+1,Goblin
+1,Giant Eagle
+1,Orc
+1,Wizard
+1,Warlock
+1,Sorcerer
+1,Cyclop
+
+;navy squad at the base
+1, There are about [1d10x10+100] people at the base right now. If you need individuals, pick from the following squad led by [navy lieutenant]; [navy personnel]; [navy personnel]; [navy personnel]; [navy personnel]; [navy personnel]; [navy personnel]; [navy personnel].
 
 ;scout
-1,<p>There is a scout base called *[scout base name]* in the system. The current crew is small. [scout base crew] All who served here end up joining the *[here scout base friends as association of captains]*.
+1,<p>There is a scout base called *[here scout base name]* in the system. The current crew is small. [scout base crew] All who served here end up joining the *[here scout base friends as association of captains]*.
 
 ;scout base crew
-1,The only person on duty is **commander** *[human name as base commander]*. [smart upp]. [smart scout skills].
-1,The **commander** is *[human name as base commander]*. [smart upp]. [smart scout skills]. Their **partner** is *[human name]*. [smart upp]. [smart scout skills].
-1,The **commander** is *[human name as base commander]*. [smart upp]. [smart scout skills]. Their **partner** is *[human name]*. [upp]. [scout skills].
-1,The **commander** is *[human name as base commander]*. [smart upp]. [smart scout skills]. Their **senior partner** in their team is *[human name]*. [upp]. [scout skills]. Their **junior partner** is *[human name]*. [upp]. [scout skills].
+1,The only person on duty is **commander** *[human name as base commander]*, [smart upp], [smart scout skills].
+1,The **commander** is *[human name as base commander]*, [smart upp], [smart scout skills]. Their **partner** is *[human name]*, [smart upp], [smart scout skills].
+1,The **commander** is *[human name as base commander]*, [smart upp], [smart scout skills]. Their **partner** is *[human name]*, [upp], [scout skills].
+1,The **commander** is *[human name as base commander]*, [smart upp], [smart scout skills]. Their **senior partner** in their team is *[human name]*, [upp], [scout skills]. Their **junior partner** is *[human name]*, [upp], [scout skills].
 
 ;scout base name
 1,[same name] [Observatory|Intelligence|Surveillance|Exploration|Mission|Uplift|Listening Post]
@@ -613,10 +685,10 @@
 1,<p>There is a [safe house|hidden base|refugium] of the *[a crime syndicate]* near the starport. [criminals]
 
 ;pirates
-1,The **pirate captain** is *[here human name as crime boss]*. [smart upp]. [smart other skills]. Their **right hand** is *[human name]*. [upp]. [common other skills]. There are [2d4] more *pirates* in the building. 777777. Shotgun-1.
+1,The **pirate captain** is *[here human name as crime boss]*, [smart upp], [smart other skills]. Their **right hand** is *[human name]*, [upp], [common other skills]. There are [2d4] more *pirates* in the building, 777777, Shotgun-1.
 
 ;criminals
-1,The **crime boss** is *[here human name as crime boss]*. [smart upp]. [smart other skills]. Their **right hand** is *[human name]*. [upp]. [common other skills]. There are [2d6] more *criminals* in the building. 777777. Shotgun-1.
+1,The **crime boss** is *[here human name as crime boss]*, [smart upp], [smart other skills]. Their **right hand** is *[human name]*, [upp], [common other skills]. There are [2d6] more *criminals* in the building, 777777, Shotgun-1.
 
 # there are just three crime syndicates
 ;a crime syndicate
@@ -668,7 +740,7 @@
 # Research
 
 ;research
-1,<p>The research [station|institute] *[institute name]* in this system focuses on [research technology]. The **head scientist** is *[here human name as scientist]*. [smart upp]. Science-[1d4+2]. [smart scout skills].
+1,<p>The research [station|institute] *[institute name]* in this system focuses on [research technology]. The **head scientist** is *[here human name as scientist]*, [smart upp], Science-[1d4+2], [smart scout skills].
 
 ;institute name
 1,[Alpha|Beta|Gamma|Delta|Epsilon|Zeta|Eta|Theta|Iota|Kappa|Lambda|Mu|Nu|Xi|Omicron|Pi|Rho|Sigma|Tau|Upsilon|Phi|Chi|Psi|Omega]-[1d9]
@@ -822,7 +894,7 @@
 1,<p>The *[here martial ship name as ship name]* is a **type M** mercenary cruiser (800t, unstreamlined). [ship captain]
 
 ;patrol cruiser
-1,<p>The *[here martial ship name as ship name]* is a **type T** patrol cruiser (400t, streamlined). [patrol cruiser ship crew] The *[ship name]* is currently looking for pirate *[nearby crime boss]*.
+1,<p>The *[here martial ship name as ship name]* is a **type T** patrol cruiser (400t, streamlined). [patrol cruiser ship crew] The *[same ship name]* is currently looking for pirate *[nearby crime boss]*.
 
 ;laboratory ship
 1,<p>The *[here mellow ship name as ship name]* is a **type L** laboratory ship (400t, unstreamlined). [ship captain]
@@ -831,15 +903,15 @@
 1,<p>The *[here mellow ship name as ship name]* is a **type K** safari ship (200t, streamlined). [ship captain]
 
 ;ship captain
-1,The captain of this ship is *[here human name as captain]*. [upp].
+1,The captain of this ship is *[here human name as ship captain]*, [upp].
 
 ;scout ship crew
-3,The **pilot** of this ship is *[here human name as captain]*. [smart upp]. Pilot-[skilled] Engineering-[skilled] [smart scout skills].  Their **partner** is *[human name]*. [upp]. [scout skills]. [maybe a member of an association of captains]
-2,The **pilot** of this ship is *[here human name as captain]*. [smart upp]. Pilot-[skilled] Engineering-[skilled] [smart scout skills].
-1,The **pilot** of this ship is *[here human name as captain]*. [smart upp]. Pilot-[skilled] [smart scout skills]. The **engineer** is *[human name]*. [smart upp]. Engineering-[skilled] [smart scout skills].
+3,The **pilot** of this ship is *[here human name as ship captain]*, [smart upp], Pilot-[skilled] Engineering-[skilled] [smart scout skills].  Their **partner** is *[human name]*, [upp], [scout skills]. [maybe a member of an association of captains]
+2,The **pilot** of this ship is *[here human name as ship captain]*, [smart upp], Pilot-[skilled] Engineering-[skilled] [smart scout skills].
+1,The **pilot** of this ship is *[here human name as ship captain]*, [smart upp], Pilot-[skilled] [smart scout skills]. The **engineer** is *[human name]*, [smart upp], Engineering-[skilled] [smart scout skills].
 
 ;maybe a member of an association of captains
-1,*[same captain]* is a member of the *[other association of captains]*.
+1,*[same ship captain]* is a member of the *[other association of captains]*.
 1,
 
 ;skilled
@@ -887,33 +959,33 @@
 
 ;free trader ship crew
 # pilot, engineer, medic, steward, maybe a gunner
-1,The **pilot** of this ship is *[here human name as captain]*. [store Pilot as extra skill][merchant upp and skills]. The **engineer** is *[human name]*. [store Engineer as extra skill][merchant upp and skills]. The **medic** is *[human name]*. [store Medical as extra skill][merchant upp and skills]. The **steward** is *[human name]*. [store Steward as extra skill][merchant upp and skills]. [maybe a merchant gunner] [maybe a criminal allegiance]
+1,The **pilot** of this ship is *[here human name as ship captain]*, [store Pilot as extra skill][merchant upp and skills]. The **engineer** is *[human name]*, [store Engineer as extra skill][merchant upp and skills]. The **medic** is *[human name]*, [store Medical as extra skill][merchant upp and skills]. The **steward** is *[human name]*, [store Steward as extra skill][merchant upp and skills]. [maybe a merchant gunner] [maybe a criminal allegiance]
 
 ;subsidized merchant ship crew
 # pilot, navigator, engineer, medic, steward, maybe a gunner
-1,The **pilot** of this ship is *[here human name as captain]*. [store Pilot as extra skill][merchant upp and skills]. The **navigator** is *[human name]*. [store Navigation as extra skill][merchant upp and skills]. The **engineer** is *[human name]*. [store Engineer as extra skill][merchant upp and skills]. The **medic** is *[human name]*. [store Medical as extra skill][merchant upp and skills]. The **steward** is *[human name]*. [store Steward as extra skill][merchant upp and skills]. [maybe a merchant gunner]
+1,The **pilot** of this ship is *[here human name as ship captain]*, [store Pilot as extra skill][merchant upp and skills]. The **navigator** is *[human name]*, [store Navigation as extra skill][merchant upp and skills]. The **engineer** is *[human name]*, [store Engineer as extra skill][merchant upp and skills]. The **medic** is *[human name]*, [store Medical as extra skill][merchant upp and skills]. The **steward** is *[human name]*, [store Steward as extra skill][merchant upp and skills]. [maybe a merchant gunner]
 
 ;maybe a merchant gunner
 # some guns are a sign of pirate activity!
-1,The **first gunner** is *[human name]*. [store Gunnery as extra skill][merchant upp and skills]. Their turret has a [beam laser|pulse laser] mounted. The **second gunner** is *[human name]*. [store Gunnery as extra skill][merchant upp and skills]. Their turret has a [beam laser|pulse laser|missile racks|sandcasters] mounted. [maybe a pirate ship]
-1,The **gunner** is *[human name]*. [store Gunnery as extra skill][merchant upp and skills]. The ship has one turret with [beam laser|pulse laser] mounted. [maybe a pirate ship]
-1,The **gunner** is *[human name]*. [store Gunnery as extra skill][merchant upp and skills]. The ship has one turret with [missile racks|sandcasters] mounted.
+1,The **first gunner** is *[human name]*, [store Gunnery as extra skill][merchant upp and skills]. Their turret has a [beam laser|pulse laser] mounted. The **second gunner** is *[human name]*, [store Gunnery as extra skill][merchant upp and skills]. Their turret has a [beam laser|pulse laser|missile racks|sandcasters] mounted. [maybe a pirate ship]
+1,The **gunner** is *[human name]*, [store Gunnery as extra skill][merchant upp and skills]. The ship has one turret with [beam laser|pulse laser] mounted. [maybe a pirate ship]
+1,The **gunner** is *[human name]*, [store Gunnery as extra skill][merchant upp and skills]. The ship has one turret with [missile racks|sandcasters] mounted.
 6,
 
 ;maybe a criminal allegiance
-1,Few people know that *[same captain]* is in the pockets of the *[a crime syndicate]*.[here store [same captain] as criminal captain]
+1,Few people know that *[same ship captain]* is in the pockets of the *[a crime syndicate]*.[here store [same ship captain] as criminal captain]
 1,[maybe a member of an association of captains]
 2,
 
 ;maybe a pirate ship
-1,Some of the ship’s scars look like it might have been involved in some boarding action.[here store [same captain] as crime boss]
+1,Some of the ship’s scars look like it might have been involved in some boarding action.[here store [same ship captain] as crime boss]
 4,
 
 # 8+ means (1+2+3+4+5=15)/36
 # store an extra skill to be listed first (based on the function)
 ;merchant upp and skills
-15,[smart upp] [same extra skill]-[skilled] [smart merchant skills]
-36,[upp] [same extra skill]-[skilled] [merchant skills]
+15,[smart upp], [same extra skill]-[skilled] [smart merchant skills]
+36,[upp], [same extra skill]-[skilled] [merchant skills]
 
 ;merchant skills
 1,[with merchant skill]-2 [and merchant skill]-1 [and merchant skill]-1
@@ -959,12 +1031,12 @@
 
 ;subsidized liner ship crew
 # pilot, navigator, engineer, medic, steward, maybe a gunner
-1,The **pilot** of this ship is *[here human name as captain]*. [store Pilot as extra skill][merchant upp and skills]. The **navigator** is *[human name]*. [store Navigation as extra skill][merchant upp and skills]. The **first engineer** is *[human name]*. [store Engineer as extra skill][merchant upp and skills]. The **second engineer** is *[human name]*. [store Engineer as extra skill][merchant upp and skills]. The **third engineer** is *[human name]*. [store Engineer as extra skill][merchant upp and skills]. The **first steward** is *[human name]*. [store Steward as extra skill][merchant upp and skills]. The **second steward** is *[human name]*. [store Steward as extra skill][merchant upp and skills]. The **third steward** is *[human name]*. [store Steward as extra skill][merchant upp and skills]. The **medic** is *[human name]*. [store Medical as extra skill][merchant upp and skills]. [maybe a liner gunner]
+1,The **pilot** of this ship is *[here human name as ship captain]*, [store Pilot as extra skill][merchant upp and skills]. The **navigator** is *[human name]*, [store Navigation as extra skill][merchant upp and skills]. The **first engineer** is *[human name]*, [store Engineer as extra skill][merchant upp and skills]. The **second engineer** is *[human name]*, [store Engineer as extra skill][merchant upp and skills]. The **third engineer** is *[human name]*, [store Engineer as extra skill][merchant upp and skills]. The **first steward** is *[human name]*, [store Steward as extra skill][merchant upp and skills]. The **second steward** is *[human name]*, [store Steward as extra skill][merchant upp and skills]. The **third steward** is *[human name]*, [store Steward as extra skill][merchant upp and skills]. The **medic** is *[human name]*, [store Medical as extra skill][merchant upp and skills]. [maybe a liner gunner]
 
 ;maybe a liner gunner
 3,[maybe a merchant gunner]
 # some guns are a sign of pirate activity!
-1,The **first gunner** is *[human name]*. [store Gunnery as extra skill][merchant upp and skills]. Their turret has a [beam laser|pulse laser] mounted. The **second gunner** is *[human name]*. [store Gunnery as extra skill][merchant upp and skills]. Their turret has a [beam laser|pulse laser|missile racks|sandcasters] mounted. The **third gunner** is *[human name]*. [store Gunnery as extra skill][merchant upp and skills]. Their turret has a [beam laser|pulse laser|missile racks|sandcasters] mounted.
+1,The **first gunner** is *[human name]*, [store Gunnery as extra skill][merchant upp and skills]. Their turret has a [beam laser|pulse laser] mounted. The **second gunner** is *[human name]*, [store Gunnery as extra skill][merchant upp and skills]. Their turret has a [beam laser|pulse laser|missile racks|sandcasters] mounted. The **third gunner** is *[human name]*, [store Gunnery as extra skill][merchant upp and skills]. Their turret has a [beam laser|pulse laser|missile racks|sandcasters] mounted.
 
 ;common other skills
 1,[with common other skill]-2 [and common other skill]-1 [and common other skill]-1
@@ -1007,13 +1079,13 @@
 
 ;patrol cruiser ship crew
 # pilot, navigator, engineer, medic, steward, maybe a gunner
-1,The **pilot** of this ship is *[here human name as captain]*. [store Pilot as extra skill][navy upp and skills]. The **navigator** is *[human name]*. [store Navigation as extra skill][navy upp and skills]. The **first engineer** is *[human name]*. [store Engineer as extra skill][navy upp and skills]. The **second engineer** is *[human name]*. [store Engineer as extra skill][navy upp and skills]. The **third engineer** is *[human name]*. [store Engineer as extra skill][navy upp and skills]. The **medic** is *[human name]*. [store Medical as extra skill][navy upp and skills]. The **first gunner** is *[human name]*. [store Gunnery as extra skill][navy upp and skills]. Their turret has a [beam laser|pulse laser] mounted. The **second gunner** is *[human name]*. [store Gunnery as extra skill][navy upp and skills]. Their turret has a [beam laser|pulse laser|missile racks|sandcasters] mounted. The **third gunner** is *[human name]*. [store Gunnery as extra skill][navy upp and skills]. Their turret has a [beam laser|pulse laser|missile racks|sandcasters] mounted. The **fourth gunner** is *[human name]*. [store Gunnery as extra skill][navy upp and skills]. Their turret has a [beam laser|pulse laser|missile racks|sandcasters] mounted. [maybe navy squad]
+1,The **pilot** of this ship is *[here human name as ship captain]*, [store Pilot as extra skill][navy upp and skills]. The **navigator** is *[human name]*, [store Navigation as extra skill][navy upp and skills]. The **first engineer** is *[human name]*, [store Engineer as extra skill][navy upp and skills]. The **second engineer** is *[human name]*, [store Engineer as extra skill][navy upp and skills]. The **third engineer** is *[human name]*, [store Engineer as extra skill][navy upp and skills]. The **medic** is *[human name]*, [store Medical as extra skill][navy upp and skills]. The **first gunner** is *[human name]*, [store Gunnery as extra skill][navy upp and skills]. Their turret has a [beam laser|pulse laser] mounted. The **second gunner** is *[human name]*, [store Gunnery as extra skill][navy upp and skills]. Their turret has a [beam laser|pulse laser|missile racks|sandcasters] mounted. The **third gunner** is *[human name]*, [store Gunnery as extra skill][navy upp and skills]. Their turret has a [beam laser|pulse laser|missile racks|sandcasters] mounted. The **fourth gunner** is *[human name]*, [store Gunnery as extra skill][navy upp and skills]. Their turret has a [beam laser|pulse laser|missile racks|sandcasters] mounted. [maybe navy squad]
 
 # 8+ means (1+2+3+4+5=15)/36
 # store an extra skill to be listed first (based on the function)
 ;navy upp and skills
-15,[smart upp] [same extra skill]-[skilled] [smart navy skills]
-36,[upp] [same extra skill]-[skilled] [navy skills]
+15,[smart upp], [same extra skill]-[skilled] [smart navy skills]
+36,[upp], [same extra skill]-[skilled] [navy skills]
 
 ;navy skills
 1,[with limited navy skill]-2 [and limited navy skill]-1 [and limited navy skill]-1
@@ -1040,7 +1112,7 @@
 1,Jack-o-T
 
 ;limited smart navy skill
-12,[navy skill]
+12,[limited navy skill]
 # 1,Medical
 # 1,Navigation
 # 1,Engineering
@@ -1049,24 +1121,24 @@
 1,Admin
 
 ;maybe navy squad
-1,The ship also transports a navy squad of eight: [navy lieutenant]; [navy personnel]; [navy personnel]; [navy personnel]; [navy personnel]; [navy personnel]; [navy personnel]; [navy personnel].
+1,The ship also transports a navy squad of eight from *[nearby naval base name]* base: [navy lieutenant]; [navy personnel]; [navy personnel]; [navy personnel]; [navy personnel]; [navy personnel]; [navy personnel]; [navy personnel].
 1,
 
 ;navy personnel
-2,**private** *[human name]*. [upp] [with navy skill]-1 [and navy skill]-1 [and navy skill]-1
-2,**private** *[human name]*. [upp] [with navy skill]-1 [and navy skill]-1 [and navy skill]-1 [and navy skill]-1
-2,**private** *[human name]*. [upp] [with navy skill]-2 [and navy skill]-1 [and navy skill]-1
-1,**ensign** *[human name]*. [upp] [with navy skill]-1 [and navy skill]-1 [and navy skill]-1 [and navy skill]-1
-1,**ensign** *[human name]*. [upp] [with navy skill]-2 [and navy skill]-1 [and navy skill]-1 [and navy skill]-1
-1,**ensign** *[human name]*. [smart upp] [with smart navy skill]-2 [and smart navy skill]-1 [and smart navy skill]-1
-1,**ensign** *[human name]*. [smart upp] [with smart navy skill]-2 [and smart navy skill]-1 [and smart navy skill]-1 [and smart navy skill]-1
+2,**private** *[human name]*, [upp], [with navy skill]-1 [and navy skill]-1 [and navy skill]-1
+2,**private** *[human name]*, [upp], [with navy skill]-1 [and navy skill]-1 [and navy skill]-1 [and navy skill]-1
+2,**private** *[human name]*, [upp], [with navy skill]-2 [and navy skill]-1 [and navy skill]-1
+1,**ensign** *[human name]*, [upp], [with navy skill]-1 [and navy skill]-1 [and navy skill]-1 [and navy skill]-1
+1,**ensign** *[human name]*, [upp], [with navy skill]-2 [and navy skill]-1 [and navy skill]-1 [and navy skill]-1
+1,**ensign** *[human name]*, [smart upp], [with smart navy skill]-2 [and smart navy skill]-1 [and smart navy skill]-1
+1,**ensign** *[human name]*, [smart upp], [with smart navy skill]-2 [and smart navy skill]-1 [and smart navy skill]-1 [and smart navy skill]-1
 
 ;navy lieutenant
-1,**lieutenant** *[human name]*. [smart upp] [with smart navy skill]-2 [and smart navy skill]-1 [and smart navy skill]-1 [and smart navy skill]-1 [and smart navy skill]-1 [and smart navy skill]-1
-1,**lieutenant** *[human name]*. [smart upp] [with smart navy skill]-2 [and smart navy skill]-2 [and smart navy skill]-1 [and smart navy skill]-1 [and smart navy skill]-1
-1,**lieutenant** *[human name]*. [smart upp] [with smart navy skill]-3 [and smart navy skill]-1 [and smart navy skill]-1 [and smart navy skill]-1 [and smart navy skill]-1
-1,**lieutenant** *[human name]*. [smart upp] [with smart navy skill]-1 [and smart navy skill]-1 [and smart navy skill]-1 [and smart navy skill]-1 [and smart navy skill]-1
-1,**lieutenant** *[human name]*. [smart upp] [with smart navy skill]-1 [and smart navy skill]-1 [and smart navy skill]-1 [and smart navy skill]-1
+1,**lieutenant** *[human name]*, [smart upp], [with smart navy skill]-2 [and smart navy skill]-1 [and smart navy skill]-1 [and smart navy skill]-1 [and smart navy skill]-1 [and smart navy skill]-1
+1,**lieutenant** *[human name]*, [smart upp], [with smart navy skill]-2 [and smart navy skill]-2 [and smart navy skill]-1 [and smart navy skill]-1 [and smart navy skill]-1
+1,**lieutenant** *[human name]*, [smart upp], [with smart navy skill]-3 [and smart navy skill]-1 [and smart navy skill]-1 [and smart navy skill]-1 [and smart navy skill]-1
+1,**lieutenant** *[human name]*, [smart upp], [with smart navy skill]-1 [and smart navy skill]-1 [and smart navy skill]-1 [and smart navy skill]-1 [and smart navy skill]-1
+1,**lieutenant** *[human name]*, [smart upp], [with smart navy skill]-1 [and smart navy skill]-1 [and smart navy skill]-1 [and smart navy skill]-1
 
 ;navy skill
 1,Ship’s Boat
