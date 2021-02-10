@@ -1,5 +1,5 @@
 # A random table collection written by Alex Schroeder and Vicky
-# Rathcliff and dedicated to the Public Domain.
+# Radcliffe and dedicated to the Public Domain.
 
 ;TOP
 1,[welcome][on names][on stats]
@@ -204,15 +204,21 @@
 1,The *[shipyard name]* shipyards loom large over the starport’s various landing pads.
 1,The starport appears to be divided into two sections, half of it under the control of the *[with shipyard name]* shipyards, the other half under the control of the *[and shipyard name]*.
 1,A network of a gazillion workshops spread from the starport like veins.
+1,The shipyard here is controlled by *[shipyard name]*, their insignia is blazoned on the roofs of all the workshops.
+1,Flashing signs show the logo of *[shipyard name]* who run this shipyard.
 
 ;dockyard
 1,There’s a small *[shipyard name]* subsidiary, apparently operating from some sort of garage.
 1,A small frontier style *[shipyard name]* installation is here for small repairs.
+1,A straggle of buildings belonging to *[shipyard name]* make up this meager outpost.
+1,The facilities here seem inconsequential, a few *[shipyard name]* buildings offering limited repairs.
 
 ;refinery
 1,A mighty plume over the fuel refineries reaches into the stratosphere, a permanent cloud tower.
 1,A bit to the [direction] you can see [a|two] dozen huge fuel tanks.
 1,Pipelines from the refineries to the [direction] lead to a big fuelling station.
+1,The fuel refineries dominate the landscape, their huge hulking frames spewing clouds into the atmosphere.
+1,Large tanks and piping suggest refined fuel is available here although the refineries stand silent.
 
 ;direction
 1,[north|east|south|west]
@@ -221,6 +227,8 @@
 1,A bunch of water tanks nearby tell you all there is to know about the fuel situation. Unrefined fuel only!
 1,There’s no sign of a refinery, no sign of a pipeline. They’re probably just selling unrefined fuel, here.
 1,A bunch of shabby fuel vehicles nearby are a sign: there’s just unrefined fuel to be had.
+1,Nothing to suggest refined fuel here, just a couple of small tanks next what seems to be the main building.
+1,A pipeline snaking [north|north-east|east|sout-east|south|south-west|west|north-west] could have once delivered refined fuel but it's broken now so it looks like only unrefined fuel is available here.
 
 ;shipyard name
 1,Imperial [shipyard 1] [shipyard 2]
@@ -231,6 +239,66 @@
 1,Argo
 1,Orion
 1,Galactic
+1,Achron
+# some constellation names from wikipedia
+1,Andromeda
+1,Antlia
+1,Apus
+1,Aquila
+1,Ara
+1,Aries
+1,Auriga
+1,Bootes
+1,Caelum
+1,Carina
+1,Cassiopeia
+1,Centaurus
+1,Cepheus
+1,Cetus
+1,Circinus
+1,Columba
+1,Corvus
+1,Crater
+1,Crux
+1,Cygnus
+1,Delphinus
+1,Dorado
+1,Draco
+1,Equuleus
+1,Eridanus
+1,Fornax
+1,Grus
+1,Horologium
+1,Hydra
+1,Hydrus
+1,Indus
+1,Lacerta
+1,Lepus
+1,Lupus
+1,Lynx
+1,Lyra
+1,Mensa
+1,Microscopium
+1,Monoceros
+1,Musca
+1,Norma
+1,Octans
+1,Ophiuchus
+1,Pavo
+1,Phoenix
+1,Pictor
+1,Puppis
+1,Pyxis
+1,Reticulum
+1,Sagitta
+1,Scutum
+1,Serpens
+1,Sextans
+1,Tucana
+1,Ursa
+1,Vela
+1,Volans
+1,Vulpecula
 
 ;shipyard 2
 1,Industries
@@ -239,17 +307,36 @@
 1,Engineering
 1,Collective
 1,Association
+1,Enterprises
+1,Manufacturers
+1,Association
+1,Group
+1,Systems
+1,Services
+1,Ventures
+1,Holdings
+1,Industrial
+1,Properties
+1,Development
+1,Technologies
+1,Works
+1,Logistics
 
 ;small starport building
 1,The harbour master’s building is a small two story building, big windows, antennas, nothing fancy.
 1,All you can see is the toll house. The harbour master’s office is probably there as well. A bunch of clerks look up as you enter.
 1,There’s a small house here, probably for the warden.
+1,There's just one rundown looking single storey building here. It must belong to the harbour master.
+1,A single low building hugs the hillside. You guess it belongs to the warden as there's no other building to be seen.
+
 
 ;no facilities
 1,A flat spot, scorched but cleaned of all vegetation, with various sections demarcated with white lines. With this little traffic, that seems quite unnecessary.
 1,A flat spot, scorched but cleaned of all vegetation. There’s rubble clearly visible. This seems quite unsafe.
 1,This must be it. There are no buildings to be seen, and no markings on the ground, no lights. This is the end of the line.
 1,There are ruins nearby. This does not bode well.
+1,Just a low area of unbroken ground, nothing more.  This place looks like no one has visited for a while.
+1,Nothing to be seen here except the foundations of a building next to an unbroken plain.
 
 ;population
 1,[barren]
@@ -261,14 +348,19 @@
 ;population-1
 1,<p>A few dozen people live on [same name]. The first ship *[mellow ship name]* with which most of them arrived [1d20+5] years ago is still there, [still functional|barely functional|repairs needed|a complete overhaul would be needed before takeoff|stripped to the bones|crashed and burned|a total wreck|reduced to scrap metal].
 1,<p>There is a small and unimportant research station on [same name], at least according to imperial standards. A few dozen [science people] live here.
+1,<p>A few dozen people live on [same name].
+1,<p>[Twenty|Thirty|Fourty|Fifty] or so people have recently arrived to establish a new colony here on [same name].
+1,<p>*[shipyard name]* has set up a base of about [thirty|fourty|fifty|sixty|seventy] people here to see what resources can be found on [same name].
 
 ;population-2
 1,<p>There is a single settlement with a few hundred people on [same name]. [colony ship]
 1,<p>A few hundred people live around the [same name] starport. [colony ship]
+1,<p>Only the [same name] starport is inhabited. Approx [one|two|three|four|six|nine] hundred people live here.
 
 ;population-3
 1,<p>A few thousand people live around the [same name] starport. [colony ship]
 1,<p>Some thousand people live around the [same name] starport, with a few thousand more in smaller villages nearby. [colony ship]
+1,<p>The [same name] starport has fallen into disrepair since the [upheaval|troubles|civil war|dark times] but the few thousand residents left still cling onto the hope of better times ahead.
 
 ;colony ship
 1,The first settlers arrived here about [1d4+1]00 years ago with the [colony|generation] ship *[mellow ship name]*. Tracing your ancestry back to the original settlers is a source of pride for the locals.
@@ -278,8 +370,9 @@
 1,The settlement was founded by the *[human surname]* foundation from *[nearby big port]* about [1d20]0 years ago. Their descendants are still very important people in the system.
 
 ;population-4
-1,<p>*[space name]* is town with a few ten thousand inhabitants that has grown around the [same name] starport.
+1,<p>*[space name]* is a town with a few ten thousand inhabitants that has grown around the [same name] starport.
 1,<p>There are two main settlements, each with a few ten thousand inhabitants on [same name]. *Old [space name]* is built around the old starport. When it fell into disrepair in the [upheaval|troubles|civil war|dark times], it was abandoned and in recent years *New [same space name]* was built around the new starport. There is quite some rivalry, of course.
+1,<p>The town of [same name] sprawls around the starport, housing around [twenty|fourty|fifty|sixty|eighty|ninety] thousand people.
 
 ;population-5
 1,<p>A few hundred thousand inhabitants have settled on the planet. The largest settlement is *[space name]* with about a quarter million people around the starport.
@@ -311,6 +404,8 @@
 1,quantum field researches
 1,background radiation researchers
 1,solar dynamics researchers
+1,planetologists
+1,xenoarcheologists
 
 # Government interacts with population. Government is
 # 2d6-7+population. Thus, population-0 can still result in
@@ -498,21 +593,29 @@
 1,<p>The asteroid belt is where people live, here. Most of them seem to be involved in ice mining.
 1,<p>The asteroid belt offers good mining opportunities for small, flexible mining cooperatives.
 1,<p>The asteroid belt provides a lot of space; it’s ideal for people who need to disappear for a while.
+1,<p>Crystal mining makes the asteroid belt a popular place for people looking to make some quick credits in exchange for hard labor.
+1,<p>Once all the ore was mined from this asteroid belt it was converted to a private retreat for the [human surname] family.
+1,<p>The asteroid belt is the location of the main [shipyard name] factory.
+1,<p>The asteroid belt houses a prison colony of around [two|three|five|eight] hundred or so criminals.
 
 ;barren
 1,<p>They tried to settle this system several times, but it never worked out, financially.
 1,<p>The people who tried to settle this system decided to pack up and leave again, when their mining operation failed.
 1,<p>About [fifty|a hundred|two hundred] years ago, there was a colony here, but then it disappeared.
 1,<p>There used to be a settlement, here. During the [upheaval|troubles|dark times], nobody visited and when ships returned about [a|two] dozen years ago, there was no trace of them to be found.
+1,<p>A comet tore through this system some time ago, leaving everything barren.
+1,<p>Lethal radiation wiped out all life forms in this system [two|three|five|seven|eight] [hundred|thousand] years ago. It's been barren ever since.
 
 ;vacuum
 1,<p>The mining opportunities favour the construction of underground settlements.
 1,<p>The availability of light favours the construction of large domed settlements.
+1,<p>All habitation here is contained within airtight domes.
 
 ;water
 1,<p>The water covered world has led to the construction of floating cities.
 1,<p>The rare volcanoes rising from the world-covering ocean are the only places where settlements exist.
 1,<p>Rising water levels have drowned everything. Where the water is shallow, settlements are built on pylons.
+1,<p>Huge rafts, built up around aquaculture centres, carry all habitation on this water covered world.
 
 ;desert
 1,<p>[desert description] [desert food] [desert aspect]
@@ -521,17 +624,24 @@
 1,The world is a rocky desert.
 1,The world is a sea of sand.
 1,The lack of water makes it hard to grow anything out in the open.
+1,The world is bare, covered in gravel and rocks.
+1,Outcrops of rock puncture the unending sands of this world.
 
 ;desert food
 1,Moisture farming supplies settlers with food.
 1,Large canyons collect some humidity and allow for some limited agriculture.
 1,The local food is produced in large underground fungal cultures.
+1,Nothing grows wild here, forcing the population to collect dew to support meager farming.
+1,A desert worm which the settlers carefully farm is the only source of food here.
 
 ;desert aspect
 1,The locals [diligently|obsessively] collect all body fluids for recycling.
 1,Outside, people only survive wearing water reclaiming suits.
 1,Life is harsh, and people are harsh, too. Brutal honesty or death, they say.
 1,Life is dangerous and people must depend on each other. This makes for a very polite society.
+1,Living here is tough and no one chooses to live here unless they have a good reason.
+1,No one lasts long here unless they are prepared to fall in with the local customs.
+1,Despite the dangers, some people like living here in the shifting sands.
 
 ;ice
 1,<p>All that remains of the atmosphere has frozen in the polar regions.
@@ -550,11 +660,16 @@
 
 ;agriculture
 1,<p>This is one of the worlds where agriculture is possible. They are famed for their exports of [food].
+1,<p>Agriculture thrives here.  The main export is [food].
 
 ;food
 1,fruit
 1,vegetables
 1,cereals
+1,grains
+1,spices
+1,dairy products
+1,plant protein products
 
 ;non-agriculture
 1,<p>Not much grows here.
