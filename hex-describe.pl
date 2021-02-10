@@ -2082,29 +2082,28 @@ __DATA__
 % layout 'default';
 % title 'Hex Describe';
 <h1>Hex Describe</h1>
-<p>
-Describe a hex map using some random data. For a larger map, visit <a
-href="https://campaignwiki.org/text-mapper/">Text Mapper</a> and generate your
-own map with different width and height. Then come back here and paste the map
-into the text area below.
-<p>
-Alternatively, the following links will load map data from Text Mapper into the
-text area below:
-<%= link_to 'random Smale data' => 'loadrandomsmale' %>;
-<%= link_to 'random Alpine data' => 'loadrandomalpine' %>;
-<%= link_to 'random Apocalypse data' => 'loadrandomapocalypse' %>;
-<%= link_to 'random Traveller data' => 'loadrandomtraveller' %>.
-<p>
-Or use the following links to automatically load map from Text Mapper, pick a
-matching table, and submit it immediately:
-<%= link_to 'Smale mini-setting' => 'describerandomsmale' %>;
-<%= link_to 'Alpine mini-setting' => 'describerandomalpine' %>;
-<%= link_to 'Apocalypse mini-setting' => 'describerandomjohnston' %>;
-<%= link_to 'Traveller subsector' => 'describerandomtraveller' %>.
-<p>
-And finally, you can also explore the <%= link_to 'rules' => 'rules' %> of the
-various tables interactively, and use the tables with
- <%= link_to 'no map' => 'nomap' %>.
+
+<p>This tool generates mini-setting books: a hundred pages or more of
+descriptions for a map based on random tables. The following links automatically
+load a map and pick a matching table: <%= link_to 'Smale mini-setting' =>
+'describerandomsmale' %>; <%= link_to 'Alpine mini-setting' =>
+'describerandomalpine' %>; <%= link_to 'Apocalypse mini-setting' =>
+'describerandomjohnston' %>; <%= link_to 'Traveller subsector' =>
+'describerandomtraveller' %>.
+
+<p>You can write the hex map descriptions yourself, but it's often quicker to
+generate one using <a href="https://campaignwiki.org/text-mapper/">Text
+Mapper</a> and modify it until you're happy, then copy and paste the map into
+the text area below, pick an appropriate random table and submit it. For a quick
+demonstration, the following links will load map data from Text Mapper into the
+text area below: <%= link_to 'random Smale data' => 'loadrandomsmale' %>; <%=
+link_to 'random Alpine data' => 'loadrandomalpine' %>; <%= link_to 'random
+Apocalypse data' => 'loadrandomapocalypse' %>; <%= link_to 'random Traveller
+data' => 'loadrandomtraveller' %>.
+
+<p>Finally, you can also explore the <%= link_to 'rules' => 'rules' %> of the
+various tables interactively, and use the tables with <%= link_to 'no map' =>
+'nomap' %>.
 
 %= form_for describe => (method => 'POST') => begin
 %= text_area map => (cols => 60, rows => 15) => begin
@@ -2152,7 +2151,7 @@ What random tables should be used to generate the descriptions?
 <%= link_to 'Traveller' => 'travellertable' %>
 (best for Traveller maps)<br>
 <%= radio_button load => 'none' %>
-(only use the data provided below)
+none (only use the data provided below)
 
 <p>
 If you have your own tables somewhere public (a pastebin, a public file at a
@@ -2160,7 +2159,7 @@ file hosting service), you can provide the URL to your tables right here:
 
 <p>
 Table URL:
-%= text_field url => $url
+%= text_field url => $url, size => 40
 
 <p>
 Alternatively, just paste your tables here:
