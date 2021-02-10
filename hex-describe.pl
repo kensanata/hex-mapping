@@ -2427,7 +2427,8 @@ These results are based on the <strong><%= $rule %></strong> table.
 % } else {
 %   $first = 0;
 % }
-<p><%== $description %>% }
+<p><%== $description %>
+% }
 </div>
 
 % if ($seed) {
