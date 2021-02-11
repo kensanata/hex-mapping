@@ -2,7 +2,7 @@
 # Radcliffe and dedicated to the Public Domain.
 
 ;TOP
-1,[welcome][on names][on stats]
+1,[welcome][on names][on stats][on equipment]
 
 ;welcome
 1,Welcome to the [global save space name as subsector][same subsector] subsector!
@@ -12,6 +12,9 @@
 
 ;on stats
 1,<p>**Stats:** Characteristics are given for a 2d6 system with values ranging from 2 to 12, using A, B, and C for 10, 11, and 12. For a person, the *Universal Personality Profile* (UPP) consists of strength, dexterity, endurance, intelligence, education, and social standing. For a system, the *Universal World Profile* (UWP) consists of starport (A-E, F), size, atmosphere, water, population, government, law, a dash, and tech level.
+
+;on equipment
+1,<p>**Equipment:** It is assumed that every non-player character in this document comes equipped with at least one weapon they are skilled in. Remember that a ship’s locker contains the basics for survival on an alien word, plus equipment to defend against boarding: protective clothing, vacc suits, tools, portable shelters, but also weapons such as shotguns, carbines, pistols, and ammunition.
 
 ;system
 1,This is **[same name]**, UWP [same uwp].
@@ -192,7 +195,7 @@
 1,<p>[same name] has a **class C** starport. [dockyard] [unrefined fuel] 
 
 ;starport-D
-1,<p>[same name] has a **class D** starport. [small starport building]
+1,<p>[same name] has a **class D** starport. [small starport building] [starport-D mission]
 
 ;starport-E
 1,<p>[same name] has a **class E** starport. [no facilities]
@@ -323,12 +326,33 @@
 1,Logistics
 
 ;small starport building
+# always refer to a harbour master, who has startport-D missions for players
 1,The harbour master’s building is a small two story building, big windows, antennas, nothing fancy.
 1,All you can see is the toll house. The harbour master’s office is probably there as well. A bunch of clerks look up as you enter.
-1,There’s a small house here, probably for the warden.
+1,There’s a small house here, probably for the harbour master.
 1,There's just one rundown looking single storey building here. It must belong to the harbour master.
-1,A single low building hugs the hillside. You guess it belongs to the warden as there's no other building to be seen.
+1,A single low building hugs the hillside. You guess it belongs to the harbour master as there's no other building to be seen.
 
+;starport-D mission
+1,[transport homicide suspect]
+1,
+
+;transport homicide suspect
+1,<p>[humble harbour master] Currently, they’re holding **[homicide|murder] suspect** *[human name as accused]*, but capital crimes are usually judged in *[nearby big port]* and the harbour master needs a ship to transport the suspect there. [transport homicide suspect background]
+
+;transport homicide suspect background
+1,This is a case of domestic violence with the suspect accused of murdering their partner. The body has been found and the evidence is inconclusive. What’s missing is a confession. “Perhaps you can get them to talk?” asks [same harbour master].
+1,This is a case of domestic violence with the suspect accused of murdering their partner. The body has been found and the evidence is overwhelming. “This case is as good as decided!” says [same harbour master]. In truth, however, the deed was done by a close relative and *[same accused]* is being framed. “I’m innocent, I swear!” they say.
+1,Multiple witnesses say they saw *[same accused]* [gunning|cutting] down the victim, so it’s pretty clear what happened. Nobody suspects, however, that *[same accused]* belongs to *[a crime syndicate]*. “I can’t tell you why I did it. I don’t remember the deed,” they say.
+
+;humble harbour master
+1,The **harbour master** *[here human name as harbour master]* greets any new arrivals in person; they’re [disposition].
+
+;disposition
+1,eager to be of service and talkative
+1,taciturn and grumpy
+1,sticklers for protocol, eager to check, inspect, and reprimand
+1,overworked and exasperated, with [reconstruction|constructions|process reforms] falling behind schedule
 
 ;no facilities
 1,A flat spot, scorched but cleaned of all vegetation, with various sections demarcated with white lines. With this little traffic, that seems quite unnecessary.
@@ -586,6 +610,44 @@
 1,[Production|Manufacturing|Banking|Insurances|Services|Securities]
 1,[Legal|Compliance|Computing|Logistics|Pharmaceuticals|Mining|Constructions|Buildings|Resources]
 1,[Organisation|Processes|Management]
+
+# law
+
+;law
+1,[law-[0|1|2|3|4|5|6|7|8|9|A]
+
+;law-0
+1,<p>This is a lawless place. Should anything happen, you’re on your own.
+
+;law-1
+1,
+
+;law-2
+1,
+
+;law-3
+1,
+
+;law-4
+1,
+
+;law-5
+1,
+
+;law-6
+1,
+
+;law-7
+1,
+
+;law-8
+1,
+
+;law-9
+1,
+
+;law-A
+1,
 
 # trade codes
 
