@@ -9,7 +9,7 @@ starport-B xml <text font-size="20pt" dy="-25px" font-family="Optima, Helvetica,
 starport-C xml <text font-size="20pt" dy="-25px" font-family="Optima, Helvetica, sans-serif" text-anchor="middle">C</text>
 starport-D xml <text font-size="20pt" dy="-25px" font-family="Optima, Helvetica, sans-serif" text-anchor="middle">D</text>
 starport-E xml <text font-size="20pt" dy="-25px" font-family="Optima, Helvetica, sans-serif" text-anchor="middle">E</text>
-starport-X xml <text font-size="20pt" dy="-25px" font-family="Optima, Helvetica, sans-serif" text-anchor="middle">F</text>
+starport-X xml <text font-size="20pt" dy="-25px" font-family="Optima, Helvetica, sans-serif" text-anchor="middle">X</text>
 
 # size
 size-0 xml <circle r="11"/>
