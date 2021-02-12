@@ -1281,13 +1281,15 @@ sub describe {
   my $coordinates = shift;
   my $words = shift;
   my $redirects = shift;
-  $log->error("Recursion level $level exceeds 20!") if $level > 20;
+  $log->error("Recursion level $level exceeds 20 in $coordinates (@$words)!") if $level > 20;
   return '' if $level > 20;
   if ($level == 1) {
     %locals = (); # reset once per paragraph
     for my $word (@$words) {
       if ($word =~ /^([a-z]+)="(.*)"/) {
 	$locals{$1} = $2;
+      } else {
+	$locals{$word} = 1;
       }
     }
   }
@@ -1308,18 +1310,24 @@ sub describe {
       # $log->debug("rolling dice: $word = $r");
       $locals{$save_as} = $r if $save_as;
       push(@descriptions, $r) unless $just_save;
+    } elsif ($word =~ /^(\S+)\?\|\|(.*)/) {
+      # [a?||b] return b if a is defined, or nothing
+      push(@descriptions, $2) if $locals{$1};
+    } elsif ($word =~ /^!(\S+)\|\|(.*)/) {
+      # [!a||b] return b if a is undefined
+      push(@descriptions, $2) if not $locals{$1};
     } elsif (index($word, "||") != -1) {
-      # make sure there is a or b: [a||b]
+      # [a||b] returns a if defined, otherwise b
       for my $html (split(/\|\|/, $word)) {
 	my $copy = $html;
-	$copy =~ s/<.*?>//g; # strip tags, e.g. span elements
+	$copy =~ s/<.*?>|…//g; # strip tags, e.g. span elements, and ellipsis
 	if ($copy =~ /\S/) {
 	  push(@descriptions, $html);
 	  last;
 	}
       }
     } elsif (index($word, "|") != -1) {
-      # super shorthand for [a|b]
+      # [a|b] returns one of a or b
       push(@descriptions, one(split(/\|/, $word)));
     } elsif ($word =~ /^name for an? /) {
       # for global things like factions, dukes
@@ -1638,7 +1646,7 @@ sub closest {
   } grep { $_ ne $coordinates } keys %{$globals->{$key}};
   if (not @coordinates) {
     $log->info("Did not find any hex with $key ($coordinates)");
-    return pick($map_data, $table_data, 1, $coordinates, [], $key, $redirects);
+    return "…";
   }
   # the first one is the closest
   return $globals->{$key}->{$coordinates[0]}
@@ -1713,7 +1721,7 @@ sub some_other {
   my @coordinates = grep !/$coordinates/, keys %{$globals->{$key}};
   if (not @coordinates) {
     $log->info("Did not find any other hex with $key");
-    return pick($map_data, $table_data, 1, $coordinates, [], $key, $redirects);
+    return "…";
   }
   # just pick a random one
   my $other = one(@coordinates);
@@ -2723,6 +2731,31 @@ rules stuff like treasure, for example:
 ;50% gold
 1,you find some gold
 1,
+% end
+
+
+<p>
+You can also test for the presence of definitions:
+
+%= example begin
+;person
+1,This [here name]. [blade?||They carry a [same blade] in their belt.]
+
+;name
+1,Alex[store cutlass as blade]
+1,Berta
+% end
+
+<p>
+You can also test for the absence of definitions:
+
+%= example begin
+;person
+1,This [here name]. [!blade||They look unarmed]
+
+;name
+1,Alex[store cutlass as blade]
+1,Berta
 % end
 
 <p>
