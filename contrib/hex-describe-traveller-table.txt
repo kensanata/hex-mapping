@@ -156,7 +156,7 @@
 1,The corrosive atmosphere requires a *protective suit* or a *vacc suit*  to navigate. The airlocks are extra secure. [corrosive atmosphere] Suit failure during excursions is deadly. Accidents happen.
 
 ;corrosive atmosphere
-1,The high concentration of [corrosive atmosphere] highly corrosive.
+1,The high concentration of [corrosive atmosphere agent] highly corrosive.
 
 ;corrosive atmosphere agent
 1,atomic oxygen produced by the strong ultraviolet radiation eats away at all surfaces that aren’t coated in gold foil; it’s
@@ -198,10 +198,10 @@
 1,<p>[same name] has a **class D** starport. [small starport building] [starport-D mission]
 
 ;starport-E
-1,<p>[same name] has a **class E** starport. [no facilities]
+1,<p>[same name] has a **class E** starport.[here store [same name] as backwater system] [no facilities]
 
 ;starport-X
-1,There is no starport, here.
+1,There is no starport, here.[here store [same name] as backwater system] This system is therefore not strictly part of the imperial network.
 
 ;shipyard
 1,The *[shipyard name]* shipyards loom large over the starport’s various landing pads.
@@ -533,7 +533,7 @@
 1,<p>This is a colony of the *[nearby big port]*. The local [administration|puppet government] is led by the *[human name]*. The locals are squeezed for all they’re worth and suffer. The [rebellion|resistance] is gaining power, led by the charismatic *[human name]*. There is going to be violence, soon. 
 1,<p>This is a colony of the *[nearby big port]*. The local [administration|puppet government] is led by the *[human name]*. The parent system has been subsidising all the recent developments, but money is starting to run out. They are no longer willing to fund the colony and *[same human name]* is struggling to prepare the locals for independence. Should the transition fail, all hell is going to break loose.
 1,<p>In a recent conflict with *[nearby big port]*, the entire local government was replaced by a new administration more [amenable|agreeable] to the victors. The leader of the new administration is *[human name]*, [acquiescent|submissive] and quick to say that now is the time to [forgive and forget|make amends], not to seek revenge for fear of reprisals.
-1,<p>When terrorists on *[nearby big port]* turned out to be locals, it didn’t take long before the navy showed up, overthrew the old order on [same name], and installed a puppet government, currently led by *[human name]*. Curfews, patrols, interrogations, allegations of torture, and occasional revelations thereof provide fertile grounds for more shootings, more bombs, more assassinations. These are bad times.
+1,<p>When terrorists on *[nearby big port]* turned out to be from *[same name]*, it didn’t take long before the navy showed up, overthrew the old order on [same name], and installed a puppet government, currently led by *[human name]*. Curfews, patrols, interrogations, allegations of torture, and occasional revelations thereof provide fertile grounds for more shootings, more bombs, more assassinations. These are bad times.
 
 ;government-7
 1,<p>The system has fallen apart into multiple polities: each urban centre claiming sovereignty, involved in border disputes, internal squabbles, unable to deal with the imperial order in the subsector. The starport falls within the sphere of influence of *[space name]*. It’s a mess.
@@ -614,40 +614,40 @@
 # law
 
 ;law
-1,[law-[0|1|2|3|4|5|6|7|8|9|A]
+1,[law-[0|1|2|3|4|5|6|7|8|9|A]]
 
 ;law-0
-1,<p>This is a lawless place. Should anything happen, you’re on your own.
+1,<p>At the starport gates, travellers are warned: *[same name]* is a lawless place. People are armed and dangerous. If you leave the green zone, you’re on your own. There is no security apparatus in place to guarantee anybody’s safety.
 
 ;law-1
-1,
+1,<p>At the starport gates, travellers are warned: no undetectable weapons, explosives, or chemical weapons past this point. When confronted with criminal activities, you’re on your own. There are no safety guarantees by the state.
 
 ;law-2
-1,
+1,<p>At the starport gates, travellers are warned: no hidden weapons, explosives, chemical weapons, or portable energy weapons past this point. When confronted with criminal activities, you’re on your own. Confrontations with security forces are unheard of.
 
 ;law-3
-1,
+1,<p>At the starport gates, travellers are warned: no military weapons past this point, including machine guns and automatic rifles. Confrontation with the security forces is rare (throw 3+).
 
 ;law-4
-1,
+1,<p>At the starport gates, travellers are warned: neither military weapons nor light assault weapons past this point, including SMG included. Confrontation with the security forces is rare (throw 4+).
 
 ;law-5
-1,
+1,<p>At the starport gates, travellers are warned: no military weapons, no concealable weapons past this point, including pistols and revolvers. Confrontation with the security forces do occur (throw 5+).
 
 ;law-6
-1,
+1,<p>At the starport gates, travellers are warned: most guns prohibited past this point, excluding shotguns. Confrontation with the security forces occur on a regular basis (throw 6+).
 
 ;law-7
-1,
+1,<p>At the starport gates, travellers are warned: absolutely no guns past this point, no exceptions. Confrontation with the security forces occur regularly (throw 7+).
 
 ;law-8
-1,
+1,<p>At the starport gates, travellers are warned: no guns; no blades. Special licenses are required for the collection of blades. Long knives and daggers are OK. Travellers are encouraged to cooperate will all security forces (throw 8+).
 
 ;law-9
-1,
+1,<p>At the starport gates, travellers are warned: no weapons in public spaces. Travellers are encouraged to avoid contact with security forces if possible (throw 9+).
 
 ;law-A
-1,
+1,<p>At the starport gates, travellers are warned: no weapons in public spaces. Travellers are encouraged to any and all suspicious activities. Interactions with the security forces are risky (throw 10+).
 
 # trade codes
 
@@ -856,6 +856,7 @@
 
 ;scout base mission
 1,<p class="sidebar">Patron<p>*[same base commander]* is looking for help: “This scout base has run afoul of a local gangster called *[here human name as crime boss]*. I think I can patch this up, but I’d hate to go to a meeting without some backup. Will you come with me to the *[bar]*?” [crime boss meeting]
+1,<p class="sidebar">Patron<p>*[same base commander]* is looking for help: “I’ve sent *[human name as lost scout]* on a survey mission to *[nearby backwater system]* and they haven’t reported back. Will you go and have a look?” [lost scout background]
 1,
 
 ;bar
@@ -863,19 +864,26 @@
 
 ;bar 1
 1,Dancing
+1,Prancing
 1,White
 1,Green
 1,Solid
 1,Drunken
+1,Jolly
 
 ;bar 2
 1,[capitalize animal]
-1,[Crown|Scepter|Bottle|Gin|Gargle]
+1,[Crown|Sceptre|Bottle|Jar|Gin|Gargle|Stone]
 
 ;crime boss meeting
 1,This assessment of the situation is correct. *[same crime boss]* shows up with two armed **goons** and will back down if outgunned. *[same crime boss]*, [smart upp], [smart other skills]; treat the goons as 777777, Pistol-1 Dagger-1. There are two more such **goons** watching the exits of [same bar], and one **driver** in a vehicle standing by. They only get involved when the shooting starts.
 1,This assessment of the situation is wrong. *[same crime boss]* is trying to establish themselves and needs to make an example of the imperial scouts. They came for a fight and they’re looking for blood. *[same crime boss]*, [smart upp], [smart other skills]; plus [2d6] **goons**, 777777, Pistol-1 Dagger-1. There a **gunner** with Auto Rifle-1 watching the front of [same bar] from a vehicle with an armed **driver** standing by. They are all trigger happy and waiting for the slightest misstep.
 1,This is not wrong. *[same crime boss]* can be argued with. If they’re going to tolerate the scout base in their territory, it must be useful. “Will you carry some illegal cargo for the [crime syndicate] to *[nearby big port]* for me?” They came with [1d4+1] goons and have another [1d4+1] waiting outside. *[same crime boss]*, [smart upp], [smart other skills]; treat all **goons** as 777777, Pistol-1 Dagger-1.
+
+;lost scout background
+1,In fact, a malfunction caused their type S scout/courier ship to crash. Finding the crash site is going to take two weeks. Sadly, proper funeral rites and writing up a report is all that’s left to do. *[same lost scout]* didn’t survive the crash. [high?||And dealing with the local administration, of course.]
+1,In fact, a malfunction caused their type S scout/courier ship to crash. Luckily, *[same lost scout]* survived. [They’ve survived inside the ruined ship|They managed to set up a little campsite near the crash site], awaiting their rescue. [!population-0||They avoided the locals, as is appropriate for a scout.]
+1,In fact, what happened is that they [!population-0||The were caught and imprisoned by the locals and need to be extricated.][population-0?||They were caught in an accident and injured themselves, never making it back to the ship. They’re still hiding out there, somewhere.]
 
 # Crime
 
@@ -897,15 +905,15 @@
 1,[name for a crime syndicate 3]
 
 ;name for a crime syndicate 1
-1,[crime syndicate]
+1,[crime syndicate name]
 
 ;name for a crime syndicate 2
-1,[crime syndicate]
+1,[crime syndicate name]
 
 ;name for a crime syndicate 3
-1,[crime syndicate]
+1,[crime syndicate name]
 
-;crime syndicate
+;crime syndicate name
 1,[Mutual Aid|Mutual Support|Expat|Social] [crime organisation]
 1,[crime adjective] [crime thing] [crime organisation]
 1,[crime mystics] of the [crime adjective] [crime thing]
