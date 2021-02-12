@@ -338,12 +338,12 @@
 1,
 
 ;transport homicide suspect
-1,<p>[humble harbour master] Currently, they’re holding **[homicide|murder] suspect** *[human name as accused]*, but capital crimes are usually judged in *[nearby big port]* and the harbour master needs a ship to transport the suspect there. [transport homicide suspect background]
+1,<p class="sidebar">Patron<p>[humble harbour master] Currently, they’re holding **[homicide|murder] suspect** *[human name as accused]*, but capital crimes are usually judged in *[nearby big port]* and the harbour master needs a ship to transport the suspect there. [transport homicide suspect background]
 
 ;transport homicide suspect background
 1,This is a case of domestic violence with the suspect accused of murdering their partner. The body has been found and the evidence is inconclusive. What’s missing is a confession. “Perhaps you can get them to talk?” asks [same harbour master].
 1,This is a case of domestic violence with the suspect accused of murdering their partner. The body has been found and the evidence is overwhelming. “This case is as good as decided!” says [same harbour master]. In truth, however, the deed was done by a close relative and *[same accused]* is being framed. “I’m innocent, I swear!” they say.
-1,Multiple witnesses say they saw *[same accused]* [gunning|cutting] down the victim, so it’s pretty clear what happened. Nobody suspects, however, that *[same accused]* belongs to *[a crime syndicate]*. “I can’t tell you why I did it. I don’t remember the deed,” they say.
+1,Multiple witnesses say they saw *[same accused]* [gunning|cutting] down the victim, so it’s pretty clear what happened. Nobody suspects, however, that *[same accused]* belongs to the *[crime syndicate]*. “I can’t tell you why I did it. I don’t remember the deed,” they say.
 
 ;humble harbour master
 1,The **harbour master** *[here human name as harbour master]* greets any new arrivals in person; they’re [disposition].
@@ -763,8 +763,8 @@
 # Bases
 
 ;naval
-1,<p>There is a naval base called *[here naval base name]* in the system under **commander** *[here upcoming as navy captain]*, [smart upp], [with smart navy skill]-2 [and smart navy skill]-2 [and smart navy skill]-1 [and smart navy skill]-1 [and smart navy skill]-1 [and smart navy skill]-1 [and smart navy skill]-1. [navy squad at the base]
-1,<p>There is a naval base called *[here naval base name]* in the system under **captain** *[here upstart as navy captain]*, [smart upp], [with smart navy skill]-3 [and smart navy skill]-2 [and smart navy skill]-2 [and smart navy skill]-1 [and smart navy skill]-1 [and smart navy skill]-1 [and smart navy skill]-1 [and smart navy skill]-1. [navy squad at the base]
+1,<p>There is a **naval base** called *[here naval base name]* in the system under **commander** *[here upcoming as navy captain]*, [smart upp], [with smart navy skill]-2 [and smart navy skill]-2 [and smart navy skill]-1 [and smart navy skill]-1 [and smart navy skill]-1 [and smart navy skill]-1 [and smart navy skill]-1. [navy squad at the base]
+1,<p>There is a **naval base** called *[here naval base name]* in the system under **captain** *[here upstart as navy captain]*, [smart upp], [with smart navy skill]-3 [and smart navy skill]-2 [and smart navy skill]-2 [and smart navy skill]-1 [and smart navy skill]-1 [and smart navy skill]-1 [and smart navy skill]-1 [and smart navy skill]-1. [navy squad at the base]
 
 ;naval base name
 1,[mythical beast]-[1d9]
@@ -838,7 +838,7 @@
 1, There are about [1d10x10+100] people at the base right now. If you need individuals, pick from the following squad led by [navy lieutenant]; [navy personnel]; [navy personnel]; [navy personnel]; [navy personnel]; [navy personnel]; [navy personnel]; [navy personnel].
 
 ;scout
-1,<p>There is a scout base called *[here scout base name]* in the system. The current crew is small. [scout base crew] All who served here end up joining the *[here scout base friends as association of captains]*.
+1,<p>There is a **scout base** called *[here scout base name]* in the system. The current crew is small. [scout base crew] All who served here end up joining the *[here scout base friends as association of captains]*. [scout base mission]
 
 ;scout base crew
 1,The only person on duty is **commander** *[human name as base commander]*, [smart upp], [smart scout skills].
@@ -854,12 +854,35 @@
 ;scout base friends
 1,[Association for the Maintenance|Supporters|Friends|Alumni] of [same scout base name]
 
+;scout base mission
+1,<p class="sidebar">Patron<p>*[same base commander]* is looking for help: “This scout base has run afoul of a local gangster called *[here human name as crime boss]*. I think I can patch this up, but I’d hate to go to a meeting without some backup. Will you come with me to the *[bar]*?” [crime boss meeting]
+1,
+
+;bar
+1,[bar 1] [bar 2]
+
+;bar 1
+1,Dancing
+1,White
+1,Green
+1,Solid
+1,Drunken
+
+;bar 2
+1,[capitalize animal]
+1,[Crown|Scepter|Bottle|Gin|Gargle]
+
+;crime boss meeting
+1,This assessment of the situation is correct. *[same crime boss]* shows up with two armed **goons** and will back down if outgunned. *[same crime boss]*, [smart upp], [smart other skills]; treat the goons as 777777, Pistol-1 Dagger-1. There are two more such **goons** watching the exits of [same bar], and one **driver** in a vehicle standing by. They only get involved when the shooting starts.
+1,This assessment of the situation is wrong. *[same crime boss]* is trying to establish themselves and needs to make an example of the imperial scouts. They came for a fight and they’re looking for blood. *[same crime boss]*, [smart upp], [smart other skills]; plus [2d6] **goons**, 777777, Pistol-1 Dagger-1. There a **gunner** with Auto Rifle-1 watching the front of [same bar] from a vehicle with an armed **driver** standing by. They are all trigger happy and waiting for the slightest misstep.
+1,This is not wrong. *[same crime boss]* can be argued with. If they’re going to tolerate the scout base in their territory, it must be useful. “Will you carry some illegal cargo for the [crime syndicate] to *[nearby big port]* for me?” They came with [1d4+1] goons and have another [1d4+1] waiting outside. *[same crime boss]*, [smart upp], [smart other skills]; treat all **goons** as 777777, Pistol-1 Dagger-1.
+
 # Crime
 
 ;pirate
 1,<p>There is a hidden pirate base in the system. [pirates]
-1,<p>There is a small station of the *[a crime syndicate]* in orbit around [same name]. [criminals]
-1,<p>There is a [safe house|hidden base|refugium] of the *[a crime syndicate]* near the starport. [criminals]
+1,<p>There is a small station of the *[crime syndicate]* in orbit around [same name]. [criminals]
+1,<p>There is a [safe house|hidden base|refugium] of the *[crime syndicate]* near the starport. [criminals]
 
 ;pirates
 1,The **pirate captain** is *[here human name as crime boss]*, [smart upp], [smart other skills]. Their **right hand** is *[human name]*, [upp], [common other skills]. There are [2d4] more *pirates* in the building, 777777, Shotgun-1.
@@ -868,7 +891,7 @@
 1,The **crime boss** is *[here human name as crime boss]*, [smart upp], [smart other skills]. Their **right hand** is *[human name]*, [upp], [common other skills]. There are [2d6] more *criminals* in the building, 777777, Shotgun-1.
 
 # there are just three crime syndicates
-;a crime syndicate
+;crime syndicate
 1,[name for a crime syndicate 1]
 1,[name for a crime syndicate 2]
 1,[name for a crime syndicate 3]
@@ -1071,7 +1094,7 @@
 1,<p>The *[here martial ship name as ship name]* is a **type M** mercenary cruiser (800t, unstreamlined). [ship captain]
 
 ;patrol cruiser
-1,<p>The *[here martial ship name as ship name]* is a **type T** patrol cruiser (400t, streamlined). [patrol cruiser ship crew] The *[same ship name]* is currently looking for pirate *[nearby crime boss]*.
+1,<p class="sidebar">Patron<p>The *[here martial ship name as ship name]* is a **type T** patrol cruiser (400t, streamlined). They hail all incoming ships: “This is captain *[here human name as ship captain]* of the patrol cruiser *[same ship name]* hailing all incoming ships. We are looking for information on the whereabouts of pirate *[nearby crime boss]*. Do not aid and abet them. Reward for their location: 5000 Cr. Reward for their capture, dead: 10000 Cr. Reward for their capture, dead: 20000 Cr.”<p>[patrol cruiser ship crew]
 
 ;laboratory ship
 1,<p>The *[here mellow ship name as ship name]* is a **type L** laboratory ship (400t, unstreamlined). [ship captain]
@@ -1150,7 +1173,7 @@
 6,
 
 ;maybe a criminal allegiance
-1,Few people know that *[same ship captain]* is in the pockets of the *[a crime syndicate]*.[here store [same ship captain] as criminal captain]
+1,Few people know that *[same ship captain]* is in the pockets of the *[crime syndicate]*.[here store [same ship captain] as criminal captain]
 1,[maybe a member of an association of captains]
 2,
 
@@ -1256,7 +1279,8 @@
 
 ;patrol cruiser ship crew
 # pilot, navigator, engineer, medic, steward, maybe a gunner
-1,The **pilot** of this ship is *[here human name as ship captain]*, [store Pilot as extra skill][navy upp and skills]. The **navigator** is *[human name]*, [store Navigation as extra skill][navy upp and skills]. The **first engineer** is *[human name]*, [store Engineer as extra skill][navy upp and skills]. The **second engineer** is *[human name]*, [store Engineer as extra skill][navy upp and skills]. The **third engineer** is *[human name]*, [store Engineer as extra skill][navy upp and skills]. The **medic** is *[human name]*, [store Medical as extra skill][navy upp and skills]. The **first gunner** is *[human name]*, [store Gunnery as extra skill][navy upp and skills]. Their turret has a [beam laser|pulse laser] mounted. The **second gunner** is *[human name]*, [store Gunnery as extra skill][navy upp and skills]. Their turret has a [beam laser|pulse laser|missile racks|sandcasters] mounted. The **third gunner** is *[human name]*, [store Gunnery as extra skill][navy upp and skills]. Their turret has a [beam laser|pulse laser|missile racks|sandcasters] mounted. The **fourth gunner** is *[human name]*, [store Gunnery as extra skill][navy upp and skills]. Their turret has a [beam laser|pulse laser|missile racks|sandcasters] mounted. [maybe navy squad]
+# the ship captain name must already be decided
+1,The **pilot** of this ship is *[same ship captain]*, [store Pilot as extra skill][navy upp and skills]. The **navigator** is *[human name]*, [store Navigation as extra skill][navy upp and skills]. The **first engineer** is *[human name]*, [store Engineer as extra skill][navy upp and skills]. The **second engineer** is *[human name]*, [store Engineer as extra skill][navy upp and skills]. The **third engineer** is *[human name]*, [store Engineer as extra skill][navy upp and skills]. The **medic** is *[human name]*, [store Medical as extra skill][navy upp and skills]. The **first gunner** is *[human name]*, [store Gunnery as extra skill][navy upp and skills]. Their turret has a [beam laser|pulse laser] mounted. The **second gunner** is *[human name]*, [store Gunnery as extra skill][navy upp and skills]. Their turret has a [beam laser|pulse laser|missile racks|sandcasters] mounted. The **third gunner** is *[human name]*, [store Gunnery as extra skill][navy upp and skills]. Their turret has a [beam laser|pulse laser|missile racks|sandcasters] mounted. The **fourth gunner** is *[human name]*, [store Gunnery as extra skill][navy upp and skills]. Their turret has a [beam laser|pulse laser|missile racks|sandcasters] mounted. [maybe navy squad]
 
 # 8+ means (1+2+3+4+5=15)/36
 # store an extra skill to be listed first (based on the function)
