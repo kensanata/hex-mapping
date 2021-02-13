@@ -620,34 +620,44 @@
 1,<p>At the starport gates, travellers are warned: *[same name]* is a lawless place. People are armed and dangerous. If you leave the green zone, you’re on your own. There is no security apparatus in place to guarantee anybody’s safety.
 
 ;law-1
-1,<p>At the starport gates, travellers are warned: no undetectable weapons, explosives, or chemical weapons past this point. When confronted with criminal activities, you’re on your own. There are no safety guarantees by the state.
+1,<p>At the starport gates, travellers are warned: no body pistols, bombs, grenades, or chemical weapons past this point. When confronted with criminal activities, you’re on your own. There are no safety guarantees by the state.
 
 ;law-2
 1,<p>At the starport gates, travellers are warned: no hidden weapons, explosives, chemical weapons, or portable energy weapons past this point. When confronted with criminal activities, you’re on your own. Confrontations with security forces are unheard of.
 
 ;law-3
-1,<p>At the starport gates, travellers are warned: no military weapons past this point, including machine guns and automatic rifles. Confrontation with the security forces is rare (throw 3+).
+1,<p>At the starport gates, travellers are warned: no military weapons past this point, including machine guns and automatic rifles. Confrontation with the security forces is rare (throw 3+ to avoid harassment and/or arrest by the local authorities).
 
 ;law-4
-1,<p>At the starport gates, travellers are warned: neither military weapons nor light assault weapons past this point, including SMG included. Confrontation with the security forces is rare (throw 4+).
+1,<p>At the starport gates, travellers are warned: neither military weapons nor light assault weapons past this point, including SMG. Confrontation with the security forces is rare (throw 4+ to avoid harassment and/or arrest by the local authorities). [military weapon smuggler]
+
+;military weapon smuggler
+1,<p class="sidebar">Patron<p>There’s a small starport cantina, the *[bar]*. One of the regulars here is *[human name]*, [taciturn and grumpy|jovial and happy to invite you to a drink|funny and entertaining|always drinking too much|looking old and frail]. If they think you’ll fall for it, they ask you for a favour: “Can you help me take these [two|three|four] [automatic rifles|SMGs] out of the starport? I’ll pay you [1d4]00 Cr. per gun.” [military weapon smuggler background]
+1,
+
+;military weapon smuggler background
+1,These guns are destined for members of the *[crime syndicate]*. Sooner or later, traces left by these criminals will get linked to you…
+1,These guns are destined for members of the *[crime syndicate]*. The local **gangster** *[human name]* is happy to see you, and will happily recommend you go meet *[nearby crime boss]* if you’re looking for more jobs.
+1,These guns are destined for local “freedom fighters” (or terrorists, depending on your point of view). Either way, *[same human name]* soon has more requests for you.
+1,But beware, *[same human name]* is actually a member of a local secret service, trying to entrap you. As soon as you leave the starport, you’ll be seized and search – and jailed.
 
 ;law-5
-1,<p>At the starport gates, travellers are warned: no military weapons, no concealable weapons past this point, including pistols and revolvers. Confrontation with the security forces do occur (throw 5+).
+1,<p>At the starport gates, travellers are warned: no military weapons, no concealable weapons past this point, including pistols and revolvers. Confrontation with the security forces do occur (throw 5+ to avoid harassment and/or arrest by the local authorities).
 
 ;law-6
-1,<p>At the starport gates, travellers are warned: most guns prohibited past this point, excluding shotguns. Confrontation with the security forces occur on a regular basis (throw 6+).
+1,<p>At the starport gates, travellers are warned: most guns prohibited past this point, excluding shotguns. Confrontation with the security forces occur on a regular basis (throw 6+ to avoid harassment and/or arrest by the local authorities).
 
 ;law-7
-1,<p>At the starport gates, travellers are warned: absolutely no guns past this point, no exceptions. Confrontation with the security forces occur regularly (throw 7+).
+1,<p>At the starport gates, travellers are warned: absolutely no guns past this point, no exceptions. Confrontation with the security forces occur regularly (throw 7+ to avoid harassment and/or arrest by the local authorities).
 
 ;law-8
-1,<p>At the starport gates, travellers are warned: no guns; no blades. Special licenses are required for the collection of blades. Long knives and daggers are OK. Travellers are encouraged to cooperate will all security forces (throw 8+).
+1,<p>At the starport gates, travellers are warned: no guns; no blades. Special licenses are required for the collection of blades. Long knives and daggers are OK. Travellers are encouraged to cooperate will all security forces (throw 8+ to avoid harassment and/or arrest by the local authorities).
 
 ;law-9
-1,<p>At the starport gates, travellers are warned: no weapons in public spaces. Travellers are encouraged to avoid contact with security forces if possible (throw 9+).
+1,<p>At the starport gates, travellers are warned: no weapons in public spaces. Travellers are encouraged to avoid contact with security forces if possible (throw 9+ to avoid harassment and/or arrest by the local authorities).
 
 ;law-A
-1,<p>At the starport gates, travellers are warned: no weapons in public spaces. Travellers are encouraged to any and all suspicious activities. Interactions with the security forces are risky (throw 10+).
+1,<p>At the starport gates, travellers are warned: no weapons in public spaces. Travellers are encouraged to any and all suspicious activities. Interactions with the security forces are risky (throw 10+ to avoid harassment and/or arrest by the local authorities).
 
 # trade codes
 
@@ -878,7 +888,7 @@
 ;crime boss meeting
 1,This assessment of the situation is correct. *[same crime boss]* shows up with two armed **goons** and will back down if outgunned. *[same crime boss]*, [smart upp], [smart other skills]; treat the goons as 777777, Pistol-1 Dagger-1. There are two more such **goons** watching the exits of [same bar], and one **driver** in a vehicle standing by. They only get involved when the shooting starts.
 1,This assessment of the situation is wrong. *[same crime boss]* is trying to establish themselves and needs to make an example of the imperial scouts. They came for a fight and they’re looking for blood. *[same crime boss]*, [smart upp], [smart other skills]; plus [2d6] **goons**, 777777, Pistol-1 Dagger-1. There a **gunner** with Auto Rifle-1 watching the front of [same bar] from a vehicle with an armed **driver** standing by. They are all trigger happy and waiting for the slightest misstep.
-1,This is not wrong. *[same crime boss]* can be argued with. If they’re going to tolerate the scout base in their territory, it must be useful. “Will you carry some illegal cargo for the [crime syndicate] to *[nearby big port]* for me?” They came with [1d4+1] goons and have another [1d4+1] waiting outside. *[same crime boss]*, [smart upp], [smart other skills]; treat all **goons** as 777777, Pistol-1 Dagger-1.
+1,This is not wrong. *[same crime boss]* can be argued with. If they’re going to tolerate the scout base in their territory, it must be useful. “Will you carry some illegal cargo for the *[crime syndicate]* to *[nearby big port]* for me?” They came with [1d4+1] goons and have another [1d4+1] waiting outside. *[same crime boss]*, [smart upp], [smart other skills]; treat all **goons** as 777777, Pistol-1 Dagger-1.
 
 ;lost scout background
 1,In fact, a malfunction caused their type S scout/courier ship to crash. Finding the crash site is going to take two weeks. Sadly, proper funeral rites and writing up a report is all that’s left to do. *[same lost scout]* didn’t survive the crash. [high?||And dealing with the local administration, of course.]
