@@ -632,7 +632,7 @@
 1,<p>At the starport gates, travellers are warned: neither military weapons nor light assault weapons past this point, including SMG. Confrontation with the security forces is rare (throw 4+ to avoid harassment and/or arrest by the local authorities). [military weapon smuggler]
 
 ;military weapon smuggler
-1,<p class="sidebar">Patron<p>There’s a small starport cantina, the *[bar]*. One of the regulars here is *[human name]*, [taciturn and grumpy|jovial and happy to invite you to a drink|funny and entertaining|always drinking too much|looking old and frail]. If they think you’ll fall for it, they ask you for a favour: “Can you help me take these [two|three|four] [automatic rifles|SMGs] out of the starport? I’ll pay you [1d4]00 Cr. per gun.” [military weapon smuggler background]
+1,<p class="sidebar">Patron<p>There’s a small starport cantina, the *[bar]*. One of the regulars here is *[human name]*, [taciturn and grumpy|jovial and happy to invite you to a drink|funny and entertaining|always drinking too much|looking old and frail]. If [they think you’ll fall for it, they ask you for a favour|you’re looking for a job, they have one for you|you buy them a drink, they’ll ask you for a favour]: “Can you help me take these [two|three|four] [automatic rifles|SMGs] out of the starport? I’ll pay you [1d4]00 Cr. per gun.” [military weapon smuggler background]
 1,
 
 ;military weapon smuggler background
@@ -893,7 +893,7 @@
 ;lost scout background
 1,In fact, a malfunction caused their type S scout/courier ship to crash. Finding the crash site is going to take two weeks. Sadly, proper funeral rites and writing up a report is all that’s left to do. *[same lost scout]* didn’t survive the crash. [high?||And dealing with the local administration, of course.]
 1,In fact, a malfunction caused their type S scout/courier ship to crash. Luckily, *[same lost scout]* survived. [They’ve survived inside the ruined ship|They managed to set up a little campsite near the crash site], awaiting their rescue. [!population-0||They avoided the locals, as is appropriate for a scout.]
-1,In fact, what happened is that they [!population-0||The were caught and imprisoned by the locals and need to be extricated.][population-0?||They were caught in an accident and injured themselves, never making it back to the ship. They’re still hiding out there, somewhere.]
+1,In fact, what happened is that they [!population-0||were caught and imprisoned by the locals and need to be extricated.][population-0?||were caught in an accident and injured themselves, never making it back to the ship. They’re still hiding out there, somewhere.]
 
 # Crime
 
