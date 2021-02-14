@@ -4006,14 +4006,17 @@ has 'digraphs';
 sub generate_map {
   my $self = shift;
   $self->digraphs($self->compute_digraphs);
+  # coordinates are an index into the system array
   my @coordinates = (0 .. $self->rows * $self->cols - 1);
   my @randomized =  shuffle(@coordinates);
+  # %systems maps coordinates to arrays of tiles
   my %systems = map { $_ => $self->system() } grep { roll1d6() > 3 } @randomized; # density
   my $comms = $self->comms(\%systems);
   my $tiles = [map { $systems{$_} || ["empty"] } (@coordinates)];
   return $self->to_text($tiles, $comms);
 }
 
+# Each system is an array of tiles, e.g. ["size-1", "population-3", ...]
 sub system {
   my $self = shift;
   my $size = roll2d6() - 2;
@@ -4071,6 +4074,7 @@ sub system {
   $tech += 2 if $population >= 10; # +4 total
   $tech += 1 if $government == 0 or $government == 5;
   $tech -= 2 if $government == 13; # D
+  $tech = 0 if $tech < 0;
   my $gas_giant = roll1d6() <= 9;
   my $name = $self->compute_name();
   $name = uc($name) if $population >= 9;
@@ -4219,8 +4223,10 @@ sub comms {
   while (@coordinates) {
     my $from = shift(@coordinates);
     my ($x1, $y1, $system1) = @$from;
+    next if any { /^starport-X$/ } @$system1; # skip systems without starports
     for my $to (@coordinates) {
       my ($x2, $y2, $system2) = @$to;
+      next if any { /^starport-X$/ } @$system2; # skip systems without starports
       my $d = $self->distance($x1, $y1, $x2, $y2);
       if ($d <= 2 and match(qr/^(starport-[AB]|naval)$/, qr/^(starport-[AB]|naval)$/, $system1, $system2)) {
 	push(@comms, [$from, $to, $d]);

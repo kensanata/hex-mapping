@@ -617,19 +617,19 @@
 1,[law-[0|1|2|3|4|5|6|7|8|9|A]]
 
 ;law-0
-1,<p>At the starport gates, travellers are warned: *[same name]* is a lawless place. People are armed and dangerous. If you leave the green zone, you’re on your own. There is no security apparatus in place to guarantee anybody’s safety.
+1,<p>[traveller warning]: *[same name]* is a lawless place. People are armed and dangerous. If you leave the green zone, you’re on your own. There is no security apparatus in place to guarantee anybody’s safety.
 
 ;law-1
-1,<p>At the starport gates, travellers are warned: no body pistols, bombs, grenades, or chemical weapons past this point. When confronted with criminal activities, you’re on your own. There are no safety guarantees by the state.
+1,<p>[traveller warning]: no body pistols, bombs, grenades, or chemical weapons past this point. When confronted with criminal activities, you’re on your own. There are no safety guarantees by the state.
 
 ;law-2
-1,<p>At the starport gates, travellers are warned: no hidden weapons, explosives, chemical weapons, or portable energy weapons past this point. When confronted with criminal activities, you’re on your own. Confrontations with security forces are unheard of.
+1,<p>[traveller warning]: no hidden weapons, explosives, chemical weapons, or portable energy weapons past this point. When confronted with criminal activities, you’re on your own. Confrontations with security forces are unheard of.
 
 ;law-3
-1,<p>At the starport gates, travellers are warned: no military weapons past this point, including machine guns and automatic rifles. Confrontation with the security forces is rare (throw 3+ to avoid harassment and/or arrest by the local authorities).
+1,<p>[traveller warning]: no military weapons past this point, including machine guns and automatic rifles. Confrontation with the security forces is rare (throw 3+ to avoid harassment and/or arrest by the local authorities).
 
 ;law-4
-1,<p>At the starport gates, travellers are warned: neither military weapons nor light assault weapons past this point, including SMG. Confrontation with the security forces is rare (throw 4+ to avoid harassment and/or arrest by the local authorities). [military weapon smuggler]
+1,<p>[traveller warning]: neither military weapons nor light assault weapons past this point, including SMG. Confrontation with the security forces is rare (throw 4+ to avoid harassment and/or arrest by the local authorities). [military weapon smuggler]
 
 ;military weapon smuggler
 1,<p class="sidebar">Patron<p>There’s a small starport cantina, the *[bar]*. One of the regulars here is *[human name]*, [taciturn and grumpy|jovial and happy to invite you to a drink|funny and entertaining|always drinking too much|looking old and frail]. If [they think you’ll fall for it, they ask you for a favour|you’re looking for a job, they have one for you|you buy them a drink, they’ll ask you for a favour]: “Can you help me take these [two|three|four] [automatic rifles|SMGs] out of the starport? I’ll pay you [1d4]00 Cr. per gun.” [military weapon smuggler background]
@@ -642,22 +642,109 @@
 1,But beware, *[same human name]* is actually a member of a local secret service, trying to entrap you. As soon as you leave the starport, you’ll be seized and search – and jailed.
 
 ;law-5
-1,<p>At the starport gates, travellers are warned: no military weapons, no concealable weapons past this point, including pistols and revolvers. Confrontation with the security forces do occur (throw 5+ to avoid harassment and/or arrest by the local authorities).
+1,<p>[traveller warning]: no military weapons, no concealable weapons past this point, including pistols and revolvers. Confrontation with the security forces do occur (throw 5+ to avoid harassment and/or arrest by the local authorities).
 
 ;law-6
-1,<p>At the starport gates, travellers are warned: most guns prohibited past this point, excluding shotguns. Confrontation with the security forces occur on a regular basis (throw 6+ to avoid harassment and/or arrest by the local authorities).
+1,<p>[traveller warning]: most guns prohibited past this point, excluding shotguns. Confrontation with the security forces occur on a regular basis (throw 6+ to avoid harassment and/or arrest by the local authorities).
 
 ;law-7
-1,<p>At the starport gates, travellers are warned: absolutely no guns past this point, no exceptions. Confrontation with the security forces occur regularly (throw 7+ to avoid harassment and/or arrest by the local authorities).
+1,<p>[traveller warning]: absolutely no guns past this point, no exceptions. Confrontation with the security forces occur regularly (throw 7+ to avoid harassment and/or arrest by the local authorities).
 
 ;law-8
-1,<p>At the starport gates, travellers are warned: no guns; no blades. Special licenses are required for the collection of blades. Long knives and daggers are OK. Travellers are encouraged to cooperate will all security forces (throw 8+ to avoid harassment and/or arrest by the local authorities).
+1,<p>[traveller warning]: no guns; no blades. Special licenses are required for the collection of blades. Long knives and daggers are OK. Travellers are encouraged to cooperate will all security forces (throw 8+ to avoid harassment and/or arrest by the local authorities).
 
 ;law-9
-1,<p>At the starport gates, travellers are warned: no weapons in public spaces. Travellers are encouraged to avoid contact with security forces if possible (throw 9+ to avoid harassment and/or arrest by the local authorities).
+1,<p>[traveller warning]: no weapons in public spaces. Travellers are encouraged to avoid contact with security forces if possible (throw 9+ to avoid harassment and/or arrest by the local authorities).
 
 ;law-A
-1,<p>At the starport gates, travellers are warned: no weapons in public spaces. Travellers are encouraged to any and all suspicious activities. Interactions with the security forces are risky (throw 10+ to avoid harassment and/or arrest by the local authorities).
+1,<p>[traveller warning]: no weapons in public spaces. Travellers are encouraged to any and all suspicious activities. Interactions with the security forces are risky (throw 10+ to avoid harassment and/or arrest by the local authorities).
+
+;traveller warning
+1,[starport-X?||Library data suggests][!starport-X||At the starport gates, travellers are warned]
+
+# tech level
+
+;tech
+# 0 to 20
+1,[tech-[0|1|2|3|4|5|6|7|8|9|A|B|C|D|E|F|G|H|I|J|K|L|M]]
+
+;tech-0
+1,<p>Technology is practically non-existent amongst the locals. Sticks and stones! Clubs, cudgels, spears, no armour to speak of, magnetic compasses, canoes, rafts, carts, mules, no transmission of information except by runners, no other source of energy but muscles.
+
+;tech-1
+1,<p>Technology is beginning to develop. Metallurgy is being discovered. Availability of daggers, pikes, swords, jack armour, catapults, the abacus, heliographs, galleys, wagons.
+
+;tech-2
+1,<p>Development of the printing press, solid metallurgy, chemistry, logistics. Availability of halberds, broadswords, plate armour, canons, sextants, wind mills.
+
+;tech-3
+1,<p>Discovery of electricity, improvements in metallurgy, navigation. Availability of foils, cutlasses, blades, age of sail, bayonets on primitive rifles, telegraph networks, water wheels.
+
+;tech-4
+1,<p>Discovery of mass production, steam power. Availability of revolvers, shotguns, ironclads, artillery, adding machines, telephones, steam ships, trains, dirigibles, use of coal, development of anaesthetics.
+
+;tech-5
+1,<p>Discovery of radio waves, steel production, computers, combustion engines. Availability of carbines, rifles, pistols, SMGs, steel plating, sandcasters, mortars, Model/1 computers, radios, communicators, motorboats, ground cars, airplanes, use of oil.
+
+;tech-6
+1,<p>Discovery of nuclear energy; a solid understanding of electromagnetic waves; the early space age. Availability of auto rifles, light machine-guns, cloth armour, missiles and missile launchers, Model/1bis computers, television, submersibles, all terrain vehicles (ATV), armoured fighting vehicles (AFV), helicopters, fission power, weather predictions.
+
+;tech-7
+1,<p>Discovery of micro-computing, development of solar power alternatives. Availability of body pistols, mesh armour, flak jackets, pulse lasers, grenade launchers, Model/2 computers, hand calculators, hovercrafts, satellites.
+
+;tech-8
+1,<p>Development of space and nullgrav technology. Availability of laser carbines, snub pistols, vacc suits, auto-cannons, Model/2bis computers, artillery computers, air/rafts, GCarriers, space stations.
+
+;tech-9
+1,<p>Development of jump drives and sophisticated energy weapons. Availability of laser rifles, ablat armour, beam lasers, Model/3 computers, battle computers, limb regeneration, drives A–D, jump drives.
+
+# tech-10
+;tech-A
+1,<p>Joining the interstellar community. Availability of reflec armour, Model/4 computers, holovision, grav tanks, drives E–H.
+
+# tech-11
+;tech-B
+1,<p>Average imperial tech level. Availability of combat armour, Model/5 computers, hand computers, drives J–K.
+
+# tech-12
+;tech-C
+1,<p>Average imperial tech level. Availability of sophisticated combat armour, Model/6 computers, primitive robots, grav belts, drives L–N.
+
+# tech-13
+;tech-D
+1,<p>Above average imperial tech level. Availability of battle dress, Model/7 computers, holographic crystals, cloning, drives P–Q.
+
+# tech-14
+;tech-E
+1,<p>Above average imperial tech level. Availability of drives R–U.
+
+# tech-15
+;tech-F
+1,<p>The locals are at the upper limits of imperial technology. Availability of black globes. Availability of all known drives.
+
+# tech-16
+;tech-G
+1,<p>Far above imperial tech level. Development of space folding technology. Availability of disintegrators.
+
+# tech-17
+;tech-H
+1,<p>Far above imperial tech level. Development of artificial intelligence. Availability of anti-matter, self-aware robots.
+
+# tech-18
+;tech-I
+1,<p>Far above imperial tech level. Mastery of the matter-energy continuum. Availability of personal disintegrators. Intelligent interstellar ships, general systems vehicles (GSV).
+
+# tech-19
+;tech-J
+1,<p>Far above imperial tech level. Development of mind melding and mind spawning.
+
+# tech-20
+;tech-K
+1,<p>Far above imperial tech level, development of life patterns in all matter.
+
+# tech-21
+;tech-L
+1,<p>Far above imperial tech level. Dissolution of the mind-matter dichotomy. Transcendence.
 
 # trade codes
 
@@ -679,7 +766,7 @@
 1,<p>Lethal radiation wiped out all life forms in this system [two|three|five|seven|eight] [hundred|thousand] years ago. It's been barren ever since.
 
 ;vacuum
-1,<p>The mining opportunities favour the construction of underground settlements.
+1,<p>The mining has favoured the construction of underground settlements to fill the excavated caverns.
 1,<p>The availability of light favours the construction of large domed settlements.
 1,<p>All habitation here is contained within airtight domes.
 
@@ -760,7 +847,7 @@
 1,sulphur
 
 ;rich
-1,<p>The palace complex of the [human surname] clan with it’s golden roofs and glass domes lies to the [direction] of the starport.
+1,<p>The palace complex of the *[human surname]* clan with it’s golden roofs and glass domes lies to the [direction] of the starport.
 1,<p>The area around the starport is well kept, with lush parks and well maintained buildings.
 1,<p>The locals are rich and well off. Economic refugees from neighbouring systems are not well treated, however. Refugee camps exist near the starport, and reports of police brutality make the rounds. The head of these refugee camps is *[human name]*.
 1,<p>The locals are rich and well off. Economic refugees from neighbouring systems are welcomed for the internal labour marked needs plenty of new hands. At the starport, various agencies are trying to enlist all who came with low passage. The biggest of these agencies is the office of *[company name]*, run by *[human name]*.
