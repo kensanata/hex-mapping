@@ -17,7 +17,7 @@
 1,<p>**Equipment:** It is assumed that every non-player character in this document comes equipped with at least one weapon they are skilled in. Remember that a ship’s locker contains the basics for survival on an alien word, plus equipment to defend against boarding: protective clothing, vacc suits, tools, portable shelters, but also weapons such as shotguns, carbines, pistols, and ammunition.
 
 ;system
-1,This is **[same name]**, UWP [same uwp].
+1,This is **[same name]**, UWP <span class="UWP" title="starport, size, atmosphere, water, population, government, law, and tech level">[same uwp]<span>.
 
 # fallback
 ;name
@@ -1523,11 +1523,11 @@
 
 # requires soc, which is generated as part of the human name
 ;upp
-1,[characteristic as strength][characteristic as dex][characteristic as end][characteristic as int][characteristic as edu][same soc]
+1,<span class="UPP" title="strength, dexterity, endurance, intelligence, education, and social standing">[characteristic as strength][characteristic as dex][characteristic as end][characteristic as int][characteristic as edu][same soc]</span>
 
 # requires soc, which is generated as part of the human name
 ;smart upp
-1,[characteristic as strength][characteristic as dex][characteristic as end][characteristic as int][smart characteristic as edu][same soc]
+1,<span class="UPP" title="strength, dexterity, endurance, intelligence, education, and social standing">[characteristic as strength][characteristic as dex][characteristic as end][characteristic as int][smart characteristic as edu][same soc]</span>
 
 ;characteristic
 1,2
