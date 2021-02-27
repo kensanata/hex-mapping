@@ -5,7 +5,7 @@
 1,[welcome][on names][on stats][on equipment]
 
 ;welcome
-1,Welcome to the [global save space name as subsector][same subsector] subsector!
+1,Welcome to the [global save space name as subsector][same subsector] subsector!<p class="sidebar"><a href="https://campaignwiki.org/travellercharacter/">Classic Traveller Character Generator</a> (with Citizens of the Imperium). <a href="https://campaignwiki.org/hex-describe/rule?rule=rogue&load=traveller">Rogues</a>.
 
 ;on names
 1,<p>**Names:** When Chinese or Japanese names are being used, the order is *surname* then *given name*; other names use the order *given name* then *surname*; some people have no surname.
