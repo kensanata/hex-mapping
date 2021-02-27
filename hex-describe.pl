@@ -1084,7 +1084,7 @@ Would be:
 
 =cut
 
-my $dice_re = qr/^(save )?(?:(\d+)d(\d+)(?:x(\d+))?(?:([+-]\d+))?|(\d+))(?: as (.+))?$/;
+my $dice_re = qr/^(save )?(?:(\d+)d(\d+)(?:x(\d+))?(?:([+-]\d+))?(?:>=(-?\d+))?(?:<=(-?\d+))?|(\d+))(?: as (.+))?$/;
 
 sub parse_table {
   my $text = shift;
@@ -1296,7 +1296,7 @@ sub describe {
   my @descriptions;
   for my $word (@$words) {
     # valid dice rolls: 1d6, 1d6+1, 1d6x10, 1d6x10+1
-    if (my ($just_save, $n, $d, $m, $p, $c, $save_as) = $word =~ /$dice_re/) {
+    if (my ($just_save, $n, $d, $m, $p, $min, $max, $c, $save_as) = $word =~ /$dice_re/) {
       my $r = 0;
       if ($c) {
 	$r = $c;
@@ -1306,6 +1306,8 @@ sub describe {
 	}
 	$r *= $m||1;
 	$r += $p||0;
+	$r = $min if defined $min and $r < $min;
+	$r = $max if defined $max and $r > $max;
       }
       # $log->debug("rolling dice: $word = $r");
       $locals{$save_as} = $r if $save_as;

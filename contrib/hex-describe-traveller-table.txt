@@ -178,21 +178,21 @@
 1,[starport-[A|B|C|D|E|X]]
 
 ;starport-A
-1,<p>[here store [same name] as big port][same name] has a **class A** starport. [shipyard] [refinery]<p>[ship in orbit]
-1,<p>[here store [same name] as big port][same name] has a **class A** starport. [shipyard] [refinery] [ship at the starport]<p>[ship in orbit]
+1,<p>[here store [same name] as big port][same name] has a **class A** starport. [shipyard] [refinery] [ship in orbit]
+1,<p>[here store [same name] as big port][same name] has a **class A** starport. [shipyard] [refinery] [ship at the starport] [ship in orbit]
 1,<p>[here store [same name] as big port][same name] has a **class A** starport. [shipyard] [refinery] [ship at the starport] [ship at the starport]
-1,<p>[here store [same name] as big port][same name] has a **class A** starport. [shipyard] [refinery] [ship at the starport]<p>[ship in orbit]
-1,<p>[here store [same name] as big port][same name] has a **class A** starport. [shipyard] [refinery] [ship at the starport] [ship at the starport]<p>[ship in orbit]
+1,<p>[here store [same name] as big port][same name] has a **class A** starport. [shipyard] [refinery] [ship at the starport] [ship in orbit]
+1,<p>[here store [same name] as big port][same name] has a **class A** starport. [shipyard] [refinery] [ship at the starport] [ship at the starport] [ship in orbit]
 
 ;starport-B
-1,<p>[here store [same name] as big port][same name] has a **class B** starport. [shipyard] [refinery]<p>[ship in orbit]
+1,<p>[here store [same name] as big port][same name] has a **class B** starport. [shipyard] [refinery] [ship in orbit]
 1,<p>[here store [same name] as big port][same name] has a **class B** starport. [shipyard] [refinery] [ship at the starport]
-1,<p>[here store [same name] as big port][same name] has a **class B** starport. [shipyard] [refinery] [ship at the starport]<p>[ship in orbit]
+1,<p>[here store [same name] as big port][same name] has a **class B** starport. [shipyard] [refinery] [ship at the starport] [ship in orbit]
 
 ;starport-C
 1,<p>[same name] has a **class C** starport. [dockyard] [unrefined fuel] [ship at the starport] 
-1,<p>[same name] has a **class C** starport. [dockyard] [unrefined fuel]<p>[ship in orbit]
-1,<p>[same name] has a **class C** starport. [dockyard] [unrefined fuel] 
+1,<p>[same name] has a **class C** starport. [dockyard] [unrefined fuel] [ship in orbit]
+1,<p>[same name] has a **class C** starport. [dockyard] [unrefined fuel] [starport-C mission]
 
 ;starport-D
 1,<p>[same name] has a **class D** starport. [small starport building] [starport-D mission]
@@ -338,7 +338,7 @@
 1,
 
 ;transport homicide suspect
-1,<p class="sidebar">Patron<p>[humble harbour master] Currently, they’re holding **[homicide|murder] suspect** *[human name as accused]*, but capital crimes are usually judged in *[nearby big port]* and the harbour master needs a ship to transport the suspect there. [transport homicide suspect background]
+1,<p class="sidebar">Patron<p>[humble harbour master] Currently, they’re holding **[homicide|murder] suspect** *[human name as accused]*, but capital crimes committed on starport territory are judged in *[nearby big port]* and the harbour master needs a ship to transport the suspect there. [transport homicide suspect background]
 
 ;transport homicide suspect background
 1,This is a case of domestic violence with the suspect accused of murdering their partner. The body has been found and the evidence is inconclusive. What’s missing is a confession. “Perhaps you can get them to talk?” asks [same harbour master].
@@ -995,6 +995,17 @@
 ;criminals
 1,The **crime boss** is *[here human name as crime boss]*, [smart upp], [smart other skills]. Their **right hand** is *[human name]*, [upp], [common other skills]. There are [2d6] more *criminals* in the building, 777777, Shotgun-1.
 
+;rogue
+1,This **rogue** is *[here human name as rogue]*, [a criminal], [upp], [common other skills].
+
+;a criminal
+1,a crook
+1,a hustler
+1,an operator
+1,an activist
+1,a liar
+1,a con artist
+
 # there are just three crime syndicates
 ;crime syndicate
 1,[name for a crime syndicate 1]
@@ -1155,18 +1166,18 @@
 1,[laboratory ship]
 
 ;ship at the starport
-2,[append streamlined ship]The *[same ship name]* is currently being [ship activity] at the port.
-1,[append streamlined ship]The *[same ship name]* is on one of the landing pads.
+2,<p>[append streamlined ship]The *[same ship name]* is currently being [ship activity] at the port.
+1,<p>[append streamlined ship]The *[same ship name]* is on one of the landing pads.
 
 ;ship in orbit
-1,[append ship]The *[same ship name]* is in orbit, [preparing to leave|having just arrived].
-1,[append ship]The *[same ship name]* is approaching the system.
-1,[append unstreamlined ship]The *[same ship name]* is being [ship activity] in orbit.
+1,<p>[append ship]The *[same ship name]* is in orbit, [preparing to leave|having just arrived].
+1,<p>[append ship]The *[same ship name]* is approaching the system.
+1,<p>[append unstreamlined ship]The *[same ship name]* is being [ship activity] in orbit.
 
 ;rich-end
-1,[append subsidized liner]The *[same ship name]* is in orbit, [preparing to leave|having just arrived].
-1,[append subsidized liner]The *[same ship name]* is approaching the system.
-1,[append subsidized liner]The *[same ship name]* is being [ship activity] in orbit.
+1,<p>[append subsidized liner]The *[same ship name]* is in orbit, [preparing to leave|having just arrived].
+1,<p>[append subsidized liner]The *[same ship name]* is approaching the system.
+1,<p>[append subsidized liner]The *[same ship name]* is being [ship activity] in orbit.
 3,
 
 ;ship activity
