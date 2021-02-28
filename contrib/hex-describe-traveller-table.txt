@@ -1728,6 +1728,320 @@
 1,hammer
 1,axe
 
+# animals
+# using:
+# - animal type mod
+# - animal size mod
+# - animal weaponry mod
+# - animal armour mod
+# - animal wounds init
+# - animal wounds mod
+
+;animal encounter
+1,typical [animal terrain] [animal type], [animal size], [animal armour], [animal weapons], A: [animal attack], F: [animal flee], S: [animal speed]
+
+;animal terrain
+# 1,plain[store +3 as animal type][store +0 as animal size]
+1,hills[store +0 as animal type mod][store +0 as animal size mod]
+# 1,woods[store -4 as animal type][store -4 as animal size]
+# 1,swamp[store -2 as animal type][store +4 as animal size]
+
+;animal type
+1,[scavenger]
+# 3,[herbivore]
+# 1,[omnivore]
+# 1,[carnivore]
+
+;animal attack
+1,[animal attack [same type]]
+
+;animal attack hijacker
+1,[1d6+1]
+
+;animal attack intimidator
+1,[1d6+2]
+
+;animal attack carrion-eater
+1,[1d6+3]
+
+;animal attack reducer
+1,[1d6+3]
+
+;animal flee
+1,[animal flee [same type]]
+
+;animal flee hijacker
+1,[1d6+2]
+
+;animal flee intimidator
+1,[1d6+1]
+
+;animal flee carrion-eater
+1,[1d6+2]
+
+;animal flee reducer
+1,[1d6+2]
+
+;animal speed
+1,[animal speed [same type]]
+
+;animal speed hijacker
+1,[1d6-4>=1]
+
+;animal speed intimidator
+1,[1d6-4>=1]
+
+;animal speed carrion-eater
+1,[1d6-3>=1]
+
+;animal speed reducer
+1,[1d6-4>=1]
+
+;animal weapons
+1,wounds: [[same animal wounds init]d6[same animal wounds mod]>=1], using [same animal weapon used]
+
+;animal weaponry
+1,[animal weaponry-[2d6[same animal weaponry mod]>=1<=20]]
+
+;animal weaponry-1
+1,[store hooves and horns as animal weapon used][save 2 as animal wounds init]
+
+;animal weaponry-2
+1,[store horns as animal weapon used][save 2 as animal wounds init]
+
+;animal weaponry-3
+1,[store hooves and teeth as animal weapon used][save 2 as animal wounds init]
+
+;animal weaponry-4
+1,[store hooves as animal weapon used][save 2 as animal wounds init]
+
+;animal weaponry-5
+1,[store horns and teeth as animal weapon used][save 2 as animal wounds init]
+
+;animal weaponry-6
+1,[store thrasher as animal weapon used][save 2 as animal wounds init]
+
+;animal weaponry-7
+1,[store claws and teeth as animal weapon used][save 2 as animal wounds init]
+
+;animal weaponry-8
+1,[store teeth as animal weapon used][save 2 as animal wounds init]
+
+;animal weaponry-9
+1,[store claws as animal weapon used][save 2 as animal wounds init]
+
+;animal weaponry-10
+1,[store claws as animal weapon used][save 2 as animal wounds init]
+
+;animal weaponry-11
+1,[store thrasher as animal weapon used][save 2 as animal wounds init]
+
+;animal weaponry-12
+1,[store claws and teeth as animal weapon used][save 2 as animal wounds init]
+
+;animal weaponry-13
+1,[store claws+1 as animal weapon used][save 2 as animal wounds init]
+
+;animal weaponry-14
+1,[store stinger as animal weapon used][save 2 as animal wounds init]
+
+;animal weaponry-15
+1,[store claws+1 and teeth+1 as animal weapon used][save 2 as animal wounds init]
+
+;animal weaponry-16
+1,[store teeth+1 as animal weapon used][save 2 as animal wounds init]
+
+;animal weaponry-17
+1,[store as blade as animal weapon used][save 2 as animal wounds init]
+
+;animal weaponry-18
+1,[store as pike as animal weapon used][save 3 as animal wounds init]
+
+;animal weaponry-19
+1,[store as broadsword as animal weapon used][save 4 as animal wounds init]
+
+;animal weaponry-20
+1,[store as body pistol as animal weapon used][save 3 as animal wounds init]
+
+;animal armour
+1,[animal armour-[2d6[same animal armour mod]>=1<=20]]
+
+;animal armour-1
+1,[store [6d1[same animal armour mod]] as animal armour mod][animal armour]
+
+;animal armour-2
+1,no armour
+
+;animal armour-3
+1,no armour
+
+;animal armour-4
+1,jack armour
+
+;animal armour-5
+1,no armour
+
+;animal armour-6
+1,no armour
+
+;animal armour-7
+1,no armour
+
+;animal armour-8
+1,no armour
+
+;animal armour-9
+1,no armour
+
+;animal armour-10
+1,jack armour
+
+;animal armour-11
+1,no armour
+
+;animal armour-12
+1,[store [6d1[same animal armour mod]] as animal armour mod][animal armour]
+
+;animal armour-13
+1,mesh+1 armour
+
+;animal armour-14
+1,cloth+1 armour
+
+;animal armour-15
+1,mesh armour
+
+;animal armour-16
+1,cloth armour
+
+;animal armour-17
+1,combat+4 armour
+
+;animal armour-18
+1,reflec armour
+
+;animal armour-19
+1,ablat armour
+
+;animal armour-20
+1,battle armour
+
+;animal size
+1,[save animal weaponry][animal size-[2d6[same animal size mod]>=0<=13]]
+
+;animal size-1
+1,1 kg, hits: [1d6]/0[store -[2d6] as animal wounds mod]
+
+;animal size-2
+1,3 kg, hits: [1d6]/[1d6][store -[2d6] as animal wounds mod]
+
+;animal size-3
+1,6 kg, hits: [1d6]/[2d6][store -[1d6] as animal wounds mod]
+
+;animal size-4
+1,12 kg, hits: [2d6]/[2d6][store +0 as animal wounds mod]
+
+;animal size-5
+1,25 kg, hits: [3d6]/[2d6][store +0 as animal wounds mod]
+
+;animal size-6
+1,50 kg, hits: [4d6]/[2d6][store +0 as animal wounds mod]
+
+;animal size-7
+1,100 kg, hits: [5d6]/[2d6][store +0 as animal wounds mod]
+
+;animal size-8
+1,200 kg, hits: [5d6]/[3d6][store +[1d6] as animal wounds mod]
+
+;animal size-9
+1,400 kg, hits: [6d6]/[3d6][store +[2d6] as animal wounds mod]
+
+;animal size-10
+1,800 kg, hits: [7d6]/[3d6][store +[3d6] as animal wounds mod]
+
+;animal size-11
+1,1600 kg, hits: [8d6]/[3d6][store +[4d6] as animal wounds mod]
+
+;animal size-12
+1,3200 kg, hits: [8d6]/[4d6][store +[5d6] as animal wounds mod]
+
+;animal size-13
+1,[store [6d1[same animal size mod]] as animal size mod][animal size]
+
+;animal size-14
+1,6000 kg, hits: [9d6]/[4d6][store x2 as animal wounds mod]
+
+;animal size-15
+1,12000 kg, hits: [10d6]/[5d6][store x2 as animal wounds mod]
+
+;animal size-16
+1,24000 kg, hits: [12d6]/[6d6][store x3 as animal wounds mod]
+
+;animal size-17
+1,30000 kg, hits: [14d6]/[7d6][store x4 as animal wounds mod]
+
+;animal size-18
+1,36000 kg, hits: [15d6]/[7d6][store x4 as animal wounds mod]
+
+;animal size-19
+1,40000 kg, hits: [1d16]/[8d6][store x5 as animal wounds mod]
+
+;animal size-20
+1,44000 kg, hits: [17d6]/[9d6][store x6 as animal wounds mod]
+
+;scavenger
+# 2d6±4 (from 0 to 13)
+1,[scavenger-[2d6[same animal type mod]>=0<=13]][store +0 as animal weaponry mod][store +1 as animal armour mod]
+
+;scavenger-0
+1,[store carrion-eater as type]carrion-eater
+5,[store carrion-eater as type]carrion-eater ([1d5+1])
+
+;scavenger-1
+1,[store carrion-eater as type]carrion-eaters ([2d6])
+
+;scavenger-2
+1,[store reducer as type]reducer
+5,[store reducer as type]reducers ([1d5+1])
+
+;scavenger-3
+1,[store hijacker as type]hijacker
+5,[store hijacker as type]hijackers ([1d5+1])
+
+;scavenger-4
+1,[store carrion-eater as type]carrion-eaters ([2d6])
+
+;scavenger-5
+1,[store intimidator as type]intimidator
+5,[store intimidator as type]intimidators ([1d5+1])
+
+;scavenger-6
+1,[store reducer as type]reducer
+
+;scavenger-7
+1,[store carrion-eater as type]carrion-eater
+5,[store carrion-eater as type]carrion-eaters ([1d5+1])
+
+;scavenger-8
+1,[store reducer as type]reducers ([3d6])
+
+;scavenger-9
+1,[store hijacker as type]hijacker
+
+;scavenger-10
+1,[store intimidator as type]intimidators ([2d6])
+
+;scavenger-11
+1,[store reducer as type]reducer
+1,[store reducer as type]reducers ([1d5+1])
+
+;scavenger-12
+1,[store hijacker as type]hijacker
+
+;scavenger-13
+1,[store intimidator as type]intimidator
+5,[store intimidator as type]intimidators ([1d5+1])
+
 # human names
 
 ;human name
