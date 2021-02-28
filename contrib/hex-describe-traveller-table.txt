@@ -326,7 +326,7 @@
 1,Logistics
 
 ;small starport building
-# always refer to a harbour master, who has startport-D missions for players
+# always refer to a harbour master, who has starport-D missions for players
 1,The harbour master’s building is a small two story building, big windows, antennas, nothing fancy.
 1,All you can see is the toll house. The harbour master’s office is probably there as well. A bunch of clerks look up as you enter.
 1,There’s a small house here, probably for the harbour master.
@@ -335,7 +335,43 @@
 
 ;starport-D mission
 1,[transport homicide suspect]
-1,
+1,[starport-D mission lost child]
+1,[starport-D mission help with paperwork]
+1,[starport-D mission broken drone]
+1,[starport-D mission fix wiring]
+1.[starport-D mission missing]
+5,
+
+;starport-D mission missing]
+1,<p class="sidebar">Patron<p>The **harbour master** *[here human name as harbour master]* is nowhere to be seen which is strange as they usually greet new arrivals in person.  Further investigation reveals *same harbour master* [lying sick in bed|dead out the back|doesn't appear to be here at all|has packed up and left in a hurry].
+
+;starport-D mission fix wiring
+1,<p class="sidebar">Patron<p>[humble harbour master]. They are looking for someone to mend the wiring. It's always shorting out and [same habour master] can't work out why. They'll pay 2000Cr to anyone that sorts it out for good.
+
+
+;starport-D mission broken drone
+1,<p class="sidebar">Patron<p>[humble harbour master]. They have a drone that needs repairing and then returning to *[nearby big port]*.
+
+
+;starport-D mission help with paperwork
+1,<p class="sidebar">Patron<p>[humble harbour master]. They are seeking someone to help them with the mountain of paperwork they need to complete because an inspector from *[nearby big port]* will be visiting soon.  *[same harbour master]* offers 200Cr a day and says there is [1d6+1] day's worth of work. [help with paperwork smuggling]
+
+;help with paperwork smuggling
+1,Some of the paperwork suggests a smuggling ring is operating through this starport. [habour master smuggler]
+2,
+
+;habour master smuggler
+1,It also mentions *[same harbour master] by name so it looks like they may be involved in some way.
+3,
+
+;starport-D mission lost child
+1,<p class="sidebar">Patron<p>[humble harbour master].  They are looking for someone to transport a lost child named *[human name as lost child]* to the Child Protection Agency in *[nearby big port]*. [lost child background]
+
+;lost child background
+1,*[same lost child]* is frightened and withdrawn. Someone will have to persuade them to leave [same harbour master].
+1,*[same lost child]* sobs uncontrollably and says, "My mother will be looking for me all over [same name]", however the mother has left the child behind deliberately.
+1,*[same lost child]* is precocious and chatty, but will try to escape if not watched all the time.
+1,*[same lost child]*looks up with tearfilled eyes but says nothing.
 
 ;transport homicide suspect
 1,<p class="sidebar">Patron<p>[humble harbour master] Currently, they’re holding **[homicide|murder] suspect** *[human name as accused]*, but capital crimes committed on starport territory are judged in *[nearby big port]* and the harbour master needs a ship to transport the suspect there. [transport homicide suspect background]
@@ -981,6 +1017,9 @@
 1,In fact, a malfunction caused their type S scout/courier ship to crash. Finding the crash site is going to take two weeks. Sadly, proper funeral rites and writing up a report is all that’s left to do. *[same lost scout]* didn’t survive the crash. [high?||And dealing with the local administration, of course.]
 1,In fact, a malfunction caused their type S scout/courier ship to crash. Luckily, *[same lost scout]* survived. [They’ve survived inside the ruined ship|They managed to set up a little campsite near the crash site], awaiting their rescue. [!population-0||They avoided the locals, as is appropriate for a scout.]
 1,In fact, what happened is that they [!population-0||were caught and imprisoned by the locals and need to be extricated.][population-0?||were caught in an accident and injured themselves, never making it back to the ship. They’re still hiding out there, somewhere.]
+1,In fact, they landed safely but were attacked by a local predator animal and can't make it back to the ship. [same lost scout] has managed to hide from the predator with enough food and water for a couple of weeks but not much more than that. [!population-0||Unfortunately they are so well hidden even the locals can't find them.]
+1,In fact, [same lost scout] switched off everything that could be used to track the ship's location just before landing and has completely disappeared.
+1,In fact, a dust storm engulfed their type S scout/courier ship immediately after landing and they just disappeared.
 
 # Crime
 
