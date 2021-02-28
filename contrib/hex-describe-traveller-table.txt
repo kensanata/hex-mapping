@@ -231,7 +231,7 @@
 1,There’s no sign of a refinery, no sign of a pipeline. They’re probably just selling unrefined fuel, here.
 1,A bunch of shabby fuel vehicles nearby are a sign: there’s just unrefined fuel to be had.
 1,Nothing to suggest refined fuel here, just a couple of small tanks next what seems to be the main building.
-1,A pipeline snaking [north|north-east|east|sout-east|south|south-west|west|north-west] could have once delivered refined fuel but it's broken now so it looks like only unrefined fuel is available here.
+1,A pipeline snaking [north|north-east|east|sout-east|south|south-west|west|north-west] could have once delivered refined fuel but it’s broken now so it looks like only unrefined fuel is available here.
 
 ;shipyard name
 1,Imperial [shipyard 1] [shipyard 2]
@@ -330,8 +330,8 @@
 1,The harbour master’s building is a small two story building, big windows, antennas, nothing fancy.
 1,All you can see is the toll house. The harbour master’s office is probably there as well. A bunch of clerks look up as you enter.
 1,There’s a small house here, probably for the harbour master.
-1,There's just one rundown looking single storey building here. It must belong to the harbour master.
-1,A single low building hugs the hillside. You guess it belongs to the harbour master as there's no other building to be seen.
+1,There’s just one rundown looking single storey building here. It must belong to the harbour master.
+1,A single low building hugs the hillside. You guess it belongs to the harbour master as there’s no other building to be seen.
 
 ;starport-D mission
 1,[transport homicide suspect]
@@ -339,22 +339,20 @@
 1,[starport-D mission help with paperwork]
 1,[starport-D mission broken drone]
 1,[starport-D mission fix wiring]
-1.[starport-D mission missing]
+1,[starport-D mission missing]
 5,
 
 ;starport-D mission missing]
-1,<p class="sidebar">Patron<p>The **harbour master** *[here human name as harbour master]* is nowhere to be seen which is strange as they usually greet new arrivals in person.  Further investigation reveals *same harbour master* [lying sick in bed|dead out the back|doesn't appear to be here at all|has packed up and left in a hurry].
+1,<p class="sidebar">Patron<p>The **harbour master** *[here human name as harbour master]* is nowhere to be seen which is strange as they usually greet new arrivals in person. Further investigation reveals [same harbour master] [lying sick in bed|dead out the back|doesn’t appear to be here at all|has packed up and left in a hurry].
 
 ;starport-D mission fix wiring
-1,<p class="sidebar">Patron<p>[humble harbour master]. They are looking for someone to mend the wiring. It's always shorting out and [same habour master] can't work out why. They'll pay 2000Cr to anyone that sorts it out for good.
-
+1,<p class="sidebar">Patron<p>[humble harbour master] They are looking for someone to mend the wiring. It’s always shorting out and [same habour master] can’t work out why. They’ll pay 2000 Cr to anyone that sorts it out for good.
 
 ;starport-D mission broken drone
-1,<p class="sidebar">Patron<p>[humble harbour master]. They have a drone that needs repairing and then returning to *[nearby big port]*.
-
+1,<p class="sidebar">Patron<p>[humble harbour master] They have a drone that needs repairing and then returning to *[nearby big port]*.
 
 ;starport-D mission help with paperwork
-1,<p class="sidebar">Patron<p>[humble harbour master]. They are seeking someone to help them with the mountain of paperwork they need to complete because an inspector from *[nearby big port]* will be visiting soon.  *[same harbour master]* offers 200Cr a day and says there is [1d6+1] day's worth of work. [help with paperwork smuggling]
+1,<p class="sidebar">Patron<p>[humble harbour master] They are seeking someone to help them with the mountain of paperwork they need to complete because an inspector from *[nearby big port]* will be visiting soon. *[same harbour master]* offers 200 Cr a day and says there is [1d6+1] day’s worth of work. [help with paperwork smuggling]
 
 ;help with paperwork smuggling
 1,Some of the paperwork suggests a smuggling ring is operating through this starport. [habour master smuggler]
@@ -365,13 +363,16 @@
 3,
 
 ;starport-D mission lost child
-1,<p class="sidebar">Patron<p>[humble harbour master].  They are looking for someone to transport a lost child named *[human name as lost child]* to the Child Protection Agency in *[nearby big port]*. [lost child background]
+1,<p class="sidebar">Patron<p>[humble harbour master] They are looking for someone to transport a lost child named *[human name as lost child]* to the [child protection agency] in *[nearby big port]*. [lost child background]
+
+;child protection agency
+1,[Child|Orphan|War Orphan|Child Refugee|Missing Child|Waif] [Protection|Safety|Coordination] [Agency|Institute|Association|Organisation|Academy]
 
 ;lost child background
 1,*[same lost child]* is frightened and withdrawn. Someone will have to persuade them to leave [same harbour master].
-1,*[same lost child]* sobs uncontrollably and says, "My mother will be looking for me all over [same name]", however the mother has left the child behind deliberately.
+1,*[same lost child]* sobs uncontrollably and says, “I want to find my [mommy|daddy]”, however the parent has left their child behind deliberately.
 1,*[same lost child]* is precocious and chatty, but will try to escape if not watched all the time.
-1,*[same lost child]*looks up with tearfilled eyes but says nothing.
+1,*[same lost child]* looks up with tearfilled eyes but says nothing.
 
 ;transport homicide suspect
 1,<p class="sidebar">Patron<p>[humble harbour master] Currently, they’re holding **[homicide|murder] suspect** *[human name as accused]*, but capital crimes committed on starport territory are judged in *[nearby big port]* and the harbour master needs a ship to transport the suspect there. [transport homicide suspect background]
@@ -799,7 +800,7 @@
 1,<p>About [fifty|a hundred|two hundred] years ago, there was a colony here, but then it disappeared.
 1,<p>There used to be a settlement, here. During the [upheaval|troubles|dark times], nobody visited and when ships returned about [a|two] dozen years ago, there was no trace of them to be found.
 1,<p>A comet tore through this system some time ago, leaving everything barren.
-1,<p>Lethal radiation wiped out all life forms in this system [two|three|five|seven|eight] [hundred|thousand] years ago. It's been barren ever since.
+1,<p>Lethal radiation wiped out all life forms in this system [two|three|five|seven|eight] [hundred|thousand] years ago. It’s been barren ever since.
 
 ;vacuum
 1,<p>The mining has favoured the construction of underground settlements to fill the excavated caverns.
@@ -1017,8 +1018,8 @@
 1,In fact, a malfunction caused their type S scout/courier ship to crash. Finding the crash site is going to take two weeks. Sadly, proper funeral rites and writing up a report is all that’s left to do. *[same lost scout]* didn’t survive the crash. [high?||And dealing with the local administration, of course.]
 1,In fact, a malfunction caused their type S scout/courier ship to crash. Luckily, *[same lost scout]* survived. [They’ve survived inside the ruined ship|They managed to set up a little campsite near the crash site], awaiting their rescue. [!population-0||They avoided the locals, as is appropriate for a scout.]
 1,In fact, what happened is that they [!population-0||were caught and imprisoned by the locals and need to be extricated.][population-0?||were caught in an accident and injured themselves, never making it back to the ship. They’re still hiding out there, somewhere.]
-1,In fact, they landed safely but were attacked by a local predator animal and can't make it back to the ship. [same lost scout] has managed to hide from the predator with enough food and water for a couple of weeks but not much more than that. [!population-0||Unfortunately they are so well hidden even the locals can't find them.]
-1,In fact, [same lost scout] switched off everything that could be used to track the ship's location just before landing and has completely disappeared.
+1,In fact, they landed safely but were attacked by a local predator animal and can’t make it back to the ship. [same lost scout] has managed to hide from the predator with enough food and water for a couple of weeks but not much more than that. [!population-0||Unfortunately they are so well hidden even the locals can’t find them.]
+1,In fact, [same lost scout] switched off everything that could be used to track the ship’s location just before landing and has completely disappeared.
 1,In fact, a dust storm engulfed their type S scout/courier ship immediately after landing and they just disappeared.
 
 # Crime
@@ -3460,11 +3461,11 @@
 1,Noyes
 1,Nuttall
 1,Nutter
-1,O'Cawley
-1,O'Connor
-1,O'Dell
-1,O'Farrell
-1,O'Hagan
+1,O’Cawley
+1,O’Connor
+1,O’Dell
+1,O’Farrell
+1,O’Hagan
 1,Oakeley
 1,Oakley
 1,Oatway
@@ -5814,8 +5815,8 @@
 1,Gaku
 1,Gakuto
 1,Gen
-1,Gen'ichi
-1,Gen'ichirō
+1,Gen’ichi
+1,Gen’ichirō
 1,Genjirō
 1,Genki
 1,Genta
@@ -5961,7 +5962,7 @@
 1,Iwao
 1,Jiichirō
 1,Jin
-1,Jin'ichi
+1,Jin’ichi
 1,Jinpachi
 1,Jinzaburō
 1,Jiro
@@ -5973,14 +5974,14 @@
 1,Jōtarō
 1,Jūbei
 1,Jūkichi
-1,Jun'ichi
-1,Jun'ichirō
+1,Jun’ichi
+1,Jun’ichirō
 1,Junji
 1,Junki
 1,Junnosuke
 1,Junpei
 1,Junto
-1,Jun'ya
+1,Jun’ya
 1,Junzō
 1,Jūshirō
 1,Jūtarō
@@ -6010,7 +6011,7 @@
 1,Kaneto
 1,Kanetsugu
 1,Kaneyoshi
-1,Kan'ichi
+1,Kan’ichi
 1,Kanji
 1,Kankuro
 1,Kansuke
@@ -6081,10 +6082,10 @@
 1,Keizaburō
 1,Keizō
 1,Ken
-1,Ken'ichi
-1,Ken'ya
+1,Ken’ichi
+1,Ken’ya
 1,Kengo
-1,Ken'ichirō
+1,Ken’ichirō
 1,Kenji
 1,Kenjirō
 1,Kenki
@@ -6098,7 +6099,7 @@
 1,Kenta
 1,Kentarō
 1,Kento
-1,Ken'yū
+1,Ken’yū
 1,Kenzo
 1,Kesao
 1,Kihachi
@@ -6111,13 +6112,13 @@
 1,Kimio
 1,Kimitoshi
 1,Kimiya
-1,Kin'ichi
-1,Kin'ichirō
+1,Kin’ichi
+1,Kin’ichirō
 1,Kinji
 1,Kinjirō
 1,Kinsuke
 1,Kintaro
-1,Kin'ya
+1,Kin’ya
 1,Kisaburō
 1,Kisaku
 1,Kishio
@@ -6569,8 +6570,8 @@
 1,Shikō
 1,Shin
 1,Shingo
-1,Shin'ichi
-1,Shin'ichirō
+1,Shin’ichi
+1,Shin’ichirō
 1,Shinji
 1,Shinjirō
 1,Shinjō
@@ -6607,8 +6608,8 @@
 1,Shuko
 1,Shun
 1,Shungo
-1,Shun'ichi
-1,Shun'ichirō
+1,Shun’ichi
+1,Shun’ichirō
 1,Shunji
 1,Shunki
 1,Shunkichi
@@ -6618,7 +6619,7 @@
 1,Shunsuke
 1,Shunta
 1,Shuntarō
-1,Shun'ya
+1,Shun’ya
 1,Shunzō
 1,Shūsaku
 1,Shūsuke
@@ -9886,17 +9887,17 @@
 1,Abir
 1,Ablah
 1,Abra
-1,A'dab
+1,A’dab
 1,Adara
 1,Adiba
 1,Adila
 1,Adiva
 1,Afaf
 1,Afifah
-1,Afra'
+1,Afra’
 1,Ahd
 1,Ahlam
-1,A'idah
+1,A’idah
 1,Ain
 1,Aini
 1,Aisha
@@ -9925,14 +9926,14 @@
 1,Arub
 1,Asima
 1,Asiya
-1,Asma'
+1,Asma’
 1,Atifa
 1,Atiya
 1,Ayah
 1,Azhar
 1,Azizah
 1,Azzah
-1,Badi'a
+1,Badi’a
 1,Badra
 1,Badriyyah
 1,Bahira
@@ -9940,7 +9941,7 @@
 1,Balqis
 1,Banan
 1,Baraka
-1,Bari'ah
+1,Bari’ah
 1,Barika
 1,Bashirah
 1,Basimah
@@ -9978,15 +9979,15 @@
 1,Hadiyyah
 1,Hafsah
 1,Hafthah
-1,Haifa'
+1,Haifa’
 1,Halah
 1,Halimah
 1,Hamidah
-1,Hana'
+1,Hana’
 1,Hanan
 1,Hanifah
 1,Haniyyah
-1,Hasna'
+1,Hasna’
 1,Hayam
 1,Hayat
 1,Hessa
@@ -10002,12 +10003,12 @@
 1,Ilham
 1,Iman
 1,Imtithal
-1,In'am
+1,In’am
 1,Inas
 1,Inaya
 1,Intisar
 1,Izdihar
-1,Jala'
+1,Jala’
 1,Jamilah
 1,Janan
 1,Johara
@@ -10024,16 +10025,16 @@
 1,Kulthum
 1,Lama
 1,Lamis
-1,Lamya'
+1,Lamya’
 1,Latifah
 1,Layla
 1,Lina
 1,Lubabah
 1,Luloah
-1,Lu'lu'
+1,Lu’lu’
 1,Madihah
 1,Maha
-1,Ma'isah
+1,Ma’isah
 1,Maizah
 1,Majidah
 1,Makarim
@@ -10043,11 +10044,11 @@
 1,Manar
 1,Maram
 1,Mariam
-1,Mas'ouda
+1,Mas’ouda
 1,Mawiyah
 1,Maymunah
 1,May
-1,Maysa'
+1,Maysa’
 1,Maysun
 1,Mayyadah
 1,Mufidah
@@ -10067,8 +10068,8 @@
 1,Nadwah
 1,Nafisah,
 1,Nahlah
-1,Na'ilah
-1,Na'imah
+1,Na’ilah
+1,Na’imah
 1,Najah
 1,Najat
 1,Najibah
@@ -10089,8 +10090,8 @@
 1,Nazirah
 1,Nibal
 1,Nida
-1,Ni'mah
-1,Ni'mat
+1,Ni’mah
+1,Ni’mat
 1,Nouf
 1,Nudhar
 1,Nuha
@@ -10098,14 +10099,14 @@
 1,Nur
 1,Qubilah
 1,Rabab
-1,Rabi'ah
+1,Rabi’ah
 1, Radhiya
 1,Radhwa
-1,Rafa'
+1,Rafa’
 1,Raghd
 1,Rahimah
-1,Ra'idah
-1,Raja'
+1,Ra’idah
+1,Raja’
 1,Rana
 1,Rand
 1,Raniyah
@@ -10140,14 +10141,14 @@
 1,Samihah
 1,Samira
 1,Samiyah
-1,Sana'
+1,Sana’
 1,Sawsan
 1,Shadha
 1,Shadiyah
 1,Shahrazad
 1,Sharifah
 1,Siham
-1,Souad or Su'ad
+1,Souad or Su’ad
 1,Suha
 1,Suhailah
 1,Suhaymah
@@ -10158,11 +10159,11 @@
 1,Takiyah
 1,Talibah
 1,Tarub
-1,Thana'
-1,Thara'
+1,Thana’
+1,Thara’
 1,Thurayya
 1,Umayma
-1,Wafa'
+1,Wafa’
 1,Wafiqah
 1,Wafiyyah
 1,Wahibah
@@ -10182,7 +10183,7 @@
 1,Yusra
 1,Zafirah
 1,Zahirah
-1,Zahra'
+1,Zahra’
 1,Zahrah
 1,Zainab
 1,Zakiyyah
@@ -10220,9 +10221,9 @@
 1,Abdul-Majid
 1,Abdul-Matin
 1,Abdul-Muhaimin
-1,Abdul-Mu'izz
+1,Abdul-Mu’izz
 1,Abdul-Mujib
-1,Abdul-Muta'al
+1,Abdul-Muta’al
 1,Abdul-Muttalib
 1,Abdul-Nasser
 1,Abdul-Nasir
@@ -10233,7 +10234,7 @@
 1,Abdul-Rahim
 1,Abdul-Rahman
 1,Abdul-Rashid
-1,Abdul-Ra'uf
+1,Abdul-Ra’uf
 1,Abdul-Razzaq
 1,Abdul-Sabur
 1,Abdul-Salam
@@ -10255,7 +10256,7 @@
 1,Ahmad
 1,Akil
 1,Akram
-1,Ala'
+1,Ala’
 1,Aladdin
 1,Ali
 1,Alim
@@ -10302,7 +10303,7 @@
 1,Bursuq
 1,Butrus
 1,Dabir
-1,Da'ud
+1,Da’ud
 1,Dharr
 1,Dhul Fiqar
 1,Diya al Din
@@ -10377,8 +10378,8 @@
 1,Isa
 1,Issam
 1,Ishaq
-1,Isma'il
-1,Isra'il
+1,Isma’il
+1,Isra’il
 1,Izz al Din
 1,Jabbar
 1,Jabir
@@ -10397,7 +10398,7 @@
 1,Kadar
 1,Kadin
 1,Kadir
-1,Ka'im
+1,Ka’im
 1,Kahil
 1,Kaliq
 1,Kamal
@@ -10433,22 +10434,22 @@
 1,Makin
 1,Malik
 1,Mamdouh
-1,Ma'mun
-1,Ma'n
+1,Ma’mun
+1,Ma’n
 1,Mansur
 1,Marid
 1,Marzuq
-1,Mash'al
+1,Mash’al
 1,Masruq
-1,Mas'ud
+1,Mas’ud
 1,Maudad
 1,Mazin
-1,Mika'il
+1,Mika’il
 1,Misbah
 1,Mohammed
-1,Mu'adh
-1,Mu'awiyah
-1,Mu'ayyad
+1,Mu’adh
+1,Mu’awiyah
+1,Mu’ayyad
 1,Mubarak
 1,Mufid
 1,Muhammad
@@ -10462,12 +10463,12 @@
 1,Muntasir
 1,Murtadhy
 1,Musa
-1,Mus'ad
+1,Mus’ad
 1,Muslim
 1,Mustafa
 1,Muta
-1,Mu'tasim
-1,Mu'tazz
+1,Mu’tasim
+1,Mu’tazz
 1,Muti
 1,Muwaffaq
 1,Nabhan
@@ -10475,7 +10476,7 @@
 1,Nadhir
 1,Nadim
 1,Nadir
-1,Naif Na'il
+1,Naif Na’il
 1,Naim
 1,Naji
 1,Najib
@@ -10492,7 +10493,7 @@
 1,Nazim
 1,Nuh
 1,Numair
-1,Nu'man
+1,Nu’man
 1,Nur al Din
 1,Nuri
 1,Omar
@@ -10512,7 +10513,7 @@
 1,Rafiq
 1,Raghib
 1,Rahman
-1,Ra'id
+1,Ra’id
 1,Rais
 1,Rakin
 1,Rashad
@@ -10526,7 +10527,7 @@
 1,Sabir
 1,Saad
 1,Sadaqat
-1,Sa'id
+1,Sa’id
 1,Safiy
 1,Safwan
 1,Sahir
@@ -10558,7 +10559,7 @@
 1,Suhail
 1,Suhayb
 1,Sulaiman
-1,Su'ud
+1,Su’ud
 1,Tahir
 1,Talal
 1,Talib
@@ -10585,7 +10586,7 @@
 1,Wafid
 1,Wafiq
 1,Wahid
-1,Wa'il
+1,Wa’il
 1,Wajih
 1,Wakil
 1,Walid
@@ -10594,7 +10595,7 @@
 1,Wazir
 1,Yahyah
 1,Yaman
-1,Ya'qub
+1,Ya’qub
 1,Yasser
 1,Yasin
 1,Yasir
@@ -10660,7 +10661,7 @@
 1,Al-Ahdal
 1,Al-Ajlani
 1,Alam
-1,Al-'Amili
+1,Al-’Amili
 1,Al-Amuli
 1,Al-Andalusi
 1,Al-Asiri
@@ -11918,7 +11919,7 @@
 1,Aboah
 1,Abomba
 1,Aboudi
-1,Abu'd
+1,Abu’d
 1,Abubakar
 1,Accu
 1,Achampomaa
@@ -12462,7 +12463,7 @@
 1,Wonai
 1,Wongai
 1,Wumpa
-1,Ya'u
+1,Ya’u
 1,Yaca
 1,Yak
 1,Yeboah
