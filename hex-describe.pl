@@ -1518,7 +1518,7 @@ sub describe {
     } else {
       my $text = pick($map_data, $table_data, $level, $coordinates, $words, $word, $redirects);
       # remember it's legitimate to have no result for a table
-      next unless $text;
+      next unless defined $text;
       $locals{$word} = $text;
       push(@descriptions, $text);
     }

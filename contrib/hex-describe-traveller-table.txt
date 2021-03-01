@@ -333,6 +333,16 @@
 1,There’s just one rundown looking single storey building here. It must belong to the harbour master.
 1,A single low building hugs the hillside. You guess it belongs to the harbour master as there’s no other building to be seen.
 
+;starport-C mission
+1,<p class="sidebar">Patron<p>There’s joint called *[bar]*. If you recently arrived with a ship, **[harbour|tourist|emigration|border|imperial|travel] [delegate|emissary|ambassador|agent|clerk|envoy]** *[human name]* is looking for help: “I’ve been contacted by *[human name as rich tourist]* bent on visiting *[nearby backwater system]*. They have the necessary credits, but I don’t have a ship and crew to spare. Would you be willing to take them off me?” [rich tourist] [rich tourist background]
+1,
+
+;rich tourist
+1,The **rich tourist** is *[human name as tourist]*, [friendly|jovial|overbearing|arrogant|eager to be of help|eager to get going], [upp], [common other skills].
+
+;rich tourist background
+1,The mission mainly consists of getting there and back, and keeping *[same tourist]* safe. At one point, there’s an animal encounter: [animal encounter].
+
 ;starport-D mission
 1,[transport homicide suspect]
 1,[starport-D mission lost child]
@@ -1741,19 +1751,63 @@
 1,typical [animal terrain] [animal type], [animal size], [animal armour], [animal weapons], A: [animal attack], F: [animal flee], S: [animal speed]
 
 ;animal terrain
-# 1,plain[store +3 as animal type][store +0 as animal size]
+1,clear[store +3 as animal type mod][store +0 as animal size mod]
+1,plain[store +4 as animal type mod][store +0 as animal size mod]
 1,hills[store +0 as animal type mod][store +0 as animal size mod]
-# 1,woods[store -4 as animal type][store -4 as animal size]
-# 1,swamp[store -2 as animal type][store +4 as animal size]
+1,badlands[store -3 as animal type mod][store -3 as animal size mod]
+1,mountains[store +0 as animal type mod][store +0 as animal size mod]
+1,forest[store -4 as animal type mod][store -4 as animal size mod]
+# 1,jungle[store -3 as animal type mod][store -2 as animal size mod]
+# 1,river[store +1 as animal type mod][store +1 as animal size mod]
+# 1,swamp[store -2 as animal type mod][store +4 as animal size mod]
+# 1,marsh[store +0 as animal type mod][store -1 as animal size mod]
+# 1,desert[store +3 as animal type mod][store -3 as animal size mod]
+# 1,shore[store +3 as animal type mod][store +2 as animal size mod]
+# 1,ruins[store -3 as animal type mod][store +0 as animal size mod]
+# 1,cave[store -4 as animal type mod][store +1 as animal size mod]
+# 1,crater[store +0 as animal type mod][store -1 as animal size mod]
 
 ;animal type
 1,[scavenger]
-# 3,[herbivore]
-# 1,[omnivore]
-# 1,[carnivore]
+3,[herbivore]
+1,[omnivore]
+1,[carnivore]
 
 ;animal attack
 1,[animal attack [same type]]
+
+;animal attack filter
+1,if possible
+
+;animal attack intermittent
+1,[1d6+3]
+
+;animal attack grazer
+1,[1d6+2]
+
+;animal attack gatherer
+1,[1d6+3]
+
+;animal attack hunter
+1,[1d6]
+
+;animal attack eater
+1,[1d6]
+
+;animal attack pouncer
+1,if surprise
+
+;animal attack chaser
+1,if more
+
+;animal attack trapper
+1,if surprise
+
+;animal attack siren
+1,if surprise
+
+;animal attack killer
+1,[1d6]
 
 ;animal attack hijacker
 1,[1d6+1]
@@ -1782,8 +1836,74 @@
 ;animal flee reducer
 1,[1d6+2]
 
+;animal flee gatherer
+1,[1d6+2]
+
+;animal flee hunter
+1,[1d6+2]
+
+;animal flee eater
+1,[1d6+3]
+
+;animal flee pouncer
+1,if surprised
+
+;animal flee chaser
+1,[1d6+3]
+
+;animal flee trapper
+1,[1d6+2]
+
+;animal flee siren
+1,[1d6+3]
+
+;animal flee killer
+1,[1d6+3]
+
+;animal flee filter
+1,[1d6+2]
+
+;animal flee intermittent
+1,[1d6+3]
+
+;animal flee grazer
+1,[1d6-1]
+
 ;animal speed
 1,[animal speed [same type]]
+
+;animal speed filter
+1,[1d6-5>=0]
+
+;animal speed intermittent
+1,[1d6-4>=1]
+
+;animal speed grazer
+1,[1d6-2>=2]
+
+;animal speed gatherer
+1,[1d6-3>=1]
+
+;animal speed hunter
+1,[1d6-4>=1]
+
+;animal speed eater
+1,[1d6-3>=1]
+
+;animal speed pouncer
+1,[1d6-4>=1]
+
+;animal speed chaser
+1,[1d6-2>=2]
+
+;animal speed trapper
+1,[1d6-5>=0]
+
+;animal speed siren
+1,[1d6-4>=0]
+
+;animal speed killer
+1,[1d6-3>=1]
 
 ;animal speed hijacker
 1,[1d6-4>=1]
@@ -1927,7 +2047,7 @@
 1,battle armour
 
 ;animal size
-1,[save animal weaponry][animal size-[2d6[same animal size mod]>=0<=13]]
+1,[save animal weaponry][animal size-[2d6[same animal size mod]>=1<=13]]
 
 ;animal size-1
 1,1 kg, hits: [1d6]/0[store -[2d6] as animal wounds mod]
@@ -1988,6 +2108,152 @@
 
 ;animal size-20
 1,44000 kg, hits: [17d6]/[9d6][store x6 as animal wounds mod]
+
+;herbivore
+# 2d6±4 (from 0 to 13)
+1,[herbivore-[2d6[same animal type mod]>=0<=13]][store -3 as animal weaponry mod][store +2 as animal armour mod]
+
+;herbivore-0
+1,[store filter as type]filter
+5,[store filter as type]filters ([1d5+1])
+
+;herbivore-1
+1,[store filter as type]filter
+
+;herbivore-2
+1,[store filter as type]filter
+
+;herbivore-3
+1,[store intermittent as type]intermittent
+
+;herbivore-4
+1,[store intermittent as type]intermittent
+
+;herbivore-5
+1,[store intermittent as type]intermittent
+5,[store intermittent as type]intermittents ([1d5+1])
+
+;herbivore-6
+1,[store intermittent as type]intermittent
+
+;herbivore-7
+1,[store grazer as type]grazer
+
+;herbivore-8
+1,[store grazer as type]grazer
+5,[store grazer as type]grazers ([1d5+1])
+
+;herbivore-9
+1,[store grazer as type]grazers ([2d6])
+
+;herbivore-10
+1,[store grazer as type]grazers ([3d6])
+
+;herbivore-11
+1,[store grazer as type]grazers ([2d6])
+
+;herbivore-12
+1,[store grazer as type]grazers ([4d6])
+
+;herbivore-13
+1,[store grazer as type]grazers ([5d6])
+
+;omnivore
+# 2d6±4 (from 0 to 13)
+1,[omnivore-[2d6[same animal type mod]>=0<=13]][store +4 as animal weaponry mod][store +0 as animal armour mod]
+
+;omnivore-0
+1,[store gatherer as type]gatherer
+
+;omnivore-1
+1,[store gatherer as type]gatherer
+
+;omnivore-2
+1,[store eater as type]eater
+
+;omnivore-3
+1,[store gatherer as type]gatherer
+
+;omnivore-4
+1,[store eater as type]eaters ([2d6])
+
+;omnivore-5
+1,[store gatherer as type]gatherer
+
+;omnivore-6
+1,[store hunter as type]hunter
+
+;omnivore-7
+1,[store hunter as type]hunter
+5,[store hunter as type]hunters ([1d5+1])
+
+;omnivore-8
+1,[store hunter as type]hunter
+
+;omnivore-9
+1,[store gatherer as type]gatherer
+
+;omnivore-10
+1,[store eater as type]eater
+5,[store eater as type]eaters ([1d5+1])
+
+;omnivore-11
+1,[store hunter as type]hunter
+5,[store hunter as type]hunters ([1d5+1])
+
+;omnivore-12
+1,[store gatherer as type]gatherer
+
+;omnivore-13
+1,[store gatherer as type]gatherer
+
+;carnivore
+# 2d6±4 (from 0 to 13)
+1,[carnivore-[2d6[same animal type mod]>=0<=13]][store +8 as animal weaponry mod][store -1 as animal armour mod]
+
+;carnivore-0
+1,[store siren as type]siren
+
+;carnivore-1
+1,[store pouncer as type]pouncer
+
+;carnivore-2
+1,[store siren as type]siren
+
+;carnivore-3
+1,[store pouncer as type]pouncer
+
+;carnivore-4
+1,[store killer as type]killer
+5,[store killer as type]killers ([1d5+1])
+
+;carnivore-5
+1,[store trapper as type]trapper
+
+;carnivore-6
+1,[store pouncer as type]pouncer
+
+;carnivore-7
+1,[store chaser as type]chaser
+
+;carnivore-8
+1,[store chaser as type]chasers ([3d6])
+
+;carnivore-9
+1,[store chaser as type]chaser
+
+;carnivore-10
+1,[store killer as type]killer
+
+;carnivore-11
+1,[store chaser as type]chasers ([2d6])
+
+;carnivore-12
+1,[store siren as type]siren
+
+;carnivore-13
+1,[store chaser as type]chaser
+5,[store chaser as type]chasers ([1d5+1])
 
 ;scavenger
 # 2d6±4 (from 0 to 13)
