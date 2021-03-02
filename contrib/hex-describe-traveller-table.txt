@@ -11,13 +11,13 @@
 1,<p>**Names:** When Chinese or Japanese names are being used, the order is *surname* then *given name*; other names use the order *given name* then *surname*; some people have no surname.
 
 ;on stats
-1,<p>**Stats:** Characteristics are given for a 2d6 system with values ranging from 2 to 12, using A, B, and C for 10, 11, and 12. For a person, the *Universal Personality Profile* (UPP) consists of strength, dexterity, endurance, intelligence, education, and social standing. For a system, the *Universal World Profile* (UWP) consists of starport (A-E, F), size, atmosphere, water, population, government, law, a dash, and tech level.
+1,<p>**Stats:** Characteristics are given for a 2d6 system with values ranging from 2 to 12, using A, B, and C for 10, 11, and 12. For a person, the *<dfn id="UPP">Universal Personality Profile</dfn>* (<abbr title="Universal Personality Profile">UPP</abbr>) consists of strength, dexterity, endurance, intelligence, education, and social standing. For a system, the *<dfn id="uwp">Universal World Profile</dfn>* (<abbr title="Universal World Profile">UWP</abbr>) consists of starport (A-E, X), size, atmosphere, water, population, government, law, a dash, and tech level.
 
 ;on equipment
 1,<p>**Equipment:** It is assumed that every non-player character in this document comes equipped with at least one weapon they are skilled in. Remember that a ship’s locker contains the basics for survival on an alien word, plus equipment to defend against boarding: protective clothing, vacc suits, tools, portable shelters, but also weapons such as shotguns, carbines, pistols, and ammunition.
 
 ;system
-1,This is **[same name]**, UWP <span class="UWP" title="starport, size, atmosphere, water, population, government, law, and tech level">[same uwp]<span>.
+1,This is **[same name]**, <abbr title="Universal World Profile">UWP</abbr> <abbr class="UWP" title="starport, size, atmosphere, water, population, government, law, and tech level">[same uwp]</abbr>.
 
 # fallback
 ;name
@@ -1584,11 +1584,11 @@
 
 # requires soc, which is generated as part of the human name
 ;upp
-1,<span class="UPP" title="strength, dexterity, endurance, intelligence, education, and social standing">[characteristic as strength][characteristic as dex][characteristic as end][characteristic as int][characteristic as edu][same soc]</span>
+1,<abbr class="UPP" title="strength, dexterity, endurance, intelligence, education, and social standing">[characteristic as strength][characteristic as dex][characteristic as end][characteristic as int][characteristic as edu][same soc]</abbr>
 
 # requires soc, which is generated as part of the human name
 ;smart upp
-1,<span class="UPP" title="strength, dexterity, endurance, intelligence, education, and social standing">[characteristic as strength][characteristic as dex][characteristic as end][characteristic as int][smart characteristic as edu][same soc]</span>
+1,<abbr class="UPP" title="strength, dexterity, endurance, intelligence, education, and social standing">[characteristic as strength][characteristic as dex][characteristic as end][characteristic as int][smart characteristic as edu][same soc]</abbr>
 
 ;characteristic
 1,2
@@ -1748,7 +1748,13 @@
 # - animal wounds mod
 
 ;animal encounter
-1,typical [animal terrain] [animal type], [animal size], [animal armour], [animal weapons], A: [animal attack], F: [animal flee], S: [animal speed]
+1,typical [animal terrain] [animal line]
+
+;animal line
+1,[animal type], [animal size], [animal armour], [animal weapons], <abbr title="attack">A</abbr>: [animal attack], <abbr title="flee">F</abbr>: [animal flee], <abbr title="speed">S</abbr>: [animal speed]
+
+;animal encounter table
+1,<p>[capitalize animal terrain] animal encounter table.<ol style="font-size: smaller"><li>[animal line]<li>[animal line]<li>[animal line]<li>[animal line]<li>[animal line]<li>[animal line]</ol>
 
 ;animal terrain
 1,clear[store +3 as animal type mod][store +0 as animal size mod]
@@ -1918,7 +1924,7 @@
 1,[1d6-4>=1]
 
 ;animal weapons
-1,wounds: [[same animal wounds init]d6[same animal wounds mod]>=1], using [same animal weapon used]
+1,<abbr title="wounds">W</abbr>: [[same animal wounds init]d6[same animal wounds mod]>=1], [same animal weapon used]
 
 ;animal weaponry
 1,[animal weaponry-[2d6[same animal weaponry mod]>=1<=20]]
@@ -2050,64 +2056,64 @@
 1,[save animal weaponry][animal size-[2d6[same animal size mod]>=1<=13]]
 
 ;animal size-1
-1,1 kg, hits: [1d6]/0[store -[2d6] as animal wounds mod]
+1,1 kg, <abbr title="hits">H</abbr>: [1d6]/0[store -[2d6] as animal wounds mod]
 
 ;animal size-2
-1,3 kg, hits: [1d6]/[1d6][store -[2d6] as animal wounds mod]
+1,3 kg, <abbr title="hits">H</abbr>: [1d6]/[1d6][store -[2d6] as animal wounds mod]
 
 ;animal size-3
-1,6 kg, hits: [1d6]/[2d6][store -[1d6] as animal wounds mod]
+1,6 kg, <abbr title="hits">H</abbr>: [1d6]/[2d6][store -[1d6] as animal wounds mod]
 
 ;animal size-4
-1,12 kg, hits: [2d6]/[2d6][store +0 as animal wounds mod]
+1,12 kg, <abbr title="hits">H</abbr>: [2d6]/[2d6][store +0 as animal wounds mod]
 
 ;animal size-5
-1,25 kg, hits: [3d6]/[2d6][store +0 as animal wounds mod]
+1,25 kg, <abbr title="hits">H</abbr>: [3d6]/[2d6][store +0 as animal wounds mod]
 
 ;animal size-6
-1,50 kg, hits: [4d6]/[2d6][store +0 as animal wounds mod]
+1,50 kg, <abbr title="hits">H</abbr>: [4d6]/[2d6][store +0 as animal wounds mod]
 
 ;animal size-7
-1,100 kg, hits: [5d6]/[2d6][store +0 as animal wounds mod]
+1,100 kg, <abbr title="hits">H</abbr>: [5d6]/[2d6][store +0 as animal wounds mod]
 
 ;animal size-8
-1,200 kg, hits: [5d6]/[3d6][store +[1d6] as animal wounds mod]
+1,200 kg, <abbr title="hits">H</abbr>: [5d6]/[3d6][store +[1d6] as animal wounds mod]
 
 ;animal size-9
-1,400 kg, hits: [6d6]/[3d6][store +[2d6] as animal wounds mod]
+1,400 kg, <abbr title="hits">H</abbr>: [6d6]/[3d6][store +[2d6] as animal wounds mod]
 
 ;animal size-10
-1,800 kg, hits: [7d6]/[3d6][store +[3d6] as animal wounds mod]
+1,800 kg, <abbr title="hits">H</abbr>: [7d6]/[3d6][store +[3d6] as animal wounds mod]
 
 ;animal size-11
-1,1600 kg, hits: [8d6]/[3d6][store +[4d6] as animal wounds mod]
+1,1600 kg, <abbr title="hits">H</abbr>: [8d6]/[3d6][store +[4d6] as animal wounds mod]
 
 ;animal size-12
-1,3200 kg, hits: [8d6]/[4d6][store +[5d6] as animal wounds mod]
+1,3200 kg, <abbr title="hits">H</abbr>: [8d6]/[4d6][store +[5d6] as animal wounds mod]
 
 ;animal size-13
 1,[store [6d1[same animal size mod]] as animal size mod][animal size]
 
 ;animal size-14
-1,6000 kg, hits: [9d6]/[4d6][store x2 as animal wounds mod]
+1,6000 kg, <abbr title="hits">H</abbr>: [9d6]/[4d6][store x2 as animal wounds mod]
 
 ;animal size-15
-1,12000 kg, hits: [10d6]/[5d6][store x2 as animal wounds mod]
+1,12000 kg, <abbr title="hits">H</abbr>: [10d6]/[5d6][store x2 as animal wounds mod]
 
 ;animal size-16
-1,24000 kg, hits: [12d6]/[6d6][store x3 as animal wounds mod]
+1,24000 kg, <abbr title="hits">H</abbr>: [12d6]/[6d6][store x3 as animal wounds mod]
 
 ;animal size-17
-1,30000 kg, hits: [14d6]/[7d6][store x4 as animal wounds mod]
+1,30000 kg, <abbr title="hits">H</abbr>: [14d6]/[7d6][store x4 as animal wounds mod]
 
 ;animal size-18
-1,36000 kg, hits: [15d6]/[7d6][store x4 as animal wounds mod]
+1,36000 kg, <abbr title="hits">H</abbr>: [15d6]/[7d6][store x4 as animal wounds mod]
 
 ;animal size-19
-1,40000 kg, hits: [1d16]/[8d6][store x5 as animal wounds mod]
+1,40000 kg, <abbr title="hits">H</abbr>: [1d16]/[8d6][store x5 as animal wounds mod]
 
 ;animal size-20
-1,44000 kg, hits: [17d6]/[9d6][store x6 as animal wounds mod]
+1,44000 kg, <abbr title="hits">H</abbr>: [17d6]/[9d6][store x6 as animal wounds mod]
 
 ;herbivore
 # 2d6±4 (from 0 to 13)
