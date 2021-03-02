@@ -824,7 +824,7 @@
 1,<p>Huge rafts, built up around aquaculture centres, carry all habitation on this water covered world.
 
 ;desert
-1,<p>[desert description] [desert food] [desert aspect]
+1,<p>[desert description] [desert food] [desert aspect] [desert mission]
 
 ;desert description
 1,The world is a rocky desert.
@@ -848,6 +848,13 @@
 1,Living here is tough and no one chooses to live here unless they have a good reason.
 1,No one lasts long here unless they are prepared to fall in with the local customs.
 1,Despite the dangers, some people like living here in the shifting sands.
+
+;desert mission
+1,[desert scout catalogue]
+3,
+
+;desert scout catalogue
+1,<p class="sidebar">Patron<p>[append scout/courier]The *[same ship name]* is on a xenobiology survey mission, here. Ship captain *[same ship captain]* would appreciate any help in finding, capturing and describing any of the following local fauna.<p>Desert animal encounter table.[store desert as animal terrain][store +3 as animal type mod][store -3 as animal size mod]<ol style="font-size: smaller"><li>[animal line]<li>[animal line]<li>[animal line]<li>[animal line]<li>[animal line]<li>[animal line]</ol>
 
 ;ice
 1,<p>All that remains of the atmosphere has frozen in the polar regions.
