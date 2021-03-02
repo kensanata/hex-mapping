@@ -1314,10 +1314,10 @@ sub describe {
       # $log->debug("rolling dice: $word = $r");
       $locals{$save_as} = $r if $save_as;
       push(@descriptions, $r) unless $just_save;
-    } elsif (my ($just_save, $expression, $save_as) = $word =~ /$math_re/) {
+    } elsif (my ($save, $expression, $as) = $word =~ /$math_re/) {
       my $r = eval($expression);
-      $locals{$save_as} = $r if $save_as;
-      push(@descriptions, $r) unless $just_save;
+      $locals{$as} = $r if $as;
+      push(@descriptions, $r) unless $save;
     } elsif ($word =~ /^(\S+)\?\|\|(.*)/) {
       # [a?||b] return b if a is defined, or nothing
       push(@descriptions, $2) if $locals{$1};

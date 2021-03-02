@@ -1751,7 +1751,22 @@
 1,typical [animal terrain] [animal line]
 
 ;animal line
-1,[animal type], [animal size], [animal armour], [animal weapons], <abbr title="attack">A</abbr>: [animal attack], <abbr title="flee">F</abbr>: [animal flee], <abbr title="speed">S</abbr>: [animal speed]
+1,[save animal adjective as adjective][animal type], [animal size], [animal armour], [animal weapons], <abbr title="attack">A</abbr>: [animal attack], <abbr title="flee">F</abbr>: [animal flee], <abbr title="speed">S</abbr>: [animal speed], “[animal name]”
+
+;animal adjective
+# override in many cases
+1,Striped
+1,Spotted
+1,[capitalize the animal terrain]
+1,Common
+1,Feral
+1,Nocturnal
+1,Night
+1,Bane
+
+;the animal terrain
+# since we don’t have [capitalize same animal terrain] and can’t use [capitalize [same animal terrain]]
+1,[same animal terrain]
 
 ;animal encounter table
 1,<p>[capitalize animal terrain] animal encounter table.<ol style="font-size: smaller"><li>[animal line]<li>[animal line]<li>[animal line]<li>[animal line]<li>[animal line]<li>[animal line]</ol>
@@ -1759,9 +1774,9 @@
 ;animal terrain
 1,clear[store +3 as animal type mod][store +0 as animal size mod]
 1,plain[store +4 as animal type mod][store +0 as animal size mod]
-1,hills[store +0 as animal type mod][store +0 as animal size mod]
-1,badlands[store -3 as animal type mod][store -3 as animal size mod]
-1,mountains[store +0 as animal type mod][store +0 as animal size mod]
+1,hill[store +0 as animal type mod][store +0 as animal size mod]
+1,badland[store -3 as animal type mod][store -3 as animal size mod]
+1,mountain[store +0 as animal type mod][store +0 as animal size mod]
 1,forest[store -4 as animal type mod][store -4 as animal size mod]
 1,jungle[store -3 as animal type mod][store -2 as animal size mod]
 1,river[store +1 as animal type mod][store +1 as animal size mod]
@@ -1769,7 +1784,7 @@
 1,marsh[store +0 as animal type mod][store -1 as animal size mod]
 1,desert[store +3 as animal type mod][store -3 as animal size mod]
 1,shore[store +3 as animal type mod][store +2 as animal size mod]
-1,ruins[store -3 as animal type mod][store +0 as animal size mod]
+1,ruin[store -3 as animal type mod][store +0 as animal size mod]
 1,cave[store -4 as animal type mod][store +1 as animal size mod]
 1,crater[store +0 as animal type mod][store -1 as animal size mod]
 
@@ -2029,37 +2044,37 @@
 1,[store [6d1[same animal armour mod]] as animal armour mod][animal armour]
 
 ;animal armour-13
-1,mesh+1 armour
+1,mesh+1 armour[store Bone as adjective]
 
 ;animal armour-14
-1,cloth+1 armour
+1,cloth+1 armour[store Scaled as adjective]
 
 ;animal armour-15
-1,mesh armour
+1,mesh armour[store Bone as adjective]
 
 ;animal armour-16
-1,cloth armour
+1,cloth armour[store Scaled as adjective]
 
 ;animal armour-17
-1,combat+4 armour
+1,combat+4 armour[store Shielded as adjective]
 
 ;animal armour-18
-1,reflec armour
+1,reflec armour[store Shining as adjective]
 
 ;animal armour-19
-1,ablat armour
+1,ablat armour[store Armoured as adjective]
 
 ;animal armour-20
-1,battle armour
+1,battle armour[store Plated as adjective]
 
 ;animal size
 1,[save animal weaponry][animal size-[2d6[same animal size mod]>=1<=13]]
 
 ;animal size-1
-1,1 kg, <abbr title="hits">H</abbr>: [1d6]/0[store -[2d6] as animal wounds mod]
+1,1 kg, <abbr title="hits">H</abbr>: [1d6]/0[store -[2d6] as animal wounds mod][store Tiny as adjective]
 
 ;animal size-2
-1,3 kg, <abbr title="hits">H</abbr>: [1d6]/[1d6][store -[2d6] as animal wounds mod]
+1,3 kg, <abbr title="hits">H</abbr>: [1d6]/[1d6][store -[2d6] as animal wounds mod][store Small as adjective]
 
 ;animal size-3
 1,6 kg, <abbr title="hits">H</abbr>: [1d6]/[2d6][store -[1d6] as animal wounds mod]
@@ -2083,38 +2098,45 @@
 1,400 kg, <abbr title="hits">H</abbr>: [6d6]/[3d6][store +[2d6] as animal wounds mod]
 
 ;animal size-10
-1,800 kg, <abbr title="hits">H</abbr>: [7d6]/[3d6][store +[3d6] as animal wounds mod]
+1,800 kg, <abbr title="hits">H</abbr>: [7d6]/[3d6][store +[3d6] as animal wounds mod][save big as adjective]
 
 ;animal size-11
-1,1.6 t, <abbr title="hits">H</abbr>: [8d6]/[3d6][store +[4d6] as animal wounds mod]
+1,1.6 t, <abbr title="hits">H</abbr>: [8d6]/[3d6][store +[4d6] as animal wounds mod][save big as adjective]
 
 ;animal size-12
-1,3.2 t, <abbr title="hits">H</abbr>: [8d6]/[4d6][store +[5d6] as animal wounds mod]
+1,3.2 t, <abbr title="hits">H</abbr>: [8d6]/[4d6][store +[5d6] as animal wounds mod][save big as adjective]
 
 ;animal size-13
 # when re-rolling 13, no problem, since animal size mod isn’t changed: we just re-roll again
 1,[animal size-[2d6[[same animal size mod]+6]>=1<=20]]
 
 ;animal size-14
-1,6 t, <abbr title="hits">H</abbr>: [9d6]/[4d6][store x2 as animal wounds mod]
+1,6 t, <abbr title="hits">H</abbr>: [9d6]/[4d6][store x2 as animal wounds mod][store Huge as adjective]
 
 ;animal size-15
-1,12 t, <abbr title="hits">H</abbr>: [10d6]/[5d6][store x2 as animal wounds mod]
+1,12 t, <abbr title="hits">H</abbr>: [10d6]/[5d6][store x2 as animal wounds mod][store Huge as adjective]
 
 ;animal size-16
-1,24 t, <abbr title="hits">H</abbr>: [12d6]/[6d6][store x3 as animal wounds mod]
+1,24 t, <abbr title="hits">H</abbr>: [12d6]/[6d6][store x3 as animal wounds mod][store Giant as adjective]
 
 ;animal size-17
-1,30 t, <abbr title="hits">H</abbr>: [14d6]/[7d6][store x4 as animal wounds mod]
+1,30 t, <abbr title="hits">H</abbr>: [14d6]/[7d6][store x4 as animal wounds mod][store Giant as adjective]
 
 ;animal size-18
-1,36 t, <abbr title="hits">H</abbr>: [15d6]/[7d6][store x4 as animal wounds mod]
+1,36 t, <abbr title="hits">H</abbr>: [15d6]/[7d6][store x4 as animal wounds mod][store Colossal as adjective]
 
 ;animal size-19
-1,40 t, <abbr title="hits">H</abbr>: [1d16]/[8d6][store x5 as animal wounds mod]
+1,40 t, <abbr title="hits">H</abbr>: [1d16]/[8d6][store x5 as animal wounds mod][store Colossal as adjective]
 
 ;animal size-20
-1,44 t, <abbr title="hits">H</abbr>: [17d6]/[9d6][store x6 as animal wounds mod]
+1,44 t, <abbr title="hits">H</abbr>: [17d6]/[9d6][store x6 as animal wounds mod][store Gargantuan as adjective]
+
+;big
+1,Huge
+1,Heavy
+1,Big
+1,Majestic
+1,Magnificent
 
 ;herbivore
 # 2d6±4 (from 0 to 13)
@@ -2314,6 +2336,91 @@
 ;scavenger-13
 1,[store intimidator as type]intimidator
 5,[store intimidator as type]intimidators ([1d5+1])
+
+;animal name
+1,[same adjective] [capitalize [same type] name]
+1,[space name] [capitalize [same type] name]
+
+;grazer name
+1,gazelle
+1,moose
+1,antelope
+1,cow
+1,sheep
+1,goat
+1,horse
+1,deer
+
+;intermittent name
+1,elephant
+1,chipmunk
+1,rhino
+1,ostrich
+1,tapir
+1,boar
+
+;filter name
+1,anemone
+1,barnacle
+1,catcher
+
+;gatherer name
+1,chimp
+1,ape
+1,racoon
+1,hamster
+1,rat
+
+;hunter name
+1,bear
+
+;eater name
+1,boar
+1,ant
+1,termite
+
+;pouncer name
+1,cat
+1,tiger
+1,lion
+1,snake
+
+;chaser name
+1,wolf
+1,dog
+1,raptor
+
+;trapper name
+1,spider
+1,digger
+
+;siren name
+1,siren
+1,trap
+1,angler
+
+;killer name
+1,fox
+1,shark
+
+;intimidator name
+1,coyote
+1,hyena
+
+;hijacker name
+1,tyrant
+1,monarch
+
+;carrion-eater name
+1,vulture
+1,harpy
+
+;reducer name
+1,fungus
+1,mushroom
+1,goo
+1,worm
+1,slug
 
 # human names
 
