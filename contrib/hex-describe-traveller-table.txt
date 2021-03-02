@@ -2086,34 +2086,34 @@
 1,800 kg, <abbr title="hits">H</abbr>: [7d6]/[3d6][store +[3d6] as animal wounds mod]
 
 ;animal size-11
-1,1600 kg, <abbr title="hits">H</abbr>: [8d6]/[3d6][store +[4d6] as animal wounds mod]
+1,1.6 t, <abbr title="hits">H</abbr>: [8d6]/[3d6][store +[4d6] as animal wounds mod]
 
 ;animal size-12
-1,3200 kg, <abbr title="hits">H</abbr>: [8d6]/[4d6][store +[5d6] as animal wounds mod]
+1,3.2 t, <abbr title="hits">H</abbr>: [8d6]/[4d6][store +[5d6] as animal wounds mod]
 
 ;animal size-13
-1,[store [6d1[same animal size mod]] as animal size mod][animal size]
+1,[animal size-[2d6+6>=1<=20]]
 
 ;animal size-14
-1,6000 kg, <abbr title="hits">H</abbr>: [9d6]/[4d6][store x2 as animal wounds mod]
+1,6 t, <abbr title="hits">H</abbr>: [9d6]/[4d6][store x2 as animal wounds mod]
 
 ;animal size-15
-1,12000 kg, <abbr title="hits">H</abbr>: [10d6]/[5d6][store x2 as animal wounds mod]
+1,12 t, <abbr title="hits">H</abbr>: [10d6]/[5d6][store x2 as animal wounds mod]
 
 ;animal size-16
-1,24000 kg, <abbr title="hits">H</abbr>: [12d6]/[6d6][store x3 as animal wounds mod]
+1,24 t, <abbr title="hits">H</abbr>: [12d6]/[6d6][store x3 as animal wounds mod]
 
 ;animal size-17
-1,30000 kg, <abbr title="hits">H</abbr>: [14d6]/[7d6][store x4 as animal wounds mod]
+1,30 t, <abbr title="hits">H</abbr>: [14d6]/[7d6][store x4 as animal wounds mod]
 
 ;animal size-18
-1,36000 kg, <abbr title="hits">H</abbr>: [15d6]/[7d6][store x4 as animal wounds mod]
+1,36 t, <abbr title="hits">H</abbr>: [15d6]/[7d6][store x4 as animal wounds mod]
 
 ;animal size-19
-1,40000 kg, <abbr title="hits">H</abbr>: [1d16]/[8d6][store x5 as animal wounds mod]
+1,40 t, <abbr title="hits">H</abbr>: [1d16]/[8d6][store x5 as animal wounds mod]
 
 ;animal size-20
-1,44000 kg, <abbr title="hits">H</abbr>: [17d6]/[9d6][store x6 as animal wounds mod]
+1,44 t, <abbr title="hits">H</abbr>: [17d6]/[9d6][store x6 as animal wounds mod]
 
 ;herbivore
 # 2d6±4 (from 0 to 13)
