@@ -2092,7 +2092,8 @@
 1,3.2 t, <abbr title="hits">H</abbr>: [8d6]/[4d6][store +[5d6] as animal wounds mod]
 
 ;animal size-13
-1,[animal size-[2d6+6>=1<=20]]
+# when re-rolling 13, no problem, since animal size mod isn’t changed: we just re-roll again
+1,[animal size-[2d6[[same animal size mod]+6]>=1<=20]]
 
 ;animal size-14
 1,6 t, <abbr title="hits">H</abbr>: [9d6]/[4d6][store x2 as animal wounds mod]

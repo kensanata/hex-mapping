@@ -1085,6 +1085,7 @@ Would be:
 =cut
 
 my $dice_re = qr/^(save )?(?:(\d+)d(\d+)(?:x(\d+))?(?:([+-]\d+))?(?:>=(-?\d+))?(?:<=(-?\d+))?|(\d+))(?: as (.+))?$/;
+my $math_re = qr/^(save )?([-+*\/%()0-9]+)(?: as (.+))?$/;
 
 sub parse_table {
   my $text = shift;
@@ -1126,6 +1127,7 @@ sub parse_table {
       for my $subtable ($line->{text} =~ /\[($words)\]/g) {
 	next if index($subtable, '|') != -1;
 	next if $subtable =~ /$dice_re/;
+	next if $subtable =~ /$math_re/;
 	next if $subtable =~ /^redirect https?:/;
 	next if $subtable =~ /^names for (.*)/ and $data->{"name for $1"};
 	next if $subtable =~ /^(?:capitalize|titlecase|highlightcase|normalize-elvish) (.*)/ and $data->{$1};
@@ -1310,6 +1312,10 @@ sub describe {
 	$r = $max if defined $max and $r > $max;
       }
       # $log->debug("rolling dice: $word = $r");
+      $locals{$save_as} = $r if $save_as;
+      push(@descriptions, $r) unless $just_save;
+    } elsif (my ($just_save, $expression, $save_as) = $word =~ /$math_re/) {
+      my $r = eval($expression);
       $locals{$save_as} = $r if $save_as;
       push(@descriptions, $r) unless $just_save;
     } elsif ($word =~ /^(\S+)\?\|\|(.*)/) {
