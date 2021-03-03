@@ -334,11 +334,11 @@
 1,A single low building hugs the hillside. You guess it belongs to the harbour master as there’s no other building to be seen.
 
 ;starport-C mission
-1,<p class="sidebar">Patron<p>There’s joint called *[bar]*. If you recently arrived with a ship, **[harbour|tourist|emigration|border|imperial|travel] [delegate|emissary|ambassador|agent|clerk|envoy]** *[human name]* is looking for help: “I’ve been contacted by *[human name as rich tourist]* bent on visiting *[nearby backwater system]*. They have the necessary credits, but I don’t have a ship and crew to spare. Would you be willing to take them off me?” [rich tourist] [rich tourist background]
+1,<p class="sidebar">Patron<p>There’s joint called *[bar]*. If you recently arrived with a ship, **[harbour|tourist|emigration|border|imperial|travel] [delegate|emissary|ambassador|agent|clerk|envoy]** *[human name]* is looking for help: “I’ve been contacted by *[human name as tourist]* bent on visiting *[nearby backwater system]*. They have the necessary credits, but I don’t have a ship and crew to spare. Would you be willing to take them off me?” [rich tourist] [rich tourist background]
 1,
 
 ;rich tourist
-1,The **rich tourist** is *[human name as tourist]*, [friendly|jovial|overbearing|arrogant|eager to be of help|eager to get going], [upp], [common other skills].
+1,The **rich tourist** is *[same tourist]*, [friendly|jovial|overbearing|arrogant|eager to be of help|eager to get going], [upp], [common other skills].
 
 ;rich tourist background
 1,The mission mainly consists of getting there and back, and keeping *[same tourist]* safe. At one point, there’s an animal encounter: [animal encounter].
