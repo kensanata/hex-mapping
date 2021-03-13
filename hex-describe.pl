@@ -875,7 +875,7 @@ sub parse_map_data {
     if (my ($x, $y) = $hex =~ /^(\d\d)(\d\d)\s*empty$/cg) {
       # skip
     } elsif (($x, $y) = $hex =~ /^(\d\d)(\d\d)\s+/cg) {
-      my @types = ("system");
+      my @types = ("system"); # Traveller
       while($hex =~ /\G([a-z]="[^"]+")\s*/cg or $hex =~ /(\S+)/cg) {
 	push(@types, $1);
       }
@@ -1288,7 +1288,10 @@ sub describe {
   if ($level == 1) {
     %locals = (); # reset once per paragraph
     for my $word (@$words) {
-      if ($word =~ /^([a-z]+)="(.*)"/) {
+      if ($word =~ /^([a-z]+)="(.*)"/ or
+	  $word =~ /(.*)-(\d+)$/) {
+	# assigments in the form uwp=“777777” assign “777777” to “uwp”
+	# words in the form law-5 assign “5” to “law”
 	$locals{$1} = $2;
       } else {
 	$locals{$word} = 1;
@@ -1523,7 +1526,10 @@ sub describe {
       $log->error("empty table for $coordinates/$level: $word");
     } else {
       my $text = pick($map_data, $table_data, $level, $coordinates, $words, $word, $redirects);
-      # remember it's legitimate to have no result for a table
+      # remember it's legitimate to have no result for a table, and remember we
+      # cannot use a local with the same name that's defined because sometimes
+      # locals are simply defined as "1" since they start out as "words" and I
+      # don't want to make "1" a special case to ignore, here
       next unless defined $text;
       $locals{$word} = $text;
       push(@descriptions, $text);
@@ -1790,12 +1796,19 @@ sub describe_map {
   my $redirects = shift;
   my %descriptions;
   # first, add special rule for TOP and END keys which the description template knows
-  $descriptions{$_} = process(describe($map_data, $table_data, 1, $_, [$_], $redirects),
-			      $redirects) for qw(TOP END); # with redirects means we keep images
+  for my $coords (qw(TOP END)) {
+    # with redirects means we keep images
+    my $description =
+	process(describe($map_data, $table_data, 1,
+			 $coords, [$coords], $redirects), $redirects);
+    # only set the TOP and END key if there is a description
+    $descriptions{$coords} = $description if $description;
+  }
   for my $coord (keys %$map_data) {
-    $descriptions{$coord} = process(describe($map_data, $table_data, 1,
-					     $coord, $map_data->{$coord}, $redirects),
-				    $redirects); # with redirects means we keep images
+    # with redirects means we keep images
+    $descriptions{$coord} =
+	process(describe($map_data, $table_data, 1,
+			 $coord, $map_data->{$coord}, $redirects), $redirects);
   }
   resolve_nearby($map_data, $table_data, \%descriptions, $redirects);
   resolve_other($map_data, $table_data, \%descriptions, $redirects);
@@ -2576,7 +2589,7 @@ We could have chosen a different approach, though. We could have
 written more entries instead.
 
 %= example begin
-;hills
+;hill
 1,The hills are covered in trees.
 1,Many small creeks separated by long ridges make for bad going in these badlands.
 1,An *orc* tribe is camping in a ruined watch tower.
@@ -2589,7 +2602,7 @@ still travel through these regions with just a one in six chance of an
 encounter. That’s why I’m more likely to just write a table like this:
 
 %= example begin
-;hills
+;hill
 1,Many small creeks separated by long ridges make for bad going in these badlands.
 1,An *ettin* is known to live in the area.
 1,A *manticore* has taken over a ruined tower.
@@ -2605,7 +2618,7 @@ We can be more specific because we can include dice rolls in square
 brackets. So let’s specify how many ogres you will encounter:
 
 %= example begin
-;hills
+;hill
 1,Many small creeks separated by long ridges make for bad going in these badlands.
 1,An *ettin* is known to live in the area.
 1,A *manticore* has taken over a ruined tower.
@@ -2620,7 +2633,7 @@ table for ogres. Separate tables come in square brackets, like dice
 rolls.
 
 %= example begin
-;hills
+;hill
 1,Many small creeks separated by long ridges make for bad going in these badlands.
 1,An *ettin* is known to live in the area.
 1,A *manticore* has taken over a ruined tower.
@@ -2642,7 +2655,7 @@ How about we name the most important ogre such that players have an
 ogre to talk to?
 
 %= example begin
-;hills
+;hill
 1,Many small creeks separated by long ridges make for bad going in these badlands.
 1,An *ettin* is known to live in the area.
 1,A *manticore* has taken over a ruined tower.
@@ -2675,7 +2688,7 @@ Notice how the ogre names are all just two words. How about splitting
 them into tables?
 
 %= example begin
-;hills
+;hill
 1,Many small creeks separated by long ridges make for bad going in these badlands.
 1,An *ettin* is known to live in the area.
 1,A *manticore* has taken over a ruined tower.
@@ -2712,7 +2725,7 @@ a table, and if all the entries are equally likely. It's mostly useful when
 doing quick and dirty prototyping: using a vertical line to separate options.
 
 %= example begin
-;hills
+;hill
 1,Many small creeks separated by long ridges make for bad going in these badlands.
 1,An *ettin* is known to live in the area.
 1,A *manticore* has taken over a ruined tower.
@@ -2901,20 +2914,68 @@ fir-forest”; instead of “hill” use “light-grey hill” and “dust hill�
 “forest-hill” use “light-grey forest-hill” and “green forest-hill”; instead of
 “forest-mountains” use “green forest-mountains” and “grey forest-mountains”.
 
+<p>
+There is another way for context to play a role. The words used to describe a
+hex are stored using the value “1”, so you can test for them. Let’s take an
+example where each hex may have the additional tag “fire”, and it influences
+many later nested descriptions.
+
+%= example begin
+0101 hill fire
+0201 hill
+0301 hill
+0401 hill
+include https://campaignwiki.org/contrib/gnomeyland.txt
+
+;hill
+1,The rolling hills stretch on forever. [fire?||[burning hills]]
+
+;burning hills
+1,On every hilltop is a tower of flames and smoke.
+%= end
+
+<p>
+In addition to that, words that end in “-” and a number are assigned the numeric
+value such that “law-3” assigns the value “3” to the key “law”. See <a
+href="#same">reuse</a>, below.
+
+%= example begin
+0101 town law-3
+0201 town law-0
+0301 town law-1
+include https://campaignwiki.org/contrib/gnomeyland.txt
+
+;town
+1,This is a small town. [constable-[same law]]
+
+;constable-0
+1,It is a lawless place.
+
+;constable-1
+1,The constable is corrupt. Anything goes.
+
+;constable-2
+1,The constable is lazy. Just don’t let them see you.
+
+;constable-3
+1,The constable is actively pursuing criminals.
+%= end
+
 <h2 id="introduction">Introduction</h2>
 
 <p>
 If you want an introduction for your map key, use the <code>TOP</code> rule:
 
 %= example begin
-0101 hills
-0102 hills
-0103 hills
+0101 hill
+0201 hill
+0301 hill
+include https://campaignwiki.org/contrib/gnomeyland.txt
 
 ;TOP
 1,This is the introduction.
 
-;hills
+;hill
 1,The hills are covered in trees.
 1,An *orc* tribe is camping in a ruined watch tower.
 % end
@@ -2924,14 +2985,15 @@ You can take advantage of the CSS class <code>sidebar</code> for the
 introduction:
 
 %= example begin
-0101 hills
-0102 hills
-0103 hills
+0101 hill
+0201 hill
+0301 hill
+include https://campaignwiki.org/contrib/gnomeyland.txt
 
 ;TOP
 1,This is the introduction.&lt;/p&gt;&lt;p class="sidebar"&gt;And this is the sidebar!
 
-;hills
+;hill
 1,The hills are covered in trees.
 1,An *orc* tribe is camping in a ruined watch tower.
 % end
