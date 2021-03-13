@@ -1027,9 +1027,15 @@
 1,[Crown|Sceptre|Bottle|Jar|Gin|Gargle|Stone]
 
 ;crime boss meeting
-1,This assessment of the situation is correct. *[same crime boss]* shows up with two armed **goons** and will back down if outgunned. *[same crime boss]*, [smart upp], [smart other skills]; treat the goons as 777777, Pistol-1 Dagger-1. There are two more such **goons** watching the exits of [same bar], and one **driver** in a vehicle standing by. They only get involved when the shooting starts.
-1,This assessment of the situation is wrong. *[same crime boss]* is trying to establish themselves and needs to make an example of the imperial scouts. They came for a fight and they’re looking for blood. *[same crime boss]*, [smart upp], [smart other skills]; plus [2d6] **goons**, 777777, Pistol-1 Dagger-1. There a **gunner** with Auto Rifle-1 watching the front of [same bar] from a vehicle with an armed **driver** standing by. They are all trigger happy and waiting for the slightest misstep.
-1,This is not wrong. *[same crime boss]* can be argued with. If they’re going to tolerate the scout base in their territory, it must be useful. “Will you carry some illegal cargo for the *[crime syndicate]* to *[nearby big port]* for me?” They came with [1d4+1] goons and have another [1d4+1] waiting outside. *[same crime boss]*, [smart upp], [smart other skills]; treat all **goons** as 777777, Pistol-1 Dagger-1.
+1,This assessment of the situation is correct. *[same crime boss]* shows up with two armed **goons** and will back down if outgunned. *[same crime boss]*, [smart upp], [smart other skills][goon sidebar]. There are two more such **goons** watching the exits of [same bar], and one **driver** in a vehicle standing by. They only get involved when the shooting starts.
+1,This assessment of the situation is wrong. *[same crime boss]* is trying to establish themselves and needs to make an example of the imperial scouts. They came for a fight and they’re looking for blood. *[same crime boss]*, [smart upp], [smart other skills][goon sidebar]. There a **gunner** with Auto Rifle-1 watching the front of [same bar] from a vehicle with an armed **driver** standing by. They are all trigger happy and waiting for the slightest misstep.
+1,This is not wrong. *[same crime boss]* can be argued with. If they’re going to tolerate the scout base in their territory, it must be useful. “Will you carry some illegal cargo for the *[crime syndicate]* to *[nearby big port]* for me?” They came with [1d4+1] goons and have another [1d4+1] waiting outside. *[same crime boss]*, [smart upp], [smart other skills][goon sidebar].
+
+;goon sidebar
+1,<span class="sidebar">Some **goons**<br>Pistol-1 Dagger-1 Brawling-1<br>[goon]<br>[goon]<br>[goon]<br>[goon]<br>[goon]</span>
+
+;goon
+1,[upp] *[human name]*
 
 ;lost scout background
 1,In fact, a malfunction caused their type S scout/courier ship to crash. Finding the crash site is going to take two weeks. Sadly, proper funeral rites and writing up a report is all that’s left to do. *[same lost scout]* didn’t survive the crash. [high?||And dealing with the local administration, of course.]
