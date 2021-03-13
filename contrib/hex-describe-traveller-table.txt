@@ -644,19 +644,23 @@
 1,[First|Second|Third|Fifth|Seventh] [Church|Temple|Messiah|Prophet|Saint]
 
 ;company name
-6,[company subject] [company field]
-1,[company subject] [with company field] & [and company field]
+8,[company subject] [company field]
+2,[company subject] [with company field] & [and company field]
+1,[human surname] & [human surname]
 
 ;company subject
-1,[Standard|Universal|Popular|Human|Space|Ultimate]
+2,[Standard|Universal|Popular|Human|Space|Ultimate|World|Generic|General|Market]
+1,[space name]
 1,[human surname]
 
 ;company field
-1,[Oil|Nuclear|Fusion|Fission]
-1,[Transmission|Transformation|Upgrades|Development|Improvement]
-1,[Production|Manufacturing|Banking|Insurances|Services|Securities]
-1,[Legal|Compliance|Computing|Logistics|Pharmaceuticals|Mining|Constructions|Buildings|Resources]
-1,[Organisation|Processes|Management]
+1,[Oil|Nuclear|Fusion|Fission|Reactors|Technologies|Astra]
+1,[Alterations|Fabrication|Materials|Organics|Synthetics|Textiles]
+1,[Transmission|Transformation|Upgrades|Development|Improvements|Dynamics]
+1,[Banking|Consulting|Insurances|Investments|Manufacturing|Production|Services|Securities]
+1,[Compliance|Investigations|Legal|Logistics|Pharmaceuticals|Mining|Constructions|Buildings|Resources]
+1,[Computing|Organisation|Processes|Management|Planet|Systems|Software]
+1,[Analysis|Chemicals|Genetics|Mechanics|Medical|Pharmacology|Physics|Research|Therapeutics|Synthesis]
 
 # law
 
