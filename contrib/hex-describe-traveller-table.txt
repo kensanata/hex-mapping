@@ -1547,13 +1547,13 @@
 
 ;gun combat
 1,Body Pistol
-1,Auto Pistol
+7,Auto Pistol
 1,Revolver
-3,Carbine
-2,Rifle
+5,Carbine
+6,Rifle
 1,Auto Rifle
-4,Shotgun
-2,SMG
+3,Shotgun
+4,SMG
 1,Laser Carbine
 1,Laser Rifle
 
@@ -1569,9 +1569,9 @@
 # 1,Laser Rifle (11+/6-/5D)
 
 ;blade combat
-5,Dagger
-3,Blade
-1,Foil
+8,Dagger
+7,Blade
+3,Foil
 1,Sword
 4,Cutlass
 1,Broadsword
@@ -1579,7 +1579,7 @@
 1,Spear
 1,Halberd
 1,Pike
-1,Cudgel
+5,Cudgel
 
 ;vehicle skill
 1,[aircraft skill]
