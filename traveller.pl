@@ -1691,10 +1691,11 @@ get '/edit/:size/:rules/:id' => [size => ['subsector', 'sector']] => [id => qr/\
   }
 } => 'edit';
 
-get '/map' => sub {
-  my $c = shift;
-  $c->render(template => 'map_all', uwp => Traveller::Mapper::example(), size => 'subsector', rules => 'mgp');
-};
+# → see any '/map' below!
+# get '/map' => sub {
+#   my $c = shift;
+#   $c->render(template => 'map_all', uwp => Traveller::Mapper::example(), size => 'subsector', rules => 'mgp');
+# };
 
 get '/map/:id' => [id => qr/\d+/] => sub {
   my $c = shift;
@@ -1732,13 +1733,13 @@ get '/map/:size/:rules/:id' => [size => ['subsector', 'sector']] => [id => qr/\d
   $c->render(text => $map->svg, format => 'svg');
 } => 'map_all';
 
-post '/map' => sub {
+any '/map' => sub {
   my $c = shift;
   my $wiki = $c->param('wiki');
   my $trade = $c->param('trade');
-  my $uwp = $c->param('map');
-  my $size = $c->param('size');
-  my $rules = $c->param('rules');
+  my $uwp = $c->param('map') || Traveller::Mapper::example();
+  my $size = $c->param('size') || 'subsector';
+  my $rules = $c->param('rules') || 'mgp';
   my $source;
   if (!$uwp) {
     my $id = int(rand(INT_MAX));
