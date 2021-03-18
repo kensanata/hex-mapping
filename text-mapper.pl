@@ -3203,14 +3203,17 @@ sub shape {
   }
   my $fives = int($rest/5);
   my @sequence = shuffle((5) x $fives, (7) x $sevens);
+  @sequence = (5) unless @sequence;
   $shape = $self->shape_merge(map { $_ == 5 ? $self->five_room_shape() : $self->seven_room_shape() } @sequence);
   for (my $n = 0; @sequence; $n += shift(@sequence)) {
     push(@$stairs, $n + 1);
   }
-  @$stairs = shuffle(@$stairs);
-  my $n = POSIX::floor(log($#$stairs));
-  @$stairs = @$stairs[0 .. $n];
-  $log->debug(join(" ", "$n stairs", @$stairs));
+  $log->debug(join(" ", "Stairs", @$stairs));
+  if (@$stairs > 2) {
+    @$stairs = shuffle(@$stairs);
+    my $n = POSIX::floor(log($#$stairs));
+    @$stairs = @$stairs[0 .. $n];
+  }
   $self->debug_shapes($shape) if $log->level eq 'debug';
   $log->debug(join(", ", map { "[@$_]"} @$shape));
   die("No appropriate dungeon shape found for $num rooms") unless @$shape;
@@ -5782,10 +5785,8 @@ explanation of what these parameters do.
 will generate dungeon map data based on geomorph sketches by Robin Green. Or
 just keep reloading one of these links:
 <%= link_to url_for('gridmapperrandom')->query(rooms => 5) => begin %>5 rooms<% end %>,
-<%= link_to url_for('gridmapperrandom')->query(rooms => 7) => begin %>7 rooms<% end %>,
 <%= link_to url_for('gridmapperrandom')->query(rooms => 10) => begin %>10 rooms<% end %>,
-<%= link_to url_for('gridmapperrandom')->query(rooms => 12) => begin %>12 rooms<% end %>,
-<%= link_to url_for('gridmapperrandom')->query(rooms => 14) => begin %>14 rooms<% end %>.
+<%= link_to url_for('gridmapperrandom')->query(rooms => 20) => begin %>20 rooms<% end %>.
 Each map contains a “Edit in Gridmapper” link which will open the same map in the <a
 href="https://campaignwiki.org/gridmapper.svg">Gridmapper web app</a> itself.
 %= form_for gridmapper => begin
@@ -5801,7 +5802,7 @@ Just caves
 %= hidden_field type => 'square'
 <table>
 <tr><td>Rooms:</td><td>
-%= select_field rooms => [5, 7, 10, 12, 14]
+%= number_field rooms => 5, min => 1
 </td></tr></table>
 <p>
 %= submit_button "Generate Map Data"
