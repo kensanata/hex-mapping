@@ -3074,7 +3074,7 @@ sub shape_merge {
   my $shift = [0, 0];
   my $rooms = 0;
   for my $shape (@shapes) {
-    $log->debug(join(" ", "Shape", map { "[@$_]" } @$shape));
+    # $log->debug(join(" ", "Shape", map { "[@$_]" } @$shape));
     my $n = @$shape;
     # $log->debug("Number of rooms for this shape is $n");
     # $log->debug("Increasing coordinates by ($shift->[0], $shift->[1])");
@@ -3099,8 +3099,7 @@ sub shape_merge {
   for my $dim (0, 1) {
     $self->dungeon_dimensions->[$dim] = max(map { $_->[$dim] } @$result) + 1;
   }
-  $log->debug("Dimensions of the dungeon are ("
-	      . join(", ", map { $self->dungeon_dimensions->[$_] } 0, 1) . ")");
+  # $log->debug("Dimensions of the dungeon are (" . join(", ", map { $self->dungeon_dimensions->[$_] } 0, 1) . ")");
   $self->recompute();
   return $result;
 }
@@ -3155,11 +3154,11 @@ sub shape_reconnect {
       }
     }
   }
-  $log->debug("up candidates: " . join(", ", map { join(" → ", map { $_ < 10 ? $_ : chr(55 + $_) } @$_) } @up_candidates));
-  $log->debug("left candidates: " . join(", ", map { join(" → ", map { $_ < 10 ? $_ : chr(55 + $_) } @$_) } @left_candidates));
+  # $log->debug("up candidates: " . join(", ", map { join(" → ", map { $_ < 10 ? $_ : chr(55 + $_) } @$_) } @up_candidates));
+  # $log->debug("left candidates: " . join(", ", map { join(" → ", map { $_ < 10 ? $_ : chr(55 + $_) } @$_) } @left_candidates));
   for (one(@up_candidates), one(@left_candidates)) {
     next unless $_;
-    $log->debug("connecting " . join(" → ", map { $_ < 10 ? $_ : chr(55 + $_) } @$_));
+    # $log->debug("Connecting " . join(" → ", map { $_ < 10 ? $_ : chr(55 + $_) } @$_));
     my ($start, $end) = @$_;
     if (@{$result->[$start]} == 3 and $result->[$start]->[2] == $start) {
       # remove the fake connection if there is one
@@ -3195,58 +3194,23 @@ sub shape {
   # return an array of deltas to shift rooms around
   my $num = shift;
   my $shape = [];
-  if ($num == 5) {
-    $shape = $self->five_room_shape();
-    $stairs = ["1"];
-  } elsif ($num == 7) {
-    $shape = $self->seven_room_shape();
-    $stairs = ["1"];
-  } elsif ($num == 10) {
-    $shape = $self->shape_merge($self->five_room_shape(), $self->five_room_shape());
-    $stairs = ["1", "6"];
-  } elsif ($num == 12) {
-    $shape = $self->shape_merge($self->five_room_shape(), $self->seven_room_shape());
-    $stairs = ["1", "6"];
-  } elsif ($num == 14) {
-    $shape = $self->shape_merge($self->seven_room_shape(), $self->seven_room_shape());
-    $stairs = ["1", "8"];
-  } elsif ($num == 15) {
-    $shape = $self->shape_merge($self->five_room_shape(), $self->five_room_shape(),
-				$self->five_room_shape());
-    $stairs = ["1", "6", "11"];
-  } elsif ($num == 17) {
-    $shape = $self->shape_merge($self->five_room_shape(), $self->five_room_shape(),
-				$self->seven_room_shape());
-    $stairs = ["1", "6", "11"];
-  } elsif ($num == 19) {
-    $shape = $self->shape_merge($self->five_room_shape(), $self->seven_room_shape(),
-				$self->seven_room_shape());
-    $stairs = ["1", "6", "13"];
-  } elsif ($num == 21) {
-    $shape = $self->shape_merge($self->seven_room_shape(), $self->seven_room_shape(),
-				$self->seven_room_shape());
-    $stairs = ["1", "8", "15"];
-  } elsif ($num == 20) {
-    $shape = $self->shape_merge($self->five_room_shape(), $self->five_room_shape(),
-				$self->five_room_shape(), $self->five_room_shape());
-    $stairs = ["1", "6", "11", "16"];
-  } elsif ($num == 22) {
-    $shape = $self->shape_merge($self->five_room_shape(), $self->five_room_shape(),
-				$self->five_room_shape(), $self->seven_room_shape());
-    $stairs = ["1", "6", "11", "16"];
-  } elsif ($num == 24) {
-    $shape = $self->shape_merge($self->five_room_shape(), $self->five_room_shape(),
-				$self->seven_room_shape(), $self->seven_room_shape());
-    $stairs = ["1", "6", "11", "18"];
-  } elsif ($num == 26) {
-    $shape = $self->shape_merge($self->five_room_shape(), $self->seven_room_shape(),
-				$self->seven_room_shape(), $self->seven_room_shape());
-    $stairs = ["1", "6", "13", "20"];
-  } elsif ($num == 28) {
-    $shape = $self->shape_merge($self->seven_room_shape(), $self->seven_room_shape(),
-				$self->seven_room_shape(), $self->seven_room_shape());
-    $stairs = ["1", "8", "15", "22"];
+  # attempt to factor into 5 and 7 rooms
+  my $sevens = int($num/7);
+  my $rest = $num - 7 * $sevens; # $num % 7
+  while ($sevens > 0 and $rest % 5) {
+    $sevens--;
+    $rest = $num - 7 * $sevens;
   }
+  my $fives = int($rest/5);
+  my @sequence = shuffle((5) x $fives, (7) x $sevens);
+  $shape = $self->shape_merge(map { $_ == 5 ? $self->five_room_shape() : $self->seven_room_shape() } @sequence);
+  for (my $n = 0; @sequence; $n += shift(@sequence)) {
+    push(@$stairs, $n + 1);
+  }
+  @$stairs = shuffle(@$stairs);
+  my $n = POSIX::floor(log($#$stairs));
+  @$stairs = @$stairs[0 .. $n];
+  $log->debug(join(" ", "$n stairs", @$stairs));
   $self->debug_shapes($shape) if $log->level eq 'debug';
   $log->debug(join(", ", map { "[@$_]"} @$shape));
   die("No appropriate dungeon shape found for $num rooms") unless @$shape;
@@ -3292,7 +3256,7 @@ sub add_rooms {
       }
     }
   } @$rooms, @$deltas;
-  $self->debug_tiles(\@tiles) if $log->level eq 'debug';
+  # $self->debug_tiles(\@tiles) if $log->level eq 'debug';
   return \@tiles;
 }
 
@@ -3309,19 +3273,19 @@ sub add_corridors {
 	and $to->[1] == $shapes->[$to->[2]]->[1]) {
       # If the preceding shape is pointing to ourselves, then this room is
       # disconnected: don't add a corridor.
-      $log->debug("No corridor from @$from to @$to");
+      # $log->debug("No corridor from @$from to @$to");
       $from = $to;
     } elsif (@$to == 2) {
       # The default case is that the preceding shape is our parent. A simple
       # railroad!
-      $log->debug("Regular from @$from to @$to");
+      # $log->debug("Regular from @$from to @$to");
       $tiles = $self->add_corridor($tiles, $from, $to, $self->get_delta($from, $to));
       $from = $to;
     } else {
       # In case the shapes are not connected in order, the parent shapes are
       # available as extra elements.
       for my $from (map { $shapes->[$_] } @$to[2 .. $#$to]) {
-	$log->debug("Branch from @$from to @$to");
+	# $log->debug("Branch from @$from to @$to");
 	$tiles = $self->add_corridor($tiles, $from, $to, $self->get_delta($from, $to));
       }
       $from = $to;
