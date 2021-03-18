@@ -2695,8 +2695,9 @@ use URI::Escape;
 use Mojo::Base -base;
 
 # This is the meta grid for the geomorphs. Normally this is (3,3) for simple
-# dungeons. We need to recompute these when smashing two geomorphs together.
+# dungeons. We need to recompute these when smashing geomorphs together.
 has 'dungeon_dimensions';
+has 'dungeon_geomorph_size';
 
 # This is the grid for a particular geomorph. This is space for actual tiles.
 has 'room_dimensions';
@@ -2713,7 +2714,8 @@ has 'max_tiles';
 
 sub init {
   my $self = shift;
-  $self->dungeon_dimensions([3, 3]);
+  $self->dungeon_geomorph_size(3);   # this stays the same
+  $self->dungeon_dimensions([3, 3]); # this will change
   $self->room_dimensions([5, 5]);
   $self->recompute();
 }
@@ -3068,90 +3070,108 @@ sub shape_merge {
   my $self = shift;
   my @shapes = @_;
   my $result = [];
-  my $shift = 0;
+  my $cols = POSIX::ceil(sqrt(@shapes));
+  my $shift = [0, 0];
   my $rooms = 0;
   for my $shape (@shapes) {
     $log->debug(join(" ", "Shape", map { "[@$_]" } @$shape));
-    my $width = max(map { $_->[0] } @$shape) + 1;
-    # $log->debug("Width of this shape is $width");
     my $n = @$shape;
     # $log->debug("Number of rooms for this shape is $n");
-    # $log->debug("Increasing x coordinates by $shift");
+    # $log->debug("Increasing coordinates by ($shift->[0], $shift->[1])");
     for my $room (@$shape) {
-      $room->[0] += $shift;
+      $room->[0] += $shift->[0] * $self->dungeon_geomorph_size;
+      $room->[1] += $shift->[1] * $self->dungeon_geomorph_size;
       for my $i (2 .. $#$room) {
 	# $log->debug("Increasing room reference $i ($room->[$i]) by $rooms");
 	$room->[$i] += $rooms;
       }
       push(@$result, $room);
     }
-    if ($rooms) {
-      # $log->debug("Disconnecting $rooms from previous shape");
-      # Do this by adding an invalid self-reference
-      push(@{$result->[$rooms]}, $rooms) if @{$result->[$rooms]} == 2;
-      my $max = max(map { $_->[1] } @$shape);
-      # Go through every y coordinate from 0 to 2 and find the smallest x
-      # coordinate greater than or equal to our current shape and the largest x
-      # coordinate smaller than our current shape. Consider these two shapes:
-      #   0 1 2 3 4 5
-      # 0   X-X   X
-      # 1   X   X-X-X
-      # 2 X-X     X
-      # In this situation, the distance at y=0 at the line where x=3 (where our
-      # second shape got added) is 2, at y=1 it is 2, and at y=2 it is 3. Thus,
-      # either (4,0) should connect to (2,0) or (3,1) should connect to (1,1).
-      my @candidates;
-      my $distance = $shift + $width;
-      for my $y (0 .. $max) {
-	my $smallest_x = min(map { $_->[0] } grep { $_->[0] >= $shift and $_->[1] == $y } @$result);
-	my $biggest_x = max(map { $_->[0] } grep { $_->[0] < $shift and $_->[1] == $y } @$result);
-	next unless defined $smallest_x and defined $biggest_x;
-	my $d = $smallest_x - $biggest_x;
-	if ($d < $distance) {
-	  $distance = $d;
-	  @candidates = ([$smallest_x, $y, $biggest_x, $y]);
-	  # $log->debug("Candidate ($d): [$smallest_x, $y] to [$biggest_x, $y]");
-	} elsif ($d == $distance) {
-	  push @candidates, [$smallest_x, $y, $biggest_x, $y];
-	  # $log->debug("Candidate ($d): [$smallest_x, $y] to [$biggest_x, $y]");
-	}
-      }
-      for my $candidates (@candidates) {
-	# $log->debug("Connect: @$candidates");
-	# Sadly, at this point we no longer know the indexes, so we need to search!
-	my ($from, $to);
-	for my $i (0 .. $#$result) {
-	  if (not $from
-	      and $result->[$i]->[0] == $candidates->[0]
-	      and $result->[$i]->[1] == $candidates->[1]) {
-	    $from = $i;
-	  } elsif (not $to
-		   and $result->[$i]->[0] == $candidates->[2]
-		   and $result->[$i]->[1] == $candidates->[3]) {
-	    $to = $i;
-	  }
-	}
-	# $log->debug("Connecting $from and $to");
-	if (@{$result->[$from]} == 3 and $result->[$from]->[2] == $from) {
-	  # If this is a first room that was marked as "disconnected" by a self
-	  # reference, remove it.
-	  pop(@{$result->[$from]});
-	} elsif (@{$result->[$from]} == 2) {
-	  # If this room connects to the previous one by default, we need to make it
-	  # explicit in order to keep the connection.
-	  push(@{$result->[$from]}, $from - 1);
-	}
-	# And this finally connects the two rooms from the two different dungeons.
-	push(@{$result->[$from]}, $to);
-      }
+    $self->shape_reconnect($result, $n) if $n < @$result;
+    if ($shift->[0] == $cols -1) {
+      $shift = [0, $shift->[1] + 1];
+    } else {
+      $shift = [$shift->[0] + 1, $shift->[1]];
     }
-    $shift += $width;
     $rooms += $n;
   }
   # Update globals
-  $self->dungeon_dimensions->[0] = $shift;
+  for my $dim (0, 1) {
+    $self->dungeon_dimensions->[$dim] = max(map { $_->[$dim] } @$result) + 1;
+  }
+  $log->debug("Dimensions of the dungeon are ("
+	      . join(", ", map { $self->dungeon_dimensions->[$_] } 0, 1) . ")");
   $self->recompute();
   return $result;
+}
+
+sub shape_reconnect {
+  my ($self, $result, $n) = @_;
+  my $rooms = @$result;
+  my $first = $rooms - $n;
+  # Disconnect the old room by adding an invalid self-reference to the first
+  # room of the last shape added; if there are just two numbers there, it would
+  # otherwise mean that the first room of the new shape connects to the last
+  # room of the previous shape and that is wrong.
+  # $log->debug("First of the shape is @{$result->[$first]}");
+  push(@{$result->[$first]}, $first) if @{$result->[$first]} == 2;
+  # New connections can be either up or left, therefore only the rooms within
+  # this shape that are at the left or the upper edge need to be considered.
+  my @up_candidates;
+  my @left_candidates;
+  my $min_up;
+  my $min_left;
+  for my $start ($first .. $rooms - 1) {
+    my $x = $result->[$start]->[0];
+    my $y = $result->[$start]->[1];
+    # Check up: if we find a room in our set, this room is disqualified; if we
+    # find another room, record the distance, and the destination.
+    for my $end (0 .. $first - 1) {
+      next if $start == $end;
+      next if $result->[$end]->[0] != $x;
+      my $d = $y - $result->[$end]->[1];
+      next if $min_up and $d > $min_up;
+      if (not $min_up or $d < $min_up) {
+	# $log->debug("$d for $start → $end is smaller than $min_up: ") if defined $min_up;
+	$min_up = $d;
+	@up_candidates = ([$start, $end]);
+      } else {
+	# $log->debug("$d for $start → $end is the same as $min_up");
+	push(@up_candidates, [$start, $end]);
+      }
+    }
+    # Check left: if we find a room in our set, this room is disqualified; if we
+    # find another room, record the distance, and the destination.
+    for my $end (0 .. $first - 1) {
+      next if $start == $end;
+      next if $result->[$end]->[1] != $y;
+      my $d = $x - $result->[$end]->[0];
+      next if $min_left and $d > $min_left;
+      if (not $min_left or $d < $min_left) {
+	$min_left = $d;
+	@left_candidates = ([$start, $end]);
+      } else {
+	push(@left_candidates, [$start, $end]);
+      }
+    }
+  }
+  $log->debug("up candidates: " . join(", ", map { join(" → ", map { $_ < 10 ? $_ : chr(55 + $_) } @$_) } @up_candidates));
+  $log->debug("left candidates: " . join(", ", map { join(" → ", map { $_ < 10 ? $_ : chr(55 + $_) } @$_) } @left_candidates));
+  for (one(@up_candidates), one(@left_candidates)) {
+    next unless $_;
+    $log->debug("connecting " . join(" → ", map { $_ < 10 ? $_ : chr(55 + $_) } @$_));
+    my ($start, $end) = @$_;
+    if (@{$result->[$start]} == 3 and $result->[$start]->[2] == $start) {
+      # remove the fake connection if there is one
+      pop(@{$result->[$start]});
+    } else {
+      # connecting to the previous room (otherwise the new connection replaces
+      # the implicit connection to the previous room)
+      push(@{$result->[$start]}, $start - 1);
+    }
+    # connect to the new one
+    push(@{$result->[$start]}, $end);
+  }
 }
 
 sub debug_shapes {
@@ -3159,8 +3179,9 @@ sub debug_shapes {
   my $shapes = shift;
   my $map = [map { [ map { " " } 0 .. $self->dungeon_dimensions->[0] - 1] } 0 .. $self->dungeon_dimensions->[1] - 1];
   $log->debug(join(" ", " ", 0 .. $self->dungeon_dimensions->[0] - 1));
-  for my $shape (@$shapes) {
-    $map->[ $shape->[1] ]->[ $shape->[0] ] = "X";
+  for my $n (0 .. $#$shapes) {
+    my $shape = $shapes->[$n];
+    $map->[ $shape->[1] ]->[ $shape->[0] ] = $n < 10 ? $n : chr(55 + $n);
   }
   for my $y (0 .. $self->dungeon_dimensions->[1] - 1) {
     $log->debug(join(" ", "$y", @{$map->[$y]}));
@@ -3189,6 +3210,42 @@ sub shape {
   } elsif ($num == 14) {
     $shape = $self->shape_merge($self->seven_room_shape(), $self->seven_room_shape());
     $stairs = ["1", "8"];
+  } elsif ($num == 15) {
+    $shape = $self->shape_merge($self->five_room_shape(), $self->five_room_shape(),
+				$self->five_room_shape());
+    $stairs = ["1", "6", "11"];
+  } elsif ($num == 17) {
+    $shape = $self->shape_merge($self->five_room_shape(), $self->five_room_shape(),
+				$self->seven_room_shape());
+    $stairs = ["1", "6", "11"];
+  } elsif ($num == 19) {
+    $shape = $self->shape_merge($self->five_room_shape(), $self->seven_room_shape(),
+				$self->seven_room_shape());
+    $stairs = ["1", "6", "13"];
+  } elsif ($num == 21) {
+    $shape = $self->shape_merge($self->seven_room_shape(), $self->seven_room_shape(),
+				$self->seven_room_shape());
+    $stairs = ["1", "8", "15"];
+  } elsif ($num == 20) {
+    $shape = $self->shape_merge($self->five_room_shape(), $self->five_room_shape(),
+				$self->five_room_shape(), $self->five_room_shape());
+    $stairs = ["1", "6", "11", "16"];
+  } elsif ($num == 22) {
+    $shape = $self->shape_merge($self->five_room_shape(), $self->five_room_shape(),
+				$self->five_room_shape(), $self->seven_room_shape());
+    $stairs = ["1", "6", "11", "16"];
+  } elsif ($num == 24) {
+    $shape = $self->shape_merge($self->five_room_shape(), $self->five_room_shape(),
+				$self->seven_room_shape(), $self->seven_room_shape());
+    $stairs = ["1", "6", "11", "18"];
+  } elsif ($num == 26) {
+    $shape = $self->shape_merge($self->five_room_shape(), $self->seven_room_shape(),
+				$self->seven_room_shape(), $self->seven_room_shape());
+    $stairs = ["1", "6", "13", "20"];
+  } elsif ($num == 28) {
+    $shape = $self->shape_merge($self->seven_room_shape(), $self->seven_room_shape(),
+				$self->seven_room_shape(), $self->seven_room_shape());
+    $stairs = ["1", "8", "15", "22"];
   }
   $self->debug_shapes($shape) if $log->level eq 'debug';
   $log->debug(join(", ", map { "[@$_]"} @$shape));
@@ -3252,19 +3309,19 @@ sub add_corridors {
 	and $to->[1] == $shapes->[$to->[2]]->[1]) {
       # If the preceding shape is pointing to ourselves, then this room is
       # disconnected: don't add a corridor.
-      # $log->debug("No corridor from @$from to @$to");
+      $log->debug("No corridor from @$from to @$to");
       $from = $to;
     } elsif (@$to == 2) {
       # The default case is that the preceding shape is our parent. A simple
       # railroad!
-      # $log->debug("from @$from to @$to");
+      $log->debug("Regular from @$from to @$to");
       $tiles = $self->add_corridor($tiles, $from, $to, $self->get_delta($from, $to));
       $from = $to;
     } else {
       # In case the shapes are not connected in order, the parent shapes are
       # available as extra elements.
       for my $from (map { $shapes->[$_] } @$to[2 .. $#$to]) {
-	# $log->debug(" from @$from to @$to");
+	$log->debug("Branch from @$from to @$to");
 	$tiles = $self->add_corridor($tiles, $from, $to, $self->get_delta($from, $to));
       }
       $from = $to;
