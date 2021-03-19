@@ -3176,14 +3176,14 @@ sub shape_reconnect {
 sub debug_shapes {
   my $self = shift;
   my $shapes = shift;
-  my $map = [map { [ map { " " } 0 .. $self->dungeon_dimensions->[0] - 1] } 0 .. $self->dungeon_dimensions->[1] - 1];
-  $log->debug(join(" ", " ", 0 .. $self->dungeon_dimensions->[0] - 1));
+  my $map = [map { [ map { "  " } 0 .. $self->dungeon_dimensions->[0] - 1] } 0 .. $self->dungeon_dimensions->[1] - 1];
+  $log->debug(join(" ", "  ", map { sprintf("%2x", $_) } 0 .. $self->dungeon_dimensions->[0] - 1));
   for my $n (0 .. $#$shapes) {
     my $shape = $shapes->[$n];
-    $map->[ $shape->[1] ]->[ $shape->[0] ] = $n < 10 ? $n : chr(55 + $n);
+    $map->[ $shape->[1] ]->[ $shape->[0] ] = sprintf("%2x", $n);
   }
   for my $y (0 .. $self->dungeon_dimensions->[1] - 1) {
-    $log->debug(join(" ", "$y", @{$map->[$y]}));
+    $log->debug(join(" ", sprintf("%2x", $y), @{$map->[$y]}));
   }
 }
 
