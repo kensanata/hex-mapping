@@ -3201,7 +3201,7 @@ sub shape {
     $sevens--;
     $rest = $num - 7 * $sevens;
   }
-  my $fives = int($rest/5);
+  my $fives = POSIX::ceil($rest/5);
   my @sequence = shuffle((5) x $fives, (7) x $sevens);
   @sequence = (5) unless @sequence;
   $shape = $self->shape_merge(map { $_ == 5 ? $self->five_room_shape() : $self->seven_room_shape() } @sequence);
