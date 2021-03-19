@@ -5787,7 +5787,7 @@ just keep reloading one of these links:
 <%= link_to url_for('gridmapperrandom')->query(rooms => 5) => begin %>5 rooms<% end %>,
 <%= link_to url_for('gridmapperrandom')->query(rooms => 10) => begin %>10 rooms<% end %>,
 <%= link_to url_for('gridmapperrandom')->query(rooms => 20) => begin %>20 rooms<% end %>.
-Each map contains a “Edit in Gridmapper” link which will open the same map in the <a
+Each map contains an “Edit in Gridmapper” link which will open the same map in the <a
 href="https://campaignwiki.org/gridmapper.svg">Gridmapper web app</a> itself.
 %= form_for gridmapper => begin
 <p>
