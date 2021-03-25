@@ -649,7 +649,7 @@
 1,[human surname] & [human surname]
 
 ;company subject
-2,[Standard|Universal|Popular|Human|Space|Ultimate|World|Generic|General|Market]
+2,[Standard|Universal|Popular|Human|Space|Ultimate|World|Generic|General|Market|Total]
 1,[space name]
 1,[human surname]
 
@@ -1257,10 +1257,10 @@
 1,upgraded
 
 ;scout/courier
-1,<p>The *[here scout ship name as ship name]* is a **type S** scout/courier ship (100t, streamlined). This ship is limited to jump-1. [scout ship crew]
+1,<p>The *[here scout ship name as ship name]* is a **type S** scout/courier ship (100t, streamlined). This ship is limited to jump-2 and 2-G acceleration. [scout ship crew]
 
 ;free trader
-1,<p>The *[here ship name]* is a **type A** free trader (200t, streamlined). This ship is limited to jump-1. [free trader ship crew]
+1,<p>The *[here ship name]* is a **type A** free trader (200t, streamlined). This ship is limited to jump-1 and 1-G acceleration. [free trader ship crew]
 
 ;subsidized merchant
 1,<p>The *[here ship name]* is a **type R** “fat trader” (400t, streamlined), subsidized by the *[nearby big port]* government. This ship is limited to jump-1. [subsidized merchant ship crew]
