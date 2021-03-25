@@ -29,6 +29,7 @@ use Mojo::Base -base;
 
 has 'x';
 has 'y';
+has 'z';
 
 sub equal {
   my ($self, $other) = @_;
@@ -63,6 +64,7 @@ use Mojo::Base -base;
 
 has 'id';
 has 'points';
+has 'offset';
 has 'type';
 has 'label';
 has 'map';
@@ -71,9 +73,11 @@ sub compute_missing_points {
   my $self = shift;
   my $i = 0;
   my $current = $self->points->[$i++];
+  my $z = $current->z;
   my @result = ($current);
   while ($self->points->[$i]) {
     $current = $self->one_step($current, $self->points->[$i]);
+    return unless $z == $current->z; # must all be on the same plane
     push(@result, $current);
     $i++ if $current->equal($self->points->[$i]);
   }
@@ -91,10 +95,12 @@ sub partway {
 }
 
 sub svg {
-  my $self = shift;
+  my ($self, $offset) = @_;
+  $log->debug($self);
   my ($path, $current, $next, $closed);
-
+  $self->offset($offset);
   my @points = $self->compute_missing_points();
+  return '' unless @points;
   if ($points[0]->equal($points[$#points])) {
     $closed = 1;
   }
@@ -207,7 +213,7 @@ use Mojo::Base 'Line';
 
 sub pixels {
   my ($self, $point) = @_;
-  my ($x, $y) = ($point->x * $dx * 3/2, $point->y * $dy - $point->x % 2 * $dy/2);
+  my ($x, $y) = ($point->x * $dx * 3/2, ($point->y + $self->offset->[$point->z]) * $dy - $point->x % 2 * $dy/2);
   return ($x, $y) if wantarray;
   return sprintf("%.1f,%.1f", $x, $y);
 }
@@ -239,7 +245,7 @@ sub one_step {
           + ($to->y - $y) * ($to->y - $y);
     if (!defined($min) || $d < $min) {
       $min = $d;
-      $best = Point->new(x => $x, y => $y);
+      $best = Point->new(x => $x, y => $y, z => $from->z);
     }
   }
   return $best;
@@ -252,7 +258,7 @@ use Mojo::Base 'Line';
 
 sub pixels {
   my ($self, $point) = @_;
-  my ($x, $y) = ($point->x * $dy, $point->y * $dy);
+  my ($x, $y) = ($point->x * $dy, ($point->y + $self->offset->[$point->z]) * $dy);
   return ($x, $y) if wantarray;
   return sprintf("%d,%d", $x, $y);
 }
@@ -264,10 +270,10 @@ sub one_step {
   my $dy = $to->y - $from->y;
   if (abs($dx) >= abs($dy)) {
     my $x = $from->x + ($dx > 0 ? 1 : -1);
-    return Point->new(x => $x, y => $from->y);
+    return Point->new(x => $x, y => $from->y, z => $from->z);
   } else {
     my $y = $from->y + ($dy > 0 ? 1 : -1);
-    return Point->new(x => $from->x, y => $y);
+    return Point->new(x => $from->x, y => $y, z => $from->z);
   }
 }
 
@@ -280,6 +286,7 @@ use Mojo::Base -base;
 
 has 'x';
 has 'y';
+has 'z';
 has 'type';
 has 'label';
 has 'size';
@@ -298,19 +305,25 @@ sub corners {
 }
 
 sub svg_region {
-  my ($self, $attributes) = @_;
-  my $x = $self->x * $dx * 3/2;
-  my $y = $self->y * $dy - $self->x % 2 * $dy/2;
-  my $id = "hex" . $self->x . $self->y;
+  my ($self, $attributes, $offset) = @_;
+  my $x = $self->x;
+  my $y = $self->y;
+  my $z = $self->z;
+  my $id = "hex$x$y$z";
+  $y += $offset->[$z];
   my $points = join(" ", map {
-    sprintf("%.1f,%.1f", $x + $_->[0], $y + $_->[1]) } $self->corners());
+    sprintf("%.1f,%.1f",
+	    $x * $dx * 3/2 + $_->[0],
+	    $y * $dy - $self->x % 2 * $dy/2 + $_->[1]) } $self->corners());
   return qq{    <polygon id="$id" $attributes points="$points" />\n}
 }
 
 sub svg {
-  my $self = shift;
+  my ($self, $offset) = @_;
   my $x = $self->x;
   my $y = $self->y;
+  my $z = $self->z;
+  $y += $offset->[$z];
   my $data = '';
   for my $type (@{$self->type}) {
     $data .= sprintf(qq{    <use x="%.1f" y="%.1f" xlink:href="#%s" />\n},
@@ -320,9 +333,11 @@ sub svg {
 }
 
 sub svg_coordinates {
-  my $self = shift;
+  my ($self, $offset) = @_;
   my $x = $self->x;
   my $y = $self->y;
+  my $z = $self->z;
+  $y += $offset->[$z];
   my $data = '';
   $data .= qq{    <text text-anchor="middle"};
   $data .= sprintf(qq{ x="%.1f" y="%.1f"},
@@ -331,13 +346,13 @@ sub svg_coordinates {
   $data .= ' ';
   $data .= $self->map->text_attributes || '';
   $data .= '>';
-  $data .= Point::coord($x, $y, ".");
+  $data .= Point::coord($self->x, $self->y, ".");
   $data .= qq{</text>\n};
   return $data;
 }
 
 sub svg_label {
-  my ($self, $url) = @_;
+  my ($self, $url, $offset) = @_;
   return '' unless defined $self->label;
   my $attributes = $self->map->label_attributes;
   if ($self->size) {
@@ -348,6 +363,8 @@ sub svg_label {
   $url =~ s/\%s/uri_escape(encode_utf8($self->label))/e or $url .= uri_escape(encode_utf8($self->label)) if $url;
   my $x = $self->x;
   my $y = $self->y;
+  my $z = $self->z;
+  $y += $offset->[$z];
   my $data = sprintf(qq{    <g><text text-anchor="middle" x="%.1f" y="%.1f" %s %s>}
                      . $self->label
                      . qq{</text>},
@@ -373,6 +390,7 @@ use Mojo::Base -base;
 
 has 'x';
 has 'y';
+has 'z';
 has 'type';
 has 'label';
 has 'size';
@@ -384,17 +402,23 @@ sub str {
 }
 
 sub svg_region {
-  my ($self, $attributes) = @_;
-  my $x = ($self->x - 0.5) * $dy;
-  my $y = ($self->y - 0.5) * $dy; # square!
-  my $id = "square" . $self->x . $self->y;
+  my ($self, $attributes, $offset) = @_;
+  my $x = $self->x;
+  my $y = $self->y;
+  my $z = $self->z;
+  my $id = "square$x$y$z";
+  $y += $offset->[$z];
+  $x = ($x - 0.5) * $dy;
+  $y = ($y - 0.5) * $dy; # square!
   return qq{    <rect id="$id" $attributes x="$x" y="$y" width="$dy" height="$dy" />\n}
 }
 
 sub svg {
-  my $self = shift;
+  my ($self, $offset) = @_;
   my $x = $self->x;
   my $y = $self->y;
+  my $z = $self->z;
+  $y += $offset->[$z];
   my $data = '';
   for my $type (@{$self->type}) {
     $data .= sprintf(qq{    <use x="%d" y="%d" xlink:href="#%s" />\n},
@@ -406,9 +430,11 @@ sub svg {
 }
 
 sub svg_coordinates {
-  my $self = shift;
+  my ($self, $offset) = @_;
   my $x = $self->x;
   my $y = $self->y;
+  my $z = $self->z;
+  $y += $offset->[$z];
   my $data = '';
   $data .= qq{    <text text-anchor="middle"};
   $data .= sprintf(qq{ x="%d" y="%d"},
@@ -417,13 +443,13 @@ sub svg_coordinates {
   $data .= ' ';
   $data .= $self->map->text_attributes || '';
   $data .= '>';
-  $data .= Point::coord($x, $y, ".");
+  $data .= Point::coord($self->x, $self->y, "."); # original
   $data .= qq{</text>\n};
   return $data;
 }
 
 sub svg_label {
-  my ($self, $url) = @_;
+  my ($self, $url, $offset) = @_;
   return '' unless defined $self->label;
   my $attributes = $self->map->label_attributes;
   if ($self->size) {
@@ -434,6 +460,8 @@ sub svg_label {
   $url =~ s/\%s/uri_escape($self->label)/e or $url .= uri_escape($self->label) if $url;
   my $x = $self->x;
   my $y = $self->y;
+  my $z = $self->z;
+  $y += $offset->[$z];
   my $data = sprintf(qq{    <g><text text-anchor="middle" x="%d" y="%d" %s %s>}
                      . $self->label
                      . qq{</text>},
@@ -475,6 +503,7 @@ has 'seen' => sub { {} };
 has 'license' => '';
 has 'other' => sub { [] };
 has 'url' => '';
+has 'offset' => sub { [] };
 
 sub example {
   return <<"EOT";
@@ -514,9 +543,9 @@ sub process {
   my $self = shift;
   my $line_id = 0;
   foreach (@_) {
-    if (/^(-?\d\d)(-?\d\d)\s+(.*)/) {
-      my $region = $self->make_region(x => $1, y => $2, map => $self);
-      my $rest = $3;
+    if (/^(-?\d\d)(-?\d\d)(\d\d)?\s+(.*)/) {
+      my $region = $self->make_region(x => $1, y => $2, z => $3||'00', map => $self);
+      my $rest = $4;
       while (my ($tag, $label, $size) = $rest =~ /\b([a-z]+)=["“]([^"”]+)["”]\s*(\d+)?/) {
 	if ($tag eq 'name') {
 	  $region->label($label);
@@ -533,17 +562,15 @@ sub process {
       $region->type(\@types);
       push(@{$self->regions}, $region);
       push(@{$self->things}, $region);
-    } elsif (/^(-?\d\d-?\d\d(?:--?\d\d-?\d\d)+)\s+(\S+)\s*(?:["“](.+)["”])?/) {
+    } elsif (/^(-?\d\d-?\d\d(?:\d\d)?(?:--?\d\d-?\d\d(?:\d\d)?)+)\s+(\S+)\s*(?:["“](.+)["”])?/) {
       my $line = $self->make_line(map => $self);
       my $str = $1;
       $line->type($2);
       $line->label($3);
       $line->id('line' . $line_id++);
-      my @numbers = $str =~ /\G(-?\d\d)(-?\d\d)-?/cg;
       my @points;
-      while (@numbers) {
-	my ($x, $y) = splice(@numbers, 0, 2);
-	push(@points, Point->new(x => $x, y => $y));
+      while ($str =~ /\G(-?\d\d)(-?\d\d)(\d\d)?-?/cg) {
+	push(@points, Point->new(x => $1, y => $2, z => $3||'00'));
       }
       $line->points(\@points);
       push(@{$self->lines}, $line);
@@ -617,29 +644,42 @@ sub svg_header {
 <svg xmlns="http://www.w3.org/2000/svg" version="1.1"
      xmlns:xlink="http://www.w3.org/1999/xlink"
 };
-
-  my ($minx, $miny, $maxx, $maxy);
+  return $header . "\n" unless @{$self->regions};
+  my $maxz = 0;
   foreach my $region (@{$self->regions}) {
-    $minx = $region->x if not defined($minx);
-    $maxx = $region->x if not defined($maxx);
-    $miny = $region->y if not defined($miny);
-    $maxy = $region->y if not defined($maxy);
-    $minx = $region->x if $minx > $region->x;
-    $maxx = $region->x if $maxx < $region->x;
-    $miny = $region->y if $miny > $region->y;
-    $maxy = $region->y if $maxy < $region->y;
+    $maxz = $region->z if $region->z > $maxz;
   }
-
-  if (defined($minx) and defined($maxx) and defined($miny) and defined($maxy)) {
-
-    my ($vx1, $vy1, $vx2, $vy2) = $self->viewbox($minx, $miny, $maxx, $maxy);
-    my ($width, $height) = ($vx2 - $vx1, $vy2 - $vy1);
-
-    $header .= qq{     viewBox="$vx1 $vy1 $width $height">\n};
-    $header .= qq{     <!-- min ($minx, $miny), max ($maxx, $maxy) -->\n};
-  } else {
-    $header .= qq{>\n}; # something is seriously wrong, though!
+  # these are required to calculate the viewBox for the SVG
+  my $min_x_overall;
+  my $max_x_overall;
+  my $min_y_overall;
+  # $max_y_overall is the last row of the SVG with all the levels: if there is
+  # just one hex, 010100, then the last row shown on the SVG is 0 (the first
+  # one); if there are two hexes beneath each other, 010100 and 010101, then the
+  # last row shown on the SVG is 2 (y=0 is for z=0, y=1 is the space between
+  # levels, and y=2 is for z=1); note that this would be the same if the two
+  # hexes were 020200 and 020202!
+  my $max_y_overall = 0;
+  for my $z (0 .. $maxz) {
+    my ($minx, $miny, $maxx, $maxy);
+    $max_y_overall += 1 if $z > 0;
+    $self->offset->[$z] = $max_y_overall;
+    foreach my $region (@{$self->regions}) {
+      next unless $region->z == $z;
+      $minx = $region->x unless defined $minx and $minx <= $region->x;
+      $maxx = $region->x unless defined $maxx and $maxx >= $region->x;
+      $miny = $region->y unless defined $miny and $miny <= $region->y;
+      $maxy = $region->y unless defined $maxy and $maxy >= $region->y;
+    }
+    $min_x_overall = $minx unless defined $min_x_overall and $minx >= $min_x_overall;
+    $max_x_overall = $maxx unless defined $min_y_overall and $maxx <= $max_x_overall;;
+    $min_y_overall = $miny unless defined $min_y_overall;
+    $max_y_overall += 1 + $maxy - $miny;
   }
+  my ($vx1, $vy1, $vx2, $vy2) = $self->viewbox($min_x_overall, $min_y_overall, $max_x_overall, $max_y_overall);
+  my ($width, $height) = ($vx2 - $vx1, $vy2 - $vy1);
+  $header .= qq{     viewBox="$vx1 $vy1 $width $height">\n};
+  $header .= qq{     <!-- min ($min_x_overall, $min_y_overall), max ($max_x_overall, $max_y_overall) -->\n};
   return $header;
 }
 
@@ -696,7 +736,7 @@ sub svg_backgrounds {
     my @types = @{$thing->type};
     # keep attributes
     $thing->type([grep { $self->attributes->{$_} } @{$thing->type}]);
-    $doc .= $thing->svg();
+    $doc .= $thing->svg($self->offset);
     # reset copy
     $thing->type(\@types);
   }
@@ -710,7 +750,7 @@ sub svg_things {
   foreach my $thing (@{$self->things}) {
     # drop attributes
     $thing->type([grep { not $self->attributes->{$_} } @{$thing->type}]);
-    $doc .= $thing->svg();
+    $doc .= $thing->svg($self->offset);
   }
   $doc .= qq{  </g>\n};
   return $doc;
@@ -720,7 +760,7 @@ sub svg_coordinates {
   my $self = shift;
   my $doc = qq{  <g id="coordinates">\n};
   foreach my $region (@{$self->regions}) {
-    $doc .= $region->svg_coordinates();
+    $doc .= $region->svg_coordinates($self->offset);
   }
   $doc .= qq{  </g>\n};
   return $doc;
@@ -730,18 +770,18 @@ sub svg_lines {
   my $self = shift;
   my $doc = qq{  <g id="lines">\n};
   foreach my $line (@{$self->lines}) {
-    $doc .= $line->svg();
+    $doc .= $line->svg($self->offset);
   }
   $doc .= qq{  </g>\n};
   return $doc;
 }
 
 sub svg_regions {
-  my ($self) = @_;
+  my $self = shift;
   my $doc = qq{  <g id="regions">\n};
   my $attributes = $self->attributes->{default} || qq{fill="none"};
   foreach my $region (@{$self->regions}) {
-    $doc .= $region->svg_region($attributes);
+    $doc .= $region->svg_region($attributes, $self->offset);
   }
   $doc .= qq{  </g>\n};
 }
@@ -750,7 +790,7 @@ sub svg_line_labels {
   my $self = shift;
   my $doc = qq{  <g id="line_labels">\n};
   foreach my $line (@{$self->lines}) {
-    $doc .= $line->svg_label();
+    $doc .= $line->svg_label($self->offset);
   }
   $doc .= qq{  </g>\n};
   return $doc;
@@ -760,7 +800,7 @@ sub svg_labels {
   my $self = shift;
   my $doc = qq{  <g id="labels">\n};
   foreach my $region (@{$self->regions}) {
-    $doc .= $region->svg_label($self->url);
+    $doc .= $region->svg_label($self->url, $self->offset);
   }
   $doc .= qq{  </g>\n};
   return $doc;
@@ -824,8 +864,8 @@ sub shape {
 sub viewbox {
   my $self = shift;
   my ($minx, $miny, $maxx, $maxy) = @_;
-  map { int($_) } ($minx * $dx * 3/2 - $dx - 60, ($miny - 1.0) * $dy - 50,
-		   $maxx * $dx * 3/2 + $dx + 60, ($maxy + 0.5) * $dy + 100);
+  map { int($_) } ($minx * $dx * 3/2 - $dx - 60, ($miny - 1.5) * $dy,
+		   $maxx * $dx * 3/2 + $dx + 60, ($maxy + 1) * $dy);
 }
 
 package Mapper::Square;
@@ -4645,6 +4685,7 @@ get '/alpine/parameters' => sub {
   $c->render(template => 'alpine_parameters');
 };
 
+# does not handle z coordinates
 sub border_modification {
   my ($map, $top, $left, $right, $bottom, $empty) = @_;
   my (@lines, @temp, %seen);
