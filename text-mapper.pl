@@ -4473,6 +4473,12 @@ use Pod::Simple::HTML;
 use Pod::Simple::Text;
 use List::Util qw(none);
 
+# Change scheme if "X-Forwarded-Proto" header is set (presumably to HTTPS)
+app->hook(before_dispatch => sub {
+  my $c = shift;
+  $c->req->url->base->scheme('https')
+      if $c->req->headers->header('X-Forwarded-Proto') } );
+
 plugin Config => {default => {
   loglevel => 'warn',
   logfile => undef,
