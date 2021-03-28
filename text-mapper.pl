@@ -1283,8 +1283,8 @@ sub generate_map {
   $height = 10 if not defined $height or $height < 1 or $height > 100;
 
   my $seeds;
-  for (my $y = 1; $y < $height + 2; $y += 5) {
-    for (my $x = 1; $x < $width + 2; $x += 5) {
+  for (my $y = 1; $y < $height + 3; $y += 5) {
+    for (my $x = 1; $x < $width + 3; $x += 5) {
       # [1,1] [6,3], [11,1], [16,3]
       my $y0 = $y + int(($x % 10) / 3);
       push(@$seeds, [$x, $y0]);
