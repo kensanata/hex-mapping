@@ -613,7 +613,7 @@ sub process {
 	}
       }
     } else {
-      $log->debug("Did not parse $_") if $_;
+      $log->debug("Did not parse $_") if $_ and not /^\s*#/;
     }
   }
   return $self;
