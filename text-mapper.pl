@@ -1071,7 +1071,7 @@ sub member {
 }
 
 sub verbose {
-  $log->info(shift);
+  $log->debug(shift);
 }
 
 sub place_major {
