@@ -1,0 +1,43 @@
+# A template for subdividing a 5-mile hex into 1-mile hexes and 0.2-mile hexes
+# in the spirit of Judges Guild's Campaign Hexagon System. Assumes a map of 37
+# by 27 hexes. Yes, the 1-mile hexes around 0406 0421 3406 3421 are debatable;
+# also the 1-mile hexes don't tile; I still find them useful for orientation.
+
+<polygon id="hexshape" fill="none" points="-100.0,0 -50.0,-86.6 50.0,-86.6 100.0,0 50.0,86.6 -50.0,86.6"/>
+<use id="bighex5" xlink:href="#hexshape" transform="scale(5)" stroke="#999" stroke-width="3" opacity="0.8"/>
+<use id="bighex25" xlink:href="#hexshape" transform="scale(25)" stroke="#f00" stroke-width="1" opacity="0.5"/>
+
+0406 bighex5
+0411 bighex5
+0416 bighex5
+0421 bighex5
+0904 bighex5
+0909 bighex5
+0914 bighex5
+0919 bighex5
+0924 bighex5
+1406 bighex5
+1411 bighex5
+1416 bighex5
+1421 bighex5
+1904 bighex5
+1909 bighex5
+1914 bighex5
+1919 bighex5
+1924 bighex5
+2406 bighex5
+2411 bighex5
+2416 bighex5
+2421 bighex5
+2904 bighex5
+2909 bighex5
+2914 bighex5
+2919 bighex5
+2924 bighex5
+3406 bighex5
+3411 bighex5
+3416 bighex5
+3421 bighex5
+
+# goes last to draw on top
+1914 bighex25
