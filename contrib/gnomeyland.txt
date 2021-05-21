@@ -106,6 +106,9 @@ red attributes fill="red" opacity="0.8" transform="scale(0.5)"
 <g id="forest-mountains"><use xlink:href="#Mountain" transform="scale(0.7) translate(-45,0)"/><use xlink:href="#Peak" transform="scale(0.7)"/><use xlink:href="#Mountain" transform="scale(0.7) translate(40,25)"/><use xlink:href="#Tree" transform="scale(0.3) translate(-120,-40)"/><use xlink:href="#Tree" transform="scale(0.3) translate(10,-20)"/><use xlink:href="#Tree" transform="scale(0.3) translate(150,10)"/></g>
 <g id="fir-mountains"><use xlink:href="#Mountain" transform="scale(0.7) translate(-45,0)"/><use xlink:href="#Peak" transform="scale(0.7)"/><use xlink:href="#Mountain" transform="scale(0.7) translate(40,25)"/><use xlink:href="#Fir" transform="scale(0.3) translate(-120,-40)"/><use xlink:href="#Fir" transform="scale(0.3) translate(10,-20)"/><use xlink:href="#Fir" transform="scale(0.3) translate(150,10)"/></g>
 
+# Caves
+<g id="hill-cave"><use xlink:href="#hill"/><path d="M 9,21 A 12,15 0 0 1 22,7 12,15 0 0 1 34,21"/></g>
+
 # Simple things to layer on top
 <path id="desert" stroke="black" stroke-width="3" d="M-60,10 v3 M-50,-30 v3 M-40,-0 v3 M-30,40 v3 M-20,-20 v3 M-10,10 v3 M5,-30 v3 M10,20 v3 M20,0 v3 M30,30 v3 M30,-40 v3 M40,10 v3 M60,-10 v3 "/>
 <g id="grass"><path stroke="black" stroke-width="6" d="m -21,-24 c -2,7 1,11 4,17"/><path stroke="black" stroke-width="6" d="m -10,-32 c 0,0 -1,15 3,23"/><path stroke="black" stroke-width="6" d="m 3,-20 c 0,0 0,11 -3,13"/><path stroke="black" stroke-width="6" d="m 25,1 c 0,10 7,11 7,21"/><path stroke="black" stroke-width="6" d="m 36,4 c 0,0 6,4 4,15"/><path stroke="black" stroke-width="6" d="m 49,7 c 0,0 -1,11 -1,12"/><path stroke="black" stroke-width="6" d="m -44,10 c 0,7 4,10 6,17"/><path stroke="black" stroke-width="6" d="m -33,5 c -1,7 1,13 3,19"/><path stroke="black" stroke-width="6" d="m -24,14 c 0,0 3,7 3,11"/></g>
