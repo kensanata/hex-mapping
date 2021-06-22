@@ -595,13 +595,43 @@
 1,There’s peace right now but all the warlords are hiring military specialists so the outlook is dim.
 
 ;government-8
-1,<p>The civil service bureaucracy on [same name] has served the population well: through all the ups and downs of recent decades, the unchanging civil service exams make sure that the ranks of government are filled with competent experts. People study long and hard when they’re young, which makes for good candidates, but it also takes its toll: drop outs end up with lousy jobs. Depression and suicides are common.
-1,<p>The state maintains elite civil service institutes to train its next generation of civil servants. This results in a well educated has served the population well: through all the ups and downs of recent decades, the unchanging civil service exams make sure that the ranks of government are filled with competent experts. People study long and hard when they’re young, which makes for good candidates, but it also takes its toll: drop outs end up with lousy jobs; depression and suicides are common.
-1,<p>Every young citizen on [same name] spends two years in the civil service. On the one hand, this means that you find trainees on all levels of government. On the other hand, this means citizens all know what it’s like to work inside the government. The best administrators stay and make their careers in government. There is a lot of grumbling about those two years, but there is also a lot of pride.
-1,<p>The influence of the empire comes and goes. What keeps the government running is the civil service bureaucracy. Everything of strategic importance is run by the state: the postal services, transportation networks, markets, construction, the energy sector. Things are slow to change because all important changes haven through the political system. On the other hand, people feel that resources are allocated fairly.
+1,<p>The civil service bureaucracy on [same name] has served the population well: through all the ups and downs of recent decades, the unchanging civil service exams make sure that the ranks of government are filled with competent experts. People study long and hard when they’re young, which makes for good candidates, but it also takes its toll: drop outs end up with lousy jobs. Depression and suicides are common. The [worst of the lot|most prestigious institution] is the *[civil service institution]*.
+1,<p>The state maintains elite civil service institutes to train its next generation of civil servants. This has served the population well: through all the ups and downs of recent decades, the unchanging civil service exams make sure that the ranks of government are filled with competent experts. People study long and hard when they’re young, which makes for good candidates, but it also takes its toll: drop outs end up with lousy jobs; depression and suicides are common. The [worst of the lot|most prestigious institution] is the *[civil service institution]*.
+1,<p>Every young citizen on [same name] spends two years in the civil service. On the one hand, this means that you find trainees on all levels of government. On the other hand, this means citizens all know what it’s like to work inside the government. The best administrators stay and make their careers in government. There is a lot of grumbling about those two years, but there is also a lot of pride. The [most prestigious institution|the harshest one ] is the *[civil service institution]*.
+1,<p>The influence of the empire comes and goes. What keeps the government running is the civil service bureaucracy. Everything of strategic importance is run by the state: the postal services, transportation networks, markets, construction, the energy sector. Things are slow to change because all important changes haven through the political system. On the other hand, people feel that resources are allocated fairly. The [most prestigious one is|current members of government all met at] the *[civil service institution]*.
+
+;civil service institution
+1,[Ministry|Institute|University|School] of [civil service topic]
+
+;civil service topic
+3,[civil service field of knowledge]
+1,[space name] [civil service field of knowledge]
+1,[civil service field prefix] [civil service field of knowledge]
+
+;civil service field prefix
+1,Applied
+1,Universal
+1,Meta
+1,Superior
+1,Interstellar
+1,Imperial
+1,Elite
+
+;civil service field of knowledge
+1,Economics
+1,Statistics
+1,Mathematics
+1,Humanities
+1,Politics
+1,Demography
+1,Geography
+1,Sociology
+1,Psychology
+1,Philosophy
+1,Theology
 
 ;government-9
-1,<p>The impersonal bureaucracy of [same name] is a meat grinder. More than two dozen ministries run the state; more than three dozen secret services monitor communications and commerce. The rules contradict each other, the laws are different on all three levels of the state; precedents are important but access to the law is restricted. If you’re investigated by the state, you’ll always be in infraction of some rule or another. Everything is labyrinthine and nepotism is the only way to assure things actually work, at least occasionally.
+1,<p>The impersonal bureaucracy of [same name] is a meat grinder. More than two dozen ministries run the state; more than three dozen secret services monitor communications and commerce. The rules contradict each other, the laws are different on all three levels of the state; precedents are important but access to the law is restricted. If you’re investigated by the state, you’ll always be in infraction of some rule or another. Everything is labyrinthine and nepotism is the only way to assure things actually work, at least occasionally. The [worst of them all is the|breeding ground for all this corruption is the all-mighty] *[civil service institution]*.
 1,<p>The codes and laws governing [same name] have remained unchanged for centuries. New directives are piled on old ones, executive orders partially overturn some rules but not other. The court system is huge and lawyers are the most important human resources for everybody. Taxation is fairly low but court fees are unavoidable and significant.
 1,<p>Professional politicians are elected into government and hardly ever leave. This encourages them to promise whatever is necessary at the beginning but soon “The Game” begins, jockeying for positions, forming and betraying alliances, backstabbing. Should some clueless soul such as *[human name]* most recently decide to stand for office with the stated intent of “cleaning up” they’ll soon find themselves inundated in accusations of molestation, bribery, and incompetence; and if that doesn’t help, organised crime is going to break into their homes, kidnap their family members, kill their pets.
 1,<p>The central government ordains what is to be done, the local branches of government follow orders or are replaced. The machinations in the centre of power are inscrutable and it doesn’t matter who you vote for, the result is always the same. And yet, it somehow works. Occasionally there are strikes, and the burning of trash and disruption of commerce, but then everything calms down again and business as usual resumes. The local governor responsible for the starport is *[human name]*. Follow orders is their core competency.
@@ -1271,7 +1301,14 @@
 4,<p>The *[here mellow ship name as ship name]* is a **type M** subsidized liner (600t, unstreamlined), subsidized by the *[other big port]* government to transport passengers and freight along long-haul routes through the [same subsector] subsector. This ship supports jump-3. [subsidized liner ship crew]
 
 ;yacht
-1,<p>The *[here mellow ship name as ship name]* is a **type Y** yacht (200t, unstreamlined). [ship captain]
+1,<p>The *[here mellow ship name as ship name]* is a **type Y** yacht (200t, unstreamlined). [yacht mission]<p>[yacht crew]
+
+;yacht mission
+1,They are currently looking for passengers to take to *[nearby big port]*. Right now, all they have is *[human noble]* and their entourage.
+1,They just brought *[human noble]* and *[human noble]* from *[nearby big port]* for some entertainment. The two are looking to hunt: [animal encounter].
+1,They just brought *[human noble]* and their entourage from *[nearby big port]* to take possession of their fiefdom and they sure could use some help. The local crime lord *[human name]* runs the show.
+1,They just brought *[human noble]* and their entourage from *[nearby big port]* to take possession of their fiefdom and they sure could use some help. The rival [house and leader] has already arrived and has prepared for them.
+1,They just brought *[human noble]* and their entourage from *[nearby big port]* to retake their fiefdom and they sure could use some help. The rival [house and leader] will be arriving within a few days. Time to prepare!
 
 ;mercenary cruiser
 1,<p>The *[here martial ship name as ship name]* is a **type M** mercenary cruiser (800t, unstreamlined). [ship captain]
@@ -1465,6 +1502,9 @@
 # the ship captain name must already be decided
 1,The **pilot** of this ship is *[same ship captain]*, [store Pilot as extra skill][navy upp and skills]. The **navigator** is *[human name]*, [store Navigation as extra skill][navy upp and skills]. The **first engineer** is *[human name]*, [store Engineer as extra skill][navy upp and skills]. The **second engineer** is *[human name]*, [store Engineer as extra skill][navy upp and skills]. The **third engineer** is *[human name]*, [store Engineer as extra skill][navy upp and skills]. The **medic** is *[human name]*, [store Medical as extra skill][navy upp and skills]. The **first gunner** is *[human name]*, [store Gunnery as extra skill][navy upp and skills]. Their turret has a [beam laser|pulse laser] mounted. The **second gunner** is *[human name]*, [store Gunnery as extra skill][navy upp and skills]. Their turret has a [beam laser|pulse laser|missile racks|sandcasters] mounted. The **third gunner** is *[human name]*, [store Gunnery as extra skill][navy upp and skills]. Their turret has a [beam laser|pulse laser|missile racks|sandcasters] mounted. The **fourth gunner** is *[human name]*, [store Gunnery as extra skill][navy upp and skills]. Their turret has a [beam laser|pulse laser|missile racks|sandcasters] mounted. [maybe navy squad]
 
+;yacht crew
+1,The **pilot** of this ship is *[here human name as ship captain]*, [store Pilot as extra skill][merchant upp and skills]. The **engineer** is *[human name]*, [store Engineer as extra skill][merchant upp and skills]. The **steward** is *[human name]*, [store Steward as extra skill][merchant upp and skills]. The **medic** is *[human name]*, [store Medical as extra skill][merchant upp and skills]. [maybe a merchant gunner]
+
 # 8+ means (1+2+3+4+5=15)/36
 # store an extra skill to be listed first (based on the function)
 ;navy upp and skills
@@ -1639,6 +1679,10 @@
 5,[store 8 as soc][save gender]
 4,[store 9 as soc][save gender]
 3,[store A as soc][save gender]
+2,[store B as soc][knight]
+1,[store C as soc][baron]
+
+;guaranteed nobility
 2,[store B as soc][knight]
 1,[store C as soc][baron]
 
@@ -2449,6 +2493,17 @@
 1,[nobility][japanese name]
 1,[nobility][native american name]
 
+;human noble
+1,[guaranteed nobility][african name]
+1,[guaranteed nobility][arabic name]
+1,[guaranteed nobility][chinese name]
+1,[guaranteed nobility][english name]
+1,[guaranteed nobility][japanese name]
+1,[guaranteed nobility][native american name]
+
+;house and leader
+1,house *[human surname as house]* under *[guaranteed nobility][human given name]*
+
 ;gender
 1,woman
 1,man
@@ -2460,6 +2515,14 @@
 ;baron
 1,Baroness [store woman as gender]
 1,Baron [store man as gender]
+
+;human given name
+1,[african name for a [same gender]]
+1,[arabic name for a [same gender]]
+1,[chinese name for a [same gender]]
+1,[english name for a [same gender]]
+1,[japanese name for a [same gender]]
+1,[native american name for a [same gender]]
 
 ;human surname
 1,[african surname]
