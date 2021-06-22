@@ -18,6 +18,9 @@ use Modern::Perl;
 use Test::More;
 use Test::Mojo;
 
+# Note to self, this is how to print the actual result:
+# die $t->get_ok('/rule' => form => { load => 'schroeder', rule => 'colour' })->tx->res->body;
+
 require './hex-describe.pl';
 
 my $t = Test::Mojo->new();
@@ -33,21 +36,23 @@ like($t->get_ok('/schroeder/table')->status_is(200)->tx->res->text,
 
 $t->post_ok('/rules/list' => form => { load => 'schroeder' })->text_is(a => ' START');
 
-$t->get_ok('/rule' => form => { load => 'schroeder', rule => 'colour' })
+$t->get_ok('/rule' => form => { load => 'schroeder', rule => 'simple colour' })
     ->text_like('.description p' => qr'red|orange|yellow|green|indigo|blue|purple|rose')
-    ->text_is(a => 'colour')
-    ->text_is('div + p a' => 'to Markdown');
+    ->text_is(a => 'simple colour')
+    ->element_exists('form input[type="submit"][value="Markdown"]');
 
-$t->post_ok('/rule' => form => { load => 'schroeder', rule => 'colour' })
+$t->post_ok('/rule' => form => { load => 'schroeder', rule => 'simple colour' })
     ->text_like('.description p' => qr'red|orange|yellow|green|indigo|blue|purple|rose')
-    ->text_is(a => 'colour')
-    ->text_is('div + p a' => 'to Markdown');
+    ->text_is(a => 'simple colour')
+    ->element_exists('form input[type="submit"][value="Markdown"]');
 
-my @colours = $t->tx->res->dom('.description p')->map('text')->each;
-my ($seed) = ($t->tx->res->dom('div + p a')->map(attr => 'href')->[0] =~ /seed=(\d+)/);
+my @colours = map { s/^\s+//; s/\s+$//; $_ } $t->tx->res->dom('.description p')->map('text')->each;
+ok(@colours > 0, "Colours found");
+my ($seed) = ($t->tx->res->dom('form input[name="seed"]')->map(attr => 'value')->[0] =~ /(\d+)/);
+ok($seed, "Seed found");
 
-my @result = split /\n----+\n/,
-    $t->get_ok('/rule/markdown' => form => { load => 'schroeder', rule => 'colour', seed => $seed })->tx->res->text;
+my @result = split /\s*---+\s*/,
+    $t->get_ok('/rule/markdown' => form => { load => 'schroeder', rule => 'simple colour', seed => $seed })->tx->res->text;
 
 for my $i (0 .. 9) {
   is $colours[$i], $result[$i], "matching colour $i";
@@ -66,7 +71,7 @@ $t->post_ok('/rules/list' => form => { load => 'none', table => $table })
     ->element_exists('form p input[value="one"]');
 
 $t->post_ok('/rule' => form => { load => 'none', table => $table, rule => 'one' })
-    ->text_is('.description p' => 'this is the item')
+    ->text_is('.description p' => "this is the item\n")
     ->element_exists("form input[name=table][value='$table']");
 
 $t->post_ok('/rule/show' => form => { load => 'none', table => $table, rule => 'one' })
@@ -74,7 +79,7 @@ $t->post_ok('/rule/show' => form => { load => 'none', table => $table, rule => '
     ->text_is('pre strong a#one' => 'one')
     ->text_like(pre => qr'1,this is the item');
 
-my @result = split /\n----+\n/,
+my @result = split /\s*---+\s*/,
     $t->post_ok('/rule/markdown' => form => { load => 'none', table => $table, rule => 'one' })->tx->res->text;
 
 for my $i (0 .. 9) {
