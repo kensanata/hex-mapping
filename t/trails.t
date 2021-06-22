@@ -16,11 +16,11 @@
 
 use Test::More;
 
-require './hex-describe.pl';
+require './text-mapper.pl';
 
 my %altitude = '0101' => 4, '0102' => 3, '0103' => 2, '0104' => 1;
 my @settlements = keys %altitude;
-my @trails = Schroeder::trails(\%altitude, \@settlements);
+my @trails = Schroeder::Alpine::trails(\%altitude, \@settlements);
 
 ok(1, 'trail to the correct settlement');
 
