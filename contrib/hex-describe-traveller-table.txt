@@ -2486,20 +2486,20 @@
 # human names
 
 ;human name
-1,[nobility][african name]
-1,[nobility][arabic name]
-1,[nobility][chinese name]
-1,[nobility][english name]
-1,[nobility][japanese name]
-1,[nobility][native american name]
+1,[nobility][african name] ([symbol])
+1,[nobility][arabic name] ([symbol])
+1,[nobility][chinese name] ([symbol])
+1,[nobility][english name] ([symbol])
+1,[nobility][japanese name] ([symbol])
+1,[nobility][native american name] ([symbol])
 
 ;human noble
-1,[guaranteed nobility][african name]
-1,[guaranteed nobility][arabic name]
-1,[guaranteed nobility][chinese name]
-1,[guaranteed nobility][english name]
-1,[guaranteed nobility][japanese name]
-1,[guaranteed nobility][native american name]
+1,[guaranteed nobility][african name] ([symbol])
+1,[guaranteed nobility][arabic name] ([symbol])
+1,[guaranteed nobility][chinese name] ([symbol])
+1,[guaranteed nobility][english name] ([symbol])
+1,[guaranteed nobility][japanese name] ([symbol])
+1,[guaranteed nobility][native american name] ([symbol])
 
 ;house and leader
 1,house *[human surname as house]* under *[guaranteed nobility][human given name]*
@@ -2507,6 +2507,16 @@
 ;gender
 1,woman
 1,man
+
+;symbol
+99,[symbol for a [same gender]]
+1,<abbr title="androgynous">⚥</abbr>
+
+;symbol for a woman
+1,<abbr title="woman">♀</abbr>
+
+;symbol for a man
+1,<abbr title="man">♂</abbr>
 
 ;knight
 1,Dame [store woman as gender]
