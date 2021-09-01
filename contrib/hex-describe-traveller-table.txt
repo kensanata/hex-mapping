@@ -1311,7 +1311,7 @@
 1,They just brought *[human noble]* and their entourage from *[nearby big port]* to retake their fiefdom and they sure could use some help. The rival [house and leader] will be arriving within a few days. Time to prepare!
 
 ;mercenary cruiser
-1,<p>The *[here martial ship name as ship name]* is a **type M** mercenary cruiser (800t, unstreamlined). [ship captain]
+1,<p>The *[here martial ship name as ship name]* is a **type M** mercenary cruiser (800t, unstreamlined). [ship captain].<p>[squad].<p>[squad].<p>[squad].
 
 ;patrol cruiser
 1,<p class="sidebar">Patron<p>The *[here martial ship name as ship name]* is a **type T** patrol cruiser (400t, streamlined). They hail all incoming ships: “This is captain *[here human name as ship captain]* of the patrol cruiser *[same ship name]* hailing all incoming ships. We are looking for information on the whereabouts of pirate *[nearby crime boss]*. Do not aid and abet them. Reward for their location: 5000 Cr. Reward for their capture, dead: 10000 Cr. Reward for their capture, dead: 20000 Cr.”<p>[patrol cruiser ship crew]
@@ -1457,6 +1457,28 @@
 3,[maybe a merchant gunner]
 # some guns are a sign of pirate activity!
 1,The **first gunner** is *[human name]*, [store Gunnery as extra skill][merchant upp and skills]. Their turret has a [beam laser|pulse laser] mounted. The **second gunner** is *[human name]*, [store Gunnery as extra skill][merchant upp and skills]. Their turret has a [beam laser|pulse laser|missile racks|sandcasters] mounted. The **third gunner** is *[human name]*, [store Gunnery as extra skill][merchant upp and skills]. Their turret has a [beam laser|pulse laser|missile racks|sandcasters] mounted.
+
+;squad
+1,[lieutenant]; [mercenary]; [mercenary]; [mercenary]; [mercenary]; [mercenary]
+
+;lieutenant
+1,The **lance corporal** of the *[squad name]* is *[human name]*, [upp], [lieutenant skills]
+
+;mercenary
+1,**mercenary** *[human name]*, [upp], [mercenary skills]
+
+;lieutenant skills
+1,Rifle-3 SMG-1 [blade combat]-1
+1,Rifle-2 SMG-2 [blade combat]-1
+1,Rifle-2 SMG-1 [blade combat]-1 [ATV|Vacc Suit]-1
+1,SMG-2 Rifle-1 [blade combat]-1 [ATV|Vacc Suit]-1
+1,SMG-1 Rifle-1 [blade combat]-2 [ATV|Vacc Suit]-1
+1,SMG-1 Rifle-1 [blade combat]-1 [ATV|Vacc Suit]-2
+
+;mercenary skills
+1,Rifle-3
+2,Rifle-2 [blade combat]-1
+1,Rifle-1 [blade combat]-1 [ATV|Vacc Suit]-1
 
 ;common other skills
 1,[with common other skill]-2 [and common other skill]-1 [and common other skill]-1
@@ -1798,6 +1820,23 @@
 1,ram
 1,hammer
 1,axe
+
+;squad name
+1,[martial verb] [capitalize martial animal]
+
+;martial verb
+1,Grinning
+1,Laughing
+1,Roaring
+1,Silent
+1,Bloody
+1,Poison
+1,Killer
+1,Deadly
+1,Broken
+1,Thunder
+1,Lightning
+1,Storm
 
 # animals
 # using:
