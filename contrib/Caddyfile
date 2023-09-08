@@ -1,0 +1,4 @@
+:8633 {
+    root * .
+    file_server
+}

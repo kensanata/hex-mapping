@@ -1,0 +1,37 @@
+0101 dark-soil
+0102 dark-soil
+0201 light-soil large-town "Charleville"
+0202 light-grey "To Paris"
+0301 soil
+0302 soil town "Mezieres"
+0303 dark-soil
+0304 soil
+0401 dark-soil village "Ailmont"
+0402 soil village "S. Lourens"
+0403 dark-soil village "Boutencourt"
+0404 soil
+0501 green forest-hill trees
+0502 green forest-hill tree "Gemelles Forest"
+0503 soil fields "Flat Fields"
+0504 green forest-hill village "S. Martin"
+0505 dark-green forest trees
+0506 dark-green tree "Bar Wetlands"
+0601 dark-green trees forest-hill
+0602 green hill Hut "Monthimont"
+0603 grey large-town "Donchery"
+0604 dark-grey village "Chehery"
+0605 dark-grey fields house "Chemery"
+0701 green forest-hill trees "Ardennes"
+0702 dark-green forest-hill trees tower
+0703 dark-grey city hill castle "Sedan"
+0704 cliff3 chaos shrine "x"
+0705 dark-grey village "Haraucourt"
+0706 grey hill-tree "Raucourt"
+0801 green trees tree Hut "Corbion"
+0802 dark-green forest-hill trees Hut "La Chapelle"
+0803 grey hill village "Douzy"
+0804 dark-grey hill thorp "Meynaud Manor"
+0805 soil fields "South Fields"
+0904 dark-grey large-town "Mouzon"
+
+include http://127.0.0.1:8633/gnomeyland.txt
